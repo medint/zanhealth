@@ -5,7 +5,7 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'hceu',
+		'login' => '',
 		'password' => '',
 		'database' => 'zanhealth_test',
 		'encoding' => 'utf8'
@@ -14,8 +14,8 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'hceu',
-		'password' => '',
+		'login' => 'be3a194532571b',
+		'password' => '6bda2634',
 		'database' => 'zanhealth',
 		'encoding' => 'utf8'
 	);
