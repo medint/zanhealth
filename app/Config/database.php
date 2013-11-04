@@ -4,7 +4,7 @@ class DATABASE_CONFIG {
 	public $test = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
+      'host' => 'localhost',
 		'login' => '',
 		'password' => '',
 		'database' => 'zanhealth_test',
@@ -13,7 +13,7 @@ class DATABASE_CONFIG {
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
+      'host' => 'us-cdbr-east-04.cleardb.com:3306',
 		'login' => 'be3a194532571b',
 		'password' => '6bda2634',
 		'database' => 'zanhealth',
