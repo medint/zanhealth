@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `zanhealth` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `zanhealth`;
+CREATE DATABASE  IF NOT EXISTS `heroku_782d3780fde94d7` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `heroku_782d3780fde94d7`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
 -- Host: localhost    Database: zanhealth
