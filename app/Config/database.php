@@ -16,7 +16,7 @@ class DATABASE_CONFIG {
       'host' => 'us-cdbr-east-04.cleardb.com',
 		'login' => 'be3a194532571b',
 		'password' => '6bda2634',
-		'database' => 'zanhealth',
+		'database' => 'heroku_782d3780fde94d7',
 		'encoding' => 'utf8'
 	);
 }
