@@ -1,3 +1,15 @@
+CREATE DATABASE IF NOT EXISTS `zanhealth_test`;
+USE `zanhealth_test`;
+
+DROP TABLE IF EXISTS `roles`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `work_requests`;
+DROP TABLE IF EXISTS `items`;
+DROP TABLE IF EXISTS `models`;
+DROP TABLE IF EXISTS `location`;
+DROP TABLE IF EXISTS `facilities`;
+DROP TABLE IF EXISTS `needs`;
+
 CREATE TABLE roles (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(45) NOT NULL
@@ -17,19 +29,19 @@ CREATE TABLE work_requests (
 	date_requested DATETIME NOT NULL,
 	date_expire DATETIME,
 	date_completed DATETIME,
-    	request_type ENUM ('Breakdown','Preventative'),
-    	item INT REFERENCES items(id),
-    	cost INT NOT NULL,
-    	description TEXT,
-    	status ENUM ('Opened', 'Closed'),
-    	owner VARCHAR(45),
-    	requester_id INT REFERENCES users(id),
-    	cause_description TEXT,
-    	action_taken TEXT,
-    	prevention_taken TEXT,
-    	facility_comments TEXT,
-    	engineer_comments TEXT,
-    	manager_comments TEXT
+ 	request_type ENUM ('Breakdown','Preventative'),
+ 	item INT REFERENCES items(id),
+ 	cost INT NOT NULL,
+ 	description TEXT,
+ 	status ENUM ('Opened', 'Closed'),
+ 	owner VARCHAR(45),
+ 	requester_id INT REFERENCES users(id),
+ 	cause_description TEXT,
+ 	action_taken TEXT,
+ 	prevention_taken TEXT,
+ 	facility_comments TEXT,
+ 	engineer_comments TEXT,
+ 	manager_comments TEXT
 );
 
 CREATE TABLE items (
@@ -65,7 +77,7 @@ CREATE TABLE models (
 
 CREATE TABLE needs (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHARD(45) NOT NULL,
+	name VARCHAR(45) NOT NULL,
 	facility_id INT REFERENCES facility(id),
 	location_id INT REFERENCES location(id),
 	model_id INT REFERENCES models(id),
@@ -78,6 +90,11 @@ CREATE TABLE needs (
 	user_id INT REFERENCES users(id)
 );
 
+CREATE TABLE facilities (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE location  (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	floor INT NOT NULL,
@@ -85,7 +102,4 @@ CREATE TABLE location  (
 	facilities_id INT REFERENCES facilities(id)
 );
 
-CREATE TABLE facilities (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(255) NOT NULL
-);
+
