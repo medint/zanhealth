@@ -57,7 +57,7 @@ CREATE TABLE needs (
 	stage ENUM ('OPEN', 'IN SHIPMENT','CLOSED'),
 	date_requested DATE,
     user_id INT,
-    FOREIGN KEY (facility_id) REFERENCES facility(id),
+    FOREIGN KEY (facility_id) REFERENCES facilities(id),
     FOREIGN KEY (location_id) REFERENCES location(id),
     FOREIGN KEY (model_id) REFERENCES models(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
