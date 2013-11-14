@@ -13,11 +13,17 @@ DROP TABLE IF EXISTS `work_requests`;
 DROP TABLE IF EXISTS `work_request_comments`;
 
 
+/*
+    Specifies different types of roles
+*/
 CREATE TABLE roles (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(45) NOT NULL
 );
 
+/*
+    Specifies the different users and details
+*/
 CREATE TABLE users (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	username VARCHAR(50) NOT NULL,
@@ -29,17 +35,28 @@ CREATE TABLE users (
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
+/*
+   specifies the different facilities/hospitals
+*/
 CREATE TABLE facilities (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL
 );
 
+
+/*
+   specifies different models of an item 
+*/
 CREATE TABLE models (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	manufacturer_name VARCHAR (255)	NOT NULL,
 	vendor_name VARCHAR(255) 
 );
 
+
+/*
+  specifies a location in a facility
+*/
 CREATE TABLE location  (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	floor INT NOT NULL,
@@ -48,6 +65,10 @@ CREATE TABLE location  (
     FOREIGN KEY (facilities_id) REFERENCES facilities(id)
 );
 
+
+/*
+   specifies a need request
+*/
 CREATE TABLE needs (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(45) NOT NULL,
@@ -65,6 +86,10 @@ CREATE TABLE needs (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+
+/*
+    specifies items in the hospital / inventory
+*/
 CREATE TABLE items (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	domain ENUM ('U-MM','P-CC','P-PHL'),
@@ -86,6 +111,9 @@ CREATE TABLE items (
     FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
+/*
+    specifies the history of the item - the latest entry according to the datetime field has the latest status
+*/
 CREATE TABLE items_history (
     id INT PRIMARY KEY AUTO_INCREMENT,
     item_id INT,
@@ -97,6 +125,9 @@ CREATE TABLE items_history (
 );
 
 
+/*
+   specifies a work request filed by a user 
+*/
 CREATE TABLE work_requests (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	date_requested DATETIME NOT NULL,
@@ -117,6 +148,9 @@ CREATE TABLE work_requests (
     FOREIGN KEY (owner_id) REFERENCES users(id)
 );
 
+/*
+    specifies a work request comment
+*/
 CREATE TABLE work_request_comments (
     id INT PRIMARY KEY AUTO_INCREMENT,
     datetime_stamp TIMESTAMP,
