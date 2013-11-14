@@ -3,12 +3,15 @@ USE `zanhealth_test`;
 
 DROP TABLE IF EXISTS `roles`;
 DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `work_requests`;
-DROP TABLE IF EXISTS `items`;
+DROP TABLE IF EXISTS `facilities`;
 DROP TABLE IF EXISTS `models`;
 DROP TABLE IF EXISTS `location`;
-DROP TABLE IF EXISTS `facilities`;
 DROP TABLE IF EXISTS `needs`;
+DROP TABLE IF EXISTS `items`;
+DROP TABLE IF EXISTS `items_history`;
+DROP TABLE IF EXISTS `work_requests`;
+DROP TABLE IF EXISTS `work_request_comments`;
+
 
 CREATE TABLE roles (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -22,6 +25,7 @@ CREATE TABLE users (
     role_id INT,
 	created DATETIME,
 	modified DATETIME,
+    telephone_num INT,
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
@@ -47,7 +51,6 @@ CREATE TABLE location  (
 CREATE TABLE needs (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(45) NOT NULL,
-    facility_id INT,
     location_id INT,
     model_id INT,
 	quantity INT NOT NULL,
@@ -57,7 +60,6 @@ CREATE TABLE needs (
 	stage ENUM ('OPEN', 'IN SHIPMENT','CLOSED'),
 	date_requested DATE,
     user_id INT,
-    FOREIGN KEY (facility_id) REFERENCES facilities(id),
     FOREIGN KEY (location_id) REFERENCES location(id),
     FOREIGN KEY (model_id) REFERENCES models(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
@@ -67,7 +69,7 @@ CREATE TABLE items (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	domain ENUM ('U-MM','P-CC','P-PHL'),
 	tag INT NOT NULL,
-	name VARCHAR(255) NOT NULL,
+	category VARCHAR(255) NOT NULL,
     model_id INT,
 	serial_number VARCHAR(45),
 	year_manufactured INT,
@@ -78,16 +80,20 @@ CREATE TABLE items (
 	warranty_notes TEXT,
 	service_agent VARCHAR(45),
     location_id INT,
-	status ENUM ('Fully Functional',  'Not Functional', 'Needs Major Repair', 'Needs Minor Repair', 'Decommissioned', 'Disposed') NOT NULL,
-	utilization ENUM ('Normal', 'No Utilization', 'Very High', 'Very Low','Decomissioned', 'Disposed') NOT NULL,
-	remarks TEXT,
 	item_type ENUM('Biomedical'),
-	quantity INT,
-	item_spec VARCHAR(45),
-	price INT NOT NULL,
-	itemscol VARCHAR(45),
+	price INT,
 	FOREIGN KEY (model_id) REFERENCES models(id),
     FOREIGN KEY (location_id) REFERENCES location(id)
+);
+
+CREATE TABLE items_history (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    item_id INT,
+    datetime DATETIME,
+    status ENUM ('Fully Functional',  'Not Functional', 'Needs Major Repair', 'Needs Minor Repair', 'Decommissioned', 'Disposed') NOT NULL,
+    utilization ENUM ('Normal', 'No Utilization', 'Very High', 'Very Low','Decomissioned', 'Disposed') NOT NULL,
+    remarks TEXT,
+    FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
 
@@ -101,18 +107,25 @@ CREATE TABLE work_requests (
  	cost INT NOT NULL,
  	description TEXT,
  	status ENUM ('Opened', 'Closed'),
- 	owner VARCHAR(45),
+ 	owner_id INT,
     requester_id INT,
  	cause_description TEXT,
  	action_taken TEXT,
  	prevention_taken TEXT,
- 	facility_comments TEXT,
- 	engineer_comments TEXT,
- 	manager_comments TEXT,
     FOREIGN KEY (item) REFERENCES items(id),
-    FOREIGN KEY (requester_id) REFERENCES users(id)
+    FOREIGN KEY (requester_id) REFERENCES users(id),
+    FOREIGN KEY (owner_id) REFERENCES users(id)
 );
 
+CREATE TABLE work_request_comments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    datetime_stamp TIMESTAMP,
+    work_request_id INT,
+    user_id INT,
+    comment_text TEXT,
+    FOREIGN KEY (work_request_id) REFERENCES work_requests(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 
 
 
