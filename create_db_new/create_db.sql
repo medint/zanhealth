@@ -49,6 +49,7 @@ CREATE TABLE facilities (
 */
 CREATE TABLE models (
 	id INT PRIMARY KEY AUTO_INCREMENT,
+	model_name VARCHAR (255) NOT NULL,
 	manufacturer_name VARCHAR (255)	NOT NULL,
 	vendor_name VARCHAR(255) 
 );
@@ -59,6 +60,7 @@ CREATE TABLE models (
 */
 CREATE TABLE location  (
 	id INT PRIMARY KEY AUTO_INCREMENT,
+	room VARCHAR (100),
 	floor INT NOT NULL,
 	building VARCHAR(50),
     facilities_id INT,
