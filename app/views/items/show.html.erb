@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @item.domain %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @item.tag %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @item.category %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @item.serial_number %>
+</p>
+
+<p>
+  <strong>Year manufactured:</strong>
+  <%= @item.year_manufactured %>
+</p>
+
+<p>
+  <strong>Funding:</strong>
+  <%= @item.funding %>
+</p>
+
+<p>
+  <strong>Date received:</strong>
+  <%= @item.date_received %>
+</p>
+
+<p>
+  <strong>Warranty expire:</strong>
+  <%= @item.warranty_expire %>
+</p>
+
+<p>
+  <strong>Contract expire:</strong>
+  <%= @item.contract_expire %>
+</p>
+
+<p>
+  <strong>Warranty notes:</strong>
+  <%= @item.warranty_notes %>
+</p>
+
+<p>
+  <strong>Service agent:</strong>
+  <%= @item.service_agent %>
+</p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @item.item_type %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

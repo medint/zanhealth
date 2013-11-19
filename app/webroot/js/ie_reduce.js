@@ -1,3 +1,0 @@
-Array.prototype.reduce||(Array.prototype.reduce=function(r){var e=this.length;if("function"!=typeof r)throw new TypeError;// no value to return if no initial value and an empty array
-if(0==e&&1==arguments.length)throw new TypeError;var t=0;if(arguments.length>=2)var n=arguments[1];else for(;;){if(t in this){n=this[t++];break}// if array contains no values, no initial value to return
-if(++t>=e)throw new TypeError}for(;e>t;t++)t in this&&(n=r.call(null,n,this[t],t,this));return n});

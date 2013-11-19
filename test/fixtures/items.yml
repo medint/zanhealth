@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  domain: 1
+  tag: 1
+  category: MyString
+  serial_number: MyString
+  year_manufactured: 1
+  funding: MyString
+  date_received: 2013-11-15
+  warranty_expire: 2013-11-15
+  contract_expire: 2013-11-15
+  warranty_notes: MyText
+  service_agent: MyString
+  item_type: 1
+  price: 1
+
+two:
+  domain: 1
+  tag: 1
+  category: MyString
+  serial_number: MyString
+  year_manufactured: 1
+  funding: MyString
+  date_received: 2013-11-15
+  warranty_expire: 2013-11-15
+  contract_expire: 2013-11-15
+  warranty_notes: MyText
+  service_agent: MyString
+  item_type: 1
+  price: 1

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_requested: 2013-11-15 22:43:06
+  date_expire: 2013-11-15 22:43:06
+  date_completed: 2013-11-15 22:43:06
+  request_type: 1
+  cost: 1
+  description: MyText
+  status: 1
+  requester_id: 1
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+two:
+  date_requested: 2013-11-15 22:43:06
+  date_expire: 2013-11-15 22:43:06
+  date_completed: 2013-11-15 22:43:06
+  request_type: 1
+  cost: 1
+  description: MyText
+  status: 1
+  requester_id: 1
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText

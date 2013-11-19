@@ -1,0 +1,1423 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-13 22:53:10 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 45ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-15 22:43:29 -0500
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.1) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.1) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__3449907050250645395__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateItemHistories (20131116034303)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "item_histories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime" datetime, "status" integer, "utilization" integer, "remarks" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034303"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItems (20131116034304)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "domain" integer, "tag" integer, "category" varchar(255), "serial_number" varchar(255), "year_manufactured" integer, "funding" varchar(255), "date_received" date, "warranty_expire" date, "contract_expire" date, "warranty_notes" text, "service_agent" varchar(255), "item_type" integer, "price" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034304"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWorkRequests (20131116034306)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "work_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date_requested" datetime, "date_expire" datetime, "date_completed" datetime, "request_type" integer, "cost" integer, "description" text, "status" integer, "requester_id" integer, "cause_description" text, "action_taken" text, "prevention_taken" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034306"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFacilities (20131116034307)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "facilities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034307"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLocations (20131116034308)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "floor" integer, "building" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034308"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateWorkRequestComments (20131116034310)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "work_request_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "datetime_stamp" datetime, "comment_text" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034310"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20131116034311)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created" datetime, "modified" datetime, "telephone_num" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034311"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRoles (20131116034312)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116034312"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-15 22:43:46 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.1/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 22ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 22:43:51 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[35mWorkRequest Load (0.2ms)[0m  SELECT "work_requests".* FROM "work_requests"
+  Rendered work_requests/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 986ms (Views: 984.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:43:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateModels (20131116035321)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "manufacturer_name" varchar(255), "vendor_name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116035321"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateNeeds (20131116035327)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "needs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "quantity" integer, "urgency" integer, "reason" text, "remarks" text, "stage" integer, "date_requested" date, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131116035327"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 22:55:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WorkRequestsController#index as HTML
+  [1m[35mWorkRequest Load (0.2ms)[0m  SELECT "work_requests".* FROM "work_requests"
+  Rendered work_requests/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 303ms (Views: 260.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:09 -0500
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (50.7ms)
+  Rendered work_requests/new.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 62ms (Views: 60.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (32.2ms)
+  Rendered work_requests/new.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:10 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:11 -0500
+
+
+Started POST "/work_requests" for 127.0.0.1 at 2013-11-15 22:55:15 -0500
+Processing by WorkRequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nkvnEPXkwH5DsTyO6sK8tshCeS5Mrc35v6ziXLT//Qg=", "work_request"=>{"date_requested(1i)"=>"2013", "date_requested(2i)"=>"11", "date_requested(3i)"=>"16", "date_requested(4i)"=>"03", "date_requested(5i)"=>"55", "date_expire(1i)"=>"2013", "date_expire(2i)"=>"11", "date_expire(3i)"=>"16", "date_expire(4i)"=>"03", "date_expire(5i)"=>"55", "date_completed(1i)"=>"2013", "date_completed(2i)"=>"11", "date_completed(3i)"=>"16", "date_completed(4i)"=>"03", "date_completed(5i)"=>"55", "request_type"=>"", "cost"=>"", "description"=>"", "status"=>"", "requester_id"=>"", "cause_description"=>"", "action_taken"=>"", "prevention_taken"=>""}, "commit"=>"Create Work request"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "work_requests" ("action_taken", "cause_description", "created_at", "date_completed", "date_expire", "date_requested", "description", "prevention_taken", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["action_taken", ""], ["cause_description", ""], ["created_at", Sat, 16 Nov 2013 03:55:15 UTC +00:00], ["date_completed", Sat, 16 Nov 2013 03:55:00 UTC +00:00], ["date_expire", Sat, 16 Nov 2013 03:55:00 UTC +00:00], ["date_requested", Sat, 16 Nov 2013 03:55:00 UTC +00:00], ["description", ""], ["prevention_taken", ""], ["updated_at", Sat, 16 Nov 2013 03:55:15 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/work_requests/1
+Completed 302 Found in 10ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/work_requests/1" for 127.0.0.1 at 2013-11-15 22:55:15 -0500
+Processing by WorkRequestsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mWorkRequest Load (0.3ms)[0m  SELECT "work_requests".* FROM "work_requests" WHERE "work_requests"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered work_requests/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:16 -0500
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[36mWorkRequest Load (0.2ms)[0m  [1mSELECT "work_requests".* FROM "work_requests"[0m
+  Rendered work_requests/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[35mWorkRequest Load (0.2ms)[0m  SELECT "work_requests".* FROM "work_requests"
+  Rendered work_requests/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:55:18 -0500
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[36mWorkRequest Load (0.2ms)[0m  [1mSELECT "work_requests".* FROM "work_requests"[0m
+  Rendered work_requests/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 22:58:06 -0500
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (11.9ms)
+  Rendered work_requests/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 19ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (11.8ms)
+  Rendered work_requests/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:00 -0500
+
+
+Started POST "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+Processing by WorkRequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nkvnEPXkwH5DsTyO6sK8tshCeS5Mrc35v6ziXLT//Qg=", "work_request"=>{"date_requested(1i)"=>"2013", "date_requested(2i)"=>"11", "date_requested(3i)"=>"16", "date_requested(4i)"=>"04", "date_requested(5i)"=>"00", "date_expire(1i)"=>"2013", "date_expire(2i)"=>"11", "date_expire(3i)"=>"16", "date_expire(4i)"=>"04", "date_expire(5i)"=>"00", "date_completed(1i)"=>"2013", "date_completed(2i)"=>"11", "date_completed(3i)"=>"16", "date_completed(4i)"=>"04", "date_completed(5i)"=>"00", "request_type"=>"", "cost"=>"", "description"=>"", "status"=>"", "requester_id"=>"", "cause_description"=>"", "action_taken"=>"", "prevention_taken"=>""}, "commit"=>"Create Work request"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "work_requests" ("action_taken", "cause_description", "created_at", "date_completed", "date_expire", "date_requested", "description", "prevention_taken", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["action_taken", ""], ["cause_description", ""], ["created_at", Sat, 16 Nov 2013 04:00:09 UTC +00:00], ["date_completed", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["date_expire", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["date_requested", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["description", ""], ["prevention_taken", ""], ["updated_at", Sat, 16 Nov 2013 04:00:09 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/work_requests/2
+Completed 302 Found in 36ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/work_requests/2" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+Processing by WorkRequestsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mWorkRequest Load (0.5ms)[0m  [1mSELECT "work_requests".* FROM "work_requests" WHERE "work_requests"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered work_requests/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:09 -0500
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:10 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[35mWorkRequest Load (0.2ms)[0m  SELECT "work_requests".* FROM "work_requests"
+  Rendered work_requests/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:10 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[36mWorkRequest Load (0.1ms)[0m  [1mSELECT "work_requests".* FROM "work_requests"[0m
+  Rendered work_requests/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:11 -0500
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (11.7ms)
+  Rendered work_requests/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (11.4ms)
+  Rendered work_requests/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:15 -0500
+
+
+Started POST "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:17 -0500
+Processing by WorkRequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nkvnEPXkwH5DsTyO6sK8tshCeS5Mrc35v6ziXLT//Qg=", "work_request"=>{"date_requested(1i)"=>"2013", "date_requested(2i)"=>"11", "date_requested(3i)"=>"16", "date_requested(4i)"=>"04", "date_requested(5i)"=>"00", "date_expire(1i)"=>"2013", "date_expire(2i)"=>"11", "date_expire(3i)"=>"16", "date_expire(4i)"=>"04", "date_expire(5i)"=>"00", "date_completed(1i)"=>"2013", "date_completed(2i)"=>"11", "date_completed(3i)"=>"16", "date_completed(4i)"=>"04", "date_completed(5i)"=>"00", "request_type"=>"", "cost"=>"", "description"=>"", "status"=>"", "requester_id"=>"", "cause_description"=>"", "action_taken"=>"", "prevention_taken"=>""}, "commit"=>"Create Work request"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "work_requests" ("action_taken", "cause_description", "created_at", "date_completed", "date_expire", "date_requested", "description", "prevention_taken", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["action_taken", ""], ["cause_description", ""], ["created_at", Sat, 16 Nov 2013 04:00:17 UTC +00:00], ["date_completed", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["date_expire", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["date_requested", Sat, 16 Nov 2013 04:00:00 UTC +00:00], ["description", ""], ["prevention_taken", ""], ["updated_at", Sat, 16 Nov 2013 04:00:17 UTC +00:00]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/work_requests/3
+Completed 302 Found in 7ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/work_requests/3" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+Processing by WorkRequestsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mWorkRequest Load (0.1ms)[0m  [1mSELECT "work_requests".* FROM "work_requests" WHERE "work_requests"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered work_requests/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:18 -0500
+
+
+Started GET "/work_requests/3/edit" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+Processing by WorkRequestsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mWorkRequest Load (0.2ms)[0m  SELECT "work_requests".* FROM "work_requests" WHERE "work_requests"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered work_requests/_form.html.erb (31.3ms)
+  Rendered work_requests/edit.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:22 -0500
+
+
+Started GET "/work_requests/new" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+Processing by WorkRequestsController#new as HTML
+  Rendered work_requests/_form.html.erb (31.0ms)
+  Rendered work_requests/new.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:27 -0500
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[36mWorkRequest Load (0.2ms)[0m  [1mSELECT "work_requests".* FROM "work_requests"[0m
+  Rendered work_requests/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/work_requests" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+Processing by WorkRequestsController#index as HTML
+  [1m[35mWorkRequest Load (0.1ms)[0m  SELECT "work_requests".* FROM "work_requests"
+  Rendered work_requests/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-15 23:00:30 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-19 17:56:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.1/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 31ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.2ms)[0m  SELECT "models".* FROM "models"
+  Rendered models/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 87ms (Views: 82.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 17:57:17 -0500

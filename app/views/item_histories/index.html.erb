@@ -1,0 +1,33 @@
+<h1>Listing item_histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datetime</th>
+      <th>Status</th>
+      <th>Utilization</th>
+      <th>Remarks</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @item_histories.each do |item_history| %>
+      <tr>
+        <td><%= item_history.datetime %></td>
+        <td><%= item_history.status %></td>
+        <td><%= item_history.utilization %></td>
+        <td><%= item_history.remarks %></td>
+        <td><%= link_to 'Show', item_history %></td>
+        <td><%= link_to 'Edit', edit_item_history_path(item_history) %></td>
+        <td><%= link_to 'Destroy', item_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item history', new_item_history_path %>
