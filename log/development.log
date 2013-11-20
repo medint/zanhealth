@@ -1343,3 +1343,730 @@ Migrating to AddRoomToLocations (20131119231828)
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-19 19:06:30 -0500
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+):
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `initialize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `new'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `connect'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:548:in `initialize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.1) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.1) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.1) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.1) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__4393045297352569651__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-19 19:06:47 -0500
+
+Gem::LoadError (Specified 'sqlite3' for database adapter, but the gem is not loaded. Add `gem 'sqlite3'` to your Gemfile.):
+  activerecord (4.0.1) lib/active_record/connection_adapters/connection_specification.rb:58:in `rescue in resolve_hash_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/connection_specification.rb:55:in `resolve_hash_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/connection_specification.rb:46:in `resolve_string_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/connection_specification.rb:30:in `spec'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:39:in `establish_connection'
+  activerecord (4.0.1) lib/active_record/railtie.rb:176:in `block (2 levels) in <class:Railtie>'
+  activesupport (4.0.1) lib/active_support/lazy_load_hooks.rb:38:in `instance_eval'
+  activesupport (4.0.1) lib/active_support/lazy_load_hooks.rb:38:in `execute_hook'
+  activesupport (4.0.1) lib/active_support/lazy_load_hooks.rb:45:in `block in run_load_hooks'
+  activesupport (4.0.1) lib/active_support/lazy_load_hooks.rb:44:in `each'
+  activesupport (4.0.1) lib/active_support/lazy_load_hooks.rb:44:in `run_load_hooks'
+  activerecord (4.0.1) lib/active_record/base.rb:322:in `<module:ActiveRecord>'
+  activerecord (4.0.1) lib/active_record/base.rb:22:in `<top (required)>'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:229:in `require'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:229:in `block in require'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:214:in `load_dependency'
+  activesupport (4.0.1) lib/active_support/dependencies.rb:229:in `require'
+  activerecord (4.0.1) lib/active_record/schema_migration.rb:3:in `<top (required)>'
+  activerecord (4.0.1) lib/active_record/migration.rb:783:in `schema_migrations_table_name'
+  activerecord (4.0.1) lib/active_record/migration.rb:791:in `current_version'
+  activerecord (4.0.1) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.1) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.1) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__1300139607168125453__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-19 19:07:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.1/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 22ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/model" for 127.0.0.1 at 2013-11-19 19:07:44 -0500
+
+ActionController::RoutingError (No route matches [GET] "/model"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.1ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (26.4ms)
+  Rendered /usr/local/Cellar/ruby/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (76.0ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT "models".* FROM "models"
+  Rendered models/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 111ms (Views: 107.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:46 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:47 -0500
+
+
+Started GET "/models/new" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+Processing by ModelsController#new as HTML
+  Rendered models/_form.html.erb (38.8ms)
+  Rendered models/new.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 51ms (Views: 50.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+Processing by ModelsController#new as HTML
+  Rendered models/_form.html.erb (2.2ms)
+  Rendered models/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:48 -0500
+
+
+Started POST "/models" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+Processing by ModelsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tV/I0btrlX9rrp3azoET2Oy1fASQ89qkuPyYtAItUrM=", "model"=>{"manufacturer_name"=>"fsda", "vendor_name"=>"fdsa"}, "commit"=>"Create Model"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "models" ("created_at", "manufacturer_name", "updated_at", "vendor_name") VALUES (?, ?, ?, ?)  [["created_at", Wed, 20 Nov 2013 00:07:50 UTC +00:00], ["manufacturer_name", "fsda"], ["updated_at", Wed, 20 Nov 2013 00:07:50 UTC +00:00], ["vendor_name", "fdsa"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/models/1
+Completed 302 Found in 10ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.3ms)[0m  SELECT "models".* FROM "models" WHERE "models"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered models/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 10.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:51 -0500
+
+
+Started GET "/models" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+Processing by ModelsController#index as HTML
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT "models".* FROM "models"[0m
+  Rendered models/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+Processing by ModelsController#index as HTML
+  [1m[35mModel Load (0.1ms)[0m  SELECT "models".* FROM "models"
+  Rendered models/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 41ms (Views: 40.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:52 -0500
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.1ms)[0m  [1mSELECT "models".* FROM "models" WHERE "models"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered models/_form.html.erb (1.7ms)
+  Rendered models/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/models/1/edit" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+Processing by ModelsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mModel Load (0.1ms)[0m  SELECT "models".* FROM "models" WHERE "models"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered models/_form.html.erb (2.0ms)
+  Rendered models/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:53 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:54 -0500
+
+
+Started PATCH "/models/1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+Processing by ModelsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tV/I0btrlX9rrp3azoET2Oy1fASQ89qkuPyYtAItUrM=", "model"=>{"manufacturer_name"=>"fsda", "vendor_name"=>"as"}, "commit"=>"Update Model", "id"=>"1"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT "models".* FROM "models" WHERE "models"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "models" SET "vendor_name" = ?, "updated_at" = ? WHERE "models"."id" = 1[0m  [["vendor_name", "as"], ["updated_at", Wed, 20 Nov 2013 00:07:56 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/models/1
+Completed 302 Found in 7ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/models/1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+Processing by ModelsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mModel Load (0.2ms)[0m  [1mSELECT "models".* FROM "models" WHERE "models"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered models/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/facilities.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/item_histories.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/items.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/models.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/needs.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/work_request_comments.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/work_requests.css?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/facilities.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/item_histories.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/items.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/models.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/needs.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/work_request_comments.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/work_requests.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-19 19:07:56 -0500
