@@ -1,4 +1,6 @@
 Med::Application.routes.draw do
+  resources :texts
+
   root :to => "work_requests#new"
 
   resources :needs
