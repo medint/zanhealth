@@ -54,4 +54,6 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'authlogic', github: 'binarylogic/authlogic', ref: 'e4b2990d6282f3f7b50249b4f639631aef68b939'
+
 ruby "2.0.0"
