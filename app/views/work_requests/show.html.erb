@@ -40,20 +40,5 @@
   <%= @work_request.requester_id %>
 </p>
 
-<p>
-  <strong>Cause description:</strong>
-  <%= @work_request.cause_description %>
-</p>
-
-<p>
-  <strong>Action taken:</strong>
-  <%= @work_request.action_taken %>
-</p>
-
-<p>
-  <strong>Prevention taken:</strong>
-  <%= @work_request.prevention_taken %>
-</p>
-
 <%= link_to 'Edit', edit_work_request_path(@work_request) %> |
 <%= link_to 'Back', work_requests_path %>

@@ -31,9 +31,6 @@
         <td><%= work_request.description %></td>
         <td><%= work_request.status %></td>
         <td><%= work_request.requester_id %></td>
-        <td><%= work_request.cause_description %></td>
-        <td><%= work_request.action_taken %></td>
-        <td><%= work_request.prevention_taken %></td>
         <td><%= link_to 'Show', work_request %></td>
         <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
         <td><%= link_to 'Destroy', work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
