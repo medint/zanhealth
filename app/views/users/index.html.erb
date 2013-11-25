@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Username</th>
-      <th>Password</th>
+      <th>Encrypted password</th>
+      <th>Role</th>
       <th>Created</th>
       <th>Modified</th>
       <th>Telephone num</th>
@@ -18,7 +19,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td><%= user.password %></td>
+        <td><%= user.encrypted_password %></td>
+        <td><%= user.role_id %></td>
         <td><%= user.created %></td>
         <td><%= user.modified %></td>
         <td><%= user.telephone_num %></td>

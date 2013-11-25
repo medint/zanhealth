@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Med::Application.load_tasks
+Med8::Application.load_tasks

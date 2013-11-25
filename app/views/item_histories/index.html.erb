@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Item</th>
       <th>Datetime</th>
       <th>Status</th>
       <th>Utilization</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @item_histories.each do |item_history| %>
       <tr>
+        <td><%= item_history.item_id %></td>
         <td><%= item_history.datetime %></td>
         <td><%= item_history.status %></td>
         <td><%= item_history.utilization %></td>

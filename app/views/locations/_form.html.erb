@@ -12,12 +12,20 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :room %><br>
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
     <%= f.label :floor %><br>
     <%= f.number_field :floor %>
   </div>
   <div class="field">
     <%= f.label :building %><br>
     <%= f.text_field :building %>
+  </div>
+  <div class="field">
+    <%= f.label :facilities_id %><br>
+    <%= f.number_field :facilities_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

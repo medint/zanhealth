@@ -18,7 +18,7 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "should create item" do
     assert_difference('Item.count') do
-      post :create, item: { category: @item.category, contract_expire: @item.contract_expire, date_received: @item.date_received, domain: @item.domain, funding: @item.funding, item_type: @item.item_type, price: @item.price, serial_number: @item.serial_number, service_agent: @item.service_agent, tag: @item.tag, warranty_expire: @item.warranty_expire, warranty_notes: @item.warranty_notes, year_manufactured: @item.year_manufactured }
+      post :create, item: { category: @item.category, contract_expire: @item.contract_expire, date_received: @item.date_received, domain: @item.domain, funding: @item.funding, item_type: @item.item_type, location_id: @item.location_id, model_id: @item.model_id, price: @item.price, serial_number: @item.serial_number, service_agent: @item.service_agent, tag: @item.tag, warranty_expire: @item.warranty_expire, warranty_notes: @item.warranty_notes, year_manufactured: @item.year_manufactured }
     end
 
     assert_redirected_to item_path(assigns(:item))
@@ -35,7 +35,7 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "should update item" do
-    patch :update, id: @item, item: { category: @item.category, contract_expire: @item.contract_expire, date_received: @item.date_received, domain: @item.domain, funding: @item.funding, item_type: @item.item_type, price: @item.price, serial_number: @item.serial_number, service_agent: @item.service_agent, tag: @item.tag, warranty_expire: @item.warranty_expire, warranty_notes: @item.warranty_notes, year_manufactured: @item.year_manufactured }
+    patch :update, id: @item, item: { category: @item.category, contract_expire: @item.contract_expire, date_received: @item.date_received, domain: @item.domain, funding: @item.funding, item_type: @item.item_type, location_id: @item.location_id, model_id: @item.model_id, price: @item.price, serial_number: @item.serial_number, service_agent: @item.service_agent, tag: @item.tag, warranty_expire: @item.warranty_expire, warranty_notes: @item.warranty_notes, year_manufactured: @item.year_manufactured }
     assert_redirected_to item_path(assigns(:item))
   end
 

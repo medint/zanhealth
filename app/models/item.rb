@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
-    has_many :item_history
-    has_many :work_requests
-    belongs_to :location
     belongs_to :model
+    belongs_to :location
+    has_many :work_requests
+    has_many :item_histories
 end

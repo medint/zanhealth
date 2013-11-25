@@ -2,14 +2,16 @@
 
 one:
   username: MyString
-  password: MyString
-  created: 2013-11-15 22:43:11
-  modified: 2013-11-15 22:43:11
+  encrypted_password: MyString
+  role_id: 1
+  created: 2013-11-24 21:18:09
+  modified: 2013-11-24 21:18:09
   telephone_num: 1
 
 two:
   username: MyString
-  password: MyString
-  created: 2013-11-15 22:43:11
-  modified: 2013-11-15 22:43:11
+  encrypted_password: MyString
+  role_id: 1
+  created: 2013-11-24 21:18:09
+  modified: 2013-11-24 21:18:09
   telephone_num: 1

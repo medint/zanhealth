@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122035304) do
+ActiveRecord::Schema.define(version: 20131125021818) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131122035304) do
   end
 
   create_table "item_histories", force: true do |t|
+    t.integer  "item_id"
     t.datetime "datetime"
     t.integer  "status"
     t.integer  "utilization"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131122035304) do
     t.integer  "domain"
     t.integer  "tag"
     t.string   "category"
+    t.integer  "model_id"
     t.string   "serial_number"
     t.integer  "year_manufactured"
     t.string   "funding"
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 20131122035304) do
     t.date     "contract_expire"
     t.text     "warranty_notes"
     t.string   "service_agent"
+    t.integer  "location_id"
     t.integer  "item_type"
     t.integer  "price"
     t.datetime "created_at"
@@ -47,13 +50,16 @@ ActiveRecord::Schema.define(version: 20131122035304) do
   end
 
   create_table "locations", force: true do |t|
+    t.string   "room"
     t.integer  "floor"
     t.string   "building"
+    t.integer  "facilities_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "models", force: true do |t|
+    t.string   "model_name"
     t.string   "manufacturer_name"
     t.string   "vendor_name"
     t.datetime "created_at"
@@ -62,12 +68,15 @@ ActiveRecord::Schema.define(version: 20131122035304) do
 
   create_table "needs", force: true do |t|
     t.string   "name"
+    t.integer  "location_id"
+    t.integer  "model_id"
     t.integer  "quantity"
     t.integer  "urgency"
     t.text     "reason"
     t.text     "remarks"
     t.integer  "stage"
     t.date     "date_requested"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,32 +87,21 @@ ActiveRecord::Schema.define(version: 20131122035304) do
     t.datetime "updated_at"
   end
 
-  create_table "texts", force: true do |t|
-    t.text     "content"
-    t.string   "phone_number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_sessions", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "encrypted_password"
+    t.integer  "role_id"
     t.datetime "created"
     t.datetime "modified"
     t.integer  "telephone_num"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_salt"
-    t.string   "persistence_token"
   end
 
   create_table "work_request_comments", force: true do |t|
     t.datetime "datetime_stamp"
+    t.integer  "work_request_id"
+    t.integer  "user_id"
     t.text     "comment_text"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -114,10 +112,15 @@ ActiveRecord::Schema.define(version: 20131122035304) do
     t.datetime "date_expire"
     t.datetime "date_completed"
     t.integer  "request_type"
+    t.integer  "item"
     t.integer  "cost"
     t.text     "description"
     t.integer  "status"
+    t.integer  "owner_id"
     t.integer  "requester_id"
+    t.text     "cause_description"
+    t.text     "action_taken"
+    t.text     "prevention_taken"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

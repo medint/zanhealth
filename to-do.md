@@ -1,7 +1,0 @@
-- Make header and footer
-- In work_request#view
-    - Show comments
-- In item#view
-    - Show item_histories
-- In items
-    - Show most recent item_history

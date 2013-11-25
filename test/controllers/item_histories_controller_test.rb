@@ -18,7 +18,7 @@ class ItemHistoriesControllerTest < ActionController::TestCase
 
   test "should create item_history" do
     assert_difference('ItemHistory.count') do
-      post :create, item_history: { datetime: @item_history.datetime, remarks: @item_history.remarks, status: @item_history.status, utilization: @item_history.utilization }
+      post :create, item_history: { datetime: @item_history.datetime, item_id: @item_history.item_id, remarks: @item_history.remarks, status: @item_history.status, utilization: @item_history.utilization }
     end
 
     assert_redirected_to item_history_path(assigns(:item_history))
@@ -35,7 +35,7 @@ class ItemHistoriesControllerTest < ActionController::TestCase
   end
 
   test "should update item_history" do
-    patch :update, id: @item_history, item_history: { datetime: @item_history.datetime, remarks: @item_history.remarks, status: @item_history.status, utilization: @item_history.utilization }
+    patch :update, id: @item_history, item_history: { datetime: @item_history.datetime, item_id: @item_history.item_id, remarks: @item_history.remarks, status: @item_history.status, utilization: @item_history.utilization }
     assert_redirected_to item_history_path(assigns(:item_history))
   end
 

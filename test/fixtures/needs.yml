@@ -2,18 +2,24 @@
 
 one:
   name: MyString
+  location_id: 1
+  model_id: 1
   quantity: 1
   urgency: 1
   reason: MyText
   remarks: MyText
   stage: 1
-  date_requested: 2013-11-15
+  date_requested: 2013-11-24
+  user_id: 1
 
 two:
   name: MyString
+  location_id: 1
+  model_id: 1
   quantity: 1
   urgency: 1
   reason: MyText
   remarks: MyText
   stage: 1
-  date_requested: 2013-11-15
+  date_requested: 2013-11-24
+  user_id: 1

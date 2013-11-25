@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  datetime_stamp: 2013-11-15 22:43:10
-  comment_text: MyText
-
-two:
-  datetime_stamp: 2013-11-15 22:43:10
-  comment_text: MyText

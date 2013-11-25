@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Model name</th>
       <th>Manufacturer name</th>
       <th>Vendor name</th>
       <th></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @models.each do |model| %>
       <tr>
+        <td><%= model.model_name %></td>
         <td><%= model.manufacturer_name %></td>
         <td><%= model.vendor_name %></td>
         <td><%= link_to 'Show', model %></td>

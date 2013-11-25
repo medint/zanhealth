@@ -69,6 +69,6 @@ class ItemHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_history_params
-      params.require(:item_history).permit(:datetime, :status, :utilization, :remarks)
+      params.require(:item_history).permit(:item_id, :datetime, :status, :utilization, :remarks)
     end
 end

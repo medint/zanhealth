@@ -1,4 +1,4 @@
 class Model < ActiveRecord::Base
-    has_many :items
     has_many :needs
+    has_many :items
 end

@@ -69,6 +69,6 @@ class WorkRequestCommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_request_comment_params
-      params.require(:work_request_comment).permit(:datetime_stamp, :comment_text)
+      params.require(:work_request_comment).permit(:datetime_stamp, :work_request_id, :user_id, :comment_text)
     end
 end

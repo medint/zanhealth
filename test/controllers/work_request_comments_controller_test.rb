@@ -18,7 +18,7 @@ class WorkRequestCommentsControllerTest < ActionController::TestCase
 
   test "should create work_request_comment" do
     assert_difference('WorkRequestComment.count') do
-      post :create, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp }
+      post :create, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp, user_id: @work_request_comment.user_id, work_request_id: @work_request_comment.work_request_id }
     end
 
     assert_redirected_to work_request_comment_path(assigns(:work_request_comment))
@@ -35,7 +35,7 @@ class WorkRequestCommentsControllerTest < ActionController::TestCase
   end
 
   test "should update work_request_comment" do
-    patch :update, id: @work_request_comment, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp }
+    patch :update, id: @work_request_comment, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp, user_id: @work_request_comment.user_id, work_request_id: @work_request_comment.work_request_id }
     assert_redirected_to work_request_comment_path(assigns(:work_request_comment))
   end
 

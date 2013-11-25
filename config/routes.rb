@@ -1,27 +1,25 @@
-Med::Application.routes.draw do
-  resources :texts
+Med8::Application.routes.draw do
+  resources :work_request_comments
 
-  root :to => "work_requests#new"
+  resources :item_histories
 
   resources :needs
 
+  resources :items
+
   resources :models
-
-  resources :roles
-
-  resources :users
-
-  resources :work_request_comments
-
-  resources :locations
-
-  resources :facilities
 
   resources :work_requests
 
-  resources :items
+  resources :roles
 
-  resources :item_histories
+  resources :facilities
+
+  resources :users
+
+  resources :locations
+
+  get "/login", to: "users#login"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

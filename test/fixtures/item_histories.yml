@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  datetime: 2013-11-15 22:43:03
+  item_id: 1
+  datetime: 2013-11-24 21:18:09
   status: 1
   utilization: 1
   remarks: MyText
 
 two:
-  datetime: 2013-11-15 22:43:03
+  item_id: 1
+  datetime: 2013-11-24 21:18:09
   status: 1
   utilization: 1
   remarks: MyText

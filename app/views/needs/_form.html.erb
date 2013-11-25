@@ -16,6 +16,14 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :location_id %><br>
+    <%= f.number_field :location_id %>
+  </div>
+  <div class="field">
+    <%= f.label :model_id %><br>
+    <%= f.number_field :model_id %>
+  </div>
+  <div class="field">
     <%= f.label :quantity %><br>
     <%= f.number_field :quantity %>
   </div>
@@ -38,6 +46,10 @@
   <div class="field">
     <%= f.label :date_requested %><br>
     <%= f.date_select :date_requested %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

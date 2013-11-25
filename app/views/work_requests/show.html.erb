@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Item:</strong>
+  <%= @work_request.item %>
+</p>
+
+<p>
   <strong>Cost:</strong>
   <%= @work_request.cost %>
 </p>
@@ -36,8 +41,28 @@
 </p>
 
 <p>
+  <strong>Owner:</strong>
+  <%= @work_request.owner_id %>
+</p>
+
+<p>
   <strong>Requester:</strong>
   <%= @work_request.requester_id %>
+</p>
+
+<p>
+  <strong>Cause description:</strong>
+  <%= @work_request.cause_description %>
+</p>
+
+<p>
+  <strong>Action taken:</strong>
+  <%= @work_request.action_taken %>
+</p>
+
+<p>
+  <strong>Prevention taken:</strong>
+  <%= @work_request.prevention_taken %>
 </p>
 
 <%= link_to 'Edit', edit_work_request_path(@work_request) %> |

@@ -4,13 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 
 # Use sqlite3 as the database for Active Record
-group :development do
-    gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,11 +43,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-# For Heroku:
-
-gem 'rails_12factor', group: :production
-
-gem 'authlogic', github: 'binarylogic/authlogic', ref: 'e4b2990d6282f3f7b50249b4f639631aef68b939'
-
-ruby "2.0.0"

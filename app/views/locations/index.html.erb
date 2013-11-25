@@ -3,8 +3,10 @@
 <table>
   <thead>
     <tr>
+      <th>Room</th>
       <th>Floor</th>
       <th>Building</th>
+      <th>Facilities</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +16,10 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
+        <td><%= location.room %></td>
         <td><%= location.floor %></td>
         <td><%= location.building %></td>
+        <td><%= location.facilities_id %></td>
         <td><%= link_to 'Show', location %></td>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>

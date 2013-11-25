@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Room:</strong>
+  <%= @location.room %>
+</p>
+
+<p>
   <strong>Floor:</strong>
   <%= @location.floor %>
 </p>
@@ -8,6 +13,11 @@
 <p>
   <strong>Building:</strong>
   <%= @location.building %>
+</p>
+
+<p>
+  <strong>Facilities:</strong>
+  <%= @location.facilities_id %>
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |

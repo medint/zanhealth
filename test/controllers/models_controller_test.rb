@@ -18,7 +18,7 @@ class ModelsControllerTest < ActionController::TestCase
 
   test "should create model" do
     assert_difference('Model.count') do
-      post :create, model: { manufacturer_name: @model.manufacturer_name, vendor_name: @model.vendor_name }
+      post :create, model: { manufacturer_name: @model.manufacturer_name, model_name: @model.model_name, vendor_name: @model.vendor_name }
     end
 
     assert_redirected_to model_path(assigns(:model))
@@ -35,7 +35,7 @@ class ModelsControllerTest < ActionController::TestCase
   end
 
   test "should update model" do
-    patch :update, id: @model, model: { manufacturer_name: @model.manufacturer_name, vendor_name: @model.vendor_name }
+    patch :update, id: @model, model: { manufacturer_name: @model.manufacturer_name, model_name: @model.model_name, vendor_name: @model.vendor_name }
     assert_redirected_to model_path(assigns(:model))
   end
 

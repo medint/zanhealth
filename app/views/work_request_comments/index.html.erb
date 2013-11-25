@@ -4,6 +4,8 @@
   <thead>
     <tr>
       <th>Datetime stamp</th>
+      <th>Work request</th>
+      <th>User</th>
       <th>Comment text</th>
       <th></th>
       <th></th>
@@ -15,6 +17,8 @@
     <% @work_request_comments.each do |work_request_comment| %>
       <tr>
         <td><%= work_request_comment.datetime_stamp %></td>
+        <td><%= work_request_comment.work_request_id %></td>
+        <td><%= work_request_comment.user_id %></td>
         <td><%= work_request_comment.comment_text %></td>
         <td><%= link_to 'Show', work_request_comment %></td>
         <td><%= link_to 'Edit', edit_work_request_comment_path(work_request_comment) %></td>
