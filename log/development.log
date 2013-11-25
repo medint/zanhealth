@@ -9387,3 +9387,7 @@ Completed 200 OK in 55ms (Views: 15.3ms | ActiveRecord: 1.0ms)
 
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-25 18:20:21 -0500
+
+
+Started GET "/assets/welcome.js" for 127.0.0.1 at 2013-11-25 18:29:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
