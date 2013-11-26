@@ -1,0 +1,31 @@
+<h1>Listing texts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Number</th>
+      <th>Work request</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @texts.each do |text| %>
+      <tr>
+        <td><%= text.content %></td>
+        <td><%= text.number %></td>
+        <td><%= text.work_request_id %></td>
+        <td><%= link_to 'Show', text %></td>
+        <td><%= link_to 'Edit', edit_text_path(text) %></td>
+        <td><%= link_to 'Destroy', text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Text', new_text_path %>

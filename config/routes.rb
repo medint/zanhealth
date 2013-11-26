@@ -1,4 +1,6 @@
 Med8::Application.routes.draw do
+  resources :texts
+
   resources :work_request_comments
 
   resources :item_histories
