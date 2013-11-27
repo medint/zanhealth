@@ -18,14 +18,14 @@ csv_role.each do |row|
 end
 print "Imported roles"
 
-facility_data = File.read('import_facilities.csv')
+facility_data = File.read('/app/db/import_facilities.csv')
 csv_facility = CSV.parse(facility_data, :headers => true)
 csv_facility.each do |row|
 	Facility.create(:name => row[0])
 end
 print "Imported facilities"
 
-location_data = File.read('import_locations.csv')
+location_data = File.read('/app/db/import_locations.csv')
 csv_location = CSV.parse(location_data, :headers =>true)
 csv_location.each do |row|
 	facility = Facility.find(row[3])
@@ -33,14 +33,14 @@ csv_location.each do |row|
 end
 print "Imported location"
 
-model_data = File.read('import_models.csv')
+model_data = File.read('/app/db/import_models.csv')
 csv_model = CSV.parse(model_data, :headers => true)
 csv_model.each do |row|
 	Model.create(:model_name => row[0], :manufacturer_name => row[1], :vendor_name => row[2])
 end
 print "Imported model"
 
-item_data = File.read('import_items.csv')
+item_data = File.read('/app/db/import_items.csv')
 csv_item = CSV.parse(item_data, :headers => true)
 csv_item.each do |row|
 	model = Model.find_by model_name: row[3]
@@ -49,14 +49,10 @@ csv_item.each do |row|
 end
 print "Imported item"
 
-item_history_data = File.read('import_item_histories.csv')
+item_history_data = File.read('/app/db/import_item_histories.csv')
 csv_item_history = CSV.parse(item_history_data, :headers => true)
 csv_item_history.each do |row|
 	item = Item.find(row[0])
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
 print "Imported item history"
-
-
-
-
