@@ -29,7 +29,7 @@ location_data = File.read('/app/db/import_locations.csv')
 csv_location = CSV.parse(location_data, :headers =>true)
 csv_location.each do |row|
 	facility = Facility.find(row[3])
-	Location.create(:room => row[0], :floor => row[1], :buiiding => row[2], :facilities_id => facility.id)
+	Location.create(:room => row[0], :floor => row[1], :building => row[2], :facilities_id => facility.id)
 end
 print "Imported location"
 
