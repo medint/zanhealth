@@ -1,0 +1,965 @@
+model	manufacturer	vendor_id
+apt-line b28 	Binder	NULL
+humascope fluo led b/g	Human-Gmbh	NULL
+cx21FS1	Olympus	NULL
+HP-155A	Truman	NULL
+egl-12e	Axiom	NULL
+ae-350	Erma	NULL
+ax-9602	Axiom	NULL
+ax-9602	Axiom	NULL
+ast 320-4m	Kern & John Gmbh	NULL
+mn120	Nuve	NULL
+primostar iled	Zeiss	NULL
+3870m	Tuttnauer	NULL
+eclipse e200	Nikon	NULL
+elite	Bayer	NULL
+Ghaco Plus	Gluco Plus Inc	NULL
+Hemocue Hb 201+	Hemocue A6	NULL
+ch40	Olympus	NULL
+4236	Aic	NULL
+c07000	Wpa	NULL
+dsc3005d	Digisystem Laboratory Instruments, Inc	NULL
+Dk-420	Axiom Gmbh	NULL
+cx21FS1	Olympus	NULL
+R303	Remi	NULL
+Emotega 250	Frigoriferi	NULL
+screen master 3000 evolution	Biochemical System International	NULL
+vm-1000	Digisystem Laboratory Instruments, Inc	NULL
+ZR-440FC	Zec	NULL
+micros 60 ot	Harriba Abs	NULL
+BD Facs Count TM Instrument	Bd Biosciences San Jose, Ca 9513 Usa	NULL
+mac500	Ge Medical Systems	NULL
+cardiofax-3	Medical	NULL
+NULL	Unknown	NULL
+s175	Villa $C	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+VA 05	Dupix	NULL
+NULL	Unknown	NULL
+NULL	Wunder	NULL
+SSD-650CL	Aloka	NULL
+au560cfm	Ansaldo Electronica Biomedicale	NULL
+ezu-mt12-s1	Hitachi	NULL
+OPT20	Opt	NULL
+ML 3005	Martin	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Milano Bilonce Salus	NULL
+A-L-Kompressor	Dragerwerk Ag Wbeck	NULL
+multinex 4000	Datascope	MSD
+haravlux 2004	Heraeus	NULL
+CS M101	Attrezzature Medica Sanitarie (Ams) Trento	NULL
+Libretta	Medec	NULL
+sirecust 732	Siemens	NULL
+Cardioserve	Ge Medical Systems	NULL
+catalog #51 saks	Devilbiss	NULL
+event	Ekom (Slovak Republic)	NULL
+Tobi clinic	Gima	NULL
+opt	Opt	NULL
+515ks	Devilbiss	NULL
+NULL	Eegegari	NULL
+NULL	Fegegari	NULL
+70317	Titanox	NULL
+dxba3321	Kenriago	NULL
+martin	Gebr.Martin Tuttlinger	NULL
+hyfrecator plus	Birtcher	NULL
+martin	Gebr.Martin Tuttlinger	NULL
+AHP-3	Nikura	NULL
+NULL	Medela	NULL
+ls-150	Welch-Allyn	NULL
+NULL	Sella	NULL
+NULL	Memert	NULL
+6-ft	Kiacomo Bertocchi	NULL
+D206	Sonicaid	NULL
+NULL	Ivo	Lab Equip
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Offcimadi Protesy	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Martin (Germany)	NULL
+NULL	Penlon	NULL
+NULL	Health O Meter	NULL
+Pasteur	Titanox	NULL
+sn82	Orix Aet	NULL
+NULL	Technodent	NULL
+NULL	Unknown	NULL
+esb25	Elsunk	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Titanox	NULL
+lensmaster lm-25	Shin-Nippon	NULL
+NULL	Unknown	NULL
+Vistion tester D	Suenska Optiska Ab	NULL
+AR 530	Hoya	NULL
+Y25F1	Pacific Optics Electronic	NULL
+NULL	Unknown	NULL
+LE-400	Sudore	NULL
+NULL	Seford123	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+ls-100	Supore	NULL
+RCW 50 EK	Electrolux	NULL
+NULL	Unknown	NULL
+2171721009	Seca	NULL
+Bigben Round	Reigter	NULL
+NULL	Unknown	NULL
+8811021659	Seca	NULL
+NULL	S2Ford 123	NULL
+NULL	Unknown	NULL
+NULL	Riester	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Riester	NULL
+NULL	Unknown	NULL
+8811021659	Seca	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Titanox	NULL
+NULL	Unknown	NULL
+11730	Welch Allyn	NULL
+335828	Heine	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Wunder	NULL
+NULL	Unknown	NULL
+PR-151-GX	West Point International	NULL
+NULL	Goldstar	NULL
+NULL	Sanyo	NULL
+NULL	Unknown	NULL
+Donfoce	Unknown	NULL
+wm30e	Grandimpianti	NULL
+30	Grandimpianti	NULL
+inm30e	Grandimpianti	NULL
+30ce	Huebsch Originators	NULL
+30ce	Huebsch Originators	NULL
+hem89	Peko	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Sadia Heating Ltd (England)	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Seca	NULL
+kogaku-kakai	Topcon	NULL
+NULL	Unknown	NULL
+NULL	Vso	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Fonti	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+megasonic-400	Bn Electronica	NULL
+hz-100	Hezheng	NULL
+DMA	Bridgewd Uk	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Askir	NULL
+NULL	Unknown	NULL
+EKS	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Titanox	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Titanox	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Riester	NULL
+ZEC-ZR180DF	Sdg 081	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+ES-107P2	Hayashi Denki	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+CE	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Wunder	NULL
+NULL	Wunder	Chemo Quip
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Titanox	NULL
+YP-90A	Axiom	NULL
+NULL	Fazzini	NULL
+NULL	Pari	NULL
+3341321008	Seca	NULL
+475874	Spengler	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+6065	Jenway	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Wunder	NULL
+NULL	Wunder	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Wunder	NULL
+7R-180DF	Zec	NULL
+NULL	Shuang Guan	NULL
+NULL	Unknown	NULL
+thermo boy	Karl Kolb	NULL
+ARF-175D	Nicura	NULL
+NULL	Unknown	NULL
+6506	Jenway	NULL
+NULL	Cecil	NULL
+CP 2245	Sartorius	NULL
+NULL	Etl	NULL
+omega	Stare	NULL
+gallois	Unknown	NULL
+gallois	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Cooperazione Italiana	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Unknown	NULL
+NULL	Axiom	NULL
+XHZ 090	Pema	NULL
+ULT2090/5/V31	Revco	NULL
+ULT2090/5/V31	Revco	NULL
+CF60	Whirlpool	NULL
+FR/142	Daewoo	NULL
+NULL	Hitachi	NULL
+NULL	Tropical	NULL
+WRTD20V4AWO	Electrolux International	NULL
+Microfuge 22R	Beckman Coulter	NULL
+Z400	Hermle	NULL
+Labofuge 400	Kendro	NULL
+R/610AUK3K	Hitachi	NULL
+CHD	Olympus	NULL
+CHD	Olympus	NULL
+CHD	Olympus	NULL
+RFT S8	Janke & Kunkel	NULL
+308002	International equipment company	NULL
+T 340 150	WC Heraeus Hanau	NULL
+CX41RF	Olympus	NULL
+Ika Werk	Janke & Kunkel	NULL
+CH/20	Olympus	NULL
+CH/20	Olympus	NULL
+CH/20	Olympus	NULL
+CH/20	Olympus	NULL
+S2/ST	Olympus	NULL
+TMS	Nikon	NULL
+Eclipse 6200	Nikon	NULL
+FlexScan SX2262W	EI20 Corporation	NULL
+DP21/CB	Olympus	NULL
+TM/A17OG	JVC	NULL
+1040 series	Centurion Scientific	NULL
+Microflow 2	Bioquell	NULL
+NULL	International Equipment	NULL
+IBP	Ambassador	NULL
+NULL	Inter Continental Equipment	NULL
+NULL	Inter Continental Equipment	NULL
+A74410	Barnstead	NULL
+NULL	PBI International	NULL
+000055C	Wisconsin Aluminium Foundry	NULL
+2204	GFL	NULL
+Ika Werk	Janke and Kunkel	NULL
+Automatic Mixer	EckII/Electronic	NULL
+MICROS 60CT	Horiba ABX Diagnostics	NULL
+GD100	Grant	NULL
+NULL	Inter Continental Equipment	NULL
+Feflotron Plus	Roche	NULL
+Autoclavi Spa	Fedegari	NULL
+mrx	Thermo Labsystems	NULL
+R/220UK1	Hitachi	NULL
+NULL	Accu Jet	NULL
+NULL	Sartorius	NULL
+U535 INNOVA	New Brunsmick Scientific	NULL
+MCO/17AIC	Sanyo	NULL
+Bacter 9050	BD	NULL
+Bacter 9050	BD	NULL
+Jupiter 4	Celbio	NULL
+1013	GFL/Gescellschaft Fviv	NULL
+PG203/5	Mettler Toledo	NULL
+WP6122050	Millipore	NULL
+CYFLOW	Dartec	NULL
+CXAO	Olympus	NULL
+PH 211	Hanna Instruments	NULL
+A625/1	Lab/Line Instruments	NULL
+Twin Z	Medline Scientific	NULL
+Vortex Genie 2	Fisher	NULL
+NULL	PBI International	NULL
+NULL	Inter Continental Equipment	NULL
+NR/B651B	Panasonic	NULL
+Previ	Biomcrieux	NULL
+VITEK 2 Compact	Biomerieux	NULL
+VITEK 2 Compact	Biomerieux	NULL
+APS One	AES Chemunex	NULL
+Masterclave 09	AES Chemunex	NULL
+ECB 1.1 Digital	Odontobras	NULL
+Thermomix BM/E	B.Braun Biotech International	NULL
+CX/Bi	Magnus	NULL
+CX/Bi	Magnus	NULL
+KX/21	Sysmex	NULL
+Sunrise Remote	Tecan	NULL
+Columbus Plus	Tecan	NULL
+EC3	Leica Microsystems	NULL
+MyCycler Thermal Cycler	BioRad	NULL
+DyNa Light	National Labnet Company	NULL
+MSH 300	Boeco	NULL
+PowerPac Basic	BioRad	NULL
+NR/B651B	Panasonic	NULL
+Rotina 35R	Hettich	NULL
+Thermomixer Compact	Eppendorf AG	NULL
+SBH 130D	Stuart	NULL
+NULL	German Industrial Corporation	NULL
+Centrifuge 5430	Eppendorf AG	NULL
+Centrifuge 5415D	Eppendorf AG	NULL
+261	Merck	NULL
+HMS/1024	Fargo	NULL
+Bio2+	Envair	NULL
+R/2320AUK7K	Hitachi	NULL
+100/800	Memmert	NULL
+2204	GFL	NULL
+DU520	Beckman Coulter	NULL
+L6	Blender	NULL
+707	Asal	NULL
+TMS	Nikon	NULL
+CHD	Olympus	NULL
+CHD	Olympus	NULL
+NULL	Nikon	NULL
+NULL	P20	NULL
+NULL	P20	NULL
+FM109510/33	Wagtech	NULL
+NULL	Accu/Jet	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+B/Hemoglobin	Hemocue	NULL
+Glucose 201+	Hemocue	NULL
+Glucose 201+	Hemocue	NULL
+Hb 201+	Hemocue	NULL
+Hb 201+	Hemocue	NULL
+180 Plus	Sonosite	NULL
+NULL	Brentwood Blood Bank Robert C Schutte	NULL
+Fiocchetti	Frigoriferi Scientifigi	NULL
+180 Series Water Bath	Thermo Scientific	NULL
+AX-CNO	Axiom	NULL
+CX21FSI	Olympus	NULL
+NULL	Lab Hosp	NULL
+HB 201+	Hemocue 	NULL
+NULL	Dr Dairei	NULL
+NULL	Dr Dairei	NULL
+Rotofix 32	Hettich Zentrifugen	MS500AD
+R75	NULL	NULL
+CX21FSI	Olympus	NULL
+MN 120	Nuve	NULL
+Heraeus	Thermo Scientific	NULL
+Heraeus B6200	Thermo scientific	NULL
+Primo Star	Carl Zeiss	NULL
+NULL	Geepas	NULL
+180 Series Water Bath	Thermo Scientific	NULL
+FN500	Memmert	NULL
+F20500060	Velp Scientifica	NULL
+Harvard Trip Balance	Ohaus	NULL
+Orion 3 Star pH Bench Top	Thermo Scientific	NULL
+EC-Type T7037	Kern	NULL
+NULL	Lab Hosp	NULL
+FACS Count	Becton Dickinson	NULL
+BX S1	Olympus	NULL
+LX-300+II	Epson	NULL
+NULL	Abbott Laboratories	NULL
+Cell-Dyn 3700	Abbott Laboratories	NULL
+NULL	Dairei	NULL
+NULL	Fiocchetti	NULL
+Pentra XL80	Horiba Abx	NULL
+Tissue Water Bath	Kedee	NULL
+AE-600	Erma Inc	NULL
+NULL	Spencers	Lab Equip
+KD-BM	Jinhua Kedi	NULL
+KD-T	Jinhua Kedi	Lab Equip
+1040-STP-003	Spencers	Lab Equip
+CX21FSI	Olympus	NULL
+BX51	Olympus	NULL
+NULL	Spencers	NULL
+ECTR	Fiocchetti	NULL
+ECTR	Fiocchetti	NULL
+AX-75L	Axiom	NULL
+AX-75L	Axiom	NULL
+NULL	Reme	NULL
+NULL	NULL	NULL
+MN	Nuve	NULL
+super arctic 7002t	Fiocchetti	NULL
+super arctic 7002t	Fiocchetti	NULL
+Fully	Biomedical System International	NULL
+RXL-5B	Olympus	NULL
+C854/6 9/07	Remi Motors	NULL
+RHP-CI Hot Plate	Remi	NULL
+AX-9602	Axiom	NULL
+BTS-100	Biosystems	NULL
+BTS-100	Biosystems	NULL
+AX-9602	Axiom	NULL
+AX-9602	Axiom	NULL
+TRSP	NULL	NULL
+AX-9602	Axiom	NULL
+Arec-X	Velp Scientifica	NULL
+Axiom 9602	Axiom	NULL
+R75	NULL	NULL
+ABT 320-4M	Kern & Sohn	NULL
+HB 201+	Hemocue 	NULL
+CS 5000	Ohaus	NULL
+Vibromix	Glouchester Cozslguk	NULL
+AX-12B	Axiom	NULL
+Orion 3 Star pH Bench Top	Thermo Scientific	NULL
+Humaclot-Duo	Human	NULL
+Humaclot-Duo	Human	NULL
+Rotofix 32	Hettich	NULL
+ED115	Binder	NULL
+Siar Fax 4700	Awareneness Technology	NULL
+BTS-305	Biosystems	Chemo Quip
+Biolyte 2000	Human	Chemo Quip
+Well Washer 4 MK2	Thermo Fisher	NULL
+Multiskan	Thermo Fisher	Kas Medics
+DSC_300 SD	Digisystem Laboratory Instruments	NULL
+BS-200	Mindray	NULL
+BS-200	Mindray	NULL
+Fully	Biomedical System International	NULL
+Humalyte	Hunan	NULL
+USS7480IKL	Safe	NULL
+Vitamin +, GR-V212R	LG	NULL
+CX21FSI	Olympus	NULL
+super arctic 7002t	Fiocchetti	NULL
+D12661	Thermo Scientific	NULL
+Rotofix 32	Hettich	NULL
+Uriscan Optima II	YD Electronics	NULL
+CX21FSI	Olympus	NULL
+CX21FSI	Olympus	NULL
+CX21FSI	Olympus	NULL
+CX21FSI	Olympus	NULL
+CX21FSI	Olympus	NULL
+NULL	Thermo Fisher	NULL
+R-T320EUKIK-1	Hitachi	EPI
+424	Weylux	NULL
+Forlife	Airsep	NULL
+sonoline Sienna	Siemmens	NULL
+NULL	Whirlpool	NULL
+Sonoace X8	Medison 	NULL
+3666794, Coaguchek X5	Roche	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+super arctic 7002t	fiocchetti	NULL
+NULL	NULL	NULL
+MP 25	NWI OJH	NULL
+RG 2250 Indesit	Merlow C-LC-TR	NULL
+1524kl healthometer	Pelstar	NULL
+NULL	Seca	NULL
+xhz-90	Pema	NULL
+XHZ-90	Pema	NULL
+XHZ-90	Pema	NULL
+Vario 18	Medela	NULL
+porta-neb	Philips Respironics	NULL
+OPI 1020006	Ever Flo	NULL
+OPI 1020006	Ever Flo	NULL
+OPI 1020006	Ever Flo	NULL
+argus LCM Plus	Schiller	NULL
+m12041a 24c omnicare	Hewlett Packard	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	Rege	NULL
+porta-neb	Medic-Aid	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	Provident	NULL
+NULL	Fazzini	NULL
+NULL	Provident	NULL
+lian scenic-5	Spangler	NULL
+porta-neb	Philips Respironics	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	Greenham	NULL
+NULL	NULL	NULL
+BTL-16 Plus	BTL	NULL
+BTC-5620	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+btl-5000	BTL Industries	NULL
+dynatron 438	Dynatron Enraf Nonius Delft	NULL
+NULL	Trojan	NULL
+ergomedic 818e	Monark	NULL
+Cycle PEC-3000	Proteus	NULL
+NULL	Titanox	NULL
+NULL	NULL	NULL
+2F-020-02-P	Down Surgical	NULL
+2F-020-02-P	Down Surgical	NULL
+5610 Assens Denmark	Interacoustics AS DK	NULL
+18099	GD	PureStone Ltd
+NULL	Heraeus Kutzer	NULL
+5000t	GD Carlo de Grogi	PureStone Ltd
+NULL	NULL	NULL
+NULL	Kamplex	NULL
+eb-350i	EB, Eikstein Bros Inc.	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+55003-35	NULL	NULL
+NULL	NULL	NULL
+HCALI0800	Promedics	NULL
+NULL	Prestige	NULL
+N604	Everyway Medical	NULL
+M793-220	Global Corporation	NULL
+NULL	Remi	NULL
+D-68642 Hustak	Axiom	NULL
+Mach 115	Dr Mach	NULL
+excel 210se	Omeda	NULL
+NULL	Carl Zeiss	NULL
+W-9700S	Toshiba	NULL
+PFC145W	Proline	NULL
+976	AB Sangfabriken	NULL
+976	AB Sangfabriken	NULL
+976	AB Sangfabriken	NULL
+976	AB Sangfabriken	NULL
+976	AB Sangfabriken	NULL
+976	AB Sangfabriken	NULL
+Lapetite	Panacea	NULL
+W-101	NULL	NULL
+713	Seca	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+PD-FA	Yuenva	NULL
+Opmi Pico	Carl Zeiss	NULL
+NULL	Instacare	NULL
+NULL	Inter Med	NULL
+TR200	Fabrica do Por	NULL
+Top-1800	Beijing Dotops	NULL
+Aeon7500A	Aeonmed	NULL
+NULL	Karl Storz	NULL
+NULL	NULL	NULL
+AX-H900	Axiom	NULL
+AB-250B	AVIS	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	Med RX Inc	NULL
+225	Schuco	NULL
+ivent 201	Versamed	NULL
+new askir 30	Cami	NULL
+f170	Fazzini	NULL
+f170	Fazzini	NULL
+SG-R210	Super General	NULL
+new life elite	Airset	NULL
+n180	Nelcor	NULL
+lf-h-10a	Zhejiang Longfei Industry	NULL
+8021	S&W	NULL
+n-200	Nelcor	NULL
+n180	Nelcor	NULL
+apd2	Medtronic Sullivan	NULL
+3800	Omeda	NULL
+Lifepak 9	Physio-Control Corporation	NULL
+78660A	Hewlett Packard	NULL
+PVM-2701	Nihon Kohden	NULL
+V450/T	Daray	NULL
+Siaetron 3000	Nihon Kohden	NULL
+big ben round	Reister	NULL
+YB.DX23D	Jahaf	NULL
+PVM-2701	Nihon Kohden	NULL
+big ben round	Reister	NULL
+RM3000TFT	Siare Engineering International Group	NULL
+PVM-2701	Nihon Kohden	NULL
+big ben round	Reister	NULL
+P-600	Atom	NULL
+6K6001B	SK	NULL
+Siaetron 3000	Siare Engineering International Group	NULL
+Lifepak 9	Physio-Control Corporation	NULL
+PVM-2701	Nihon Kohden	NULL
+TobiClinic	Gima	NULL
+P-600	Atom	NULL
+Nuvo	Nidek Medical	NULL
+URIT-910A	URIT	NULL
+Easy Blood Gas	Medica	NULL
+CardiofaxV ECG-1550K	Nihon Kohden	NULL
+NULL	Conduren	NULL
+A3-214-535, Via Canove n.2/a	Titanox	NULL
+Bucky Diagnost 984850029301	Phillips	NULL
+Optimax 2010 1160-1-0000	Protec Medical Systems	NULL
+cold light illuminators	Kodak	NULL
+Planilux	Felix Schulte	NULL
+07093110 Axiom Iconos R100	Siemens	NULL
+Sonoace X8	Medison	NULL
+NULL	Daewoo	NULL
+NULL	Welch Allyn	NULL
+NULL	Gluco Plus	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+811021859	Seca	NULL
+2171721009	Seca	NULL
+NULL	NULL	NULL
+SVC-SOOON	Matsunaga	NULL
+NULL	Titanox	NULL
+A3-214-535	Titanox	NULL
+yzx	Axiom	Lab Equip
+yzx	Axiom	Lab Equip
+NULL	Heraeus	NULL
+tr50n	Triumph Industrial	NULL
+1911	Aeshulap	NULL
+oy-00880	Planmeca	NULL
+102006	Ever Flo	NULL
+yp-90a	Axiom	NULL
+yp-90a	Axiom	NULL
+NULL	NULL	NULL
+0706CAOS	New Aska 30	NULL
+c2vha-1 isolette c2000	Hill Rom Air Shields, Drager	NULL
+102006	Ever Flo	NULL
+NULL	NULL	NULL
+c2vha-1 isolette c2000	Hill Rom Air Shields, Drager	NULL
+c2vha-1 isolette c2000	Hill Rom Air Shields, Drager	NULL
+xp-90a	Axiom	NULL
+set rad-8	Masimo	NULL
+yp-90a	Axiom	NULL
+1020006	Ever Flo	NULL
+1020006	Ever Flo	NULL
+1020006	Ever Flo	NULL
+1020006	Ever Flo	NULL
+Premium	EKS	NULL
+vario 18	Medela	NULL
+set rad-8	Masimo	NULL
+set rad-8	Masimo	NULL
+set rad-8	Masimo	NULL
+d-f-2858	Trident	NULL
+XHZ-90	Pema	NULL
+Neoblue	Natus	NULL
+AL35277	Pepak	NULL
+Neoblue	Natus	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+Force 40s	Valley Lab	NULL
+NULL	Welch Allyn	NULL
+Aeon7500A	Aeonmed	MSD
+2080	Amsco	NULL
+J4	Eschman Equipment	NULL
+IRIS70	Planilux	NULL
+IRIS70	Planilux	NULL
+AH-M1	Acare	NULL
+big ben round	Reister	NULL
+D7MX	Hersill	NULL
+Aeon7500A	Aeonmed	NULL
+3500	Original Hunau Quarzlampen	NULL
+Masimo Set RAD-5	Masimo	NULL
+AH-M1	Acare	NULL
+310356/03	Gima	Anudha
+LJ-S	Planilux	NULL
+GD350-P	Hutong	NULL
+LX-3	Jhali	NULL
+Opmics, KBC/KBD002	Carl Zeiss	NULL
+eco-22-gen-cx9	Ecoray	Lab Equip
+ECO-MCART-CX9	Ecoray	NULL
+IRIS, 23085	Geratebau F. Schulte	NULL
+23085	Geratebau F. Schulte	NULL
+lifepak 9b	Physiocontrol	NULL
+BMS4400 Powerplus	Birtcher Medical Systems	NULL
+NULL	Hanaulu	NULL
+AX-3008H	Axiom	Lab Equip
+SR1	Fazzini	NULL
+NULL	Gima	Anudha
+ot-125a	St Francis Medical Equipment	NULL
+big ben round	Reister	NULL
+amamap 8u5xt	Critikon	NULL
+NULL	Gima	Anudha
+AMS100	Advanced Medical Services	NULL
+66858	Original Hanaulux	NULL
+physiogard sm785	Odam	NULL
+biox 3740	Omeda	NULL
+new akir 30	Cami italian medical touch	NULL
+f-36	Fazzini	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+multiradia 30	mms	NULL
+vario 18	Medela	NULL
+new askir 30	Cami	NULL
+NULL	Dameca	NULL
+er24	Stryker	NULL
+big ben round	Reister	NULL
+TA-8859	Target	NULL
+Best One GR-1515	Goldstar	NULL
+NULL	Gluco Plus	NULL
+NULL	Reister	NULL
+GE224C	Getinge	NULL
+NULL	Reister	NULL
+NULL	Titanox	NULL
+NULL	NULL	NULL
+NULL	Famed Zywier	NULL
+NULL	Binder	NULL
+NULL	NULL	NULL
+NULL	Welch Allyn	NULL
+Omron NE-CO8	Omron Healthcare	NULL
+big ben round	Reister	NULL
+big ben round	Reister	MSD
+big ben round	Reister	MSD
+nova-presameter	Reister	MSD
+Soehnle Professional	soehnle	NULL
+big ben round	Reister	MSD
+big ben round	Reister	MSD
+NULL	NULL	MSD
+big ben round	Reister	MSD
+big ben round	Reister	MSD
+NULL	KC	NULL
+TG-8866	Target	NULL
+NULL	Gluco Plus	NULL
+NULL	Gluco Plus	NULL
+NULL	Reister	NULL
+NULL	Gluco Plus	NULL
+NULL	Hitachi	NULL
+The Slim Deluxe	Samsung	NULL
+Health Scale	MIC	NULL
+NULL	ADE	NULL
+NULL	Helkama	NULL
+AMS 100	AMS	NULL
+unidad respiratoria	Temel	NULL
+ergotronic-3	Temel	NULL
+Surgical 2080	Amsco	NULL
+NULL	Hanaulux	NULL
+big ben round	Reister	NULL
+Tran Star	Hill-Rom	NULL
+ER18	Stryker	NULL
+NULL	Titanox	NULL
+ax-450	Axiom	NULL
+artec	Stephan	NULL
+BCD-216W	Shang Ling	NULL
+Con-Verge Series	Hausted	NULL
+NULL	Memmert	NULL
+NULL	Hamilton	NULL
+Atlantis	Maytag	NULL
+Atlantis	Maytag	NULL
+4532388EH5IU Sirecust 610	Siemens	NULL
+LS-B100L	NULL	NULL
+LS-B100L	NULL	NULL
+NULL	NULL	NULL
+NULL	Famed Zywiec	NULL
+NULL	NULL	NULL
+Health-o-meter	Continental Scale Corporation	NULL
+NULL	Welch Allyn	NULL
+CX21	Olympus	NULL
+Bloodbanken	Vestsjaellands Amtskommnne	NULL
+BTS-305	Biosystems	NULL
+NULL	Tepma 03	NULL
+AutoCounter 910 Eco+	Swelab	NULL
+Hb 201+	Hemocue	NULL
+NULL	Gluco Plus	NULL
+NULL	Falcon Optik	NULL
+R303	Remi Motors	NULL
+Bloodbanken	Vestsjaellands Amtskommnne	NULL
+NULL	NULL	NULL
+ZR-140FC	ZEC	NULL
+ZR-155	ZEC	NULL
+SGR101	Super General	NULL
+SGR101	Super General	NULL
+SGR101	Super General	NULL
+SGR101	Super General	NULL
+F-36	Fazzini	NULL
+ZR-155	ZEC	NULL
+ZR-155	ZEC	NULL
+GDZ 9651A	WBL Medical	NULL
+NULL	Hico	NULL
+NULL	SK	NULL
+NULL	Reister	NULL
+NULL	NULL	NULL
+NULL	Conticare	NULL
+Fetatrack 120	Ultrasound Technologies	NULL
+NULL	Reister	NULL
+NULL	NULL	NULL
+NULL	Axiom	NULL
+NULL	Reister	NULL
+NULL	Gima	NULL
+A107291-8	Moore Medical	NULL
+NULL	Axiom	NULL
+NULL	Conticare	NULL
+NULL	Moore Medical	NULL
+NULL	Nissei	NULL
+CTJ-1A	Jinsong	NULL
+Dopplex D920	Huntleigh Healthcare	NULL
+Dopplex II FD2	Huntleigh Healthcare	NULL
+NULL	NULL	NULL
+nova-presameter	Reister	NULL
+NULL	Chas F Thacray	NULL
+8598885K1555	Siemens	Pacific Diagnostics
+VRC60025	Medrad	Pacific Diagnostics
+VEC600	Medrad	Pacific Diagnostics
+8596566	Siemens	Pacific Diagnostics
+10165880	Siemens	Pacific Diagnostics
+VHU600	Medrad	Pacific Diagnostics
+10165884	Siemens	Pacific Diagnostics
+NULL	Planilux	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	NULL	NULL
+NULL	Titanox	NULL
+NULL	Scholtes	NULL
+NULL	Hewlett Packard	NULL
+NULL	Welch Allyn	NULL
+Ultramark 4 Plus	Advanced Technology Laboratories	NULL
+AXSM-210-600	Axiom	NULL
+B33KW18	Gettinge	NULL
+R52	Midmark	Midmark
+029-5135-00	Midmark	Midmark
+SSD-4000	Aloka	NULL
+EUB-555	Hitachi	NULL
+M2540A	Philips	NULL
+Sigma 44HVCD	Kontron Instruments	NULL
+Sigma 330	Konron Medical	NULL

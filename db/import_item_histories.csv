@@ -1,0 +1,965 @@
+id,status,utilization,remarks
+1,"Fully Functional","No Utilization","brand new, never used but installed; Manufacturer service hotline 866-885-9794; service@binder-world.com"
+2,"Fully Functional","Very Low","user not trained"
+3,"Fully Functional",Normal,"Installed Jan 2012"
+4,"Fully Functional",Normal,"Installed Jan 2012"
+5,"Fully Functional","No Utilization","user not trained"
+6,"Fully Functional","No Utilization","user not trained; not being used; installed Jan 2012; no user manual"
+7,"Fully Functional","No Utilization","user not trained; all parts available; brand new in package; english user manual available"
+8,"Fully Functional","No Utilization","user not trained; all parts available; brand new in package; english user manual available"
+9,"Fully Functional",Normal,"install Jan 2012"
+10,"Needs Minor Repair","No Utilization","filter needs to be changed"
+11,"Needs Minor Repair","No Utilization","power cord missing"
+12,"Fully Functional","No Utilization","not needed right now; not being used; installed Jan 2012"
+13,"Fully Functional","No Utilization","Installed Jan 2012"
+14,"Fully Functional",Normal,NULL
+15,"Fully Functional",Normal,NULL
+16,"Fully Functional",Normal,NULL
+17,"Needs Minor Repair","No Utilization","Missing power cord; Possibly other unknown problems"
+18,"Needs Major Repair","No Utilization",NULL
+19,"Needs Major Repair","No Utilization","very old, not sure if it works"
+20,"Needs Major Repair","No Utilization",NULL
+21,"Fully Functional",Normal,NULL
+22,"Fully Functional",Normal,NULL
+23,"Fully Functional",Normal,NULL
+24,"Fully Functional",Normal,"Installed June 15th 2006"
+25,"Fully Functional",Normal,"Installed 27 March 2004"
+26,"Fully Functional",Normal,"Installed 6 Jan 2009"
+27,"Fully Functional",Normal,"Installed 12 Nov 2007"
+28,"Not Functional","No Utilization","currently being repaired (fuse box); installed 27 March 2007"
+29,"Fully Functional",Normal,"Date est told 27th of March 2007"
+30,"Not Functional","No Utilization","unknown electrical issus"
+31,"Not Functional","No Utilization","Electrical problem"
+32,"Fully Functional","No Utilization","not used because xray is broken"
+33,"Needs Major Repair","No Utilization","very old filament possibly damaged; spare parts no longer available . Need fluoroscopic machine with image intensifier"
+34,"Fully Functional","No Utilization","not used because xray is broken"
+35,"Fully Functional",Normal,NULL
+36,"Fully Functional",Normal,NULL
+37,"Needs Major Repair",Normal,"Rinsing and washing tank used together (not recommended) Needs Digital"
+38,"Needs Major Repair",Normal,NULL
+39,"Fully Functional",Normal,NULL
+40,"Fully Functional","Very Low","the older of 2 ultrasounds"
+41,"Fully Functional","Very Low","the older of 2 ultrasounds"
+42,"Fully Functional",Normal,NULL
+43,"Fully Functional",Normal,NULL
+44,"Not Functional","No Utilization","screen does not light up"
+45,"Not Functional","No Utilization","never used, needs halothane vaporizer; gas and air lines do not match tanks and compressor"
+46,"Fully Functional",Normal,NULL
+47,"Fully Functional",Normal,"not connected to anything"
+48,"Not Functional","No Utilization","unknown problem, never been used"
+49,"Fully Functional","Very High",NULL
+50,"Fully Functional",Normal,NULL
+51,"Fully Functional",Normal,NULL
+52,"Fully Functional",Normal,NULL
+53,"Fully Functional","Very Low","no problem"
+54,"Fully Functional",Normal,NULL
+55,"Fully Functional","Very High","hooked up to #51 anesthesia machine"
+56,"Fully Functional","Very High","only suction machine in main theater"
+57,"Fully Functional",Normal,NULL
+58,"Not Functional","No Utilization","some parts broken"
+59,"Fully Functional","Very High",NULL
+60,"Not Functional","No Utilization","it needs repair"
+61,"Fully Functional","Very High","no problem"
+62,"Fully Functional","No Utilization","not installed"
+63,"Not Functional","No Utilization","needs repair"
+64,"Not Functional","No Utilization","unknown electrical issue"
+65,"Not Functional","No Utilization",broken
+66,"Fully Functional",Normal,NULL
+67,"Fully Functional",Normal,NULL
+68,"Needs Major Repair",Normal,"spare parts not available"
+69,"Needs Major Repair","Very High",NULL
+70,"Fully Functional","Very High",NULL
+71,"Not Functional","No Utilization",NULL
+72,"Fully Functional",Normal,NULL
+73,"Fully Functional",Normal,NULL
+74,"Not Functional","No Utilization","atesting no be not working"
+75,"Not Functional","No Utilization",NULL
+76,"Not Functional","No Utilization",NULL
+77,"Fully Functional",Normal,NULL
+78,"Fully Functional",Normal,NULL
+79,"Fully Functional",Normal,NULL
+80,"Needs Minor Repair",Normal,NULL
+81,"Fully Functional","Very High",NULL
+82,"Fully Functional",Normal,NULL
+83,"Needs Minor Repair","Very Low","not calibrated; in the wrong department"
+84,"Fully Functional",Normal,NULL
+85,"Not Functional","No Utilization",NULL
+86,"Needs Major Repair","Very High",NULL
+87,"Needs Major Repair",Normal,NULL
+88,"Not Functional","No Utilization","wrong light for dental clinic. Wrong parts, no bulb, using flashlight instead"
+89,"Fully Functional","No Utilization","no need for Ward Bed in department; used as a desk for dentist"
+90,"Needs Minor Repair",Normal,NULL
+91,"Fully Functional",Normal,NULL
+92,"Needs Minor Repair",Normal,"Broken bulb"
+93,"Fully Functional",Normal,NULL
+94,"Fully Functional",Normal,NULL
+95,"Fully Functional",Normal,NULL
+96,"Fully Functional",Normal,NULL
+97,"Fully Functional",Normal,NULL
+98,"Fully Functional",Normal,NULL
+99,"Fully Functional",Normal,NULL
+100,"Fully Functional",Normal,NULL
+101,"Fully Functional",Normal,NULL
+102,"Not Functional","No Utilization",NULL
+103,"Fully Functional",Normal,NULL
+104,"Fully Functional","No Utilization","used as desk, patients not seen in room"
+105,"Fully Functional",Normal,NULL
+106,"Fully Functional",Normal,NULL
+107,"Fully Functional",Normal,NULL
+108,"Not Functional","No Utilization",NULL
+109,"Not Functional","No Utilization",broken
+110,"Fully Functional",Normal,NULL
+111,"Fully Functional",Normal,NULL
+112,"Needs Minor Repair","Very High",NULL
+113,"Needs Minor Repair","Very High",NULL
+114,"Fully Functional","Very Low",NULL
+115,"Not Functional","No Utilization",NULL
+116,"Fully Functional",Normal,NULL
+117,"Not Functional","No Utilization",NULL
+118,"Needs Major Repair","Very Low",NULL
+119,"Fully Functional","No Utilization","sitting idle in main corridor"
+120,"Not Functional","No Utilization",NULL
+121,"Fully Functional",Normal,NULL
+122,"Fully Functional",Normal,NULL
+123,"Fully Functional",Normal,NULL
+124,"Fully Functional",Normal,NULL
+125,"Fully Functional",Normal,NULL
+126,"Fully Functional",Normal,NULL
+127,"Fully Functional",Normal,NULL
+128,"Fully Functional",Normal,NULL
+129,"Fully Functional","Very High",NULL
+130,"Not Functional","No Utilization",NULL
+131,"Not Functional","No Utilization",NULL
+132,"Fully Functional",Normal,NULL
+133,"Fully Functional","Very Low",NULL
+134,"Not Functional","No Utilization",NULL
+135,"Fully Functional","Very High",NULL
+136,"Not Functional","No Utilization",NULL
+137,"Needs Major Repair","No Utilization"," "
+138,"Fully Functional","Very High",NULL
+139,"Not Functional","No Utilization",NULL
+140,"Fully Functional",Normal,NULL
+141,"Fully Functional","No Utilization",NULL
+142,"Not Functional","No Utilization",NULL
+143,"Needs Major Repair","Very Low",NULL
+144,"Fully Functional",Normal,NULL
+145,"Not Functional","No Utilization",NULL
+146,"Fully Functional",Normal,NULL
+147,"Not Functional","No Utilization",NULL
+148,"Fully Functional",Normal,NULL
+149,"Fully Functional",Normal,NULL
+150,"Fully Functional",Normal,NULL
+151,"Not Functional","No Utilization",NULL
+152,"Not Functional","No Utilization",NULL
+153,"Not Functional","No Utilization",NULL
+154,"Needs Minor Repair","No Utilization",NULL
+155,"Fully Functional","No Utilization",NULL
+156,"Needs Minor Repair","No Utilization","needs electrode"
+157,"Fully Functional",Normal,NULL
+158,"Fully Functional",Normal,NULL
+159,"Not Functional","No Utilization",NULL
+160,"Fully Functional","No Utilization","Not installed"
+161,"Not Functional","No Utilization",NULL
+162,"Fully Functional",Normal,NULL
+163,"Fully Functional",Normal,NULL
+164,"Needs Minor Repair","No Utilization",NULL
+165,"Not Functional","No Utilization",NULL
+166,"Fully Functional",Normal,NULL
+167,"Fully Functional",Normal,NULL
+168,"Fully Functional",Normal,NULL
+169,"Fully Functional",Normal,NULL
+170,"Fully Functional",Normal,NULL
+171,"Fully Functional",Normal,NULL
+172,"Fully Functional",Normal,NULL
+173,"Fully Functional",Normal,NULL
+174,"Fully Functional",Normal,NULL
+175,"Fully Functional",Normal,NULL
+176,"Fully Functional",Normal,NULL
+177,"Fully Functional",Normal,NULL
+178,"Fully Functional",Normal,NULL
+179,"Fully Functional",Normal,NULL
+180,"Fully Functional",Normal,NULL
+181,"Fully Functional",Normal,NULL
+182,"Fully Functional",Normal,NULL
+183,"Fully Functional",Normal,NULL
+184,"Fully Functional",Normal,NULL
+185,"Fully Functional",Normal,NULL
+186,"Fully Functional",Normal,NULL
+187,"Fully Functional",Normal,NULL
+188,"Fully Functional",Normal,NULL
+189,"Fully Functional",Normal,NULL
+190,"Fully Functional",Normal,NULL
+191,"Fully Functional",Normal,NULL
+192,"Needs Minor Repair","Very Low",NULL
+193,"Fully Functional",Normal,NULL
+194,"Fully Functional",Normal,NULL
+195,"Fully Functional",Normal,NULL
+196,"Fully Functional",Normal,NULL
+197,"Fully Functional",Normal,NULL
+198,"Fully Functional",Normal,NULL
+199,"Needs Major Repair",Normal,NULL
+200,"Fully Functional",Normal,NULL
+201,"Fully Functional",Normal,NULL
+202,"Fully Functional",Normal,NULL
+203,"Fully Functional",Normal,NULL
+204,"Fully Functional",Normal,NULL
+205,"Fully Functional",Normal,NULL
+206,"Fully Functional",Normal,NULL
+207,"Fully Functional",Normal,NULL
+208,"Fully Functional",Normal,NULL
+209,"Fully Functional",Normal,NULL
+210,"Fully Functional",Normal,NULL
+211,"Fully Functional",Normal,NULL
+212,"Fully Functional",Normal,NULL
+213,"Fully Functional",Normal,NULL
+214,"Fully Functional",Normal,NULL
+215,"Fully Functional",Normal,NULL
+216,"Fully Functional",Normal,NULL
+217,"Fully Functional",Normal,NULL
+218,"Fully Functional",Normal,NULL
+219,"Fully Functional",Normal,NULL
+220,"Fully Functional",Normal,NULL
+221,"Fully Functional",Normal,NULL
+222,"Fully Functional",Normal,NULL
+223,"Fully Functional",Normal,NULL
+224,"Fully Functional",Normal,"user entry error?"
+225,"Fully Functional",Normal,NULL
+226,"Fully Functional",Normal,NULL
+227,"Fully Functional",Normal,NULL
+228,"Fully Functional",Normal,NULL
+229,"Fully Functional",Normal,NULL
+230,"Fully Functional",Normal,NULL
+231,"Fully Functional",Normal,"user entry error?"
+232,"Fully Functional",Normal,"user entry error?"
+233,"Fully Functional",Normal,"user entry error?"
+234,"Fully Functional",Normal,"user entry error?"
+235,"Needs Minor Repair",Normal,"user entry error?"
+236,"Fully Functional",Normal,"user entry error?"
+237,"Needs Minor Repair",Normal,"user entry error?"
+238,"Fully Functional",Normal,"user entry error?"
+239,"Needs Minor Repair",Normal,"user entry error?"
+240,"Needs Minor Repair",Normal,"user entry error?"
+241,"Fully Functional",Normal,"user entry error?"
+242,"Fully Functional",Normal,"user entry error?"
+243,"Fully Functional",Normal,"user entry error?"
+244,"Fully Functional",Normal,"user entry error?"
+245,"Fully Functional",Normal,NULL
+246,"Needs Major Repair","Very Low",NULL
+247,"Not Functional","No Utilization",NULL
+248,"Fully Functional",Normal,NULL
+249,"Needs Minor Repair","Very High","user entry error?"
+250,"Needs Minor Repair","Very High","user entry error?"
+251,"Needs Minor Repair","Very High","user entry error?"
+252,"Needs Minor Repair","Very High","user entry error?"
+253,"Needs Minor Repair","Very High","user entry error?"
+254,"Needs Minor Repair","Very High","user entry error?"
+255,"Needs Minor Repair","Very High","user entry error?"
+256,"Needs Minor Repair","Very High","user entry error?"
+257,"Fully Functional",Normal,"user entry error?"
+258,"Fully Functional",Normal,"user entry error?"
+259,"Fully Functional",Normal,"user entry error?"
+260,"Fully Functional",Normal,"user entry error?"
+261,"Fully Functional",Normal,"user entry error?"
+262,"Fully Functional",Normal,"user entry error?"
+263,"Fully Functional",Normal,"user entry error?"
+264,"Fully Functional",Normal,"user entry error?"
+265,"Fully Functional",Normal,"user entry error?"
+266,"Fully Functional",Normal,"user entry error?"
+267,"Fully Functional",Normal,"user entry error?"
+268,"Needs Minor Repair","Very High",NULL
+269,"Fully Functional",Normal,NULL
+270,"Fully Functional",Normal,NULL
+271,"Fully Functional",Normal,NULL
+272,"Needs Major Repair","No Utilization",NULL
+273,"Needs Major Repair","Very High",NULL
+274,"Fully Functional",Normal,"user entry error?"
+275,"Fully Functional",Normal,"user entry error?"
+276,"Fully Functional",Normal,NULL
+277,"Fully Functional",Normal,"user entry error?"
+278,"Fully Functional",Normal,"user entry error?"
+279,"Needs Minor Repair","Very High","user entry error?"
+280,"Needs Minor Repair","Very High","user entry error?"
+281,"Fully Functional",Normal,"user entry error?"
+282,"Not Functional","No Utilization",NULL
+283,"Not Functional","No Utilization",NULL
+284,"Fully Functional",Normal,"user entry error?"
+285,"Fully Functional",Normal,"user entry error?"
+286,"Fully Functional",Normal,NULL
+287,"Fully Functional",Normal,NULL
+288,"Fully Functional",Normal,NULL
+289,"Needs Major Repair","Very High",NULL
+290,"Fully Functional",Normal,NULL
+291,"Not Functional","No Utilization",NULL
+292,"Fully Functional",Normal,NULL
+293,"Not Functional","No Utilization",NULL
+294,"Fully Functional",Normal,NULL
+295,"Not Functional","No Utilization",NULL
+296,"Fully Functional",Normal,NULL
+297,"Fully Functional",Normal,NULL
+298,"Not Functional",Normal,NULL
+299,"Not Functional","No Utilization",NULL
+300,"Not Functional","No Utilization",NULL
+301,"Not Functional","No Utilization",NULL
+302,"Not Functional","No Utilization",NULL
+303,"Not Functional","No Utilization",NULL
+304,"Not Functional","No Utilization",NULL
+305,"Not Functional","No Utilization",NULL
+306,"Fully Functional","No Utilization",NULL
+307,"Not Functional","No Utilization",NULL
+308,"Fully Functional","No Utilization",NULL
+309,"Not Functional","No Utilization","needs new bulb"
+310,"Not Functional","No Utilization",irreparable
+311,"Not Functional","No Utilization",NULL
+312,"Fully Functional","No Utilization",NULL
+313,"Fully Functional","No Utilization",NULL
+314,"Fully Functional","No Utilization",NULL
+315,"Not Functional","No Utilization",NULL
+316,"Needs Minor Repair","Very High","user entry error?"
+317,"Needs Minor Repair","Very High","user entry error?"
+318,"Fully Functional",Normal,NULL
+319,"Fully Functional",Normal,NULL
+320,"Fully Functional",Normal,NULL
+321,"Fully Functional",Normal,NULL
+322,"Needs Minor Repair",Normal,"gas down"
+323,"Fully Functional",Normal,NULL
+324,"Fully Functional",Normal,NULL
+325,"Fully Functional",Normal,NULL
+326,"Fully Functional",Normal,NULL
+327,"Not Functional","No Utilization","timer defective"
+328,"Fully Functional",Normal,NULL
+329,"Fully Functional","No Utilization","occasional electrical errors"
+330,"Fully Functional",Normal,NULL
+331,"Fully Functional","No Utilization","not needed"
+332,"Fully Functional","No Utilization","not needed"
+333,"Fully Functional","No Utilization","not needed"
+334,"Fully Functional",Normal,NULL
+335,"Fully Functional",Normal,NULL
+336,"Not Functional","No Utilization","power cord cut and frayed"
+337,"Fully Functional",Normal,NULL
+338,"Fully Functional",Normal,NULL
+339,"Fully Functional","Very High",NULL
+340,"Fully Functional","Very High",NULL
+341,"Fully Functional","Very High",NULL
+342,"Fully Functional",Normal,NULL
+343,"Fully Functional",Normal,"Installed 2011, camera needs upgrade"
+344,"Fully Functional",Normal,NULL
+345,"Fully Functional",Normal,NULL
+346,"Fully Functional",Normal,NULL
+347,"Fully Functional",Normal,NULL
+348,"Fully Functional",Normal,NULL
+349,"Fully Functional",Normal,NULL
+350,"Needs Minor Repair","No Utilization","Needs air stabilization sensor. Part has been received but not yet installed."
+351,"Fully Functional",Normal,NULL
+352,"Fully Functional",Normal,NULL
+353,"Fully Functional",Normal,NULL
+354,"Fully Functional",Normal,NULL
+355,"Needs Minor Repair",Normal,"Heating element defective, right de/calcifying agent a problem"
+356,"Fully Functional",Normal,NULL
+357,"Fully Functional",Normal,NULL
+358,"Fully Functional","No Utilization",NULL
+359,"Not Functional","No Utilization","Power cord is frayed"
+360,"Not Functional","No Utilization",NULL
+361,"Fully Functional","No Utilization","Needs reagents"
+362,"Fully Functional",Normal,NULL
+363,"Not Functional","No Utilization",NULL
+364,"Fully Functional","No Utilization","Needs reagents"
+365,"Not Functional","No Utilization","Needs gasket"
+366,"Needs Major Repair",Normal,NULL
+367,"Fully Functional",Normal,NULL
+368,"Fully Functional",Normal,NULL
+369,"Needs Minor Repair",Normal,"Does not display mass readings"
+370,"Fully Functional",Normal,NULL
+371,"Fully Functional",Normal,NULL
+372,"Fully Functional",Normal,"BD: +254(20)2738339/40"
+373,"Fully Functional",Normal,"BD: +254(20)2738339/40"
+374,"Fully Functional",Normal,NULL
+375,"Fully Functional",Normal,NULL
+376,"Fully Functional",Normal,NULL
+377,"Fully Functional",Normal,NULL
+378,"Fully Functional","Very Low",NULL
+379,"Fully Functional",Normal,NULL
+380,"Fully Functional","No Utilization","Not callibrated"
+381,"Fully Functional",Normal,NULL
+382,"Fully Functional",Normal,NULL
+383,"Fully Functional",Normal,NULL
+384,"Fully Functional",Normal,NULL
+385,"Fully Functional",Normal,NULL
+386,"Fully Functional",Normal,"New, check warranty"
+387,"Fully Functional",Normal,"New, check warranty"
+388,"Fully Functional",Normal,"New, check warranty"
+389,"Fully Functional",Normal,"New, check warranty"
+390,"Fully Functional",Normal,"New, check warranty"
+391,"Fully Functional",Normal,"New, check warranty"
+392,"Fully Functional",Normal,NULL
+393,"Fully Functional",Normal,NULL
+394,"Fully Functional",Normal,NULL
+395,"Fully Functional",Normal,NULL
+396,"Needs Major Repair","Very Low",NULL
+397,"Fully Functional","No Utilization",NULL
+398,"Needs Major Repair","No Utilization",NULL
+399,"Fully Functional",Normal,NULL
+400,"Fully Functional",Normal,NULL
+401,"Fully Functional",Normal,NULL
+402,"Fully Functional",Normal,NULL
+403,"Fully Functional",Normal,NULL
+404,"Needs Major Repair",Normal,NULL
+405,"Fully Functional",Normal,NULL
+406,"Fully Functional",Normal,NULL
+407,"Fully Functional",Normal,NULL
+408,"Fully Functional",Normal,NULL
+409,"Fully Functional",Normal,NULL
+410,"Fully Functional",Normal,NULL
+411,"Fully Functional",Normal,NULL
+412,"Fully Functional",Normal,NULL
+413,"Fully Functional",Normal,NULL
+414,"Fully Functional",Normal,NULL
+415,"Fully Functional",Normal,NULL
+416,"Not Functional","No Utilization","cannot be fixed, kept for spare parts"
+417,"Not Functional","No Utilization",NULL
+418,"Not Functional","No Utilization",NULL
+419,"Not Functional","No Utilization",NULL
+420,"Fully Functional","No Utilization",NULL
+421,"Fully Functional","No Utilization",NULL
+422,"Not Functional","No Utilization",NULL
+423,"Fully Functional","No Utilization","replaced by newer model"
+424,"Not Functional","No Utilization",NULL
+425,"Not Functional","No Utilization",NULL
+426,"Not Functional","No Utilization",NULL
+427,"Not Functional","No Utilization",NULL
+428,"Not Functional","No Utilization",NULL
+429,"Not Functional","No Utilization",NULL
+430,"Not Functional","No Utilization",NULL
+431,"Not Functional","No Utilization",NULL
+432,"Not Functional","No Utilization",NULL
+433,"Not Functional","No Utilization",NULL
+434,"Not Functional","No Utilization",NULL
+435,"Not Functional","No Utilization",NULL
+436,"Not Functional","No Utilization",NULL
+437,"Not Functional","No Utilization",NULL
+438,"Not Functional","No Utilization",NULL
+439,"Not Functional","No Utilization",NULL
+440,"Not Functional","No Utilization",NULL
+441,"Not Functional","No Utilization",NULL
+442,"Not Functional","No Utilization",NULL
+443,"Not Functional","No Utilization",NULL
+444,"Not Functional","No Utilization",NULL
+445,"Not Functional","No Utilization",NULL
+446,"Not Functional","No Utilization",NULL
+447,"Fully Functional","No Utilization",NULL
+448,"Fully Functional","No Utilization",NULL
+449,"Fully Functional","No Utilization",NULL
+450,"Fully Functional","No Utilization",NULL
+451,"Fully Functional","No Utilization",NULL
+452,"Fully Functional","No Utilization",NULL
+453,"Fully Functional","Very Low",NULL
+455,"Fully Functional",Normal,NULL
+456,"Fully Functional",Normal,NULL
+457,"Fully Functional",Normal,"Sanas conducts yearly calibrations"
+458,"Fully Functional",Normal,NULL
+459,"Fully Functional",Normal,NULL
+460,"Fully Functional",Normal,NULL
+461,"Fully Functional",Normal,NULL
+462,"Fully Functional",Normal,NULL
+463,"Fully Functional",Normal,NULL
+464,"Fully Functional",Normal,NULL
+465,"Fully Functional",Normal,NULL
+466,"Fully Functional",Normal,NULL
+467,"Fully Functional",Normal,NULL
+468,"Fully Functional",Normal,NULL
+469,"Fully Functional",Normal,NULL
+470,"Fully Functional",Normal,NULL
+471,"Fully Functional",Normal,NULL
+472,"Fully Functional",Normal,"Calibrated by Sanas, Preventive Maitenance by Sanas"
+473,"Fully Functional",Normal,NULL
+474,"Fully Functional",Normal,NULL
+475,"Fully Functional",Normal,"Calibrated by Sanas"
+476,"Fully Functional","No Utilization","No use because reagents not available"
+477,"Fully Functional",Normal,NULL
+478,"Fully Functional",Normal,NULL
+479,"Fully Functional",Normal,NULL
+480,"Fully Functional",Normal,NULL
+481,"Fully Functional",Normal,NULL
+482,"Fully Functional","No Utilization","No use because reagents not available"
+483,"Fully Functional","No Utilization","No use because reagents not available"
+484,"Fully Functional",Normal,NULL
+485,"Fully Functional",Normal,NULL
+486,"Fully Functional",Normal,NULL
+487,"Fully Functional","No Utilization","Incompatible plug, 110v 60HZ"
+488,"Fully Functional","No Utilization","Some accessories missing + incompatible plug, 90V"
+489,"Not Functional","No Utilization",NULL
+490,"Not Functional","No Utilization","Accessories incomplete"
+491,"Not Functional","No Utilization","Accessories incomplete"
+492,"Not Functional","No Utilization","Accessories incomplete"
+493,"Fully Functional",Normal,NULL
+494,"Fully Functional",Normal,NULL
+495,"Fully Functional","No Utilization","Has not been installed"
+496,"Not Functional","No Utilization","Compressor broken"
+497,"Not Functional","No Utilization",NULL
+498,"Fully Functional",Normal,NULL
+499,"Fully Functional",Normal,NULL
+500,"Fully Functional",Normal,NULL
+501,"Not Functional","No Utilization",NULL
+502,"Not Functional","No Utilization","Never been used, key slot is broken, bulb is missing, key is missing. Damaged from movement"
+503,"Fully Functional",Normal,NULL
+504,"Fully Functional",Normal,NULL
+505,"Fully Functional","No Utilization","Another one in use"
+506,"Not Functional","No Utilization",NULL
+507,"Not Functional","No Utilization",NULL
+508,"Not Functional","No Utilization",NULL
+509,"Fully Functional","No Utilization",NULL
+510,"Fully Functional","No Utilization",NULL
+511,"Fully Functional","No Utilization","Another one in use"
+512,"Fully Functional","No Utilization","Another one in use"
+513,"Fully Functional","No Utilization","Another one in use"
+514,"Fully Functional","No Utilization","Another one in use"
+515,"Fully Functional","No Utilization","Another one in use"
+516,"Fully Functional","Very Low","Another one in use"
+517,"Fully Functional","No Utilization","Another one in use"
+518,"Fully Functional","No Utilization","Another one in use"
+519,"Fully Functional","No Utilization","Another one in use"
+520,"Fully Functional",Normal,NULL
+521,"Fully Functional","No Utilization","Another one in use"
+522,"Fully Functional","No Utilization",NULL
+523,"Fully Functional","No Utilization",NULL
+524,"Fully Functional","No Utilization","Reagents out of stock"
+525,"Not Functional","No Utilization",NULL
+526,"Not Functional","No Utilization",NULL
+527,"Not Functional","No Utilization",NULL
+528,"Fully Functional","Very High","International Hotline: +49(0) 7462/2005-555, service@binder-world.com"
+529,"Fully Functional",Normal,NULL
+530,"Fully Functional",Normal,NULL
+531,"Fully Functional",Normal,NULL
+532,"Fully Functional",Normal,NULL
+533,"Fully Functional",Normal,"Kas Medics +255222111896, adarsha@kasmedics.com"
+534,"Fully Functional",Normal,NULL
+535,"Fully Functional","No Utilization","Another one in use"
+536,"Fully Functional","Very High",NULL
+537,"Fully Functional",Normal,NULL
+538,"Not Functional","No Utilization",NULL
+539,"Fully Functional",Normal,NULL
+540,"Fully Functional",Normal,NULL
+541,"Fully Functional",Normal,NULL
+542,"Fully Functional",Normal,NULL
+543,"Fully Functional",Normal,NULL
+544,"Fully Functional",Normal,NULL
+545,"Fully Functional",Normal,NULL
+546,"Fully Functional",Normal,NULL
+547,"Fully Functional",Normal,NULL
+548,"Fully Functional",Normal,NULL
+549,"Not Functional","No Utilization",NULL
+550,"Not Functional","No Utilization","Bulb broken"
+551,"Fully Functional",Normal,NULL
+552,"Fully Functional",Normal,NULL
+553,"Not Functional","No Utilization",NULL
+554,"Not Functional","No Utilization",NULL
+555,"Not Functional","No Utilization",NULL
+556,"Fully Functional","No Utilization",NULL
+557,"Fully Functional",Normal,NULL
+558,"Not Functional","No Utilization","Funder: Azur 58008, Israel, sach@barak-online.net, 972-3-558-9656"
+559,"Fully Functional","No Utilization","no use because Ultrasound not in use"
+560,"Fully Functional","No Utilization","no use because Ultrasound not in use"
+561,"Fully Functional",Normal,NULL
+562,"Fully Functional",Normal,NULL
+563,"Fully Functional",Normal,NULL
+564,"Fully Functional",Normal,NULL
+565,"Fully Functional",Normal,NULL
+566,"Fully Functional",Normal,NULL
+567,"Fully Functional",Normal,NULL
+568,"Fully Functional",Normal,NULL
+569,"Fully Functional",Normal,NULL
+570,"Fully Functional",Normal,NULL
+571,"Fully Functional",Normal,NULL
+572,"Fully Functional",Normal,NULL
+573,"Fully Functional",Normal,NULL
+574,"Fully Functional",Normal,NULL
+575,"Fully Functional",Normal,NULL
+576,"Fully Functional",Normal,NULL
+577,"Fully Functional",Normal,NULL
+578,"Fully Functional",Normal,NULL
+579,"Fully Functional",Normal,NULL
+580,"Fully Functional",Normal,NULL
+581,"Fully Functional",Normal,NULL
+582,"Fully Functional",Normal,NULL
+583,"Fully Functional",Normal,NULL
+584,"Fully Functional",Normal,NULL
+585,"Fully Functional",Normal,NULL
+586,"Fully Functional",Normal,NULL
+587,"Not Functional","No Utilization",NULL
+588,"Needs Major Repair","Very Low","2 table legs broken"
+589,"Fully Functional",Normal,NULL
+590,"Fully Functional",Normal,NULL
+591,"Not Functional","No Utilization","comes with infant-holding chair, technical support: 18006383722"
+592,"Not Functional","No Utilization","comes with infant-holding tray"
+593,"Not Functional","No Utilization","switch not working"
+594,"Fully Functional",Normal,NULL
+595,"Fully Functional",Normal,NULL
+596,"Fully Functional",Normal,NULL
+597,"Fully Functional",Normal,NULL
+598,"Fully Functional",Normal,NULL
+599,"Fully Functional",Normal,NULL
+600,"Fully Functional",Normal,NULL
+601,"Fully Functional",Normal,NULL
+602,"Not Functional","No Utilization",NULL
+603,"Fully Functional",Normal,NULL
+604,"Fully Functional",Normal,NULL
+605,"Fully Functional",Normal,NULL
+606,"Not Functional","No Utilization",NULL
+607,"Not Functional","No Utilization",NULL
+608,"Needs Minor Repair",Normal,"metal frame under mattresses broken"
+609,"Needs Minor Repair",Normal,"metal frame under mattresses broken"
+610,"Needs Minor Repair",Normal,"metal frame under mattresses broken"
+611,"Fully Functional",Normal,"with child cuff"
+612,"Not Functional","No Utilization","w/o cuff"
+613,"Fully Functional",Normal,"with child cuff"
+614,"Not Functional","No Utilization","with child cuff"
+615,"Fully Functional","No Utilization","this is a spare - another one is in use, technical supoort: 8001300845"
+616,"Fully Functional","Very High",NULL
+617,"Fully Functional",Normal,NULL
+618,"Fully Functional","Very High",NULL
+619,"Fully Functional","Very High","repaired by danida"
+620,"Fully Functional",Normal,NULL
+621,"Fully Functional",Normal,NULL
+622,"Fully Functional",Normal,NULL
+623,"Fully Functional","Very High",NULL
+624,"Fully Functional","Very High",NULL
+625,"Fully Functional","Very High",NULL
+626,"Fully Functional",Normal,NULL
+627,"Fully Functional",Normal,NULL
+628,"Fully Functional","Very High",NULL
+629,"Fully Functional","Very High",NULL
+630,"Fully Functional","Very High",NULL
+631,"Needs Minor Repair","Very Low",NULL
+632,"Not Functional","No Utilization",NULL
+633,"Not Functional","No Utilization","broken electrodes"
+634,"Fully Functional",Normal,NULL
+635,"Not Functional","No Utilization",NULL
+636,"Fully Functional",Normal,NULL
+637,"Not Functional","No Utilization",NULL
+638,"Fully Functional",Normal,NULL
+639,"Fully Functional",Normal,NULL
+640,"Fully Functional",Normal,NULL
+641,"Fully Functional",Normal,NULL
+642,"Fully Functional","Very Low","info at puretone.net"
+643,"Fully Functional","Very Low",NULL
+644,"Fully Functional","Very Low",NULL
+645,"Fully Functional",Normal,NULL
+646,"Needs Minor Repair","No Utilization","need to buy rechargeable battery with 4V or AA battery. Printer not working. Guy Mark Contact +44[0]1384410848 www.guymark.com"
+647,"Not Functional","No Utilization",NULL
+648,"Fully Functional",Normal,NULL
+649,"Fully Functional",Normal,NULL
+650,"Fully Functional",Normal,NULL
+651,"Fully Functional",Normal,NULL
+652,"Fully Functional",Normal,NULL
+653,"Fully Functional",Normal,NULL
+654,"Fully Functional",Normal,NULL
+655,"Fully Functional",Normal,NULL
+656,"Fully Functional",Normal,"Donor: Dr Drysdale, a.drysdale2@gmail.com"
+657,"Fully Functional",Normal,NULL
+658,"Fully Functional",Normal,NULL
+659,"Fully Functional",Normal,NULL
+660,"Not Functional","No Utilization",NULL
+661,"Fully Functional",Normal,NULL
+662,"Fully Functional",Normal,NULL
+663,"Fully Functional",Normal,NULL
+664,"Fully Functional",Normal,NULL
+665,"Fully Functional",Normal,NULL
+666,"Fully Functional",Normal,NULL
+667,"Fully Functional",Normal,NULL
+668,"Fully Functional",Normal,NULL
+669,"Fully Functional",Normal,NULL
+670,"Fully Functional",Normal,NULL
+671,"Fully Functional",Normal,NULL
+672,"Not Functional","No Utilization",NULL
+673,"Not Functional","No Utilization",NULL
+674,"Fully Functional",Normal,NULL
+675,"Fully Functional",Normal,NULL
+676,"Fully Functional",Normal,NULL
+677,"Fully Functional",Normal,NULL
+678,"Fully Functional",Normal,NULL
+679,"Fully Functional",Normal,NULL
+680,"Fully Functional",Normal,NULL
+681,"Fully Functional",Normal,NULL
+682,"Fully Functional",Normal,NULL
+683,"Fully Functional",Normal,NULL
+684,"Fully Functional",Normal,NULL
+685,"Fully Functional",Normal,NULL
+686,"Fully Functional",Normal,NULL
+687,"Fully Functional",Normal,NULL
+688,"Fully Functional",Normal,NULL
+689,"Fully Functional",Normal,NULL
+690,"Fully Functional",Normal,NULL
+691,"Fully Functional",Normal,NULL
+692,"Fully Functional",Normal,NULL
+693,"Fully Functional",Normal,NULL
+694,"Not Functional","No Utilization",NULL
+695,"Fully Functional",Normal,NULL
+696,"Fully Functional",Normal,NULL
+697,"Fully Functional",Normal,NULL
+698,"Fully Functional","Very Low",NULL
+699,"Fully Functional","Very Low",NULL
+700,"Fully Functional","Very Low","foot operated - user does not enjoy it"
+701,"Fully Functional","Very Low","foot operated - user does not enjoy it"
+702,"Fully Functional",Normal,NULL
+703,"Not Functional","No Utilization",NULL
+704,"Not Functional","No Utilization","new bedside monitors used instead, battery failed"
+705,"Needs Major Repair","No Utilization","runs for 15 min before switching off; minor repair in aug 2012; runs continuously but makes loud noise"
+706,"Not Functional","No Utilization",NULL
+707,"Fully Functional","Very Low","Brought to other departments for use"
+708,"Fully Functional","No Utilization","new bedside monitors used instead, battery failed"
+709,"Not Functional","Very Low",NULL
+710,"Not Functional","No Utilization",NULL
+711,"Fully Functional",Normal,NULL
+712,"Fully Functional",Normal,NULL
+713,"Fully Functional",Normal,NULL
+714,"Fully Functional",Normal,"New bedside monitors used"
+715,"Fully Functional",Normal,NULL
+716,"Fully Functional",Normal,NULL
+717,"Fully Functional",Normal,NULL
+718,"Fully Functional",Normal,NULL
+719,"Fully Functional",Normal,NULL
+720,"Fully Functional",Normal,NULL
+721,"Fully Functional",Normal,NULL
+722,"Fully Functional",Normal,NULL
+723,"Fully Functional",Normal,NULL
+724,"Fully Functional",Normal,NULL
+725,"Fully Functional",Normal,NULL
+726,"Fully Functional",Normal,NULL
+727,"Fully Functional",Normal,NULL
+728,"Fully Functional",Normal,NULL
+729,"Fully Functional",Normal,NULL
+730,"Fully Functional",Normal,NULL
+731,"Fully Functional",Normal,NULL
+732,"Fully Functional",Normal,NULL
+733,"Fully Functional",Normal,NULL
+734,"Not Functional","No Utilization",NULL
+735,"Fully Functional",Normal,NULL
+736,"Fully Functional",Normal,NULL
+737,"Fully Functional",Normal,NULL
+738,"Needs Minor Repair",Normal,"3 out of 6 screens working"
+739,"Fully Functional",Normal,NULL
+740,"Fully Functional",Normal,NULL
+741,"Fully Functional",Normal,NULL
+742,"Fully Functional",Normal,NULL
+743,"Fully Functional",Normal,NULL
+744,"Fully Functional",Normal,NULL
+745,"Fully Functional",Normal,NULL
+746,"Fully Functional",Normal,NULL
+747,"Fully Functional",Normal,NULL
+748,"Fully Functional",Normal,NULL
+749,"Not Functional","No Utilization",NULL
+750,"Fully Functional",Normal,NULL
+751,"Needs Minor Repair","No Utilization",NULL
+752,"Needs Minor Repair",Normal,NULL
+753,"Needs Minor Repair",Normal,"Head rest broken"
+754,"Needs Major Repair",Normal,"Light bulb is not working, water jet not working, chair position cannot be adjusted"
+755,"Fully Functional",Normal,NULL
+756,"Not Functional","No Utilization",NULL
+757,"Not Functional","No Utilization",NULL
+758,"Not Functional","No Utilization",NULL
+759,"Fully Functional",Normal,NULL
+760,"Needs Major Repair",Normal,"Does not heat up, just used for storing neonates"
+761,"Needs Major Repair",Normal,"Does not heat up, just used for storing neonates"
+762,"Fully Functional",Normal,NULL
+763,"Fully Functional",Normal,NULL
+764,"Fully Functional",Normal,NULL
+765,"Fully Functional",Normal,NULL
+766,"Fully Functional",Normal,NULL
+767,"Not Functional","No Utilization",NULL
+768,"Fully Functional",Normal,NULL
+769,"Not Functional","No Utilization",NULL
+770,"Needs Minor Repair",Normal,"Switches off sometimes, needs reboot"
+771,"Not Functional",Normal,NULL
+772,"Fully Functional",Normal,NULL
+773,"Fully Functional",Normal,NULL
+774,"Fully Functional",Normal,NULL
+775,"Fully Functional",Normal,NULL
+776,"Fully Functional",Normal,NULL
+777,"Fully Functional",Normal,NULL
+778,"Needs Minor Repair",Normal,NULL
+779,"Needs Minor Repair",Normal,NULL
+780,"Needs Minor Repair",Normal,NULL
+781,"Not Functional","No Utilization",NULL
+782,"Fully Functional",Normal,NULL
+783,"Fully Functional",Normal,NULL
+784,"Fully Functional",Normal,NULL
+785,"Fully Functional",Normal,NULL
+786,"Fully Functional",Normal,NULL
+787,"Fully Functional",Normal,NULL
+788,"Fully Functional",Normal,NULL
+789,"Fully Functional",Normal,NULL
+790,"Fully Functional",Normal,NULL
+791,"Fully Functional",Normal,NULL
+792,"Fully Functional",Normal,NULL
+793,"Fully Functional",Normal,NULL
+794,"Fully Functional",Normal,NULL
+795,"Fully Functional",Normal,NULL
+796,"Fully Functional",Normal,NULL
+797,"Fully Functional",Normal,NULL
+798,"Fully Functional",Normal,NULL
+799,"Fully Functional",Normal,NULL
+800,"Needs Major Repair",Normal,"Lamp does not stabilize- medchanical fault, needs to be propped for use"
+801,"Fully Functional",Normal,NULL
+802,"Fully Functional",Normal,NULL
+803,"Fully Functional",Normal,"Low vacuum, inconsistent functioning, sent to HCEU repeatedly, Annudha: +255222122745/7"
+804,"Fully Functional",Normal,NULL
+805,"Fully Functional",Normal,NULL
+806,"Fully Functional",Normal,NULL
+807,"Fully Functional",Normal,NULL
+808,"Needs Minor Repair",Normal,"mechanical failure for wheels. Lab Equip came once during warranty period. Second time of breakage was after warranty"
+809,"Fully Functional",Normal,NULL
+810,"Fully Functional",Normal,NULL
+811,"Fully Functional",Normal,NULL
+812,"Needs Major Repair","No Utilization","EKG functioning, defibs not"
+813,"Fully Functional",Normal,NULL
+814,"Needs Major Repair",Normal,"Lamp does not stabilize- medchanical fault, needs to be propped for use"
+815,"Fully Functional",Normal,NULL
+816,"Fully Functional",Normal,NULL
+817,"Needs Major Repair",Normal,"Fan is broken"
+818,"Needs Minor Repair","Very High","Sometimes doesn't go up and down, stiff pedal"
+819,"Not Functional","No Utilization","Gives incorrect measurements"
+820,"Not Functional","No Utilization","Measurements for heart rate, arterial pressure, systolic and diastolic are incorrect"
+821,"Not Functional","No Utilization",NULL
+822,"Fully Functional",Normal,NULL
+823,"Fully Functional",Normal,NULL
+824,"Not Functional","No Utilization",NULL
+825,"Not Functional","No Utilization",NULL
+826,"Not Functional","No Utilization",NULL
+827,"Not Functional","No Utilization",NULL
+828,"Fully Functional",Normal,NULL
+829,"Fully Functional",Normal,NULL
+830,"Fully Functional",Normal,NULL
+831,"Fully Functional",Normal,NULL
+832,"Needs Major Repair",Normal,"Heating lamp not working"
+833,"Needs Minor Repair",Normal,"Vacuum strength not high enough"
+834,"Needs Minor Repair",Normal,"Vacuum strength not high enough"
+835,"Not Functional","No Utilization","Missing motor, incomplete set"
+836,"Fully Functional","No Utilization",NULL
+837,"Fully Functional",Normal,NULL
+838,"Fully Functional",Normal,NULL
+839,"Fully Functional",Normal,NULL
+840,"Fully Functional",Normal,NULL
+841,"Fully Functional",Normal,NULL
+842,"Fully Functional",Normal,NULL
+843,"Fully Functional",Normal,NULL
+844,"Fully Functional",Normal,NULL
+845,"Fully Functional",Normal,NULL
+846,"Needs Major Repair","Very Low","Electronic controls not working, used when 2 evacuation procedures are needed"
+847,"Needs Minor Repair",Normal,NULL
+848,"Fully Functional",Normal,NULL
+849,"Needs Minor Repair",Normal,"Works sometimes"
+850,"Fully Functional",Normal,NULL
+851,"Fully Functional",Normal,NULL
+852,"Needs Minor Repair","Very Low","Hard to use, stiff"
+853,"Needs Minor Repair","No Utilization",NULL
+854,"Not Functional","No Utilization",NULL
+855,"Fully Functional",Normal,NULL
+856,"Needs Minor Repair","No Utilization",NULL
+857,"Needs Minor Repair","No Utilization","Hard to use, stiff"
+858,"Fully Functional",Normal,"Hard to use, stiff"
+859,"Fully Functional",Normal,NULL
+860,"Not Functional","No Utilization",NULL
+861,"Not Functional","No Utilization",NULL
+862,"Fully Functional",Normal,NULL
+863,"Fully Functional",Normal,NULL
+864,"Fully Functional",Normal,NULL
+865,"Not Functional","No Utilization",NULL
+866,"Fully Functional",Normal,NULL
+867,"Fully Functional",Normal,NULL
+868,"Fully Functional",Normal,NULL
+869,"Not Functional","No Utilization",NULL
+870,"Fully Functional",Normal,NULL
+871,"Fully Functional",Normal,NULL
+872,"Needs Major Repair",Normal,NULL
+873,"Needs Major Repair",Normal,"CO2 Absorber switch not working well"
+874,"Not Functional","No Utilization","Works on and off, piping to oxygen tank does not connect"
+875,"Fully Functional",Normal,"Wrong vaporizer? Piping to oxygen does not connect"
+876,"Fully Functional",Normal,NULL
+877,"Fully Functional",Normal,NULL
+878,"Fully Functional",Normal,NULL
+879,"Fully Functional",Normal,NULL
+880,"Fully Functional",Normal,NULL
+881,"Needs Major Repair","No Utilization",NULL
+882,"Not Functional","No Utilization","Water leakage"
+883,"Fully Functional",Normal,NULL
+884,"Fully Functional","No Utilization",NULL
+885,"Fully Functional",Normal,"Not used because ultrasound is not used"
+886,"Fully Functional",Normal,NULL
+887,"Not Functional","No Utilization",NULL
+888,"Not Functional","No Utilization",NULL
+889,"Not Functional","No Utilization",NULL
+890,"Fully Functional",Normal,NULL
+891,"Not Functional","No Utilization",NULL
+892,"Not Functional","No Utilization",NULL
+893,"Not Functional","No Utilization","Should be disposed"
+894,"Fully Functional",Normal,NULL
+895,"Fully Functional",Normal,NULL
+896,"Fully Functional",Normal,NULL
+897,"Fully Functional",Normal,NULL
+898,"Fully Functional",Normal,NULL
+899,"Fully Functional","No Utilization",NULL
+900,"Fully Functional",Normal,"No reagents"
+901,"Not Functional","No Utilization",NULL
+902,"Not Functional",Normal,"probe doesn't function"
+903,"Fully Functional",Normal,NULL
+904,"Not Functional","No Utilization",NULL
+905,"Not Functional","No Utilization","Should be disposed"
+906,"Not Functional","No Utilization",NULL
+907,"Fully Functional","No Utilization",NULL
+908,"Fully Functional",Normal,NULL
+909,"Fully Functional",Normal,NULL
+910,"Fully Functional",Normal,NULL
+911,"Fully Functional",Normal,NULL
+912,"Fully Functional",Normal,NULL
+913,"Fully Functional",Normal,NULL
+914,"Fully Functional",Normal,NULL
+915,"Fully Functional",Normal,NULL
+916,"Fully Functional",Normal,NULL
+917,"Not Functional","No Utilization",NULL
+918,"Not Functional","No Utilization",NULL
+919,"Not Functional","No Utilization",NULL
+920,"Not Functional","No Utilization",NULL
+921,"Not Functional","No Utilization",NULL
+922,"Fully Functional","No Utilization",NULL
+923,"Fully Functional","No Utilization",NULL
+924,"Not Functional","No Utilization",NULL
+925,"Not Functional","No Utilization",Irreparable
+926,"Fully Functional","No Utilization","mmHg meter is broken"
+927,"Fully Functional","No Utilization",NULL
+928,"Not Functional","No Utilization",NULL
+929,"Fully Functional","No Utilization","Capacitor broken"
+930,"Fully Functional","No Utilization",NULL
+931,"Fully Functional",Normal,NULL
+932,"Fully Functional","No Utilization",NULL
+933,"Needs Minor Repair","No Utilization",NULL
+934,"Fully Functional","No Utilization","Functional but leaky cuff"
+935,"Fully Functional","No Utilization",NULL
+936,"Fully Functional","No Utilization","Missing 1 9V Battery"
+937,"Fully Functional","No Utilization","Missing 1 9V Battery"
+938,"Fully Functional",Normal,"Missing 2 AA Batteries"
+939,"Fully Functional",Normal,NULL
+940,"Fully Functional","No Utilization",NULL
+941,"Fully Functional","No Utilization","Not used because scanner not functional. +255 222701032 (Supplier and Service coy no.)"
+942,"Fully Functional","No Utilization","Not used because scanner not functional. "
+943,"Fully Functional","No Utilization","Not used because scanner not functional. "
+944,"Not Functional","No Utilization","Not used because scanner not functional. +255 222701032 (Supplier and Service coy no.)"
+945,"Fully Functional","No Utilization","X-Ray tube needs to be replaced"
+946,"Fully Functional",Normal,"Not used because scanner not functional. +255 222701032 (Supplier and Service coy no.)"
+947,"Fully Functional",Normal,NULL
+948,"Fully Functional",Normal,NULL
+949,"Needs Minor Repair",Normal,NULL
+950,"Needs Minor Repair",Normal,"No batteries, bust still works for intubation. Flashlight function does not work. Needs 2 AA Batteries"
+951,"Needs Minor Repair",Normal,"No batteries, bust still works for intubation. Flashlight function does not work. Needs 2 AA Batteries"
+952,"Fully Functional","No Utilization","No batteries, bust still works for intubation. Flashlight function does not work. Needs 2 AA Batteries"
+953,"Fully Functional","No Utilization","Autoclave in maternity main corridor is used instead. 1 is enough for each department."
+954,"Not Functional","No Utilization","Autoclave in maternity main corridor is used instead. 1 is enough for each department."
+955,"Fully Functional","No Utilization",NULL
+956,"Not Functional","No Utilization",NULL
+957,"Fully Functional",Normal,NULL
+958,"Not Functional","No Utilization",NULL
+959,"Fully Functional",Normal,NULL
+960,"Not Functional","No Utilization",NULL
+961,"Not Functional","No Utilization","Waiting for sparepart (24V output power supplier)"
+962,"Not Functional","No Utilization","Awaiting functional monitor. Funder contact: pierlorenzo.costa@tin.it"
+963,"Not Functional","No Utilization",NULL
+964,"Not Functional","No Utilization",NULL
+965,"Not Functional","No Utilization",NULL

@@ -1,0 +1,965 @@
+domain,tag,name,model,serial_number,year_manufactured,funding,date_received,warranty_expiry,contract_expiry,warranty_notes,service_agent,room,type,price
+P-CC,001,Incubator,"apt-line b28 ",11-15317,NULL,ICAP,2012-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-CC,002,Microscope,"humascope fluo led b/g",110024,2012,ICAP,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-CC,003,Microscope,cx21FS1,5390939,NULL,ZMCP,NULL,NULL,NULL,NULL,ZMCP,Parasitology,Biomedical,NULL
+P-CC,004,"Hot Plate",HP-155A,NULL,NULL,Government,2012-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-CC,005,Centrifuge,egl-12e,6,NULL,ADB,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+P-CC,006,Spectrophotometer,ae-350,35259,2009,ADB,NULL,NULL,NULL,NULL,ADB,Microbiology,Biomedical,NULL
+P-CC,007,"Microplate Reader",ax-9602,0-9070176,2009,ADB,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+P-CC,008,"Microplate Reader",ax-9602,0-9070135,2009,ADB,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+P-CC,009,"Electronic Balance","ast 320-4m",WB07C0078,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sputum Examination ",Biomedical,NULL
+P-CC,010,"Safety Cabinet",mn120,0-2-0647,2011,ICAP,NULL,NULL,NULL,NULL,NULL,"Sputum Examination ",Biomedical,NULL
+P-CC,011,Microscope,"primostar iled",3133000139,NULL,USAID,NULL,NULL,NULL,NULL,NULL,"Sputum Examination ",Biomedical,NULL
+P-CC,012,Autoclave,3870m,1105556,NULL,ICAP,2003-03-03,NULL,NULL,NULL,ICAP,"Sputum Examination ",Biomedical,NULL
+P-CC,013,Microscope,"eclipse e200",143954,NULL,"World Medical Colours",2003-01-01,NULL,NULL,NULL,NULL,"Sputum Examination ",Biomedical,NULL
+P-CC,014,Glucometer,elite,212465,NULL,Hospital,NULL,NULL,NULL,NULL,NULL,Phlebotomy,Biomedical,NULL
+P-CC,015,Glucometer,"Ghaco Plus",GP0179200,NULL,Hospital,NULL,NULL,NULL,NULL,NULL,Phlebotomy,Biomedical,NULL
+P-CC,016,"Hemoglobin Analyzer","Hemocue Hb 201+",0824013166,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Phlebotomy,Biomedical,NULL
+P-CC,017,Microscope,ch40,rf200,NULL,ZACP,NULL,NULL,NULL,NULL,NULL,"Lab Store Room",Biomedical,NULL
+P-CC,018,Centrifuge,4236,220793,1989,NULL,NULL,NULL,NULL,NULL,NULL,"Lab Store Room",Biomedical,NULL
+P-CC,019,Glucometer,c07000,244,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Lab Store Room",Biomedical,NULL
+P-CC,020,Centrifuge,dsc3005d,0-606046,NULL,ICAP,2006-01-01,NULL,NULL,NULL,NULL,"Lab Store Room",Biomedical,NULL
+P-CC,021,"Water Bath",Dk-420,L-612822,NULL,PHL,NULL,NULL,NULL,NULL,NULL,"Blood Transfusion",Biomedical,NULL
+P-CC,022,Microscope,cx21FS1,SF91089,NULL,SMPC,NULL,NULL,NULL,NULL,NULL,"Blood Transfusion",Biomedical,NULL
+P-CC,023,Centrifuge,R303,HMLC-6691,2004,NULL,NULL,NULL,NULL,NULL,NULL,"Blood Transfusion",Biomedical,NULL
+P-CC,024,"Refrigerator, Blood","Emotega 250",13608,2004,UNFPA,2006-01-01,NULL,NULL,NULL,ICAP,"Blood Transfusion",Biomedical,NULL
+P-CC,025,"Chemistry Analyzer","screen master 3000 evolution",n33295,NULL,ICAP,2006-01-01,NULL,NULL,NULL,NULL,Hematology,Biomedical,NULL
+P-CC,026,"Nortex Mixer",vm-1000,08101035,NULL,ICAP,2006-01-06,NULL,NULL,NULL,NULL,"Hematology And Chemistry",Biomedical,NULL
+P-CC,027,"Refridgerator/Freezer, Reagents",ZR-440FC,KE3Y570028,NULL,ZACP,2007-11-12,NULL,NULL,NULL,ZACP,"Hematology And Chemistry",Biomedical,NULL
+P-CC,028,"Hematology Analyzer","micros 60 ot",6050t80798,NULL,ICAP,2006-01-01,NULL,NULL,NULL,NULL,"Hematology And Chemistry",Biomedical,NULL
+P-CC,029,"Cd4 Machine","BD Facs Count TM Instrument",D858000488,2006,ICAP,2006-01-01,NULL,NULL,NULL,NULL,"Hematology And Chemistry",Biomedical,NULL
+P-CC,030,Ecg,mac500,500008730,2003,"Donated by Ivo de Carreri",NULL,NULL,NULL,NULL,NULL,"Radiologist Office",Biomedical,NULL
+P-CC,031,Ecg,cardiofax-3,ai09507,NULL,IVO,2009-01-01,NULL,NULL,NULL,NULL,"Radiologist Office",Biomedical,NULL
+P-CC,032,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Radiologist Office",Biomedical,NULL
+P-CC,033,Xray,s175,1280,1990,NULL,NULL,NULL,NULL,NULL,NULL,"Xray Examination Room",Biomedical,NULL
+P-CC,034,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Xray Examination Room",Biomedical,NULL
+P-CC,035,"Xray Dryer",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Xray Examination Room",Biomedical,NULL
+P-CC,036,"Safe Light","VA 05",442,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dark Room",Biomedical,NULL
+P-CC,037,"Xray Manual Processing Tank",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Xray Examination Room",Biomedical,NULL
+P-CC,038,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Xray Examination Room",Biomedical,NULL
+P-CC,039,Ultrasound,SSD-650CL,21M02954,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+P-CC,040,Ultrasound,au560cfm,se14399015,NULL,"Ivo de Cameri Fdn",2011-01-01,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+P-CC,041,"Ultrasound Monitor",ezu-mt12-s1,se14432011,NULL,"Ivo de Cameri Fdn",2011-01-01,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+P-CC,042,"Operation Table",OPT20,132,1995,"Ivo de Cameri Fdn",NULL,NULL,NULL,NULL,NULL,"Minor Theater Room",Biomedical,NULL
+P-CC,043,"Examination Lamp","ML 3005",NULL,NULL,"Ivo de Carneria Fdn",NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,044,"Cardiac Monitor",NULL,7384ld,NULL,IDC/IVO,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,045,"Anesthesia Machine",NULL,280s,NULL,IDC/IVO,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,046,"Weighing Scale",NULL,c580794,NULL,"Ivo de Carneria Fdn",NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,047,"Air Compressor",A-L-Kompressor,8406250,NULL,NULL,2011-01-01,NULL,NULL,NULL,NULL,"Operating Room",Biomedical,NULL
+P-CC,048,"Cardiac Monitor","multinex 4000",6117-jo,NULL,"Ivo de Carreri",NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,049,"Surgical Lamp","haravlux 2004",9010015,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,050,"Suction Machine","CS M101",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,051,"Anesthesia Machine",Libretta,12-04112,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,052,"Cardiac Monitor","sirecust 732","01414 S 02",NULL,IDC,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,053,"Cardiac Monitor/Defibrillator",Cardioserve,101134727,NULL,"Italy Foundation",NULL,NULL,NULL,NULL,NULL,"Operating Room",Biomedical,NULL
+P-CC,054,"Oxygen Concentrator","catalog #51 saks",A5048356S,NULL,UNFPA,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,055,"Air Compressor",event,A0477-08-04,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Operating Room",Biomedical,NULL
+P-CC,056,"Suction Machine","Tobi clinic",2078,NULL,NULL,NULL,NULL,NULL,NULL,"Anudha Limited (anudha.com; +255 22 2122745/7","Operating Room",Biomedical,NULL
+P-CC,057,"Operating Table",opt,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Operating Room",Biomedical,NULL
+P-CC,058,"Oxygen Concentrator",515ks,h53285ks,NULL,UNFPA,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,059,Autoclave,NULL,5972,NULL,1982-15-01,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,060,Autoclave,NULL,5641,1980,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,061,Autoclave,70317,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,062,Sterilizer,dxba3321,26143,2003,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,063,"Diathermy Machine",martin,b054/84,1988,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,064,"Diathermy Machine","hyfrecator plus",7-96a-u,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,065,"Diathermy Machine",martin,b073/69,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Major Theater",Biomedical,NULL
+P-CC,066,"Electric Hotplate",AHP-3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization  Room",Biomedical,NULL
+P-CC,067,"Suction Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,068,"Exam Light",ls-150,NULL,NULL,"International aid",NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,069,"Neonatal Scale",NULL,0-32633,NULL,UNICEF,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,070,Oven,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Labor Room",Biomedical,NULL
+P-CC,071,"Neonatal Incubator",6-ft,7431/90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,072,"Fetal Heart Dector",D206,2489,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,073,"Delivery Bed",NULL,NULL,NULL,IVO,NULL,NULL,NULL,NULL,NULL,"Labor Room",Biomedical,NULL
+P-CC,074,"Delivery Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Labor Room",Biomedical,NULL
+P-CC,075,"Delivery Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Labor Room",Biomedical,NULL
+P-CC,076,"Delivery Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Labor Room",Biomedical,NULL
+P-CC,077,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,078,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,079,"Patient Trolley",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,080,"Operating Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+P-CC,081,"Examination Lamp",NULL,NULL,NULL,"Ivo de Carneri",NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,082,"Ether Machine (Anesthesia)",NULL,09303/133685,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Operating Room",Biomedical,NULL
+P-CC,083,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,084,Oven,Pasteur,0500,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,085,"Dental Xray",sn82,0-137241,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,086,"Dental Chair",NULL,0-7062,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,087,"Dental Unit",NULL,nref,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,088,"Exam Light",esb25,40078-903,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,089,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dental Clinic",Biomedical,NULL
+P-CC,090,"Examination Chair",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Eye Clinic Examination Room",Biomedical,NULL
+P-CC,091,Autoclave,NULL,0540/90,NULL,Italy,NULL,NULL,NULL,NULL,NULL,"Doctor Room",Biomedical,NULL
+P-CC,092,"Lens Microscope","lensmaster lm-25",503,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,093,"Patient Chair",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,094,"Vision Unit","Vistion tester D",181989,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,095,"Auto Refractor","AR 530",85418,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,096,"Examination Microscope/ Slit Lamp",Y25F1,221019121006,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Room",Biomedical,NULL
+P-CC,097,Projector,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,098,Grinderr,LE-400,10142975,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Work Shop Of Vision Center",Biomedical,NULL
+P-CC,099,"Work Shop Grainder",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Work Shop Of Vision Center",Biomedical,NULL
+P-CC,100,"Heat Gun",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center",Biomedical,NULL
+P-CC,101,Microscope,NULL,y0000199,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Work Shop Of Vision Center",Biomedical,NULL
+P-CC,102,"Pattern Cutter",ls-100,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Vision Center Store",Biomedical,NULL
+P-CC,103,Refrigerator,"RCW 50 EK",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Reproductive Child Health",Biomedical,NULL
+P-CC,104,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Reproductive Child Health",Biomedical,NULL
+P-CC,105,Scale,2171721009,0123,2009,"Doctors without Borders",NULL,NULL,NULL,NULL,NULL,RCH,Biomedical,NULL
+P-CC,106,"Bp Machine","Bigben Round",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,RCH,Biomedical,NULL
+P-CC,107,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,RCH,Biomedical,NULL
+P-CC,108,"Standing Scale",8811021659,1881139095183,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Reproductive Child Health",Biomedical,NULL
+P-CC,109,"Grinder Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Work Shop Of Vision Center",Biomedical,NULL
+P-CC,110,"Tint Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Work Shop Of Vision Center",Biomedical,NULL
+P-CC,111,"Bp Machine",NULL,NULL,NULL,SM2,NULL,NULL,NULL,NULL,NULL,"Doctor Room2",Biomedical,NULL
+P-CC,112,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor Room 1",Biomedical,NULL
+P-CC,113,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor Room 2",Biomedical,NULL
+P-CC,114,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor Room 2",Biomedical,NULL
+P-CC,115,"Bp Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor Room 1",Biomedical,NULL
+P-CC,116,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ctc - Core Treament Center",Biomedical,NULL
+P-CC,117,"Weighing Scale",8811021659,1.88114E+12,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Care Treatment Clinic",Biomedical,NULL
+P-CC,118,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor Room 3",Biomedical,NULL
+P-CC,119,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Opd Main Corridor",Biomedical,NULL
+P-CC,120,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Opd Main Corridor",Biomedical,NULL
+P-CC,121,Autoclave,NULL,0541190,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dressing Room",Biomedical,NULL
+P-CC,122,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Dressing Room",Biomedical,NULL
+P-CC,123,Otoscope,11730,NY13153,NULL,Chara,2012-01-01,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,124,Otoscope,335828,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,125,"Blood Pressure Machine Manual",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,126,"Examination Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,127,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,128,"Examination Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ent,Biomedical,NULL
+P-CC,129,Refrigerator,PR-151-GX,0463785,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Dispensary,Biomedical,NULL
+P-CC,130,Refrigerator,NULL,0-1011101,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Dispensary,Biomedical,NULL
+P-CC,131,Refrigerator,NULL,500300123,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Dispensary,Biomedical,NULL
+P-CC,132,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Mortuary,Biomedical,NULL
+P-CC,133,Refrigerator,Donfoce,8089500,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Mortuary,Biomedical,NULL
+P-CC,134,"Washing Machine",wm30e,8600848,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,135,"Washing Machine",30e,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,136,"Washing Machine",inm30e,8600948,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,137,Dryer,30ce,TTCK638677wg,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,138,Dryer,30ce,TTCK642134wh,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,139,"Laundry Rinser",hem89,8810/000674,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,140,"Iron Press",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Workshop,Biomedical,NULL
+P-CC,141,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ritter,Biomedical,NULL
+P-CC,142,"Water Heater",NULL,420244,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,143,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,144,"Physiotherapy Drill",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Workshop,Biomedical,NULL
+P-CC,145,"Rotor Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,146,"Weighing Scale",NULL,1872111090702,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Maternity,Biomedical,NULL
+P-CC,147,Microscope,kogaku-kakai,304803,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Laundry,Biomedical,NULL
+P-CC,148,"X-Ray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,149,"Parallel Bars",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Treatment Room",Biomedical,NULL
+P-CC,150,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,151,"Traction Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,152,"Exercise Bicycle",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,153,"Wall Ladder (Traction)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Physiotherapy ",Biomedical,NULL
+P-CC,154,"Infrared Bath",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Physiotherapy ",Biomedical,NULL
+P-CC,155,Ultrasound,megasonic-400,m4/98040,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,156,"Electrical Stimulator (?)",hz-100,0136-2006,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Physiotherapy ",Biomedical,NULL
+P-CC,157,Walker,DMA,01/97,NULL,Government,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,158,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,159,"Infrared Examination Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,160,"Suction Machine",NULL,1207,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,161,"Bp Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,162,"Weighing Scale",EKS,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,163,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,164,Autoclave,NULL,70313,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,165,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,166,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,167,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,168,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,169,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,170,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,171,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,172,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,173,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,174,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,175,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,176,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,177,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,178,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,179,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,180,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,181,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,182,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,183,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,184,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,185,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,186,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,187,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,188,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,189,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,190,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male General Ward",Biomedical,NULL
+P-CC,191,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Medical Ward",Biomedical,NULL
+P-CC,192,Autoclave,NULL,154-90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,193,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,194,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,195,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,196,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,197,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,198,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,199,"Blood Pressure Machine Manual",NULL,CE-124,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,200,Refrigerator,ZEC-ZR180DF,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,201,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,202,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Male Surgical Ward",Biomedical,NULL
+P-CC,203,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,204,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,205,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,206,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,207,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,208,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,209,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,210,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,211,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,212,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Surgical Ward",Biomedical,NULL
+P-CC,213,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,214,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,215,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,216,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,217,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,218,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,219,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,220,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,221,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,222,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female General Ward",Biomedical,NULL
+P-CC,223,Doppler,ES-107P2,90120522,NULL,AMS,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,224,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,225,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,226,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,227,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,228,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,229,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,230,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,231,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,232,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,233,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,234,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,235,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,236,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,237,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,238,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,239,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,240,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,241,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,242,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,243,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,244,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Postnatal,Biomedical,NULL
+P-CC,245,"Ward Bed",CE,KY151499,NULL,IDC,NULL,NULL,NULL,NULL,NULL,Antenatal,Biomedical,NULL
+P-CC,246,"Hand Exercise Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Physiotherapy,Biomedical,NULL
+P-CC,247,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,248,"Weighing Scale",NULL,NULL,NULL,Ivo,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,249,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,250,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,251,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,252,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,253,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,254,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,255,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,256,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,257,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,258,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,259,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,260,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,261,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,262,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,263,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,264,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,265,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,266,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,267,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,268,Autoclave,NULL,A3-214535,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,269,"Neonatal Incubator",YP-90A,06070104016,2007,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,270,"Suction Machine",NULL,030045,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,271,Nebulizer,NULL,FBW7GA0588,NULL,UNFPA,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,272,"Weighing Scale",3341321008,5.3341E+12,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward Icu",Biomedical,NULL
+P-CC,273,"Bp Machine",475874,ceo459,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,274,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,275,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,276,Spectrophotometer,6065,2543,2006,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,277,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,278,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,279,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,280,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Psychiatric Ward",Biomedical,NULL
+P-CC,281,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,282,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,283,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,284,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,285,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,286,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,287,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,288,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,289,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,290,Refrigerator,7R-180DF,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"TB Ward",Biomedical,NULL
+P-CC,291,"Weighing Balance",NULL,3786,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,292,"Weighing Balance",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,293,"Water Bath","thermo boy",b15031,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,294,Refrigerator,ARF-175D,000429,NULL,Government,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,295,"Weighing Balance",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,296,Spectrophotometer,6506,2544,NULL,ADB,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,297,Spectrophotometer,NULL,125-637,NULL,ADB,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,298,"Weighing Balance","CP 2245",114-02000687,2005,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,299,"Examination Lamp",NULL,12738,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,300,"Anesthesia Machine",omega,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,301,"Theater Lamp",gallois,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,302,"Theater Lamp",gallois,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,303,"Weighing Scale",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,304,"Fracture Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,305,"Surgical Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,306,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,307,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,308,"Xray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,309,"Examination Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,310,"Xray Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,311,"Maternity Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,312,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,313,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,314,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,315,"Maternity Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Store",Biomedical,NULL
+P-CC,316,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,317,"Examination Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-CC,318,"Water Distiller",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Chief Governmental Chemical Department",Biomedical,NULL
+P-CC,319,"Jaundice Phototherapy Unit","XHZ 090",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"General Cot Ward",Biomedical,NULL
+P-PHL,001,"Freezer, ultra low",ULT2090/5/V31,523M/583515/TM,NULL,NULL,2002-01-01,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,002,"Freezer, ultra low",ULT2090/5/V31,523M/583516/TM,NULL,NULL,2002-01-01,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,003,"Freezer, ultra low",CF60,1132041367,NULL,NULL,2002-01-01,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,004,Refrigerator,FR/142,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,005,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,006,"Freezer, ultra low",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Media preparation",Biomedical,NULL
+P-PHL,007,Refrigerator,WRTD20V4AWO,BA21203077,NULL,NULL,2003-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,008,Centrifuge,"Microfuge 22R",MHD07A026,NULL,PHL,2008-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,009,Centrifuge,Z400,48020020,NULL,NULL,2003-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,010,Centrifuge,"Labofuge 400",40198069,NULL,PHL,2001-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,011,Refrigerator,R/610AUK3K,2151200109,NULL,NULL,2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,012,Microscope,CHD,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,013,Microscope,CHD,957354,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,014,Microscope,CHD,6MO337,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,015,"Stirrer and hot plate","RFT S8",222330,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,016,Centrifuge,308002,2381001986,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,017,Autoclave,"T 340 150",6901699,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,018,Microscope,CX41RF,OM00283,NULL,WHO,2011-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,019,"Stirrer and hot plate","Ika Werk",46489,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,020,Microscope,CH/20,3D12355,NULL,NULL,2004-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,021,Microscope,CH/20,3D12374,NULL,NULL,2004-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,022,Microscope,CH/20,3D12401,NULL,NULL,2004-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,023,Microscope,CH/20,3D12400,NULL,NULL,2004-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,024,Microscope,S2/ST,J72312,NULL,NULL,2003-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,025,Microscope,TMS,310600,NULL,NULL,2003-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,026,Microscope,"Eclipse 6200",841746,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,027,Monitor,"FlexScan SX2262W",30539041B,NULL,WHO,2011-01-01,2012-01-01,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,028,"Image processor, CPU",DP21/CB,0122500A4,NULL,WHO,2011-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,029,Monitor,TM/A17OG,7904143,2004,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,030,Centrifuge,"1040 series",98052218,1998,PHL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+P-PHL,031,"Safety Cabinet","Microflow 2",20020820761,NULL,NULL,2003-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,032,Incubator,NULL,DAS7300,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,033,Incubator,IBP,85,NULL,NULL,2011-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,034,Incubator,NULL,252.2004V,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,035,"Hot Air Oven",NULL,95.2004,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,036,Distiller,A74410,B030044,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,037,Autoclave,NULL,Z6478,2003,PHL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,038,"Pressure Steam Sterilizer",000055C,75X,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,039,Distiller,2204,10153909B,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,040,"Hot Plate with Magnetic Stirrer","Ika Werk",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,041,Vortex,"Automatic Mixer",B568301,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,042,"Hematology Coulter Counter","MICROS 60CT",709CT84168,NULL,"Rotary Club",2009-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,043,Inspicetor,GD100,HR0701002,NULL,NULL,2008-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,044,"Water Bath",NULL,3812004,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,045,Reflectron,"Feflotron Plus",5069851,NULL,"Rotary club",2009-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,046,Autoclave,"Autoclavi Spa",97/300781/FV,1997,NULL,2000-01-01,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,047,"Microplate Reader",mrx,1CXD/5526,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,048,Refrigerator,R/220UK1,2220200024,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,049,"Pipette Gun",NULL,NULL,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,050,"Weighing Scale",NULL,90108877,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,051,Freezer,"U535 INNOVA",NULL,NULL,NULL,NULL,NULL,NULL,NULL,"SLS Swiss Lab",Bacteriology,Biomedical,NULL
+P-PHL,052,"CO2 Incubator",MCO/17AIC,20303009,NULL,PHL,2002-01-01,NULL,NULL,NULL,"SLS Swiss Lab",Bacteriology,Biomedical,NULL
+P-PHL,053,"Blood Culture System","Bacter 9050",NB7192,NULL,IVO,2010-01-01,NULL,NULL,NULL,"BD ",Bacteriology,Biomedical,NULL
+P-PHL,054,"Blood Culture System","Bacter 9050",NB6554,NULL,IVO,2008-01-01,NULL,NULL,NULL,"BD ",Bacteriology,Biomedical,NULL
+P-PHL,055,"Fume Hood","Jupiter 4",D05L19N6456,NULL,PHL,2007-01-01,NULL,NULL,NULL,"SLS Swiss Lab",Bacteriology,Biomedical,NULL
+P-PHL,056,"Water Bath",1013,1029087,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,057,"Mass Scale",PG203/5,1119172566,NULL,PHL,2009-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,058,"Pressure Pump",WP6122050,100400002442,NULL,PHL,2005-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,059,"Particle Counter",CYFLOW,071041220,NULL,"Rotary Club",2009-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,060,Microscope,CXAO,NULL,NULL,PHL,2000-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,061,"Microcompressor PH Meter","PH 211",NULL,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,062,"Plate Shaker",A625/1,04020643,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,063,"Microscope (Discecting)","Twin Z",078817,NULL,"Natural History Museum",2005-07-03,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,064,Vortex,"Vortex Genie 2",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,065,"Water Bath",NULL,39587/U1A,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Washing and Sterilization",Biomedical,NULL
+P-PHL,066,Vortex,NULL,NULL,NULL,PHL,2005-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,067,Refrigerator,NR/B651B,992098005024,NULL,"Johns Hopkins University",2011-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,068,Stainer,Previ,29551111905,NULL,"Johns Hopkins University",2012-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,069,"Microbial Analyzer","VITEK 2 Compact",VK2C9/156,NULL,"Johns Hopkins University",2011-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,070,"Microbial Analyzer","VITEK 2 Compact",VK2C1D445,NULL,"Johns Hopkins University",2012-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,071,"Media Dispenser","APS One",12144422,NULL,"Johns Hopkins University",2012-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,072,"Cu,ture Media Preparator","Masterclave 09",13546537,NULL,"Johns Hopkins University",2012-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,073,Incubator,"ECB 1.1 Digital",60203003,NULL,PHL,2004-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,074,"Water Bath","Thermomix BM/E",10016231,NULL,PHL,2001-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,075,Microscope,CX/Bi,NULL,NULL,"Johns Hopkins University",2011-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,076,Microscope,CX/Bi,NULL,NULL,"Johns Hopkins University",2011-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,077,"Hematology Analyzer",KX/21,A6622,NULL,"Johns Hopkins University",2003-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,078,Printer,"Sunrise Remote",03930003073,NULL,"University of Milan",2001-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,079,"Plate Washer","Columbus Plus",6011297,NULL,"University of Milan",2001-01-01,NULL,NULL,NULL,NULL,"BMGF CHXL ",Biomedical,NULL
+P-PHL,080,Microscope,EC3,14090003,NULL,"Italian Corporation",2011-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,081,"Thermal Cycler","MyCycler Thermal Cycler",580BR5423,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,082,"Dual Intensity UV Transilluminator","DyNa Light",97/0105/06,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,083,"Magnetic Stirrer","MSH 300",740606110,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,084,"Electrophoraysis Machine","PowerPac Basic",041BR44549,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,085,Refrigerator,NR/B651B,992098803107,NULL,IVO,2009-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,086,Centrifuge,"Rotina 35R",00027540500,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,087,Thermomixer,"Thermomixer Compact",535027931,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,Merck,Virology,Biomedical,NULL
+P-PHL,088,"Block Heater","SBH 130D",R000101231,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,Biocote,Virology,Biomedical,NULL
+P-PHL,089,Vortex,NULL,NULL,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,090,Centrifuge,"Centrifuge 5430",5427ZK112124,NULL,"Italian Corporation",2011-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,091,Centrifuge,"Centrifuge 5415D",542546125,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,092,Shaker,261,050000107261,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,093,"Hot Plate with Magnetic Stirrer",HMS/1024,NULL,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,094,"Safety Cabinet",Bio2+,BS57261992,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,095,Refrigerator,R/2320AUK7K,2170100258,NULL,"Italian Corporation",2007-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,096,Incubator,100/800,NULL,NULL,"World Bank",2008-01-01,NULL,NULL,NULL,NULL,Virology,Biomedical,NULL
+P-PHL,097,Distiller,2204,10125302,NULL,PHL,2004-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,098,Spectrophotometer,DU520,0303U2001960,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,099,Blender,L6,26936,NULL,PHL,2004-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,100,"Vacuum pump",707,NULL,NULL,PHL,2004-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,101,Microscope,TMS,214275,NULL,PHL,2003-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,102,Microscope,CHD,6K0629,NULL,PHL,2000-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,103,Microscope,CHD,6MD517,NULL,PHL,2000-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,104,Microscope,NULL,869972,NULL,PHL,2000-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,105,Microscope,NULL,61779,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,106,Microscope,NULL,61496,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,107,Fluorometer,FM109510/33,1095020428394,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,108,"Pipette Gun",NULL,NULL,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Bacteriology,Biomedical,NULL
+P-PHL,109,"Hemoglobin photometer",B/Hemoglobin,305003076,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,110,"Hemoglobin photometer",B/Hemoglobin,9943003063,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,111,"Hemoglobin photometer",B/Hemoglobin,312072,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,112,"Hemoglobin photometer",B/Hemoglobin,9337011331,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,113,"Hemoglobin photometer",B/Hemoglobin,233003132,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,114,"Hemoglobin photometer",B/Hemoglobin,9803002170,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,115,"Hemoglobin photometer",B/Hemoglobin,305003102,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,116,"Hemoglobin photometer",B/Hemoglobin,9943003064,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,117,"Hemoglobin photometer",B/Hemoglobin,41003208,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,118,"Hemoglobin photometer",B/Hemoglobin,305003104,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,119,"Hemoglobin photometer",B/Hemoglobin,9943003049,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,120,"Hemoglobin photometer",B/Hemoglobin,233003127,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,121,"Hemoglobin photometer",B/Hemoglobin,9943003048,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,122,"Hemoglobin photometer",B/Hemoglobin,242003048,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,123,"Hemoglobin photometer",B/Hemoglobin,233003135,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,124,"Hemoglobin photometer",B/Hemoglobin,9943003062,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,125,"Hemoglobin photometer",B/Hemoglobin,9943003043,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,126,"Hemoglobin photometer",B/Hemoglobin,242003046,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,127,"Hemoglobin photometer",B/Hemoglobin,233003131,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,128,"Hemoglobin photometer",B/Hemoglobin,242003049,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,129,"Hemoglobin photometer",B/Hemoglobin,414012217,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,130,Glucometer,"Glucose 201+",735142875,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,131,Glucometer,"Glucose 201+",735142868,NULL,PHL,2002-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,132,"Hemoglobin photometer","Hb 201+",421012044,NULL,PHL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,133,"Hemoglobin photometer","Hb 201+",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+P-PHL,134,Ultrasound,"180 Plus",0300KK,NULL,PHL,2010-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,001,Refrigerator,NULL,NULL,NULL,NULL,1983-01-01,NULL,NULL,NULL,NULL,"Blood Storage room",Biomedical,NULL
+U-MM,002,Refrigerator,Fiocchetti,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Blood Storage room",Biomedical,NULL
+U-MM,003,"Water Bath","180 Series Water Bath",208837-29,NULL,ICAP,NULL,NULL,NULL,NULL,Sanas,"Blood Transfusion Lab",Biomedical,NULL
+U-MM,004,Centrifuge,AX-CNO,008,2004,MOH,NULL,NULL,NULL,NULL,NULL,"Blood Transfusion Lab",Biomedical,NULL
+U-MM,005,Microscope,CX21FSI,8B11527,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Processing Room",Biomedical,NULL
+U-MM,006,"Hot Plate",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Processing Room",Biomedical,NULL
+U-MM,007,"Hemoglobin Analyzer","HB 201+",1012013254,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Blood Transfusion Lab",Biomedical,NULL
+U-MM,008,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,009,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,010,Centrifuge,"Rotofix 32",003416702-00,2006,ICAP,NULL,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,011,"Clinical Laboratory Mixer",R75,NULL,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,012,Microscope,CX21FSI,4A01209,NULL,NULL,2007-01-01,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,013,"Safety Cabinet (Microbiological)","MN 120",02-0500,2009,ICAP,2009-01-01,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,014,Incubator,Heraeus,NULL,NULL,ICAP,2009-01-01,NULL,NULL,NULL,Sanas,Microbiology,Biomedical,NULL
+U-MM,015,Incubator,"Heraeus B6200",51015772,NULL,NULL,NULL,NULL,NULL,NULL,Sanas,Microbiology,Biomedical,NULL
+U-MM,016,Microscope,"Primo Star",3133000136,NULL,USAID,2009-01-01,NULL,NULL,NULL,NULL,Microbiology,Biomedical,NULL
+U-MM,017,Refrigerator,NULL,NULL,NULL,ADB,2007-01-01,NULL,NULL,NULL,NULL,"TB Lab",Biomedical,NULL
+U-MM,018,"Water Bath","180 Series Water Bath",208837-28,2009,ICAP,NULL,NULL,NULL,NULL,"Sanas, ICAP","TB Lab",Biomedical,NULL
+U-MM,019,Autoclave,FN500,920458,NULL,ICAP,2010-01-01,NULL,NULL,NULL,ICAP,"TB Lab",Biomedical,NULL
+U-MM,020,"Magnetic Stirrer (Heated)",F20500060,116724,NULL,NULL,2010-01-01,NULL,NULL,NULL,NULL,"TB Lab",Biomedical,NULL
+U-MM,021,"Scale (Clinical Laboratory)","Harvard Trip Balance",NULL,NULL,NULL,NULL,NULL,NULL,NULL,Sanas,"TB Lab",Biomedical,NULL
+U-MM,022,"pH Meter","Orion 3 Star pH Bench Top",B19453,NULL,NULL,2010-01-01,NULL,NULL,NULL,NULL,"TB Lab",Biomedical,NULL
+U-MM,023,"Scale (Clinical Laboratory)","EC-Type T7037",WB07COO64,NULL,NULL,2010-01-01,NULL,NULL,NULL,Sanas,"TB Lab",Biomedical,NULL
+U-MM,024,"Hot Plate",NULL,NULL,1984,NULL,NULL,NULL,NULL,NULL,NULL,"TB Lab",Biomedical,NULL
+U-MM,025,"CD4 Machine","FACS Count",D291200183,NULL,ICAP,2005-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,026,"Microscope (Teaching)","BX S1",9H06207,NULL,ICAP,2009-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,027,"Printer (Haematology Analyzer)",LX-300+II,989Y39911,NULL,ICAP,2010-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,028,"Haematology Analyzer Computer",NULL,CD007DS,NULL,ICAP,2009-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,029,"Haematology Analyzer","Cell-Dyn 3700",CD3700CS,NULL,ICAP,2009-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,030,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,031,Refrigerator,NULL,NULL,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,032,"Haematology Analyzer","Pentra XL80",20466AN,NULL,ICAP,2005-01-01,NULL,NULL,NULL,NULL,"Haematology Lab",Biomedical,NULL
+U-MM,033,"Water Bath","Tissue Water Bath",51260,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,034,"Biochemistry Analyzer",AE-600,3921,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,035,"Rotary Microtome",NULL,1010SMF004,NULL,ADB,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,036,"Tissue Embedding Center",KD-BM,8401,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,037,"Tissue Bath-Baking Processor",KD-T,5222,2010,MOH,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,038,"Automatic Tissue Processor",1040-STP-003,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,039,Microscope,CX21FSI,8C02282,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,040,Microscope,BX51,9B06599,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,041,"Staining Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,042,Refrigerator,ECTR,NULL,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,043,Refrigerator,ECTR,NULL,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Histopathology,Biomedical,NULL
+U-MM,044,Autoclave,AX-75L,2322,2009,ICAP,NULL,NULL,NULL,NULL,NULL,Washing,Biomedical,NULL
+U-MM,045,Autoclave,AX-75L,2323,2009,NULL,2010-01-01,NULL,NULL,NULL,NULL,Washing,Biomedical,NULL
+U-MM,046,"Hot Plate",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Washing,Biomedical,NULL
+U-MM,047,Autoclave,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Washing,Biomedical,NULL
+U-MM,048,"Safety Cabinet (Microbiological)",MN,NULL,2009,ICAP,NULL,NULL,NULL,NULL,"Kas Medics","Main Corridor",Biomedical,NULL
+U-MM,049,Refrigerator,"super arctic 7002t",NULL,2009,ICAP,2009-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,050,Refrigerator,"super arctic 7002t",NULL,2009,ICAP,2009-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,051,"Chemistry Analyzer",Fully,80168,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,052,Microscope,RXL-5B,22715,NULL,UNFPA,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,053,Centrifuge,"C854/6 9/07",IALC-2369,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,054,"Hot Plate","RHP-CI Hot Plate",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,055,"Microplate Reader",AX-9602,09070175,2009,NULL,2010-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,056,"Electrophoresis Machine",BTS-100,0810010719,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,057,"Electrophoresis Machine",BTS-100,810020174,NULL,"Japan Official Development Assistance",NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,058,"Microplate Washer",AX-9602,09070136,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,059,"Microplate Reader",AX-9602,09070174,2009,NULL,2010-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,060,Spectrophotometer,TRSP,NULL,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,061,"Microplate Washer",AX-9602,090710137,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,062,"Magnetic Stirrer",Arec-X,116718,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,063,"Microplate Washer","Axiom 9602",09070134,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,064,"Clinical Laboratory Mixer",R75,STO5,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,065,"Scale (Clinical Laboratory)","ABT 320-4M",WB07C0067,NULL,CDC,2010-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,066,"Hemoglobin Analyzer","HB 201+",NULL,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,067,"Weighing Scale","CS 5000",NULL,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,068,Vortex,Vibromix,70918156,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,069,Centrifuge,AX-12B,5,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,070,"pH Meter","Orion 3 Star pH Bench Top",B18976,NULL,CDC,2010-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,071,"Clotting Analyzer",Humaclot-Duo,1127,NULL,ADB,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,072,"Blood Chemistry Machine",Humaclot-Duo,1126,NULL,ADB,NULL,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,073,Centrifuge,"Rotofix 32",0039164-02-00,2006,NULL,2007-01-01,NULL,NULL,NULL,NULL,Store,Biomedical,NULL
+U-MM,074,Incubator,ED115,08-47930,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,075,"Elisa Machine","Siar Fax 4700",4700-1059,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,076,"Chemistry Analyzer",BTS-305,801550268,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,077,"Electrolyte Analyzer","Biolyte 2000",700174,NULL,NULL,2010-01-01,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,078,"Elisa Washer","Well Washer 4 MK2",006-9-9166,NULL,CDC,2009-01-01,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,079,"Elisa Reader",Multiskan,357-00120,2008,CDC,NULL,NULL,NULL,NULL,ICAP,"Clinical Chemistry",Biomedical,NULL
+U-MM,080,Centrifuge,"DSC_300 SD",0505172,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,081,"Chemistry Analyzer",BS-200,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,082,"Chemistry Analyzer",BS-200,WN-06100688,NULL,NULL,2010-01-01,NULL,NULL,NULL,ICAP,"Clinical Chemistry",Biomedical,NULL
+U-MM,083,"Chemistry Analyzer",Fully,80336,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,084,"Electrolyte Analyzer",Humalyte,700175,NULL,CDC,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,085,Refrigerator,USS7480IKL,M22000110200,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,086,Refrigerator,"Vitamin +, GR-V212R",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Clinical Chemistry",Biomedical,NULL
+U-MM,087,Microscope,CX21FSI,CJ05427,NULL,CDC,2010-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,088,Refrigerator,"super arctic 7002t",NULL,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,089,Distiller,D12661,126609062391,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,090,Centrifuge,"Rotofix 32",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,091,"Urine Analyzer","Uriscan Optima II",UA-10909803,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,092,Microscope,CX21FSI,7J5923,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,093,Microscope,CX21FSI,4A01419,NULL,CDC,2007-01-01,NULL,NULL,NULL,NULL,Parasitology,Biomedical,NULL
+U-MM,094,Microscope,CX21FSI,5F91090,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Pediatric Laboratory",Biomedical,NULL
+U-MM,095,Microscope,CX21FSI,5F91321,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Pediatric Laboratory",Biomedical,NULL
+U-MM,096,Microscope,CX21FSI,5F91095,NULL,ICAP,NULL,NULL,NULL,NULL,NULL,"Pediatric Laboratory",Biomedical,NULL
+U-MM,097,"Slide Drying Bench",NULL,10066716,NULL,"Walter Reed Program",NULL,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,098,Refrigerator,R-T320EUKIK-1,2111200751,NULL,WHO,NULL,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,099,"Weighing Scale",424,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,100,"Oxygen Concentrator",Forlife,NULL,NULL,NULL,2007-01-01,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,101,Ultrasound,"sonoline Sienna","DBE 0487",2002,NULL,2009-01-01,NULL,NULL,NULL,NULL,"Cot Ward A Echo Room",Biomedical,NULL
+U-MM,102,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Echo Room",Biomedical,NULL
+U-MM,103,Ultrasound,"Sonoace X8",b02508300004464,NULL,NULL,2011-01-01,NULL,NULL,NULL,NULL,"Cot Ward A Echo Room",Biomedical,NULL
+U-MM,104,"Coagulation Meter","3666794, Coaguchek X5",UPO153784,NULL,"Save a Child's Heart",2002-01-01,NULL,NULL,NULL,NULL,"Cot Ward A Echo Room",Biomedical,NULL
+U-MM,105,"Exam Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Echo Room Cot Ward A",Biomedical,NULL
+U-MM,106,"Exam Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Echo Room Cot Ward A",Biomedical,NULL
+U-MM,107,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,108,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,109,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,110,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,111,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,112,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,113,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,114,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,115,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 1",Biomedical,NULL
+U-MM,116,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,117,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,118,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,119,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,120,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,121,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,122,"Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,123,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,124,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,125,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,126,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,127,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,128,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,129,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,130,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,131,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,132,"Child-Size Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ward 2",Biomedical,NULL
+U-MM,133,Refrigerator,"super arctic 7002t",30454,2009,ICAP,NULL,NULL,NULL,NULL,NULL,"Lab Office",Biomedical,NULL
+U-MM,134,"Exam Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Corridor",Biomedical,NULL
+U-MM,135,"Weighing Scale","MP 25",NULL,NULL,Chara,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,136,Refrigerator,"RG 2250 Indesit",DF23,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Staff Room",Biomedical,NULL
+U-MM,137,"Weighing Scale","1524kl healthometer",1524001652,NULL,Chara,0000-00-00,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,138,"Weighing Scale",NULL,032437,NULL,UNICEF,NULL,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,139,"Phototherapy Unit",xhz-90,NULL,NULL,"Haukeland University",NULL,NULL,NULL,NULL,NULL,"Cot Ward A Corridor",Biomedical,NULL
+U-MM,140,"Phototherapy Unit",XHZ-90,NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,141,"Phototherapy Unit",XHZ-90,NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,142,"Suction Machine","Vario 18",1343612,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,143,Nebulizer,porta-neb,11A1510093,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,144,"Oxygen Concentrator","OPI 1020006",0072417,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,145,"Oxygen Concentrator","OPI 1020006",0072359,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,146,"Oxygen Concentrator","OPI 1020006",0072393,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,147,"Vital Signs Monitor","argus LCM Plus",780.04022,NULL,"Japan International Cooperation Agency",2003-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,148,"ECG Monitor","m12041a 24c omnicare",3642a12915,NULL,"Japan International Cooperation Agency",NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,149,"Infant Basin",NULL,NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,150,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,151,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,152,"X-Ray Light Box",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,153,Nebulizer,porta-neb,1999pm99431,NULL,NULL,2007-01-01,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,154,"Child-Sized Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,155,"Child-Sized Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,156,"Child-Sized Ward Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Intensive Pediatric Care",Biomedical,NULL
+U-MM,157,"Blood Pressure Machine (Manual)",NULL,1450001,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A",Biomedical,NULL
+U-MM,158,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Pediatric Clinic",Biomedical,NULL
+U-MM,159,"Blood Pressure Machine (Manual)",NULL,1450756,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Pediatric Clinic",Biomedical,NULL
+U-MM,160,"Blood Pressure Machine (Manual)","lian scenic-5",477288,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Pediatric Clinic",Biomedical,NULL
+U-MM,161,Nebulizer,porta-neb,11a1300016,NULL,"Haukeland University",2012-01-01,NULL,NULL,NULL,NULL,"Cot Ward A Pediatric Clinic",Biomedical,NULL
+U-MM,162,"Exam Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 1",Biomedical,NULL
+U-MM,163,"Exam Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 1",Biomedical,NULL
+U-MM,164,"Infrared Lamp",NULL,NULL,NULL," ",NULL,NULL,NULL,NULL,NULL,"Room 1",Biomedical,NULL
+U-MM,165,"Exam Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 2",Biomedical,NULL
+U-MM,166,"Traction Machine","BTL-16 Plus",1B9119003,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,"Room 2",Biomedical,NULL
+U-MM,167,"Tense Machine",BTC-5620,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 3",Biomedical,NULL
+U-MM,168,"Exam Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 3",Biomedical,NULL
+U-MM,169,"Infrared Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,170,"Treatment Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,171,"Treatment Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,172,"Quadripon Bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,173,"Treatment Bed",NULL,NULL,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,174,"Tilting bed",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,175,"Treatment Bed",NULL,NULL,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,176,"X-Ray Light Box",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,177,"Treatment Bed",NULL,NULL,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,178,"Tense Machine",btl-5000,NULL,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,179,"Muscle Stimulator","dynatron 438",438-01-192,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,180,"Step Machine",NULL,NULL,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Gymnasium,Biomedical,NULL
+U-MM,181,"Exercise Bicycle","ergomedic 818e",fe568511379312,NULL,DANIDA,2007-01-01,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,182,"Exercise Bicycle","Cycle PEC-3000",V13000Z00529,NULL,DANIDA,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,183,Oven,NULL,0-30047,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Syringing,Biomedical,NULL
+U-MM,184,"Examination Lamp",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Syringing,Biomedical,NULL
+U-MM,185,"ENT Examination Machine",2F-020-02-P,7620,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Clinic 1",Biomedical,NULL
+U-MM,186,"ENT Examination Machine",2F-020-02-P,7614,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Audiology Room ",Biomedical,NULL
+U-MM,187,"Diagnostic Audiometer","5610 Assens Denmark",3704896,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Audiology Room ",Biomedical,NULL
+U-MM,188,"Polisher for Ear Molds",18099,NULL,NULL,"Impact East Africa",2008-01-01,NULL,NULL,NULL,NULL,"ENT Hearing Aid Laboratory",Biomedical,NULL
+U-MM,189,Autoclave,NULL,2008-08-1453,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"ENT Hearing Aid Laboratory",Biomedical,NULL
+U-MM,190,"Ear Mold Machine and Compressor",5000t,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"ENT Hearing Aid Laboratory",Biomedical,NULL
+U-MM,191,"Exam Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"ENT Audiology Clinic",Biomedical,NULL
+U-MM,192,Tympanometer,NULL,663760,NULL,NULL,2007-01-01,NULL,NULL,NULL,"Guy Mark UK Ltd.","ENT Audiology Clinic",Biomedical,NULL
+U-MM,193,Audiometer,eb-350i,8093,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"ENT Audiology Clinic",Biomedical,NULL
+U-MM,194,"Rolling Pin Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,195,"Parallel Bars",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Veranda,Biomedical,NULL
+U-MM,196,"Weighing Scale",NULL,NULL,NULL,"Haukeland University",NULL,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,197,"Standing Frame",55003-35,0030,NULL,"Haukeland University",2002-01-01,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,198,"Hand Bicycle",NULL,NULL,NULL,"Haukeland University",NULL,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,199,Oven,HCALI0800,69190,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,200,Oven,NULL,NULL,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,201,"Tense Machine",N604,008170655,NULL,"Private Donor",NULL,NULL,NULL,NULL,NULL,"Occupational Therapy",Biomedical,NULL
+U-MM,202,"Surgical Microscope",M793-220,M704WL230-1003,NULL,"Private Donor",2012-01-01,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,203,Oven,NULL,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,204,"Operating Table","D-68642 Hustak",NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,205,"Examination Lamp","Mach 115",1151125000,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,206,"Anesthesia Machine","excel 210se",amaa00422,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,207,"Surgical Microscope",NULL,53253,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,208,"Washing Machine",W-9700S,050940-11,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"ENT Sluice Room",Biomedical,NULL
+U-MM,209,Refrigerator,PFC145W,7DLD602007010423094,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,210,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,211,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,212,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,213,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,214,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,215,"Ward Bed",976,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,216,Oven,Lapetite,NULL,NULL,CDC,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,217,"Acupuncture Machine",W-101,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,218,"Weighing Scale",713,865042,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Acupuncture Clinic",Biomedical,NULL
+U-MM,219,"Acupuncture Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Acupuncture Clinic",Biomedical,NULL
+U-MM,220,"Patient Trolley",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Corridor",Biomedical,NULL
+U-MM,221,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,222,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,223,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,224,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,225,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,226,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,227,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,228,"Treatment Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Ward,Biomedical,NULL
+U-MM,229,"X-Ray Light Box",PD-FA,1310134,NULL,"Private Donor",2007-01-01,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,230,"Surgical Microscope","Opmi Pico",6627101288,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,231,"Operating Table",NULL,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,232,"O2 Adapter",NULL,0473,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,233,"Flow Meter",TR200,0546,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,234,"Vital Signs Monitor",Top-1800,T1800310030001,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,235,"Anesthesia Machine",Aeon7500A,AEON7500A(E)ZKYZ022,NULL,"Impact East Africa",2011-01-01,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,236,"Diathermy Machine",NULL,2164,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,237,"Operating Lamp",NULL,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,238,"Diathermy Machine",AX-H900,09224,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,239,"Diathermy Machine",AB-250B,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,240,"Surgical Head Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Sea View Theater",Biomedical,NULL
+U-MM,241,"Operating Table",NULL,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,242,"Video Otoscope",NULL,NULL,NULL,Chara,NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,243,Nebulizer,225,02930000178,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,244,Ventilator,"ivent 201",iv17674,NULL,MOH,2007-01-01,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,245,"Suction Machine","new askir 30",11149,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,246,"Suction Machine",f170,0-70787,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,247,"Suction Machine",f170,0-70780,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,248,Refrigerator,SG-R210,NULL,NULL,"Bombay Bazaar",NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,249,"Oxygen Concentrator","new life elite",951992,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,250,"Pulse Oximeter",n180,20064657,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,251,"Oxygen Concentrator",lf-h-10a,0-7090181,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,252,"ECG Triscope",8021,8210569,NULL,MOH,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,253,"Pulse Oximeter",n-200,0-57704a0389,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,254,"Pulse Oximeter",n180,20213345,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,255,"Nasal CPAP System",apd2,0-015,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,256,"Vital Signs Monitor",3800,6050-0003-731,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,257,Defibrillator,"Lifepak 9",0010043,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,258,Defibrillator,78660A,20EEB82,NULL,NULL,NULL,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,259,"Vital Signs Monitor",PVM-2701,00103093,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,260,"Pulse Oximeter",V450/T,014897,NULL,"Private Donor",2009-01-01,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,261,"Vital Signs Monitor","Siaetron 3000",0103090,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,262,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,263,"Suction Machine",YB.DX23D,NULL,NULL,"Impact East Africa",NULL,NULL,NULL,NULL,NULL,"Sea View Theatre",Biomedical,NULL
+U-MM,264,"Vital Signs Monitor",PVM-2701,0103092,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,265,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,266,"Ventilator, Vital Signs Monitor",RM3000TFT,SM0000FQ,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,267,"Vital Signs Monitor",PVM-2701,0103108,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,268,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,269,"Infusion Pump",P-600,C60601-1-2:1993,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,270,"Infusion Pump",6K6001B,11120220,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,271,"Ventilator, Vital Signs Monitor","Siaetron 3000",0003FQ,NULL,MOH,NULL,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,272,Defibrillator,"Lifepak 9",00004111,NULL,NULL,NULL,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,273,"Vital Signs Monitor",PVM-2701,0103094,2012,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,274,"Suction Machine",TobiClinic,2083,NULL,MOH,2007-01-01,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,275,"Infusion Pump",P-600,IEC60601-1-2:1993,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,276,"Oxygen Concentrator",Nuvo,0413,NULL,MOH,2007-01-01,NULL,NULL,NULL,NULL,ICU,Biomedical,NULL
+U-MM,277,"Electrolyte Analyzer",URIT-910A,910A00640,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,278,"Blood Gas Machine","Easy Blood Gas",0312030001,NULL,MOH,0000-00-00,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,279,"ECG Monitor","CardiofaxV ECG-1550K",NULL,NULL,MOH,2012-01-01,NULL,NULL,"1 year",NULL,ICU,Biomedical,NULL
+U-MM,280,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Cot Ward B",Biomedical,NULL
+U-MM,281,Oven,"A3-214-535, Via Canove n.2/a",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Cot Ward B",Biomedical,NULL
+U-MM,282,"X-Ray Film Holder","Bucky Diagnost 984850029301",2307,NULL,NULL,2010-01-01,NULL,NULL,NULL,NULL,"X-Ray Department",Biomedical,NULL
+U-MM,283,"X-Ray Automatic Developer","Optimax 2010 1160-1-0000",116010-0812-3651,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"X-Ray Department",Biomedical,NULL
+U-MM,284,"X-Ray Light Box","cold light illuminators",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"X-Ray Department",Biomedical,NULL
+U-MM,285,"X-Ray Light Box",Planilux,08194-95-B,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"X-Ray Department",Biomedical,NULL
+U-MM,286,"X-Ray Machine","07093110 Axiom Iconos R100",2013,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"X-Ray Department",Biomedical,NULL
+U-MM,287,"Ultrasound ","Sonoace X8",B02508300004464,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,288,Refrigerator,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,289,"Blood Pressure Machine (Manual)",NULL,110809184054,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,290,"Blood Pressure Machine (Manual) ",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,291,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,"Private Donor",NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,292,Refrigerator,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Staff Room",Biomedical,NULL
+U-MM,293,"Weighing Scale",811021859,1881078090753,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Staff Room",Biomedical,NULL
+U-MM,294,"Height Scale",2171721009,19/09,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Staff Room",Biomedical,NULL
+U-MM,295,"Examination Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Cot Ward A Staff Room",Biomedical,NULL
+U-MM,296,"AC Automatic Voltage Regulator",SVC-SOOON,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,297,Oven,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,298,Oven,A3-214-535,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,299,"Dental Unit",yzx,003005,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,300,"Dental Unit",yzx,0-25701,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,301,"Examination Lamp",NULL,2280,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,302,Autoclave,tr50n,NULL,NULL,"Government of Egypt",2008-01-01,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,303,Oven,1911,196795,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,304,"Dental X-Ray machine",oy-00880,ithc77926,NULL,"Lab Equip",2010-01-01,NULL,NULL,NULL,NULL,"Main Building Dental Clinic",Biomedical,NULL
+U-MM,305,"Oxygen Concentrator",102006,0072388,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,306,"Infant Incubator",yp-90a,0-6070104033,2007,NULL,2010-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,307,"Infant Incubator",yp-90a,0-6070104014,2007,NULL,2010-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,308,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,309,"Suction Machine",0706CAOS,NULL,NULL,"Haukeland University",2012-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,310,"Infant Incubator","c2vha-1 isolette c2000",PN-2436,NULL,"Haukeland University",2012-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,311,"Oxygen Concentrator",102006,0072363,NULL,"Haukeland University",2012-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,312,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,313,"Infant Incubator","c2vha-1 isolette c2000",uv01962,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,314,"Infant Incubator","c2vha-1 isolette c2000",UV01961,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,315,"Infant Incubator",xp-90a,0-6070104009,2007,NULL,2010-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,316,"Pulse Oximeter","set rad-8",NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,317,"Infant Incubator",yp-90a,0-6070104008,2007,NULL,2010-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,318,"Oxygen Concentrator",1020006,0072376,NULL,"Haukeland University",2012-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,319,"Oxygen Concentrator",1020006,0072377,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,320,"Oxygen Concentrator",1020006,0072392,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,321,"Oxygen Concentrator",1020006,0072418,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,322,"Weighing Scale",Premium,8006GR/ST,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,323,"Suction Machine","vario 18",1343159,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,324,"Pulse Oximeter","set rad-8",NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,325,"Pulse Oximeter","set rad-8",NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,326,"Pulse Oximeter","set rad-8",NULL,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,327,"Infant Incubator",d-f-2858,f003-c2-0007,2000,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,328,"Phototherapy Unit",XHZ-90,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,329,"Phototherapy Unit",Neoblue,21949,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,330,"Oxygen Concentrator",AL35277,8205023,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,331,"Phototherapy Unit",Neoblue,21950,NULL,"Haukeland University",2011-01-01,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,332,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,333,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,334,"Infant Basin",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Neonatal Unit",Biomedical,NULL
+U-MM,335,"Diathermy Machine","Force 40s",RIL1955,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,336,"Blood Pressure Machine (Manual)",NULL,110808132050,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,337,"Anesthesia Machine",Aeon7500A,AEON7500A(E)ZKY2017,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,338,"Operating Table",2080,413177016,NULL,MOH,1995-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,339,"Operating Table",J4,J4368,NULL,MOH,NULL,NULL,NULL,NULL,NULL,OT2,Biomedical,NULL
+U-MM,340,"X-Ray Light Box",IRIS70,106502410630000,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,341,"X-Ray Light Box",IRIS70,34641,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,342,"Pulse Oximeter",AH-M1,M800MB01152,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,343,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,344,"Suction Machine",D7MX,20542-16-031,2009,MOH,2012-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,345,"Anesthesia Machine",Aeon7500A,AEON7500A(E)ZKY2023,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,346,"Operating Lamp",3500,67042,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,347,"Pulse Oximeter","Masimo Set RAD-5",537579,2007,"Haukeland University",2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,348,"Pulse Oximeter",AH-M1,M017A000117,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,349,"Suction Machine",310356/03,2067,2010,MOH,2010-01-01,NULL,NULL,NULL,Anudha,OT1,Biomedical,NULL
+U-MM,350,"X-Ray Light Box",LJ-S,108400/201004,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,351,"Diathermy Machine",GD350-P,3250683,2009,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT1,Biomedical,NULL
+U-MM,352,"Suction Machine",LX-3,HI2046,2010,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT2,Biomedical,NULL
+U-MM,353,"Surgical Microscope","Opmics, KBC/KBD002",CMKBE003,NULL,NULL,2012-01-01,NULL,NULL,NULL,NULL,OT2,Biomedical,NULL
+U-MM,354,"X-Ray Machine (Portable)",eco-22-gen-cx9,cx9g-1002001,NULL,MOH,2009-01-01,NULL,NULL,NULL,"Lab Equip",OT3,Biomedical,NULL
+U-MM,355,"Digital Display Screen for Portable X-Ray",ECO-MCART-CX9,CX9MCART-7002001,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,356,"X-Ray Light Box","IRIS, 23085",NULL,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,357,"X-Ray Light Box",23085,LKS7,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,358,Defibrillator,"lifepak 9b",000-10928,NULL,NULL,2002-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,359,"Diathermy Machine","BMS4400 Powerplus",10954007,NULL,NULL,2011-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,360,"Operating Lamp ",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,361,"Operating Table",AX-3008H,NULL,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,362,"Suction Machine",SR1,030014,NULL,MOH,1997-01-01,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,363,"Suction Machine",NULL,2074,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,364,"Operating Table",ot-125a,t125a0683,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,365,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,366,"Vital Signs Monitor","amamap 8u5xt",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,367,"Suction Machine",NULL,2107,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,368,"Anesthesia Machine",AMS100,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT3,Biomedical,NULL
+U-MM,369,"Operating Lamp",66858,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,370,"Diathermy Machine","physiogard sm785",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,371,"Pulse Oximeter","biox 3740",g0003610,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,372,"Suction Machine","new akir 30",11150,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,373,"Suction Machine",f-36,0-30023,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Theater",Biomedical,NULL
+U-MM,374,"Delivery Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,375,"Delivery Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,376,"Delivery Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,377,"Delivery Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,378,"Resuscitation Table with Heating Lamp","multiradia 30",00-403,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,379,"Suction Machine","vario 18",1329769,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,380,"Suction Machine","new askir 30",11031,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,381,"Suction Machine",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Delivery Room",Biomedical,NULL
+U-MM,382,"Patient Trolley",er24,NULL,NULL,Chara,NULL,NULL,NULL,NULL,NULL,"Maternity Corridor",Biomedical,NULL
+U-MM,383,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,384,"Weighing Scale",TA-8859,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,385,Refrigerator,"Best One GR-1515",503340315,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Staff Room",Biomedical,NULL
+U-MM,386,Glucometer,NULL,GPO129903,NULL,"Private Donor",2011-01-01,NULL,NULL,NULL,NULL,"Staff Changing Room",Biomedical,NULL
+U-MM,387,"Blood Pressure Machine (Manual)",NULL,110105336,NULL,"Private Donor",2012-01-01,NULL,NULL,NULL,NULL,"Staff Changing Room",Biomedical,NULL
+U-MM,388,Autoclave,GE224C,991812547,1999,NULL,NULL,NULL,NULL,NULL,NULL,"Sterilization Room",Biomedical,NULL
+U-MM,389,"Blood Pressure Machine (Manual)",NULL,110105244,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Main Corridor",Biomedical,NULL
+U-MM,390,Oven,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"MMH Female Surgical Gynecological ward",Biomedical,NULL
+U-MM,391,"Delivery Table",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Evacuation Room",Biomedical,NULL
+U-MM,392,"Delivery Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Maternity Evacuation Room",Biomedical,NULL
+U-MM,393,Autoclave,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Female Gynecological Ward",Biomedical,NULL
+U-MM,394,"Exam Bed (maternity)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Doctor's Office, Female Surgical Ward Gynecol",Biomedical,NULL
+U-MM,395,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Female Medical Ward",Biomedical,NULL
+U-MM,396,Nebulizer,"Omron NE-CO8",80306,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Female Medical Ward",Biomedical,NULL
+U-MM,397,"Blood Pressure Machine (Manual) ","big ben round",NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,398,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2011-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,399,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,400,"Blood Pressure Machine (Manual)",nova-presameter,110100630,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,401,"Height and Weight Scale","Soehnle Professional",2755,NULL,Novel,2006-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,402,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,403,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,404,"Weighing Scale",NULL,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,405,"Blood Pressure Machine (Manual) ","big ben round",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,406,"Blood Pressure Machine (Manual)","big ben round",NULL,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,407,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,408,"Weighing Scale",TG-8866,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,409,Glucometer,NULL,GP0097885,NULL,ADB,2007-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,410,Glucometer,NULL,NULL,NULL,WHO,2007-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,411,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,MOH,2009-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,412,Glucometer,NULL,NULL,NULL,WHO,2007-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,413,Refrigerator,NULL,NULL,NULL,"World Diabetes Foundation",2008-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,414,Refrigerator,"The Slim Deluxe",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,415,"Weighing Scale","Health Scale",NULL,NULL,"Private donor",NULL,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,416,"Weighing Scale",NULL,NULL,NULL,"Private Donor",NULL,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,417,Refrigerator,NULL,NULL,NULL,"Finnish Diabetic Association",1990-01-01,NULL,NULL,NULL,NULL,"Diabetic Clinic",Biomedical,NULL
+U-MM,418,"Anesthesia Machine","AMS 100",a10412106,NULL,MOH,2004-01-01,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,419,"Anesthesia Machine","unidad respiratoria",0-1-2048,NULL,NULL,2009-01-01,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,420,"Anesthesia Machine",ergotronic-3,a518-a,NULL,"Ned Foundation",2009-01-01,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,421,"Operating Table","Surgical 2080",RB122585-002,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,422,"Operating Lamp",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,423,"Blood Pressure Machine (Manual) ","big ben round",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,424,"Patient Trolley","Tran Star",NULL,NULL,Chara,2010-01-01,NULL,NULL,NULL,NULL,"OT Waiting Area",Biomedical,NULL
+U-MM,425,"Patient Trolley",ER18,NULL,NULL,Chara,2010-01-01,NULL,NULL,NULL,NULL,"OT Waiting Area",Biomedical,NULL
+U-MM,426,Autoclave,NULL,NULL,NULL,UNDP,NULL,NULL,NULL,NULL,NULL,"OT Waiting Area",Biomedical,NULL
+U-MM,427,Autoclave,ax-450,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT4,Biomedical,NULL
+U-MM,428,"Anesthesia Machine",artec,1040700864,NULL,NULL,2005-01-01,NULL,NULL,NULL,NULL,"OR Corridor",Biomedical,NULL
+U-MM,429,Refrigerator,BCD-216W,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"OT Female Changing Room",Biomedical,NULL
+U-MM,430,"Exam Bed (maternity)","Con-Verge Series",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,431,Oven,NULL,NULL,NULL,UNFPA,NULL,NULL,NULL,NULL,NULL,Corridor,Biomedical,NULL
+U-MM,432,"Exam Bed (maternity)",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,Corridor,Biomedical,NULL
+U-MM,433,"Washing Machine",Atlantis,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Laundry room",Biomedical,NULL
+U-MM,434,"Washing Machine",Atlantis,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Laundry room",Biomedical,NULL
+U-MM,435,"Vital Signs Monitor","4532388EH5IU Sirecust 610",1566,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Corridor,Biomedical,NULL
+U-MM,436,Autoclave,LS-B100L,410,NULL,UNFPA,2011-01-01,NULL,NULL,NULL,NULL,"Changing room",Biomedical,NULL
+U-MM,437,Autoclave,LS-B100L,NULL,NULL,UNFPA,2010-01-01,NULL,NULL,NULL,NULL,"Changing room",Biomedical,NULL
+U-MM,438,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Corridor,Biomedical,NULL
+U-MM,439,"Delivery Bed",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,Corridor,Biomedical,NULL
+U-MM,440,"Exam Bed (maternity)",NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Admission room",Biomedical,NULL
+U-MM,441,"Weighing Scale",Health-o-meter,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Admission room",Biomedical,NULL
+U-MM,442,"Blood Pressure Machine (Manual)",NULL,11080810012,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Antenatal Ward",Biomedical,NULL
+U-MM,443,Microscope,CX21,5F90518,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,444,Centrifuge,Bloodbanken,42100404,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,445,"Chemistry Analyzer",BTS-305,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,446,"Hot Plate",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,447,"Hematology Analyzer","AutoCounter 910 Eco+",00-01731-02,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,448,"Hemoglobin Analyzer","Hb 201+",1113013398,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,449,Glucometer,NULL,0179152,NULL,"Private Donor",2002-01-01,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,450,Centrifuge,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,451,Centrifuge,R303,NULL,2002,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,452,Centrifuge,Bloodbanken,42136601,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Minor Laboratory",Biomedical,NULL
+U-MM,453,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Nurse's Station",Biomedical,NULL
+U-MM,454,Refrigerator,ZR-140FC,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Nurse's Station",Biomedical,NULL
+U-MM,455,Refrigerator,ZR-155,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 3",Biomedical,NULL
+U-MM,456,Refrigerator,SGR101,908000011010906280065,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 4",Biomedical,NULL
+U-MM,457,Refrigerator,SGR101,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 5",Biomedical,NULL
+U-MM,458,Refrigerator,SGR101,908000011010906280032,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 6",Biomedical,NULL
+U-MM,459,Refrigerator,SGR101,908000011010906280036,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 1",Biomedical,NULL
+U-MM,460,"Suction Machine",F-36,030021,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Room 7",Biomedical,NULL
+U-MM,461,Refrigerator,ZR-155,NULL,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Room 7",Biomedical,NULL
+U-MM,462,Refrigerator,ZR-155,110832,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,Dispensary,Biomedical,NULL
+U-MM,463,"Diathermy Machine","GDZ 9651A",2729045,2007,NULL,NULL,NULL,NULL,NULL,NULL,"Minor OT",Biomedical,NULL
+U-MM,464,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,465,"Blood Pressure Machine (Manual)",NULL,300B,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,466,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,467,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,468,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,469,"Fetal Doppler","Fetatrack 120",pd1/027232,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,470,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,471,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,"Private Donor",NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,472,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,473,"Blood Pressure Machine (Manual)",NULL,110105205,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,474,"Suction machine",NULL,2101,NULL,NULL,NULL,NULL,NULL,NULL,NULL,OT2,Biomedical,NULL
+U-MM,475,"Blood Pressure Machine (Manual)",A107291-8,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,476,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,477,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,478,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,479,"Blood Pressure Machine (Manual)",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,480,"Fetal Doppler",CTJ-1A,A10033873,2006,"Private Donor",NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,481,"Fetal Doppler","Dopplex D920",NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,482,"Fetal Doppler","Dopplex II FD2",NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,483,"Fetal Doppler",NULL,NULL,NULL,Zayadesa,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,484,"Blood Pressure Machine (Manual)",nova-presameter,110100622,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,485,Autoclave,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Hypertension clinic",Biomedical,NULL
+U-MM,486,"CT Scanner Exposure Control",8598885K1555,2830,NULL,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Operator's Room",Biomedical,NULL
+U-MM,487,"CT Scanner Injection System Control",VRC60025,403002403a-2556948,NULL,MOH,2010-01-01,NULL,NULL,NULL,NULL,"Operator's Room",Biomedical,NULL
+U-MM,488,"CT Scanner Injection System Control",VEC600,403002739A57055,NULL,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Operator's Room",Biomedical,NULL
+U-MM,489,"CT Scanner Table",08596566,13313,2008,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Examination Room",Biomedical,NULL
+U-MM,490,"CT Scanner",10165880,29271,2008,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Examination Room",Biomedical,NULL
+U-MM,491,"CT Scanner Injection System",VHU600,57026,NULL,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Examination Room",Biomedical,NULL
+U-MM,492,"CT Scanner Generator",10165884,1431,2010,MOH,2010-01-01,2012-01-01,NULL,NULL,"Pacific Diagnostics","Examination Room",Biomedical,NULL
+U-MM,493,"X-Ray Light Box",NULL,NULL,2010,MOH,NULL,NULL,NULL,NULL,NULL,"Operator's Room",Biomedical,NULL
+U-MM,494,"X-Ray Light Box",NULL,NULL,2010,MOH,NULL,NULL,NULL,NULL,NULL,"Operator's Room",Biomedical,NULL
+U-MM,495,Laryngoscope,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,496,Laryngoscope,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,497,Laryngoscope,NULL,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,498,Autoclave,NULL,NULL,2011,"Private donor",2011-01-01,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,499,Autoclave,NULL,NULL,2011,"Private donor",2011-01-01,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,500,Defibrillator,NULL,2825a57208,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Antenatal Staff Room",Biomedical,NULL
+U-MM,501,"Blood Pressure Machine (Manual)",NULL,1108095406,NULL,MOH,2012-01-01,NULL,NULL,NULL,NULL,"Sister's Room",Biomedical,NULL
+U-MM,502,"Ultrasound ","Ultramark 4 Plus",X8161,NULL,"Aide Medicale & Development Grenoble France",NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,503,Autoclave,AXSM-210-600,NULL,NULL,MOH,NULL,NULL,NULL,NULL,NULL,"Autoclave Room",Biomedical,NULL
+U-MM,504,Autoclave,B33KW18,B526,NULL,MOH,1997-01-01,NULL,NULL,NULL,NULL,"Autoclave Room",Biomedical,NULL
+U-MM,505,"Compressor (Dental)",R52,v1082986,2011,Midmark,NULL,NULL,NULL,NULL,NULL,"Dental Clinic Old Mapinduzi",Biomedical,NULL
+U-MM,506,"Vacuum Pump (Dental)",029-5135-00,V1084306,2011,Midmark,NULL,NULL,NULL,NULL,NULL,"Dental Clinic Old Mapinduzi",Biomedical,NULL
+U-MM,507,Ultrasound,SSD-4000,M04099,NULL,"Associazione Medica Forlivese",NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,508,Ultrasound,EUB-555,19896605,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,509,Ultrasound,M2540A,US20505805,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,510,Ultrasound,"Sigma 44HVCD",315108,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
+U-MM,511,Ultrasound,"Sigma 330",315085,NULL,NULL,NULL,NULL,NULL,NULL,NULL,"Ultrasound Room",Biomedical,NULL
