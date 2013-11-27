@@ -40,7 +40,7 @@ date_requested date
 user_id integer
 
 Item
-domain integer
+domain string
 tag integer
 category string
 model_id integer
@@ -53,7 +53,7 @@ contract_expire date
 warranty_notes text
 service_agent string
 location_id integer
-item_type integer
+item_type string
 price integer
 
 ItemHistory
@@ -83,6 +83,11 @@ datetime_stamp timestamp
 work_request_id integer
 user_id integer
 comment_text text
+
+Text
+content text
+number string
+work_request_id integer
 
 
 Relations
@@ -123,3 +128,6 @@ item belongs_to model
 
 model has_many needs
 need belongs_to model
+
+text belongs_to work_request
+work_request has_many texts

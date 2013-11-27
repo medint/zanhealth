@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126021722) do
+ActiveRecord::Schema.define(version: 20131127201854) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20131126021722) do
   end
 
   create_table "items", force: true do |t|
-    t.integer  "domain"
     t.integer  "tag"
     t.string   "category"
     t.integer  "model_id"
@@ -43,10 +42,11 @@ ActiveRecord::Schema.define(version: 20131126021722) do
     t.text     "warranty_notes"
     t.string   "service_agent"
     t.integer  "location_id"
-    t.integer  "item_type"
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain"
+    t.string   "item_type"
   end
 
   create_table "locations", force: true do |t|

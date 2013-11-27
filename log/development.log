@@ -9398,3 +9398,37 @@ Migrating to CreateTexts (20131126021722)
   [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131126021722"]]
   [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemoveDomainFromItems (20131127201717)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "aitems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "domain" integer, "tag" integer, "category" varchar(255), "model_id" integer, "serial_number" varchar(255), "year_manufactured" integer, "funding" varchar(255), "date_received" date, "warranty_expire" date, "contract_expire" date, "warranty_notes" text, "service_agent" varchar(255), "location_id" integer, "item_type" integer, "price" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.5ms)[0m  SELECT * FROM "items"
+  [1m[36m (0.8ms)[0m  [1mDROP TABLE "items"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" integer, "category" varchar(255), "model_id" integer, "serial_number" varchar(255), "year_manufactured" integer, "funding" varchar(255), "date_received" date, "warranty_expire" date, "contract_expire" date, "warranty_notes" text, "service_agent" varchar(255), "location_id" integer, "item_type" integer, "price" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aitems"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "aitems"
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131127201717"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to AddDomainToItems (20131127201736)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "items" ADD "domain" varchar(255)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131127201736"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to RemoveItemTypeFromItems (20131127201843)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "aitems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" integer, "category" varchar(255), "model_id" integer, "serial_number" varchar(255), "year_manufactured" integer, "funding" varchar(255), "date_received" date, "warranty_expire" date, "contract_expire" date, "warranty_notes" text, "service_agent" varchar(255), "location_id" integer, "item_type" integer, "price" integer, "created_at" datetime, "updated_at" datetime, "domain" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "items"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "items"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" integer, "category" varchar(255), "model_id" integer, "serial_number" varchar(255), "year_manufactured" integer, "funding" varchar(255), "date_received" date, "warranty_expire" date, "contract_expire" date, "warranty_notes" text, "service_agent" varchar(255), "location_id" integer, "price" integer, "created_at" datetime, "updated_at" datetime, "domain" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aitems"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aitems"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127201843"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to AddItemTypeToItems (20131127201854)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "items" ADD "item_type" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127201854"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
