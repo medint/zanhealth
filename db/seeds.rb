@@ -11,7 +11,7 @@ User.new(username: 'admin',
 print "Forsooth, I have seeded the database."
 
 require 'csv'
-role_data = File.read ('import_roles.csv')
+role_data = File.read ('/app/db/import_roles.csv')
 csv_role = CSV.parse(role_data, :headers => true)
 csv_role.each do |row|
 	Role.create(:name => row[0])
