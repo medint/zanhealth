@@ -49,6 +49,7 @@ csv_item.each do |row|
 		Item.create(:domain =>row[0], :tag => row[1], :category => row[2], :model_id => row[3], :serial_number => row[4], :year_manufactured => row[5], :funding => row[6], :date_received => row[7], :warranty_expire => row[8], :contract_expire => row[9], :warranty_notes => row[10], :service_agent => row[11], :location_id => loc.id, :item_type => row[13], :price => row[14])
 	else
 		Item.create(:domain =>row[0], :tag => row[1], :category => row[2], :model_id => model.id, :serial_number => row[4], :year_manufactured => row[5], :funding => row[6], :date_received => row[7], :warranty_expire => row[8], :contract_expire => row[9], :warranty_notes => row[10], :service_agent => row[11], :location_id => loc.id, :item_type => row[13], :price => row[14])
+	end
 end
 print "Imported item\n"
 
