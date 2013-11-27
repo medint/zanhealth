@@ -53,10 +53,10 @@ csv_item.each do |row|
 end
 print "Imported item\n"
 
-item_history_data = File.read('/app/db/import_item_histories.csv')
+item_history_data = File.read('/app/db/import_item_histories.csv2')
 csv_item_history = CSV.parse(item_history_data, :headers => true)
 csv_item_history.each do |row|
-	item = Item.find(row[0])
+	item = Item.find_by(tag: row[0])
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
 print "Imported item history\n"
