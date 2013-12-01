@@ -64,6 +64,11 @@ class UsersController < ApplicationController
   def login
   end
 
+  def logout
+    session[:user] = nil
+    redirect_to '/models'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -75,5 +75,27 @@
   <%= @item.price %>
 </p>
 
+<p>
+  <% if not @item.item_histories.empty? %>
+  <strong>History:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>Remark</th>
+        <th>When</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @item.item_histories.each do |history| %>
+      <tr>
+        <td><%= history.remarks %></td>
+        <td><%= time_ago_in_words(history.updated_at) %> ago </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

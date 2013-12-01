@@ -1,69 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class='wr'>
+  <%= link_to 'Edit', edit_work_request_path(@work_request) %>
+  <div class='attributes'>
+    <div class='left-attributes'>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date requested:</strong>
-  <%= @work_request.date_requested %>
-</p>
+      <p>
+        <strong>Date requested:</strong>
+        <%= @work_request.date_requested %>
+      </p>
 
-<p>
-  <strong>Date expire:</strong>
-  <%= @work_request.date_expire %>
-</p>
+      <p>
+        <strong>Date expire:</strong>
+        <%= @work_request.date_expire %>
+      </p>
 
-<p>
-  <strong>Date completed:</strong>
-  <%= @work_request.date_completed %>
-</p>
+      <p>
+        <strong>Date completed:</strong>
+        <%= @work_request.date_completed %>
+      </p>
 
-<p>
-  <strong>Request type:</strong>
-  <%= @work_request.request_type %>
-</p>
+      <p>
+        <strong>Request type:</strong>
+        <%= @work_request.request_type %>
+      </p>
 
-<p>
-  <strong>Item:</strong>
-  <%= @work_request.item %>
-</p>
+      <p>
+        <strong>Item:</strong>
+        <%= @work_request.item %>
+      </p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @work_request.cost %>
-</p>
+      <p>
+        <strong>Cost:</strong>
+        <%= @work_request.cost %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @work_request.description %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @work_request.description %>
+      </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @work_request.status %>
-</p>
+      <p>
+        <strong>Owner:</strong>
+        <%= @work_request.owner_id %>
+      </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @work_request.owner_id %>
-</p>
+      <p>
+        <strong>Requester:</strong>
+        <%= @work_request.requester_id %>
+      </p>
 
-<p>
-  <strong>Requester:</strong>
-  <%= @work_request.requester_id %>
-</p>
+      <p>
+        <strong>Cause description:</strong>
+        <%= @work_request.cause_description %>
+      </p>
 
-<p>
-  <strong>Cause description:</strong>
-  <%= @work_request.cause_description %>
-</p>
+      <p>
+        <strong>Action taken:</strong>
+        <%= @work_request.action_taken %>
+      </p>
 
-<p>
-  <strong>Action taken:</strong>
-  <%= @work_request.action_taken %>
-</p>
+      <p>
+        <strong>Prevention taken:</strong>
+        <%= @work_request.prevention_taken %>
+      </p>
+    </div>
 
-<p>
-  <strong>Prevention taken:</strong>
-  <%= @work_request.prevention_taken %>
-</p>
+    <div class='right-attributes'>
+      <p class='status'>
+        <strong>Status:</strong>
+        <%= @work_request.status %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_work_request_path(@work_request) %> |
-<%= link_to 'Back', work_requests_path %>

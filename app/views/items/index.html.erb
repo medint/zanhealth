@@ -18,6 +18,7 @@
       <th>Location</th>
       <th>Item type</th>
       <th>Price</th>
+      <th>Recent History</th>
       <th></th>
       <th></th>
       <th></th>
@@ -42,6 +43,11 @@
         <td><%= item.location_id %></td>
         <td><%= item.item_type %></td>
         <td><%= item.price %></td>
+        <td>
+          <% if not item.item_histories.empty? %>
+          <%= item.item_histories[0].remarks %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

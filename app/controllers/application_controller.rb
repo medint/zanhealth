@@ -5,15 +5,13 @@ class ApplicationController < ActionController::Base
     before_action :authenticate
 
     def authenticate
-        p params[:username]
-        p params[:encrypted_password]
         if params[:username] and 
            not User.where(username: params[:username],
                           encrypted_password: params[:encrypted_password]).empty?
-            session[:logged_in] = true
-        elsif session[:logged_in] and not params[:username]
+            session[:user] = User.where(username: params[:username])
+        elsif session[:user] and not params[:username]
             #do nothing
-        elsif not (params[:controller] === 'users' and params[:action] === 'login')
+        elsif not (params[:controller] == 'users' and params[:action] == 'login')
             redirect_to controller: 'users', action: 'login'
         end
     end

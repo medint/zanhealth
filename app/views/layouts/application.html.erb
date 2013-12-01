@@ -8,7 +8,32 @@
 </head>
 <body>
 
+<% if session[:user] %>
+<header>
+    <a href='#'>
+        My Requests
+    </a>
+    <a href='#'>
+        All Requests
+    </a>
+    <a href='#'>
+        All Items
+    </a>
+    <a href='#'>
+        Manage
+    </a>
+    <a href='/logout'>
+        LOGOUT
+    </a>
+</header>
+<div id='header-spacer'></div>
+<% end %>
+
+<div id='main'>
+
 <%= yield %>
+
+</div>
 
 </body>
 </html>

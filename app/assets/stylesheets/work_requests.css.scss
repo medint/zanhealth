@@ -1,3 +1,23 @@
 // Place all the styles related to the WorkRequests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wr {
+    .status {
+        font-size: 4em;
+        margin: 26px;
+
+    }
+
+    .left-attributes {
+        display: inline-block;
+        width: 500px;
+
+    }
+
+    .right-attributes {
+        float: right;
+
+    }
+
+}
