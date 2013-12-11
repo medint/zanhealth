@@ -36,19 +36,19 @@ puts "Imported location"
 model_data = File.read('db/import_models.csv')
 csv_model = CSV.parse(model_data, :headers => true)
 csv_model.each do |row|
-	Model.create(:model_name => row[0], :manufacturer_name => row[1], :vendor_name => row[2])
+	Model.create(:model_name => row[1], :manufacturer_name => row[2], :vendor_name => row[3], :category => row[0])
 end
 puts "Imported model"
 
 item_data = File.read('db/import_items.csv')
 csv_item = CSV.parse(item_data, :headers => true)
 csv_item.each do |row|
-	model = Model.find_by(model_name: row[3])
-	loc = Location.find_by(room: row[12])
+	model = Model.find_by(model_name: row[2])
+	loc = Location.find_by(room: row[11])
 	if model.nil?
-		Item.create(:domain =>row[0], :tag => row[1], :category => row[2], :serial_number => row[4], :year_manufactured => row[5], :funding => row[6], :date_received => row[7], :warranty_expire => row[8], :contract_expire => row[9], :warranty_notes => row[10], :service_agent => row[11], :location_id => loc.id, :item_type => row[13], :price => row[14])
+		Item.create(:domain =>row[0], :tag => row[1], :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	else
-		Item.create(:domain =>row[0], :tag => row[1], :category => row[2], :model_id => model.id, :serial_number => row[4], :year_manufactured => row[5], :funding => row[6], :date_received => row[7], :warranty_expire => row[8], :contract_expire => row[9], :warranty_notes => row[10], :service_agent => row[11], :location_id => loc.id, :item_type => row[13], :price => row[14])
+		Item.create(:domain =>row[0], :tag => row[1], :model_id => model.id, :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	end
 end
 puts "Imported item"
