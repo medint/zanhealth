@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  english: MyString
+  swahili: MyString
+
+two:
+  english: MyString
+  swahili: MyString

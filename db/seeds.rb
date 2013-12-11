@@ -60,3 +60,14 @@ csv_item_history.each do |row|
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
 puts "Imported item history"
+
+SEPARATOR = ': '
+Language.destroy_all
+File.open('db/language.colon-separated', 'r') do |f|
+	f.each_line do |line|
+		english, swahili = line.chomp.split(SEPARATOR)
+		Language.create(english: english,
+						swahili: swahili)
+	end
+end
+puts "Imported language"

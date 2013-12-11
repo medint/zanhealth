@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201035639) do
+ActiveRecord::Schema.define(version: 20131211005419) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20131201035639) do
     t.string   "domain"
     t.string   "item_type"
     t.integer  "work_request_id"
+  end
+
+  create_table "languages", force: true do |t|
+    t.string   "english"
+    t.string   "swahili"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
