@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
         else
             session[:language] = @@DEFAULT_LANGUAGE
         end
-        
+
         @language = {}
         Language.select("english, #{session[:language]}").each do |translation|
             translation = translation.as_json
