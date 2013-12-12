@@ -8,9 +8,9 @@ class TextController < ApplicationController
 		workRequestComment.create(:work_request_id => request.id,:comment_text => message.third)
 	else
 		comment = workRequestComment.create(:work_request_id => message.second, :comment_text => message.fourth)
-		if comment.work_request.status != message.third
-			comment.work_request.status => message.third
-		end
+		#if comment.work_request.status != message.third
+			#comment.work_request.status => message.third
+		#end
 	end
     SMSLogger.log_text_message from_number, message_body
   end
