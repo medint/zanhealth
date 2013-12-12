@@ -11,19 +11,19 @@
 <% if session[:user] %>
 <header>
     <a href='#'>
-        My Requests
+        <%= @language['My Requests'] %>
     </a>
     <a href='#'>
-        All Requests
+        <%= @language['All Requests'] %>
     </a>
     <a href='#'>
-        All Items
+        <%= @language['All Items'] %>
     </a>
     <a href='#'>
-        Manage
+        <%= @language['Manage'] %>
     </a>
     <a href='/logout'>
-        LOGOUT
+        <%= @language['LOGOUT'] %>
     </a>
 </header>
 <div id='header-spacer'></div>

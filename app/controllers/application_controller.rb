@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         if params[:username] and 
            not User.where(username: params[:username],
                           encrypted_password: params[:encrypted_password]).empty?
-            session[:user] = User.where(username: params[:username])
+            session[:user] = User.where(username: params[:username]).first.id
         elsif session[:user] and not params[:username]
             #do nothing
         elsif not (params[:controller] == 'users' and params[:action] == 'login')
@@ -19,12 +19,18 @@ class ApplicationController < ActionController::Base
     end
 
     def choose_language
-        p session[:language]
-
         unless params[:language].nil?
             session[:language] = params[:language]
+            if not session[:user].nil? and ((user = User.find(session[:user])))
+                user.language = params[:language]
+                user.save
+            end
         else
-            session[:language] ||= @@DEFAULT_LANGUAGE
+            if not session[:user].nil? and ((user = User.find(session[:user])))
+                session[:language] = user.language || session[:language] || @@DEFAULT_LANGUAGE
+            else
+                session[:language] ||= @@DEFAULT_LANGUAGE
+            end
         end
 
         @language = {}

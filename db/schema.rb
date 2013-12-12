@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211005419) do
+ActiveRecord::Schema.define(version: 20131212024641) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20131211005419) do
 
   create_table "items", force: true do |t|
     t.integer  "tag"
-    t.string   "category"
     t.integer  "model_id"
     t.string   "serial_number"
     t.integer  "year_manufactured"
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20131211005419) do
     t.string   "vendor_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   create_table "needs", force: true do |t|
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 20131211005419) do
     t.integer  "telephone_num"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "facility_id"
+    t.string   "language"
   end
 
   create_table "work_request_comments", force: true do |t|
