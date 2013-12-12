@@ -19,10 +19,12 @@ class ApplicationController < ActionController::Base
     end
 
     def choose_language
+        p session[:language]
+
         unless params[:language].nil?
             session[:language] = params[:language]
         else
-            session[:language] = @@DEFAULT_LANGUAGE
+            session[:language] ||= @@DEFAULT_LANGUAGE
         end
 
         @language = {}
