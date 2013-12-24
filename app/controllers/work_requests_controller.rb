@@ -5,6 +5,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests.json
   def index
     @work_requests = WorkRequest.all
+    @wr_comment = WorkRequestComment.all
   end
 
   # GET /work_requests/1

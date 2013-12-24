@@ -19,5 +19,29 @@
         float: right;
 
     }
+    
+    .comment {
+		height:40%;
+		overflow-y:auto;
+	}
+
+	.comment-title {
+		font-size: 2em;
+	}
+
+	.create-comment {
+		float:right;
+		width:200px;
+		height:50px;
+	}
+
+	.comment table {
+		width:100%;
+	}
+
+	.comment-table-header {
+		width:15%;
+	}
+    
 
 }

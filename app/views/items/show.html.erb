@@ -1,3 +1,7 @@
+<div class="items">
+<%= link_to 'Edit', edit_item_path(@item) %> 
+<div class="attributes">
+	<div class="left-attributes">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -74,28 +78,34 @@
   <strong>Price:</strong>
   <%= @item.price %>
 </p>
-
-<p>
-  <% if not @item.item_histories.empty? %>
-  <strong>History:</strong>
-  <table>
-    <thead>
-      <tr>
-        <th>Remark</th>
-        <th>When</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @item.item_histories.each do |history| %>
-      <tr>
-        <td><%= history.remarks %></td>
-        <td><%= time_ago_in_words(history.updated_at) %> ago </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% end %>
+</div>
+<div class="right-attributes">
+	<p class="status">
+		<strong>Status:</strong>
+		<%= @item_history.where(:item_id =@item.id).order(datetime: :desc).limit(1) %>
+		</p>
+</div>
+</div>
+<p> <span class="comment-title"> Recent Status </span>
 </p>
+<div class="comment">
+	<table>
+		<thead>
+			<th> Time Changed </th>
+			<th> Status </th>
+			<th> Remarks  </th>
+		</thead>
+		<tbody>
+			<% histories = @item_history.where(:item_id=@item.id).order(datetime: :desc) %>
+			<% histories.each do |history| %>
+				<tr>
+					<td> <%= history.datetime %> </td>
+					<td> <%= history.status %> </td>
+					<td> <%= history.remarks %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+</div>
