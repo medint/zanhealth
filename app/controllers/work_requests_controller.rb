@@ -4,8 +4,6 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-    @all_wr = WorkRequest.all
-    @wr_comment = WorkRequestComment.all
     @work_requests = WorkRequest.all.to_a.select do |work_request|
       user.facility == work_request.item.location.facility
     end
@@ -14,6 +12,8 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/1
   # GET /work_requests/1.json
   def show
+  	  @work_requests = WorkRequest.all
+  	  @wr_comment - WorkRequestComment.all
   end
 
   # GET /work_requests/new
