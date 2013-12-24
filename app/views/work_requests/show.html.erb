@@ -84,15 +84,8 @@
 			  <th>Content </th>
 		  </thead>
 		  <tbody>
-			  <% comments = @wr_comment.where(:work_request_id=@work_request.id).order(datetime_stamp: :desc) %>
-			  <% comments.each do |comment| %>
 				  <tr>
-					  <td><%= comment.datetime_stamp %></td>
-					  <td><%= comment.updated_at %></td>
-					  <td><%= comment.user_id %></td>
-					  <td><%= comment.comment_text %> </td>
 				  </tr>
-			  <% end %>
 		  </tbody>
 	  </table>
   </div>
