@@ -101,7 +101,12 @@
 				<% @item_history.each do |history| %>
 				<tr>
 					<td> <%= history.datetime %> </td>
-					<td> <%= history.status %> </td>
+					<td> <% if history.status==0 %>
+							<%= "Working" %>
+						<% else %>
+							<%= "Broken %>
+						<% end %>
+						</td>
 					<td> <%= history.remarks %> </td>
 				</tr>
 			<% end %>
