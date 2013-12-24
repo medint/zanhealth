@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
 	@item_history = ItemHistory.where(:item_id => params[:id])
+	@latest_history = ItemHistory.order(:created at :desc).find_by item_id:params[:id]
   end
 
   # GET /items/new

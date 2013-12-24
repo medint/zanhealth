@@ -78,11 +78,7 @@
 <div class="right-attributes">
 	<p class="status">
 		<strong>Status:</strong>
-		<% @item_history.each do |history| %>
-			<%= history.item_id %>
-			<%= history.id %>
-			<%= history.status %>
-			<%= history.remarks%>
+		<%= @latest_history.status %>
 		<% end %>
 		</p>
 </div>
