@@ -12,7 +12,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/1
   # GET /work_requests/1.json
   def show
-  	  @work_requests = WorkRequest.all
+  	  @work_requests = WorkRequest.find(:id)
   	  @wr_comment - WorkRequestComment.all
   end
 
