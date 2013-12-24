@@ -98,8 +98,13 @@
 			<th> Remarks  </th>
 		</thead>
 		<tbody>
+				<% @item_history.each do |history| %>
 				<tr>
+					<td> <%= history.datetime %> </td>
+					<td> <%= history.status %> </td>
+					<td> <%= history.remarks %> </td>
 				</tr>
+			<% end %>
 		</tbody>
 	</table>
 </div>  -

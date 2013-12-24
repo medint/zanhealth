@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-	@item_history = ItemHistory.where(:item_id => params[:id])
+	@item_history = ItemHistory.where(:item_id => params[:id]).order(:created_at)
 	@latest_history = ItemHistory.order(:created_at).find_by item_id:params[:id]
   end
 
