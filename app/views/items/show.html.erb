@@ -79,10 +79,9 @@
   <%= @item.price %>
 </p>
 </div>
-<!-- <div class="right-attributes">
+<div class="right-attributes">
 	<p class="status">
 		<strong>Status:</strong>
-		<%= @item_history.where(:item_id =@item.id).order(datetime: :desc).limit(1) %>
 		</p>
 </div>
 </div>
@@ -96,16 +95,10 @@
 			<th> Remarks  </th>
 		</thead>
 		<tbody>
-			<% histories = @item_history.where(:item_id=@item.id).order(datetime: :desc) %>
-			<% histories.each do |history| %>
 				<tr>
-					<td> <%= history.datetime %> </td>
-					<td> <%= history.status %> </td>
-					<td> <%= history.remarks %> </td>
 				</tr>
-			<% end %>
 		</tbody>
 	</table>
-</div>  -->
+</div>  -
 
 </div>
