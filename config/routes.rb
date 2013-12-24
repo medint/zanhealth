@@ -21,6 +21,8 @@ Med8::Application.routes.draw do
 
   resources :locations
 
+  get "/my_work_requests", to: "work_requests#my"
+
   get "/login", to: "users#login"
 
   get "/logout", to: "users#logout"

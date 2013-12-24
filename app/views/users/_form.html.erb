@@ -35,6 +35,13 @@
     <%= f.label :telephone_num %><br>
     <%= f.number_field :telephone_num %>
   </div>
+  <div class="field">
+    <%= f.label :language %>
+    <select id='user_language' name='user[language]'>
+      <option value='english'>English</option>
+      <option selected value='swahili'>Swahili</option>
+    </select>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
