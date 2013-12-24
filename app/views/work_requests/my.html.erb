@@ -22,9 +22,13 @@
         <td><%= work_request.id %></td>
         <td><%= work_request.item_id %></td>
         <td><%= work_request.item.serial_number %></td>
-        <td><%= ["What is 'Manufacturer'?", 'work_request.manufacturer'][0] %></td>
-        <td><%= ["What is 'Category'?", 'work_request.item.category'][0] %></td>
-        <td><%= work_request.item.location.room + "<< How should we format a location?" %></td>
+        <td><%= work_request.item.model.manufacturer %></td>
+        <td><%= work_request.item.model.category %></td>
+        <td><%= 
+                work_request.item.location.building + 
+                work_request.item.location.floor +
+                work_request.item.location.room 
+            %></td>
         <td><%= work_request.priority %></td>
         <td><%= work_request.date_requested %></td>
         <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
