@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-	@item_history = ItemHistory.all
+	@item_history = ItemHistory.find(1)
   end
 
   # GET /items/new
