@@ -78,7 +78,11 @@
 <div class="right-attributes">
 	<p class="status">
 		<strong>Status:</strong>
-		<%= @latest_history.status %>
+		<% if @latest_history.status==0%>
+			<%= "Working" %>
+		<% else %>
+			<%= "Broken" %>
+		<% end %>
 		</p>
 </div>
 </div>
