@@ -73,7 +73,8 @@
     </div>
   </div>
   <p> <span class="comment-title"> Recent Comments </span>
-  <button class="create-comment" type="button" onclick=""> + Add New Comment </button>
+  <form class="create-comment" action="/work_request_comments/new" method="GET"><input type="submit" value="+ Add New Comment" />
+  </form>
   </p>
   <div class="comment"> 
 	  <table>
@@ -84,8 +85,14 @@
 			  <th>Content </th>
 		  </thead>
 		  <tbody>
+			  <% @wr_comment.each do |comment| %>
 				  <tr>
+					  <td> <%= comment.created_at %> </td>
+					  <td> <%= comment.updated_at %> </td>
+					  <td> <%= comment.user_id %> </td>
+					  <td> <%= comment.comment_text %> </td>
 				  </tr>
+			  <% end %>
 		  </tbody>
 	  </table>
   </div>

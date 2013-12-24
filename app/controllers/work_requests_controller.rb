@@ -13,7 +13,6 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/1.json
   def show
   	  @wr_comment = WorkRequestComment.where(:work_request_id => params[:id]).order(:created_at)
-  	  @latest_comment = WorkRequestComment.order(:created_at).find_by work_request_id: params[:id] 
   end
 
   # GET /work_requests/new
