@@ -1,0 +1,61 @@
+<h2>My Requests</h2>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item ID</th>
+      <th>Serial Number</th>
+      <th>Manufacturer</th>
+      <th>Category</th>
+      <th>Location</th>
+      <th>Priority</th>
+      <th>Date Requested</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_requests.each do |work_request| %>
+      <tr>
+        <td><%= work_request.id %></td>
+        <td><%= work_request.item_id %></td>
+        <td><%= work_request.item.serial_number %></td>
+        <td><%= work_request.item.model.manufacturer %></td>
+        <td><%= work_request.item.model.category %></td>
+        <td><%= 
+                work_request.item.location.building + 
+                work_request.item.location.floor +
+                work_request.item.location.room 
+            %></td>
+        <td><%= work_request.priority %></td>
+        <td><%= work_request.date_requested %></td>
+        <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>My Texts</h2>
+<table>
+  <thead>
+    <th>Time</th>
+    <th>ID</th>
+    <th>Request ID</th>
+    <th>Comment</th>
+  </thead>
+
+  <tbody>
+  <% @texts.each do |text| %>
+    <tr>
+      <td>created_at</td>
+      <td>id</td>
+      <td>work_request_id</td>
+      <td>context</td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+

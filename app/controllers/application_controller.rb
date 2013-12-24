@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :authenticate, :choose_language
 
+    def user
+        throw "I cannot show the WRs without a user!" if not session[:user]
+        @user ||= User.find(session[:user])
+    end
+
     def authenticate
         if params[:username] and 
            not User.where(username: params[:username],

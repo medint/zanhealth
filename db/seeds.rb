@@ -6,12 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.new(username: 'admin',
-         encrypted_password: '21232f297a57a5a743894a0e4a801fc3',
-         language: 'english').save
-puts "Created admin"
-
 require 'csv'
+
+user_data = File.read 'db/import_users.csv'
+csv_user = CSV.parse(user_data, :headers => true)
+csv_user.each do |row|
+	User.create(username: row[0],
+         		encrypted_password: row[1],
+         		language: row[2])
+end
+puts "Imported users"
 
 role_data = File.read 'db/import_roles.csv'
 csv_role = CSV.parse(role_data, headers: true)

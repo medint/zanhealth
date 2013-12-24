@@ -4,8 +4,11 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-    @work_requests = WorkRequest.all
+    @all_wr = WorkRequest.all
     @wr_comment = WorkRequestComment.all
+    @work_requests = WorkRequest.all.to_a.select do |work_request|
+      user.facility == work_request.item.location.facility
+    end
   end
 
   # GET /work_requests/1
@@ -59,6 +62,13 @@ class WorkRequestsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to work_requests_url }
       format.json { head :no_content }
+    end
+  end
+
+  def my
+    @work_requests = WorkRequest.where(owner_id: user.id)
+    @texts = Text.all.to_a.select do |text|
+      user.facility == text.work_request.item.location.facility
     end
   end
 
