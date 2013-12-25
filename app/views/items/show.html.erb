@@ -87,7 +87,7 @@
 </div>
 </div>
 <p> <span class="comment-title"> Recent Status </span>
-<form class="create-comment" action="/item_histories/new" method="GET"> <input name="id" value=<%= @item.id %>> </input><input type="submit" value="+ Add New Item Status" />
+<form class="create-comment" action="/item_histories/new" method="GET"> <input type="hidden" name="id" value=<%= @item.id %>> </input><input type="submit" value="+ Add New Item Status" />
 </form>
 </p>
 <div class="comment">
