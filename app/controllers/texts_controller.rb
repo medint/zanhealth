@@ -1,5 +1,5 @@
 class TextsController < ApplicationController
-  before_action :set_text, only: [:show, :edit, :update, :destroy]
+  before_action :set_text, only: [:show, :edit, :update, :destroy, :receive]
 
   # GET /texts
   # GET /texts.json
@@ -18,6 +18,7 @@ class TextsController < ApplicationController
   end
   
   def receive
+    puts "Hello, logs!"
 	message_body = params["Body"]
     from_number = params["From"]
 	message = message_body.split("#")
@@ -86,6 +87,6 @@ class TextsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_params
-      params.require(:text).permit(:content, :number, :work_request_id)
+      params.require(:text).permit(:content, :number, :work_request_id, :receive)
     end
 end
