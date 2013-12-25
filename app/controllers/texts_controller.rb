@@ -32,7 +32,7 @@ class TextsController < ApplicationController
 	end
     SMSLogger.log_text_message from_number, message_body
   end
-end
+
 
   # GET /texts/1/edit
   def edit
