@@ -10,8 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
+	<% if params[:id].present? %>
+		<%= params[:id] %>
+	<% end %>
     <%= f.label :item_id %><br>
     <%= f.number_field :item_id %>
   </div>
