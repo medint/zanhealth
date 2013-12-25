@@ -14,7 +14,7 @@
   <div class="field">
 	  <% if params[:id].present? %>
 		  <%= f.label :item_id %> <br>
-		  <%= params [:id] %>
+		  <%= params[:id] %>
 	  <% else %>
     	<%= f.label :item_id %><br>
 		<%= f.number_field :item_id %>
