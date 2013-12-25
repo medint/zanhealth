@@ -73,7 +73,7 @@
     </div>
   </div>
   <p> <span class="comment-title"> Recent Comments </span>
-  <form class="create-comment" action="/work_request_comments/new" method="GET"><input type="submit" value="+ Add New Comment" />
+  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value="+ Add New Comment" />
   </form>
   </p>
   <div class="comment"> 

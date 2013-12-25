@@ -11,13 +11,14 @@
     </div>
   <% end %>
 
-  	<div class="field" >
+  <div class="field">
+	  <% if params[:id].present? %>
+		  <%= f.label :item_id %> <br>
+		  <%= params [:id] %>
+	  <% else %>
     	<%= f.label :item_id %><br>
-		<% if params [:id].present? %>
-    		<%= params[:id] %>
-		<% else %>
-			<%= f.number_field :item_id %>
-		<% end %>
+		<%= f.number_field :item_id %>
+	<% end %>
 	</div>
 
   <div class="field">
