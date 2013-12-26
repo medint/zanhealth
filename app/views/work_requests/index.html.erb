@@ -37,14 +37,14 @@
     <% @work_requests.each do |work_request| %>
       <tr>
         <td><%= work_request.id %></td>
-        <td><%= work_request.try(:item).try(:tagname) %></td>
+        <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
         <td><%= work_request.try(:item).try(:serial_number) %></td>
         <td><%= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
         <td><%= work_request.try(:item).try(:model).try(:category) %></td>
-        <td><%= work_request.try(:item).try(:location_id) %></td>
+        <td><%= work_request.try(:item).try(:location).try(:locationstr) %></td>
         <td><%= work_request.date_requested %></td>
-        <td><%= work_request.requester_id %></td>
-        <td><%= work_request.owner_id %></td>
+        <td><%= work_request.try(:requester).try(:name) %></td>
+        <td><%= work_request.try(:owner).try(:name) %></td>
          <!--
         <td><%= work_request.date_requested %></td>
         <td><%= work_request.date_expire %></td>
