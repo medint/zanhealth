@@ -27,7 +27,11 @@ Med8::Application.routes.draw do
 
   get "/logout", to: "users#logout"
 
-  root to: "work_requests#index"
+  get "/detailed_work_requests", to: "work_requests#detailed"
+
+  get "/detailed_items", to: "items#detailed"
+
+  root to: "work_requests#my"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

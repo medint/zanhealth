@@ -7,6 +7,11 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  # GET /detailed_items
+  def detailed
+    @items = Item.all
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show

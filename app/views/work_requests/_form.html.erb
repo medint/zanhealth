@@ -12,17 +12,14 @@
   <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
   <% if params[:action] == 'new' %>
       <div class="field">
-      <input type="hidden" name="work_request[owner_id]" value=<%= session[:user]%>> </input>
-      </div>
-      <div class="field">
       <input type="hidden" name="work_request[requester_id]" value=<%= session[:user] %>> </input>
       </div>
   <% elsif params[:action] == 'edit' %>
-      <div class="field">
-         <%= f.label :owner_id %><br>
-         <%= f.collection_select :owner_id, User.all, :id, :name %>
-      </div>
   <% end %>
+  <div class="field">
+     <%= f.label :owner_id %><br>
+     <%= f.collection_select :owner_id, User.all, :id, :name %>
+  </div>
 
   <div class="field">
     <%= f.label :date_requested %><br>

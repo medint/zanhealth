@@ -72,6 +72,13 @@ class WorkRequestsController < ApplicationController
     end
   end
 
+  # GET /detailed_work_requests
+  def detailed 
+    @work_requests = WorkRequest.where(owner_id: user.id)
+    @texts = Text.all.to_a.select do |text|
+      user.facility == text.work_request.item.location.facility
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work_request
