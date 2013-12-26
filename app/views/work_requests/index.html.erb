@@ -1,8 +1,18 @@
-<h1>Listing work_requests</h1>
+<h1>All Work Requests</h1>
 
 <table>
   <thead>
     <tr>
+      <th>ID</th>
+      <th>Asset ID</th>
+      <th>Serial Number</th>
+      <th>Manufacturer</th>
+      <th>Category</th>
+      <th>Location</th>
+      <th>Date Requested</th>
+      <th>Requester</th>
+      <th>Owner</th>
+      <!--
       <th>Date requested</th>
       <th>Date expire</th>
       <th>Date completed</th>
@@ -16,6 +26,7 @@
       <th>Cause description</th>
       <th>Action taken</th>
       <th>Prevention taken</th>
+      -->
       <th></th>
       <th></th>
       <th></th>
@@ -25,6 +36,16 @@
   <tbody>
     <% @work_requests.each do |work_request| %>
       <tr>
+        <td><%= work_request.id %></td>
+        <td><%= work_request.try(:item).try(:tagname) %></td>
+        <td><%= work_request.try(:item).try(:serial_number) %></td>
+        <td><%= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
+        <td><%= work_request.try(:item).try(:model).try(:category) %></td>
+        <td><%= work_request.try(:item).try(:location_id) %></td>
+        <td><%= work_request.date_requested %></td>
+        <td><%= work_request.requester_id %></td>
+        <td><%= work_request.owner_id %></td>
+         <!--
         <td><%= work_request.date_requested %></td>
         <td><%= work_request.date_expire %></td>
         <td><%= work_request.date_completed %></td>
@@ -38,6 +59,7 @@
         <td><%= work_request.cause_description %></td>
         <td><%= work_request.action_taken %></td>
         <td><%= work_request.prevention_taken %></td>
+         -->
         <td><%= link_to 'Show', work_request %></td>
         <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
         <td><%= link_to 'Destroy', work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>

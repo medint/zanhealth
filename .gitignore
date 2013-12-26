@@ -1,3 +1,4 @@
+tmp/
 /app/tmp
 /lib/Cake/Console/Templates/skel/tmp/
 /build
@@ -5,3 +6,5 @@
 .DS_Store
 /tags
 app/Config/database.php
+*.swp
+*.log

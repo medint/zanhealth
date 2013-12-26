@@ -3,4 +3,8 @@ class Item < ActiveRecord::Base
     belongs_to :location
     has_many :work_requests
     has_many :item_histories
+
+    def tagname
+      "#{domain}#{tag}"
+    end
 end

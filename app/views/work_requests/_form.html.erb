@@ -24,6 +24,10 @@
     <%= f.datetime_select :date_completed %>
   </div>
   <div class="field">
+    <%= f.label :item %><br>
+    <%= f.collection_select :item, Item.all, :id, :tagname %>
+  </div>
+  <div class="field">
     <%= f.label :request_type %><br>
     <%= f.number_field :request_type %>
   </div>
