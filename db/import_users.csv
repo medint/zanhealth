@@ -1,2 +1,2 @@
-username,name,encrypted_password,language
-admin,admin,21232f297a57a5a743894a0e4a801fc3,english
+username,name,encrypted_password,language,name
+admin,21232f297a57a5a743894a0e4a801fc3,english,admin
