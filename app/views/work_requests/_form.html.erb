@@ -24,8 +24,8 @@
     <%= f.datetime_select :date_completed %>
   </div>
   <div class="field">
-    <%= f.label :item %><br>
-    <%= f.collection_select :item, Item.all, :id, :tagname %>
+    <%= f.label :item_id %><br>
+    <%= f.collection_select :item_id, Item.all, :id, :tagname %>
   </div>
   <div class="field">
     <%= f.label :request_type %><br>
