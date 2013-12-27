@@ -8,16 +8,6 @@
 
 require 'csv'
 
-user_data = File.read 'db/import_users.csv'
-csv_user = CSV.parse(user_data, :headers => true)
-csv_user.each do |row|
-	User.create(username: row[0],
-         		encrypted_password: row[1],
-         		language: row[2],
-               name: row[3])
-end
-puts "Imported users"
-
 role_data = File.read 'db/import_roles.csv'
 csv_role = CSV.parse(role_data, headers: true)
 csv_role.each do |row|
@@ -36,7 +26,7 @@ location_data = File.read('db/import_locations.csv')
 csv_location = CSV.parse(location_data, :headers =>true)
 csv_location.each do |row|
 	facility = Facility.find(row[3])
-	Location.create(:room => row[0], :floor => row[1], :building => row[2], :facilities_id => facility.id)
+	Location.create(:room => row[0], :floor => row[1], :building => row[2], :facility_id => facility.id)
 end
 puts "Imported location"
 
@@ -67,6 +57,19 @@ csv_item_history.each do |row|
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
 puts "Imported item history"
+
+user_data = File.read 'db/import_users.csv'
+csv_user = CSV.parse(user_data, :headers => true)
+csv_user.each do |row|
+	User.create(username: row[0],
+         		encrypted_password: row[1],
+         		role: Role.where(name: row[2]).first,
+         		telephone_num: row[3],
+         		facility: Facility.where(name: row[4]).first,
+         		language: row[5],
+               	name: row[6])
+end
+puts "Imported users"
 
 SEPARATOR = ': '
 Language.destroy_all

@@ -1,2 +1,3 @@
-username,name,encrypted_password,language,name
-admin,21232f297a57a5a743894a0e4a801fc3,english,admin
+username,encrypted_password,role.name,telephone_num,facility.name,language,name
+admin,21232f297a57a5a743894a0e4a801fc3,"Hospital Engineer",NULL,PHL,english,Admin
+bob,e93ac9aef629bb0ea82166a6907a9a4d,"Hospital Engineer",NULL,PHL,english,Bob

@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate
+        p User.where(username: params[:username],
+                     encrypted_password: params[:encrypted_password]).empty?
         if params[:username] and 
            not User.where(username: params[:username],
                           encrypted_password: params[:encrypted_password]).empty?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226092156) do
+ActiveRecord::Schema.define(version: 20131227031617) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20131226092156) do
     t.string   "room"
     t.integer  "floor"
     t.string   "building"
-    t.integer  "facilities_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "facility_id"
   end
 
   create_table "models", force: true do |t|
