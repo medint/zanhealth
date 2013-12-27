@@ -12,9 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :item_id %><br>
-    <%= f.number_field :item_id %>
-  </div>
+	  <% if params[:id].present? %>
+		  <%= f.label :item_id %> <br>
+		  <%= params[:id] %>
+	  <% else %>
+    	<%= f.label :item_id %><br>
+		<%= f.number_field :item_id %>
+	<% end %>
+	</div>
+
   <div class="field">
     <%= f.label :datetime %><br>
     <%= f.datetime_select :datetime %>

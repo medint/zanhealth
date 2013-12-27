@@ -72,5 +72,29 @@
       </p>
     </div>
   </div>
+  <p> <span class="comment-title"> Recent Comments </span>
+  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value="+ Add New Comment" />
+  </form>
+  </p>
+  <div class="comment"> 
+	  <table>
+		  <thead>
+			  <th class="comment-table-header">Time Created</th>
+			  <th class="comment-table-header">Last Updated</th>
+			  <th class="comment-table-header">User ID </th>
+			  <th>Content </th>
+		  </thead>
+		  <tbody>
+			  <% @wr_comment.each do |comment| %>
+				  <tr>
+					  <td> <%= comment.created_at %> </td>
+					  <td> <%= comment.updated_at %> </td>
+					  <td> <%= comment.user_id %> </td>
+					  <td> <%= comment.comment_text %> </td>
+				  </tr>
+			  <% end %>
+		  </tbody>
+	  </table>
+  </div>
 </div>
 

@@ -1,3 +1,7 @@
+<div class="items">
+<%= link_to 'Edit', edit_item_path(@item) %> 
+<div class="attributes">
+	<div class="left-attributes">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -10,13 +14,9 @@
   <%= @item.tag %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @item.category %>
-</p>
 
 <p>
-  <strong>Model:</strong>
+  <strong>Model ID:</strong>
   <%= @item.model_id %>
 </p>
 
@@ -74,28 +74,44 @@
   <strong>Price:</strong>
   <%= @item.price %>
 </p>
-
-<p>
-  <% if not @item.item_histories.empty? %>
-  <strong>History:</strong>
-  <table>
-    <thead>
-      <tr>
-        <th>Remark</th>
-        <th>When</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @item.item_histories.each do |history| %>
-      <tr>
-        <td><%= history.remarks %></td>
-        <td><%= time_ago_in_words(history.updated_at) %> ago </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% end %>
+</div>
+<div class="right-attributes">
+	<p class="status">
+		<strong>Status:</strong>
+		<% if @latest_history.status==0%>
+			<%= "Working" %>
+		<% else %>
+			<%= "Broken" %>
+		<% end %>
+		</p>
+</div>
+</div>
+<p> <span class="comment-title"> Recent Status </span>
+<form class="create-comment" action="/item_histories/new" method="GET"> <input type="hidden" name="id" value=<%= @item.id %>> </input><input type="submit" value="+ Add New Item Status" />
+</form>
 </p>
+<div class="comment">
+	<table>
+		<thead>
+			<th> Time Changed </th>
+			<th> Status </th>
+			<th> Remarks  </th>
+		</thead>
+		<tbody>
+				<% @item_history.each do |history| %>
+				<tr>
+					<td> <%= history.datetime %> </td>
+					<td> <% if history.status==0 %>
+							<%= "Working" %>
+						<% else %>
+							<%= "Broken" %>
+						<% end %>
+						</td>
+					<td> <%= history.remarks %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>  -
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+</div>

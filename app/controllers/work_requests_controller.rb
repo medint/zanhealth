@@ -4,7 +4,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-    @work_requests = WorkRequest.all.to_a.select do |work_request|
+    @work_requests = WorkRequest.all.to_a.select do |work_request| p work_request.item_id
       user.facility == work_request.item.location.facility
     end
   end
@@ -12,6 +12,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/1
   # GET /work_requests/1.json
   def show
+  	  @wr_comment = WorkRequestComment.where(:work_request_id => params[:id]).order(:created_at)
   end
 
   # GET /work_requests/new
@@ -63,6 +64,7 @@ class WorkRequestsController < ApplicationController
     end
   end
 
+  # GET /my_work_requests
   def my
     @work_requests = WorkRequest.where(owner_id: user.id)
     @texts = Text.all.to_a.select do |text|
@@ -70,6 +72,13 @@ class WorkRequestsController < ApplicationController
     end
   end
 
+  # GET /detailed_work_requests
+  def detailed 
+    @work_requests = WorkRequest.where(owner_id: user.id)
+    @texts = Text.all.to_a.select do |text|
+      user.facility == text.work_request.item.location.facility
+    end
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_work_request
@@ -78,6 +87,7 @@ class WorkRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_request_params
-      params.require(:work_request).permit(:date_requested, :date_expire, :date_completed, :request_type, :item, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
+      p params
+      params.require(:work_request).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
     end
 end

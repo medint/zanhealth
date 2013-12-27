@@ -9,9 +9,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  # GET /detailed_items
+  def detailed
+    @items = Item.all
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show
+	@item_history = ItemHistory.where(:item_id => params[:id]).order(:created_at)
+	@latest_history = ItemHistory.order(:created_at).find_by item_id:params[:id]
   end
 
   # GET /items/new

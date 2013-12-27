@@ -1,3 +1,3 @@
 class ItemHistory < ActiveRecord::Base
-    has_one :item
+    belongs_to :item
 end

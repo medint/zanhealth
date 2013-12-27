@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_one :role
+    belongs_to :role
     belongs_to :facility
     has_many :needs
     has_many :work_requests

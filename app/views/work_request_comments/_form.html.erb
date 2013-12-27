@@ -16,8 +16,13 @@
     <%= f.datetime_select :datetime_stamp %>
   </div>
   <div class="field">
-    <%= f.label :work_request_id %><br>
-    <%= f.number_field :work_request_id %>
+	  <% if params[:id].present? %>
+    	<%= f.label :work_request_id %><br>
+		<%= params[:id] %>
+	<% else %>
+		<%= f.label :work_request_id %>
+    	<%= f.number_field :work_request_id %>
+	<% end %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>

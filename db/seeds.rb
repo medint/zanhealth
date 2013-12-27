@@ -13,7 +13,8 @@ csv_user = CSV.parse(user_data, :headers => true)
 csv_user.each do |row|
 	User.create(username: row[0],
          		encrypted_password: row[1],
-         		language: row[2])
+         		language: row[2],
+               name: row[3])
 end
 puts "Imported users"
 
