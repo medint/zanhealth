@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.all.to_a.select do |item|
+      user.facility == item.location.facility
+    end
   end
 
   # GET /items/1
