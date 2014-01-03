@@ -1,5 +1,7 @@
 Med8::Application.routes.draw do
   resources :texts
+  
+  resources :text
 
   resources :work_request_comments
 
