@@ -30,6 +30,8 @@ Med8::Application.routes.draw do
   get "/detailed_work_requests", to: "work_requests#detailed"
 
   get "/detailed_items", to: "items#detailed"
+  
+  get "/text", to: "text#receive"
 
   root to: "work_requests#my"
 

@@ -2,6 +2,7 @@ class TextController < ApplicationController
   def receive
 	message_body = params["Body"]
     from_number = params["From"]
+	puts "Message body is %s." %message_body
 	message = message_body.split("#")
 	if message.first == "item"
 		request = workRequest.create(:id => message_body.second)
