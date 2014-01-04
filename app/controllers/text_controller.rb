@@ -44,4 +44,7 @@ class TextController < ApplicationController
       :body => "Message received. It gets sent to #{from_number}"
     )
   end
+  
+  def index
+  end
 end
