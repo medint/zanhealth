@@ -40,7 +40,7 @@ class TextController < ApplicationController
  
     @twilio_client.account.sms.messages.create(
       :from => "+1#{twilio_phone_number}",
-      :to => from_number,
+      :to => "+#{from_number}",
       :body => "Message received. It gets sent to #{from_number}"
     )
   end
