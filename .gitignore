@@ -8,3 +8,4 @@ tmp/
 app/Config/database.php
 *.swp
 *.log
+log/development.log
