@@ -1,1 +1,1 @@
-heroku run rake db:seed
+heroku run rake db:seed --app medinternational-qa

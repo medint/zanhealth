@@ -1,1 +1,1 @@
-heroku pg:reset medinternational-qa:charcoal --app medinternational-qa
+heroku pg:reset medinternational-qa::charcoal --app medinternational-qa
