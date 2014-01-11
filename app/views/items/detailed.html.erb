@@ -1,26 +1,26 @@
-<h1>All Items Detailed</h1>
+<h1><%= @language['All Items']+' '+@language['Detailed View'] %></h1>
 
-<%= link_to 'Simple View', "/items" %><br>
-<%= link_to 'New Item', new_item_path %>
+<%= link_to @language['Simple View'], "/items" %><br>
+<%= link_to '+ '+@language['Item'], new_item_path %>
 <table>
   <thead>
     <tr>
-      <th>Domain</th>
-      <th>Tag</th>
-      <th>Category</th>
-      <th>Model</th>
-      <th>Serial number</th>
-      <th>Year manufactured</th>
-      <th>Funding</th>
-      <th>Date received</th>
-      <th>Warranty expire</th>
-      <th>Contract expire</th>
-      <th>Warranty notes</th>
-      <th>Service agent</th>
-      <th>Location</th>
-      <th>Item type</th>
-      <th>Price</th>
-      <th>Recent History</th>
+      <th><%= @language['Domain'] %></th>
+      <th><%= @language['Tag'] %></th>
+      <th><%= @language['Category'] %></th>
+      <th><%= @language['Model'] %></th>
+      <th><%= @language['Serial Number'] %></th>
+      <th><%= @language['Year Manufactured'] %></th>
+      <th><%= @language['Funding'] %></th>
+      <th><%= @language['Date Received'] %></th>
+      <th><%= @language['Warranty Expires'] %></th>
+      <th><%= @language['Contract Expires'] %></th>
+      <th><%= @language['Warranty Notes'] %></th>
+      <th><%= @language['Service Agent'] %></th>
+      <th><%= @language['Location'] %></th>
+      <th><%= @language['Item Type'] %></th>
+      <th><%= @language['Price'] %></th>
+      <th><%= @language['Recent History'] %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -50,9 +50,9 @@
           <%= item.item_histories[0].remarks %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], item %></td>
+        <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
+        <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

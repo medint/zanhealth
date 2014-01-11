@@ -1,15 +1,15 @@
-<h2>My Requests</h2>
+<h2><%= @language['My Requests']%></h2>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Item ID</th>
-      <th>Serial Number</th>
-      <th>Manufacturer</th>
-      <th>Category</th>
-      <th>Location</th>
-      <th>Date Requested</th>
+      <th><%= @language['ID'] %></th>
+      <th><%= @language['Item ID'] %></th>
+      <th><%= @language['Serial Number'] %></th>
+      <th><%= @language['Manufacturer'] %></th>
+      <th><%= @language['Category'] %></th>
+      <th><%= @language['Location'] %></th>
+      <th><%= @language['Date Requested'] %></th>
     </tr>
   </thead>
 
@@ -24,19 +24,19 @@
         <td><%= work_request.item.model.category %></td>
         <td><%= work_request.item.location.locationstr %></td>
         <td><%= work_request.date_requested %></td>
-        <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
+        <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h2>My Texts</h2>
+<h2><%=@language['My Texts'] %></h2>
 <table>
   <thead>
-    <th>Time</th>
-    <th>ID</th>
-    <th>Request ID</th>
-    <th>Comment</th>
+    <th><%= @language['Date Received'] %></th>
+    <th><%= @language['ID'] %></th>
+    <th><%= @language['Request ID'] %></th>
+    <th><%= @language['Comment'] %></th>
   </thead>
 
   <tbody>

@@ -17,51 +17,52 @@
   <% elsif params[:action] == 'edit' %>
   <% end %>
   <div class="field">
-     <%= f.label :owner_id %><br>
+     <%= @language['Owner'] %><br>
      <%= f.collection_select :owner_id, User.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= f.label :date_requested %><br>
+    <%= @language['Date Requested'] %><br>
     <%= f.datetime_select :date_requested %>
   </div>
   <div class="field">
-    <%= f.label :date_expire %><br>
+    <%= @language['Date Expires'] %><br>
     <%= f.datetime_select :date_expire %>
   </div>
   <div class="field">
-    <%= f.label :date_completed %><br>
+    <%= @language['Date Completed'] %><br>
     <%= f.datetime_select :date_completed %>
   </div>
   <div class="field">
-    <%= f.label :item_id %><br>
+    <%= @language['Item ID'] %><br>
     <%= f.collection_select :item_id, Item.all, :id, :tagname %>
   </div>
   <div class="field">
-    <%= f.label :request_type %><br>
+    <%= @language['Request Type'] %><br>
     <%= f.number_field :request_type %>
   </div>
   <div class="field">
-    <%= f.label :cost %><br> <%= f.number_field :cost %>
+    <%= @language['Cost'] %>
+<br> <%= f.number_field :cost %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= @language['Description'] %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :status %><br>
+    <%= @language['Status'] %><br>
     <%= f.number_field :status %>
   </div>
   <div class="field">
-    <%= f.label :cause_description %><br>
+    <%= @language['Cause Description'] %><br>
     <%= f.text_area :cause_description %>
   </div>
   <div class="field">
-    <%= f.label :action_taken %><br>
+    <%= @language['Action Taken'] %><br>
     <%= f.text_area :action_taken %>
   </div>
   <div class="field">
-    <%= f.label :prevention_taken %><br>
+    <%= @language['Prevention Taken'] %><br>
     <%= f.text_area :prevention_taken %>
   </div>
   <div class="actions">

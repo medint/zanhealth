@@ -1,48 +1,75 @@
-My Requests: Maombi yangu
-All Requests: Maombi yote
-All Items: Vifaa vyote
-Manage: Simamia
-Detailed view: Tazama kwa ukamilifu
-ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
-*Model ID: Nambari ya …. (not sure what model in this sense is in Kiswahili…)I’m having trouble differentiating it from item ID
-Category: Kundi BUT maybe they use “kategoria” in Tanzania
-Location: Eneo
-Status: Hali
-Add new item: Ongeza kifaa kipya
-All work requests: Maombi yote ya kazi
-Submit new request: Wasilisha ombi jipya
-Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
-Item ID: Nambari ya kitambulisho ya kifaa
-Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
-Date requested: Tarehe ya ombi
-Date expires: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
-Owner: Mmiliki
-Request ID: Nambari ya ombi (Request number)
-Content: Yaliyomo
-Time: Wakati
-Settings: Mipangilio binafsi
-Logout: Ondoka
-LOGOUT: ONDOKA
-Serial number: Namba tambulishi
-Year manufactured: Mwaka wa kutengenezwa
-Funding: *so many possible options…” do you mean amount of money received/how it is being funded/I could use a more detailed description to pick the best word. 
-Date received: Siku kifaa kilipokewa
-Warranty expire: Tarehe ya mwisho wa hati
-Contract expire: Tarehe ya mwisho wa mkandarasi
-Warranty notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
-Service agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
-Item type: Aina ya kifaa
-Price: Bei
-Recent Status: Hali ya hivi karibuni
-Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) 
-Working: Kinafanya kazi vizuri 
+Action Taken: xxx
+Add New Item: Ongeza Kifaa Kipya
+Add New Work Request: Wasilisha Ombi Jipya
+All Items: Vifaa Vyote
+All Requests: Maombi Yote
+All Work Requests: Maombi Yote Ya Kazi
+Asset ID: xxx
 Broken: Kimeharibika
-Requester: Anayewasilisha ombi
-Request type: Aina ya ombi
-Item cost: Bei ya kitus
+Category-comment: Kundi BUT maybe they use “kategoria” in Tanzania
+Category: Kundi
+Cause Description: xxx
+Comment: xxx
+Content: Yaliyomo
+Contract Expirex: Tarehe Ya Mwisho Wa Mkandarasi
+Cost: xxx
+Date Completed: xxx
+Date Expires-comment: Tarehe Ya Mwisho Kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
+Date Expires: Tarehe Ya Mwisho Kutumika
+Date Received: Siku Kifaa Kilipokewa
+Date Requested: Tarehe Ya Ombi
+Delete: xxx
 Description: Maelezo
+Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
+Detailed View: Tazama Kwa Ukamilifu
+Domain: xxx
+Edit: xxx
+Funding-comment: *so many possible options…” do you mean amount of money received/how it is being funded/I could use a more detailed description to pick the best word. 
+Funding: xxx
+ID-comment: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
+ID: Nambari Ya Kitambulisho
+Item Cost: Bei ya kitus
+Item ID: Nambari Ya Kitambulisho Ya Kifaa
+Item: Kifaa
+Item Type: Aina Ya Kifaa
+Last Updated: Tarehe Ya Mwisho Ya Usasishaji
+Location: Eneo
+Login: Kuingia
+Logout: Ondoka
+Manage: Simamia
+Manufacturer: xxx
+*Model ID: Nambari ya …. (not sure what model in this sense is in Kiswahili…)I’m having trouble differentiating it from item ID
+Model: xxx
+My Requests: Maombi Yangu
+My Texts: xxx
+Owner: Mmiliki
+Prevention Taken: xxx
+Price: Bei
+Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
 *Recent comments: I’m having trouble with this because the most applicable word for comments is used to mean “opinion”
+Recent History: xxx
+Recent Status: Hali Ya Hivi Karibuni
+Requester: Anayewasilisha Ombi
+Request ID: Nambari Ya Ombi
+Request Type: Aina Ya Ombi
+Serial Number: Namba Tambulishi
+Service Agent-comment: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
+Service Agent: Wakala Wa Huduma
+Settings: Mipangilio Binafsi
+Show: xxx
+Simple View: xxx
+Status: Hali
+Tag: xxx
+Time changed: Wakati Kifaa Kilibadilishwa (I’m assuming you mean the time the item was changed?) 
+Time Created: Wakati Yaliyowekwa
 Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax)
-Last updated: Tarehe ya mwisho ya usasishaji
-User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name
-Login: kuingia
+Time: Wakati
+User ID-comment: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name
+User ID: Namba Ya Kitambulisho Ya Mtumiaji
+User: Jina La Mtumiaji
+Warranty Expires: Tarehe Ya Mwisho Wa Hati
+Warranty notes-comment: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
+Warranty Notes: Maelezo Ya Hati
+Working: Kinafanya Kazi Vizuri 
+Work Request: Maombi
+Year Manufactured: Mwaka Wa Kutengenezwa

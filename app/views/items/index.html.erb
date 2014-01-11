@@ -1,14 +1,14 @@
-<h1>All Items</h1>
+<h1><%= @language['All Items'] %></h1>
 
-<%= link_to 'Detailed View', "/detailed_items" %><br>
-<%= link_to 'New Item', new_item_path %>
+<%= link_to @language['Detailed View'], "/detailed_items" %><br>
+<%= link_to '+ '+@language['Item'], new_item_path %>
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Model</th>
-      <th>Location</th>
-      <th>Recent History</th>
+      <th><%= @language['ID'] %></th>
+      <th><%= @language['Model'] %></th>
+      <th><%= @language['Location'] %></th>
+      <th><%= @language['Recent History'] %></th>
       <!--
       <th>Domain</th>
       <th>Tag</th>
@@ -68,9 +68,9 @@
           <% end %>
         </td>
          -->
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], item %></td>
+        <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
+        <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

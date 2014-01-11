@@ -1,88 +1,88 @@
 <div class='wr'>
-  <%= link_to 'Edit', edit_work_request_path(@work_request) %>
+  <%= link_to @language['Edit'], edit_work_request_path(@work_request) %>
   <div class='attributes'>
     <div class='left-attributes'>
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong>Date requested:</strong>
+        <strong><%= @language['Date Requested'] %>:</strong>
         <%= @work_request.date_requested %>
       </p>
 
       <p>
-        <strong>Date expire:</strong>
+        <strong><%= @language['Date Expires'] %>:</strong>
         <%= @work_request.date_expire %>
       </p>
 
       <p>
-        <strong>Date completed:</strong>
+        <strong><%= @language['Date Completed'] %>:</strong>
         <%= @work_request.date_completed %>
       </p>
 
       <p>
-        <strong>Request type:</strong>
+        <strong><%= @language['Request Type'] %>:</strong>
         <%= @work_request.request_type %>
       </p>
 
       <p>
-        <strong>Item:</strong>
-        <%= @work_request.item_id %>
+        <strong><%= @language['Item'] %>:</strong>
+        <%= @work_request.item %>
       </p>
 
       <p>
-        <strong>Cost:</strong>
+        <strong><%= @language['Cost'] %>:</strong>
         <%= @work_request.cost %>
       </p>
 
       <p>
-        <strong>Description:</strong>
+        <strong><%= @language['Description'] %>:</strong>
         <%= @work_request.description %>
       </p>
 
       <p>
-        <strong>Owner:</strong>
+        <strong><%= @language['Owner'] %>:</strong>
         <%= @work_request.owner_id %>
       </p>
 
       <p>
-        <strong>Requester:</strong>
+        <strong><%= @language['Requester'] %>:</strong>
         <%= @work_request.requester_id %>
       </p>
 
       <p>
-        <strong>Cause description:</strong>
+        <strong><%= @language['Cause Description'] %>:</strong>
         <%= @work_request.cause_description %>
       </p>
 
       <p>
-        <strong>Action taken:</strong>
+        <strong><%= @language['Action Taken'] %>:</strong>
         <%= @work_request.action_taken %>
       </p>
 
       <p>
-        <strong>Prevention taken:</strong>
+        <strong><%= @language['Prevention Taken'] %>:</strong>
         <%= @work_request.prevention_taken %>
       </p>
     </div>
 
     <div class='right-attributes'>
       <p class='status'>
-        <strong>Status:</strong>
+        <strong><%= @language['Status'] %>:</strong>
         <%= @work_request.status %>
       </p>
     </div>
   </div>
-  <p> <span class="comment-title"> Recent Comments </span>
-  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value="+ Add New Comment" />
+  <p> <span class="comment-title"> <%= @language['Recent Comments'] %> </span>
+  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
   </form>
   </p>
   <div class="comment"> 
 	  <table>
 		  <thead>
-			  <th class="comment-table-header">Time Created</th>
-			  <th class="comment-table-header">Last Updated</th>
-			  <th class="comment-table-header">User ID </th>
-			  <th>Content </th>
+			  <th class="comment-table-header"><%= @language['Time Created'] %></th>
+			  <th class="comment-table-header"><%= @language['Last Updated'] %></th>
+			  <th class="comment-table-header"><%= @language['User ID'] %> </th>
+			  <th><%= @language['Content'] %> </th>
 		  </thead>
 		  <tbody>
 			  <% @wr_comment.each do |comment| %>

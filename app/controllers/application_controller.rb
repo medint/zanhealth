@@ -12,17 +12,19 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate
-        p User.where(username: params[:username],
-                     encrypted_password: params[:encrypted_password]).empty?
-        if params[:username] and 
-           not User.where(username: params[:username],
-                          encrypted_password: params[:encrypted_password]).empty?
-            session[:user] = User.where(username: params[:username]).first.id
-        elsif session[:user] and not params[:username]
-            #do nothing
-        elsif not (params[:controller] == 'users' and params[:action] == 'login')
-            redirect_to controller: 'users', action: 'login'
-        end
+		unless params[:controller] == 'text'
+			p User.where(username: params[:username],
+						 encrypted_password: params[:encrypted_password]).empty?
+			if params[:username] and 
+			   not User.where(username: params[:username],
+							  encrypted_password: params[:encrypted_password]).empty?
+				session[:user] = User.where(username: params[:username]).first.id
+			elsif session[:user] and not params[:username]
+				#do nothing
+			elsif not (params[:controller] == 'users' and params[:action] == 'login')
+				redirect_to controller: 'users', action: 'login'
+			end
+		end
     end
 
     def choose_language
