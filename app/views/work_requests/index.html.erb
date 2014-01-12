@@ -5,6 +5,17 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
+      <th><%= @language['ID']%></th>
+      <th><%= @language['Asset ID']%></th>
+      <th><%= @language['Serial Number']%></th>
+      <th><%= @language['Manufacturer']%></th>
+      <th><%= @language['Category']%></th>
+      <th><%= @language['Location']%></th>
+      <th><%= @language['Date Requested']%></th>
+      <th><%= @language['Requester']%></th>
+      <th><%= @language['Owner']%></th>
+=======
       <th><%= @language['ID'] %></th>
       <th><%= @language['Asset ID'] %></th>
       <th><%=@language['Serial Number'] %></th>
@@ -14,6 +25,7 @@
       <th><%=@language['Date Requested'] %></th>
       <th><%=@language['Requester'] %></th>
       <th><%=@language['Owner'] %></th>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       <!--
       <th>Date requested</th>
       <th>Date expire</th>
@@ -64,7 +76,11 @@
          -->
         <td><%= link_to @language['Show'], work_request %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
+<<<<<<< HEAD
+        <td><%= link_to @language['Destroy'], work_request, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+=======
         <td><%= link_to @language['Delete'], work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       </tr>
     <% end %>
   </tbody>

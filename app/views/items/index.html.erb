@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<h1><%= @language['All Items']%></h1>
+
+<%= link_to @language['Detailed view'], "/detailed_items" %><br>
+<%= link_to @language['New Item'], new_item_path %>
+<table>
+  <thead>
+    <tr>
+      <th><%= @language['ID']%></th>
+      <th><%= @language['Model']%></th>
+      <th><%= @language['Location']%></th>
+      <th><%= @language['Recent History']%></th>
+=======
 <h1><%= @language['All Items'] %></h1>
 
 <%= link_to @language['Detailed View'], "/detailed_items" %><br>
@@ -9,6 +22,7 @@
       <th><%= @language['Model'] %></th>
       <th><%= @language['Location'] %></th>
       <th><%= @language['Recent History'] %></th>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       <!--
       <th>Asset ID</th>
       <th>Model</th>
@@ -67,7 +81,11 @@
          -->
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
+<<<<<<< HEAD
+        <td><%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
         <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       </tr>
     <% end %>
   </tbody>

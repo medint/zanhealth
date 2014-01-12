@@ -1,9 +1,9 @@
-<h1>Listing facilities</h1>
+<h1><%= @language['Listing'] @language['Facilities']%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= @language['Name']%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +14,9 @@
     <% @facilities.each do |facility| %>
       <tr>
         <td><%= facility.name %></td>
-        <td><%= link_to 'Show', facility %></td>
-        <td><%= link_to 'Edit', edit_facility_path(facility) %></td>
-        <td><%= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], facility %></td>
+        <td><%= link_to @language['Edit'], edit_facility_path(facility) %></td>
+        <td><%= link_to @language['Destroy'], facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Facility', new_facility_path %>
+<%= link_to @language['New Facility'], new_facility_path %>
