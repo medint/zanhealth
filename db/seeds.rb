@@ -37,7 +37,6 @@ csv_model.each do |row|
 end
 puts "Imported model"
 
-# concat domain and tag
 
 item_data = File.read('db/import_items.csv')
 csv_item = CSV.parse(item_data, :headers => true)
@@ -45,9 +44,9 @@ csv_item.each do |row|
 	model = Model.find_by(model_name: row[2])
 	loc = Location.find_by(room: row[11])
 	if model.nil?
-		Item.create(:domain =>row[0], :tag => row[1], :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
+		Item.create(:asset_id =>row[0]+"-"+ row[1], :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	else
-		Item.create(:domain =>row[0], :tag => row[1], :model_id => model.id, :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
+		Item.create(:asset_id =>row[0]+"-"+ row[1], :model_id => model.id, :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	end
 end
 puts "Imported item"
