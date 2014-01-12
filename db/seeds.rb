@@ -54,7 +54,7 @@ puts "Imported item"
 item_history_data = File.read('db/import_item_histories2.csv')
 csv_item_history = CSV.parse(item_history_data, :headers => true)
 csv_item_history.each do |row|
-	puts row[0]
+	puts row[0][0]
 	item = Item.find_by(asset_id: row[0])
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
