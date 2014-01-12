@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1><%= @language['All Items']+':' @language['Detailed View'] %></h1>
 
 <%= link_to @language['Simple View'], "/items" %><br>
@@ -6,50 +5,22 @@
 <table>
   <thead>
     <tr>
-      <th><%= @language['Domain']</th>
-      <th><%= @language['Tag']</th>
-      <th><%= @language['Category']</th>
-      <th><%= @language['Model']</th>
-      <th><%= @language['Serial number']</th>
-      <th><%= @language['Year manufactured']</th>
-      <th><%= @language['Funding']</th>
-      <th><%= @language['Date received']</th>
-      <th><%= @language['Warranty expire']</th>
-      <th><%= @language['Contract expire']</th>
-      <th><%= @language['Warranty notes']</th>
-      <th><%= @language['Service agent']</th>
-      <th><%= @language['Location']</th>
-      <th><%= @language['Item type']</th>
-      <th><%= @language['Price']</th>
-      <th><%= @language['Recent History']</th>
-=======
-<h1><%= @language['All Items']+' '+@language['Detailed View'] %></h1>
-
-<%= link_to @language['Simple View'], "/items" %><br>
-<%= link_to '+ '+@language['Item'], new_item_path %>
-<table>
-  <thead>
-    <tr>
-      <th><%= @language['Domain'] %></th>
-      <th><%= @language['Category'] %></th>
-      <th><%= @language['Model'] %></th>
-      <th><%= @language['Serial Number'] %></th>
-      <th><%= @language['Year Manufactured'] %></th>
-      <th><%= @language['Funding'] %></th>
-      <th><%= @language['Date Received'] %></th>
-      <th><%= @language['Warranty Expires'] %></th>
-      <th><%= @language['Contract Expires'] %></th>
-      <th><%= @language['Warranty Notes'] %></th>
-      <th><%= @language['Service Agent'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Item Type'] %></th>
-      <th><%= @language['Price'] %></th>
-      <th><%= @language['Recent History'] %></th>
->>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+		<th><%= @language['Domain']%></th>
+		<th><%= @language['Category']%></th>
+		<th><%= @language['Model']%></th>
+		<th><%= @language['Serial number']%></th>
+		<th><%= @language['Year manufactured']%></th>
+		<th><%= @language['Funding']%></th>
+		<th><%= @language['Date received']%></th>
+		<th><%= @language['Warranty expire']%></th>
+		<th><%= @language['Contract expire']%></th>
+		<th><%= @language['Warranty notes']%></th>
+		<th><%= @language['Service agent']%></th>
+		<th><%= @language['Location']%></th>
+		<th><%= @language['Item type']%></th>
+		<th><%= @language['Price']%></th>
+		<th><%= @language['Recent History']%></th>
+      </tr>
   </thead>
 
   <tbody>
@@ -76,12 +47,8 @@
         </td>
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
-<<<<<<< HEAD
         <td><%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-=======
-        <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
->>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
-      </tr>
+     </tr>
     <% end %>
   </tbody>
 </table>
