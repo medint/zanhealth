@@ -60,5 +60,3 @@ group :development do
     gem "better_errors"
     gem "binding_of_caller" # 'optional' dep for better_errors
 end
-
-ruby "2.0.0"

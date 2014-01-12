@@ -1,5 +1,8 @@
 <h2><%= @language['My Requests']%></h2>
 
+<input id='list-searchbox'>
+<button id='list-searchbox-button'>Search</button>
+
 <table>
   <thead>
     <tr>
@@ -17,8 +20,7 @@
     <% @work_requests.each do |work_request| %>
       <tr>
         <td><%= work_request.id %></td>
-         <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
-
+        <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
         <td><%= work_request.item.serial_number %></td>
         <td><%= work_request.item.model.manufacturer_name %></td>
         <td><%= work_request.item.model.category %></td>
