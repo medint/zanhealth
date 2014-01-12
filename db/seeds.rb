@@ -37,6 +37,8 @@ csv_model.each do |row|
 end
 puts "Imported model"
 
+# concat domain and tag
+
 item_data = File.read('db/import_items.csv')
 csv_item = CSV.parse(item_data, :headers => true)
 csv_item.each do |row|

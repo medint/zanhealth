@@ -1,19 +1,19 @@
-<h1>All Work Requests</h1>
+<h1><%= @language['All Work Requests'] %></h1>
 
-<%= link_to 'Detailed View', "/detailed_work_requests" %><br>
-<%= link_to '+ Work Request', new_work_request_path %>
+<%= link_to @language['Detailed View'], "/detailed_work_requests" %><br>
+<%= link_to '+ '+@language['Work Request'], new_work_request_path %>
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Asset ID</th>
-      <th>Serial Number</th>
-      <th>Manufacturer</th>
-      <th>Category</th>
-      <th>Location</th>
-      <th>Date Requested</th>
-      <th>Requester</th>
-      <th>Owner</th>
+      <th><%= @language['ID'] %></th>
+      <th><%= @language['Asset ID'] %></th>
+      <th><%=@language['Serial Number'] %></th>
+      <th><%= @language['Manufacturer'] %></th>
+      <th><%= @language['Category'] %></th>
+      <th><%= @language['Location'] %></th>
+      <th><%=@language['Date Requested'] %></th>
+      <th><%=@language['Requester'] %></th>
+      <th><%=@language['Owner'] %></th>
       <!--
       <th>Date requested</th>
       <th>Date expire</th>
@@ -62,9 +62,9 @@
         <td><%= work_request.action_taken %></td>
         <td><%= work_request.prevention_taken %></td>
          -->
-        <td><%= link_to 'Show', work_request %></td>
-        <td><%= link_to 'Edit', edit_work_request_path(work_request) %></td>
-        <td><%= link_to 'Destroy', work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], work_request %></td>
+        <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
+        <td><%= link_to @language['Delete'], work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
