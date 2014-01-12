@@ -51,7 +51,7 @@ csv_item.each do |row|
 end
 puts "Imported item"
 
-item_history_data = File.read('db/import_item_histories2.csv')
+item_history_data = File.read('db/import_item_histories3.csv')
 csv_item_history = CSV.parse(item_history_data, :headers => true)
 csv_item_history.each do |row|
 	item = Item.find_by(asset_id: row[0])
