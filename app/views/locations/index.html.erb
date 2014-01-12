@@ -1,12 +1,12 @@
-<h1>Listing locations</h1>
+<h1><%= @language['Listing'] @language['Location'].pluralize %><</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Room</th>
-      <th>Floor</th>
-      <th>Building</th>
-      <th>Facilities</th>
+      <th><%= @language['Room']%></th>
+      <th><%= @language['Floor']%></th>
+      <th><%= @language['Building']%></th>
+      <th><%= @language['Facilities']%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,9 +20,9 @@
         <td><%= location.floor %></td>
         <td><%= location.building %></td>
         <td><%= location.facilities_id %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], location %></td>
+        <td><%= link_to @language['Edit'], edit_location_path(location) %></td>
+        <td><%= link_to @language['Destroy'], location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Location', new_location_path %>
+<%= link_to @language['New'] @language['Location'], new_location_path %>

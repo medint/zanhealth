@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= @language['Notice'] %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= @language['Content'] %>:</strong>
   <%= @text.content %>
 </p>
 
 <p>
-  <strong>Number:</strong>
+  <strong><%= @language['Number'] %>:</strong>
   <%= @text.number %>
 </p>
 
 <p>
-  <strong>Work request:</strong>
+  <strong><%= @language['Work request'] %>:</strong>
   <%= @text.work_request_id %>
 </p>
 
-<%= link_to 'Edit', edit_text_path(@text) %> |
-<%= link_to 'Back', texts_path %>
+<%= link_to @language['Edit'], edit_text_path(@text) %> |
+<%= link_to @language['Back'], texts_path %>

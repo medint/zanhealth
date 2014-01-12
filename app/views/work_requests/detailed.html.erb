@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+<h1><%= @language['All work requests'] %> <%= @language['Detailed view'] %> </h1>
+
+<%= link_to @language['Simple View'], "/work_requests" %><br>
+<%= link_to '+'.concat(@language['New Work Request']), new_work_request_path %>
+=======
 <h1><%= @language['All Work Requests']+' '+@language['Detailed View'] %></h1>
 
 <%= link_to @language['Simple View'], "/work_requests" %><br>
 <%= link_to '+ '+@language['Work Request'], new_work_request_path %>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
 <table>
   <thead>
     <tr>
@@ -16,6 +23,15 @@
       <th><%= @language['Date Requested'] %></th>
       <th><%= @language['Date Expires'] %></th>
       <th><%= @language['Date Completed'] %></th>
+<<<<<<< HEAD
+      <th><%= @language['Request type'] %></th>
+      <th><%= @language['Cost'] %></th>
+      <th><%= @language['Description'] %></th>
+      <th><%= @language['Status'] %></th>
+      <th><%= @language['Cause description'] %></th>
+      <th><%= @language['Action taken'] %></th>
+      <th><%= @language['Prevention taken'] %></th>
+=======
       <th><%= @language['Request Type'] %></th>
       <th><%= @language['Cost'] %></th>
       <th><%= @language['Description'] %></th>
@@ -23,6 +39,7 @@
       <th><%= @language['Cause Description'] %></th>
       <th><%= @language['Action Taken'] %></th>
       <th><%= @language['Prevention Taken'] %></th>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       <th></th>
       <th></th>
       <th></th>
@@ -52,7 +69,11 @@
         <td><%= work_request.prevention_taken %></td>
         <td><%= link_to @language['Show'], work_request %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
+<<<<<<< HEAD
+        <td><%= link_to @language['Destroy'], work_request, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+=======
         <td><%= link_to @language['Delete'], work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+>>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
       </tr>
     <% end %>
   </tbody>
