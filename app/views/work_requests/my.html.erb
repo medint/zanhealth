@@ -1,40 +1,26 @@
-<<<<<<< HEAD
-<h2><%= @language['My Requests']</h2>
-=======
 <h2><%= @language['My Requests']%></h2>
 
 <input id='list-searchbox'>
 <button id='list-searchbox-button'>Search</button>
->>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
 
 <table>
   <thead>
     <tr>
-<<<<<<< HEAD
-      <th><%= @language['ID']</th>
-      <th><%= @language['Item ID']</th>
-      <th><%= @language['Serial Number']</th>
-      <th><%= @language['Manufacturer']</th>
-      <th><%= @language['Category']</th>
-      <th><%= @language['Location']</th>
-      <th><%= @language['Date requested']</th>
-=======
-      <th><%= @language['ID'] %></th>
-      <th><%= @language['Item ID'] %></th>
-      <th><%= @language['Serial Number'] %></th>
-      <th><%= @language['Manufacturer'] %></th>
-      <th><%= @language['Category'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Date Requested'] %></th>
->>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
-    </tr>
+		<th><%= @language['ID']%></th>
+		<th><%= @language['Asset ID']%></th>
+		<th><%= @language['Serial Number']%></th>
+		<th><%= @language['Manufacturer']%></th>
+		<th><%= @language['Category']%></th>
+		<th><%= @language['Location']%></th>
+		<th><%= @language['Date requested']%></th>
+   </tr>
   </thead>
 
   <tbody>
     <% @work_requests.each do |work_request| %>
       <tr>
         <td><%= work_request.id %></td>
-        <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
+        <td><%= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
         <td><%= work_request.item.serial_number %></td>
         <td><%= work_request.item.model.manufacturer_name %></td>
         <td><%= work_request.item.model.category %></td>
@@ -46,24 +32,14 @@
   </tbody>
 </table>
 
-<<<<<<< HEAD
-<h2><%= @language['My Texts']</h2>
+<h2><%= @language['My Texts']%></h2>
 <table>
   <thead>
-    <th><%= @language['Time']</th>
-    <th><%= @language['ID']</th>
-    <th><%= @language['Request ID']</th>
-    <th><%= @language['Comment']</th>
-=======
-<h2><%=@language['My Texts'] %></h2>
-<table>
-  <thead>
-    <th><%= @language['Date Received'] %></th>
-    <th><%= @language['ID'] %></th>
-    <th><%= @language['Request ID'] %></th>
-    <th><%= @language['Comment'] %></th>
->>>>>>> 87e4e3476447da95beeccb743493e0f27f4f8177
-  </thead>
+	  <th><%= @language['Time']%></th>
+	  <th><%= @language['ID']%></th>
+	  <th><%= @language['Request ID']%></th>
+	  <th><%= @language['Comment']%></th>
+ </thead>
 
   <tbody>
   <% @texts.each do |text| %>
