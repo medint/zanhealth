@@ -44,9 +44,9 @@ csv_item.each do |row|
 	model = Model.find_by(model_name: row[2])
 	loc = Location.find_by(room: row[11])
 	if model.nil?
-		Item.create(:asset_id =>row[0]+"-"+ row[1], :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
+		Item.create(:asset_id =>row[0]+row[1], :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	else
-		Item.create(:asset_id =>row[0]+"-"+ row[1], :model_id => model.id, :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
+		Item.create(:asset_id =>row[0]+row[1], :model_id => model.id, :serial_number => row[3], :year_manufactured => row[4], :funding => row[5], :date_received => row[6], :warranty_expire => row[7], :contract_expire => row[8], :warranty_notes => row[9], :service_agent => row[10], :location_id => loc.id, :item_type => row[12], :price => row[13])
 	end
 end
 puts "Imported item"
@@ -54,7 +54,7 @@ puts "Imported item"
 item_history_data = File.read('db/import_item_histories2.csv')
 csv_item_history = CSV.parse(item_history_data, :headers => true)
 csv_item_history.each do |row|
-	item = Item.find_by(tag: row[0])
+	item = Item.find_by(asset_id: row[0])
 	ItemHistory.create(:item_id => item.id, :status => row[1], :utilization => row[2], :remarks => row[3])
 end
 puts "Imported item history"
