@@ -16,12 +16,10 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :encrypted_password %><br>
-    <%= f.text_field :encrypted_password %>
   </div>
   <div class="field">
-    <%= f.label :role_id %><br>
-    <%= f.number_field :role_id %>
+    <label for="user_password">Password</label><br>
+    <input id="user_password" name="user[password]" type="password">
   </div>
   <div class="field">
     <%= f.label :created %><br>
