@@ -56,4 +56,7 @@ end
 
 gem 'rails_12factor', group: :production
 
-ruby "2.0.0"
+group :development do
+    gem "better_errors"
+    gem "binding_of_caller" # 'optional' dep for better_errors
+end

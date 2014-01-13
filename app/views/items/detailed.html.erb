@@ -1,37 +1,32 @@
-<h1><%= @language['All Items']+' '+@language['Detailed View'] %></h1>
+<h1><%= "#{@language['All Items']}:#{ @language['Detailed View']}" %></h1>
 
 <%= link_to @language['Simple View'], "/items" %><br>
-<%= link_to '+ '+@language['Item'], new_item_path %>
+<%= link_to @language['New Item'], new_item_path %>
 <table>
   <thead>
     <tr>
-      <th><%= @language['Domain'] %></th>
-      <th><%= @language['Tag'] %></th>
-      <th><%= @language['Category'] %></th>
-      <th><%= @language['Model'] %></th>
-      <th><%= @language['Serial Number'] %></th>
-      <th><%= @language['Year Manufactured'] %></th>
-      <th><%= @language['Funding'] %></th>
-      <th><%= @language['Date Received'] %></th>
-      <th><%= @language['Warranty Expires'] %></th>
-      <th><%= @language['Contract Expires'] %></th>
-      <th><%= @language['Warranty Notes'] %></th>
-      <th><%= @language['Service Agent'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Item Type'] %></th>
-      <th><%= @language['Price'] %></th>
-      <th><%= @language['Recent History'] %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+		<th><%= @language['Asset ID']%></th>
+		<th><%= @language['Category']%></th>
+		<th><%= @language['Model']%></th>
+		<th><%= @language['Serial number']%></th>
+		<th><%= @language['Year manufactured']%></th>
+		<th><%= @language['Funding']%></th>
+		<th><%= @language['Date received']%></th>
+		<th><%= @language['Warranty expire']%></th>
+		<th><%= @language['Contract expire']%></th>
+		<th><%= @language['Warranty notes']%></th>
+		<th><%= @language['Service agent']%></th>
+		<th><%= @language['Location']%></th>
+		<th><%= @language['Item type']%></th>
+		<th><%= @language['Price']%></th>
+		<th><%= @language['Recent History']%></th>
+      </tr>
   </thead>
 
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.domain %></td>
-        <td><%= item.tag %></td>
+        <td><%= item.asset_id %></td>
         <td><%= item.model.category %></td>
         <td><%= item.model_id %></td>
         <td><%= item.serial_number %></td>
@@ -52,8 +47,8 @@
         </td>
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
-        <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
     <% end %>
   </tbody>
 </table>

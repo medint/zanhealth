@@ -1,24 +1,26 @@
 <h2><%= @language['My Requests']%></h2>
 
+<input id='list-searchbox'>
+<button id='list-searchbox-button'>Search</button>
+
 <table>
   <thead>
     <tr>
-      <th><%= @language['ID'] %></th>
-      <th><%= @language['Item ID'] %></th>
-      <th><%= @language['Serial Number'] %></th>
-      <th><%= @language['Manufacturer'] %></th>
-      <th><%= @language['Category'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Date Requested'] %></th>
-    </tr>
+		<th><%= @language['ID']%></th>
+		<th><%= @language['Asset ID']%></th>
+		<th><%= @language['Serial Number']%></th>
+		<th><%= @language['Manufacturer']%></th>
+		<th><%= @language['Category']%></th>
+		<th><%= @language['Location']%></th>
+		<th><%= @language['Date requested']%></th>
+   </tr>
   </thead>
 
   <tbody>
     <% @work_requests.each do |work_request| %>
       <tr>
         <td><%= work_request.id %></td>
-         <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
-
+        <td><%= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
         <td><%= work_request.item.serial_number %></td>
         <td><%= work_request.item.model.manufacturer_name %></td>
         <td><%= work_request.item.model.category %></td>
@@ -30,22 +32,22 @@
   </tbody>
 </table>
 
-<h2><%=@language['My Texts'] %></h2>
+<h2><%= @language['My Texts']%></h2>
 <table>
   <thead>
-    <th><%= @language['Date Received'] %></th>
-    <th><%= @language['ID'] %></th>
-    <th><%= @language['Request ID'] %></th>
-    <th><%= @language['Comment'] %></th>
-  </thead>
+	  <th><%= @language['Time']%></th>
+	  <th><%= @language['ID']%></th>
+	  <th><%= @language['Request ID']%></th>
+	  <th><%= @language['Comment']%></th>
+ </thead>
 
   <tbody>
   <% @texts.each do |text| %>
     <tr>
-      <td>created_at</td>
-      <td>id</td>
-      <td>work_request_id</td>
-      <td>context</td>
+      <td><%= @language['Created at'] %> </td>
+      <td><%= @language['ID'] %> </td>
+      <td><%= @language['Work Request ID'] %> </td>
+      <td><%= @language['Context'] %> </td>
     </tr>
   <% end %>
   </tbody>

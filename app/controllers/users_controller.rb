@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -77,6 +79,9 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :encrypted_password, :role_id, :created, :modified, :telephone_num, :language)
+      user_params = params.require(:user).permit(:username, :password, :role_id, :created, :modified, :telephone_num, :language)
+      user_params[:encrypted_password] = Digest::MD5.hexdigest(user_params[:password])
+      user_params.delete(:password)
+      user_params
     end
 end

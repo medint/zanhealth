@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Model name:</strong>
+<strong><%= "#{@language['Model']} #{@language['Name']}" %>:</strong>
   <%= @model.model_name %>
 </p>
 
 <p>
-  <strong>Manufacturer name:</strong>
+<strong><%= "#{@language['Manufacturer']} #{@language['Name']}" %>:</strong>
   <%= @model.manufacturer_name %>
 </p>
 
 <p>
-  <strong>Vendor name:</strong>
+<strong><%= "#{@language['Vendor']} #{@language['Name']}" %>:</strong>
   <%= @model.vendor_name %>
 </p>
 
-<%= link_to 'Edit', edit_model_path(@model) %> |
-<%= link_to 'Back', models_path %>
+<%= link_to @language['Edit'], edit_model_path(@model) %> |
+<%= link_to @language['Back'], models_path %>

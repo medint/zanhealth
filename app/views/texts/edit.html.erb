@@ -1,6 +1,6 @@
-<h1>Editing text</h1>
+<h1><%= @language['Editing'] @language['Text'] %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @text %> |
-<%= link_to 'Back', texts_path %>
+<%= link_to @language['Show'], @text %> |
+<%= link_to @language['Back'], texts_path %>
