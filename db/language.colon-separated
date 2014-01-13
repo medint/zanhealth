@@ -1,13 +1,13 @@
 *Model ID: Nambari ya …. (not sure what model in this sense is in Kiswahili…)I’m having trouble differentiating it from item ID
 *Recent comments: I’m having trouble with this because the most applicable word for comments is used to mean “opinion”
 About: 'xxx'
-Action taken: 'xxx xxx'
+Action taken: Hatua iliyochukuliwa
 Add new item: Ongeza kifaa kipya
 All Items: Vifaa vyote
 All Requests: Maombi yote
 All work requests: Maombi yote ya kazi
 Are you sure?: 'xxx xxx xxx?'
-Asset ID: 'xxx xxx'
+Asset ID: nambari ya kitambulisho ya mali
 Back: 'xxx'
 Broken: Kimeharibika
 Building: 'xxx'
@@ -18,27 +18,27 @@ Contact Us: 'xxx xxx'
 Content: Yaliyomo
 Context: 'xxx'
 Contract expire: Tarehe ya mwisho wa mkandarasi
-Cost: 'xxx'
+Cost: Bei
 Created at: 'xxx xxx'
 Created: 'xxx'
-Date Completed: 'xxx xxx'
+Date Completed: Tarehe ya kukamilishwa
 Date Expires: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
 Date received: Siku kifaa kilipokewa
 Date requested: Tarehe ya ombi
 Date/Time: 'xxx'
 Description: Maelezo
-Destroy: 'xxx'
+Destroy: Futa
 Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
 Detailed view: Tazama kwa ukamilifu
-Domain: 'xxx'
-Edit: 'xxx'
+Domain: Uwanja
+Edit: Hariri
 Editing:'xxx'
 Encrypted password:'xxx xxx'
 Facilities: 'xxx'
 Facility:'xxx'
 Floor: 'xxx'
 Form: 'xxx'
-Funding: *so many possible options…” do you mean amount of money received/how it is being funded/I could use a more detailed description to pick the best word. 
+Funding: Fedha
 Home: xxx
 ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
 Item ID: Nambari ya kitambulisho ya kifaa
@@ -53,11 +53,11 @@ Location: Eneo
 Login: kuingia
 Logout: Ondoka
 Manage: Simamia
-Manufacturer: 'xxx'
+Manufacturer: Mtengenezaji
 Model: 'xxx'
 Modified: 'xxx'
 My Requests: Maombi yangu
-My Texts:'xxx xxx'
+My Texts: Maandiko Yangu
 Name: 'xxx'
 Need: 'xxx' (As a noun)
 New Facility: 'xxx xxx'
@@ -68,12 +68,12 @@ New Work Request: 'xxx xxx xxx'
 Notice: 'xxx'
 Number: 'xxx'
 Owner: Mmiliki
-Prevention taken: 'xxx xxx'
+Prevention taken: Uzuiaji Uliofanywa
 Price: Bei
 Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
 Quantity: 'xxx'
 Reason: 'xxx'
-Recent History: 'xxx xxx'
+Recent History: Historia ya hivi karibuni
 Recent Status: Hali ya hivi karibuni
 Remarks: 'xxx'
 Request ID: Nambari ya ombi (Request number)
@@ -84,8 +84,8 @@ Room: 'xxx'
 Serial Number: Namba tambulishi
 Service agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
 Settings: Mipangilio binafsi
-Show: 'xxx'
-Simple View: 'xxx xxx'
+Show: Onyesha
+Simple View: Mtazamo rahisi
 Stage: 'xxx'
 Status: Hali
 Submit new request: Wasilisha ombi jipya
