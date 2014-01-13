@@ -1,11 +1,11 @@
-<h1><%= @language['Listing'] @language['Model'].pluralize %></h1>
+<h1><%= @language['Listing']+" "+@language['Model'].pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-		<th><%= @language['Model'] @language['Name'] %> </th>
-		<th><%= @language['Manufacturer'] @language['Name']%></th>
-		<th><%= @language['Vendor' ]@language['Name']%></th>
+		<th><%= @language['Model']+" "+ @language['Name'] %> </th>
+		<th><%= @language['Manufacturer']+" "+ @language['Name']%></th>
+		<th><%= @language['Vendor' ]+" "+@language['Name']%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to @language['New'] @language['Model'], new_model_path %>
+<%= link_to @language['New']+" "+ @language['Model'], new_model_path %>
