@@ -1,4 +1,4 @@
-<h1><%= @language['All Items']+':' @language['Detailed View'] %></h1>
+<h1><%= "#{@language['All Items']}:#{ @language['Detailed View']}" %></h1>
 
 <%= link_to @language['Simple View'], "/items" %><br>
 <%= link_to @language['New Item'], new_item_path %>
