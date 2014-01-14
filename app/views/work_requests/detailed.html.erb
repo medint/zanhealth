@@ -1,7 +1,7 @@
 <h1><%= @language['All work requests'] %> <%= @language['Detailed view'] %> </h1>
 
 <%= link_to @language['Simple View'], "/work_requests" %><br>
-<%= link_to '+'.concat(@language['New Work Request']), new_work_request_path %>
+<%= link_to "+ #{@language['New Work Request']}, new_work_request_path %>
 <table>
   <thead>
     <tr>
