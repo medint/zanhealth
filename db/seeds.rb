@@ -25,7 +25,7 @@ puts "Imported facilities"
 department_data = File.read('db/import_departments.csv')
 csv_department = CSV.parse(department_data, :headers =>true)
 csv_department.each do |row|
-	facility = Facility.find(row[1])
+	facility = Facility.find_by(name: row[1])
 	Department.create(:name => row[0], :facility_id => facility.id)
 end
 puts "Imported departments"
