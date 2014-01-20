@@ -5,7 +5,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests.json
   def index
     @work_requests = WorkRequest.all.to_a.select do |work_request| p work_request.item_id
-      user.facility == work_request.item.location.facility
+      user.facility == work_request.item.department.facility
     end
   end
 
@@ -68,7 +68,7 @@ class WorkRequestsController < ApplicationController
   def my
     @work_requests = WorkRequest.where(owner_id: user.id)
     @texts = Text.all.to_a.select do |text|
-      user.facility == text.work_request.item.location.facility
+      user.facility == text.work_request.item.department.facility
     end
   end
 
@@ -76,7 +76,7 @@ class WorkRequestsController < ApplicationController
   def detailed 
     @work_requests = WorkRequest.where(owner_id: user.id)
     @texts = Text.all.to_a.select do |text|
-      user.facility == text.work_request.item.location.facility
+      user.facility == text.work_request.item.department.facility
     end
   end
   private

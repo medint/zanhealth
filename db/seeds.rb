@@ -22,13 +22,13 @@ csv_facility.each do |row|
 end
 puts "Imported facilities"
 
-location_data = File.read('db/import_locations.csv')
-csv_location = CSV.parse(location_data, :headers =>true)
-csv_location.each do |row|
-	facility = Facility.find(row[3])
-	Location.create(:room => row[0], :floor => row[1], :building => row[2], :facility_id => facility.id)
+department_data = File.read('db/import_departments.csv')
+csv_department = CSV.parse(department_data, :headers =>true)
+csv_department.each do |row|
+	facility = Facility.find(row[1])
+	Department.create(:name => row[0], :facility_id => facility.id)
 end
-puts "Imported location"
+puts "Imported departments"
 
 model_data = File.read('db/import_models.csv')
 csv_model = CSV.parse(model_data, :headers => true)
@@ -38,15 +38,15 @@ end
 puts "Imported model"
 
 
-item_data = File.read('db/import_items2.csv')
+item_data = File.read('db/import_items4.csv')
 csv_item = CSV.parse(item_data, :headers => true)
 csv_item.each do |row|
 	model = Model.find_by(model_name: row[1])
-	loc = Location.find_by(room: row[10])
+	dept = Department.find_by(name: row[10])
 	if model.nil?
-		Item.create(:asset_id =>row[0], :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :location_id => loc.id, :item_type => row[11], :price => row[12])
+		Item.create(:asset_id =>row[0], :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :item_type => row[12], :price => row[13])
 	else
-		Item.create(:asset_id =>row[0], :model_id => model.id, :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :location_id => loc.id, :item_type => row[11], :price => row[12])
+		Item.create(:asset_id =>row[0], :model_id => model.id, :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :item_type => row[12], :price => row[13])
 	end
 end
 puts "Imported item"

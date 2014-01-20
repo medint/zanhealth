@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  domain: 1
-  tag: 1
-  category: MyString
+  asset_id: 1
   model_id: 1
   serial_number: MyString
   year_manufactured: 1
@@ -13,14 +11,13 @@ one:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  location_id: 1
+  department_id: 1
+  location: MyString
   item_type: 1
   price: 1
 
 two:
-  domain: 1
-  tag: 1
-  category: MyString
+  asset_id: 1
   model_id: 1
   serial_number: MyString
   year_manufactured: 1
@@ -30,6 +27,7 @@ two:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  location_id: 1
+  department_id: 1
+  location: MyString
   item_type: 1
   price: 1

@@ -18,7 +18,7 @@ class NeedsControllerTest < ActionController::TestCase
 
   test "should create need" do
     assert_difference('Need.count') do
-      post :create, need: { date_requested: @need.date_requested, location_id: @need.location_id, model_id: @need.model_id, name: @need.name, quantity: @need.quantity, reason: @need.reason, remarks: @need.remarks, stage: @need.stage, urgency: @need.urgency, user_id: @need.user_id }
+      post :create, need: { date_requested: @need.date_requested, department_id: @need.department_id, model_id: @need.model_id, name: @need.name, quantity: @need.quantity, reason: @need.reason, remarks: @need.remarks, stage: @need.stage, urgency: @need.urgency, user_id: @need.user_id }
     end
 
     assert_redirected_to need_path(assigns(:need))
@@ -35,7 +35,7 @@ class NeedsControllerTest < ActionController::TestCase
   end
 
   test "should update need" do
-    patch :update, id: @need, need: { date_requested: @need.date_requested, location_id: @need.location_id, model_id: @need.model_id, name: @need.name, quantity: @need.quantity, reason: @need.reason, remarks: @need.remarks, stage: @need.stage, urgency: @need.urgency, user_id: @need.user_id }
+    patch :update, id: @need, need: { date_requested: @need.date_requested, department_id: @need.department_id, model_id: @need.model_id, name: @need.name, quantity: @need.quantity, reason: @need.reason, remarks: @need.remarks, stage: @need.stage, urgency: @need.urgency, user_id: @need.user_id }
     assert_redirected_to need_path(assigns(:need))
   end
 

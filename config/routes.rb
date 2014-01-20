@@ -21,7 +21,7 @@ Med8::Application.routes.draw do
 
   resources :users
 
-  resources :locations
+  resources :departments
 
   get "/my_work_requests", to: "work_requests#my"
 
