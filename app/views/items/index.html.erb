@@ -33,7 +33,7 @@
       <tr>
         <td><%= item.id %></td>
         <td><%= link_to item.model.name, item.model %></td>
-        <td><%= item.location.locationstr %></td>
+        <td><%= item.location %></td>
         <td>
           <% if not item.item_histories.empty? %>
           <%= item.item_histories[0].remarks %>
@@ -53,7 +53,7 @@
         <td><%= item.contract_expire %></td>
         <td><%= item.warranty_notes %></td>
         <td><%= item.service_agent %></td>
-        <td><%= item.location_id %></td>
+        <td><%= item.location %></td>
         <td><%= item.item_type %></td>
         <td><%= item.price %></td>
         <td>
