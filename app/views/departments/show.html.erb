@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @language['Room']:</strong>
+  <%= @location.room %>
+</p>
+
+<p>
+  <strong><%= @language['Floor']:</strong>
+  <%= @location.floor %>
+</p>
+
+<p>
+  <strong><%= @language['Building']:</strong>
+  <%= @location.building %>
+</p>
+
+<p>
+  <strong><%= @language['Facilities']:</strong>
+  <%= @location.facilities_id %>
+</p>
+
+<%= link_to @language['Edit'], edit_location_path(@location) %> |
+<%= link_to @language['Back'], locations_path %>
