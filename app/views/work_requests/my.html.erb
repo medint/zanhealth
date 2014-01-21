@@ -11,7 +11,7 @@
 		<th><%= @language['Serial Number']%></th>
 		<th><%= @language['Manufacturer']%></th>
 		<th><%= @language['Category']%></th>
-		<th><%= @language['Location']%></th>
+		<th><%= @language['Department']%></th>
 		<th><%= @language['Date requested']%></th>
    </tr>
   </thead>
@@ -24,7 +24,7 @@
         <td><%= work_request.item.serial_number %></td>
         <td><%= work_request.item.model.manufacturer_name %></td>
         <td><%= work_request.item.model.category %></td>
-        <td><%= work_request.item.location.locationstr %></td>
+        <td><%= work_request.item.location %></td>
         <td><%= work_request.date_requested %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
       </tr>

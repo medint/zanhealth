@@ -10,7 +10,7 @@
       <th><%= @language['Serial Number']%></th>
       <th><%= @language['Manufacturer']%></th>
       <th><%= @language['Category']%></th>
-      <th><%= @language['Location']%></th>
+      <th><%= @language['Department']%></th>
       <th><%= @language['Date Requested']%></th>
       <th><%= @language['Requester']%></th>
       <th><%= @language['Owner']%></th>
@@ -43,7 +43,7 @@
         <td><%= work_request.try(:item).try(:serial_number) %></td>
         <td><%= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
         <td><%= work_request.try(:item).try(:model).try(:category) %></td>
-        <td><%= work_request.try(:item).try(:location).try(:locationstr) %></td>
+        <td><%= work_request.try(:item).try(:location) %></td>
         <td><%= work_request.date_requested %></td>
         <td><%= work_request.try(:requester).try(:name) %></td>
         <td><%= work_request.try(:owner).try(:name) %></td>
