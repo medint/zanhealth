@@ -26,9 +26,9 @@ namespace :test do
 		csv_user.each do |row|
 			User.create(:username => row[0],
 						:encrypted_password => row[1],
-						:role => Role.where(:name => row[2]).first,
+						:role => Role.where(:name => row[2]).first.id,
 						:telephone_num => row[3],
-						:facility => Facility.where(:name => row[4]).first,
+						:facility => Facility.where(:name => row[4]).first.id,
 						:language => row[5],
 						:name => row[6]
 					   )
@@ -39,7 +39,7 @@ namespace :test do
 		csv_dept = CSV.parse(dept_data, :headers => true)
 		csv_dept.each do |row|
 			Department.create(:name => row[0],
-							  :facility_id => Facility.where(:name => row[1]).first
+							  :facility_id => Facility.where(:name => row[1]).first.id
 							 )
 		end
 		puts "Imported departments"
