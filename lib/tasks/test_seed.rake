@@ -75,6 +75,9 @@ namespace :test do
 				puts f.name
 				puts f.id
 				depts = Department.where(:facility_id => f.id)
+				depts.each do |d|
+					puts d.name
+					puts d.id
 =begin
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
