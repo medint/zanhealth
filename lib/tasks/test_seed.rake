@@ -47,13 +47,25 @@ namespace :test do
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
-			Model.create(:model_name => row[1],
+			model = Model.create(:model_name => row[1],
 						 :manufacturer_name => row[2],
 						 :vendor_name => row[3],
 						 :category => row[0]
 						)
+			facilities.each do |f|
+				depts = Department.where(:facility_id => f.id)
+				Need.create(:name => row[1],
+							:department => depts.sample,
+							:model => model,
+							:quantity = rand(10)+1,
+							:urgency => 0,
+							:reason => "needed",
+							:date_requested => Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1),
+						   ) 
+			
+			end
 		end
-		puts "Imported models"
+		puts "Imported models and needs"
 
 		SEPARATOR = ': '
 		Language.destroy_all
@@ -106,20 +118,17 @@ namespace :test do
 								   )
 
 					end
-=begin
 					4.times do |x|
 						year = Time.now.year - rand(1) -1
 						month = rand(12)+1
 						day = rand(31)+1
-						ItemHistory.create(:item_id => item.id,
+						ItemHistory.create(:item => item,
 									   :status => 0,
 									   :utilization => 0,
 									   :remarks => "Performed checkup",
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
-=end
-
 			end
 		end
 		puts "Imported items & item histories"
