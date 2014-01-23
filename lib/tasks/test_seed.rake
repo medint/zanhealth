@@ -71,7 +71,7 @@ namespace :test do
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
 			facilities.each do |f|
-				depts = Facility.joins(:department).where(facility.id = f.id)
+				depts = Facility.joins(:department).where('facility.id' => f.id)
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
 									:serial_number => row[2],
