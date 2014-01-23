@@ -1,5 +1,5 @@
 username,encrypted_password,role.name,telephone_num,facility.name,language,name
-userAHE1,hospengA1,"Hospital Engineer",NULL,"FACILITY A",english,UserAHE1
+userAHE1,68926bec03b3b83925ebb80ad16c4fb3,"Hospital Engineer",NULL,"FACILITY A",english,UserAHE1
 userAHE2,hospengA2,"Hospital Engineer",NULL,"FACILITY A",english,UserAHE2
 userBHE1,hospengB1,"Hospital Engineer",NULL,"FACILITY B",english,UserBHE1
 userBHE2,hospengB2,"Hospital Engineer",NULL,"FACILITY B",english,UserBHE2
