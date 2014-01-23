@@ -19,6 +19,7 @@ namespace :test do
 			facilities[facilities.size] = f
 		end
 		puts "Imported facilities"
+		puts facilities
 
 		user_data = File.open(File.join("test", "test_data", "import_users.csv"),"r")
 		csv_user = CSV.parse(user_data, :headers => true)
@@ -34,14 +35,17 @@ namespace :test do
 		end
 		puts "Imported users"
 
+		depts = []
 		dept_data = File.open(File.join("test", "test_data", "import_departments.csv"),"r")
 		csv_dept = CSV.parse(dept_data, :headers => true)
 		csv_dept.each do |row|
-			Department.create(:name => row[0],
+			dept = Department.create(:name => row[0],
 							  :facility_id => Facility.where(:name => row[1]).first
 							 )
+			depts[depts.size] = dept
 		end
 		puts "Imported departments"
+		puts depts
 
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
@@ -71,8 +75,11 @@ namespace :test do
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
 			facilities.each do |f|
-				depts = Facility.joins(:departments).where('id' => f.id)
-				puts depts
+				while true do
+					dept = depts.sample
+					if dept.facility_id == f.id
+						break
+				puts dept
 =begin
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
