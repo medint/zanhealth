@@ -66,20 +66,13 @@ namespace :test do
 			end
 		end
 		puts "Imported languages"
-=begin
+
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
 			facilities.each do |f|
-				puts f.name
-				puts f.id
 				depts = Department.where(:facility_id => f.id)
-				depts.each do |d|
-					puts d.name
-					puts d.id
-				end
-
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
 									:serial_number => row[2],
@@ -90,7 +83,7 @@ namespace :test do
 									:contract_expire => row[7],
 									:warranty_notes => row[8],
 									:service_agent => row[9],
-									:department_id => depts.sample.department_id,
+									:department => depts.sample,
 									:location => row[11],
 									:item_type => row[12],
 									:price => row[13]
@@ -106,13 +99,14 @@ namespace :test do
 									:contract_expire => row[7],
 									:warranty_notes => row[8],
 									:service_agent => row[9],
-									:department_id => depts.sample.department_id,
+									:department => depts.sample,
 									:location => row[11],
 									:item_type => row[12],
 									:price => row[13]
 								   )
 
 					end
+=begin
 					4.times do |x|
 						year = Time.now.year - rand(1) -1
 						month = rand(12)+1
@@ -124,11 +118,11 @@ namespace :test do
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
+=end
 
 			end
 		end
 		puts "Imported items & item histories"
 		
-=end
 	end
 end
