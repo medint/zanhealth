@@ -57,10 +57,10 @@ namespace :test do
 				Need.create(:name => row[1],
 							:department => depts.sample,
 							:model => model,
-							:quantity = rand(10)+1,
+							:quantity => rand(10)+1,
 							:urgency => 0,
 							:reason => "needed",
-							:date_requested => Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1),
+							:date_requested => Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
 						   ) 
 			
 			end
