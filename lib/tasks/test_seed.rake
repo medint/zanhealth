@@ -87,7 +87,7 @@ namespace :test do
 									:item_type => row[12],
 									:price => row[13]
 								   )
-					else:
+					else
 						item = Item.create(:asset_id => row[0],
 									:model_id => model.id,
 									:serial_number => row[2],
