@@ -24,7 +24,7 @@ namespace :test do
 		csv_user = CSV.parse(user_data, :headers => true)
 		csv_user.each do |row|
 			User.create(:username => row[0],
-						:password => row[1],
+						:encrypted_password => row[1],
 						:role => Role.where(:name => row[2]).first,
 						:telephone_num => row[3],
 						:facility => Facility.where(:name => row[4]).first,
