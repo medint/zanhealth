@@ -71,7 +71,7 @@ namespace :test do
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
 			facilities.each do |f|
-				depts = Facility.joins(:departments).where('facility.id' => f.id)
+				depts = Facility.joins(:departments).where('facility_id' => f.id)
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
 									:serial_number => row[2],
@@ -82,7 +82,7 @@ namespace :test do
 									:contract_expire => row[7],
 									:warranty_notes => row[8],
 									:service_agent => row[9],
-									:department_id => depts.sample.department.id,
+									:department_id => depts.sample.department_id,
 									:location => row[11],
 									:item_type => row[12],
 									:price => row[13]
@@ -98,7 +98,7 @@ namespace :test do
 									:contract_expire => row[7],
 									:warranty_notes => row[8],
 									:service_agent => row[9],
-									:department_id => depts.sample.id,
+									:department_id => depts.sample.department_id,
 									:location => row[11],
 									:item_type => row[12],
 									:price => row[13]
