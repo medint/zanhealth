@@ -66,7 +66,7 @@ namespace :test do
 		end
 		puts "Imported languages"
 
-		item_data = File.open(File.join('test','test_data','import_items.csv'),'r')
+		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
