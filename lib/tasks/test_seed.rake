@@ -98,7 +98,7 @@ namespace :test do
 									:contract_expire => row[7],
 									:warranty_notes => row[8],
 									:service_agent => row[9],
-									:department_id => depts.sample.id
+									:department_id => depts.sample.id,
 									:location => row[11],
 									:item_type => row[12],
 									:price => row[13]
