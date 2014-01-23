@@ -78,6 +78,7 @@ namespace :test do
 				depts.each do |d|
 					puts d.name
 					puts d.id
+				end
 =begin
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
