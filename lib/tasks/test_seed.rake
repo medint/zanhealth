@@ -11,12 +11,28 @@ namespace :test do
 		end
 		puts "Imported roles"
 		
+		facilities = []
 		facility_data = File.open(File.join("test", "test_data", "import_facilities.csv"),"r")
 		csv_facility = CSV.parse(facility_data, :headers => true)
 		csv_facility.each do |row|
-			puts row[0]
+			Facility.create(:name => row[0])
+			facilities[facilities.size] = row[0]
 		end
 		puts "Imported facilities"
+
+		user_data = File.open(File.join("test", "test_data", "import_users.csv"),"r")
+		csv_user = CSV.parse(user_data, :headers => true)
+		csv_user.each do |row|
+			User.create(:username => row[0],
+						:password => row[1],
+						:role => Role.where(:name => row[2]).first,
+						:telephone_num => row[3],
+						:facility => Facility.where(:name => row[4]).first,
+						:language => row[5],
+						:name => row[6]
+					   )
+		end
+		puts "Imported users"
 
 	end
 end
