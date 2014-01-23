@@ -15,8 +15,8 @@ namespace :test do
 		facility_data = File.open(File.join("test", "test_data", "import_facilities.csv"),"r")
 		csv_facility = CSV.parse(facility_data, :headers => true)
 		csv_facility.each do |row|
-			Facility.create(:name => row[0])
-			facilities[facilities.size] = row[0]
+			f= Facility.create(:name => row[0])
+			facilities[facilities.size] = f
 		end
 		puts "Imported facilities"
 
