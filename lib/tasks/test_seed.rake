@@ -116,7 +116,6 @@ namespace :test do
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
-				end
 			end
 		end
 		puts "Imported items & item histories"
