@@ -39,7 +39,7 @@ namespace :test do
 		csv_dept = CSV.parse(dept_data, :headers => true)
 		csv_dept.each do |row|
 			Department.create(:name => row[0],
-							  :facility_id => Facility.where(:name => row[1]).first
+							  :facility => Facility.where(:name => row[1]).first
 							 )
 		end
 		puts "Imported departments"
