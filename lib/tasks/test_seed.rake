@@ -79,6 +79,8 @@ namespace :test do
 					dept = depts.sample
 					if dept.facility_id == f.id
 						break
+					end
+				end
 				puts dept
 =begin
 					if model.nil?
