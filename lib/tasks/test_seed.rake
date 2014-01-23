@@ -66,7 +66,7 @@ namespace :test do
 			end
 		end
 		puts "Imported languages"
-
+=begin
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
@@ -79,7 +79,7 @@ namespace :test do
 					puts d.name
 					puts d.id
 				end
-=begin
+
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
 									:serial_number => row[2],
@@ -124,11 +124,11 @@ namespace :test do
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
-=end
+
 			end
 		end
 		puts "Imported items & item histories"
 		
-
+=end
 	end
 end
