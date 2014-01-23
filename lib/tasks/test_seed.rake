@@ -72,6 +72,8 @@ namespace :test do
 			model = Model.find_by(model_name: row[1])
 			facilities.each do |f|
 				depts = Facility.joins(:departments).where('id' => f.id)
+				puts depts
+=begin
 					if model.nil?
 						item = Item.create(:asset_id => row[0],
 									:serial_number => row[2],
@@ -116,6 +118,7 @@ namespace :test do
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
+=end
 			end
 		end
 		puts "Imported items & item histories"
