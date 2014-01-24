@@ -130,11 +130,11 @@ namespace :test do
 									  )
 					end
 					role_eng = Role.where(:name => "Hospital Engineer")
-					users = User.where(:facility_id => f.id and :role_id => role_eng.id)
+					users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 					2.times do |wr|
 						work_req = WorkRequest.create(:date_requested => Time.local(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
 													  :item => item,
-													  :status = 0,
+													  :status => 0,
 													  :description => "Service needed",
 													  :owner => users.sample,
 													  :requester => users.sample 
