@@ -19,7 +19,6 @@ namespace :test do
 			facilities[facilities.size] = f
 		end
 		puts "Imported facilities"
-		puts facilities
 
 		user_data = File.open(File.join("test", "test_data", "import_users.csv"),"r")
 		csv_user = CSV.parse(user_data, :headers => true)
@@ -155,7 +154,7 @@ namespace :test do
 					end
 			end
 		end
-		puts "Imported items & item histories"
+		puts "Imported items, item histories, work_requests, work request comments, texts"
 		
 	end
 end
