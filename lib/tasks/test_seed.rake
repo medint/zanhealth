@@ -129,7 +129,7 @@ namespace :test do
 									   :updated_at => Time.local(year,month,day)
 									  )
 					end
-					role_eng = Role.where(:name => "Hospital Engineer")
+					role_eng = Role.where(:name => "Hospital Engineer").first
 					users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 					2.times do |wr|
 						work_req = WorkRequest.create(:date_requested => Time.local(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
