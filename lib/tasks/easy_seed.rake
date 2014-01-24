@@ -2,7 +2,7 @@ require 'csv'
 
 namespace :test do
 	desc "seed the db with test data"
-	task :test_seed => :environment do
+	task :easy_seed => :environment do
 		puts "Starting test data import. Might take a while...."
 		role_data = File.open(File.join("test", "test_data","import_roles.csv"),"r")
 		csv_roles = CSV.parse(role_data, :headers => true)
@@ -51,18 +51,16 @@ namespace :test do
 						 :vendor_name => row[3],
 						 :category => row[0]
 						)
-			facilities.each do |f|
-				depts = Department.where(:facility_id => f.id)
-				Need.create(:name => row[1],
-							:department => depts.sample,
-							:model => model,
-							:quantity => rand(10)+1,
-							:urgency => 0,
-							:reason => "needed",
-							:date_requested => Date.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
-						   ) 
-			
-			end
+			f = facilities.sample
+			dept = Department.where(:facility_id => f.id).sample
+			Need.create(:name => row[1],
+						:department => dept,
+						:model => model,
+						:quantity => rand(10)+1,
+						:urgency => 0,
+						:reason => "needed",
+						:date_requested => Date.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+					   )
 		end
 		puts "Imported models and needs"
 
@@ -82,76 +80,71 @@ namespace :test do
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
 			model = Model.find_by(model_name: row[1])
-			facilities.each do |f|
-				depts = Department.where(:facility_id => f.id)
-					if model.nil?
-						item = Item.create(:asset_id => row[0],
-									:serial_number => row[2],
-									:year_manufactured => row[3],
-									:funding => row[4],
-									:date_received => row[5],
-									:warranty_expire => row[6],
-									:contract_expire => row[7],
-									:warranty_notes => row[8],
-									:service_agent => row[9],
-									:department => depts.sample,
-									:location => row[11],
-									:item_type => row[12],
-									:price => row[13]
-								   )
-					else
-						item = Item.create(:asset_id => row[0],
-									:model_id => model.id,
-									:serial_number => row[2],
-									:year_manufactured => row[3],
-									:funding => row[4],
-									:date_received => row[5],
-									:warranty_expire => row[6],
-									:contract_expire => row[7],
-									:warranty_notes => row[8],
-									:service_agent => row[9],
-									:department => depts.sample,
-									:location => row[11],
-									:item_type => row[12],
-									:price => row[13]
-								   )
-
-					end
-					2.times do |x|
-						year = Time.now.year - rand(1) -1
-						month = rand(12)+1
-						day = rand(31)+1
-						ItemHistory.create(:item => item,
-									   :status => 0,
-									   :utilization => 0,
-									   :remarks => "Performed checkup",
-									   :updated_at => Date.new(year,month,day)
-									  )
-					end
-					role_eng = Role.where(:name => "Hospital Engineer").first
-					users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
-					2.times do |wr|
-						work_req = WorkRequest.create(:date_requested => Date.new(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
+			f = facilities.sample
+			dept = Department.where(:facility_id => f.id).sample
+			if model.nil?
+				item = Item.create(:asset_id => row[0],
+								   :serial_number => row[2],
+								   :year_manufactured => row[3],
+								   :funding => row[4],
+								   :date_received => row[5],
+								   :warranty_expire => row[6],
+								   :contract_expire => row[7],
+								   :warranty_notes => row[8],
+								   :service_agent => row[9],
+								   :department => dept,
+								   :location => row[11],
+								   :item_type => row[12],
+								   :price => row[13]
+								  )
+			else
+				item = Item.create(:asset_id => row[0],
+								   :model => model,
+								   :serial_number => row[2],
+								   :year_manufactured => row[3],
+								   :funding => row[4],
+								   :date_received => row[5],
+								   :warranty_expire => row[6],
+								   :contract_expire => row[7],
+								   :warranty_notes => row[8],
+								   :service_agent => row[9],
+								   :department => dept,
+								   :location => row[11],
+								   :item_type => row[12],
+								   :price => row[13]
+								  )
+			end
+			2.times do |x|
+				ItemHistory.create(:item => item,
+								   :status => 0,
+								   :utilization => 0,
+								   :remarks => "Performed checkup",
+								   :updated_at => Date.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+								  )
+			end
+			role_eng = Role.where(:name => "Hospital Engineer").first
+			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
+			2.times do |wr|
+				work_req = WorkRequest.create(:date_requested => Date.new(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
 													  :item => item,
 													  :status => 0,
 													  :description => "Service needed",
 													  :owner => users.sample,
 													  :requester => users.sample 
-													)
-						2.times do |wrc|
-							WorkRequestComment.create(:datetime_stamp => Date.new(Time.now.year - rand(1) -1, rand(12)+1, rand(31)+1),
+											)
+				2.times do |wrc|
+					WorkRequestComment.create(:datetime_stamp => Date.new(Time.now.year - rand(1) -1, rand(12)+1, rand(31)+1),
 													  :work_request => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
-													 )
-						end
-						2.times do |txt|
-							Text.create(:content => "checked item",
+											)
+				end
+				2.times do |txt|
+					Text.create(:content => "checked item",
 										:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
 										:work_request => work_req
-									   )
-						end
-					end
+								)
+				end
 			end
 		end
 		puts "Imported items, item histories, work_requests, work request comments, texts"
