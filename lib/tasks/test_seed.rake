@@ -118,7 +118,7 @@ namespace :test do
 								   )
 
 					end
-					4.times do |x|
+					2.times do |x|
 						year = Time.now.year - rand(1) -1
 						month = rand(12)+1
 						day = rand(31)+1
@@ -128,6 +128,30 @@ namespace :test do
 									   :remarks => "Performed checkup",
 									   :updated_at => Time.local(year,month,day)
 									  )
+					end
+					role_eng = Role.where(:name => "Hospital Engineer")
+					users = User.where(:facility_id => f.id and :role_id => role_eng.id)
+					2.times do |wr|
+						work_req = WorkRequest.create(:date_requested => Time.local(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
+													  :item => item,
+													  :status = 0,
+													  :description => "Service needed",
+													  :owner => users.sample,
+													  :requester => users.sample 
+													)
+						2.times do |wrc|
+							WorkRequestComment.create(:datetime_stamp => Time.local(Time.now.year - rand(1) -1, rand(12)+1, rand(31)+1),
+													  :work_request => work_req,
+													  :user_id => users.sample,
+													  :comment_text => "Commented by engineer"
+													 )
+						end
+						2.times do |txt|
+							Text.create(:content => "checked item",
+										:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
+										:work_request => work_req
+									   )
+						end
 					end
 			end
 		end
