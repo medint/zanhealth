@@ -24,6 +24,7 @@ class WorkRequestsController < ApplicationController
   def edit
   	  @work_requests = WorkRequest.where(:work_request_id => params[:id]).all.to_a do |work_req|
   	  facility = work_req.item.department.facility
+	  end
   	  @users = User.where(:facility_id => facility.id).all.to_a
   end
 
