@@ -53,7 +53,7 @@ namespace :test do
 						)
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
-			date_updated = Time.local(Time.now.year-rand(1)-1, rand(12), rand(31))
+			date_updated = Time.new(Time.now.year-rand(1)-1, rand(12), rand(31))
 			Need.create(:name => row[1],
 						:department => dept,
 						:model => model,
@@ -116,7 +116,7 @@ namespace :test do
 								  )
 			end
 			2.times do |x|
-				date_updated =Time.local(Time.now.year-rand(1)-1, rand(12), rand(31))
+				date_updated =Time.new(Time.now.year-rand(1)-1, rand(12), rand(31))
 				ItemHistory.create(:item => item,
 								   :status => 0,
 								   :utilization => 0,
@@ -127,7 +127,7 @@ namespace :test do
 			role_eng = Role.where(:name => "Hospital Engineer").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
-				date_updated =Time.local(Time.now.year-rand(1)-1, rand(12), rand(31))
+				date_updated =Time.new(Time.now.year-rand(1)-1, rand(12), rand(31))
 				work_req = WorkRequest.create(:date_requested => date_updated.strftime("%Y:%m:%d"),
 													  :item => item,
 													  :status => 0,
@@ -136,7 +136,7 @@ namespace :test do
 													  :requester => users.sample 
 											)
 				2.times do |wrc|
-					date_updated =Time.local(Time.now.year-rand(1)-1, rand(12), rand(31))
+					date_updated =Time.new(Time.now.year-rand(1)-1, rand(12), rand(31))
 					WorkRequestComment.create(:datetime_stamp => date_updated.strftime("%Y:%m:%d"),
 													  :work_request => work_req,
 													  :user_id => users.sample,
