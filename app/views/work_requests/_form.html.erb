@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= @language['Item ID'] %><br>
-    <%= f.collection_select :item_id, Item.all, :id, :asset_id %>
+    <%= @item.asset_id %>
   </div>
   <div class="field">
     <%= @language['Request Type'] %><br>
