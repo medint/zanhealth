@@ -59,7 +59,7 @@ namespace :test do
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => "needed",
-						:date_requested => Date.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+						:date_requested => Date.new(Time.now.year-rand(1)-1, rand(11)+1, rand(30)+1)
 					   )
 		end
 		puts "Imported models and needs"
@@ -119,13 +119,13 @@ namespace :test do
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
-								   :updated_at => Date.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+								   :updated_at => Date.new(Time.now.year-rand(1)-1, rand(11)+1, rand(30)+1)
 								  )
 			end
 			role_eng = Role.where(:name => "Hospital Engineer").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
-				work_req = WorkRequest.create(:date_requested => Date.new(Time.now.year - rand(1)-1, rand(12)+1, rand(31)+1),
+				work_req = WorkRequest.create(:date_requested => Date.new(Time.now.year - rand(1)-1, rand(11)+1, rand(30)+1),
 													  :item => item,
 													  :status => 0,
 													  :description => "Service needed",
@@ -133,7 +133,7 @@ namespace :test do
 													  :requester => users.sample 
 											)
 				2.times do |wrc|
-					WorkRequestComment.create(:datetime_stamp => Date.new(Time.now.year - rand(1) -1, rand(12)+1, rand(31)+1),
+					WorkRequestComment.create(:datetime_stamp => Date.new(Time.now.year - rand(1) -1, rand(11)+1, rand(30)+1),
 													  :work_request => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
