@@ -42,13 +42,13 @@
  </thead>
 
   <tbody>
-  <% @texts.each do |text| %>
-    <tr>
-      <td><%= @language['Created at'] %> </td>
-      <td><%= @language['ID'] %> </td>
-      <td><%= @language['Work Request ID'] %> </td>
-      <td><%= @language['Context'] %> </td>
-    </tr>
+	  <% @texts.each do |text| %> 
+	<tr> 
+		<td><%= text.created_at %></td>
+		<td><%= text.id %></td>
+		<td><%= text.work_request_id %></td>
+		<td><%= text.content %></td>
+	</tr>
   <% end %>
   </tbody>
 
