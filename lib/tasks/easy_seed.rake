@@ -53,7 +53,7 @@ namespace :test do
 						)
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
-			date_updated = Time.new(Time.now.year-rand(1)-1, rand(12), rand(31))
+			date_updated = Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
 			Need.create(:name => row[1],
 						:department => dept,
 						:model => model,
