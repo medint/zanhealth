@@ -22,7 +22,7 @@ class WorkRequestsController < ApplicationController
 
   # GET /work_requests/1/edit
   def edit
-  	  work_req = WorkRequest.where(:work_request_id => params[:id])
+  	  @work_requests = WorkRequest.where(:work_request_id => params[:id]).all.to_a do |work_req|
   	  facility = work_req.item.department.facility
   	  @users = User.where(:facility_id => facility.id).all.to_a
   end
