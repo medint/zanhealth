@@ -18,7 +18,7 @@
   <% end %>
   <div class="field">
      <%= @language['Owner'] %><br>
-     <%= f.collection_select :owner_id, User.all, :id, :name %>
+	 <%= f.collection_select :owner_id, User.where(:facility_id => session[:user].facility_id), :id, :name %>
   </div>
 
   <div class="field">
