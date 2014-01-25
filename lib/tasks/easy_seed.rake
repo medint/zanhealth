@@ -53,13 +53,14 @@ namespace :test do
 						)
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
+			date_updated = Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
 			Need.create(:name => row[1],
 						:department => dept,
 						:model => model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => "needed",
-						:date_requested => Date.new(Time.now.year-rand(1)-1, rand(11)+1, rand(30)+1)
+						:date_requested => date_updated.strftime("%Y:%m:%d")
 					   )
 		end
 		puts "Imported models and needs"
@@ -115,17 +116,19 @@ namespace :test do
 								  )
 			end
 			2.times do |x|
+				date_updated =Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
 				ItemHistory.create(:item => item,
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
-								   :updated_at => Date.new(Time.now.year-rand(1)-1, rand(11)+1, rand(30)+1)
+								   :updated_at => date_updated.strftime("%Y:%m:%d")
 								  )
 			end
 			role_eng = Role.where(:name => "Hospital Engineer").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
-				work_req = WorkRequest.create(:date_requested => Date.new(Time.now.year - rand(1)-1, rand(11)+1, rand(30)+1),
+				date_updated =Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+				work_req = WorkRequest.create(:date_requested => date_updated.strftime("%Y:%m:%d"),
 													  :item => item,
 													  :status => 0,
 													  :description => "Service needed",
@@ -133,7 +136,8 @@ namespace :test do
 													  :requester => users.sample 
 											)
 				2.times do |wrc|
-					WorkRequestComment.create(:datetime_stamp => Date.new(Time.now.year - rand(1) -1, rand(11)+1, rand(30)+1),
+					date_updated =Time.local(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+					WorkRequestComment.create(:datetime_stamp => date_updated.strftime("%Y:%m:%d"),
 													  :work_request => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
