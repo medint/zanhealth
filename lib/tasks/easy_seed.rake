@@ -60,7 +60,7 @@ namespace :test do
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => "needed",
-						:date_requested => date_updated.strftime("%Y:%m:%d")
+						:date_requested => date_updated.strftime("%Y-%m-%d")
 					   )
 		end
 		puts "Imported models and needs"
@@ -121,14 +121,14 @@ namespace :test do
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
-								   :updated_at => date_u.strftime("%Y:%m:%d")
+								   :updated_at => date_u.strftime("%Y-%m-%d")
 								  )
 			end
 			role_eng = Role.where(:name => "Hospital Engineer").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
 				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_req = WorkRequest.create(:date_requested => date_u_wr.strftime("%Y:%m:%d"),
+				work_req = WorkRequest.create(:date_requested => date_u_wr.strftime("%Y-%m-%d"),
 													  :item => item,
 													  :status => 0,
 													  :description => "Service needed",
@@ -137,7 +137,7 @@ namespace :test do
 											)
 				2.times do |wrc|
 					date_u_wrc = Time.at(rand * Time.now.to_i)
-					WorkRequestComment.create(:datetime_stamp => date_u_wrc.strftime("%Y:%m:%d"),
+					WorkRequestComment.create(:datetime_stamp => date_u_wrc.strftime("%Y-%m-%d"),
 													  :work_request => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
