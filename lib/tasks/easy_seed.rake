@@ -116,19 +116,19 @@ namespace :test do
 								  )
 			end
 			2.times do |x|
-				date_updated =Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+				date_u = Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
 				ItemHistory.create(:item => item,
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
-								   :updated_at => date_updated.strftime("%Y:%m:%d")
+								   :updated_at => date_u.strftime("%Y:%m:%d")
 								  )
 			end
 			role_eng = Role.where(:name => "Hospital Engineer").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
-				date_updated =Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
-				work_req = WorkRequest.create(:date_requested => date_updated.strftime("%Y:%m:%d"),
+				date_u_wr = Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+				work_req = WorkRequest.create(:date_requested => date_u_wr.strftime("%Y:%m:%d"),
 													  :item => item,
 													  :status => 0,
 													  :description => "Service needed",
@@ -136,8 +136,8 @@ namespace :test do
 													  :requester => users.sample 
 											)
 				2.times do |wrc|
-					date_updated =Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
-					WorkRequestComment.create(:datetime_stamp => date_updated.strftime("%Y:%m:%d"),
+					date_u_wrc = Time.new(Time.now.year-rand(1)-1, rand(12)+1, rand(31)+1)
+					WorkRequestComment.create(:datetime_stamp => date_u_wrc.strftime("%Y:%m:%d"),
 													  :work_request => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
