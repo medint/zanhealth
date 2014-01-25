@@ -22,6 +22,8 @@ class WorkRequestsController < ApplicationController
 
   # GET /work_requests/1/edit
   def edit
+  	  facility = work_request.item.department.facility
+  	  @users = User.where(:facility_id => facility.id).all.to_a
   end
 
   # POST /work_requests
