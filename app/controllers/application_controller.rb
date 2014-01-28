@@ -1,5 +1,23 @@
 class ApplicationController < ActionController::Base
     @@DEFAULT_LANGUAGE = 'english'
+    
+    @@PERMISSIONS = {
+        work_request_add: {
+            admin: true,
+            technician: true,
+            chief: true
+        },
+        work_request_edit: {
+            admin: true,
+            technician: true,
+            chief: true
+        },
+        work_request_delete: {
+            admin: true,
+            technician: false,
+            chief: true
+        }
+    }
 
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
@@ -49,10 +67,11 @@ class ApplicationController < ActionController::Base
         end
     end
     
-    def require_permission permission_sym
-        # unless user
-        #     redirect_to '/login'
-        # elsif not user.role.permission_sym
-            
+    def require_permission permission
+        unless user
+            redirect_to '/login'
+        elsif not @@PERMISSIONS[permission][user.role]
+            redirect_to '/insufficient-permissions.html'
+        end
     end
 end
