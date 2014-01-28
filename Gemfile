@@ -56,6 +56,8 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'newrelic_rpm'
+
 group :development do
     gem "better_errors"
     gem "binding_of_caller" # 'optional' dep for better_errors
