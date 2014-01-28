@@ -124,7 +124,7 @@ namespace :test do
 								   :updated_at => date_u
 								  )
 			end
-			role_eng = Role.where(:name => "Hospital Engineer").first
+			role_eng = Role.where(:name => "technician").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			2.times do |wr|
 				date_u_wr = Time.at(rand * Time.now.to_i)
