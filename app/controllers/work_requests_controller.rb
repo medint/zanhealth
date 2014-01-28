@@ -1,4 +1,4 @@
-class WorkRequestController < ApplicationController
+class WorkRequestsController < ApplicationController
   before_action :set_work_request, only: [:show, :edit, :update, :destroy]
 
   # GET /work_requests

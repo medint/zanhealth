@@ -45,3 +45,16 @@
     
 
 }
+
+.sortable::after {
+    content: '⬍';
+}
+
+.sort-asc::after {
+    content: '▼';
+}
+
+.sort-desc::after {
+    content: '▲';
+}
+

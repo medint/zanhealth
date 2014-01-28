@@ -48,4 +48,10 @@ class ApplicationController < ActionController::Base
             @language[translation['english']] = translation[session[:language]]
         end
     end
+    
+    def require_permission permission_sym
+        unless user
+            redirect_to '/login'
+        elsif not user.role.permission_sym
+    end
 end

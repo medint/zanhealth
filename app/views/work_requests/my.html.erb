@@ -3,16 +3,38 @@
 <input id='list-searchbox'>
 <button id='list-searchbox-button'>Search</button>
 
-<table>
+<table id=my-requests>
   <thead>
     <tr>
-      <th><%= @language['ID'] %></th>
-      <th><%= @language['Item ID'] %></th>
-      <th><%= @language['Serial Number'] %></th>
-      <th><%= @language['Manufacturer'] %></th>
-      <th><%= @language['Category'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Date Requested'] %></th>
+      <th>
+        <%= @language['ID'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Item ID'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Serial Number'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Manufacturer'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Category'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Location'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th>
+        <%= @language['Date Requested'] %>
+        <span id=sort-sticker></span>
+      </th>
+      <th></th>
     </tr>
   </thead>
 
