@@ -12,7 +12,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/1
   # GET /work_requests/1.json
   def show
-        @wr_comment = WorkRequestComment.where(:work_request_id => params[:id]).order(:created_at)
+      @wr_comment = WorkRequestComment.where(:work_request_id => params[:id]).order(:created_at)
   end
 
   # GET /work_requests/new

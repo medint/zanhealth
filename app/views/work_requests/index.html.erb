@@ -64,7 +64,10 @@
          -->
         <td><%= link_to @language['Show'], work_request %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
-        <td><%= link_to @language['Destroy'], work_request, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+        <td>
+          <% if @permissions[:work_request_delete] %>
+          <%= link_to @language['Destroy'], work_request, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+          <% end %>
      </tr>
     <% end %>
   </tbody>

@@ -9,6 +9,11 @@
       <th><%= @language['Model']%></th>
       <th><%= @language['Location']%></th>
       <th><%= @language['Recent History']%></th>
+      <th></th>
+      <th></th>
+      <% if @permissions[:item_delete] %>
+      <th></th>
+      <% end %>
      <!--
       <th>Asset ID</th>
       <th>Model</th>
@@ -64,7 +69,11 @@
          -->
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
-        <td><%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @permissions[:item_delete] %>
+        <td>
+          <%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+        <% end %>
      </tr>
     <% end %>
   </tbody>

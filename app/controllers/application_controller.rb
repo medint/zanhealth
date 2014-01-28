@@ -16,19 +16,25 @@ class ApplicationController < ActionController::Base
             admin: true,
             technician: false,
             chief: true
+        },
+        
+        item_delete: {
+            admin: true,
+            technician: false,
+            chief: true
         }
     }
 
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
-    before_action :authenticate, :choose_language
+    before_action :authenticate, :choose_language, :gen_permissions
 
     def user
-        throw "I cannot show the WRs without a user!" if not session[:user]
+        return nil if session[:user].nil?
         @user ||= User.find(session[:user])
     end
-
+    
     def authenticate
     	unless params[:controller] == 'text'
     		p User.where(username: params[:username],
@@ -67,11 +73,22 @@ class ApplicationController < ActionController::Base
         end
     end
     
+    def gen_permissions
+        if user
+            @permissions = {}
+            @@PERMISSIONS.each do |permission, roles|
+                @permissions[permission] = roles[user.role.to_sym]
+            end
+        end
+    end
+            
     def require_permission permission
-        unless user
+        if not user
             redirect_to '/login'
-        elsif not @@PERMISSIONS[permission][user.role]
+        elsif not @@PERMISSIONS[permission][user.role.to_sym]
             redirect_to '/insufficient-permissions.html'
+        else
+            # do nothing.
         end
     end
 end
