@@ -50,8 +50,9 @@ class ApplicationController < ActionController::Base
     end
     
     def require_permission permission_sym
-        unless user
-            redirect_to '/login'
-        elsif not user.role.permission_sym
+        # unless user
+        #     redirect_to '/login'
+        # elsif not user.role.permission_sym
+            
     end
 end
