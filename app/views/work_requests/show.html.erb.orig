@@ -25,14 +25,9 @@
       </p>
 
       <p>
-<<<<<<< HEAD
         <strong>Item:</strong>
         <%= @work_request.item_id %>
-=======
-        <strong><%= @language['Item'] %>:</strong>
-        <%= @work_request.item %>
->>>>>>> 957868c7e8fd1276243d686da53d08ce3c94afb8
-      </p>
+     </p>
 
       <p>
         <strong><%= @language['Cost'] %>:</strong>

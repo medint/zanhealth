@@ -1,14 +1,14 @@
-<h1>Listing users</h1>
+<h1><%= @language['Listing'] @language['users'] %> </h1>
 
 <table>
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Encrypted password</th>
-      <th>Role</th>
-      <th>Created</th>
-      <th>Modified</th>
-      <th>Telephone num</th>
+      <th><%= @language['Username']%></th>
+      <th><%= @language['Encrypted password']%></th>
+      <th><%= @language['Role']%></th>
+      <th><%= @language['Created']%></th>
+      <th><%= @language['Modified']%></th>
+      <th> <%= @language['Telephone number']%> </th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,9 +24,9 @@
         <td><%= user.created %></td>
         <td><%= user.modified %></td>
         <td><%= user.telephone_num %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], user %></td>
+        <td><%= link_to @language['Edit'], edit_user_path(user) %></td>
+        <td><%= link_to @language['Destroy'], user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,5 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+
+<%= link_to @language['New User'], new_user_path %>

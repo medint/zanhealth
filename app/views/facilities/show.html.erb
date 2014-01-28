@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= @language['Notice'] %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= @language['Name']%>:</strong>
   <%= @facility.name %>
 </p>
 
-<%= link_to 'Edit', edit_facility_path(@facility) %> |
-<%= link_to 'Back', facilities_path %>
+<%= link_to @language['Edit'], edit_facility_path(@facility) %> |
+<%= link_to @language['Back'], facilities_path %>

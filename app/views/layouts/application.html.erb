@@ -16,10 +16,11 @@
     </a>
     <a href='/work_requests'>
         <%= @language['All Requests'] %>
-    </a>
+	</a>
+
     <a href='/work_requests/new'>
-        <%= '+ '+@language['Work Request'] %>
-    </a>
+       <%= @language['Submit New Request'] %>
+   </a>
     <a href='/items'>
         <%= @language['All Items'] %>
     </a>
@@ -42,9 +43,9 @@
 <footer>
   <a href='?language=english'>English</a> | 
   <a href='?language=swahili'>Swahili</a> | 
-  Home |
-  About zanhealth |
-  Contact Us |
+  <%= @language['Home']%> |
+  <%= @language['About'] %> zanhealth |
+  <%= @language['Contact Us']%> |
   © 2013 Med International
 </footer>
 

@@ -12,14 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= @language['Domain'] %><br>
-    <%= f.number_field :domain %>
+    <%= @language['Asset ID'] %><br>
+    <%= f.text_field :asset_id %>
   </div>
-  <div class="field">
-    <%= @language['Tag'] %><br>
-    <%= f.number_field :tag %>
-  </div>
-    <div class="field">
+ <div class="field">
     <%= @language['Model'] %><br>
     <%= f.number_field :model_id %>
   </div>
@@ -56,8 +52,8 @@
     <%= f.text_field :service_agent %>
   </div>
   <div class="field">
-    <%= @language['Location'] %><br>
-    <%= f.number_field :location_id %>
+    <%= @language['Department'] %><br>
+    <%= f.number_field :department_id %>
   </div>
   <div class="field">
     <%= @language['Item Type'] %><br>

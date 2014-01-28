@@ -69,6 +69,6 @@ class NeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def need_params
-      params.require(:need).permit(:name, :location_id, :model_id, :quantity, :urgency, :reason, :remarks, :stage, :date_requested, :user_id)
+      params.require(:need).permit(:name, :department_id, :model_id, :quantity, :urgency, :reason, :remarks, :stage, :date_requested, :user_id)
     end
 end

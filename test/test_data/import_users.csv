@@ -1,0 +1,19 @@
+username,encrypted_password,role.name,telephone_num,facility.name,language,name
+userAHE1,68926bec03b3b83925ebb80ad16c4fb3,"Hospital Engineer",NULL,"FACILITY A",english,UserAHE1
+userAHE2,0a8c24bf989d45cf77ce7326fa5222ce,"Hospital Engineer",NULL,"FACILITY A",english,UserAHE2
+userBHE1,cf1d2d0f1fb3d14842679a138b84927b,"Hospital Engineer",NULL,"FACILITY B",english,UserBHE1
+userBHE2,cddc6a35f01a5f6b2dde764680acc03c,"Hospital Engineer",NULL,"FACILITY B",english,UserBHE2
+userCHE1,90e8735db2b978f445cadfac97f94092,"Hospital Engineer",NULL,"FACILITY C",english,UserCHE1
+userCHE2,0823a391af25bef658ee02a8f340f86a,"Hospital Engineer",NULL,"FACILITY C",english,UserCHE2
+userAHA1,709ef6e0de81bab8334bffb2d9890577,"Hospital Administrator",NULL,"FACILITY A",english,UserAHA1
+userBHA1,006376709c6c0bbfc549389c92093a32,"Hospital Administrator",NULL,"FACILITY B",english,UserBHA1
+userCHA1,e721448ab519ecfd35d103ed04107a80,"Hospital Administrator",NULL,"FACILITY C",english,UserCHA1
+userAMHA1,5f06b485ebac888a4304bb6fd67d132a,"Ministry of Health Administrator",NULL,"FACILITY A",english,UserAMHA1
+userrBHA1,66929d35cdb13df64afa4fda675b3056,"Ministry of Health Administrator",NULL,"FACILITY B",english,UserBMHA1
+userCMHA1,356c25cd1c88384d47ad9f52f7464a56,"Ministry of Health Administrator",NULL,"FACILITY C",english,UserCMHA1
+userAD1,364db82f1b5d68fb043dbc4260d0b516,"Donor",NULL,"FACILITY A",english,UserAD1
+userBD1,7cc3607eeebba2786a7117374b5cfeaa,"Donor",NULL,"FACILITY B",english,UserBD1
+userCD1,0c7f0e919ea4823fb0fb9eb03dcc1617,"Donor",NULL,"FACILITY C",english,UserCD1
+userAP1,c3ae9d4a89bd85f37215d05a2e1d3a7b,"Procurement",NULL,"FACILITY A",english,UserAP1
+userBP1,611d023eefaa7f5528d669b32c438f0b,"Procurement",NULL,"FACILITY B",english,UserBP1
+userCP1,660d492bd92238b6992c103c243f5c31,"Procurement",NULL,"FACILITY C",english,UserCP1

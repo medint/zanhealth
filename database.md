@@ -21,15 +21,13 @@ model_name string
 manufacturer_name string
 vendor_name string
 
-Location
-room string
-floor integer
-building string
+Department
+name string
 facilities_id integer
 
 Need
 name string
-location_id integer
+department_id integer
 model_id integer
 quantity integer
 urgency integer
@@ -40,9 +38,7 @@ date_requested date
 user_id integer
 
 Item
-domain string
-tag integer
-category string
+asset_id string
 model_id integer
 serial_number string
 year_manufactured integer
@@ -52,7 +48,8 @@ warranty_expire date
 contract_expire date
 warranty_notes text
 service_agent string
-location_id integer
+department_id integer
+location string
 item_type string
 price integer
 
@@ -114,14 +111,14 @@ need belongs_to user
 user has_one role
 role has_many users
 
-location belongs_to facility
-facility has_many locations
+department belongs_to facility
+facility has_many departments
 
-location has_many items
-item belongs_to location
+department has_many items
+item belongs_to deparment
 
-location has_many needs
-need belongs_to location
+department has_many needs
+need belongs_to department
 
 model has_many items
 item belongs_to model

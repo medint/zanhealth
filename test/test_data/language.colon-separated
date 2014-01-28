@@ -1,0 +1,111 @@
+*Model ID: Nambari ya …. (not sure what model in this sense is in Kiswahili…)I’m having trouble differentiating it from item ID
+*Recent comments: I’m having trouble with this because the most applicable word for comments is used to mean “opinion”
+About: 'xxx'
+Action taken: Hatua iliyochukuliwa
+Add new item: Ongeza kifaa kipya
+All Items: Vifaa vyote
+All Requests: Maombi yote
+All work requests: Maombi yote ya kazi
+Are you sure?: 'xxx xxx xxx?'
+Asset ID: nambari ya kitambulisho ya mali
+Back: 'xxx'
+Broken: Kimeharibika
+Building: 'xxx'
+Category: Kundi BUT maybe they use “kategoria” in Tanzania
+Cause description:'xxx xxx'
+Comment: 'xxx'
+Contact Us: 'xxx xxx'
+Content: Yaliyomo
+Context: 'xxx'
+Contract expire: Tarehe ya mwisho wa mkandarasi
+Cost: Bei
+Created at: 'xxx xxx'
+Created: 'xxx'
+Date Completed: Tarehe ya kukamilishwa
+Date Expires: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
+Date received: Siku kifaa kilipokewa
+Date requested: Tarehe ya ombi
+Date/Time: 'xxx'
+Department: 'xxx'
+Description: Maelezo
+Destroy: Futa
+Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
+Detailed view: Tazama kwa ukamilifu
+Domain: Uwanja
+Edit: Hariri
+Editing:'xxx'
+Encrypted password:'xxx xxx'
+Facilities: 'xxx'
+Facility:'xxx'
+Floor: 'xxx'
+Form: 'xxx'
+Funding: Fedha
+Home: xxx
+ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
+Item ID: Nambari ya kitambulisho ya kifaa
+Item cost: Bei ya kitus
+Item histories: 'xxx xxx'
+Item type: Aina ya kifaa
+Item: 'xxx'
+LOGOUT: ONDOKA
+Last updated: Tarehe ya mwisho ya usasishaji
+Listing: 'xxx'
+Location: Eneo
+Login: kuingia
+Logout: Ondoka
+Manage: Simamia
+Manufacturer: Mtengenezaji
+Model: 'xxx'
+Modified: 'xxx'
+My Requests: Maombi yangu
+My Texts: Maandiko Yangu
+Name: 'xxx'
+Need: 'xxx' (As a noun)
+New Facility: 'xxx xxx'
+New Item: 'xxx xxx'
+New Text: 'xxx xxx'
+New User:'xxx xxx'
+New Work Request: 'xxx xxx xxx'
+Notice: 'xxx'
+Number: 'xxx'
+Owner: Mmiliki
+Prevention taken: Uzuiaji Uliofanywa
+Price: Bei
+Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
+Quantity: 'xxx'
+Reason: 'xxx'
+Recent History: Historia ya hivi karibuni
+Recent Status: Hali ya hivi karibuni
+Remarks: 'xxx'
+Request ID: Nambari ya ombi (Request number)
+Request type: Aina ya ombi
+Requester: Anayewasilisha ombi
+Role: 'xxx'
+Room: 'xxx'
+Serial Number: Namba tambulishi
+Service agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
+Settings: Mipangilio binafsi
+Show: Onyesha
+Simple View: Mtazamo rahisi
+Stage: 'xxx'
+Status: Hali
+Submit new request: Wasilisha ombi jipya
+Tag: 'xxx'
+Telephone number: 'xxx xxx'
+Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) 
+Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax)
+Time: Wakati
+Urgency: 'xxx'
+User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name
+User: 'xxx'
+Username: 'xxx'
+Users: 'xxx'
+Utilization: 'xxx'
+Vendor: 'xxx'
+Warranty expire: Tarehe ya mwisho wa hati
+Warranty notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
+Work Request ID: 'xxx xxx xxx'
+Work Request: 'xxx xxx'
+Working: Kinafanya kazi vizuri 
+Year manufactured: Mwaka wa kutengenezwa
+text: 'xxx'

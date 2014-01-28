@@ -9,3 +9,4 @@ log/development.log
 app/Config/database.php
 *.swp
 *.log
+db/development.sqlite3

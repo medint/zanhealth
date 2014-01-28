@@ -27,7 +27,7 @@
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Location'] %>
+        <%= @language['Department'] %>
         <span id=sort-sticker></span>
       </th>
       <th>
@@ -42,11 +42,11 @@
     <% @work_requests.each do |work_request| %>
       <tr>
         <td><%= work_request.id %></td>
-        <td><%= link_to work_request.try(:item).try(:tagname), work_request.try(:item)  %></td>
+        <td><%= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
         <td><%= work_request.item.serial_number %></td>
         <td><%= work_request.item.model.manufacturer_name %></td>
         <td><%= work_request.item.model.category %></td>
-        <td><%= work_request.item.location.locationstr %></td>
+        <td><%= work_request.item.location %></td>
         <td><%= work_request.date_requested %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
       </tr>
@@ -54,23 +54,23 @@
   </tbody>
 </table>
 
-<h2><%=@language['My Texts'] %></h2>
+<h2><%= @language['My Texts']%></h2>
 <table>
   <thead>
-    <th><%= @language['Date Received'] %></th>
-    <th><%= @language['ID'] %></th>
-    <th><%= @language['Request ID'] %></th>
-    <th><%= @language['Comment'] %></th>
-  </thead>
+	  <th><%= @language['Time']%></th>
+	  <th><%= @language['ID']%></th>
+	  <th><%= @language['Request ID']%></th>
+	  <th><%= @language['Comment']%></th>
+ </thead>
 
   <tbody>
-  <% @texts.each do |text| %>
-    <tr>
-      <td>created_at</td>
-      <td>id</td>
-      <td>work_request_id</td>
-      <td>context</td>
-    </tr>
+	  <% @texts.each do |text| %> 
+	<tr> 
+		<td><%= text.created_at %></td>
+		<td><%= text.id %></td>
+		<td><%= text.work_request_id %></td>
+		<td><%= text.content %></td>
+	</tr>
   <% end %>
   </tbody>
 

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112043301) do
+ActiveRecord::Schema.define(version: 20140119215227) do
+
+  create_table "departments", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "facility_id"
+  end
 
   create_table "facilities", force: true do |t|
     t.string   "name"
@@ -39,13 +46,13 @@ ActiveRecord::Schema.define(version: 20140112043301) do
     t.date     "contract_expire"
     t.text     "warranty_notes"
     t.string   "service_agent"
-    t.integer  "location_id"
+    t.integer  "department_id"
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "domain"
+    t.string   "asset_id"
     t.string   "item_type"
-    t.string   "tag"
+    t.string   "location"
   end
 
   create_table "languages", force: true do |t|
@@ -53,15 +60,6 @@ ActiveRecord::Schema.define(version: 20140112043301) do
     t.string   "swahili"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "locations", force: true do |t|
-    t.string   "room"
-    t.integer  "floor"
-    t.string   "building"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "facility_id"
   end
 
   create_table "models", force: true do |t|
@@ -75,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140112043301) do
 
   create_table "needs", force: true do |t|
     t.string   "name"
-    t.integer  "location_id"
+    t.integer  "department_id"
     t.integer  "model_id"
     t.integer  "quantity"
     t.integer  "urgency"

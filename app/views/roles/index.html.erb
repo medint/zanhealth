@@ -1,9 +1,9 @@
-<h1>Listing roles</h1>
+<h1><%= @language['Listing'] @language['Role'].pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= @language['Name']</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +14,9 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.name %></td>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], role %></td>
+        <td><%= link_to @language['Edit'], edit_role_path(role) %></td>
+        <td><%= link_to @language['Destroy'], role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Role', new_role_path %>
+<%= link_to @language['New Role'], new_role_path %>

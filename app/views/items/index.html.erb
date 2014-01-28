@@ -1,18 +1,16 @@
-<h1><%= @language['All Items'] %></h1>
+<h1><%= @language['All Items']%></h1>
 
 <%= link_to @language['Detailed View'], "/detailed_items" %><br>
-<%= link_to '+ '+@language['Item'], new_item_path %>
+<%= link_to @language['New Item'], new_item_path %>
 <table>
   <thead>
     <tr>
-      <th><%= @language['ID'] %></th>
-      <th><%= @language['Model'] %></th>
-      <th><%= @language['Location'] %></th>
-      <th><%= @language['Recent History'] %></th>
-      <!--
-      <th>Domain</th>
-      <th>Tag</th>
-      <th>Category</th>
+      <th><%= @language['ID']%></th>
+      <th><%= @language['Model']%></th>
+      <th><%= @language['Location']%></th>
+      <th><%= @language['Recent History']%></th>
+     <!--
+      <th>Asset ID</th>
       <th>Model</th>
       <th>Serial number</th>
       <th>Year manufactured</th>
@@ -27,9 +25,6 @@
       <th>Price</th>
       <th>Recent History</th>
       -->
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -38,7 +33,7 @@
       <tr>
         <td><%= item.id %></td>
         <td><%= link_to item.model.name, item.model %></td>
-        <td><%= item.location.locationstr %></td>
+        <td><%= item.location %></td>
         <td>
           <% if not item.item_histories.empty? %>
           <%= item.item_histories[0].remarks %>
@@ -46,8 +41,7 @@
         </td>
 
         <!--
-        <td><%= item.domain %></td>
-        <td><%= item.tag %></td>
+        <td><%= item.asset_id %></td>
         <td><%= item.model.category %></td>
         <td><%= item.model.manufacturer_name %></td>
         <td><%= item.model_id %></td>
@@ -59,7 +53,7 @@
         <td><%= item.contract_expire %></td>
         <td><%= item.warranty_notes %></td>
         <td><%= item.service_agent %></td>
-        <td><%= item.location_id %></td>
+        <td><%= item.location %></td>
         <td><%= item.item_type %></td>
         <td><%= item.price %></td>
         <td>
@@ -70,8 +64,8 @@
          -->
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_item_path(item) %></td>
-        <td><%= link_to @language['Delete'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to @language['Destroy'], item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
     <% end %>
   </tbody>
 </table>

@@ -1,18 +1,18 @@
-<h1>Listing needs</h1>
+<h1><%= @language['Listing'] @language['Need'].pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Model</th>
-      <th>Quantity</th>
-      <th>Urgency</th>
-      <th>Reason</th>
-      <th>Remarks</th>
-      <th>Stage</th>
-      <th>Date requested</th>
-      <th>User</th>
+      <th><%= @language['Name']%></th>
+      <th><%= @language['Location']%></th>
+      <th><%= @language['Model']%></th>
+      <th><%= @language['Quantity']%></th>
+      <th><%= @language['Urgency']%></th>
+      <th><%= @language['Reason']%></th>
+      <th><%= @language['Remarks']%></th>
+      <th><%= @language['Stage']%></th>
+      <th><%= @language['Date requested']%></th>
+      <th><%= @language['User']%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,7 +23,7 @@
     <% @needs.each do |need| %>
       <tr>
         <td><%= need.name %></td>
-        <td><%= need.location_id %></td>
+        <td><%= need.department_id %></td>
         <td><%= need.model_id %></td>
         <td><%= need.quantity %></td>
         <td><%= need.urgency %></td>
@@ -32,9 +32,9 @@
         <td><%= need.stage %></td>
         <td><%= need.date_requested %></td>
         <td><%= need.user_id %></td>
-        <td><%= link_to 'Show', need %></td>
-        <td><%= link_to 'Edit', edit_need_path(need) %></td>
-        <td><%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], need %></td>
+        <td><%= link_to @language['Edit'], edit_need_path(need) %></td>
+        <td><%= link_to @language['Destroy'], need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Need', new_need_path %>
+<%= link_to @language['New'] @language['Need'], new_need_path %>

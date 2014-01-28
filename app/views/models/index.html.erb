@@ -1,11 +1,11 @@
-<h1>Listing models</h1>
+<h1><%= "#{@language['Listing']} #{@language['Model'].pluralize}" %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Model name</th>
-      <th>Manufacturer name</th>
-      <th>Vendor name</th>
+		<th><%= "#{@language['Model']} #{@language['Name']}" %> </th>
+		<th><%= "#{@language['Manufacturer']} #{ @language['Name']}"%></th>
+		<th><%= "#{@language['Vendor' ]} #{@language['Name']}"%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,9 +18,9 @@
         <td><%= model.model_name %></td>
         <td><%= model.manufacturer_name %></td>
         <td><%= model.vendor_name %></td>
-        <td><%= link_to 'Show', model %></td>
-        <td><%= link_to 'Edit', edit_model_path(model) %></td>
-        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to @language['Show'], model %></td>
+        <td><%= link_to @language['Edit'], edit_model_path(model) %></td>
+        <td><%= link_to @language['Destroy'], model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Model', new_model_path %>
+<%= link_to "#{@language['New']} #{@language['Model']}", new_model_path %>

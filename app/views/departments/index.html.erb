@@ -1,0 +1,33 @@
+<h1><%= @language['Listing'] @language['Location'].pluralize %><</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= @language['Room']%></th>
+      <th><%= @language['Floor']%></th>
+      <th><%= @language['Building']%></th>
+      <th><%= @language['Facilities']%></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= location.room %></td>
+        <td><%= location.floor %></td>
+        <td><%= location.building %></td>
+        <td><%= location.facilities_id %></td>
+        <td><%= link_to @language['Show'], location %></td>
+        <td><%= link_to @language['Edit'], edit_location_path(location) %></td>
+        <td><%= link_to @language['Destroy'], location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to @language['New'] @language['Location'], new_location_path %>
