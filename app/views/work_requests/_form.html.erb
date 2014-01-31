@@ -17,8 +17,8 @@
   <% elsif params[:action] == 'edit' %>
   <% end %>
   <div class="field">
-     <%= @language['Owner'] %><br>
-	 <%= f.collection_select :owner_id, User.all, :id, :name %>
+    <%= @language['Owner'] %><br>
+    <%= f.collection_select :owner_id, User.all, :id, :name %>
   </div>
 
   <div class="field">
@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= @language['Item ID'] %><br>
-    <%= @item.asset_id %>
+    <%= f.number_field :item_id %>
   </div>
   <div class="field">
     <%= @language['Request Type'] %><br>
