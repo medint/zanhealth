@@ -18,6 +18,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/new
   def new
     @work_request = WorkRequest.new
+    @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   # GET /work_requests/1/edit
