@@ -126,7 +126,7 @@ namespace :test do
 			end
 			role_eng = Role.where(:name => "technician").first
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
-			2.times do |wr|
+			1.times do |wr|
 				date_u_wr = Time.at(rand * Time.now.to_i)
 				work_req = WorkRequest.create(:date_requested => date_u_wr,
 													  :item => item,
