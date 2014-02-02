@@ -135,7 +135,7 @@ namespace :test do
 													  :owner => users.sample,
 													  :requester => users.sample 
 											)
-				2.times do |wrc|
+				1.times do |wrc|
 					date_u_wrc = Time.at(rand * Time.now.to_i)
 					WorkRequestComment.create(:datetime_stamp => date_u_wrc,
 													  :work_request => work_req,
@@ -143,7 +143,7 @@ namespace :test do
 													  :comment_text => "Commented by engineer"
 											)
 				end
-				2.times do |txt|
+				1.times do |txt|
 					Text.create(:content => "checked item",
 										:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
 										:work_request => work_req
