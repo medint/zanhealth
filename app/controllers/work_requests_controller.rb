@@ -73,7 +73,7 @@ class WorkRequestsController < ApplicationController
   # GET /my_work_requests
   def my
     @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.include(:work_request)
+    @texts = Text.includes(:work_request)
     @texts.each do |text|
     	user.facility == text.work_request.item.department.facility
     end
@@ -82,7 +82,7 @@ class WorkRequestsController < ApplicationController
   # GET /detailed_work_requests
   def detailed 
     @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.include(:work_request)
+    @texts = Text.includes(:work_request)
     @texts.each do|text|
       user.facility == text.work_request.item.department.facility
     end
