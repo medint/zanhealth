@@ -4,8 +4,11 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-    @work_requests = WorkRequest.all.to_a.select do |work_request|
-      user.facility == work_request.item.department.facility
+  	  @work_requests = WorkRequest.includes(:item_id)
+  	  @work_requests.each do |work_request|
+  	  	  user.facility == work_request.item.department.facility
+    #@work_requests = WorkRequest.all.to_a.select do |work_request|
+     # user.facility == work_request.item.department.facility
     end
   end
 
