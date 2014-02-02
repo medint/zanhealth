@@ -7,8 +7,6 @@ class WorkRequestsController < ApplicationController
   	  @work_requests = WorkRequest.includes(:item)
   	  @work_requests.each do |work_request|
   	  	  user.facility == work_request.item.department.facility
-    #@work_requests = WorkRequest.all.to_a.select do |work_request|
-     # user.facility == work_request.item.department.facility
     end
   end
 
@@ -75,15 +73,17 @@ class WorkRequestsController < ApplicationController
   # GET /my_work_requests
   def my
     @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.all.to_a.select do |text|
-      user.facility == text.work_request.item.department.facility
+    @texts = Text.include(:work_request)
+    @texts.each do |text|
+    	user.facility == text.work_request.item.department.facility
     end
   end
 
   # GET /detailed_work_requests
   def detailed 
     @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.all.to_a.select do |text|
+    @texts = Text.include(:work_request)
+    @texts.each do|text|
       user.facility == text.work_request.item.department.facility
     end
   end
