@@ -19,6 +19,9 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/new
   def new
     @work_request = WorkRequest.new
+    @items = Item.includes(:department)
+    @items.each do |item|
+    	user.facility == item.department.facility
     @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
@@ -26,7 +29,7 @@ class WorkRequestsController < ApplicationController
   def edit
   	  work_request = WorkRequest.where(:id => params[:id]).first
   	  facility = work_request.item.department.facility
-  	  @item = work_request.item
+  	  @items = work_request.item
   	  @users = User.where(:facility_id => facility.id).all.to_a
   end
 
