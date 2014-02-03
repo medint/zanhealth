@@ -19,10 +19,6 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests/new
   def new
     @work_request = WorkRequest.new
-    @items = Item.includes(:department)
-    @items.each do |item|
-    	user.facility == item.department.facility
-	end
     @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
