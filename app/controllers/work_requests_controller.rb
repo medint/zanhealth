@@ -26,7 +26,7 @@ class WorkRequestsController < ApplicationController
   def edit
   	  work_request = WorkRequest.where(:id => params[:id]).first
   	  facility = work_request.item.department.facility
-  	  @items = work_request.item
+  	  @items = work_request.item.all.to_a
   	  @users = User.where(:facility_id => facility.id).all.to_a
   end
 
