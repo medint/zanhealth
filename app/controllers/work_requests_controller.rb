@@ -4,10 +4,9 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-  	  @work_requests = WorkRequest.includes(:item)
-  	  @work_requests.each do |work_request|
-  	  	  user.facility == work_request.item.department.facility
-    end
+  	  @work_requests = WorkRequest.includes(:item => {:department => :facility}).where("facilities.id=?",user.facility)
+  	  #@work_requests.each do |work_request|
+  	  #	user.facility == work_request.item.department.facility
   end
 
   # GET /work_requests/1

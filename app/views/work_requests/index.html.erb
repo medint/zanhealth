@@ -14,25 +14,7 @@
       <th><%= @language['Date Requested']%></th>
       <th><%= @language['Requester']%></th>
       <th><%= @language['Owner']%></th>
-     <!--
-      <th>Date requested</th>
-      <th>Date expire</th>
-      <th>Date completed</th>
-      <th>Request type</th>
-      <th>Item</th>
-      <th>Cost</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Owner</th>
-      <th>Requester</th>
-      <th>Cause description</th>
-      <th>Action taken</th>
-      <th>Prevention taken</th>
-      -->
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+        </tr>
   </thead>
 
   <tbody>
@@ -47,22 +29,7 @@
         <td><%= work_request.date_requested %></td>
         <td><%= work_request.try(:requester).try(:name) %></td>
         <td><%= work_request.try(:owner).try(:name) %></td>
-         <!--
-        <td><%= work_request.date_requested %></td>
-        <td><%= work_request.date_expire %></td>
-        <td><%= work_request.date_completed %></td>
-        <td><%= work_request.request_type %></td>
-        <td><%= work_request.item %></td>
-        <td><%= work_request.cost %></td>
-        <td><%= work_request.description %></td>
-        <td><%= work_request.status %></td>
-        <td><%= work_request.owner_id %></td>
-        <td><%= work_request.requester_id %></td>
-        <td><%= work_request.cause_description %></td>
-        <td><%= work_request.action_taken %></td>
-        <td><%= work_request.prevention_taken %></td>
-         -->
-        <td><%= link_to @language['Show'], work_request %></td>
+            <td><%= link_to @language['Show'], work_request %></td>
         <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
         <td>
           <% if @permissions[:work_request_delete] %>
