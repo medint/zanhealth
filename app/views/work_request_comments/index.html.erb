@@ -1,4 +1,4 @@
-<h1><%= @language['Listing'] @language['Work Request'] @language['Comment'] + 's' </h1>
+<h1><%= "#{@language['Listing']} #{@language['Work Request']} #{@language['Comment']}s" %></h1>
 
 <table>
   <thead>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to @language['New Work Request'] @language['Comment'], new_work_request_comment_path %>
+<%= link_to "#{@language['New Work Request']} #{@language['Comment']}", new_work_request_comment_path %>

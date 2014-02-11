@@ -19,14 +19,16 @@ class WorkRequestsController < ApplicationController
   def new
     @work_request = WorkRequest.new
     @users = User.where(:facility_id => user.facility.id).all.to_a
+    @items = Item.all
   end
 
   # GET /work_requests/1/edit
   def edit
   	  work_request = WorkRequest.where(:id => params[:id]).first
   	  facility = work_request.item.department.facility
-  	  @items = work_request.item
+  	  @item = work_request.item
   	  @users = User.where(:facility_id => facility.id).all.to_a
+     @items = Item.all
   end
 
   # POST /work_requests
