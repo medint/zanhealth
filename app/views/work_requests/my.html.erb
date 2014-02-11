@@ -1,7 +1,5 @@
 <h2><%= @language['My Requests']%></h2>
 
-<input id='list-searchbox'>
-<button id='list-searchbox-button'>Search</button>
 
 <table id=my-requests>
   <thead>
@@ -68,7 +66,7 @@
 	<tr> 
 		<td><%= text.created_at %></td>
 		<td><%= text.id %></td>
-		<td><%= text.work_request_id %></td>
+		<td><%= link_to text.work_request_id %></td>
 		<td><%= text.content %></td>
 	</tr>
   <% end %>
