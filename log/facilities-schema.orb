@@ -52,25 +52,40 @@ ActiveRecord::Schema.define(version: 20140119215227) do
     t.string   "language"
   end
 
-  create_table "work_request_comments", force: true do |t|
-    t.integer  "work_request_id"
+  create_table "work_order_comments", force: true do |t|
+    t.integer  "work_order_id"
     t.integer  "user_id"
     t.text     "comment_text"
     t.datetime "date_created"
     t.datetime "date_updated"
   end
 
-  create_table "work_requests", force: true do |t|
-    t.integer  "request_type"
+  create_table "work_orders", force: true do |t|
+    t.integer  "order_type"
     t.integer  "cost"
     t.text     "description"
     t.integer  "status"
     t.integer  "owner_id"
-    t.integer  "requester_id"
+    t.integer  "orderer_id"
     t.datetime "date_created"
     t.datetime "date_updated"
     t.datetime "date_due"
     t.datetime "date_completed"
   end
+  
+  create_table "work_contributions", force: true do |t|
+    t.integer  "work_order_id"
+    t.integer  "hours"
+    t.integer  "owner_id"
+    t.datetime "date_created"
+    t.datetime "date_updated"
+    t.text     "description"
+  end
 
+  create_table "work_order_costs"
+    t.integer  "work_order_id"
+    t.text     "description"
+    t.integer  "count"
+    t.integer  "unit_cost"
+  end
 end
