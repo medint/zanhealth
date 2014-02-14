@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119215227) do
+ActiveRecord::Schema.define(version: 20140205212620) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -82,6 +82,30 @@ ActiveRecord::Schema.define(version: 20140119215227) do
     t.integer  "stage"
     t.date     "date_requested"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parts", force: true do |t|
+    t.integer  "p_id"
+    t.string   "name"
+    t.string   "category"
+    t.integer  "quantity"
+    t.integer  "minQ"
+    t.string   "location"
+    t.text     "related"
+    t.string   "needs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partsTransactions", force: true do |t|
+    t.integer  "db_id"
+    t.integer  "parts_id"
+    t.integer  "changeQ"
+    t.datetime "date"
+    t.string   "vendor"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
