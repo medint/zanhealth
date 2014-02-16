@@ -1,0 +1,47 @@
+<%= form_for(@labor_hour) do |f| %>
+  <% if @labor_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work_request.errors.count, "error") %> prohibited this work_request from being saved:</h2>
+<ul> <% @labor_hour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <% if params[:action] == 'new' %>
+      <div class="field">
+      <input type="hidden" name="work_request[requester_id]" value=<%= session[:user] %>> </input>
+      </div>
+  <% elsif params[:action] == 'edit' %>
+  <% end %>
+
+  <!--
+  <div class="field">
+    <%#= @language['Owner'] %><br>
+	<%#= f.collection_select :owner_id, @users, :id, :name %>
+  </div>
+-->
+
+  <div class="field">
+    <%= @language['Date Started'] %><br>
+    <%= f.datetime_select :date_started %>
+  </div>
+  <div class="field">
+    <%= @language['Duration'] %><br>
+	<%= f.number_field :duration %>
+  </div>
+  <div class="field">
+    <%= @language['Technician ID'] %><br>
+    <%= f.number_field :technician_id %>
+  </div>
+  <div class="field">
+    <%= @language['Work Request ID'] %><br>
+    <%= f.number_field :work_request_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

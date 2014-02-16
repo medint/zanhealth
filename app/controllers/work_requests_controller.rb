@@ -5,15 +5,16 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests.json
   def index
   	  @work_requests = WorkRequest.includes(:item)
-  	  @work_requests.each do |work_request|
-  	  	  user.facility == work_request.item.department.facility
-    end
+  	  #@work_requests.each do |work_request|
+  	  #	  user.facility == work_request.item.department.facility
+    #end
   end
 
   # GET /work_requests/1
   # GET /work_requests/1.json
   def show
       @wr_comment = WorkRequestComment.where(:work_request_id => params[:id]).order(:created_at)
+      @labor_hours=LaborHour.where(:work_request_id => params[:id]).all.to_a
   end
 
   # GET /work_requests/new

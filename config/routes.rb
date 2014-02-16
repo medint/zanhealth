@@ -1,4 +1,5 @@
 Med8::Application.routes.draw do
+
   resources :texts
   
   resources :text
@@ -22,6 +23,9 @@ Med8::Application.routes.draw do
   resources :users
 
   resources :departments
+
+  resources :labor_hours
+
 
   get "/my_work_requests", to: "work_requests#my"
 

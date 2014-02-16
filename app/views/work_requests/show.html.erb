@@ -96,5 +96,84 @@
 		  </tbody>
 	  </table>
   </div>
+  <div class="comment">
+    <%= link_to "+ #{@language['Labor Hour']}", new_labor_hour_path %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= @language['ID']%></th>
+          <th><%= @language['Date Started']%></th>
+          <th><%= @language['Duration']%></th>
+          <th><%= @language['Technician ID']%></th>
+          <th><%= @language['Work Request ID']%></th>
+
+         <!--
+          <th>Date requested</th>
+          <th>Date expire</th>
+          <th>Date completed</th>
+          <th>Request type</th>
+          <th>Item</th>
+          <th>Cost</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Requester</th>
+          <th>Cause description</th>
+          <th>Action taken</th>
+          <th>Prevention taken</th>
+          -->
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @labor_hours.each do |labor_hour| %>
+          <tr>
+            <td><%= labor_hour.id %></td>
+            <td><%= labor_hour.date_started%></td>
+            <td><%= labor_hour.duration%></td>
+            <td><%= labor_hour.technician_id%></td>
+            <td><%= labor_hour.work_request_id%></td>
+            <!--
+            <td><%#= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
+            <td><%#= work_request.try(:item).try(:serial_number) %></td>
+            <td><%#= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
+            <td><%#= work_request.try(:item).try(:model).try(:category) %></td>
+            <td><%#= work_request.try(:item).try(:location) %></td>
+            <td><%#= work_request.date_requested %></td>
+            <td><%#= work_request.try(:requester).try(:name) %></td>
+            <td><%#= work_request.try(:owner).try(:name) %></td>
+        -->
+             <!--
+            <td><%#= work_request.date_requested %></td>
+            <td><%#= work_request.date_expire %></td>
+            <td><%#= work_request.date_completed %></td>
+            <td><%#= work_request.request_type %></td>
+            <td><%#= work_request.item %></td>
+            <td><%#= work_request.cost %></td>
+            <td><%#= work_request.description %></td>
+            <td><%#= work_request.status %></td>
+            <td><%#= work_request.owner_id %></td>
+            <td><%#= work_request.requester_id %></td>
+            <td><%#= work_request.cause_description %></td>
+            <td><%#= work_request.action_taken %></td>
+            <td><%#= work_request.prevention_taken %></td>
+             -->
+             
+            <td><%= link_to @language['Show'], labor_hour %></td>
+            
+            <td><%= link_to @language['Edit'], edit_labor_hour_path(labor_hour) %></td>
+            <td>
+              <% if @permissions[:work_request_delete] %>
+              <%= link_to @language['Destroy'], labor_hour, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+              <% end %>
+            
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
