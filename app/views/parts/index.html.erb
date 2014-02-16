@@ -1,0 +1,71 @@
+<h1><%= @language['All Parts']%></h1>
+
+<%= link_to @language['Detailed View'], "/detailed_parts" %><br>
+<%= link_to @language['New Part'], new_part_path %>
+<table>
+  <thead>
+  <tr>
+    <th><%= @language['ID']%></th>
+    <th><%= @language['Model']%></th>
+    <th><%= @language['Location']%></th>
+    <th><%= @language['Recent History']%></th>
+    <th></th>
+    <th></th>
+    <% if @permissions[:part_delete] %>
+        <th></th>
+    <% end %>
+    <!--
+     <th>Asset ID</th>
+     <th>Model</th>
+     <th>Manufacturer</th>
+     <th>Part ID</th>
+     <th>Quantity</th>
+     <th>Minimum Quantity</th>
+     <th>Location</th>
+     <th>Related Parts</th>
+     <th>Needs</th>
+     -->
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.id %></td>
+        <td><%= link_to part.model.name, part.model %></td>
+        <td><%= part.location %></td>
+        <td>
+          <% if not part.part_histories.empty? %>
+              <%= part.part_histories[0].remarks %>
+          <% end %>
+        </td>
+
+        <!--
+        <td><%= part.asset_id %></td>
+        <td><%= part.model.category %></td>
+        <td><%= part.model.manufacturer_name %></td>
+        <td><%= part.p_id %></td>
+        <td><%= part.quantity %></td>
+        <td><%= part.minQ %></td>
+        <td><%= part.location %></td>
+        <td><%= part.related %></td>
+        <td><%= part.needs %></td>
+        <td>
+          <% if not part.part_histories.empty? %>
+          <%= part.part_histories[0].remarks %>
+          <% end %>
+        </td>
+         -->
+        <td><%= link_to @language['Show'], part %></td>
+        <td><%= link_to @language['Edit'], edit_part_path(part) %></td>
+        <% if @permissions[:part_delete] %>
+            <td>
+              <%= link_to @language['Destroy'], part, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
