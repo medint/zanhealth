@@ -11,7 +11,8 @@ Asset ID: nambari ya kitambulisho ya mali
 Back: 'xxx'
 Broken: Kimeharibika
 Building: 'xxx'
-Category: Kundi BUT maybe they use “kategoria” in Tanzania
+Category: Kundi
+Category*: Kundi BUT maybe they use “kategoria” in Tanzania
 Cause Description: 'xxx xxx'
 Comment: 'xxx'
 Contact Us: 'xxx xxx'
@@ -22,7 +23,8 @@ Cost: Bei
 Created At: 'xxx xxx'
 Created: 'xxx'
 Date Completed: Tarehe ya kukamilishwa
-Date Expires: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
+Date Expires: Tarehe ya mwisho kutumika 
+Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
 Date Received: Siku kifaa kilipokewa
 Date Requested: Tarehe ya ombi
 Date Started: 'xxx'
@@ -43,7 +45,8 @@ Floor: 'xxx'
 Form: 'xxx'
 Funding: Fedha
 Home: xxx
-ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
+ID: Nambari ya kitambulisho
+*ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
 Item ID: Nambari ya kitambulisho ya kifaa
 Item Cost: Bei ya kitus
 Item Histories: 'xxx xxx'
@@ -86,7 +89,8 @@ Requester: Anayewasilisha ombi
 Role: 'xxx'
 Room: 'xxx'
 Serial Number: Namba tambulishi
-Service Agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
+Service Agent: Wakala wa huduma
+*Service Agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
 Settings: Mipangilio binafsi
 Show: Onyesha
 Simple View: Mtazamo rahisi
@@ -107,7 +111,8 @@ Users: 'xxx'
 Utilization: 'xxx'
 Vendor: 'xxx'
 Warranty Expire: Tarehe ya mwisho wa hati
-Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
+Warranty Notes: Muhtasari wa hati or  Maelezo ya hati
+*Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
 Work Request ID: 'xxx xxx xxx'
 Work Request: 'xxx xxx'
 Working: Kinafanya kazi vizuri 

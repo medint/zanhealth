@@ -4,10 +4,14 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-  	  @work_requests = WorkRequest.includes(:item)
+#<<<<<<< HEAD
+  	  #@work_requests = WorkRequest.includes(:item)
   	  #@work_requests.each do |work_request|
   	  #	  user.facility == work_request.item.department.facility
     #end
+#=======
+  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+#>>>>>>> 36101328d2f7f8d54312ac865e8443f1cf68dcb5
   end
 
   # GET /work_requests/1
@@ -21,13 +25,14 @@ class WorkRequestsController < ApplicationController
   def new
     @work_request = WorkRequest.new
     @users = User.where(:facility_id => user.facility.id).all.to_a
+    @items = Item.includes(:department => :facility).where("facilities.id=?",user.facility.id).references(:facility)
   end
 
   # GET /work_requests/1/edit
   def edit
-  	  work_request = WorkRequest.where(:id => params[:id]).first
+  	  work_request = WorkRequest.includes(:requester,:owner, {:item => [{:department => :facility},:model]}).where("work_requests.id=?",params[:id]).first
   	  facility = work_request.item.department.facility
-  	  @items = work_request.item
+  	  @item = work_request.item
   	  @users = User.where(:facility_id => facility.id).all.to_a
   end
 
