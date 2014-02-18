@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4101083954">
+    <data-source source="LOCAL" name="Rails zanhealth: test" uuid="b44227cc-f2f0-4c65-9303-ec4f59a44586">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Luke Camery\Documents\GitHub\zanhealth\db\test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails zanhealth: production" uuid="a7f8e125-1bb7-4e98-a80e-dc83b29f54e3">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:d1a20l95luk08l</jdbc-url>
+      <user-password>dfc2dfeedfdedf9bdfd2dfeedf9cdfd0dfdfdffadf9fdffbdfe3df9edf9adfe0dfdadfeedfcddfd0dfdadfd8dfeddfcddffddf9d</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails zanhealth: development" uuid="1e2fffb0-03bb-432a-bdbd-bba1b88e4298">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Luke Camery\Documents\GitHub\zanhealth\db\development.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
