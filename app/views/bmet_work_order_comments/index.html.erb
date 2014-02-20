@@ -1,0 +1,33 @@
+<h1><%= "#{@language['Listing']} #{@language['Work Request']} #{@language['Comment']}s" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datetime stamp</th>
+      <th>Work request</th>
+      <th>User</th>
+      <th>Comment text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_request_comments.each do |work_request_comment| %>
+      <tr>
+        <td><%= work_request_comment.datetime_stamp %></td>
+        <td><%= work_request_comment.work_request_id %></td>
+        <td><%= work_request_comment.user_id %></td>
+        <td><%= work_request_comment.comment_text %></td>
+        <td><%= link_to @language['Show'], work_request_comment %></td>
+        <td><%= link_to @language['Edit'], edit_work_request_comment_path(work_request_comment) %></td>
+        <td><%= link_to @language['Destroy'], work_request_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "#{@language['New Work Request']} #{@language['Comment']}", new_work_request_comment_path %>
