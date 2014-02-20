@@ -27,6 +27,7 @@ Date Expires: Tarehe ya mwisho kutumika
 Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
 Date Received: Siku kifaa kilipokewa
 Date Requested: Tarehe ya ombi
+Date Started: 'xxx'
 Date/Time: 'xxx'
 Department: 'xxx'
 Description: Maelezo
@@ -34,6 +35,7 @@ Destroy: Futa
 Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
 Detailed View: Tazama kwa ukamilifu
 Domain: Uwanja
+Duration: 'xxx'
 Edit: Hariri
 Editing:'xxx'
 Encrypted password:'xxx xxx'
@@ -51,6 +53,7 @@ Item Histories: 'xxx xxx'
 Item Type: Aina ya kifaa
 Item: 'xxx'
 LOGOUT: ONDOKA
+Labor Hour: 'xxx'
 Last Updated: Tarehe ya mwisho ya usasishaji
 Listing: 'xxx'
 Location: Eneo
@@ -95,6 +98,7 @@ Stage: 'xxx'
 Status: Hali
 Submit New Request: Wasilisha ombi jipya
 Tag: 'xxx'
+Technician ID: 'xxx'
 Telephone number: 'xxx xxx'
 Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) 
 Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax)
