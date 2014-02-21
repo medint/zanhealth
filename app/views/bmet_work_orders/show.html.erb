@@ -1,79 +1,79 @@
 <div class='wr'>
-  <%= link_to @language['Edit'], edit_work_request_path(@work_request) %>
+  <%= link_to @language['Edit'], edit_bmet_work_order_path(@bmet_work_order) %>
   <div class='attributes'>
     <div class='left-attributes'>
       <p id="notice"><%= notice %></p>
 
       <p>
         <strong><%= @language['Date Requested'] %>:</strong>
-        <%= @work_request.date_requested %>
+        <%= @bmet_work_order.date_requested %>
       </p>
 
       <p>
         <strong><%= @language['Date Expires'] %>:</strong>
-        <%= @work_request.date_expire %>
+        <%= @bmet_work_order.date_expire %>
       </p>
 
       <p>
         <strong><%= @language['Date Completed'] %>:</strong>
-        <%= @work_request.date_completed %>
+        <%= @bmet_work_order.date_completed %>
       </p>
 
       <p>
         <strong><%= @language['Request Type'] %>:</strong>
-        <%= @work_request.request_type %>
+        <%= @bmet_work_order.request_type %>
       </p>
 
       <p>
         <strong><%= @language['Item'] %>:</strong>
-        <%= @work_request.item %>
+        <%= @bmet_work_order.item %>
       </p>
 
       <p>
         <strong><%= @language['Cost'] %>:</strong>
-        <%= @work_request.cost %>
+        <%= @bmet_work_order.cost %>
       </p>
 
       <p>
         <strong><%= @language['Description'] %>:</strong>
-        <%= @work_request.description %>
+        <%= @bmet_work_order.description %>
       </p>
 
       <p>
         <strong><%= @language['Owner'] %>:</strong>
-        <%= @work_request.owner_id %>
+        <%= @bmet_work_order.owner_id %>
       </p>
 
       <p>
         <strong><%= @language['Requester'] %>:</strong>
-        <%= @work_request.requester_id %>
+        <%= @bmet_work_order.requester_id %>
       </p>
 
       <p>
         <strong><%= @language['Cause Description'] %>:</strong>
-        <%= @work_request.cause_description %>
+        <%= @bmet_work_order.cause_description %>
       </p>
 
       <p>
         <strong><%= @language['Action Taken'] %>:</strong>
-        <%= @work_request.action_taken %>
+        <%= @bmet_work_order.action_taken %>
       </p>
 
       <p>
         <strong><%= @language['Prevention Taken'] %>:</strong>
-        <%= @work_request.prevention_taken %>
+        <%= @bmet_work_order.prevention_taken %>
       </p>
     </div>
 
     <div class='right-attributes'>
       <p class='status'>
         <strong><%= @language['Status'] %>:</strong>
-        <%= @work_request.status %>
+        <%= @bmet_work_order.status %>
       </p>
     </div>
   </div>
   <p> <span class="comment-title"> <%= @language['Recent Comments'] %> </span>
-  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
+  <form class="create-comment" action="/bmet_work_order_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @bmet_work_order.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
   </form>
   </p>
   <div class="comment"> 
@@ -135,38 +135,38 @@
             <td><%= labor_hour.date_started%></td>
             <td><%= labor_hour.duration%></td>
             <td><%= labor_hour.technician_id%></td>
-            <td><%= labor_hour.work_request_id%></td>
+            <td><%= labor_hour.bmet_work_order_id%></td>
             <!--
-            <td><%#= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
-            <td><%#= work_request.try(:item).try(:serial_number) %></td>
-            <td><%#= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
-            <td><%#= work_request.try(:item).try(:model).try(:category) %></td>
-            <td><%#= work_request.try(:item).try(:location) %></td>
-            <td><%#= work_request.date_requested %></td>
-            <td><%#= work_request.try(:requester).try(:name) %></td>
-            <td><%#= work_request.try(:owner).try(:name) %></td>
+            <td><%#= link_to bmet_work_order.try(:item).try(:asset_id), bmet_work_order.try(:item)  %></td>
+            <td><%#= bmet_work_order.try(:item).try(:serial_number) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:model).try(:manufacturer_name) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:model).try(:category) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:location) %></td>
+            <td><%#= bmet_work_order.date_requested %></td>
+            <td><%#= bmet_work_order.try(:requester).try(:name) %></td>
+            <td><%#= bmet_work_order.try(:owner).try(:name) %></td>
         -->
              <!--
-            <td><%#= work_request.date_requested %></td>
-            <td><%#= work_request.date_expire %></td>
-            <td><%#= work_request.date_completed %></td>
-            <td><%#= work_request.request_type %></td>
-            <td><%#= work_request.item %></td>
-            <td><%#= work_request.cost %></td>
-            <td><%#= work_request.description %></td>
-            <td><%#= work_request.status %></td>
-            <td><%#= work_request.owner_id %></td>
-            <td><%#= work_request.requester_id %></td>
-            <td><%#= work_request.cause_description %></td>
-            <td><%#= work_request.action_taken %></td>
-            <td><%#= work_request.prevention_taken %></td>
+            <td><%#= bmet_work_order.date_requested %></td>
+            <td><%#= bmet_work_order.date_expire %></td>
+            <td><%#= bmet_work_order.date_completed %></td>
+            <td><%#= bmet_work_order.request_type %></td>
+            <td><%#= bmet_work_order.item %></td>
+            <td><%#= bmet_work_order.cost %></td>
+            <td><%#= bmet_work_order.description %></td>
+            <td><%#= bmet_work_order.status %></td>
+            <td><%#= bmet_work_order.owner_id %></td>
+            <td><%#= bmet_work_order.requester_id %></td>
+            <td><%#= bmet_work_order.cause_description %></td>
+            <td><%#= bmet_work_order.action_taken %></td>
+            <td><%#= bmet_work_order.prevention_taken %></td>
              -->
              
             <td><%= link_to @language['Show'], labor_hour %></td>
             
             <td><%= link_to @language['Edit'], edit_labor_hour_path(labor_hour) %></td>
             <td>
-              <% if @permissions[:work_request_delete] %>
+              <% if @permissions[:bmet_work_order_delete] %>
               <%= link_to @language['Destroy'], labor_hour, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
               <% end %>
             

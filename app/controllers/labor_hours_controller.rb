@@ -9,8 +9,8 @@ class LaborHoursController < ApplicationController
     @labor_hour = LaborHour.new
     #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
-  # POST /work_requests
-  # POST /work_requests.json
+  # POST /bmet_work_orders
+  # POST /bmet_work_orders.json
   def create
     @labor_hour = LaborHour.new(labor_hour_params)
 
@@ -40,7 +40,7 @@ class LaborHoursController < ApplicationController
   def destroy
     @labor_hour.destroy
     respond_to do |format|
-      format.html { redirect_to work_request_url }
+      format.html { redirect_to bmet_work_order_url }
       format.json { head :no_content }
     end
   end
@@ -56,7 +56,7 @@ class LaborHoursController < ApplicationController
     end
     def labor_hour_params
       p params
-      params.require(:labor_hour).permit(:date_started, :duration, :technician_id, :work_request_id)
+      params.require(:labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
     end
 
 end

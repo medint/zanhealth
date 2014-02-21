@@ -14,15 +14,15 @@
   </thead>
 
   <tbody>
-    <% @work_request_comments.each do |work_request_comment| %>
+    <% @bmet_work_order_comments.each do |bmet_work_order_comment| %>
       <tr>
-        <td><%= work_request_comment.datetime_stamp %></td>
-        <td><%= work_request_comment.work_request_id %></td>
-        <td><%= work_request_comment.user_id %></td>
-        <td><%= work_request_comment.comment_text %></td>
-        <td><%= link_to @language['Show'], work_request_comment %></td>
-        <td><%= link_to @language['Edit'], edit_work_request_comment_path(work_request_comment) %></td>
-        <td><%= link_to @language['Destroy'], work_request_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bmet_work_order_comment.datetime_stamp %></td>
+        <td><%= bmet_work_order_comment.bmet_work_order_id %></td>
+        <td><%= bmet_work_order_comment.user_id %></td>
+        <td><%= bmet_work_order_comment.comment_text %></td>
+        <td><%= link_to @language['Show'], bmet_work_order_comment %></td>
+        <td><%= link_to @language['Edit'], edit_bmet_work_order_comment_path(bmet_work_order_comment) %></td>
+        <td><%= link_to @language['Destroy'], bmet_work_order_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to "#{@language['New Work Request']} #{@language['Comment']}", new_work_request_comment_path %>
+<%= link_to "#{@language['New Work Request']} #{@language['Comment']}", new_bmet_work_order_comment_path %>

@@ -2,12 +2,12 @@
 
 one:
   datetime_stamp: 2013-11-24 21:18:09
-  work_request_id: 1
+  bmet_work_order_id: 1
   user_id: 1
   comment_text: MyText
 
 two:
   datetime_stamp: 2013-11-24 21:18:09
-  work_request_id: 1
+  bmet_work_order_id: 1
   user_id: 1
   comment_text: MyText

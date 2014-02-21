@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140210060835) do
     t.datetime "date_started"
     t.integer  "duration"
     t.integer  "technician_id"
-    t.integer  "work_request_id"
+    t.integer  "bmet_work_order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20140210060835) do
   create_table "texts", force: true do |t|
     t.text     "content"
     t.string   "number"
-    t.integer  "work_request_id"
+    t.integer  "bmet_work_order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -123,16 +123,16 @@ ActiveRecord::Schema.define(version: 20140210060835) do
     t.string   "name"
   end
 
-  create_table "work_request_comments", force: true do |t|
+  create_table "bmet_work_order_comments", force: true do |t|
     t.datetime "datetime_stamp"
-    t.integer  "work_request_id"
+    t.integer  "bmet_work_order_id"
     t.integer  "user_id"
     t.text     "comment_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "work_requests", force: true do |t|
+  create_table "bmet_work_orders", force: true do |t|
     t.datetime "date_requested"
     t.datetime "date_expire"
     t.datetime "date_completed"

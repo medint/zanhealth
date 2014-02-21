@@ -1,7 +1,7 @@
 <%= form_for(@labor_hour) do |f| %>
   <% if @labor_hour.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@work_request.errors.count, "error") %> prohibited this work_request from being saved:</h2>
+      <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
 <ul> <% @labor_hour.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -12,7 +12,7 @@
   <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
   <% if params[:action] == 'new' %>
       <div class="field">
-      <input type="hidden" name="work_request[requester_id]" value=<%= session[:user] %>> </input>
+      <input type="hidden" name="bmet_work_order[requester_id]" value=<%= session[:user] %>> </input>
       </div>
   <% elsif params[:action] == 'edit' %>
   <% end %>
@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= @language['Work Request ID'] %><br>
-    <%= f.number_field :work_request_id %>
+    <%= f.number_field :bmet_work_order_id %>
   </div>
 
   <div class="actions">

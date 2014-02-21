@@ -1,79 +1,79 @@
 <div class='wr'>
-  <%= link_to @language['Edit'], edit_work_request_path(@work_request) %>
+  <%= link_to @language['Edit'], edit_bmet_work_order_path(@bmet_work_order) %>
   <div class='attributes'>
     <div class='left-attributes'>
       <p id="notice"><%= notice %></p>
 
       <p>
         <strong><%= @language['Date Requested'] %>:</strong>
-        <%= @work_request.date_requested %>
+        <%= @bmet_work_order.date_requested %>
       </p>
 
       <p>
         <strong><%= @language['Date Expires'] %>:</strong>
-        <%= @work_request.date_expire %>
+        <%= @bmet_work_order.date_expire %>
       </p>
 
       <p>
         <strong><%= @language['Date Completed'] %>:</strong>
-        <%= @work_request.date_completed %>
+        <%= @bmet_work_order.date_completed %>
       </p>
 
       <p>
         <strong><%= @language['Request Type'] %>:</strong>
-        <%= @work_request.request_type %>
+        <%= @bmet_work_order.request_type %>
       </p>
 
       <p>
         <strong>Item:</strong>
-        <%= @work_request.item_id %>
+        <%= @bmet_work_order.item_id %>
      </p>
 
       <p>
         <strong><%= @language['Cost'] %>:</strong>
-        <%= @work_request.cost %>
+        <%= @bmet_work_order.cost %>
       </p>
 
       <p>
         <strong><%= @language['Description'] %>:</strong>
-        <%= @work_request.description %>
+        <%= @bmet_work_order.description %>
       </p>
 
       <p>
         <strong><%= @language['Owner'] %>:</strong>
-        <%= @work_request.owner_id %>
+        <%= @bmet_work_order.owner_id %>
       </p>
 
       <p>
         <strong><%= @language['Requester'] %>:</strong>
-        <%= @work_request.requester_id %>
+        <%= @bmet_work_order.requester_id %>
       </p>
 
       <p>
         <strong><%= @language['Cause Description'] %>:</strong>
-        <%= @work_request.cause_description %>
+        <%= @bmet_work_order.cause_description %>
       </p>
 
       <p>
         <strong><%= @language['Action Taken'] %>:</strong>
-        <%= @work_request.action_taken %>
+        <%= @bmet_work_order.action_taken %>
       </p>
 
       <p>
         <strong><%= @language['Prevention Taken'] %>:</strong>
-        <%= @work_request.prevention_taken %>
+        <%= @bmet_work_order.prevention_taken %>
       </p>
     </div>
 
     <div class='right-attributes'>
       <p class='status'>
         <strong><%= @language['Status'] %>:</strong>
-        <%= @work_request.status %>
+        <%= @bmet_work_order.status %>
       </p>
     </div>
   </div>
   <p> <span class="comment-title"> <%= @language['Recent Comments'] %> </span>
-  <form class="create-comment" action="/work_request_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @work_request.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
+  <form class="create-comment" action="/bmet_work_order_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @bmet_work_order.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
   </form>
   </p>
   <div class="comment"> 

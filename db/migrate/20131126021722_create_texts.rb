@@ -3,7 +3,7 @@ class CreateTexts < ActiveRecord::Migration
     create_table :texts do |t|
       t.text :content
       t.string :number
-      t.integer :work_request_id
+      t.integer :bmet_work_order_id
 
       t.timestamps
     end

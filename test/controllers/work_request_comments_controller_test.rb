@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class WorkRequestCommentsControllerTest < ActionController::TestCase
+class BmetWorkOrderCommentsControllerTest < ActionController::TestCase
   setup do
-    @work_request_comment = work_request_comments(:one)
+    @bmet_work_order_comment = bmet_work_order_comments(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:work_request_comments)
+    assert_not_nil assigns(:bmet_work_order_comments)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class WorkRequestCommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create work_request_comment" do
-    assert_difference('WorkRequestComment.count') do
-      post :create, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp, user_id: @work_request_comment.user_id, work_request_id: @work_request_comment.work_request_id }
+  test "should create bmet_work_order_comment" do
+    assert_difference('BmetWorkOrderComment.count') do
+      post :create, bmet_work_order_comment: { comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id, bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id }
     end
 
-    assert_redirected_to work_request_comment_path(assigns(:work_request_comment))
+    assert_redirected_to bmet_work_order_comment_path(assigns(:bmet_work_order_comment))
   end
 
-  test "should show work_request_comment" do
-    get :show, id: @work_request_comment
+  test "should show bmet_work_order_comment" do
+    get :show, id: @bmet_work_order_comment
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @work_request_comment
+    get :edit, id: @bmet_work_order_comment
     assert_response :success
   end
 
-  test "should update work_request_comment" do
-    patch :update, id: @work_request_comment, work_request_comment: { comment_text: @work_request_comment.comment_text, datetime_stamp: @work_request_comment.datetime_stamp, user_id: @work_request_comment.user_id, work_request_id: @work_request_comment.work_request_id }
-    assert_redirected_to work_request_comment_path(assigns(:work_request_comment))
+  test "should update bmet_work_order_comment" do
+    patch :update, id: @bmet_work_order_comment, bmet_work_order_comment: { comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id, bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id }
+    assert_redirected_to bmet_work_order_comment_path(assigns(:bmet_work_order_comment))
   end
 
-  test "should destroy work_request_comment" do
-    assert_difference('WorkRequestComment.count', -1) do
-      delete :destroy, id: @work_request_comment
+  test "should destroy bmet_work_order_comment" do
+    assert_difference('BmetWorkOrderComment.count', -1) do
+      delete :destroy, id: @bmet_work_order_comment
     end
 
-    assert_redirected_to work_request_comments_path
+    assert_redirected_to bmet_work_order_comments_path
   end
 end

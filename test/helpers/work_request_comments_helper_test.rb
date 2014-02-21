@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class WorkRequestCommentsHelperTest < ActionView::TestCase
+class BmetWorkOrderCommentsHelperTest < ActionView::TestCase
 end

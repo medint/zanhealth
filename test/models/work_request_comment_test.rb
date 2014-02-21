@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WorkRequestCommentTest < ActiveSupport::TestCase
+class BmetWorkOrderCommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

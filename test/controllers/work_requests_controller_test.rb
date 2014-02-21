@@ -2,13 +2,13 @@ require 'test_helper'
 
 class WorkRequestsControllerTest < ActionController::TestCase
   setup do
-    @work_request = work_requests(:one)
+    @bmet_work_order = bmet_work_orders(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:work_requests)
+    assert_not_nil assigns(:bmet_work_orders)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class WorkRequestsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create work_request" do
-    assert_difference('WorkRequest.count') do
-      post :create, work_request: { action_taken: @work_request.action_taken, cause_description: @work_request.cause_description, cost: @work_request.cost, date_completed: @work_request.date_completed, date_expire: @work_request.date_expire, date_requested: @work_request.date_requested, description: @work_request.description, item: @work_request.item, owner_id: @work_request.owner_id, prevention_taken: @work_request.prevention_taken, request_type: @work_request.request_type, requester_id: @work_request.requester_id, status: @work_request.status }
+  test "should create bmet_work_order" do
+    assert_difference('BmetWorkOrder.count') do
+      post :create, bmet_work_order: { action_taken: @bmet_work_order.action_taken, cause_description: @bmet_work_order.cause_description, cost: @bmet_work_order.cost, date_completed: @bmet_work_order.date_completed, date_expire: @bmet_work_order.date_expire, date_requested: @bmet_work_order.date_requested, description: @bmet_work_order.description, item: @bmet_work_order.item, owner_id: @bmet_work_order.owner_id, prevention_taken: @bmet_work_order.prevention_taken, request_type: @bmet_work_order.request_type, requester_id: @bmet_work_order.requester_id, status: @bmet_work_order.status }
     end
 
-    assert_redirected_to work_request_path(assigns(:work_request))
+    assert_redirected_to bmet_work_order_path(assigns(:bmet_work_order))
   end
 
-  test "should show work_request" do
-    get :show, id: @work_request
+  test "should show bmet_work_order" do
+    get :show, id: @bmet_work_order
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @work_request
+    get :edit, id: @bmet_work_order
     assert_response :success
   end
 
-  test "should update work_request" do
-    patch :update, id: @work_request, work_request: { action_taken: @work_request.action_taken, cause_description: @work_request.cause_description, cost: @work_request.cost, date_completed: @work_request.date_completed, date_expire: @work_request.date_expire, date_requested: @work_request.date_requested, description: @work_request.description, item: @work_request.item, owner_id: @work_request.owner_id, prevention_taken: @work_request.prevention_taken, request_type: @work_request.request_type, requester_id: @work_request.requester_id, status: @work_request.status }
-    assert_redirected_to work_request_path(assigns(:work_request))
+  test "should update bmet_work_order" do
+    patch :update, id: @bmet_work_order, bmet_work_order: { action_taken: @bmet_work_order.action_taken, cause_description: @bmet_work_order.cause_description, cost: @bmet_work_order.cost, date_completed: @bmet_work_order.date_completed, date_expire: @bmet_work_order.date_expire, date_requested: @bmet_work_order.date_requested, description: @bmet_work_order.description, item: @bmet_work_order.item, owner_id: @bmet_work_order.owner_id, prevention_taken: @bmet_work_order.prevention_taken, request_type: @bmet_work_order.request_type, requester_id: @bmet_work_order.requester_id, status: @bmet_work_order.status }
+    assert_redirected_to bmet_work_order_path(assigns(:bmet_work_order))
   end
 
-  test "should destroy work_request" do
-    assert_difference('WorkRequest.count', -1) do
-      delete :destroy, id: @work_request
+  test "should destroy bmet_work_order" do
+    assert_difference('BmetWorkOrder.count', -1) do
+      delete :destroy, id: @bmet_work_order
     end
 
-    assert_redirected_to work_requests_path
+    assert_redirected_to bmet_work_orders_path
   end
 end

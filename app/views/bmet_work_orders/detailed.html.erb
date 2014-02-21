@@ -1,7 +1,7 @@
 <h1><%= "#{@language['All work requests']}  #{@language['Detailed view']}" %> </h1>
 
-<%= link_to @language['Simple View'], "/work_requests" %><br>
-<%= link_to "+ #{@language['New Work Request']}", new_work_request_path %>
+<%= link_to @language['Simple View'], "/bmet_work_orders" %><br>
+<%= link_to "+ #{@language['New Work Request']}", new_bmet_work_order_path %>
 <table>
   <thead>
     <tr>
@@ -30,29 +30,29 @@
   </thead>
 
   <tbody>
-    <% @work_requests.each do |work_request| %>
+    <% @bmet_work_orders.each do |bmet_work_order| %>
       <tr>
-        <td><%= work_request.id %></td>
-        <td><%= link_to work_request.try(:item).try(:asset_id), work_request.try(:item)  %></td>
-        <td><%= work_request.try(:item).try(:serial_number) %></td>
-        <td><%= work_request.try(:item).try(:model).try(:manufacturer_name) %></td>
-        <td><%= work_request.try(:item).try(:model).try(:category) %></td>
-        <td><%= work_request.try(:item).try(:location) %></td>
-        <td><%= work_request.try(:requester).try(:name) %></td>
-        <td><%= work_request.try(:owner).try(:name) %></td>
-        <td><%= work_request.date_requested %></td>
-        <td><%= work_request.date_expire %></td>
-        <td><%= work_request.date_completed %></td>
-        <td><%= work_request.request_type %></td>
-        <td><%= work_request.cost %></td>
-        <td><%= work_request.description %></td>
-        <td><%= work_request.status %></td>
-        <td><%= work_request.cause_description %></td>
-        <td><%= work_request.action_taken %></td>
-        <td><%= work_request.prevention_taken %></td>
-        <td><%= link_to @language['Show'], work_request %></td>
-        <td><%= link_to @language['Edit'], edit_work_request_path(work_request) %></td>
-        <td><%= link_to @language['Destroy'], work_request, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+        <td><%= bmet_work_order.id %></td>
+        <td><%= link_to bmet_work_order.try(:item).try(:asset_id), bmet_work_order.try(:item)  %></td>
+        <td><%= bmet_work_order.try(:item).try(:serial_number) %></td>
+        <td><%= bmet_work_order.try(:item).try(:model).try(:manufacturer_name) %></td>
+        <td><%= bmet_work_order.try(:item).try(:model).try(:category) %></td>
+        <td><%= bmet_work_order.try(:item).try(:location) %></td>
+        <td><%= bmet_work_order.try(:requester).try(:name) %></td>
+        <td><%= bmet_work_order.try(:owner).try(:name) %></td>
+        <td><%= bmet_work_order.date_requested %></td>
+        <td><%= bmet_work_order.date_expire %></td>
+        <td><%= bmet_work_order.date_completed %></td>
+        <td><%= bmet_work_order.request_type %></td>
+        <td><%= bmet_work_order.cost %></td>
+        <td><%= bmet_work_order.description %></td>
+        <td><%= bmet_work_order.status %></td>
+        <td><%= bmet_work_order.cause_description %></td>
+        <td><%= bmet_work_order.action_taken %></td>
+        <td><%= bmet_work_order.prevention_taken %></td>
+        <td><%= link_to @language['Show'], bmet_work_order %></td>
+        <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
+        <td><%= link_to @language['Destroy'], bmet_work_order, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
      </tr>
     <% end %>
   </tbody>

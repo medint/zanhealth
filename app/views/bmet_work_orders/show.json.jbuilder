@@ -1,1 +1,1 @@
-json.extract! @work_request, :date_requested, :date_expire, :date_completed, :request_type, :item, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :created_at, :updated_at
+json.extract! @bmet_work_order, :date_requested, :date_expire, :date_completed, :request_type, :item, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :created_at, :updated_at

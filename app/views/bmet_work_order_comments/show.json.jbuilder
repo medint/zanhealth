@@ -1,1 +1,1 @@
-json.extract! @work_request_comment, :datetime_stamp, :work_request_id, :user_id, :comment_text, :created_at, :updated_at
+json.extract! @bmet_work_order_comment, :datetime_stamp, :bmet_work_order_id, :user_id, :comment_text, :created_at, :updated_at

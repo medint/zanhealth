@@ -1,10 +1,10 @@
 <h1><%= "Editing #{@language['Work Request']}" %></h1>
 
-<%= form_for(@work_request) do |f| %>
-  <% if @work_request.errors.any? %>
+<%= form_for(@bmet_work_order) do |f| %>
+  <% if @bmet_work_order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@work_request.errors.count, "error") %> prohibited this work_request from being saved:</h2>
-<ul> <% @work_request.errors.full_messages.each do |msg| %>
+      <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
+<ul> <% @bmet_work_order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -66,5 +66,5 @@
   </div>
 <% end %>
 
-<%= link_to @language['Show'], @work_request %> |
-<%= link_to @language['Back'], work_requests_path %>
+<%= link_to @language['Show'], @bmet_work_order %> |
+<%= link_to @language['Back'], bmet_work_orders_path %>
