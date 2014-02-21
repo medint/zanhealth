@@ -4,9 +4,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.to_a.select do |item|
-      user.facility == item.department.facility
-    end
+  	  @items = Item.includes(:model, {:department => :facility}).where("facilities.id=?",user.facility).references(:facility)
+    #@items = Item.all.to_a.select do |item|
+     # user.facility == item.department.facility
+    #end
   end
 
   # GET /detailed_items
