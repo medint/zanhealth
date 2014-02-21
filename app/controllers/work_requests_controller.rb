@@ -78,11 +78,8 @@ class WorkRequestsController < ApplicationController
 
   # GET /my_work_requests
   def my
-    @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.includes(:work_request)
-    @texts.each do |text|
-    	user.facility == text.work_request.item.department.facility
-    end
+  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("owner_id =?",user.id).references(:owner)
+    @texts = Text.includes(:work_request => {:item => {:department => :facility}}).where("facilities.id=?",user.facility.id).references(:facility)
   end
 
   # GET /detailed_work_requests
