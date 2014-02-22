@@ -5,5 +5,10 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def index
+    @facility_work_orders = FacilityWorkOrder.all
+  end
+
+  def show
+  	@facility_work_order = FacilityWorkOrder.find(params[:id])
   end
 end

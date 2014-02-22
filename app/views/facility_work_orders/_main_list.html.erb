@@ -1,3 +1,22 @@
 <div>
-listing all facilities work orders
+  <ul>
+    <% @facility_work_orders.each do |facility_work_order| %>
+      <li>
+        <div class="status-<%= facility_work_order.status %>">
+          status is <%= facility_work_order.status %>
+        </div>
+        <div class="details">
+          <p class="order_id">
+            Work Order <%= facility_work_order.id %>
+          </p>
+          <p class="order_owner">
+            Owner: User ID #<%= facility_work_order.owner_id %>
+          </p>
+        </div>
+        <div class="due_date">
+          Due Date: <%= facility_work_order.date_expire %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
