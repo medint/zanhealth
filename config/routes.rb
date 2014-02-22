@@ -28,7 +28,7 @@ Med8::Application.routes.draw do
 
   resources :facility_work_order_comments
 
-  resources :facility_preventative_maintenance
+  resources :facility_preventative_maintenances
 
   resources :facility_work_requests
 

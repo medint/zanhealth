@@ -1,10 +1,10 @@
+<h1><%= "Editing #{@language['Work Request']}" %></h1>
 
-
-<%= form_for(@facility_work_order) do |f| %>
-  <% if @facility_work_order.errors.any? %>
+<%= form_for(@facility_preventative_maintenance) do |f| %>
+  <% if @facility_preventative_maintenance.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@facility_work_order.errors.count, "error") %> prohibited this facility_work_order from being saved:</h2>
-<ul> <% @facility_work_order.errors.full_messages.each do |msg| %>
+      <h2><%= pluralize(@facility_preventative_maintenance.errors.count, "error") %> prohibited this facility_preventative_maintenance from being saved:</h2>
+<ul> <% @facility_preventative_maintenance.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -67,5 +67,5 @@
   </div>
 <% end %>
 
-<%= link_to @language['Show'], @facility_work_order %> |
-<%= link_to @language['Back'], facility_work_orders_path %>
+<%= link_to @language['Show'], @facility_preventative_maintenance %> |
+<%= link_to @language['Back'], facility_preventative_maintenances_path %>

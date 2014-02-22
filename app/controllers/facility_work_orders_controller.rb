@@ -3,6 +3,8 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_facility_work_order, only: [:show, :update]
 
   def new
+    @facility_work_order = FacilityWorkOrder.new
+    #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def index
@@ -28,6 +30,28 @@ class FacilityWorkOrdersController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @facility_work_order.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def create
+    @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
+
+    respond_to do |format|
+      if @facility_work_order.save
+        format.html { redirect_to @facility_work_order, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @facility_work_order }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @facility_work_order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @facility_work_order.destroy
+    respond_to do |format|
+      format.html { redirect_to facility_work_orders_url }
+      format.json { head :no_content }
     end
   end
 

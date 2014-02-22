@@ -1,0 +1,22 @@
+<div>
+  <ul>
+    <% @facility_preventative_maintenances.each do |facility_preventative_maintenance| %>
+      <li>
+        <div class="status-<%= facility_preventative_maintenance.status %>">
+          status is <%= facility_preventative_maintenance.status %>
+        </div>
+        <div class="details">
+          <p class="order_id">
+            Work Order <%= facility_preventative_maintenance.id %>
+          </p>
+          <p class="order_owner">
+            Owner: User ID #<%= facility_preventative_maintenance.owner_id %>
+          </p>
+        </div>
+        <div class="due_date">
+          Due Date: <%= facility_preventative_maintenance.date_expire %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
