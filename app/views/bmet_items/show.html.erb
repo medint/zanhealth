@@ -1,0 +1,111 @@
+<div class="items">
+<%= link_to @language['Edit'], edit_bmet_item_path(@item) %> 
+<div class="attributes">
+	<div class="left-attributes">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @language['Asset ID']%>:</strong>
+  <%= @item.asset_id %>
+</p>
+
+<p>
+<strong> <%= "#{@language['Model']} #{@language['ID']}" %>: </strong>
+ <%= @item.model_id %>
+</p>
+
+<p>
+  <strong><%= @language['Serial Number']%>:</strong>
+  <%= @item.serial_number %>
+</p>
+
+<p>
+  <strong><%= @language['Year Manufactured']%>:</strong>
+  <%= @item.year_manufactured %>
+</p>
+
+<p>
+  <strong><%= @language['Funding']%>:</strong>
+  <%= @item.funding %>
+</p>
+
+<p>
+  <strong><%= @language['Date Received']%>:</strong>
+  <%= @item.date_received %>
+</p>
+
+<p>
+  <strong><%= @language['Warranty Expire']%>:</strong>
+  <%= @item.warranty_expire %>
+</p>
+
+<p>
+  <strong><%= @language['Contract Expire']%>:</strong>
+  <%= @item.contract_expire %>
+</p>
+
+<p>
+  <strong><%= @language['Warranty Notes']%>:</strong>
+  <%= @item.warranty_notes %>
+</p>
+
+<p>
+  <strong><%= @language['Service Agent']%>:</strong>
+  <%= @item.service_agent %>
+</p>
+
+<p>
+  <strong><%= @language['Department']%>:</strong>
+  <%= @item.department_id %>
+</p>
+
+<p>
+  <strong><%= @language['Item Type']%>:</strong>
+  <%= @item.item_type %>
+</p>
+
+<p>
+  <strong><%= @language['Price']%>:</strong>
+  <%= @item.price %>
+</p>
+</div>
+<div class="right-attributes">
+	<p class="status">
+		<strong><%= @language['Status']%>:</strong>
+		<% if @latest_history.status==0%>
+			<%= @language["Working"] %>
+		<% else %>
+			<%= @language["Broken"] %>
+		<% end %>
+		</p>
+</div>
+</div>
+<p> <span class="comment-title"> <%= @language['Recent Status']%> </span>
+<form class="create-comment" action="/bmet_item_histories/new" method="GET"> <input type="hidden" name="id" value=<%= @item.id %>> </input><input type="submit" value="+ Add New Item Status" />
+</form>
+</p>
+<div class="comment">
+	<table>
+		<thead>
+			<th> <%= @language['Time Changed']%> </th>
+			<th> <%= @language['Status']%> </th>
+			<th> <%= @language['Remarks']%>  </th>
+		</thead>
+		<tbody>
+				<% @item_history.each do |history| %>
+				<tr>
+					<td> <%= history.datetime %> </td>
+					<td> <% if history.status==0 %>
+							<%= @language["Working"] %>
+						<% else %>
+							<%= @language["Broken"] %>
+						<% end %>
+						</td>
+					<td> <%= history.remarks %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>  -
+
+</div>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datetime stamp:</strong>
+  <%= @bmet_work_order_comment.datetime_stamp %>
+</p>
+
+<p>
+  <strong>Work request:</strong>
+  <%= @bmet_work_order_comment.bmet_work_order_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bmet_work_order_comment.user_id %>
+</p>
+
+<p>
+  <strong>Comment text:</strong>
+  <%= @bmet_work_order_comment.comment_text %>
+</p>
+
+<%= link_to 'Edit', edit_bmet_work_order_comment_path(@bmet_work_order_comment) %> |
+<%= link_to 'Back', bmet_work_order_comments_path %>

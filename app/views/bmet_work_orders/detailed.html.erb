@@ -1,0 +1,62 @@
+<h1><%= "#{@language['All work requests']}  #{@language['Detailed view']}" %> </h1>
+
+<%= link_to @language['Simple View'], "/bmet_work_orders" %><br>
+<%= link_to "+ #{@language['New Work Request']}", new_bmet_work_order_path %>
+<table>
+  <thead>
+    <tr>
+      <th><%= @language['ID'] %></th>
+      <th><%= @language['Asset ID'] %></th>
+      <th><%= @language['Serial Number'] %></th>
+      <th><%= @language['Manufacturer'] %></th>
+      <th><%= @language['Category'] %></th>
+      <th><%= @language['Department'] %></th>
+      <th><%= @language['Requester'] %></th>
+      <th><%= @language['Owner'] %></th>
+      <th><%= @language['Date Requested'] %></th>
+      <th><%= @language['Date Expires'] %></th>
+      <th><%= @language['Date Completed'] %></th>
+      <th><%= @language['Request type'] %></th>
+      <th><%= @language['Cost'] %></th>
+      <th><%= @language['Description'] %></th>
+      <th><%= @language['Status'] %></th>
+      <th><%= @language['Cause description'] %></th>
+      <th><%= @language['Action taken'] %></th>
+      <th><%= @language['Prevention taken'] %></th>
+     <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bmet_work_orders.each do |bmet_work_order| %>
+      <tr>
+        <td><%= bmet_work_order.id %></td>
+        <td><%= link_to bmet_work_order.bmet_item.asset_id, bmet_work_order.bmet_item  %></td>
+        <td><%= bmet_work_order.bmet_item.serial_number %></td>
+        <td><%= bmet_work_order.bmet_item.model.manufacturer_name %></td>
+        <td><%= bmet_work_order.bmet_item.model.category %></td>
+        <td><%= bmet_work_order.bmet_item.location %></td>
+        <td><%= bmet_work_order.requester.name %></td>
+        <td><%= bmet_work_order.owner.name %></td>
+        <td><%= bmet_work_order.date_requested %></td>
+        <td><%= bmet_work_order.date_expire %></td>
+        <td><%= bmet_work_order.date_completed %></td>
+        <td><%= bmet_work_order.request_type %></td>
+        <td><%= bmet_work_order.cost %></td>
+        <td><%= bmet_work_order.description %></td>
+        <td><%= bmet_work_order.status %></td>
+        <td><%= bmet_work_order.cause_description %></td>
+        <td><%= bmet_work_order.action_taken %></td>
+        <td><%= bmet_work_order.prevention_taken %></td>
+        <td><%= link_to @language['Show'], bmet_work_order %></td>
+        <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
+        <td><%= link_to @language['Destroy'], bmet_work_order, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

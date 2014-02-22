@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_date_checked: 2014-02-22 02:09:07
+  days: 1
+  weeks: 1
+  months: 1
+  next_date: 2014-02-22 02:09:07
+
+two:
+  last_date_checked: 2014-02-22 02:09:07
+  days: 1
+  weeks: 1
+  months: 1
+  next_date: 2014-02-22 02:09:07

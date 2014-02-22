@@ -54,7 +54,7 @@ namespace :test do
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
 			date_updated = Time.at(rand * Time.now.to_i)
-			Need.create(:name => row[1],
+			BmetNeed.create(:name => row[1],
 						:department => dept,
 						:model => model,
 						:quantity => rand(10)+1,
@@ -84,7 +84,7 @@ namespace :test do
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
 			if model.nil?
-				item = Item.create(:asset_id => row[0],
+				item = BmetItem.create(:asset_id => row[0],
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
 								   :funding => row[4],
@@ -99,7 +99,7 @@ namespace :test do
 								   :price => row[13]
 								  )
 			else
-				item = Item.create(:asset_id => row[0],
+				item = BmetItem.create(:asset_id => row[0],
 								   :model => model,
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
@@ -117,7 +117,7 @@ namespace :test do
 			end
 			2.times do |x|
 				date_u = Time.at(rand * Time.now.to_i)
-				ItemHistory.create(:item => item,
+				BmetItemHistory.create(:bmet_item => item,
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
@@ -128,8 +128,8 @@ namespace :test do
 			users = User.where("facility_id  = ? and role_id = ?", f.id,role_eng.id)
 			1.times do |wr|
 				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_req = WorkRequest.create(:date_requested => date_u_wr,
-													  :item => item,
+				work_req = BmetWorkOrder.create(:date_requested => date_u_wr,
+													  :bmet_item => item,
 													  :status => 0,
 													  :description => "Service needed",
 													  :owner => users.sample,
@@ -137,8 +137,8 @@ namespace :test do
 											)
 				1.times do |wrc|
 					date_u_wrc = Time.at(rand * Time.now.to_i)
-					WorkRequestComment.create(:datetime_stamp => date_u_wrc,
-													  :work_request => work_req,
+					BmetWorkOrderComment.create(:datetime_stamp => date_u_wrc,
+													  :bmet_work_order => work_req,
 													  :user_id => users.sample,
 													  :comment_text => "Commented by engineer"
 											)
@@ -146,12 +146,12 @@ namespace :test do
 				1.times do |txt|
 					Text.create(:content => "checked item",
 										:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
-										:work_request => work_req
+										:bmet_work_order => work_req
 								)
 				end
 			end
 		end
-		puts "Imported items, item histories, work_requests, work request comments, texts"
+		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
 		
 	end
 end

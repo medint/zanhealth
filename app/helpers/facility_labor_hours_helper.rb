@@ -1,0 +1,2 @@
+module FacilityLaborHoursHelper
+end
