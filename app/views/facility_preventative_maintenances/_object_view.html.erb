@@ -6,20 +6,28 @@
 		</p>
 
 		<p>
-			<%=@language['Date Requested'] %>:
-			<%= @facility_preventative_maintenance.date_requested %>
+			<%=@language['Last Date Checked'] %>:
+			<%= @facility_preventative_maintenance.last_date_checked %>
 		</p>
 		<p>
-			<%=@language['Date Expires'] %>:
-			<%= @facility_preventative_maintenance.date_expire %>
-		</p>
-
-		<p>
-			<%=@language['Date Completed'] %>:
-			<%= @facility_preventative_maintenance.date_completed %>
+			<%=@language['Days'] %>:
+			<%= @facility_preventative_maintenance.days %>
 		</p>
 
 		<p>
+			<%=@language['Weeks'] %>:
+			<%= @facility_preventative_maintenance.weeks %>
+		</p>
+
+		<p>
+			<%=@language['Months'] %>:
+			<%= @facility_preventative_maintenance.months %>
+		</p>
+		<p>	
+			<%=@language['Next Date'] %>:
+			<%= @facility_preventative_maintenance.next_date %>
+		</p>
+		<p>	
 			<%=@language['Created At'] %>:
 			<%= @facility_preventative_maintenance.created_at %>
 		</p>
@@ -27,46 +35,7 @@
 			<%=@language['Updated At'] %>:
 			<%= @facility_preventative_maintenance.updated_at %>
 		</p>
-		<p>	
-			<%=@language['Request Type'] %>:
-			<%= @facility_preventative_maintenance.request_type %>
-		</p>
-		<p>	
-			<%=@language['Item'] %>:
-			<%= @facility_preventative_maintenance.item %>
-		</p>
-		<p>	
-			<%=@language['Cost'] %>:
-			<%= @facility_preventative_maintenance.cost %>
-		</p>
-		<p>	
-			<%=@language['Status'] %>:
-			<%= @facility_preventative_maintenance.status %>
-		</p>
-		<p>	
-			<%=@language['Owner ID'] %>:
-			<%= @facility_preventative_maintenance.owner_id %>
-		</p>
-		<p>	
-			<%=@language['Requester ID'] %>:
-			<%= @facility_preventative_maintenance.requester_id %>
-		</p>
-		<p>	
-			<%=@language['Description'] %>:
-			<%= @facility_preventative_maintenance.description %>
-		</p>
-		<p>	
-			<%=@language['Cause Description'] %>:
-			<%= @facility_preventative_maintenance.cause_description %>
-		</p>
-		<p>	
-			<%=@language['Action Taken'] %>:
-			<%= @facility_preventative_maintenance.action_taken %>
-		</p>
-		<p>	
-			<%=@language['Prevention Taken'] %>:
-			<%= @facility_preventative_maintenance.prevention_taken %>
-		</p>
+		
 
 	</div>	
 
