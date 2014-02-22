@@ -14,23 +14,7 @@
       <% if @permissions[:item_delete] %>
       <th></th>
       <% end %>
-     <!--
-      <th>Asset ID</th>
-      <th>Model</th>
-      <th>Serial number</th>
-      <th>Year manufactured</th>
-      <th>Funding</th>
-      <th>Date received</th>
-      <th>Warranty expire</th>
-      <th>Contract expire</th>
-      <th>Warranty notes</th>
-      <th>Service agent</th>
-      <th>Location</th>
-      <th>Item type</th>
-      <th>Price</th>
-      <th>Recent History</th>
-      -->
-    </tr>
+        </tr>
   </thead>
 
   <tbody>
@@ -45,28 +29,7 @@
           <% end %>
         </td>
 
-        <!--
-        <td><%= item.asset_id %></td>
-        <td><%= item.model.category %></td>
-        <td><%= item.model.manufacturer_name %></td>
-        <td><%= item.model_id %></td>
-        <td><%= item.serial_number %></td>
-        <td><%= item.year_manufactured %></td>
-        <td><%= item.funding %></td>
-        <td><%= item.date_received %></td>
-        <td><%= item.warranty_expire %></td>
-        <td><%= item.contract_expire %></td>
-        <td><%= item.warranty_notes %></td>
-        <td><%= item.service_agent %></td>
-        <td><%= item.location %></td>
-        <td><%= item.item_type %></td>
-        <td><%= item.price %></td>
-        <td>
-          <% if not item.bmet_item_histories.empty? %>
-          <%= item.bmet_item_histories[0].remarks %>
-          <% end %>
-        </td>
-         -->
+        
         <td><%= link_to @language['Show'], item %></td>
         <td><%= link_to @language['Edit'], edit_bmet_item_path(item) %></td>
         <% if @permissions[:item_delete] %>

@@ -9,7 +9,7 @@ class BmetItemsController < ApplicationController
 
   # GET /detailed_items
   def detailed
-    @items = BmetItem.all
+    @items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", user.facility).references(:facility)
   end
 
   # GET /items/1

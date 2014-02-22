@@ -71,20 +71,13 @@ class BmetWorkOrdersController < ApplicationController
 
   # GET /my_bmet_work_orders
   def my
-    @bmet_work_orders = BmetWorkOrder.where(owner_id: user.id)
-    @texts = Text.includes(:bmet_work_order)
-    @texts.each do |text|
-    	user.facility == text.bmet_work_order.bmet_item.department.facility
-    end
+  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+    @texts = Text.includes(:bmet_work_order=> {:bmet_item => {:department => :facility}}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   # GET /detailed_bmet_work_orders
   def detailed 
-    @bmet_work_orders = BmetWorkOrder.where(owner_id: user.id)
-    @texts = Text.includes(:bmet_work_order)
-    @texts.each do|text|
-      user.facility == text.bmet_work_order.bmet_item.department.facility
-    end
+  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
   end
   private
     # Use callbacks to share common setup or constraints between actions.
