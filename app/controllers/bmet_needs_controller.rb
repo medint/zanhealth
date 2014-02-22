@@ -56,7 +56,7 @@ class BmetNeedsController < ApplicationController
   def destroy
     @need.destroy
     respond_to do |format|
-      format.html { redirect_to needs_url }
+      format.html { redirect_to bmet_needs_url }
       format.json { head :no_content }
     end
   end
