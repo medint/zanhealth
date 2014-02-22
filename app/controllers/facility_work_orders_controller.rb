@@ -5,6 +5,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def index
+    @facility_work_orders = FacilityWorkOrder.all
   end
 
   def show

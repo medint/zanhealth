@@ -1,6 +1,5 @@
 Med8::Application.routes.draw do
 
-  get "facility_work_order_comments/new"
   resources :texts
   
   resources :bmet_work_order_comments
@@ -26,6 +25,8 @@ Med8::Application.routes.draw do
   resources :bmet_labor_hours
 
   resources :facility_work_orders
+
+  resources :facility_work_order_comments
 
   resources :facility_preventative_maintenance
 
