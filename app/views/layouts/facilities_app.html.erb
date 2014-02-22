@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+<html lang="en">
+
+
+
 <head>
-  <title>Zanhealth</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <%= stylesheet_link_tag    "facilities_app", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "facilities_app", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+	<title>Zanhealth</title>
+
 </head>
+
 <body>
-
-<header>
-</header>
-<div id='header-spacer'></div>
-
-<div id='main'>
-
+<%= render 'layouts/header' %>
 <%= yield %>
-
-</div>
-
-<footer>
-  <a href='?language=english'>English</a> | 
-  <a href='?language=swahili'>Swahili</a> | 
-  <%= @language['Home']%> |
-  <%= @language['About'] %> zanhealth |
-  <%= @language['Contact Us']%> |
-  © 2013 Med International
-</footer>
-
 </body>
 </html>
