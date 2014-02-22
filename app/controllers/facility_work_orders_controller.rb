@@ -4,6 +4,7 @@ class FacilityWorkOrdersController < ApplicationController
 
   def new
     @facility_work_order = FacilityWorkOrder.new
+    @facility_work_orders = FacilityWorkOrder.all
     #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
 

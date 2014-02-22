@@ -1,6 +1,6 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
-  #before_action :set_facility_preventative_maintenance, only: [:show, :update]
+  before_action :set_facility_preventative_maintenance, only: [:show, :update]
 
   def new
   end
@@ -11,14 +11,14 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
   def show
 
-  	#@facility_preventative_maintenances = FacilityPreventativeMaintenances.all
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.all
     #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(work_order_id:params[:id])
     #@facility_costs = FacilityCost.where(work_order_id:params[:id])
     #@facility_labor_hours = FacilityLaborHour.where(work_order_id:params[:id])
   	#@users = User.where(:facility_id => facility.id).all.to_a
 
   end
-=begin
+
   def update
     respond_to do |format|
       if @facility_preventative_maintenance.update(facility_preventative_maintenance_params)
@@ -32,12 +32,12 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def set_facility_preventative_maintenance
-      @facility_preventative_maintenance = FacilityPreventativeMaintenances.find(params[:id])
+      @facility_preventative_maintenance = FacilityPreventativeMaintenance.find(params[:id])
   end
 
   def facility_preventative_maintenance_params
       p params
       #params.require(:facility_preventative_maintenance).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :preventative_taken)
   end
-=end
+
 end
