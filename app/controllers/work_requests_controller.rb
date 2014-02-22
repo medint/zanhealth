@@ -4,7 +4,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+      @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   # GET /work_requests/1
