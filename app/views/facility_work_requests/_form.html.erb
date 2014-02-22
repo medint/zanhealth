@@ -1,7 +1,7 @@
 <%= form_for(@facility_work_request) do |f| %>
   <% if @facility_work_request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@wfacility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
+      <h2><%= pluralize(@facility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
 <ul> <% @work_request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>

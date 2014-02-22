@@ -9,7 +9,9 @@
 	<p> Email: <%= @facility_work_request.email %> </p>
 	<p> Full Description: <%= @facility_work_request.description %> </p>
 
-</div>	
+</div>
+
+<%= link_to "+ #{@language['New Work Request']}", new_facility_work_request_path %>
 
 <!--
 <p>

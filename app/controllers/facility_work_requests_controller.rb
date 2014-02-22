@@ -4,6 +4,9 @@ before_action :set_facility_work_request, only: [:show, :update]
   layout 'layouts/facilities_app'
 
   def new
+    @facility_work_requests = FacilityWorkRequest.all
+    @facility_work_request = FacilityWorkRequest.new
+    @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def index
@@ -12,6 +15,8 @@ before_action :set_facility_work_request, only: [:show, :update]
 
   def show
     @facility_work_requests = FacilityWorkRequest.all
+    @input_object = FacilityWorkOrder.new
+    @input_object.description = @facility_work_request.description
   end
 
   def update
