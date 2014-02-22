@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222051047) do
+ActiveRecord::Schema.define(version: 20140222070907) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -102,6 +102,52 @@ ActiveRecord::Schema.define(version: 20140222051047) do
 
   create_table "facilities", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facility_labor_hours", force: true do |t|
+    t.datetime "date_started"
+    t.integer  "duration"
+    t.integer  "technician_id"
+    t.integer  "work_request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facility_preventative_maintenances", force: true do |t|
+    t.datetime "last_date_checked"
+    t.integer  "days"
+    t.integer  "weeks"
+    t.integer  "months"
+    t.datetime "next_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facility_work_order_comments", force: true do |t|
+    t.datetime "datetime_stamp"
+    t.integer  "work_request_id"
+    t.integer  "user_id"
+    t.text     "comment_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facility_work_orders", force: true do |t|
+    t.datetime "date_requested"
+    t.datetime "date_expire"
+    t.datetime "date_completed"
+    t.integer  "request_type"
+    t.integer  "item"
+    t.integer  "cost"
+    t.text     "description"
+    t.integer  "status"
+    t.integer  "owner_id"
+    t.integer  "requester_id"
+    t.text     "cause_description"
+    t.text     "action_taken"
+    t.text     "prevention_taken"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,5 +1,9 @@
 Med8::Application.routes.draw do
 
+  get "facility_preventative_maintenances/new"
+  get "facility_labor_hours/new"
+  get "facility_work_order_comments/new"
+  get "facility_work_orders/new"
   resources :texts
   
   resources :bmet_work_order_comments
