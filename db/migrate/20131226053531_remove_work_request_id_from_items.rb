@@ -1,5 +1,5 @@
 class RemoveWorkRequestIdFromItems < ActiveRecord::Migration
   def change
-      remove_column :items, :bmet_work_order_id
+      remove_column :items, :work_request_id
   end
 end

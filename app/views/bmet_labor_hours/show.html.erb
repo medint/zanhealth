@@ -1,0 +1,28 @@
+<div class='wr'>
+  <%= link_to @language['Edit'], edit_bmet_labor_hour_path(@labor_hour) %>
+  <div class='attributes'>
+    <div class='left-attributes'>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong><%= @language['Date Started'] %>:</strong>
+        <%= @labor_hour.date_started %>
+      </p>
+
+      <p>
+        <strong><%= @language['Duration'] %>:</strong>
+        <%= @labor_hour.duration %>
+      </p>
+
+      <p>
+        <strong><%= @language['Technician ID'] %>:</strong>
+        <%= @labor_hour.technician_id %>
+      </p>
+
+      <p>
+        <strong><%= @language['Work Request ID'] %>:</strong>
+        <%= @labor_hour.bmet_work_order_id %>
+      </p>
+    </div>
+  </div>
+</div>

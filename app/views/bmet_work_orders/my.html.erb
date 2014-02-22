@@ -40,11 +40,11 @@
     <% @bmet_work_orders.each do |bmet_work_order| %>
       <tr>
         <td><%= bmet_work_order.id %></td>
-        <td><%= link_to bmet_work_order.try(:item).try(:asset_id), bmet_work_order.try(:item)  %></td>
-        <td><%= bmet_work_order.item.serial_number %></td>
-        <td><%= bmet_work_order.item.model.manufacturer_name %></td>
-        <td><%= bmet_work_order.item.model.category %></td>
-        <td><%= bmet_work_order.item.location %></td>
+        <td><%= link_to bmet_work_order.try(:bmet_item).try(:asset_id), bmet_work_order.try(:bmet_item)  %></td>
+        <td><%= bmet_work_order.bmet_item.serial_number %></td>
+        <td><%= bmet_work_order.bmet_item.model.manufacturer_name %></td>
+        <td><%= bmet_work_order.bmet_item.model.category %></td>
+        <td><%= bmet_work_order.bmet_item.location %></td>
         <td><%= bmet_work_order.date_requested %></td>
         <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
       </tr>
@@ -66,7 +66,7 @@
 	<tr> 
 		<td><%= text.created_at %></td>
 		<td><%= text.id %></td>
-		<td><%= link_to text.bmet_work_order_id %></td>
+		<td><%= link_to text.bmet_work_order.id, text.bmet_work_order %></td>
 		<td><%= text.content %></td>
 	</tr>
   <% end %>

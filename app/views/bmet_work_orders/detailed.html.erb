@@ -33,11 +33,11 @@
     <% @bmet_work_orders.each do |bmet_work_order| %>
       <tr>
         <td><%= bmet_work_order.id %></td>
-        <td><%= link_to bmet_work_order.try(:item).try(:asset_id), bmet_work_order.try(:item)  %></td>
-        <td><%= bmet_work_order.try(:item).try(:serial_number) %></td>
-        <td><%= bmet_work_order.try(:item).try(:model).try(:manufacturer_name) %></td>
-        <td><%= bmet_work_order.try(:item).try(:model).try(:category) %></td>
-        <td><%= bmet_work_order.try(:item).try(:location) %></td>
+        <td><%= link_to bmet_work_order.try(:bmet_item).try(:asset_id), bmet_work_order.try(:bmet_item)  %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:serial_number) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:model).try(:manufacturer_name) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:model).try(:category) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:location) %></td>
         <td><%= bmet_work_order.try(:requester).try(:name) %></td>
         <td><%= bmet_work_order.try(:owner).try(:name) %></td>
         <td><%= bmet_work_order.date_requested %></td>

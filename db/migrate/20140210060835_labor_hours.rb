@@ -4,7 +4,7 @@ class LaborHours < ActiveRecord::Migration
       t.datetime :date_started
       t.integer :duration
       t.integer :technician_id
-      t.integer :bmet_work_order_id
+      t.integer :work_request_id
 
       t.timestamps
     end

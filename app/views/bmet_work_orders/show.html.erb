@@ -26,7 +26,7 @@
 
       <p>
         <strong><%= @language['Item'] %>:</strong>
-        <%= @bmet_work_order.item %>
+        <%= @bmet_work_order.bmet_item %>
       </p>
 
       <p>
@@ -97,7 +97,7 @@
 	  </table>
   </div>
   <div class="comment">
-    <%= link_to "+ #{@language['Labor Hour']}", new_labor_hour_path %>
+    <%= link_to "+ #{@language['Labor Hour']}", new_bmet_labor_hour_path %>
     <table>
       <thead>
         <tr>
@@ -164,7 +164,7 @@
              
             <td><%= link_to @language['Show'], labor_hour %></td>
             
-            <td><%= link_to @language['Edit'], edit_labor_hour_path(labor_hour) %></td>
+            <td><%= link_to @language['Edit'], edit_bmet_labor_hour_path(labor_hour) %></td>
             <td>
               <% if @permissions[:bmet_work_order_delete] %>
               <%= link_to @language['Destroy'], labor_hour, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>

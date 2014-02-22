@@ -1,5 +1,5 @@
 class BmetWorkOrder < ActiveRecord::Base
-    belongs_to :item
+    belongs_to :bmet_item
     belongs_to :user
     has_many :bmet_work_order_comments
     has_many :texts

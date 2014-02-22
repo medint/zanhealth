@@ -54,7 +54,7 @@ namespace :test do
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
 			date_updated = Time.at(rand * Time.now.to_i)
-			Need.create(:name => row[1],
+			BmetNeed.create(:name => row[1],
 						:department => dept,
 						:model => model,
 						:quantity => rand(10)+1,
@@ -84,7 +84,7 @@ namespace :test do
 			f = facilities.sample
 			dept = Department.where(:facility_id => f.id).sample
 			if model.nil?
-				item = Item.create(:asset_id => row[0],
+				item = BmetItem.create(:asset_id => row[0],
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
 								   :funding => row[4],
@@ -99,7 +99,7 @@ namespace :test do
 								   :price => row[13]
 								  )
 			else
-				item = Item.create(:asset_id => row[0],
+				item = BmetItem.create(:asset_id => row[0],
 								   :model => model,
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
@@ -117,7 +117,7 @@ namespace :test do
 			end
 			2.times do |x|
 				date_u = Time.at(rand * Time.now.to_i)
-				ItemHistory.create(:item => item,
+				BmetItemHistory.create(:bmet_item => item,
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => "Performed checkup",
@@ -129,7 +129,7 @@ namespace :test do
 			1.times do |wr|
 				date_u_wr = Time.at(rand * Time.now.to_i)
 				work_req = BmetWorkOrder.create(:date_requested => date_u_wr,
-													  :item => item,
+													  :bmet_item => item,
 													  :status => 0,
 													  :description => "Service needed",
 													  :owner => users.sample,

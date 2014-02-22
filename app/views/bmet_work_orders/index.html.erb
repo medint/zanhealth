@@ -21,11 +21,11 @@
     <% @bmet_work_orders.each do |bmet_work_order| %>
       <tr>
         <td><%= bmet_work_order.id %></td>
-        <td><%= link_to bmet_work_order.item.asset_id, bmet_work_order.item  %></td>
-        <td><%= bmet_work_order.item.serial_number %></td>
-        <td><%= bmet_work_order.item.model.manufacturer_name %></td>
-        <td><%= bmet_work_order.item.model.category %></td>
-        <td><%= bmet_work_order.item.location %></td>
+        <td><%= link_to bmet_work_order.bmet_item.asset_id, bmet_work_order.bmet_item  %></td>
+        <td><%= bmet_work_order.bmet_item.serial_number %></td>
+        <td><%= bmet_work_order.bmet_item.model.manufacturer_name %></td>
+        <td><%= bmet_work_order.bmet_item.model.category %></td>
+        <td><%= bmet_work_order.bmet_item.location %></td>
         <td><%= bmet_work_order.date_requested %></td>
         <td><%= bmet_work_order.requester.name %></td>
         <td><%= bmet_work_order.owner.name %></td>
