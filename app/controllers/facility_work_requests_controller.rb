@@ -10,8 +10,8 @@ class FacilityWorkRequestsController < ApplicationController
   end
 
   def show
-      @wr_comment = WorkRequestComment.all
-      @labor_hours=LaborHour.all
+    @facility_work_requests = FacilityWorkRequest.all
+    @facility_work_request = FacilityWorkRequest.find(params[:id])
   end
 
 end
