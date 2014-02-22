@@ -1,5 +1,7 @@
 Med8::Application.routes.draw do
 
+  get "facility_work_requests/new"
+  get "facility_costs/new"
   get "facility_preventative_maintenances/new"
   get "facility_labor_hours/new"
   get "facility_work_order_comments/new"
