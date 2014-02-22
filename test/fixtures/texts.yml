@@ -3,9 +3,9 @@
 one:
   content: MyText
   number: MyString
-  work_request_id: 1
+  bmet_work_order_id: 1
 
 two:
   content: MyText
   number: MyString
-  work_request_id: 1
+  bmet_work_order_id: 1

@@ -1,0 +1,33 @@
+<h1><%= "#{@language['Listing']} #{@language['Work Request']} #{@language['Comment']}s" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datetime stamp</th>
+      <th>Work request</th>
+      <th>User</th>
+      <th>Comment text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bmet_work_order_comments.each do |bmet_work_order_comment| %>
+      <tr>
+        <td><%= bmet_work_order_comment.datetime_stamp %></td>
+        <td><%= bmet_work_order_comment.bmet_work_order_id %></td>
+        <td><%= bmet_work_order_comment.user_id %></td>
+        <td><%= bmet_work_order_comment.comment_text %></td>
+        <td><%= link_to @language['Show'], bmet_work_order_comment %></td>
+        <td><%= link_to @language['Edit'], edit_bmet_work_order_comment_path(bmet_work_order_comment) %></td>
+        <td><%= link_to @language['Destroy'], bmet_work_order_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "#{@language['New Work Request']} #{@language['Comment']}", new_bmet_work_order_comment_path %>

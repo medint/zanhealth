@@ -60,7 +60,7 @@ status integer
 utilization integer
 remarks text
 
-WorkRequest
+BmetWorkOrder
 date_requested datetime
 date_expire datetime
 date_completed datetime
@@ -75,16 +75,16 @@ cause_description text
 action_taken text
 prevention_taken text
 
-WorkRequestComment
+BmetWorkOrderComment
 datetime_stamp timestamp
-work_request_id integer
+bmet_work_order_id integer
 user_id integer
 comment_text text
 
 Text
 content text
 number string
-work_request_id integer
+bmet_work_order_id integer
 
 
 Relations
@@ -93,17 +93,17 @@ Relations
 item has_many item_histories
 item_history has_one item
 
-work_request has_many work_request_comments
-work_request_comment belongs_to work_request
+bmet_work_order has_many bmet_work_order_comments
+bmet_work_order_comment belongs_to bmet_work_order
 
-work_request has_one item
-item has_many work_requests
+bmet_work_order has_one item
+item has_many bmet_work_orders
 
-user has_many work_request_comments
-work_request_comment belongs_to user
+user has_many bmet_work_order_comments
+bmet_work_order_comment belongs_to user
 
-user has_many work_requests
-work_request belongs_to user
+user has_many bmet_work_orders
+bmet_work_order belongs_to user
 
 user has_many needs
 need belongs_to user
@@ -126,5 +126,5 @@ item belongs_to model
 model has_many needs
 need belongs_to model
 
-text belongs_to work_request
-work_request has_many texts
+text belongs_to bmet_work_order
+bmet_work_order has_many texts

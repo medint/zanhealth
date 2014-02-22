@@ -1,1 +1,0 @@
-json.extract! @labor_hour, :date_started, :duration, :technician_id, :work_request_id

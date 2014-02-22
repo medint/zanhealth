@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  datetime_stamp: 2014-02-22 02:06:41
+  work_request_id: 1
+  user_id: 1
+  comment_text: MyText
+
+two:
+  datetime_stamp: 2014-02-22 02:06:41
+  work_request_id: 1
+  user_id: 1
+  comment_text: MyText

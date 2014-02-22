@@ -1,20 +1,22 @@
 Med8::Application.routes.draw do
 
+  get "facility_preventative_maintenances/new"
+  get "facility_labor_hours/new"
+  get "facility_work_order_comments/new"
+  get "facility_work_orders/new"
   resources :texts
   
-  resources :text
+  resources :bmet_work_order_comments
 
-  resources :work_request_comments
+  resources :bmet_item_histories
 
-  resources :item_histories
+  resources :bmet_needs
 
-  resources :needs
-
-  resources :items
+  resources :bmet_items
 
   resources :models
 
-  resources :work_requests
+  resources :bmet_work_orders
 
   resources :roles
 
@@ -24,22 +26,22 @@ Med8::Application.routes.draw do
 
   resources :departments
 
-  resources :labor_hours
+  resources :bmet_labor_hours
 
 
-  get "/my_work_requests", to: "work_requests#my"
+  get "/my_bmet_work_orders", to: "bmet_work_orders#my"
 
   get "/login", to: "users#login"
 
   get "/logout", to: "users#logout"
 
-  get "/detailed_work_requests", to: "work_requests#detailed"
+  get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
 
-  get "/detailed_items", to: "items#detailed"
+  get "/detailed_items", to: "bmet_items#detailed"
   
   get "/text", to: "text#receive"
 
-  root to: "work_requests#my"
+  root to: "bmet_work_orders#my"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

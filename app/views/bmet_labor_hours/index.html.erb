@@ -1,0 +1,80 @@
+<h1><%= @language['Labor Hours'] %></h1>
+
+<!--<%= link_to @language['Detailed View'], "/detailed_bmet_work_orders" %><br>
+<%= link_to "+ #{@language['Work Request']}", new_bmet_work_order_path %>-->
+<table>
+  <thead>
+    <tr>
+      <th><%= @language['ID']%></th>
+      <th><%= @language['Date Started']%></th>
+      <th><%= @language['Serial Number']%></th>
+      <th><%= @language['Technician ID']%></th>
+      <th><%= @language['Work Rquest ID']%></th>
+
+     <!--
+      <th>Date requested</th>
+      <th>Date expire</th>
+      <th>Date completed</th>
+      <th>Request type</th>
+      <th>Item</th>
+      <th>Cost</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Owner</th>
+      <th>Requester</th>
+      <th>Cause description</th>
+      <th>Action taken</th>
+      <th>Prevention taken</th>
+      -->
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labor_hours.each do |labor_hour| %>
+      <tr>
+        <td><%= labor_hour.id %></td>
+        <td><%= labor_hour.date_started%></td>
+        <td><%= labor_hour.duration%></td>
+        <td><%= labor_hour.technician_id%></td>
+        <td><%= labor_hour.bmet_work_order_id%></td>
+        <!--
+        <td><%= link_to bmet_work_order.try(:bmet_item).try(:asset_id), bmet_work_order.try(:bmet_item)  %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:serial_number) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:model).try(:manufacturer_name) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:model).try(:category) %></td>
+        <td><%= bmet_work_order.try(:bmet_item).try(:location) %></td>
+        <td><%= bmet_work_order.date_requested %></td>
+        <td><%= bmet_work_order.try(:requester).try(:name) %></td>
+        <td><%= bmet_work_order.try(:owner).try(:name) %></td>
+    -->
+         <!--
+        <td><%= bmet_work_order.date_requested %></td>
+        <td><%= bmet_work_order.date_expire %></td>
+        <td><%= bmet_work_order.date_completed %></td>
+        <td><%= bmet_work_order.request_type %></td>
+        <td><%= bmet_work_order.item %></td>
+        <td><%= bmet_work_order.cost %></td>
+        <td><%= bmet_work_order.description %></td>
+        <td><%= bmet_work_order.status %></td>
+        <td><%= bmet_work_order.owner_id %></td>
+        <td><%= bmet_work_order.requester_id %></td>
+        <td><%= bmet_work_order.cause_description %></td>
+        <td><%= bmet_work_order.action_taken %></td>
+        <td><%= bmet_work_order.prevention_taken %></td>
+         -->
+        <td><%= link_to @language['Show'], bmet_work_order %></td>
+        <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
+        <td>
+          <% if @permissions[:bmet_work_order_delete] %>
+          <%= link_to @language['Destroy'], bmet_work_order, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+          <% end %>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

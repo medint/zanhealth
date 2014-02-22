@@ -1,0 +1,179 @@
+<div class='wr'>
+  <%= link_to @language['Edit'], edit_bmet_work_order_path(@bmet_work_order) %>
+  <div class='attributes'>
+    <div class='left-attributes'>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong><%= @language['Date Requested'] %>:</strong>
+        <%= @bmet_work_order.date_requested %>
+      </p>
+
+      <p>
+        <strong><%= @language['Date Expires'] %>:</strong>
+        <%= @bmet_work_order.date_expire %>
+      </p>
+
+      <p>
+        <strong><%= @language['Date Completed'] %>:</strong>
+        <%= @bmet_work_order.date_completed %>
+      </p>
+
+      <p>
+        <strong><%= @language['Request Type'] %>:</strong>
+        <%= @bmet_work_order.request_type %>
+      </p>
+
+      <p>
+        <strong><%= @language['Item'] %>:</strong>
+        <%= @bmet_work_order.bmet_item %>
+      </p>
+
+      <p>
+        <strong><%= @language['Cost'] %>:</strong>
+        <%= @bmet_work_order.cost %>
+      </p>
+
+      <p>
+        <strong><%= @language['Description'] %>:</strong>
+        <%= @bmet_work_order.description %>
+      </p>
+
+      <p>
+        <strong><%= @language['Owner'] %>:</strong>
+        <%= @bmet_work_order.owner_id %>
+      </p>
+
+      <p>
+        <strong><%= @language['Requester'] %>:</strong>
+        <%= @bmet_work_order.requester_id %>
+      </p>
+
+      <p>
+        <strong><%= @language['Cause Description'] %>:</strong>
+        <%= @bmet_work_order.cause_description %>
+      </p>
+
+      <p>
+        <strong><%= @language['Action Taken'] %>:</strong>
+        <%= @bmet_work_order.action_taken %>
+      </p>
+
+      <p>
+        <strong><%= @language['Prevention Taken'] %>:</strong>
+        <%= @bmet_work_order.prevention_taken %>
+      </p>
+    </div>
+
+    <div class='right-attributes'>
+      <p class='status'>
+        <strong><%= @language['Status'] %>:</strong>
+        <%= @bmet_work_order.status %>
+      </p>
+    </div>
+  </div>
+  <p> <span class="comment-title"> <%= @language['Recent Comments'] %> </span>
+  <form class="create-comment" action="/bmet_work_order_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @bmet_work_order.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
+  </form>
+  </p>
+  <div class="comment"> 
+	  <table>
+		  <thead>
+			  <th class="comment-table-header"><%= @language['Time Created'] %></th>
+			  <th class="comment-table-header"><%= @language['Last Updated'] %></th>
+			  <th class="comment-table-header"><%= @language['User ID'] %> </th>
+			  <th><%= @language['Content'] %> </th>
+		  </thead>
+		  <tbody>
+			  <% @wr_comment.each do |comment| %>
+				  <tr>
+					  <td> <%= comment.created_at %> </td>
+					  <td> <%= comment.updated_at %> </td>
+					  <td> <%= comment.user_id %> </td>
+					  <td> <%= comment.comment_text %> </td>
+				  </tr>
+			  <% end %>
+		  </tbody>
+	  </table>
+  </div>
+  <div class="comment">
+    <%= link_to "+ #{@language['Labor Hour']}", new_bmet_labor_hour_path %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= @language['ID']%></th>
+          <th><%= @language['Date Started']%></th>
+          <th><%= @language['Duration']%></th>
+          <th><%= @language['Technician ID']%></th>
+          <th><%= @language['Work Request ID']%></th>
+
+         <!--
+          <th>Date requested</th>
+          <th>Date expire</th>
+          <th>Date completed</th>
+          <th>Request type</th>
+          <th>Item</th>
+          <th>Cost</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th>Requester</th>
+          <th>Cause description</th>
+          <th>Action taken</th>
+          <th>Prevention taken</th>
+          -->
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @labor_hours.each do |labor_hour| %>
+          <tr>
+            <td><%= labor_hour.id %></td>
+            <td><%= labor_hour.date_started%></td>
+            <td><%= labor_hour.duration%></td>
+            <td><%= labor_hour.technician_id%></td>
+            <td><%= labor_hour.bmet_work_order_id%></td>
+            <!--
+            <td><%#= link_to bmet_work_order.try(:item).try(:asset_id), bmet_work_order.try(:item)  %></td>
+            <td><%#= bmet_work_order.try(:item).try(:serial_number) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:model).try(:manufacturer_name) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:model).try(:category) %></td>
+            <td><%#= bmet_work_order.try(:item).try(:location) %></td>
+            <td><%#= bmet_work_order.date_requested %></td>
+            <td><%#= bmet_work_order.try(:requester).try(:name) %></td>
+            <td><%#= bmet_work_order.try(:owner).try(:name) %></td>
+        -->
+             <!--
+            <td><%#= bmet_work_order.date_requested %></td>
+            <td><%#= bmet_work_order.date_expire %></td>
+            <td><%#= bmet_work_order.date_completed %></td>
+            <td><%#= bmet_work_order.request_type %></td>
+            <td><%#= bmet_work_order.item %></td>
+            <td><%#= bmet_work_order.cost %></td>
+            <td><%#= bmet_work_order.description %></td>
+            <td><%#= bmet_work_order.status %></td>
+            <td><%#= bmet_work_order.owner_id %></td>
+            <td><%#= bmet_work_order.requester_id %></td>
+            <td><%#= bmet_work_order.cause_description %></td>
+            <td><%#= bmet_work_order.action_taken %></td>
+            <td><%#= bmet_work_order.prevention_taken %></td>
+             -->
+             
+            <td><%= link_to @language['Show'], labor_hour %></td>
+            
+            <td><%= link_to @language['Edit'], edit_bmet_labor_hour_path(labor_hour) %></td>
+            <td>
+              <% if @permissions[:bmet_work_order_delete] %>
+              <%= link_to @language['Destroy'], labor_hour, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
+              <% end %>
+            
+         </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

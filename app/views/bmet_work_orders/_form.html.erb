@@ -1,0 +1,71 @@
+<%= form_for(@bmet_work_order) do |f| %>
+  <% if @bmet_work_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
+<ul> <% @bmet_work_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <% if params[:action] == 'new' %>
+      <div class="field">
+      <input type="hidden" name="bmet_work_order[requester_id]" value=<%= session[:user] %>> </input>
+      </div>
+  <% elsif params[:action] == 'edit' %>
+  <% end %>
+  <div class="field">
+    <%= @language['Owner'] %><br>
+	<%= f.collection_select :owner_id, @users, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= @language['Date Requested'] %><br>
+    <%= f.datetime_select :date_requested %>
+  </div>
+  <div class="field">
+    <%= @language['Date Expires'] %><br>
+    <%= f.datetime_select :date_expire %>
+  </div>
+  <div class="field">
+    <%= @language['Date Completed'] %><br>
+    <%= f.datetime_select :date_completed %>
+  </div>
+  <div class="field">
+    <%= @language['Item ID'] %><br>
+	<%= f.collection_select :bmet_item_id, @items, :id, :id %>
+  </div>
+  <div class="field">
+    <%= @language['Request Type'] %><br>
+    <%= f.number_field :request_type %>
+  </div>
+  <div class="field">
+    <%= @language['Cost'] %>
+<br> <%= f.number_field :cost %>
+  </div>
+  <div class="field">
+    <%= @language['Description'] %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= @language['Status'] %><br>
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= @language['Cause Description'] %><br>
+    <%= f.text_area :cause_description %>
+  </div>
+  <div class="field">
+    <%= @language['Action Taken'] %><br>
+    <%= f.text_area :action_taken %>
+  </div>
+  <div class="field">
+    <%= @language['Prevention Taken'] %><br>
+    <%= f.text_area :prevention_taken %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
