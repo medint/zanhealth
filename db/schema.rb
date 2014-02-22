@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222172013) do
+ActiveRecord::Schema.define(version: 20140222201157) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140222172013) do
 
   create_table "bmet_work_order_comments", force: true do |t|
     t.datetime "datetime_stamp"
-    t.integer  "bmet_work_order_id"
+    t.integer  "work_order_id"
     t.integer  "user_id"
     t.text     "comment_text"
     t.datetime "created_at"
@@ -112,13 +112,14 @@ ActiveRecord::Schema.define(version: 20140222172013) do
     t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "work_order_id"
   end
 
   create_table "facility_labor_hours", force: true do |t|
     t.datetime "date_started"
     t.integer  "duration"
     t.integer  "technician_id"
-    t.integer  "work_request_id"
+    t.integer  "work_order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -131,11 +132,12 @@ ActiveRecord::Schema.define(version: 20140222172013) do
     t.datetime "next_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "work_order_id"
   end
 
   create_table "facility_work_order_comments", force: true do |t|
     t.datetime "datetime_stamp"
-    t.integer  "work_request_id"
+    t.integer  "work_order_id"
     t.integer  "user_id"
     t.text     "comment_text"
     t.datetime "created_at"

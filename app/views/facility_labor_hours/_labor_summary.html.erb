@@ -1,0 +1,17 @@
+<div>
+  <ul>
+    <% @facility_labor_hours.each do |facility_labor_hour| %>
+      <li>
+        <div class="labor-technician">
+          Technician ID: <%= facility_labor_hour.technician_id %>
+        </div>
+        <div class="labor-duration">
+          Duration: <%= facility_labor_hour.duration %> hours
+        </div>
+        <div class="labor-timestamp">
+          Time Started: <%= facility_labor_hour.date_started %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
