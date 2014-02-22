@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222070907) do
+ActiveRecord::Schema.define(version: 20140222172013) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -106,6 +106,14 @@ ActiveRecord::Schema.define(version: 20140222070907) do
     t.datetime "updated_at"
   end
 
+  create_table "facility_costs", force: true do |t|
+    t.string   "name"
+    t.integer  "unit_quantity"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "facility_labor_hours", force: true do |t|
     t.datetime "date_started"
     t.integer  "duration"
@@ -148,6 +156,17 @@ ActiveRecord::Schema.define(version: 20140222070907) do
     t.text     "cause_description"
     t.text     "action_taken"
     t.text     "prevention_taken"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facility_work_requests", force: true do |t|
+    t.text     "requester"
+    t.text     "department"
+    t.text     "location"
+    t.text     "phone"
+    t.text     "email"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

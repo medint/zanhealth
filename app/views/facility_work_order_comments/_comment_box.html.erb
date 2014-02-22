@@ -1,0 +1,17 @@
+<div>
+  <ul>
+    <% @facility_work_order_comments.each do |facility_work_order_comment| %>
+      <li>
+        <div class="user">
+          User ID: <%= facility_work_order_comment.user_id %>
+        </div>
+        <div class="comment_text">
+          Comment Text: <%= facility_work_order_comment.comment_text %>
+        </div>
+        <div class="timestamp">
+          Time: <%= facility_work_order_comment.created_at %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
