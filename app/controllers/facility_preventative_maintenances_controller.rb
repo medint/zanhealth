@@ -3,9 +3,11 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_facility_preventative_maintenance, only: [:show, :update]
 
   def new
-    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
+
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
     #@users = User.where(:facility_id => user.facility.id).all.to_a
+
   end
 
   def index
@@ -15,9 +17,16 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   def show
 
   	@facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+
     #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(preventative_maintenance_id:params[:id])
     #@facility_costs = FacilityCost.where(preventative_maintenance_id:params[:id])
     #@facility_labor_hours = FacilityLaborHour.where(preventative_maintenance_id:params[:id])
+
+    @input_object = FacilityPreventativeMaintenance.new
+    #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(work_order_id:params[:id])
+    #@facility_costs = FacilityCost.where(work_order_id:params[:id])
+    #@facility_labor_hours = FacilityLaborHour.where(work_order_id:params[:id])
+
   	#@users = User.where(:facility_id => facility.id).all.to_a
 
   end
