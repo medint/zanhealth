@@ -6,7 +6,7 @@ body {
 	display: inline;
 	top: -8px;
 	left: -8px;
-
+	overflow: hidden;
 }
 
 
@@ -20,6 +20,7 @@ body {
 	width: 100%;
 	background-color: #4e4e4e;
 	margin-left: 240px;
+	z-index: 4;
 }
 
 
@@ -35,6 +36,7 @@ body {
 	height: 100%;
 	width: 240px;
 
+	z-index: 4;
 }
 
 #left-nav > * {
@@ -142,20 +144,115 @@ body {
 #left-nav > #left-nav_ul > .left-nav_ul_li > .right-arrow {
 	float: right;
 	padding-right: 10px;
-	padding-top:28px;
+	padding-top: 28px;
 }
 
+
+
+/*   End   */
+
+.scrollable{
+	margin-top: 60px;
+	font-size: 1em;
+	z-index: 1;
+	overflow: auto;
+}
 
   /********************************************/
  /*                MID SUMMARY               */
 /********************************************/
 
+
 #mid-summary{
 	float: left;
 	margin-left: 240px;
 	height: 100%;
-	width: 400px; /*to be set by javascript */
+	width: 400px; 
 	background-color: #f9f9f9;
+}
+
+#mid-summary_ul {
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+}
+
+#mid-summary_ul > .mid-summary_ul_li {
+	
+	height: 50px;
+	width: 400px;
+}
+
+#mid-summary_ul > .mid-summary_ul_li > *{
+	
+	float:left; 
+	display:inline
+}
+
+#mid-summary_ul > .mid-summary_ul_li > .details{
+	margin-left: 15px;
+}
+
+#mid-summary_ul > .mid-summary_ul_li > .details > .order_id{
+	padding-top: 14px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #5c5c5c;
+	margin: 0px;
+}
+
+#mid-summary_ul > .mid-summary_ul_li > .details > .order_owner{
+	font-size: 10px;
+	color: #a1a1a1;
+	margin: 0px;
+}
+
+/*   Color Status Updates   */
+.status-0{
+	background-color: #e9593e;
+	height: 50px;
+	width: 10px;
+}
+
+.status-1{
+	background-color: #ffc207;
+	height: 50px;
+	width: 10px;
+}
+
+.status-2{
+	background-color: #55aa2b;
+	height: 50px;
+	width: 10px;
+}
+
+#mid-summary_ul > .mid-summary_ul_li > .due_date{
+	float: right;
+	font-size: 10px;
+	color: #a1a1a1;
+	margin: 0px;
+}
+
+
+#mid-summary_ul > .mid-summary_ul_li > .right-arrow{	
+	float: right;
+	padding-right: 10px;
+	padding-top:22px;
+}
+
+#mid-summary_ul > .mid-summary_ul_li_hr{
+	color: #c7c7c7;
+	background-color: #c7c7c7;
+	position:relative;
+
+	padding: 0px;
+
+	border: 0px;
+
+	margin: 0px;
+
+	width: 240px;
+	height: 1px;
 }
 
   /********************************************/
@@ -166,5 +263,5 @@ body {
 	float: right;
 	height: 100%;
 	width: 400px; /*to be set by javascript */
-	background-color: black;
+	background-color: white;
 }
