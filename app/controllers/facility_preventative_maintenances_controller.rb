@@ -3,6 +3,9 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_facility_preventative_maintenance, only: [:show, :update]
 
   def new
+    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
+    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+    #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def index
@@ -12,9 +15,9 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   def show
 
   	@facility_preventative_maintenances = FacilityPreventativeMaintenance.all
-    #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(work_order_id:params[:id])
-    #@facility_costs = FacilityCost.where(work_order_id:params[:id])
-    #@facility_labor_hours = FacilityLaborHour.where(work_order_id:params[:id])
+    #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(preventative_maintenance_id:params[:id])
+    #@facility_costs = FacilityCost.where(preventative_maintenance_id:params[:id])
+    #@facility_labor_hours = FacilityLaborHour.where(preventative_maintenance_id:params[:id])
   	#@users = User.where(:facility_id => facility.id).all.to_a
 
   end
@@ -31,13 +34,35 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     end
   end
 
+  def create
+    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new(facility_preventative_maintenance_params)
+
+    respond_to do |format|
+      if @facility_preventative_maintenance.save
+        format.html { redirect_to @facility_preventative_maintenance, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @facility_preventative_maintenance }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @facility_preventative_maintenance.destroy
+    respond_to do |format|
+      format.html { redirect_to facility_preventative_maintenances_url }
+      format.json { head :no_content }
+    end
+  end
+
   def set_facility_preventative_maintenance
       @facility_preventative_maintenance = FacilityPreventativeMaintenance.find(params[:id])
   end
 
   def facility_preventative_maintenance_params
       p params
-      #params.require(:facility_preventative_maintenance).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :preventative_taken)
+      params.require(:facility_preventative_maintenance).permit(:last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
   end
 
 end
