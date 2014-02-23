@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20140222201157) do
     t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "work_request_id"
     t.integer  "work_order_id"
   end
 
