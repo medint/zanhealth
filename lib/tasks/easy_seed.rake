@@ -149,6 +149,13 @@ namespace :test do
 										:bmet_work_order => work_req
 								)
 				end
+				1.times do |lb|
+					BmetLaborHour.create(:date_started => date_u_wrc,
+										 :duration => 1,
+										 :technician_id => 1,
+										 :bmet_work_order => work_req
+										)
+				end
 			end
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
