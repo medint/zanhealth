@@ -193,7 +193,7 @@ namespace :test do
 
 		facilities.each do |f|
 			5.times do |fpm|
-				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at (rand*Time.now.to_i),
+				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at(rand * Time.now.to_i),
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
