@@ -183,6 +183,11 @@ body {
 	width: 400px;
 }
 
+
+#mid-summary_ul > .mid-summary_ul_li:hover {
+	background-color: #afafaf;
+}
+
 #mid-summary_ul > .mid-summary_ul_li > *{
 	
 	float:left; 
@@ -230,7 +235,8 @@ body {
 	float: right;
 	font-size: 10px;
 	color: #a1a1a1;
-	margin: 0px;
+	margin-top: 26px;
+	margin-right: 10px;
 }
 
 
@@ -244,19 +250,15 @@ body {
 	color: #c7c7c7;
 	background-color: #c7c7c7;
 	position:relative;
-
 	padding: 0px;
-
 	border: 0px;
-
 	margin: 0px;
-
 	width: 240px;
 	height: 1px;
 }
 
   /********************************************/
- /*                MID SUMMARY               */
+ /*               Right Detail               */
 /********************************************/
 
 #right-detail{
@@ -265,4 +267,70 @@ body {
 	width: 400px; /*to be set by javascript */
 	background-color: white;
 
+}
+
+#object-view{
+	display:none;
+}
+
+
+/*     object form     */
+	
+#object-form{
+	padding:15px;
+}
+
+/*left*/
+
+#object-form-left{
+	/*display: none;*/
+	
+	display:inline-block;
+	
+	width: 55%;
+}
+
+.item-id{
+	font-size:24px;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-right: 10px;
+	float: left;
+}
+
+textarea#facility_work_order_item{
+	display: inline;
+	
+	font-size: 24px;
+	border: 0px;
+	width: 64%; /*should be set by js*/
+	height: 30px;
+	
+}
+
+.item-info{
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.item-info > .field > *{
+	border: none;
+	-webkit-appearance: none;
+}
+
+.item-info > .field > input{
+	border: none;
+	display:inline;
+}
+
+.item-info > .field > textarea{
+	border: none;
+	width: 100%;
+	height: 50px;
+}
+
+#object-form-right{
+	display: inline-block;
+	text-align: right;
+	width:35%;
 }

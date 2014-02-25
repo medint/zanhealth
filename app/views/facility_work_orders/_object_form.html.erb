@@ -1,4 +1,8 @@
+<div id="object-form">
 
+<div id="object-form-left">
+
+<button onclick="edit_button_handler()"> Click me </button>
 
 <%= form_for(@facility_work_order) do |f| %>
   <% if @facility_work_order.errors.any? %>
@@ -13,42 +17,48 @@
 
   <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
   <div class="field">
-    <%= @language['Owner'] %><br>
+    <div class="item-id">
+    <%= @language['Item ID'] %>
+    </div>
+    <div class="item-id_field">
+    <%= f.text_area :item, :value =>  @facility_work_order.id %>
+    </div>
+  </div>
+  <div class="item-info">
+  <div class="field">
+    <%= @language['Owner'] %>
   <%#= f.collection_select :owner_id, @users, :id, :name %>
-    <%= f.number_field :owner_id %>
+    <%= f.number_field :owner_id, :value => @facility_work_order.owner_id %>
   </div>
 
   <div class="field">
-    <%= @language['Date Requested'] %><br>
-    <%= f.datetime_select :date_requested %>
+    <%= @language['Status'] %>
+    <%= f.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= @language['Date Requested'] %>
+    <%= f.date_select :date_requested %>
   </div>
   <div class="field">
-    <%= @language['Date Expires'] %><br>
-    <%= f.datetime_select :date_expire %>
+    <%= @language['Date Expires'] %>
+    <%= f.date_select :date_expire %>
   </div>
   <div class="field">
-    <%= @language['Date Completed'] %><br>
-    <%= f.datetime_select :date_completed %>
+    <%= @language['Date Completed'] %>
+    <%= f.date_select :date_completed %>
   </div>  
   <div class="field">
-    <%= @language['Request Type'] %><br>
+    <%= @language['Request Type'] %>
     <%= f.number_field :request_type %>
   </div>
   <div class="field">
-    <%= @language['Item ID'] %><br>
-    <%= f.text_area :item  %>
-  </div>
-  <div class="field">
     <%= @language['Cost'] %>
-<br> <%= f.number_field :cost %>
+ <%= f.number_field :cost %>
   </div>
   <div class="field">
     <%= @language['Description'] %><br>
     <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= @language['Status'] %><br>
-    <%= f.number_field :status %>
   </div>
   <div class="field">
     <%= @language['Cause Description'] %><br>
@@ -65,7 +75,14 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  </div>
 <% end %>
+</div>
 
-<%= link_to @language['Show'], @facility_work_order %> |
-<%= link_to @language['Back'], facility_work_orders_path %>
+<div id="object-form-right">
+  <div class = "icon"></div>
+  <%= link_to @language['Show'], @facility_work_order %> |
+  <%= link_to @language['Back'], facility_work_orders_path %>
+
+</div>
+</div>
