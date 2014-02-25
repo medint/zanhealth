@@ -15,9 +15,9 @@ class FacilityWorkOrdersController < ApplicationController
   def show
 
   	@facility_work_orders = FacilityWorkOrder.all
-    @facility_work_order_comments = FacilityWorkOrderComment.where(work_order_id:params[:id])
-    @facility_costs = FacilityCost.where(work_order_id:params[:id])
-    @facility_labor_hours = FacilityLaborHour.where(work_order_id:params[:id])
+    @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+    @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
+    @facility_labor_hours = FacilityLaborHour.where(facility_work_order_id:params[:id])
   	#@users = User.where(:facility_id => facility.id).all.to_a
 
   end
