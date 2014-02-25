@@ -3,7 +3,8 @@
     <% @facility_work_orders.each do |facility_work_order| %>
       <li class="mid-summary_ul_li">
         <div class="status-<%= facility_work_order.status %>"></div>
-        <!-- status is <%= facility_work_order.status %> -->
+        <%= link_to "hello", "facility_work_order.owner_id" %>
+        <%= facility_work_order.owner_id %>
         <div class="details">
           <p class="order_id">
             Work Order <%= facility_work_order.id %>
@@ -21,3 +22,5 @@
     <% end %>
   </ul>
 </div>
+
+
