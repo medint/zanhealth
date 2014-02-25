@@ -149,9 +149,64 @@ namespace :test do
 										:bmet_work_order => work_req
 								)
 				end
+				1.times do |lb|
+					BmetLaborHour.create(:date_started => date_u_wrc,
+										 :duration => 1,
+										 :technician_id => 1,
+										 :bmet_work_order => work_req
+										)
+				end
 			end
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
+		role_eng = Role.where(:name => "technician").first
+		facilities.each do |f|
+			users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
+			5.times do |fwo|
+				date_u_wr = Time.at(rand * Time.now.to_i)
+				work_ord = FacilityWorkOrder.create(:date_requested => date_u_wr,
+									 :date_expire => date_u_wr,
+									 :date_completed => date_u_wr,
+									 :request_type => 1,
+									 :cost => 0,
+									 :description => "Work order",
+									 :owner_id => users.sample,
+									 :requester_id => users.sample
+									)
+				FacilityWorkOrderComment.create(:datetime_stamp => Time.at(rand * Time.now.to_i),
+											:facility_work_order => work_ord,
+											:user_id => users.sample
+										   )
+				FacilityLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
+									 :duration => 1,
+									 :technician => users.sample,
+									 :facility_work_order => work_ord
+									)
+				FacilityCost.create(:name => "Cost name",
+								:unit_quantity => 2,
+								:cost => 100,
+								:facility_work_order => work_ord)
+
+			end
+		end
+		puts "Created facility work orders, facility work order comments, facility labor hours and facility costs"
+
+		facilities.each do |f|
+			5.times do |fpm|
+				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at (rand*Time.now.to_i),
+												   :days => 1,
+												   :weeks => 0,
+												   :months => 0,
+												  )
+				FacilityWorkRequest.create(:requester => "User 1",
+									   :department => "Radiology",
+									   :location => "Facility 1",
+									   :phone => "400 000 1111",
+									   :email => "example@example.com"
+									  )
+			end
+		end
+		puts "Created facility preventative maintenance and work requests"
 		
 	end
 end
