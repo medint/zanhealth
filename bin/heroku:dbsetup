@@ -1,3 +1,0 @@
-#!/bin/bash
-heroku run rake db:setup --app medinternational-qa
-# does db:schema:load, db:Seed

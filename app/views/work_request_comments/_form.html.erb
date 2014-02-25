@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <div class="field"> 
+    <input type="hidden" name="work_request_comment[user_id]" value=<%= session[:user] %>> </input> 
+  </div>
   <div class="field">
     <%= f.label :datetime_stamp %><br>
     <%= f.datetime_select :datetime_stamp %>
@@ -23,10 +26,6 @@
 		<%= f.label :work_request_id %>
     	<%= f.number_field :work_request_id %>
 	<% end %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :comment_text %><br>

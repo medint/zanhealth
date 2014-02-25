@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205212620) do
+ActiveRecord::Schema.define(version: 20140219052636) do
 
   create_table "departments", force: true do |t|
     t.string   "name"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20140205212620) do
     t.string   "asset_id"
     t.string   "item_type"
     t.string   "location"
+  end
+
+  create_table "labor_hours", force: true do |t|
+    t.datetime "date_started"
+    t.integer  "duration"
+    t.integer  "technician_id"
+    t.integer  "work_request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "languages", force: true do |t|
@@ -106,6 +115,20 @@ ActiveRecord::Schema.define(version: 20140205212620) do
     t.datetime "date"
     t.string   "vendor"
     t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parts_inventory", force: true do |t|
+    t.integer  "p_id"
+    t.string   "name"
+    t.string   "manufacturer"
+    t.string   "category"
+    t.integer  "currentQuantity"
+    t.integer  "minQuantity"
+    t.string   "location"
+    t.text     "related"
+    t.text     "actions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
