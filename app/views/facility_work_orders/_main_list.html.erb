@@ -1,0 +1,26 @@
+<div>
+  <ul id="mid-summary_ul">
+    <% @facility_work_orders.each do |facility_work_order| %>
+      <li class="mid-summary_ul_li">
+        <div class="status-<%= facility_work_order.status %>"></div>
+        <%= link_to "hello", "facility_work_order.owner_id" %>
+        <%= facility_work_order.owner_id %>
+        <div class="details">
+          <p class="order_id">
+            Work Order <%= facility_work_order.id %>
+          </p>
+          <p class="order_owner">
+            Owner: User ID #<%= facility_work_order.owner_id %>
+          </p>
+        </div>
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+        <div class="due_date">
+          Due Date: <%= facility_work_order.date_expire %>
+        </div>
+      </li>
+      <hr class="mid-summary_ul_li_hr">
+    <% end %>
+  </ul>
+</div>
+
+

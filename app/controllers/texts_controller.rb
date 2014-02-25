@@ -23,12 +23,12 @@ class TextsController < ApplicationController
     from_number = params["From"]
 	message = message_body.split("#")
 	if message.first == "item"
-		request = workRequest.create(:id => message_body.second)
-		workRequestComment.create(:work_request_id => request.id,:comment_text => message.third)
+		request = BmetWorkOrder.create(:id => message_body.second)
+		BmetWorkOrderComment.create(:bmet_work_order_id => request.id,:comment_text => message.third)
 	else
-		comment = workRequestComment.create(:work_request_id => message.second, :comment_text => message.fourth)
-		#if comment.work_request.status != message.third
-			#comment.work_request.status => message.third
+		comment = BmetWorkOrderComment.create(:bmet_work_order_id => message.second, :comment_text => message.fourth)
+		#if comment.bmet_work_order.status != message.third
+			#comment.bmet_work_order.status => message.third
 		#end
 	end
     SMSLogger.log_text_message from_number, message_body
@@ -87,6 +87,6 @@ class TextsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def text_params
-      params.require(:text).permit(:content, :number, :work_request_id, :receive)
+      params.require(:text).permit(:content, :number, :bmet_work_order_id, :receive)
     end
 end

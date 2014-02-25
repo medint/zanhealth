@@ -1,0 +1,88 @@
+<div id="object-form">
+
+<div id="object-form-left">
+
+<button onclick="edit_button_handler()"> Click me </button>
+
+<%= form_for(@facility_work_order) do |f| %>
+  <% if @facility_work_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_work_order.errors.count, "error") %> prohibited this facility_work_order from being saved:</h2>
+<ul> <% @facility_work_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <div class="field">
+    <div class="item-id">
+    <%= @language['Item ID'] %>
+    </div>
+    <div class="item-id_field">
+    <%= f.text_area :item, :value =>  @facility_work_order.id %>
+    </div>
+  </div>
+  <div class="item-info">
+  <div class="field">
+    <%= @language['Owner'] %>
+  <%#= f.collection_select :owner_id, @users, :id, :name %>
+    <%= f.number_field :owner_id, :value => @facility_work_order.owner_id %>
+  </div>
+
+  <div class="field">
+    <%= @language['Status'] %>
+    <%= f.number_field :status %>
+  </div>
+
+  <div class="field">
+    <%= @language['Date Requested'] %>
+    <%= f.date_select :date_requested %>
+  </div>
+  <div class="field">
+    <%= @language['Date Expires'] %>
+    <%= f.date_select :date_expire %>
+  </div>
+  <div class="field">
+    <%= @language['Date Completed'] %>
+    <%= f.date_select :date_completed %>
+  </div>  
+  <div class="field">
+    <%= @language['Request Type'] %>
+    <%= f.number_field :request_type %>
+  </div>
+  <div class="field">
+    <%= @language['Cost'] %>
+ <%= f.number_field :cost %>
+  </div>
+  <div class="field">
+    <%= @language['Description'] %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= @language['Cause Description'] %><br>
+    <%= f.text_area :cause_description %>
+  </div>
+  <div class="field">
+    <%= @language['Action Taken'] %><br>
+    <%= f.text_area :action_taken %>
+  </div>
+  <div class="field">
+    <%= @language['Prevention Taken'] %><br>
+    <%= f.text_area :prevention_taken %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+<% end %>
+</div>
+
+<div id="object-form-right">
+  <div class = "icon"></div>
+  <%= link_to @language['Show'], @facility_work_order %> |
+  <%= link_to @language['Back'], facility_work_orders_path %>
+
+</div>
+</div>

@@ -2,17 +2,17 @@ class ApplicationController < ActionController::Base
     @@DEFAULT_LANGUAGE = 'english'
     
     @@PERMISSIONS = {
-        work_request_add: {
+        bmet_work_order_add: {
             admin: true,
             technician: true,
             chief: true
         },
-        work_request_edit: {
+        bmet_work_order_edit: {
             admin: true,
             technician: true,
             chief: true
         },
-        work_request_delete: {
+        bmet_work_order_delete: {
             admin: true,
             technician: false,
             chief: true

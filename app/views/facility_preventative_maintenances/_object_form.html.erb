@@ -1,0 +1,52 @@
+
+
+<%= form_for(@facility_preventative_maintenance) do |f| %>
+  <% if @facility_preventative_maintenance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_preventative_maintenance.errors.count, "error") %> prohibited this facility_preventative_maintenance from being saved:</h2>
+<ul> <% @facility_preventative_maintenance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <div class="field">
+    <%= @language['Last Date Checked'] %><br>
+  <%#= f.collection_select :owner_id, @users, :id, :name %>
+    <%= f.datetime_select :last_date_checked %>
+  </div>
+
+  <div class="field">
+    <%= @language['Days'] %><br>
+    <%= f.number_field :days %>
+  </div>
+  <div class="field">
+    <%= @language['Weeks'] %><br>
+    <%= f.number_field :weeks %>
+  </div>
+  <div class="field">
+    <%= @language['Months'] %><br>
+    <%= f.number_field :months %>
+  </div>  
+  <div class="field">
+    <%= @language['Next Date'] %><br>
+    <%= f.datetime_select :next_date %>
+  </div>
+  <div class="field">
+    <%= @language['Created At'] %><br>
+    <%= f.datetime_select :created_at  %>
+  </div>
+  <div class="Updated At">
+    <%= @language['Cost'] %>
+<br> <%= f.datetime_select :updated_at %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to @language['Show'], @facility_preventative_maintenance %> |
+<%= link_to @language['Back'], facility_preventative_maintenances_path %>

@@ -1,0 +1,37 @@
+<%= form_for(@bmet_work_order_comment) do |f| %>
+  <% if @bmet_work_order_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bmet_work_order_comment.errors.count, "error") %> prohibited this bmet_work_order_comment from being saved:</h2>
+
+      <ul>
+      <% @bmet_work_order_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field"> 
+    <input type="hidden" name="bmet_work_order_comment[user_id]" value=<%= session[:user] %>> </input> 
+  </div>
+  <div class="field">
+    <%= f.label :datetime_stamp %><br>
+    <%= f.datetime_select :datetime_stamp %>
+  </div>
+  <div class="field">
+	  <% if params[:id].present? %>
+    	<%= f.label :bmet_work_order_id %><br>
+		<%= params[:id] %>
+	<% else %>
+		<%= f.label :bmet_work_order_id %>
+    	<%= f.number_field :bmet_work_order_id %>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :comment_text %><br>
+    <%= f.text_area :comment_text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

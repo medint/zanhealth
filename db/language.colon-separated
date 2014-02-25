@@ -75,6 +75,7 @@ New Work Request: 'xxx xxx xxx'
 Notice: 'xxx'
 Number: 'xxx'
 Owner: Mmiliki
+Owner ID: 'xxx'
 Prevention Taken: Uzuiaji Uliofanywa
 Price: Bei
 Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
@@ -86,6 +87,7 @@ Remarks: 'xxx'
 Request ID: Nambari ya ombi (Request number)
 Request Type: Aina ya ombi
 Requester: Anayewasilisha ombi
+Requester ID: 'xxx'
 Role: 'xxx'
 Room: 'xxx'
 Serial Number: Namba tambulishi
@@ -103,6 +105,7 @@ Telephone number: 'xxx xxx'
 Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) 
 Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax)
 Time: Wakati
+Updated At:'xxx'
 Urgency: 'xxx'
 User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name
 User: 'xxx'

@@ -4,14 +4,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-#<<<<<<< HEAD
-  	  #@work_requests = WorkRequest.includes(:item)
-  	  #@work_requests.each do |work_request|
-  	  #	  user.facility == work_request.item.department.facility
-    #end
-#=======
-  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
-#>>>>>>> 36101328d2f7f8d54312ac865e8443f1cf68dcb5
+      @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   # GET /work_requests/1
@@ -78,20 +71,19 @@ class WorkRequestsController < ApplicationController
 
   # GET /my_work_requests
   def my
-    @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.includes(:work_request)
-    @texts.each do |text|
-    	user.facility == text.work_request.item.department.facility
-    end
+  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("owner_id =?",user.id).references(:owner)
+    @texts = Text.includes(:work_request => {:item => {:department => :facility}}).where("facilities.id=?",user.facility.id).references(:facility)
   end
 
   # GET /detailed_work_requests
   def detailed 
-    @work_requests = WorkRequest.where(owner_id: user.id)
-    @texts = Text.includes(:work_request)
-    @texts.each do|text|
-      user.facility == text.work_request.item.department.facility
-    end
+  	  @work_requests=WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility}, :model]}).where("facilities.id=?",user.facility).references(:facility)
+   # @work_requests = WorkRequest.where(owner_id: user.id)
+   	  @texts = Text.includes(:work_request => {:item => {:department => :facility}}).where("facilities.id=?",user.facility).references(:facility)
+    #@texts = Text.includes(:work_request)
+    #@texts.each do|text|
+     # user.facility == text.work_request.item.department.facility
+    #end
   end
   private
     # Use callbacks to share common setup or constraints between actions.
