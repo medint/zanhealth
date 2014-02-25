@@ -5,23 +5,23 @@
 
 //window resizing
 
+if (window.location.toString().match(/facility_work_orders/)) {
+	$(document).ready(function() {
+		/* define variables */
+		
+		/* window resizing */
 
-$(document).ready(function() {
-	/* define variables */
-	
-	/* window resizing */
+		window_resize_handler();
 
-	window_resize_handler();
-
-	if(window.attachEvent) {
-    	window.attachEvent('onresize', window_resize_handler);
-	}else if(window.addEventListener) {
-	    window.addEventListener('resize', window_resize_handler, true);
-	}else {
-	    //The browser does not support Javascript event binding
-	}
-});
-
+		if(window.attachEvent) {
+		window.attachEvent('onresize', window_resize_handler);
+		}else if(window.addEventListener) {
+		    window.addEventListener('resize', window_resize_handler, true);
+		}else {
+		    //The browser does not support Javascript event binding
+		}
+	});
+}
 
 
 
