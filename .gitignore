@@ -10,3 +10,4 @@ app/Config/database.php
 *.swp
 *.log
 db/development.sqlite3
+public/assets
