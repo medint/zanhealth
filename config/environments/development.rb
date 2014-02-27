@@ -25,5 +25,9 @@ Med8::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
+  # jshum 2014-02-26 true->false. better model of what the server does.
   config.assets.debug = false 
+
+  # jshum 2014-02-26
+  config.serve_static_assets = false
 end
