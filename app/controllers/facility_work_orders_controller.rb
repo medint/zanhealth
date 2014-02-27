@@ -1,10 +1,13 @@
 class FacilityWorkOrdersController < ApplicationController
   layout 'layouts/facilities_app'
   before_action :set_facility_work_order, only: [:show, :update]
+  before_action :set_status, only: [:show, :new]
 
   def new
     @facility_work_order = FacilityWorkOrder.new
     @facility_work_orders = FacilityWorkOrder.all
+    @users = User.where(:facility_id => user.facility.id).all.to_a
+    #@users = Owner.where(:facility_id => facility.id).all.to_a
     #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
@@ -18,7 +21,8 @@ class FacilityWorkOrdersController < ApplicationController
     @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_labor_hours = FacilityLaborHour.where(facility_work_order_id:params[:id])
-  	#@users = User.where(:facility_id => facility.id).all.to_a
+  	@users = User.where(:facility_id => user.facility.id).all.to_a
+    
 
   end
 
@@ -58,6 +62,14 @@ class FacilityWorkOrdersController < ApplicationController
 
   def set_facility_work_order
       @facility_work_order = FacilityWorkOrder.find(params[:id])
+  end
+
+  def set_status
+    @status= {
+      'Unstarted' => 0,
+      'In Progress' => 1,
+      'Completed' => 2
+    }
   end
 
   def facility_work_order_params
