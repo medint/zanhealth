@@ -4,6 +4,7 @@ namespace :test do
 	desc "seed the db with test data"
 	task :easy_seed => :environment do
 		puts "Starting test data import. Might take a while...."
+		Role.destroy_all
 		role_data = File.open(File.join("test", "test_data","import_roles.csv"),"r")
 		csv_roles = CSV.parse(role_data, :headers => true)
 		csv_roles.each do |row|
@@ -11,6 +12,7 @@ namespace :test do
 		end
 		puts "Imported roles"
 		
+		Facility.destroy_all
 		facilities = []
 		facility_data = File.open(File.join("test", "test_data", "import_facilities.csv"),"r")
 		csv_facility = CSV.parse(facility_data, :headers => true)
@@ -20,6 +22,7 @@ namespace :test do
 		end
 		puts "Imported facilities"
 
+		User.destroy_all
 		user_data = File.open(File.join("test", "test_data", "import_users.csv"),"r")
 		csv_user = CSV.parse(user_data, :headers => true)
 		csv_user.each do |row|
@@ -34,6 +37,7 @@ namespace :test do
 		end
 		puts "Imported users"
 
+		Department.destroy_all
 		dept_data = File.open(File.join("test", "test_data", "import_departments.csv"),"r")
 		csv_dept = CSV.parse(dept_data, :headers => true)
 		csv_dept.each do |row|
@@ -43,6 +47,8 @@ namespace :test do
 		end
 		puts "Imported departments"
 
+		Model.destroy_all
+		BmetNeed.destroy_all
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
@@ -77,6 +83,12 @@ namespace :test do
 		end
 		puts "Imported languages"
 
+		BmetItem.destroy_all
+		BmetItemHistory.destroy_all
+		BmetWorkOrder.destroy_all
+		BmetWorkOrderComment.destroy_all
+		Text.destroy_all
+		BmetLaborHour.destroy_all
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
@@ -150,7 +162,7 @@ namespace :test do
 								)
 				end
 				1.times do |lb|
-					BmetLaborHour.create(:date_started => date_u_wrc,
+					BmetLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
 										 :duration => 1,
 										 :technician_id => 1,
 										 :bmet_work_order => work_req
@@ -159,10 +171,15 @@ namespace :test do
 			end
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
+
+		FacilityWorkOrder.destroy_all
+		FacilityWorkOrderComment.destroy_all
+		FacilityLaborHour.destroy_all
+		FacilityCost.destroy_all
 		role_eng = Role.where(:name => "technician").first
 		facilities.each do |f|
 			users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
-			5.times do |fwo|
+			100.times do |fwo|
 				date_u_wr = Time.at(rand * Time.now.to_i)
 				work_ord = FacilityWorkOrder.create(:date_requested => date_u_wr,
 									 :date_expire => date_u_wr,
@@ -170,12 +187,12 @@ namespace :test do
 									 :request_type => 1,
 									 :cost => 0,
 									 :description => "Work order",
-									 :owner_id => users.sample,
-									 :requester_id => users.sample
+									 :owner => users.sample,
+									 :requester => users.sample
 									)
 				FacilityWorkOrderComment.create(:datetime_stamp => Time.at(rand * Time.now.to_i),
 											:facility_work_order => work_ord,
-											:user_id => users.sample
+											:user => users.sample
 										   )
 				FacilityLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
 									 :duration => 1,
@@ -191,8 +208,10 @@ namespace :test do
 		end
 		puts "Created facility work orders, facility work order comments, facility labor hours and facility costs"
 
+		FacilityPreventativeMaintenance.destroy_all
+		FacilityWorkRequest.destroy_all
 		facilities.each do |f|
-			5.times do |fpm|
+			20.times do |fpm|
 				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at(rand * Time.now.to_i),
 												   :days => 1,
 												   :weeks => 0,

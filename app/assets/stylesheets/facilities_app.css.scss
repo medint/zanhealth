@@ -44,7 +44,7 @@ body {
 }
 
 #left-nav > #logo {
-	background-image:url(/assets/logo.png);
+	background-image:url(image_path('logo.png'));
 	background-size: 118px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -94,7 +94,7 @@ body {
 
 #left-nav > #left-nav_ul > .left-nav_ul_li > #work-order-icon{
 	float: left;
-	background-image: url(/assets/left/workorder.png);
+	background-image: url(image_path('left/workorder.png'));
 	background-repeat: no-repeat;
 	background-size: 12px;
 	height: 13px;
@@ -105,7 +105,7 @@ body {
 
 #left-nav > #left-nav_ul > .left-nav_ul_li > #preventative-maintenance-icon{
 	float: left;
-	background-image: url(/assets/left/preventativemaintenance.png);
+	background-image: url(image_path('left/preventativemaintenance.png'));
 	background-repeat: no-repeat;
 	background-size: 12px;
 	height: 13px;
@@ -116,7 +116,7 @@ body {
 
 #left-nav > #left-nav_ul > .left-nav_ul_li > #inbox-icon{
 	float: left;
-	background-image: url(/assets/left/inbox.png);
+	background-image: url(image_path('left/inbox.png'));
 	background-repeat: no-repeat;
 	background-size: 12px;
 	height: 13px;

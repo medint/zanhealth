@@ -1,0 +1,1 @@
+heroku run rake db:migrate:status --app medinternational-qa
