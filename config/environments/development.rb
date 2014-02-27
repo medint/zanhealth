@@ -29,5 +29,5 @@ Med8::Application.configure do
   config.assets.debug = false 
 
   # jshum 2014-02-26
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 end
