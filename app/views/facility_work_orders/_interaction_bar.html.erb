@@ -1,3 +1,32 @@
-<div>
-listing all facilities work orders
+Filter : <div class="dropdown">
+  <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
+     Select Status
+     <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+   <li>
+         <input type="checkbox" name="unstarted" value="unstarted">Unstarted
+   </li>
+   <li>
+         <input type="checkbox" name="inprogress" value="inprogress">In Progress
+   </li>
+   <li>
+         <input type="checkbox" name="completed" value="completed">Completed
+   </li>
+  </ul>
 </div>
+
+Sort : <div class="dropdown">
+  <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">Select Attribute</a>
+  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+   <li>Date Created</li>
+   <li>Date Started</li>
+   <li>Requester</li>
+   <li>Owner</li>
+   <li>Status</li>
+  </ul>
+</div>
+
+<button id=button>sort</button>
+<button id=button>add</button>
+<button id=button>print</button>

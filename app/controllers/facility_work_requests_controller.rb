@@ -31,6 +31,28 @@ before_action :set_facility_work_request, only: [:show, :update]
     end
   end
 
+  def create
+    @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
+
+    respond_to do |format|
+      if @facility_work_request.save
+        format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @facility_work_request }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @facility_work_request.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @facility_work_request.destroy
+    respond_to do |format|
+      format.html { redirect_to facility_work_requests_url }
+      format.json { head :no_content }
+    end
+  end
+
   def set_facility_work_request
     @facility_work_request = FacilityWorkRequest.find(params[:id])
   end

@@ -53,3 +53,12 @@ function edit_button_handler(){
 		object_form.style.display="none";
 	}
 }
+
+$(document).ready(function() {
+   $('.dropdown-menu').on('click', function(e) {
+       if($(this).hasClass('dropdown-menu-form')) {
+           e.stopPropagation();
+       }
+   });
+});
+

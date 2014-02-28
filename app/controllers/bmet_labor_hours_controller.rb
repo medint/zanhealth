@@ -28,7 +28,7 @@ class BmetLaborHoursController < ApplicationController
   def update
     respond_to do |format|
       if @labor_hour.update(labor_hour_params)
-        format.html { redirect_to @labor_hour, notice: 'Work request was successfully updated.' }
+        format.html { redirect_to @labor_hour, notice: 'Bmet Labor Hour was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

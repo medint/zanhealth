@@ -24,16 +24,16 @@
     <%= f.text_area :item, :value =>  @facility_work_order.id %>
     </div>
   </div>
-  <div class="item-info">
+
+  <div class="item-info">    
   <div class="field">
     <%= @language['Owner'] %>
-  <%#= f.collection_select :owner_id, @users, :id, :name %>
-    <%= f.number_field :owner_id, :value => @facility_work_order.owner_id %>
+    <%= f.collection_select :owner_id, @users, :id, :name %>
   </div>
 
   <div class="field">
     <%= @language['Status'] %>
-    <%= f.number_field :status %>
+    <%= f.select( :status, @status) %>
   </div>
 
   <div class="field">
