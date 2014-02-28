@@ -11,3 +11,4 @@ app/Config/database.php
 *.log
 db/development.sqlite3
 public/assets
+.idea/
