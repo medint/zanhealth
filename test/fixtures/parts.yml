@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  name: MyString
+  manufacturer: MyString
+  category: MyString
+  currentQuantity: 
+  minQuantity: 
+  location: MyString
+  related: MyText
+  actions: MyText
+
+two:
+  id: 
+  name: MyString
+  manufacturer: MyString
+  category: MyString
+  currentQuantity: 
+  minQuantity: 
+  location: MyString
+  related: MyText
+  actions: MyText

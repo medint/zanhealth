@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @part.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @part.name %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @part.manufacturer %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @part.category %>
+</p>
+
+<p>
+  <strong>Currentquantity:</strong>
+  <%= @part.currentQuantity %>
+</p>
+
+<p>
+  <strong>Minquantity:</strong>
+  <%= @part.minQuantity %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @part.location %>
+</p>
+
+<p>
+  <strong>Related:</strong>
+  <%= @part.related %>
+</p>
+
+<p>
+  <strong>Actions:</strong>
+  <%= @part.actions %>
+</p>
+
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>
