@@ -4,13 +4,8 @@
     <%= link_to(facility_work_order) do %>
       <li class="mid-summary_ul_li">
         <div class="status-<%= facility_work_order.status %>"></div>
-<<<<<<< HEAD
-        
-        
-=======
         <%= link_to "hello", "facility_work_order.owner_id" %>
         <%= User.find_by(id: facility_work_order.owner_id).try(:name) %>
->>>>>>> 8fc6e627a2628efb485e00944c338fedad9f8297
         <div class="details">
           <p class="order_id">
             Work Order <%= facility_work_order.id %>
