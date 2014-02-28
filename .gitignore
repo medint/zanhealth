@@ -13,3 +13,4 @@ db/development.sqlite3
 public/assets
 .rbenv-gemsets
 .ruby-version
+.idea/
