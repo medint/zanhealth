@@ -56,11 +56,18 @@ function edit_button_handler(){
 
 $(document).ready(function() {
 
-	var checkB = document.getElementById("cbox1");
-	//var checkB = $("#cbox1");
+	$("#cbox0").prop("checked",true)
+	$("#cbox1").prop("checked",true)
+	$("#cbox2").prop("checked",true)
+
+	addListenerToBox(document.getElementById("cbox0"))
+	addListenerToBox(document.getElementById("cbox1"))
+	addListenerToBox(document.getElementById("cbox2"))
 
 
+});
 
+function addListenerToBox(checkB){
 	if(checkB.attachEvent) {
 		console.log("b");
 		(checkB).attachEvent('onchange', checkbox_filter_handler);
@@ -68,12 +75,26 @@ $(document).ready(function() {
 		console.log("c");
 		(checkB).addEventListener('change', checkbox_filter_handler, true);
 	}else {
-		console.log("d");
-	    //The browser does not support Javascript event binding
+		console.log("d");	    
 	}
-});
+}
 
 function checkbox_filter_handler(){
+	if ($("#cbox0").prop("checked")==false){
+		$(".status-0").parent().hide()
+	}else{
+		$(".status-0").parent().show()
+	}
+	if ($("#cbox1").prop("checked")==false){
+		$(".status-1").parent().hide()
+	}else{
+		$(".status-1").parent().show()
+	}
+	if ($("#cbox2").prop("checked")==false){
+		$(".status-2").parent().hide()
+	}else{
+		$(".status-2").parent().show()
+	}
 	
 };
 
