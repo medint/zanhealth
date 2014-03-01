@@ -204,7 +204,7 @@ body {
 }
 
 #mid-summary_ul > a > .mid-summary_ul_li > .details > .order_id{
-	padding-top: 14px;
+	padding-top: 8px;
 	font-weight: bold;
 	font-size: 12px;
 	color: #5c5c5c;
@@ -339,3 +339,71 @@ textarea#facility_work_order_item{
 	text-align: right;
 	width:35%;
 }
+
+  /********************************************/
+ /*              INTERACTION BAR             */
+/********************************************/
+
+#top-bar{
+	color: #bababa;
+}
+
+#top-bar > #left-top{
+	margin-top: 23px;
+	margin-left: 15px;
+	font-size: 11px;
+	width: 40%;
+}
+
+#top-bar > #left-top > *{
+	float:left;
+}
+
+#top-bar > #left-top > #top-dropdown{
+	display: block;
+	vertical-align: middle;
+	padding-top: 1px;
+}
+
+#top-bar > #left-top > #top-dropdown > *{
+	display: inline;
+}
+
+#top-bar > #left-top > #top-dropdown> .dropdown >a {
+	margin-left: 5px;
+	border-color: #bababa;
+	border-style: solid;
+	border-width: 1px;
+	
+	color: white;
+	font-weight: 600;
+}
+
+#top-bar > #left-top > #top-dropdown> .dropdown > a > .caret{
+	margin-left: 20px;
+	
+}
+
+#top-bar > #left-top > #top-button > *{
+	display: inline-block;
+	margin-left: 15px
+}
+
+#top-bar > #left-top > #top-button > #print-button{
+	background-image: url(image_path('top/printericon.png'));
+	width: 22px;
+	height: 22px;
+}
+
+#top-bar > #left-top > #top-button > #delete-button{
+	background-image: url(image_path('top/trashicon.png'));
+	width: 23px;
+	height: 22px;
+}
+
+#top-bar > #left-top > #top-button > #add-button{
+	background-image: url(image_path('top/addicon.png'));
+	width: 23px;
+	height: 22px;
+}
+

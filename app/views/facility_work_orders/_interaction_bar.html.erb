@@ -1,32 +1,41 @@
-Filter : <div class="dropdown">
-  <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
-     Select Status
-     <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
-   <li>
-         <input type="checkbox" name="unstarted" value="unstarted">Unstarted
-   </li>
-   <li>
-         <input type="checkbox" name="inprogress" value="inprogress">In Progress
-   </li>
-   <li>
-         <input type="checkbox" name="completed" value="completed">Completed
-   </li>
-  </ul>
-</div>
+<div id='left-top'>
+  <div id="top-dropdown">
+    Filter : <div class="dropdown">
+      <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
+         Select Status
+         <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+       <li>
+             <input type="checkbox" name="unstarted" value="unstarted">Unstarted
+       </li>
+       <li>
+             <input type="checkbox" name="inprogress" value="inprogress">In Progress
+       </li>
+       <li>
+             <input type="checkbox" name="completed" value="completed">Completed
+       </li>
+      </ul>
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+    Sort : <div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+        Select Attribute
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+       <li>Date Created</li>
+       <li>Date Started</li>
+       <li>Requester</li>
+       <li>Owner</li>
+       <li>Status</li>
+      </ul>
+    </div>
+  </div>
 
-Sort : <div class="dropdown">
-  <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">Select Attribute</a>
-  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
-   <li>Date Created</li>
-   <li>Date Started</li>
-   <li>Requester</li>
-   <li>Owner</li>
-   <li>Status</li>
-  </ul>
+  <div id="top-button">
+    <a id='print-button'></a>
+    <a id='delete-button'></a>
+    <a id='add-button'></a>
+  </div>
 </div>
-
-<button id=button>sort</button>
-<button id=button>add</button>
-<button id=button>print</button>
