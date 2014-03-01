@@ -33,8 +33,8 @@ function window_resize_handler(){
 	var right_detail = document.getElementById("right-detail");
 
 	/* width */
-	mid_summary.style.width = ((window_width-240)/2)-1;
-	right_detail.style.width = ((window_width-240)/2)-1;
+	mid_summary.style.width = ((window_width-240)/2)-5;
+	right_detail.style.width = ((window_width-240)/2)-5;
 	mid_summary.style.height = window_height-135;
 	right_detail.style.height = window_height-135;
 

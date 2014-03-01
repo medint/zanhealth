@@ -1,6 +1,7 @@
 <div>
   <ul id="mid-summary_ul">
     <% @facility_work_orders.each do |facility_work_order| %>
+    <%= link_to(facility_work_order) do %>
       <li class="mid-summary_ul_li">
         <div class="status-<%= facility_work_order.status %>"></div>
         <%= link_to "hello", "facility_work_order.owner_id" %>
@@ -19,6 +20,7 @@
         </div>
       </li>
       <hr class="mid-summary_ul_li_hr">
+    <% end %>
     <% end %>
   </ul>
 </div>

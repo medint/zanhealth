@@ -1,5 +1,7 @@
 Med8::Application.routes.draw do
 
+  resources :parts
+
   resources :texts
   
   resources :bmet_work_order_comments

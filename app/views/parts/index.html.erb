@@ -1,0 +1,43 @@
+<h1>Listing parts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Manufacturer</th>
+      <th>Category</th>
+      <th>Currentquantity</th>
+      <th>Minquantity</th>
+      <th>Location</th>
+      <th>Related</th>
+      <th>Actions</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.id %></td>
+        <td><%= part.name %></td>
+        <td><%= part.manufacturer %></td>
+        <td><%= part.category %></td>
+        <td><%= part.currentQuantity %></td>
+        <td><%= part.minQuantity %></td>
+        <td><%= part.location %></td>
+        <td><%= part.related %></td>
+        <td><%= part.actions %></td>
+        <td><%= link_to 'Show', part %></td>
+        <td><%= link_to 'Edit', edit_part_path(part) %></td>
+        <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part', new_part_path %>
