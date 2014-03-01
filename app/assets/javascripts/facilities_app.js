@@ -14,7 +14,7 @@ if (window.location.toString().match(/facility_work_orders/)) {
 		window_resize_handler();
 
 		if(window.attachEvent) {
-		window.attachEvent('onresize', window_resize_handler);
+			window.attachEvent('onresize', window_resize_handler);
 		}else if(window.addEventListener) {
 		    window.addEventListener('resize', window_resize_handler, true);
 		}else {
@@ -53,6 +53,29 @@ function edit_button_handler(){
 		object_form.style.display="none";
 	}
 }
+
+$(document).ready(function() {
+
+	var checkB = document.getElementById("cbox1");
+	//var checkB = $("#cbox1");
+
+
+
+	if(checkB.attachEvent) {
+		console.log("b");
+		(checkB).attachEvent('onchange', checkbox_filter_handler);
+	}else if(checkB.addEventListener) {
+		console.log("c");
+		(checkB).addEventListener('change', checkbox_filter_handler, true);
+	}else {
+		console.log("d");
+	    //The browser does not support Javascript event binding
+	}
+});
+
+function checkbox_filter_handler(){
+	
+};
 
 $(document).ready(function() {
    $('.dropdown-menu').on('click', function(e) {
