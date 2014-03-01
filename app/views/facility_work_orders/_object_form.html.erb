@@ -25,8 +25,7 @@
         </div>
         <div class="field">
           <%= @language['Date Started'] %>
-          Date Started
-          <%= f.date_select :date_started %>
+          <%=  @facility_work_order.date_started.strftime("%^b %d, %Y") %>
         </div>
         <div class="field">
           <%= @language['Date Expires'] %>
