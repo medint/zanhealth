@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140224043446) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.integer  "work_request_id"
   end
 
   create_table "facility_labor_hours", force: true do |t|
