@@ -2,8 +2,6 @@
 
 <div id="object-form-left">
 
-<button onclick="edit_button_handler()"> Click me </button>
-
 <%= form_for(@facility_work_order) do |f| %>
   <% if @facility_work_order.errors.any? %>
     <div id="error_explanation">
@@ -81,8 +79,6 @@
 
 <div id="object-form-right">
   <div class = "icon"></div>
-  <%= link_to @language['Show'], @facility_work_order %> |
-  <%= link_to @language['Back'], facility_work_orders_path %>
 
 </div>
 </div>
