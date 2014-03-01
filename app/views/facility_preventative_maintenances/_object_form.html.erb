@@ -2,7 +2,7 @@
   <% if @facility_preventative_maintenance.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@facility_preventative_maintenance.errors.count, "error") %> prohibited this facility_preventative_maintenance from being saved:</h2>
-<ul> <% @facility_preventative_maintenance.errors.full_messages.each do |msg| %>
+      <ul><% @facility_preventative_maintenance.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
