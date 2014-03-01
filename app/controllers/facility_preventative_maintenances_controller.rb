@@ -11,13 +11,16 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def index
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all 
+    @facility_preventative_maintenances.map {|i| i.calc_days_since}
+    
   end
 
   def show
 
 
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+    @facility_preventative_maintenances.map {|i| i.calc_days_since}
 
     #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(preventative_maintenance_id:params[:id])
     #@facility_costs = FacilityCost.where(preventative_maintenance_id:params[:id])
@@ -72,7 +75,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
   def facility_preventative_maintenance_params
       p params
-      params.require(:facility_preventative_maintenance).permit(:last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
+      params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
   end
 
 end
