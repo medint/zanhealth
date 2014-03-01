@@ -1,6 +1,6 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
-  before_action :set_facility_preventative_maintenance, only: [:show, :update]
+  before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
 
   def new
 
