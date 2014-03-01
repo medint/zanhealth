@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301170421) do
+ActiveRecord::Schema.define(version: 20140301190527) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -113,8 +113,9 @@ ActiveRecord::Schema.define(version: 20140301170421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.integer  "work_request_id"
   end
+
+  add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id"
 
   create_table "facility_labor_hours", force: true do |t|
     t.datetime "date_started"
@@ -124,6 +125,8 @@ ActiveRecord::Schema.define(version: 20140301170421) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "facility_labor_hours", ["facility_work_order_id"], name: "index_facility_labor_hours_on_facility_work_order_id"
 
   create_table "facility_preventative_maintenances", force: true do |t|
     t.datetime "last_date_checked"
@@ -144,6 +147,8 @@ ActiveRecord::Schema.define(version: 20140301170421) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "facility_work_order_comments", ["facility_work_order_id"], name: "index_facility_work_order_comments_on_facility_work_order_id"
 
   create_table "facility_work_orders", force: true do |t|
     t.datetime "date_requested"
@@ -187,30 +192,6 @@ ActiveRecord::Schema.define(version: 20140301170421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
-  end
-
-  create_table "parts", force: true do |t|
-    t.integer  "p_id"
-    t.string   "name"
-    t.string   "category"
-    t.integer  "quantity"
-    t.integer  "minQ"
-    t.string   "location"
-    t.text     "related"
-    t.string   "needs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "partsTransactions", force: true do |t|
-    t.integer  "db_id"
-    t.integer  "parts_id"
-    t.integer  "changeQ"
-    t.datetime "date"
-    t.string   "vendor"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "parts_inventory", force: true do |t|

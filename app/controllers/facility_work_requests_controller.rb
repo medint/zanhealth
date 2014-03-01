@@ -1,5 +1,5 @@
 class FacilityWorkRequestsController < ApplicationController
-before_action :set_facility_work_request, only: [:show, :update]
+before_action :set_facility_work_request, only: [:show, :update, :destroy]
 
   layout 'layouts/facilities_app'
 
