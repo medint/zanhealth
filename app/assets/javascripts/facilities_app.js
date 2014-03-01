@@ -20,15 +20,18 @@ if (window.location.toString().match(/facility_work_orders/)) {
 		}else {
 		    //The browser does not support Javascript event binding
 		}
+
+
 	});
 }
+
 
 
 
 function window_resize_handler(){
 	var window_width = window.outerWidth;
 	var window_height = window.outerHeight;
-	
+	console.log("HELLO!!!!!!");
 	var mid_summary = document.getElementById("mid-summary");
 	var right_detail = document.getElementById("right-detail");
 
