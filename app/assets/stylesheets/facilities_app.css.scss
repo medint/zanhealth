@@ -332,6 +332,14 @@ body {
 	line-height: 12px
 }
 
+#delete-button2{
+	background-image: url(image_path('top/trashicon.png'));
+	width: 23px;
+	height: 22px;
+	display:block;
+
+}
+
 .item-id{
 	font-size:24px;
 	font-weight: bold;

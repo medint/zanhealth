@@ -1,3 +1,5 @@
+<%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
+
 <div>
 <%= render :partial => 'object_view' %>
 </div>
@@ -8,19 +10,3 @@
 <%= render :partial => 'facility_work_orders/object_convert' %>
 </div>
 
-<!--
-	t.datetime "date_requested"
-    t.datetime "date_expire"
-    t.datetime "date_completed"
-    t.integer  "request_type"
-    t.integer  "item"
-    t.integer  "cost"
-    t.text     "description"
-    t.integer  "status"
-    t.integer  "owner_id"
-    t.integer  "requester_id"
-    t.text     "cause_description"
-    t.text     "action_taken"
-    t.text     "prevention_taken"
-    t.datetime "created_at"
-    t.datetime "updated_at"-->

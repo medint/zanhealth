@@ -7,13 +7,13 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
        <li>
-             <input type="checkbox" name="unstarted" value="unstarted">Unstarted
+             <input id="cbox0" type="checkbox" name="unstarted" value="unstarted">Unstarted
        </li>
        <li>
-             <input type="checkbox" name="inprogress" value="inprogress">In Progress
+             <input id="cbox1" type="checkbox" name="inprogress" value="inprogress">In Progress
        </li>
        <li>
-             <input type="checkbox" name="completed" value="completed">Completed
+             <input id="cbox2" type="checkbox" name="completed" value="completed">Completed
        </li>
       </ul>
     </div>
@@ -35,7 +35,6 @@
 
   <div id="top-button">
     <a id='print-button'></a>
-    <a id='delete-button'></a>
     <a href= "<%=new_facility_work_order_path%>" id='add-button'></a>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class FacilityWorkOrdersController < ApplicationController
   layout 'layouts/facilities_app'
-  before_action :set_facility_work_order, only: [:show, :update]
+  before_action :set_facility_work_order, only: [:show, :update, :destroy]
   before_action :set_status, only: [:show, :new]
   before_action :set_users, only: [:index, :new, :show]
 
@@ -51,16 +51,16 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
+  def set_facility_work_order
+      @facility_work_order = FacilityWorkOrder.find(params[:id])
+  end
+
   def destroy
     @facility_work_order.destroy
     respond_to do |format|
       format.html { redirect_to facility_work_orders_url }
       format.json { head :no_content }
     end
-  end
-
-  def set_facility_work_order
-      @facility_work_order = FacilityWorkOrder.find(params[:id])
   end
 
   def set_status

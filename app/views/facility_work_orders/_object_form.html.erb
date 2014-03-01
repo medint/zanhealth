@@ -12,6 +12,7 @@
       </div>
     <% end %>
 
+<<<<<<< HEAD
     <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
 
 
@@ -19,6 +20,16 @@
     <div class="field">
       <%= @language['Owner'] %>
       <%= f.collection_select :owner_id, @users, :id, :name %>
+=======
+<%= form_for(@facility_work_order) do |f| %>
+  <% if @facility_work_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_work_order.errors.count, "error") %> prohibited this facility_work_order from being saved:</h2>
+<ul> <% @facility_work_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+>>>>>>> a9f4218f8ac3363b1f7344409dd47a8cdac1b966
     </div>
 
     <div class="field">
@@ -71,6 +82,7 @@
 
 </div>
 
+<<<<<<< HEAD
 <div id="object-form-bottom">
 
 <div class="item-info">   
@@ -83,6 +95,10 @@
       <%= f.text_area :cause_description %>
     </div>
 
+=======
+<div id="object-form-right">
+  <div class = "icon"></div>
+>>>>>>> a9f4218f8ac3363b1f7344409dd47a8cdac1b966
 
   <% end %>
 </div>

@@ -11,14 +11,19 @@
       -->
 
         <div class="details">
-          <p class="order_id">
-            Preventative Maintenance <%= facility_preventative_maintenance.id %>
+          <p class="description">
+            PM <%= facility_preventative_maintenance.id %> : <%= facility_preventative_maintenance.description[0...50] +  "..." %>
           </p>
-          
         </div>
         <div class="due_date">
           Due Date: <%= facility_preventative_maintenance.next_date %>
         </div>
+        <div class="days_since">
+          Days Since : <%= facility_preventative_maintenance.days_since %>  
+        </div>
+	<div class="days">
+
+	</div>
       </li>
     <% end %>
   </ul>

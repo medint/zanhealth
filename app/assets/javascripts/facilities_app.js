@@ -14,7 +14,7 @@ if (window.location.toString().match(/facility_work_orders/)) {
 		window_resize_handler();
 
 		if(window.attachEvent) {
-		window.attachEvent('onresize', window_resize_handler);
+			window.attachEvent('onresize', window_resize_handler);
 		}else if(window.addEventListener) {
 		    window.addEventListener('resize', window_resize_handler, true);
 		}else {
@@ -56,6 +56,50 @@ function edit_button_handler(){
 		object_form.style.display="none";
 	}
 }
+
+$(document).ready(function() {
+
+	$("#cbox0").prop("checked",true)
+	$("#cbox1").prop("checked",true)
+	$("#cbox2").prop("checked",true)
+
+	addListenerToBox(document.getElementById("cbox0"))
+	addListenerToBox(document.getElementById("cbox1"))
+	addListenerToBox(document.getElementById("cbox2"))
+
+
+});
+
+function addListenerToBox(checkB){
+	if(checkB.attachEvent) {
+		console.log("b");
+		(checkB).attachEvent('onchange', checkbox_filter_handler);
+	}else if(checkB.addEventListener) {
+		console.log("c");
+		(checkB).addEventListener('change', checkbox_filter_handler, true);
+	}else {
+		console.log("d");	    
+	}
+}
+
+function checkbox_filter_handler(){
+	if ($("#cbox0").prop("checked")==false){
+		$(".status-0").parent().hide()
+	}else{
+		$(".status-0").parent().show()
+	}
+	if ($("#cbox1").prop("checked")==false){
+		$(".status-1").parent().hide()
+	}else{
+		$(".status-1").parent().show()
+	}
+	if ($("#cbox2").prop("checked")==false){
+		$(".status-2").parent().hide()
+	}else{
+		$(".status-2").parent().show()
+	}
+	
+};
 
 $(document).ready(function() {
    $('.dropdown-menu').on('click', function(e) {
