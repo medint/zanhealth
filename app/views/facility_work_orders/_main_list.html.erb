@@ -11,7 +11,7 @@
             Work Order <%= facility_work_order.id %>
           </p>
           <p class="order_owner">
-            Owner: <%= User.find_by(id: facility_work_order.owner_id).try(:name) %>
+            Owner: <%= facility_work_order.owner.try(:name) %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
@@ -19,7 +19,7 @@
           Due Date: <%= facility_work_order.date_expire.try(:strftime,"%B %d") %>    
 
         </div>
-        Requester: <%= User.find_by(id: facility_work_order.requester_id).try(:name) %>
+        Requester: <%= facility_work_order.requester.try(:name) %>
         Date Created: <%= facility_work_order.created_at.try(:strftime,"%B %d") %>          
         Date Started: <%= facility_work_order.date_started.try(:strftime,"%B %d") %>
       </li>

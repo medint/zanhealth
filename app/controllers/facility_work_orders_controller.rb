@@ -11,7 +11,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def index
-    @facility_work_orders = FacilityWorkOrder.all
+    @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester)
   end
 
   def show
