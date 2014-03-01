@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224043446) do
+ActiveRecord::Schema.define(version: 20140301170421) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140224043446) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.integer  "work_request_id"
   end
 
   create_table "facility_labor_hours", force: true do |t|
@@ -150,7 +149,6 @@ ActiveRecord::Schema.define(version: 20140224043446) do
     t.datetime "date_expire"
     t.datetime "date_completed"
     t.integer  "request_type"
-    t.integer  "cost"
     t.text     "description"
     t.integer  "status"
     t.integer  "owner_id"
@@ -160,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140224043446) do
     t.text     "prevention_taken"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "date_started"
   end
 
   create_table "facility_work_requests", force: true do |t|
@@ -187,30 +186,6 @@ ActiveRecord::Schema.define(version: 20140224043446) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
-  end
-
-  create_table "parts", force: true do |t|
-    t.integer  "p_id"
-    t.string   "name"
-    t.string   "category"
-    t.integer  "quantity"
-    t.integer  "minQ"
-    t.string   "location"
-    t.text     "related"
-    t.string   "needs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "partsTransactions", force: true do |t|
-    t.integer  "db_id"
-    t.integer  "parts_id"
-    t.integer  "changeQ"
-    t.datetime "date"
-    t.string   "vendor"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "parts_inventory", force: true do |t|
