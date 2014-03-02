@@ -4,9 +4,9 @@
 
 
 //window resizing
-
+console.log("aaaaaaaaaaaaaaaaaaa")
 if (window.location.toString().match(/facility_work_orders/)) {
-	$(document).ready(function() {
+	$(document).on ("page:change",function() {
 		/* define variables */
 		
 		/* window resizing */
@@ -56,19 +56,20 @@ function edit_button_handler(){
 		object_form.style.display="none";
 	}
 }
+if (window.location.toString().match(/facility_work_orders/)) {
+	$(document).on ("page:change",function() {
 
-$(document).ready(function() {
+		$("#cbox0").prop("checked",true)
+		$("#cbox1").prop("checked",true)
+		$("#cbox2").prop("checked",true)
 
-	$("#cbox0").prop("checked",true)
-	$("#cbox1").prop("checked",true)
-	$("#cbox2").prop("checked",true)
-
-	addListenerToBox(document.getElementById("cbox0"))
-	addListenerToBox(document.getElementById("cbox1"))
-	addListenerToBox(document.getElementById("cbox2"))
+		addListenerToBox(document.getElementById("cbox0"))
+		addListenerToBox(document.getElementById("cbox1"))
+		addListenerToBox(document.getElementById("cbox2"))
 
 
-});
+	});
+}
 
 function addListenerToBox(checkB){
 	if(checkB.attachEvent) {
@@ -101,7 +102,7 @@ function checkbox_filter_handler(){
 	
 };
 
-$(document).ready(function() {
+$(document).on ("page:change",function() {
    $('.dropdown-menu').on('click', function(e) {
        if($(this).hasClass('dropdown-menu-form')) {
            e.stopPropagation();
