@@ -3,9 +3,9 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
   attr_accessor :days_since
 
   def calc_days_since
-    # unless self.next_date.nil?
+    unless self.next_date.nil? || self.last_date_checked?
       self.days_since = (self.next_date - self.last_date_checked).to_i/1.day
-    #end
+    end
   end
 
   private

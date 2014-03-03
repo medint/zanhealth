@@ -195,30 +195,6 @@ ActiveRecord::Schema.define(version: 20140301190527) do
     t.string   "category"
   end
 
-  create_table "parts", force: true do |t|
-    t.integer  "p_id"
-    t.string   "name"
-    t.string   "category"
-    t.integer  "quantity"
-    t.integer  "minQ"
-    t.string   "location"
-    t.text     "related"
-    t.string   "needs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "partsTransactions", force: true do |t|
-    t.integer  "db_id"
-    t.integer  "parts_id"
-    t.integer  "changeQ"
-    t.datetime "date"
-    t.string   "vendor"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "parts_inventory", force: true do |t|
     t.integer  "p_id"
     t.string   "name"
