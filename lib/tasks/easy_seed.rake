@@ -185,7 +185,6 @@ namespace :test do
 									 :date_expire => date_u_wr,
 									 :date_completed => date_u_wr,
 									 :request_type => 1,
-									 :cost => 0,
 									 :description => "Work order",
 									 :owner => users.sample,
 									 :requester => users.sample
@@ -216,12 +215,14 @@ namespace :test do
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
+                                       :description => "This is a description"
 												  )
 				FacilityWorkRequest.create(:requester => "User 1",
 									   :department => "Radiology",
 									   :location => "Facility 1",
 									   :phone => "400 000 1111",
-									   :email => "example@example.com"
+									   :email => "example@example.com",
+                              :description => "This is a description"
 									  )
 			end
 		end
