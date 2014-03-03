@@ -6,9 +6,12 @@
 		Requester: <%= facility_work_request.requester %>
 	</div>
 	<div>
-		<%= facility_work_request.description[0...50] + ". . ." %>
+		Department: <%= facility_work_request.department %>
 	</div>
 	<div>
-		<%= link_to @language['Show'], facility_work_request %>
+		Creation Date: <%= facility_work_request.created_at %>
+	</div>
+	<div>
+		<%= facility_work_request.description[0...50] + ". . ." %>
 	</div>
 <% end %>

@@ -4,8 +4,9 @@
     <%= link_to(facility_preventative_maintenance) do %>
       <li class="mid-summary_ul_li">
 
-        
-        
+        <div class="status-<%= facility_preventative_maintenance.status %>">
+          status is <%= facility_preventative_maintenance.status %>
+        </div>
         <div class="details">
           <p class="order_id">
             PM <%= facility_preventative_maintenance.id %> : <%= facility_preventative_maintenance.description[0...50] +  "..." %>
