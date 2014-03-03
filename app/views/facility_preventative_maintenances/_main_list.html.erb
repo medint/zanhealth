@@ -1,30 +1,36 @@
 <div>
   <ul id="mid-summary_ul">
     <% @facility_preventative_maintenances.each do |facility_preventative_maintenance| %>
+    <%= link_to(facility_preventative_maintenance) do %>
       <li class="mid-summary_ul_li">
 
-        <!--
-        need to add the additional stutus stuff
-        <div class="status-<#%= facility_preventative_maintenance.status %>">
-          status is <#%= facility_preventative_maintenance.status %>
-        </div>
-      -->
-
+        
+        
         <div class="details">
-          <p class="description">
+          <p class="order_id">
             PM <%= facility_preventative_maintenance.id %> : <%= facility_preventative_maintenance.description[0...50] +  "..." %>
           </p>
         </div>
-        <div class="due_date">
-          Due Date: <%= facility_preventative_maintenance.next_date %>
-        </div>
-        <div class="days_since">
-          Days Since : <%= facility_preventative_maintenance.days_since %>  
-        </div>
-	<div class="days">
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
-	</div>
+        <div class="order_date">
+          <div class="order_date_title"> Due Date:</div>
+          <%= facility_preventative_maintenance.next_date %>
+        </div>
+
+        <div class="order_date">
+          <div class="order_date_title"> Days Since:</div>
+          <%= facility_preventative_maintenance.days_since %>   
+        </div>
+
       </li>
+      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
+    <% end %>
     <% end %>
   </ul>
 </div>
+
+
+
+
+
