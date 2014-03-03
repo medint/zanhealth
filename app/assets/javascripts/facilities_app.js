@@ -69,13 +69,9 @@ $(document).ready(function() {
 
 function addListenerToBox(checkB){
 	if(checkB.attachEvent) {
-		console.log("b");
 		(checkB).attachEvent('onchange', checkbox_filter_handler);
 	}else if(checkB.addEventListener) {
-		console.log("c");
 		(checkB).addEventListener('change', checkbox_filter_handler, true);
-	}else {
-		console.log("d");	    
 	}
 }
 
@@ -95,7 +91,34 @@ function checkbox_filter_handler(){
 	}else{
 		$(".status-2").parent().show()
 	}
-	
+
+};
+
+function sort_by_date_created(){
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+
+};
+
+function sort_by_status(){
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+	var nodeArray = [];
+	var s = 0
+	for (var x = 0; x < 3; x++){
+		for (var i = 0; i < list_to_sort.length; i++) {
+			if (list_to_sort[i].childNodes[1].classList[0]== "status-"+x) {
+    			nodeArray[s] = list_to_sort[i].cloneNode(true);
+    			s++
+    		}
+		}
+	}
+
+	for (var i = 0; i < nodeArray.length; i++){
+		if (list_to_sort[i] != null) {
+			list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+		}
+	}
+	console.log(list_to_sort);
+	console.log(nodeArray);
 };
 
 $(document).ready(function() {
