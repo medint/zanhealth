@@ -1,6 +1,7 @@
 class FacilityPreventativeMaintenance < ActiveRecord::Base
   before_save :calc_next_date
   attr_accessor :days_since
+  
 
   def calc_days_since
     unless self.next_date.nil? || self.last_date_checked?
@@ -21,4 +22,8 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
         self.next_date += self.months.months
       end
     end
+
+
+
+
 end

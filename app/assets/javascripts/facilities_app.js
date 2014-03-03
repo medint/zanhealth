@@ -4,8 +4,7 @@
 
 
 //window resizing
-console.log("aaaaaaaaaaaaaaaaaaa")
-if (window.location.toString().match(/facility_work_orders/)) {
+if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/)) {
 	$(document).on ("page:change",function() {
 		/* define variables */
 		
