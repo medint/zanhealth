@@ -561,6 +561,13 @@ body {
 	overflow: scroll;
 }
 
+#delete-button2{
+	background-image: url(image_path('top/trashicon.png'));
+	width: 23px;
+	height: 22px;
+	display:block;
+}
+
 
   /********************************************/
  /*              INTERACTION BAR             */
