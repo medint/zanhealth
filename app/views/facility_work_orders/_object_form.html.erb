@@ -1,5 +1,4 @@
-<div id="object-form">
-
+<div id="object-form_top">
   <%= form_for(@facility_work_order) do |f| %>
     <% if @facility_work_order.errors.any? %>
         <div id="error_explanation">
@@ -9,59 +8,50 @@
                 <li><%= msg %></li>
               <% end %>
             </ul>
-        </div>
+        </div>x
     <% end %>
 
     <div id="object-form-left">
       <div class="item-info">    
-        <div class="field">
-          <%= @language['Owner'] %>
-          <%= f.collection_select :owner_id, @users, :id, :name %>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Owner'] %></div>
+          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
         </div>
 
-        <div class="field">
-          <%= @language['Date Requested'] %>
-          <%= f.date_select :date_requested %>
+        <div class="field-box small">
+          <div class="field-type"><%= @language['Date Requested'] %></div>
+          <div class="field-info"><%= f.date_select :date_requested %></div>
         </div>
-        <div class="field">
-          <%= @language['Date Started'] %>
-          <%=  @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+        <div class="field-box small">
+          <div class="field-type"><%= @language['Date Started'] %></div>
+          <div class="field-info"><%=  @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %></div>
         </div>
-        <div class="field">
-          <%= @language['Date Expires'] %>
-          <%= f.date_select :date_expire %>
+        <div class="field-box small">
+          <div class="field-type"><%= @language['Date Expires'] %></div>
+          <div class="field-info"><%= f.date_select :date_expire %></div>
         </div>
-        <div class="field">
-          <%= @language['Date Completed'] %>
-          <%= f.date_select :date_completed %>
-        </div>  
-        <div class="field">
-          <%= @language['Request Type'] %>
-          <%= f.number_field :request_type %>
+        <div class="field-box small">
+          <div class="field-type"><%= @language['Date Completed'] %></div>
+          <div class="field-info"><%= f.date_select :date_completed %></div>
         </div>
-
       </div>
 
-  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-  <div class="field">
-  <div class="item-id">
-  </div>
+
+
+
     </div>
     <div id="object-form-right">
-        <div class="field">
+        <div id="field-box_item-id">
           <div class="item-id">
-          <%= @language['Item ID'] %>
-          </div>
-          <div class="item-id_field">
-          <%= f.text_area :item, :value =>  @facility_work_order.id %>
+          Work Order<%= @language['Work Order'] %> # <%= @facility_work_order.id %>
           </div>
         </div>
 
-        <div class="field">
+        <div id="object-status-field">
           <%= @language['Status'] %>
           <%= f.select( :status, @status) %>
         </div>
-
+        <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
         <div class = "icon"></div>
 
         <div class="actions">
