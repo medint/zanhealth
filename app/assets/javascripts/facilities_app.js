@@ -1,10 +1,9 @@
 /* Global Variables */
-
+import jquery.tinysort.min.js;
 
 
 
 //window resizing
-console.log("aaaaaaaaaaaaaaaaaaa")
 if (window.location.toString().match(/facility_work_orders/)) {
 	$(document).on ("page:change",function() {
 		/* define variables */
@@ -31,7 +30,6 @@ if (window.location.toString().match(/facility_work_orders/)) {
 function window_resize_handler(){
 	var window_width = window.outerWidth;
 	var window_height = window.outerHeight;
-	console.log("HELLO!!!!!!");
 	var mid_summary = document.getElementById("mid-summary");
 	var right_detail = document.getElementById("right-detail");
 
@@ -100,7 +98,7 @@ function checkbox_filter_handler(){
 
 function sort_by_date_created(){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-
+	list_to_sort.tsort();
 };
 
 function sort_by_status(){
