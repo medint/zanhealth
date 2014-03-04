@@ -179,7 +179,7 @@ namespace :test do
 		role_eng = Role.where(:name => "technician").first
 		facilities.each do |f|
 			users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
-			100.times do |fwo|
+			60.times do |fwo|
 				date_u_wr = Time.at(rand * Time.now.to_i)
 				work_ord = FacilityWorkOrder.create(:date_requested => date_u_wr,
 									 :date_expire => date_u_wr,
