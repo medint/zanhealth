@@ -1,5 +1,25 @@
-<div>
-        <button id=button>sort</button>
-        <button id=button>add</button>
-        <button id=button>print</button>
+<div id='left-top'>
+  <div id="top-dropdown">
+    
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+    Sort : <div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+        Select Attribute
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+       <li>Date Created</li>
+       <li>Date Started</li>
+       <li>Requester</li>
+       <li>Owner</li>
+       <li>Status</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="top-button">
+    <a id='print-button'></a>
+    <a href= "<%=new_facility_preventative_maintenance_path%>" id='add-button'></a>
+  </div>
 </div>
+

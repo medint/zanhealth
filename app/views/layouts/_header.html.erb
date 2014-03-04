@@ -3,7 +3,8 @@
   <div id="login"></div>
   <ul id="left-nav_ul">
     <hr>
-    <li class="left-nav_ul_li">
+    <%= link_to(facility_work_orders_url) do %>
+    <li class="left-nav_ul_li" >
       <div id="work-order-icon"></div>
       <div class="wrapper">
         <div class="title">
@@ -12,7 +13,10 @@
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
     </li>
+    <%end%>
+
     <hr>
+    <%= link_to(facility_preventative_maintenances_url) do %>
     <li class="left-nav_ul_li">
       <div id="preventative-maintenance-icon"></div>
       <div class="wrapper">
@@ -22,7 +26,11 @@
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
     </li>
+    <% end %>
+
+
     <hr>
+    <%= link_to(facility_work_requests_url) do %>
     <li class="left-nav_ul_li">
       <div id="inbox-icon"></div>
       <div class="wrapper">
@@ -32,6 +40,7 @@
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
     </li>
+    <%end%>
     <hr>
   </ul>
 </header>

@@ -1,32 +1,39 @@
-<div>
+<div id = "mid_facility-work-order">
   <ul id="mid-summary_ul">
     <% @facility_work_orders.each do |facility_work_order| %>
     <%= link_to(facility_work_order) do %>
       <li class="mid-summary_ul_li">
         <div class="status-<%= facility_work_order.status %>"></div>
-        
-        
-        <div class="details">
+        <div class="order_details">
           <p class="order_id">
             Work Order <%= facility_work_order.id %>
+          </p>
+          <p class="order_requester">
+            Requester: <%= User.find_by(id: facility_work_order.requester_id).try(:name) %>
           </p>
           <p class="order_owner">
             Owner: <%= facility_work_order.owner.name %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
-        <div class="due_date">
-          Due Date: <%= facility_work_order.date_expire.try(:strftime,"%B %d") %>    
-
+        <div class="order_date">
+          <div class="order_date_title"> EXPIRE</div>
+          <%= facility_work_order.date_expire.try(:strftime,"%^b %d") %> 
         </div>
-        Requester: <%= facility_work_order.requester.name %>
-        Date Created: <%= facility_work_order.created_at.try(:strftime,"%B %d") %>          
-        Date Started: <%= facility_work_order.date_started.try(:strftime,"%B %d") %>
+
+        <div class="order_date">
+          <div class="order_date_title"> START</div>
+          <%= facility_work_order.date_started.try(:strftime,"%^b %d") %> 
+        </div>
+
+        <div class="order_date">
+          <div class="order_date_title"> CREATED</div>
+          <%= facility_work_order.created_at.try(:strftime,"%^b %d") %> 
+        </div>
       </li>
-      <hr class="mid-summary_ul_li_hr">
+      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
     <% end %>
     <% end %>
   </ul>
 </div>
-
 
