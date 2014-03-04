@@ -1,10 +1,10 @@
-<div>
+<div id = "mid_facility-work-order">
   <ul id="mid-summary_ul">
     <% @facility_work_orders.each do |facility_work_order| %>
     <%= link_to(facility_work_order) do %>
       <li class="mid-summary_ul_li">
         <div class="status-<%= facility_work_order.status %>"></div>
-        <div class="details">
+        <div class="order_details">
           <p class="order_id">
             Work Order <%= facility_work_order.id %>
           </p>
@@ -37,6 +37,4 @@
     <% end %>
   </ul>
 </div>
-
-<div class="vertical-divider"></div>
 
