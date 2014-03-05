@@ -30,7 +30,8 @@ namespace :test do
 						:encrypted_password => row[1],
 						:role => Role.where(:name => row[2]).first,
 						:telephone_num => row[3],
-						:facility => Facility.where(:name => row[4]).first,
+						:facility => facilities.find { |f| f.name == row[4] },
+						#:facility => Facility.where(:name => row[4]).first,
 						:language => row[5],
 						:name => row[6]
 					   )
@@ -38,17 +39,21 @@ namespace :test do
 		puts "Imported users"
 
 		Department.destroy_all
+		depts = []
 		dept_data = File.open(File.join("test", "test_data", "import_departments.csv"),"r")
 		csv_dept = CSV.parse(dept_data, :headers => true)
 		csv_dept.each do |row|
-			Department.create(:name => row[0],
-							  :facility => Facility.where(:name => row[1]).first
+			dept = Department.create(:name => row[0],
+							  :facility => facilities.find { |f| f.name == row[1] }
+							  #:facility => Facility.where(:name => row[1]).first
 							 )
+			depts[depts.size] = dept
 		end
 		puts "Imported departments"
 
 		Model.destroy_all
 		BmetNeed.destroy_all
+		models = []
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
@@ -57,8 +62,10 @@ namespace :test do
 						 :vendor_name => row[3],
 						 :category => row[0]
 						)
+			models[models.size] = model
 			f = facilities.sample
-			dept = Department.where(:facility_id => f.id).sample
+			#dept = Department.where(:facility_id => f.id).sample
+			dept = depts.select { |d| d.facility_id == f.id }.sample
 			date_updated = Time.at(rand * Time.now.to_i)
 			BmetNeed.create(:name => row[1],
 						:department => dept,
@@ -92,9 +99,11 @@ namespace :test do
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
-			model = Model.find_by(model_name: row[1])
+			#model = Model.find_by(model_name: row[1])
+			model = models.find { |m| m.model_name == row[1] }
 			f = facilities.sample
-			dept = Department.where(:facility_id => f.id).sample
+			#dept = Department.where(:facility_id => f.id).sample
+			dept = depts.select { |d| d.facility_id == f.id }.sample
 			if model.nil?
 				item = BmetItem.create(:asset_id => row[0],
 								   :serial_number => row[2],
