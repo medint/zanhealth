@@ -4,7 +4,7 @@ namespace :test do
 	desc "seed the db with test data"
 	task :easy_seed => :environment do
 		puts "Starting test data import. Might take a while...."
-		Role.destroy_all
+		Role.delete_all
 		roles = []
 		role_data = File.open(File.join("test", "test_data","import_roles.csv"),"r")
 		csv_roles = CSV.parse(role_data, :headers => true)
@@ -14,7 +14,7 @@ namespace :test do
 		end
 		puts "Imported roles"
 		
-		Facility.destroy_all
+		Facility.delete_all
 		facilities = []
 		facility_data = File.open(File.join("test", "test_data", "import_facilities.csv"),"r")
 		csv_facility = CSV.parse(facility_data, :headers => true)
@@ -24,7 +24,7 @@ namespace :test do
 		end
 		puts "Imported facilities"
 
-		User.destroy_all
+		User.delete_all
 		userSet = []
 		user_data = File.open(File.join("test", "test_data", "import_users.csv"),"r")
 		csv_user = CSV.parse(user_data, :headers => true)
@@ -41,7 +41,7 @@ namespace :test do
 		end
 		puts "Imported users"
 
-		Department.destroy_all
+		Department.delete_all
 		depts = []
 		dept_data = File.open(File.join("test", "test_data", "import_departments.csv"),"r")
 		csv_dept = CSV.parse(dept_data, :headers => true)
@@ -53,8 +53,8 @@ namespace :test do
 		end
 		puts "Imported departments"
 
-		Model.destroy_all
-		BmetNeed.destroy_all
+		Model.delete_all
+		BmetNeed.delete_all
 		models = []
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
@@ -80,7 +80,7 @@ namespace :test do
 		puts "Imported models and needs"
 
 		SEPARATOR = ': '
-		Language.destroy_all
+		Language.delete_all
 		File.open(File.join('test','test_data','language.colon-separated'),'r') do |f|
 			f.each_line do |line|
 				english,swahili = line.chomp.split(SEPARATOR)
@@ -91,12 +91,12 @@ namespace :test do
 		end
 		puts "Imported languages"
 
-		BmetItem.destroy_all
-		BmetItemHistory.destroy_all
-		BmetWorkOrder.destroy_all
-		BmetWorkOrderComment.destroy_all
-		Text.destroy_all
-		BmetLaborHour.destroy_all
+		BmetItem.delete_all
+		BmetItemHistory.delete_all
+		BmetWorkOrder.delete_all
+		BmetWorkOrderComment.delete_all
+		Text.delete_all
+		BmetLaborHour.delete_all
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
@@ -180,10 +180,10 @@ namespace :test do
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
 
-		FacilityWorkOrder.destroy_all
-		FacilityWorkOrderComment.destroy_all
-		FacilityLaborHour.destroy_all
-		FacilityCost.destroy_all
+		FacilityWorkOrder.delete_all
+		FacilityWorkOrderComment.delete_all
+		FacilityLaborHour.delete_all
+		FacilityCost.delete_all
 		role_eng = roles.find {|r| r.name == "technician" }
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
@@ -215,8 +215,8 @@ namespace :test do
 		end
 		puts "Created facility work orders, facility work order comments, facility labor hours and facility costs"
 
-		FacilityPreventativeMaintenance.destroy_all
-		FacilityWorkRequest.destroy_all
+		FacilityPreventativeMaintenance.delete_all
+		FacilityWorkRequest.delete_all
 		facilities.each do |f|
 			20.times do |fpm|
 				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at(rand * Time.now.to_i),
