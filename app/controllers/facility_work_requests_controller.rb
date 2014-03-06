@@ -1,5 +1,7 @@
 class FacilityWorkRequestsController < ApplicationController
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
+before_action :set_status, only: [:show]
+before_action :set_users, only: [:show]
 
   layout 'layouts/facilities_app'
 
@@ -51,6 +53,18 @@ before_action :set_facility_work_request, only: [:show, :update, :destroy]
       format.html { redirect_to facility_work_requests_url }
       format.json { head :no_content }
     end
+  end
+
+  def set_status
+    @status= {
+      'Unstarted' => 0,
+      'In Progress' => 1,
+      'Completed' => 2
+    }
+  end
+
+  def set_users
+    @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def set_facility_work_request
