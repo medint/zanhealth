@@ -9,7 +9,7 @@
             Work Order <%= facility_work_order.id %>
           </p>
           <p class="order_requester">
-            Requester: <%= User.find_by(id: facility_work_order.requester_id).try(:name) %>
+            Requester: <%= facility_work_order.requester.name %>
           </p>
           <p class="order_owner">
             Owner: <%= facility_work_order.owner.name %>
