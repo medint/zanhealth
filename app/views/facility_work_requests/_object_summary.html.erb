@@ -1,12 +1,17 @@
  <%= link_to '', @facility_work_request, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
 
-<button type="button" id="convert-button">Convert to WO</button>
-<button type="button" id="convert-back-button">Back</button>
 
-<div id="view-div">
-	<%= render :partial => 'object_view' %>
-</div>
 
-<div id="convert-form" style="display:none">
-	<%= render :partial => 'facility_work_orders/object_convert' %>
+<ul class="">
+  <li class="active"><a href="#view" data-toggle="tab">View</a></li>
+  <li><a href="#convert" data-toggle="tab">Convert to Work Order</a></li>  
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="view">
+  	<%= render :partial => 'object_view' %>
+  </div>
+  <div class="tab-pane" id="convert">
+  	<%= render :partial => 'facility_work_orders/object_convert' %>  	
+  </div>  
 </div>

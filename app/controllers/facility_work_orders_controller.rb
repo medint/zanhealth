@@ -4,6 +4,8 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_facility_work_orders, only: [:index, :new, :show]
   before_action :set_status, only: [:show, :new]
   before_action :set_users, only: [:index, :new, :show]
+  before_action :set_departments, only: [:new, :show]
+
 
   def new
     @facility_work_order = FacilityWorkOrder.new
@@ -17,6 +19,7 @@ class FacilityWorkOrdersController < ApplicationController
 
     
     @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+    @facility_work_order_comment = FacilityWorkOrderComment.new
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_labor_hours = FacilityLaborHour.where(facility_work_order_id:params[:id])
   	
@@ -76,6 +79,10 @@ class FacilityWorkOrdersController < ApplicationController
 
   def set_users
     @users = User.where(:facility_id => user.facility.id).all.to_a
+  end
+
+  def set_departments
+    @departments = Department.where(:facility_id => user.facility.id).all.to_a
   end
 
   def facility_work_order_params

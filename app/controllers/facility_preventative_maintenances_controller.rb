@@ -3,6 +3,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
   before_action :set_status, only: [:show]
   before_action :set_users, only: [:show]
+  before_action :set_departments, only: [:show]
 
   def new
 
@@ -75,9 +76,15 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
+  def set_departments
+    @departments = Department.where(:facility_id => user.facility.id).all.to_a
+  end
+
   def set_facility_preventative_maintenance
       @facility_preventative_maintenance = FacilityPreventativeMaintenance.find(params[:id])
+      @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
   end
+
 
   def facility_preventative_maintenance_params
       p params
