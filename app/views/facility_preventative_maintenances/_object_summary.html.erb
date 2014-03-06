@@ -1,12 +1,13 @@
-<%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
+<%= link_to '', @facility_preventative_maintenance, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
 
-<div>
-<%= render :partial => 'object_view' %>
+<button type="button" id="convert-button">Convert to WO</button>
+<button type="button" id="convert-back-button">Back</button>
+
+<div id="view-div">
+	<%= render :partial => 'object_form' %>
 </div>
-<div>
-<%= render :partial => 'object_edit' %>
-</div>
-<div>
-<%= render :partial => 'facility_work_orders/object_convert' %>
+
+<div id="convert-form" style="display:none">
+	<%= render :partial => 'facility_work_orders/object_convert' %>
 </div>
 

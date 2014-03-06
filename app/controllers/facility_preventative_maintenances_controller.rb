@@ -1,12 +1,14 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
+  before_action :set_status, only: [:show]
+  before_action :set_users, only: [:show]
 
   def new
 
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+    @facility_preventative_maintenances.map {|i| i.calc_days_since}
     @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
-    #@users = User.where(:facility_id => user.facility.id).all.to_a
 
   end
 
@@ -21,17 +23,9 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
     @facility_preventative_maintenances.map {|i| i.calc_days_since}
-
-    #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(preventative_maintenance_id:params[:id])
-    #@facility_costs = FacilityCost.where(preventative_maintenance_id:params[:id])
-    #@facility_labor_hours = FacilityLaborHour.where(preventative_maintenance_id:params[:id])
-
+    
     @input_object = FacilityWorkOrder.new
-    #@facility_preventative_maintenance_comments = FacilityPreventativeMaintenancesComment.where(work_order_id:params[:id])
-    #@facility_costs = FacilityCost.where(work_order_id:params[:id])
-    #@facility_labor_hours = FacilityLaborHour.where(work_order_id:params[:id])
-
-  	#@users = User.where(:facility_id => facility.id).all.to_a
+    @input_object.description = @facility_preventative_maintenance.description
 
   end
 
@@ -67,6 +61,18 @@ class FacilityPreventativeMaintenancesController < ApplicationController
       format.html { redirect_to facility_preventative_maintenances_url }
       format.json { head :no_content }
     end
+  end
+
+  def set_status
+    @status= {
+      'Unstarted' => 0,
+      'In Progress' => 1,
+      'Completed' => 2
+    }
+  end
+
+  def set_users
+    @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def set_facility_preventative_maintenance
