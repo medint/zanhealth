@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301190527) do
+ActiveRecord::Schema.define(version: 20140306210755) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20140301190527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
+    t.integer  "work_request_id"
   end
 
   add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id"
@@ -151,7 +152,6 @@ ActiveRecord::Schema.define(version: 20140301190527) do
   add_index "facility_work_order_comments", ["facility_work_order_id"], name: "index_facility_work_order_comments_on_facility_work_order_id"
 
   create_table "facility_work_orders", force: true do |t|
-    t.datetime "date_requested"
     t.datetime "date_expire"
     t.datetime "date_completed"
     t.integer  "request_type"
@@ -165,7 +165,10 @@ ActiveRecord::Schema.define(version: 20140301190527) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "date_started"
+    t.integer  "department_id"
   end
+
+  add_index "facility_work_orders", ["department_id"], name: "index_facility_work_orders_on_department_id"
 
   create_table "facility_work_requests", force: true do |t|
     t.text     "requester"
