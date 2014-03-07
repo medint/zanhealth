@@ -137,3 +137,13 @@ $(document).on ("page:change",function() {
    });
 });
 
+function printmainpage(){
+	document.getElementById("print-css-selection").href = '/assets/application-print-main-list.css'
+	window.print()
+}
+
+function printdetailpage(){
+	document.getElementById("print-css-selection").href = '/assets/application-print-detail.css'
+	window.print()
+}
+
