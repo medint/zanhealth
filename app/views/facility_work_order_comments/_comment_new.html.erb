@@ -1,0 +1,24 @@
+<%= form_for(@facility_work_order_comment) do |f| %>
+  <% if @facility_work_order_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_work_order_comment.errors.count, "error") %> prohibited this facility_work_order_comment from being saved:</h2>
+      <ul><% @facility_work_order_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= @language['Description'] %><br>
+    <%= f.text_area :comment_text %>
+  </div>
+ 
+  <div class="field">
+    <%=f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -24,8 +24,32 @@ if (window.location.toString().match(/facility_work_orders/) || window.location.
 	});
 }
 
+if (window.location.toString().match(/facility_preventative_maintenances/)){
+	$(document).on("page:change",function() {
 
+		var cbutton = document.getElementById("convert-button");
+		if(cbutton.attachEvent) {
+			(cbutton).attachEvent('onclick', show_convert_div);
+		}else if(cbutton.addEventListener) {
+			(cbutton).addEventListener('click', show_convert_div, true);
+		}	
+		var cbbutton = document.getElementById("convert-back-button");
+		if(cbbutton.attachEvent) {
+			(cbbutton).attachEvent('onclick', show_pm_div);
+		}else if(cbutton.addEventListener) {
+			(cbbutton).addEventListener('click', show_pm_div, true);
+		}	
+	});
+}
 
+function show_convert_div(){
+	$('#view-div').css("display", "none");
+	$('#convert-form').css("display", "inline");
+};
+function show_pm_div(){
+	$('#view-div').css("display", "inline");
+	$('#convert-form').css("display", "none");
+};
 
 function window_resize_handler(){
 	var window_width = window.outerWidth;

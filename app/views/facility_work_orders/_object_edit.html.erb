@@ -1,29 +1,97 @@
-<%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
-<%= render 'object_form' %>
+<div id="object-form_top">
+  <%= form_for(@facility_work_order) do |f| %>
+    <% if @facility_work_order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@facility_work_order.errors.count, "error") %> prohibited this facility_work_order from being saved:</h2>
+            <ul> 
+              <% @facility_work_order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>x
+    <% end %>
 
-<!--
-=begin
-<div>
-	<div id="left_half">
+    <div id="object-form-left">
+      <div class="item-info">    
+      	<div class="field-box">
+          <div class="field-type"><%= @language['Requester'] %></div>
+          <div class="field-info"><%= @facility_work_order.requester.try(:name) %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Owner'] %></div>
+          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Department'] %></div>
+          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Date Created'] %></div>
+          <div class="field-info"><%= @facility_work_order.created_at %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Date Started'] %></div>
+          <div class="field-info">
+          		<%= @facility_work_order.date_started %>
+          		<%#=  @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Date Expires'] %></div>
+          <div class="field-info"><%= f.date_select :date_expire %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Date Completed'] %></div>
+          <div class="field-info">
+          	<%= @facility_work_order.date_completed %>
+          </div>
+        </div>
+        <div class="item-info">   
+            <div class="field">
+              <%= @language['Description'] %><br>
+              <%= f.text_area :description %>
+            </div>
+            <div class="field">
+              <%= @language['Cause Description'] %><br>
+              <%= f.text_area :cause_description %>
+            </div>
+        </div>
+      </div>
 
-		ID: <input type="text" name="id" value="<%= @facility_work_order.id %>">
-		date requested: <input type="date" name="date requested" value="<%= @facility_work_order.date_requested %>">
-		date expire: <input type="date" name="date expire" value="<%= @facility_work_order.date_expire %>">
-		date completed: <input type="date" name="date completed" value="<%= @facility_work_order.date_completed %>">
-		created at <input type="date" name="created at" value="<%= @facility_work_order.created_at %>">
-		updated at <input type="date" name="updated at" value="<%= @facility_work_order.updated_at %>">
-		request type <input type="number" name="request type" value="<%= @facility_work_order.request_type %>">
-		item <input type="number" name="item" value="<%= @facility_work_order.item %>">
-		status <input type="number" name="status" value="<%= @facility_work_order.status %>">
-		owner id <input type="number" name="owner id" value="<%= @facility_work_order.owner_id %>">
-		requester id <input type="number" name="requester id" value="<%= @facility_work_order.requester_id %>">
-		description <input type="text" name="description" value="<%= @facility_work_order.description %>">
-		cause description <input type="text" name="cause description" value="<%= @facility_work_order.cause_description %>">
-		action taken <input type="text" name="action taken" value="<%= @facility_work_order.action_taken %>">
-		prevention taken <input type="text" name="prevention taken" value="<%= @facility_work_order.prevention_taken %>">
-	</div>
-		
+
+    </div>
+    <div id="object-form-right">
+        <div id="field-box_item-id">
+          <div class="item-id">
+          Work Order<%= @language['Work Order'] %> # <%= @facility_work_order.id %>
+          </div>
+        </div>
+
+        <div id="object-status-field">
+          <%= @language['Status'] %>
+          <%= f.select( :status, @status) %>
+        </div>
+        <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
+        <div class = "icon"></div>
+
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+    </div>
+
+    <div id="object-form-bottom">
+        <!--div class="item-info">   
+            <div class="field">
+              <%= @language['Description'] %><br>
+              <%= f.text_area :description %>
+            </div>
+            <div class="field">
+              <%= @language['Cause Description'] %><br>
+              <%= f.text_area :cause_description %>
+            </div>
+        </div-->
+
+    </div>
+  <%end%>
 
 </div>
-=end
--->
