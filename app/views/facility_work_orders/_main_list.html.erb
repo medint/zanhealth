@@ -2,7 +2,7 @@
   <ul id="mid-summary_ul">
     <% @facility_work_orders.each do |facility_work_order| %>
     <%= link_to(facility_work_order) do %>
-      <li class="mid-summary_ul_li">
+      <li class="mid-summary_ul_li" requester="<%=User.find_by(id:facility_work_order.requester_id).try(:name)%>">
         <div class="status-<%= facility_work_order.status %>"></div>
         <div class="order_details">
           <p class="order_id">

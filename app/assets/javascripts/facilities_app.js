@@ -1,6 +1,6 @@
 /* Global Variables */
-import jquery.tinysort.min.js;
-
+//= require jquery
+//= require jquery.tinysort.min.js
 
 
 //window resizing
@@ -19,8 +19,6 @@ if (window.location.toString().match(/facility_work_orders/) || window.location.
 		}else {
 		    //The browser does not support Javascript event binding
 		}
-
-
 	});
 }
 
@@ -104,7 +102,17 @@ function checkbox_filter_handler(){
 
 function sort_by_date_created(){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	list_to_sort.tsort();
+	// nodeArray = [];
+	// for (var i = 0; i < list_to_sort.length; i++) {
+	// 	nodeArray[i] = list_to_sort[i].cloneNode(true);
+	// }
+	//nodeArray.tsort();
+	var $tosort = $('.mid-summary_ul_li');
+	$tosort.tsort();
+};
+
+function sort_by_requester(){
+	$('#mid-summary_ul').tsort('li', {attr:'requester'});
 };
 
 function sort_by_status(){
@@ -125,8 +133,6 @@ function sort_by_status(){
 			list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
 		}
 	}
-	console.log(list_to_sort);
-	console.log(nodeArray);
 };
 
 $(document).on ("page:change",function() {
