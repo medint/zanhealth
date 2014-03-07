@@ -1,0 +1,39 @@
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.items {
+	.status {
+		font-size: 1em;
+		margin: 15px;
+	}
+
+	.left-attributes {
+		display:inline-block;
+		width:500px;
+	}
+
+	.right-attributes {
+		float:right;
+	}
+	
+	.comment {
+		height:40%;
+		overflow-y:auto;
+	}
+
+	.comment-title {
+		font-size: 1em;
+	}
+	
+	.create-comment {
+		float:right;
+	}
+
+	.comment-table {
+		width:100%;
+	}
+
+
+
+}
