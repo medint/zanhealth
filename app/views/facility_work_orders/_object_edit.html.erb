@@ -15,7 +15,7 @@
       <div class="item-info">    
       	<div class="field-box">
           <div class="field-type"><%= @language['Requester'] %></div>
-          <div class="field-info"><%= @facility_work_order.requester.name %></div>
+          <div class="field-info"><%= @facility_work_order.requester.try(:name) %></div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Owner'] %></div>
