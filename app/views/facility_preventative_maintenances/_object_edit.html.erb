@@ -1,2 +1,48 @@
-<h1>"Editing Preventative Maintenance"</h1>
-<%= render 'object_form' %>
+
+<%= form_for(@facility_preventative_maintenance) do |f| %>
+  <% if @facility_preventative_maintenance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_preventative_maintenance.errors.count, "error") %> prohibited this facility_preventative_maintenance from being saved:</h2>
+      <ul><% @facility_preventative_maintenance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <div class="field">
+    <%= @language['Last Date Checked'] %><br>
+    <%= @facility_preventative_maintenance.last_date_checked %>
+  </div>
+  <div class="field">
+    <%= @language['Next Date'] %><br>
+    <%= @facility_preventative_maintenance.next_date %>
+  </div>
+	<div class="field">
+    <%= @language['Days Since'] %><br>
+    <%= @facility_preventative_maintenance.days_since %>
+  </div>
+
+  <div class="field">
+    <%= @language['Days'] %><br>    
+    <%= f.number_field :days %>
+  </div>
+  <div class="field">
+    <%= @language['Weeks'] %><br>
+    <%= f.number_field :weeks %>
+  </div>
+  <div class="field">
+    Months
+    <%= @language['Months'] %><br>
+    <%= f.number_field :months %>
+  </div>  
+  <div class="field">
+    <%= @language['Description'] %><br>
+    <%= f.text_area :description %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
