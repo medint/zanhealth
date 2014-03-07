@@ -58,7 +58,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_orders
-      @facility_work_orders = @facility_work_orders = FacilityWorkOrder.find(:all, include: [:owner, :requester])
+      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester)
   end
 
   def destroy

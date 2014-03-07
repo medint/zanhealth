@@ -9,10 +9,10 @@
             Work Order <%= facility_work_order.id %>
           </p>
           <p class="order_requester">
-            Requester: <%= facility_work_order.requester.name %>
+            Requester: <%= facility_work_order.requester.try(:name) %>
           </p>
           <p class="order_owner">
-            Owner: <%= facility_work_order.owner.name %>
+            Owner: <%= facility_work_order.owner.try(:name) %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
