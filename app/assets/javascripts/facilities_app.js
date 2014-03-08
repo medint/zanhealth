@@ -109,19 +109,25 @@ function addListenerToBox(checkB){
 
 function checkbox_filter_handler(){
 	if ($("#cbox0").prop("checked")==false){
-		$(".status-0").parent().hide()
+		$(".status-0").parent().hide();
+		$(".status-0").parent().siblings(".mid-summary_ul_li_hr").hide();
 	}else{
 		$(".status-0").parent().show()
+		$(".status-0").parent().siblings(".mid-summary_ul_li_hr").show();
 	}
 	if ($("#cbox1").prop("checked")==false){
 		$(".status-1").parent().hide()
+		$(".status-1").parent().siblings(".mid-summary_ul_li_hr").hide();
 	}else{
 		$(".status-1").parent().show()
+		$(".status-1").parent().siblings(".mid-summary_ul_li_hr").show();
 	}
 	if ($("#cbox2").prop("checked")==false){
 		$(".status-2").parent().hide()
+		$(".status-2").parent().siblings(".mid-summary_ul_li_hr").hide();
 	}else{
 		$(".status-2").parent().show()
+		$(".status-2").parent().siblings(".mid-summary_ul_li_hr").show();
 	}
 
 };
@@ -162,12 +168,30 @@ $(document).on ("page:change",function() {
 });
 
 function printmainpage(){
-	document.getElementById("print-css-selection").href = '/assets/application-print-main-list.css'
-	window.print()
+	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)	{
+		var numVis = $('.mid-summary_ul_li').length - $('.mid-summary_ul_li[style$="display: none;"]').length;
+		var hBlock = 50*numVis;
+		$('.vertical-divider').css("height",hBlock);
+		$('.vertical-divider').show()
+	}
+	else if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+		$('.vertical-divider').css("display","none");
+	}
+	$(".status-text-0").text("Unstarted");
+	$(".status-text-1").text("In Progress");
+	$(".status-text-2").text("Completed");
+	document.getElementById("print-css-selection").href = '/assets/application-print-main-list.css';
+	window.print();
+	
+	$('.vertical-divider').css("height",10000);
+	if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
+		$('.vertical-divider').css("display","inline")
+	}
+	
 }
 
 function printdetailpage(){
 	document.getElementById("print-css-selection").href = '/assets/application-print-detail.css'
-	window.print()
+	window.print(); 
 }
 
