@@ -1,0 +1,370 @@
+*{
+	font-family: Arial;
+}
+
+body {
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	overflow: hidden;
+}
+
+.vertical-divider{
+}
+
+  /********************************************/
+ /*                  TOP NAV                 */
+/********************************************/
+
+#top-bar {
+	display:none;
+}
+
+
+  /********************************************/
+ /*                 LEFT NAV                 */
+/********************************************/
+
+#left-nav{
+	display:none;
+}
+
+
+/*   End   */
+
+//.scrollable{
+//	margin-top: 60px;
+//	font-size: 1em;
+//	z-index: 1;
+//	overflow: auto;
+//}
+
+  /********************************************/
+ /*                MID SUMMARY               */
+/********************************************/
+
+/* General */
+#mid-summary{
+	float: left;
+	margin-left: 100px;
+	height: auto;
+	width: 400px; 
+	background-color: #f9f9f9;
+	overflow-x: visible;
+	overflow:visible;
+}
+
+#mid-summary_ul {
+	margin: 0px;
+	padding: 0px;
+	list-style:none;
+}
+
+#mid-summary_ul > a{
+	text-decoration: none;
+}
+
+#mid-summary_ul > a > .mid-summary_ul_li {
+	height: 50px;
+	width: 400px;
+}
+
+#mid-summary_ul > a > .mid-summary_ul_li:hover {
+	background-color: #afafaf;
+}
+
+#mid-summary_ul > a > .mid-summary_ul_li > *{
+	float:left; 
+	display:inline
+}
+
+#mid-summary_ul > a > .mid-summary_ul_li > .due_date > *{
+	line-height: 13px;
+}
+
+
+#mid-summary_ul > a > .mid-summary_ul_li > .right-arrow{	
+	float: right;
+	padding-right: 10px;
+	padding-top:22px;
+}
+
+#mid-summary_ul > a > .mid-summary_ul_li_hr{
+	color: #c7c7c7;
+	background-color: #c7c7c7;
+	position:relative;
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+	width: 240px;
+	height: 1px;
+}
+
+/* Work Order */
+#mid_facility-work-order{
+
+	/*   Color Status Updates   */
+	.status-0{
+		background-color: #e9593e;
+		height: 50px;
+		width: 10px;
+	}
+
+	.status-1{
+		background-color: #ffc207;
+		height: 50px;
+		width: 10px;
+	}
+
+	.status-2{
+		background-color: #55aa2b;
+		height: 50px;
+		width: 10px;
+	}
+
+	.status-text-0{
+		margin-left: -40px;
+		height: 50px;
+		width: 250px;
+		color: #a1a1a1;
+		font-size: 10px;
+		margin-top: 17px;
+	}
+
+	.status-text-1{
+		margin-left: -40px;
+		height: 50px;
+		width: 250px;
+		color: #a1a1a1;
+		font-size: 10px;
+		margin-top: 17px;
+	}
+
+	.status-text-2{
+		margin-left: -40px;
+		height: 50px;
+		width: 250px;
+		color: #a1a1a1;
+		font-size: 10px;
+		margin-top: 17px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_details{
+		margin-left: 15px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_id{
+		padding-top: 4px;
+		font-weight: bold;
+		font-size: 12px;
+		color: #5c5c5c;
+		margin: 0px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_requester{
+		font-size: 10px;
+		color: #a1a1a1;
+		margin-top: -2px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_owner{
+		font-size: 10px;
+		color: #a1a1a1;
+		margin-top: -12px;
+		margin-bottom: 0px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_date{
+		float: right;
+		font-size: 12px;
+		color: #a1a1a1;
+		padding-top: 9px;
+		margin-right: 10px;
+		margin-left: 10px;
+		text-align: center;
+		color: #8b8b8b;
+		font-weight: 800;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .order_date > .order_date_title{
+		font-size: 6px;
+		margin-bottom: 0px;
+		color: #a1a1a1;
+		font-weight: 300;
+	}
+}
+
+
+/* PM */
+#mid_facility-preventative-maintenance{
+	/*   Color Status Updates   */
+	.status-0{
+		background-color: #e9593e;
+		height: 50px;
+		width: 10px;
+	}
+
+	.status-1{
+		background-color: #55aa2b;
+		height: 50px;
+		width: 10px;
+	}
+
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details{
+		margin-left: 15px;
+		width: 65%;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details > .pm_id{
+		padding-top: 10px;
+		font-weight: bold;
+		font-size: 12px;
+		color: #5c5c5c;
+		margin: 0px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details > .pm_description{
+		font-size: 10px;
+		color: #a1a1a1;
+		margin-top: -7px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_date{
+		float: right;
+		font-size: 12px;
+		color: #a1a1a1;
+		padding-top: 9px;
+		margin-right: 10px;
+		margin-left: 10px;
+		text-align: center;
+		color: #8b8b8b;
+		font-weight: 800;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_date > .pm_date_title{
+		font-size: 6px;
+		margin-bottom: -7px;
+		color: #a1a1a1;
+		font-weight: 300;
+	}
+
+}
+
+
+/* Inbox */
+
+#mid_facility-work-request{
+	.bullet-bar{
+		background-color: #a1a1a1;
+		height: 120px;
+		width: 10px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .request_details{
+		margin-left: 15px;
+		width: 75%;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li {
+		height: 120px;
+		width: 400px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li:hover {
+		background-color: #afafaf;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > *{
+		
+		float:left; 
+		display:inline
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .due_date > *{
+		line-height: 13px;
+	}
+
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .right-arrow{	
+		float: right;
+		padding-right: 10px;
+		padding-top:58px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li_hr{
+		color: #c7c7c7;
+		background-color: #c7c7c7;
+		position:relative;
+		padding: 0px;
+		border: 0px;
+		margin: 0px;
+		width: 240px;
+		height: 1px;
+	}
+	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_id{
+		padding-top: 14px;
+		font-weight: bold;
+		font-size: 12px;
+		color: #5c5c5c;
+		margin: 0px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_info{
+		font-size: 11px;
+		color: #5c5c5c;
+		margin-top: -1px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_description{
+		font-size: 10px;
+		color: #a1a1a1;
+		margin-top: -8px;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .request_date{
+		float: right;
+		font-size: 12px;
+		color: #a1a1a1;
+		padding-top: 42px;
+		margin-right: 10px;
+		margin-left: 10px;
+		text-align: center;
+		color: #8b8b8b;
+		font-weight: 800;
+	}
+
+	#mid-summary_ul > a > .mid-summary_ul_li > .pm_date > .work_date_title{
+		font-size: 6px;
+		margin-bottom: -7px;
+		color: #a1a1a1;
+		font-weight: 300;
+	}
+
+}
+
+
+
+
+
+
+  /********************************************/
+ /*               Right Detail               */
+/********************************************/
+
+#right-detail{
+	display:none
+}
+
+
+
+
+  /********************************************/
+ /*              INTERACTION BAR             */
+/********************************************/
+
+
+
+#top-bar{
+	display:none
+}

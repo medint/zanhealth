@@ -1,0 +1,230 @@
+*{
+	font-family: Arial;
+}
+
+body {
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	overflow: hidden;
+}
+
+.vertical-divider{
+	display:none;
+}
+
+  /********************************************/
+ /*                  TOP NAV                 */
+/********************************************/
+
+#top-bar {
+	display:none
+}
+
+
+  /********************************************/
+ /*                 LEFT NAV                 */
+/********************************************/
+
+#left-nav{
+	display:none
+	}
+
+  /********************************************/
+ /*                MID SUMMARY               */
+/********************************************/
+
+/* General */
+#mid-summary{
+	display:none
+}
+
+
+
+  /********************************************/
+ /*               Right Detail               */
+/********************************************/
+
+#right-detail{
+	float: right;
+	height: 100%;
+	width: 400px; /*to be set by javascript */
+	background-color: #f9f9f9;
+	overflow-y: hidden;
+
+}
+
+/*     object form     */
+	
+#object-form_top{
+	padding:20px 15px 20px 15px;
+	height: 310px;
+
+	#object-form-left{
+		float: left;
+		width: 55%;
+		height: 150px;
+		line-height: 12px;
+
+		.field-box{
+			width: 100%;
+			height: 40px;
+			background-color: #ffffff;
+			border:1px solid;
+			border-color: #f0f0f0;
+			border-radius:2px;
+			margin:-1px -5px 0px 0px;
+
+			.field-type{
+				font-size: 8px;
+				color: #a7a7a7;
+				padding-left: 10px;
+				padding-top: 10px;
+			}
+
+			.field-info{
+				width: inherit;
+			   	height: 20px;
+			   	overflow: hidden;
+			   	background-color: #fff;
+			   	margin:0px;
+				select{
+					background: transparent;
+					color: #000000;
+					font-size: 10px;
+				   	width: 50px;
+				   	line-height: 1;
+				   	border: 0;
+				   	border-radius: 0;
+				   	height: 20px;
+				   	-webkit-appearance: none;
+				}
+			}
+		}
+
+		.small{
+			float: left;
+			width:51%;
+		}
+
+
+	}
+
+	#object-form-right{
+		display: inline-block;
+		margin-left: 2%;
+		width:40%;
+		height: 150px;
+		#field-box_item-id{
+			width: 100%;
+			height: 40px;
+			background-color: #323a45;
+			border: 1px solid;
+			border-radius: 2px;
+			.item-id{
+				color: white;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 14px;
+				margin-left: 11px;
+				margin-top: 11px;
+			}
+		}
+		#object-status-field{
+			background-color: #ffffff;
+			border:1px solid;
+			border-color: #f0f0f0;
+			border-radius:2px;
+			height: 25px;
+			width: 100%;
+		}
+
+	}
+
+	#object-form-bototm{
+		display: block;
+
+	}
+}
+
+/*     object add-info     */
+#object_additional-details{
+	background-color: #292929;
+	overflow: scroll;
+}
+
+#delete-button2{
+	background-image: url(image_path('top/trashicon.png'));
+	width: 23px;
+	height: 22px;
+	display:block;
+}
+
+
+  /********************************************/
+ /*              INTERACTION BAR             */
+/********************************************/
+
+#top-bar{
+	color: #bababa;
+}
+
+#top-bar > #left-top{
+	margin-top: 23px;
+	margin-left: 15px;
+	font-size: 11px;
+	width: 40%;
+}
+
+#top-bar > #left-top > *{
+	float:left;
+}
+
+#top-bar > #left-top > #top-dropdown{
+	display: block;
+	vertical-align: middle;
+	padding-top: 1px;
+}
+
+#top-bar > #left-top > #top-dropdown > *{
+	display: inline;
+}
+
+#top-bar > #left-top > #top-dropdown> .dropdown >a {
+	margin-left: 5px;
+	border-color: #bababa;
+	border-style: solid;
+	border-width: 1px;
+	
+	color: white;
+	font-weight: 600;
+}
+
+#top-bar > #left-top > #top-dropdown> .dropdown > a > .caret{
+	margin-left: 20px;
+	
+}
+
+#top-bar > #left-top > #top-button > *{
+	display: inline-block;
+	margin-left: 15px
+}
+
+#top-bar > #left-top > #top-button > #print-button{
+	background-image: url(image_path('top/printericon.png'));
+	width: 22px;
+	height: 22px;
+}
+
+#top-bar > #left-top > #top-button > #delete-button{
+	background-image: url(image_path('top/trashicon.png'));
+	width: 23px;
+	height: 22px;
+}
+
+#top-bar > #left-top > #top-button > #add-button{
+	background-image: url(image_path('top/addicon.png'));
+	width: 23px;
+	height: 22px;
+}
+
