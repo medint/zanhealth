@@ -186,10 +186,12 @@ namespace :test do
 		FacilityCost.delete_all
 		role_eng = roles.find {|r| r.name == "technician" }
 		facilities.each do |f|
-			users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
+			#users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
+			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
+			rel_depts = depts.select { |d| d.facility_id == f.id }
 			60.times do |fwo|
 				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_ord = FacilityWorkOrder.create(:date_requested => date_u_wr,
+				work_ord = FacilityWorkOrder.create(:department => rel_depts.sample, 
 									 :date_expire => date_u_wr,
 									 :date_completed => date_u_wr,
 									 :request_type => 1,
