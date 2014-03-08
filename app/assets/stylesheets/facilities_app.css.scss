@@ -471,7 +471,7 @@ body {
 	#object-form-left{
 		float: left;
 		width: 55%;
-		height: 150px;
+		height: 130px;
 		line-height: 12px;
 
 		.field-box{
@@ -487,7 +487,8 @@ body {
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
-				padding-top: 10px;
+				padding-top: 7px;
+
 			}
 
 			.field-info{
@@ -495,13 +496,13 @@ body {
 			   	height: 20px;
 			   	overflow: hidden;
 			   	background-color: #fff;
-			   	margin:0px;
+			   	margin-top:-3px;
 				select{
 					background: transparent;
 					color: #000000;
 					font-size: 10px;
-				   	width: 50px;
-				   	line-height: 1;
+					padding-left:10px;
+				   	width: inherit;
 				   	border: 0;
 				   	border-radius: 0;
 				   	height: 20px;
@@ -522,7 +523,7 @@ body {
 		display: inline-block;
 		margin-left: 2%;
 		width:40%;
-		height: 150px;
+		height: 130px;
 		#field-box_item-id{
 			width: 100%;
 			height: 40px;
@@ -545,13 +546,152 @@ body {
 			border-radius:2px;
 			height: 25px;
 			width: 100%;
+			margin-bottom: 10px;
+
+			select{
+				text-transform: uppercase;
+				text-align: center;
+				margin-top: 3px;
+				padding-left: 30px;
+				padding-right:25px;
+				border: 0px;
+				font-size: 9px;
+				background-color: transparent;
+				float:left;
+				-webkit-appearance: none;
+			}
+
+			a{
+				float:left;
+			}
+
+			#print-button_right{
+				margin-top: 4px;
+				margin-left: 4%;
+				margin-right: 4%;
+
+				float:right;
+
+				background-image: url(image_path('right/printericon.png'));
+				background-size: 100%;
+				width: 14px;
+				height: 14px;
+				display:block;
+			}
+
+			#delete-button_right{
+				margin-top: 4px;
+				margin-left: 4%;
+				margin-right: 4%;
+				float: right;
+
+				background-image: url(image_path('right/trashicon.png'));
+				background-size: 100%;
+				width: 14px;
+				height: 14px;
+				display:block;
+			}
+		}
+		.actions{
+			input[type=submit] {
+				height: 40px;
+				width: 100%;
+				padding:5px 15px; 
+				background:#77ccbf;
+				border:0 none;
+				cursor:pointer;
+				-webkit-border-radius: 3px;
+				border-radius: 5px; 
+
+				color: white;
+				letter-spacing: 1px;
+				font-weight: 600;
+				font-size: 15px;
+			}
+			input[type=submit]:hover{
+				color: black;
+			}
 		}
 
 	}
 
-	#object-form-bototm{
+	#object-form-bottom{
 		display: block;
 
+		.field-box-date{
+			float: left;
+			width: 25%;
+			height: 40px;
+			background-color: #ffffff;
+			border:1px solid;
+			border-color: #f0f0f0;
+			border-radius:2px;
+			margin:-1px -5px 0px 0px;
+
+			.field-type{
+				font-size: 8px;
+				color: #a7a7a7;
+				padding-left: 10px;
+				padding-top: 4px;
+			}
+
+			.field-info{
+				width: 100%;
+			   	height: 20px;
+			   	overflow: hidden;
+			   	background-color: #fff;
+			   	margin-top:-6px;
+				color: #000000;
+				font-size: 10px;
+				padding-left:10px;
+				select{
+					background: transparent;
+				   	width: auto;
+				   	border: 0;
+				   	border-radius: 0;
+				   	height: 20px;
+				   	-webkit-appearance: none;
+				}
+			}
+
+		}
+
+		.field-box-description{
+			float: left;
+			width: 97%;
+			height: 70px;
+			background-color: #ffffff;
+			border:1px solid;
+			border-color: #f0f0f0;
+			border-radius:2px;
+			margin-top: 10px;
+
+			.field-type{
+				font-size: 8px;
+				color: #a7a7a7;
+				padding-left: 10px;
+				padding-top: 7px;
+
+			}
+
+			.field-info{
+				width: inherit;
+			   	height: 20px;
+			   	background-color: #fff;
+			   	margin-top:-3px;
+				textarea{
+					background: transparent;
+					color: #000000;
+					font-size: 10px;
+					margin-left:10px;
+				   	width: inherit;
+				   	border: 0;
+				   	border-radius: 0;
+				   	height: 40px;
+				   	-webkit-appearance: none;
+				}
+			}
+		}
 	}
 }
 
@@ -559,13 +699,6 @@ body {
 #object_additional-details{
 	background-color: #292929;
 	overflow: scroll;
-}
-
-#delete-button2{
-	background-image: url(image_path('top/trashicon.png'));
-	width: 23px;
-	height: 22px;
-	display:block;
 }
 
 
