@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
 
     def user
         return nil if session[:user].nil?
-        @user ||= User.find(session[:user])
+        @user ||= User.find_by_id(session[:user])
     end
     
     def authenticate
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     		   not User.where(username: params[:username],
     						  encrypted_password: params[:encrypted_password]).empty?
     			session[:user] = User.where(username: params[:username]).first.id
-    		elsif session[:user] and not params[:username]
+    		elsif session[:user] and User.find_by_id(session[:user]) and not params[:username]
     			#do nothing
     		elsif not (params[:controller] == 'users' and params[:action] == 'login')
     			redirect_to controller: 'users', action: 'login'
@@ -54,12 +54,12 @@ class ApplicationController < ActionController::Base
     def choose_language
         unless params[:language].nil?
             session[:language] = params[:language]
-            if not session[:user].nil? and ((user = User.find(session[:user])))
+            if not session[:user].nil? and ((user = User.find_by_id(session[:user])))
                 user.language = params[:language]
                 user.save
             end
         else
-            if not session[:user].nil? and ((user = User.find(session[:user])))
+            if not session[:user].nil? and ((user = User.find_by_id(session[:user])))
                 session[:language] = user.language || session[:language] || @@DEFAULT_LANGUAGE
             else
                 session[:language] ||= @@DEFAULT_LANGUAGE
