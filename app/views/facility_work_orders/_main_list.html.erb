@@ -10,7 +10,9 @@
       status = "<%=facility_work_order.status%>"
       datestarted="<%= facility_work_order.date_started.try(:to_s, :number)%>"
       >
-        <div class="status-<%= facility_work_order.status %>"></div>
+        <div class="status-<%= facility_work_order.status %>">
+          <div class="status-text-<%= facility_work_order.status %>"></div>
+        </div>
         <div class="order_details">
           <p class="order_id">
             Work Order <%= facility_work_order.id %>

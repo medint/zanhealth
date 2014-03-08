@@ -39,12 +39,16 @@
        <div>
        <a onclick = "sort_by_status()">Status</a>
        </div>
+
       </ul>
+
     </div>
+    <div></div>
   </div>
 
   <div id="top-button">
-    <a id='print-button'></a>
+    <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <a href= "<%=new_facility_work_order_path%>" id='add-button'></a>
+    <%= link_to "", '#', onclick: "printdetailpage()", :id => "print-button" %>
   </div>
 </div>
