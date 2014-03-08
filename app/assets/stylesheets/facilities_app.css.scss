@@ -466,7 +466,7 @@ body {
 	
 #object-form_top{
 	padding:20px 15px 20px 15px;
-	height: 310px;
+	height: 295px;
 
 	#object-form-left{
 		float: left;
@@ -699,6 +699,40 @@ body {
 #object_additional-details{
 	background-color: #292929;
 	overflow: scroll;
+
+	.additional-details_nav{
+		background-color: #312c2d;
+		padding: 0px;
+		margin: 0px;
+		width:100%;
+		height: 40px;
+		li {
+			float:left;
+			a{
+				display:block;
+				width:40px;
+				height:40px;
+				color:#fff;
+				outline:none;
+				text-decoration:none;
+				text-indent: -9999em;
+			}
+		}
+		#detail-icon{
+			background-image: url(image_path('right/detail_icon.png'));
+		}
+		#comment-icon{
+			background-image: url(image_path('right/chat_icon.png'));
+		}
+		#cost-icon{
+			background-image: url(image_path('right/cost_icon.png'));
+		}
+		#labor-icon{
+			background-image: url(image_path('right/laborhours_icon.png'));
+		}
+	}
+
+
 }
 
 
