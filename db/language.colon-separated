@@ -15,14 +15,17 @@ Category: Kundi
 Category*: Kundi BUT maybe they use “kategoria” in Tanzania
 Cause Description: 'xxx xxx'
 Comment: 'xxx'
+Completed: 'xxx'
 Contact Us: 'xxx xxx'
 Content: Yaliyomo
 Context: 'xxx'
 Contract Expire: Tarehe ya mwisho wa mkandarasi
 Cost: Bei
+Create: 'xxx'
 Created At: 'xxx xxx'
 Created: 'xxx'
 Date Completed: Tarehe ya kukamilishwa
+Date Created: 'xxx xxx'
 Date Expires: Tarehe ya mwisho kutumika 
 Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
 Date Received: Siku kifaa kilipokewa
@@ -39,14 +42,17 @@ Duration: 'xxx'
 Edit: Hariri
 Editing:'xxx'
 Encrypted password:'xxx xxx'
+Expire: 'xxx'
 Facilities: 'xxx'
 Facility:'xxx'
+Filter: 'xxx'
 Floor: 'xxx'
 Form: 'xxx'
 Funding: Fedha
 Home: xxx
 ID: Nambari ya kitambulisho
 *ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
+In Progress: 'xxx xxx'
 Item ID: Nambari ya kitambulisho ya kifaa
 Item Cost: Bei ya kitus
 Item Histories: 'xxx xxx'
@@ -71,6 +77,7 @@ New Facility: 'xxx xxx'
 New Item: 'xxx xxx'
 New Text: 'xxx xxx'
 New User:'xxx xxx'
+New Work Order: 'xxx xxx xxx'
 New Work Request: 'xxx xxx xxx'
 Notice: 'xxx'
 Number: 'xxx'
@@ -90,13 +97,18 @@ Requester: Anayewasilisha ombi
 Requester ID: 'xxx'
 Role: 'xxx'
 Room: 'xxx'
+Save Changes: 'xxx'
+Select Attribute: 'xxx xxx'
+Select Status: 'xxx xxx'
 Serial Number: Namba tambulishi
 Service Agent: Wakala wa huduma
 *Service Agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer
 Settings: Mipangilio binafsi
 Show: Onyesha
 Simple View: Mtazamo rahisi
+Sort: 'xxx'
 Stage: 'xxx'
+Start: 'xxx'
 Status: Hali
 Submit New Request: Wasilisha ombi jipya
 Tag: 'xxx'
@@ -105,6 +117,7 @@ Telephone number: 'xxx xxx'
 Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) 
 Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax)
 Time: Wakati
+Unstarted: 'xxx'
 Updated At:'xxx'
 Urgency: 'xxx'
 User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name
@@ -116,6 +129,7 @@ Vendor: 'xxx'
 Warranty Expire: Tarehe ya mwisho wa hati
 Warranty Notes: Muhtasari wa hati or  Maelezo ya hati
 *Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
+Work Order: 'xxx xxx'
 Work Request ID: 'xxx xxx xxx'
 Work Request: 'xxx xxx'
 Working: Kinafanya kazi vizuri 

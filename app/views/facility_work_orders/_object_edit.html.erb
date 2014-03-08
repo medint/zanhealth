@@ -31,7 +31,7 @@
     <div id="object-form-right">
         <div id="field-box_item-id">
           <div class="item-id">
-          Work Order<%= @language['Work Order'] %> # <%= @facility_work_order.id %>
+          <%= @language['Work Order'] %> # <%= @facility_work_order.id %>
           </div>
         </div>
 
@@ -42,7 +42,7 @@
         </div>
 
         <div class="actions">
-            <%= f.submit 'Save Changes' %>
+            <%= f.submit @language['Save Changes'] %>
         </div>
     </div>
 

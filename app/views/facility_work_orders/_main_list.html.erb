@@ -15,28 +15,34 @@
         </div>
         <div class="order_details">
           <p class="order_id">
-            Work Order <%= facility_work_order.id %>
+            <%=@language['Work Order']%> <%= facility_work_order.id %>
           </p>
           <p class="order_requester">
-            Requester: <%= facility_work_order.requester.try(:name) %>
+            <%=@language['Requester']%>: <%= facility_work_order.requester.try(:name) %>
           </p>
           <p class="order_owner">
-            Owner: <%= facility_work_order.owner.try(:name) %>
+            <%=@language['Owner']%>: <%= facility_work_order.owner.try(:name) %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
         <div class="order_date">
-          <div class="order_date_title"> EXPIRE</div>
+          <div class="order_date_title">
+            <%=@language['Expire']%>
+          </div>
           <%= facility_work_order.date_expire.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
-          <div class="order_date_title"> START</div>
+          <div class="order_date_title">
+            <%=@language['Start']%>
+          </div>
           <%= facility_work_order.date_started.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
-          <div class="order_date_title"> CREATED</div>
+          <div class="order_date_title">
+            <%=@language['Created']%>
+          </div>
           <%= facility_work_order.created_at.try(:strftime,"%^b %d") %> 
         </div>
       </li>

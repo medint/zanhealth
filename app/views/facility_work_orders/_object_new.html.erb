@@ -1,4 +1,4 @@
-<p>New Work Order</p>
+<p><%= @language['New Work Order'] %></p>
 
 <div id="object-form_top">
   <%= form_for(@facility_work_order) do |f| %>
@@ -39,7 +39,7 @@
         <div class = "icon"></div>
 
         <div class="actions">
-            <%= f.submit %>
+            <%= f.submit @language['Create'] %>
         </div>
     </div>
 
