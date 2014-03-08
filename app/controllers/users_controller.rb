@@ -64,11 +64,12 @@ class UsersController < ApplicationController
   end
 
   def login
+
   end
 
   def logout
     session[:user] = nil
-    redirect_to '/models'
+    redirect_to '/facility_work_orders'
   end
 
   private
