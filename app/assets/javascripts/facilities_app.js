@@ -59,8 +59,8 @@ function window_resize_handler(){
 	var right_additional_info = document.getElementById("object_additional-details");
 
 	/* width */
-	mid_summary.style.width = ((window_width-240)/2);
-	right_detail.style.width = ((window_width-240)/2);
+	mid_summary.style.width = ((window_width-240)/2) -5;
+	right_detail.style.width = ((window_width-240)/2) -5;
 	mid_summary.style.height = window_height-125;
 	right_detail.style.height = window_height-125;
 

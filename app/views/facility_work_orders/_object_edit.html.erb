@@ -38,7 +38,7 @@
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
           <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
-          <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "print-button_right"%>
+          <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right"%>
         </div>
 
         <div class="actions">
