@@ -2,7 +2,14 @@
   <ul id="mid-summary_ul">
     <% @facility_work_orders.each do |facility_work_order| %>
     <%= link_to(facility_work_order) do %>
-      <li class="mid-summary_ul_li" requester="<%=User.find_by(id:facility_work_order.requester_id).try(:name)%>">
+      <li
+      class="mid-summary_ul_li"
+      requester="<%=User.find_by(id:facility_work_order.requester_id).try(:name)%>"
+      datecreated="<%= facility_work_order.created_at.to_s(:number) %>"
+      owner="<%=facility_work_order.owner.try(:name)%>"
+      status = "<%=facility_work_order.status%>"
+      datestarted="<%= facility_work_order.date_started.try(:to_s, :number)%>"
+      >
         <div class="status-<%= facility_work_order.status %>"></div>
         <div class="order_details">
           <p class="order_id">

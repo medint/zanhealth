@@ -1,7 +1,5 @@
 /* Global Variables */
-//= require jquery
-//= require jquery.tinysort.min.js
-
+//=require jquery
 
 //window resizing
 if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/)) {
@@ -126,38 +124,113 @@ function checkbox_filter_handler(){
 
 function sort_by_date_created(){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	// nodeArray = [];
-	// for (var i = 0; i < list_to_sort.length; i++) {
-	// 	nodeArray[i] = list_to_sort[i].cloneNode(true);
-	// }
-	//nodeArray.tsort();
-	var $tosort = $('.mid-summary_ul_li');
-	$tosort.tsort();
-};
+	var nodeArray = [];
+	for (var i = 0; i < list_to_sort.length; i++) {
+    	nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	nodeArray.sort(function(a,b) {
+ 		var dateA=parseFloat(a.getAttribute("datecreated")), dateB=parseFloat(b.getAttribute("datecreated"));
+		if (dateA < dateB) {
+  			return 1
+  		}
+ 		if (dateA > dateB) {
+  			return -1
+  		}
+ 		return 0
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+	}
+}
+
+function sort_by_date_started(){
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+	var nodeArray = [];
+	for (var i = 0; i < list_to_sort.length; i++) {
+    	nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	nodeArray.sort(function(a,b) {
+		if (a.getAttribute("datestarted") == "") {
+			var dateA = 0;
+		}
+		else {
+			var dateA = parseFloat(a.getAttribute("datestarted"));
+		}
+ 		if (b.getAttribute("datestarted") == "") {
+ 			dateB = 0;
+ 		}
+ 		else {
+ 			var dateB = parseFloat(b.getAttribute("datestarted"));
+ 		}
+		if (dateA < dateB) {
+  			return 1;
+  		}
+ 		if (dateA > dateB) {
+  			return -1;
+  		}
+ 		return 0;
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+	}
+}
 
 function sort_by_requester(){
-	$('#mid-summary_ul').tsort('li', {attr:'requester'});
-};
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+	var nodeArray = [];
+	for (var i = 0; i < list_to_sort.length; i++) {
+    	nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	nodeArray.sort(function(a,b) {
+ 		var reqA=a.getAttribute("requester").toLowerCase(), reqB=b.getAttribute("requester").toLowerCase()
+ 		if (reqA < reqB) {
+  			return -1
+  		}
+ 		if (reqA > reqB) {
+  			return 1
+  		}
+ 		return 0
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+	}
+}
+
+function sort_by_owner(){
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+	var nodeArray = [];
+	for (var i = 0; i < list_to_sort.length; i++) {
+    	nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	nodeArray.sort(function(a,b) {
+ 		var ownerA=a.getAttribute("owner").toLowerCase(), ownerB=b.getAttribute("owner").toLowerCase()
+ 		if (ownerA < ownerB) {
+  			return -1
+  		}
+ 		if (ownerA > ownerB) {
+  			return 1
+  		}
+ 		return 0
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+	}
+}
 
 function sort_by_status(){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = [];
-	var s = 0
-	for (var x = 0; x < 3; x++){
-		for (var i = 0; i < list_to_sort.length; i++) {
-			if (list_to_sort[i].childNodes[1].classList[0]== "status-"+x) {
-    			nodeArray[s] = list_to_sort[i].cloneNode(true);
-    			s++
-    		}
-		}
+	for (var i = 0; i < list_to_sort.length; i++) {
+    	nodeArray[i] = list_to_sort[i].cloneNode(true);
 	}
-
+	nodeArray.sort(function(a,b) {
+		return a.getAttribute("status") - b.getAttribute("status")
+	});
 	for (var i = 0; i < nodeArray.length; i++){
-		if (list_to_sort[i] != null) {
-			list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
-		}
+	 	list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
 	}
-};
+}
+
 
 $(document).on ("page:change",function() {
    $('.dropdown-menu').on('click', function(e) {
