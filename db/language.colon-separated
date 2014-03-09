@@ -25,6 +25,7 @@ Convert to Work Order: 'xxx xxx xxx xxx'
 Cost: Bei
 Create: 'xxx'
 Create Facility Work Request: 'xxx xxx xxx xxx'
+Create Work Order: 'xxx xxx xxx'
 Created At: 'xxx xxx'
 Created: 'xxx'
 Date Completed: Tarehe ya kukamilishwa
@@ -66,8 +67,9 @@ Item Cost: Bei ya kitus
 Item Histories: 'xxx xxx'
 Item Type: Aina ya kifaa
 Item: 'xxx'
-LOGOUT: ONDOKA
+LOGOUT: Ondoka
 Labor Hour: 'xxx'
+Last Date Checked: 'xxx xxx xxx'
 Last Updated: Tarehe ya mwisho ya usasishaji
 Listing: 'xxx'
 Location: Eneo
@@ -88,6 +90,7 @@ New Text: 'xxx xxx'
 New User:'xxx xxx'
 New Work Order: 'xxx xxx xxx'
 New Work Request: 'xxx xxx xxx'
+Next Date: 'xxx xxx'
 Notice: 'xxx'
 Number: 'xxx'
 Owner: Mmiliki
