@@ -1,5 +1,3 @@
-  
-
 <%= form_for(@input_object) do |f| %>
   <% if @input_object.errors.any? %>
     <div id="error_explanation">
@@ -40,32 +38,29 @@
         <div class = "icon"></div>
 
         <div class="actions">
-            <%= f.submit %>
+            <%= f.submit @language ['Create Work Order']%>
         </div>
     </div>
 
-    <div id="object-form-bottom">
-        <div class="item-info">   
-            <div class="field">
-              <%= @language['Description'] %><br>
-              <%= f.text_area :description %>
+    <div id="object-form-bottom"> 
+            <div class="field-box-description">
+              <div class="field-type"><%= @language['Description'] %></div>
+              <div class="field-info"><%= f.text_area :description %></div>
             </div>
-            <div class="field">
-              <%= @language['Cause Description'] %><br>
-              <%= f.text_area :cause_description %>
-            </div>
-
-            <div class="field">
-              <%= @language['Action Taken'] %><br>
-              <%= f.text_area :action_taken %>
+            <div class="field-box-description">
+              <div class="field-type"><%= @language['Cause Description'] %></div>
+              <div class="field-info"><%= f.text_area :cause_description %></div>
             </div>
 
-            <div class="field">
-              <%= @language['Prevention Taken'] %><br>
-              <%= f.text_area :prevention_taken %>
+            <div class="field-box-description">
+              <div class="field-type"><%= @language['Action Taken'] %></div>
+              <div class="field-info"><%= f.text_area :action_taken %></div>
             </div>
-        </div>
 
+            <div class="field-box-description">
+              <div class="field-type"><%= @language['Prevention Taken'] %></div>
+              <div class="field-info"><%= f.text_area :prevention_taken %></div>
+            </div>
     </div>
     
     <div class="actions">

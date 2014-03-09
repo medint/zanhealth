@@ -1,12 +1,43 @@
-<div>
-	<p> ID: <%= @facility_work_request.id %>
-	<p> Requested By: <%= @facility_work_request.requester %> </p>
-	<p> Date Created: <%= @facility_work_request.created_at %> </p>
-	<p> Last Updated: <%= @facility_work_request.updated_at %> </p>
-	<p> Department: <%= @facility_work_request.department %> </p>
-	<p> Location: <%= @facility_work_request.location %> </p>
-	<p> Phone Number: <%= @facility_work_request.phone %> </p>
-	<p> Email: <%= @facility_work_request.email %> </p>
-	<p> Full Description: <%= @facility_work_request.description %> </p>
+<div id="object-form_top">
+	<div id="object-form-left">
+
+		<div class="field-box">
+			<div class="field-type"> Requester</div>
+			<div class="field-info"><%= @facility_work_request.requester %></div>
+		</div>
+
+		<div class="field-box">
+			<div class="field-type"> Date Created</div>
+			<div class="field-info"><%= @facility_work_request.created_at %> </div>
+		</div>
+
+		<div class="field-box">
+			<div class="field-type"> Last Updated</div>
+			<div class="field-info"><%= @facility_work_request.updated_at %> </div>
+		</div>
+		<div class="field-box">
+			<div class="field-type"> Department</div>
+			<div class="field-info"><%= @facility_work_request.department %> </div>
+		</div>
+		<div class="field-box">
+			<div class="field-type"> Location: </div>
+			<div class="field-info"><%= @facility_work_request.location %></div>
+		</div>
+		<div class="field-box">
+			<div class="field-type"> Phone Number</div>
+			<div class="field-info"><%= @facility_work_request.phone %> </div>
+		</div>
+		<div class="field-box">
+			<div class="field-type"> Email</div>
+			<div class="field-info"><%= @facility_work_request.email %> </div>
+		</div>
+		
+		<div class="field-box	">
+			<div class="field-type"> Full Description</div>
+			<div class="field-info"><%= @facility_work_request.description %> </div>
+		</div>
+
+		<div class="field-type"><%= @facility_work_request.id %></div>
+	</div>
 
 </div>
