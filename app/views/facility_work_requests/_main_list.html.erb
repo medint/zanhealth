@@ -7,10 +7,11 @@
         
         <div class="request_details">
           <p class="request_id">
-            Work Request <%= facility_work_request.id %> :
+            <%= @language['Work Request'] %> <%= facility_work_request.id %> :
           </p>
 		  <p class="request_info">
-			Requester: <%= facility_work_request.requester %> | 			Department: <%= facility_work_request.department %>
+			<%= @language['Requester'] %>: <%= facility_work_request.requester %> |
+      <%= @language['Department'] %>: <%= facility_work_request.department %>
 		  </p>
 
           <p class ="request_description">
@@ -20,7 +21,7 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="request_date">
-          <div class="request_date_title"> Due Date:</div>
+          <div class="request_date_title"> <%= @language['Due Date'] %>:</div>
           <%= facility_work_request.created_at.try(:strftime,"%^b %d") %>
         </div>
 

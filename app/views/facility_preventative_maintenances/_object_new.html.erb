@@ -1,4 +1,4 @@
-<p><%= "Preventative Maintenance" %></p>
+<p><%=@language['Preventative Maintenance']%></p>
 
 <%= form_for(@facility_preventative_maintenance) do |f| %>
   <% if @facility_preventative_maintenance.errors.any? %>
@@ -12,17 +12,14 @@
   <% end %>
   
   <div class="field">
-    Days
     <%= @language['Days'] %><br>
     <%= f.number_field :days %>
   </div>
   <div class="field">
-    Weeks
     <%= @language['Weeks'] %><br>
     <%= f.number_field :weeks %>
   </div>
   <div class="field">
-    Months
     <%= @language['Months'] %><br>
     <%= f.number_field :months %>
   </div>  
@@ -32,6 +29,6 @@
   </div>
  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit @language['Create']%>
   </div>
 <% end %>

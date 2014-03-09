@@ -20,8 +20,11 @@ Contact Us: 'xxx xxx'
 Content: Yaliyomo
 Context: 'xxx'
 Contract Expire: Tarehe ya mwisho wa mkandarasi
+Convert: 'xxx'
+Convert to Work Order: 'xxx xxx xxx xxx'
 Cost: Bei
 Create: 'xxx'
+Create Facility Work Request: 'xxx xxx xxx xxx'
 Created At: 'xxx xxx'
 Created: 'xxx'
 Date Completed: Tarehe ya kukamilishwa
@@ -32,15 +35,19 @@ Date Received: Siku kifaa kilipokewa
 Date Requested: Tarehe ya ombi
 Date Started: 'xxx'
 Date/Time: 'xxx'
+Days: 'xxx'
+Days Since: 'xxx xxx'
 Department: 'xxx'
 Description: Maelezo
 Destroy: Futa
 Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote
 Detailed View: Tazama kwa ukamilifu
 Domain: Uwanja
+Due Date: 'xxx xxx'
 Duration: 'xxx'
 Edit: Hariri
 Editing:'xxx'
+Email: 'xxx'
 Encrypted password:'xxx xxx'
 Expire: 'xxx'
 Facilities: 'xxx'
@@ -49,6 +56,7 @@ Filter: 'xxx'
 Floor: 'xxx'
 Form: 'xxx'
 Funding: Fedha
+Full Description: 'xxx xxx'
 Home: xxx
 ID: Nambari ya kitambulisho
 *ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”
@@ -69,6 +77,7 @@ Manage: Simamia
 Manufacturer: Mtengenezaji
 Model: 'xxx'
 Modified: 'xxx'
+Months: 'xxx'
 My Requests: Maombi yangu
 My Texts: Maandiko Yangu
 Name: 'xxx'
@@ -83,6 +92,8 @@ Notice: 'xxx'
 Number: 'xxx'
 Owner: Mmiliki
 Owner ID: 'xxx'
+Phone Number: 'xxx xxx'
+Preventative Maintenance: 'xxx xxx'
 Prevention Taken: Uzuiaji Uliofanywa
 Price: Bei
 Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use)
@@ -126,9 +137,11 @@ Username: 'xxx'
 Users: 'xxx'
 Utilization: 'xxx'
 Vendor: 'xxx'
+View: 'xxx'
 Warranty Expire: Tarehe ya mwisho wa hati
 Warranty Notes: Muhtasari wa hati or  Maelezo ya hati
 *Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term)
+Weeks: 'xxx'
 Work Order: 'xxx xxx'
 Work Request ID: 'xxx xxx xxx'
 Work Request: 'xxx xxx'
