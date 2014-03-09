@@ -1,41 +1,46 @@
-<div id="object-form-left">
+<div id="object-form-single-col">
 
+		<div id="field-box_item-id">
+      		<div class="item-id">
+        	<%= @language['Work Request'] %> # <%= @facility_work_request.id %>
+      		</div>
+    	</div>
 		<div class="field-box">
 			<div class="field-type"> Requester</div>
-			<div class="field-info"><%= @facility_work_request.requester %></div>
+			<div class="field-info"><p><%= @facility_work_request.requester %></p></div>
 		</div>
 
 		<div class="field-box">
 			<div class="field-type"> Date Created</div>
-			<div class="field-info"><%= @facility_work_request.created_at %> </div>
+			<div class="field-info"><p><%= @facility_work_request.created_at %> </p></div>
 		</div>
 
 		<div class="field-box">
 			<div class="field-type"> Last Updated</div>
-			<div class="field-info"><%= @facility_work_request.updated_at %> </div>
+			<div class="field-info"><p><%= @facility_work_request.updated_at %> </p></div>
 		</div>
 		<div class="field-box">
 			<div class="field-type"> Department</div>
-			<div class="field-info"><%= @facility_work_request.department %> </div>
+			<div class="field-info"><p><%= @facility_work_request.department %> </p></div>
 		</div>
 		<div class="field-box">
 			<div class="field-type"> Location: </div>
-			<div class="field-info"><%= @facility_work_request.location %></div>
+			<div class="field-info"><p><%= @facility_work_request.location %></p></div>
 		</div>
 		<div class="field-box">
 			<div class="field-type"> Phone Number</div>
-			<div class="field-info"><%= @facility_work_request.phone %> </div>
+			<div class="field-info"><p><%= @facility_work_request.phone %> </p></div>
 		</div>
 		<div class="field-box">
 			<div class="field-type"> Email</div>
-			<div class="field-info"><%= @facility_work_request.email %> </div>
+			<div class="field-info"><p><%= @facility_work_request.email %> </p></div>
 		</div>
 		
 		<div class="field-box	">
 			<div class="field-type"> Full Description</div>
-			<div class="field-info"><%= @facility_work_request.description %> </div>
+			<div class="field-info"><p><%= @facility_work_request.description %> </p></div>
 		</div>
 
-		<div class="field-type"><%= @facility_work_request.id %></div>
+		
 </div>
 
