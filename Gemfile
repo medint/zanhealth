@@ -12,11 +12,12 @@ end
 group :development do
     gem "better_errors"
     gem "binding_of_caller" # 'optional' dep for better_errors
-    gem 'faker'
 end
 group :production do
   gem 'pg'
 end
+
+gem 'faker'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
