@@ -25,6 +25,7 @@ Convert to Work Order: 'xxx xxx xxx xxx'
 Cost: Bei
 Create: 'xxx'
 Create Facility Work Request: 'xxx xxx xxx xxx'
+Create PM: 'xxx xxx'
 Create Work Order: 'xxx xxx xxx'
 Created At: 'xxx xxx'
 Created: 'xxx'
@@ -34,7 +35,7 @@ Date Expires: Tarehe ya mwisho kutumika
 Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…)
 Date Received: Siku kifaa kilipokewa
 Date Requested: Tarehe ya ombi
-Date Started: 'xxx'
+Date Started: 'xxx xxx'
 Date/Time: 'xxx'
 Days: 'xxx'
 Days Since: 'xxx xxx'

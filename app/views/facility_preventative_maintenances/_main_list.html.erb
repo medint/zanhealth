@@ -2,12 +2,17 @@
   <ul id="mid-summary_ul">
     <% @facility_preventative_maintenances.each do |facility_preventative_maintenance| %>
     <%= link_to(facility_preventative_maintenance) do %>
-      <li class="mid-summary_ul_li">
+      <li
+      class="mid-summary_ul_li"
+      datedue="<%= facility_preventative_maintenance.next_date.try(:to_s, :number) %>"
+      dayssince="<%= facility_preventative_maintenance.days_since.to_i %>"
+      ID="<%= facility_preventative_maintenance.id %>"
+      >
 
         <div class="status-<%= facility_preventative_maintenance.status %>"></div>
         <div class="pm_details">
           <p class="pm_id">
-            <%= @language['Preventative Maintenance'] %> <%= facility_preventative_maintenance.id %> :
+            <%= @language['Preventative Maintenance'] %> <%= facility_preventative_maintenance.id %>
           </p>
           <p class ="pm_description">
              <%= facility_preventative_maintenance.description[0...50] +  "..." %>

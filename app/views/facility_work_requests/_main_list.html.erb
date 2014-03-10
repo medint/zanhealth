@@ -2,12 +2,17 @@
   <ul id="mid-summary_ul">
     <% @facility_work_requests.each do |facility_work_request| %>
     <%= link_to(facility_work_request) do %>
-      <li class="mid-summary_ul_li">
+      <li
+      class="mid-summary_ul_li"
+      requester="<%= facility_work_request.requester %>"
+      department="<%= facility_work_request.department %>"
+      ID="<%= facility_work_request.id %>"
+      >
       	<div class="bullet-bar"></div>
         
         <div class="request_details">
           <p class="request_id">
-            <%= @language['Work Request'] %> <%= facility_work_request.id %> :
+            <%= @language['Work Request'] %> <%= facility_work_request.id %>:
           </p>
 		  <p class="request_info">
 			<%= @language['Requester'] %>: <%= facility_work_request.requester %> |
