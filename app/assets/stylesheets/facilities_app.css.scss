@@ -250,18 +250,6 @@ body {
 		width: 10px;
 	}
 
-	.status-text-0{
-		display:none;
-	}
-
-	.status-text-1{
-		display:none;
-	}
-
-	.status-text-2{
-		display:none;
-	}
-
 	#mid-summary_ul > a > .mid-summary_ul_li > .order_details{
 		margin-left: 15px;
 	}
@@ -288,8 +276,8 @@ body {
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .order_date{
+		
 		float: right;
-		width: 45px;
 		font-size: 12px;
 		color: #a1a1a1;
 		padding-top: 9px;
