@@ -1,4 +1,5 @@
 require 'csv'
+require 'faker'
 
 namespace :test do
 	desc "seed the db with test data"
@@ -73,7 +74,7 @@ namespace :test do
 						:model => model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
-						:reason => "needed",
+						:reason => Faker::Lorem.sentence(word_count = rand(9)), 
 						:date_requested => date_updated
 					   )
 		end
@@ -140,7 +141,7 @@ namespace :test do
 				BmetItemHistory.create(:bmet_item => item,
 								   :status => 0,
 								   :utilization => 0,
-								   :remarks => "Performed checkup",
+								   :remarks => Faker::Lorem.sentence(word_count = rand(10)),
 								   :updated_at => date_u
 								  )
 			end
@@ -151,7 +152,7 @@ namespace :test do
 				work_req = BmetWorkOrder.create(:date_requested => date_u_wr,
 													  :bmet_item => item,
 													  :status => 0,
-													  :description => "Service needed",
+													  :description => Faker::Lorem.sentence(word_count = rand(10)),
 													  :owner => users.sample,
 													  :requester => users.sample 
 											)
@@ -160,12 +161,13 @@ namespace :test do
 					BmetWorkOrderComment.create(:datetime_stamp => date_u_wrc,
 													  :bmet_work_order => work_req,
 													  :user_id => users.sample,
-													  :comment_text => "Commented by engineer"
+													  :comment_text => Faker::Lorem.sentence(word_count = rand(10))
 											)
 				end
 				1.times do |txt|
 					Text.create(:content => "checked item",
-										:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
+										#:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
+										:number => Faker::PhoneNumber.phone_number,
 										:bmet_work_order => work_req
 								)
 				end
@@ -195,7 +197,7 @@ namespace :test do
 									 :date_expire => date_u_wr,
 									 :date_completed => date_u_wr,
 									 :request_type => 1,
-									 :description => "Work order",
+									 :description => Faker::Lorem.sentence(word_count = rand(11)),
 									 :owner => users.sample,
 									 :requester => users.sample
 									)
@@ -204,13 +206,13 @@ namespace :test do
 											:user => users.sample
 										   )
 				FacilityLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
-									 :duration => 1,
+									 :duration => rand(100),
 									 :technician => users.sample,
 									 :facility_work_order => work_ord
 									)
-				FacilityCost.create(:name => "Cost name",
-								:unit_quantity => 2,
-								:cost => 100,
+				FacilityCost.create(:name => Faker::Commerce.product_name,
+								:unit_quantity => rand(100),
+								:cost => rand(200),
 								:facility_work_order => work_ord)
 
 			end
@@ -225,14 +227,14 @@ namespace :test do
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
-                                       :description => "This is a description"
+                                       :description => Faker::Lorem.sentence(word_count = rand(11))
 												  )
-				FacilityWorkRequest.create(:requester => "User 1",
-									   :department => "Radiology",
-									   :location => "Facility 1",
-									   :phone => "400 000 1111",
-									   :email => "example@example.com",
-                              :description => "This is a description"
+				FacilityWorkRequest.create(:requester => Faker::Name.name,
+									   :department => depts.sample,
+									   :location => f.name,
+									   :phone => Faker::PhoneNumber.phone_number,
+									   :email => Faker::Internet.email,
+                              :description => Faker::Lorem.sentence(word_count = rand(11))
 									  )
 			end
 		end

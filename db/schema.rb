@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140306210755) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.integer  "work_request_id"
   end
 
   add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id"

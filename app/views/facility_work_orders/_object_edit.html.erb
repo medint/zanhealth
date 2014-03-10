@@ -31,18 +31,18 @@
     <div id="object-form-right">
         <div id="field-box_item-id">
           <div class="item-id">
-          Work Order<%= @language['Work Order'] %> # <%= @facility_work_order.id %>
+          <%= @language['Work Order'] %> # <%= @facility_work_order.id %>
           </div>
         </div>
 
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
           <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
-          <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "print-button_right"%>
+          <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right"%>
         </div>
 
         <div class="actions">
-            <%= f.submit 'Save Changes' %>
+            <%= f.submit @language['Save Changes'] %>
         </div>
     </div>
 

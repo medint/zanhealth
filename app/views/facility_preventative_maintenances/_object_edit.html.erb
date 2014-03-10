@@ -11,38 +11,51 @@
   <% end %>
 
   <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-  <div class="field">
-    <%= @language['Last Date Checked'] %><br>
-    <%= @facility_preventative_maintenance.last_date_checked %>
-  </div>
-  <div class="field">
-    <%= @language['Next Date'] %><br>
-    <%= @facility_preventative_maintenance.next_date %>
-  </div>
-	<div class="field">
-    <%= @language['Days Since'] %><br>
-    <%= @facility_preventative_maintenance.days_since %>
-  </div>
+  <div id="object-form-single-col">
 
-  <div class="field">
-    <%= @language['Days'] %><br>    
-    <%= f.number_field :days %>
-  </div>
-  <div class="field">
-    <%= @language['Weeks'] %><br>
-    <%= f.number_field :weeks %>
-  </div>
-  <div class="field">
-    Months
-    <%= @language['Months'] %><br>
-    <%= f.number_field :months %>
-  </div>  
-  <div class="field">
-    <%= @language['Description'] %><br>
-    <%= f.text_area :description %>
-  </div>
- 
-  <div class="actions">
-    <%= f.submit %>
+    <div id="field-box_item-id">
+      <div class="item-id">
+        <%= @language['Preventative Maintenance'] %> # <%= @facility_preventative_maintenance.id %>
+      </div>
+    </div>
+
+    <div class="field-box">
+      <div class="field-type"><%= @language['Last Date Checked'] %></div>
+      <div class="field-info">
+        <p><%= @facility_preventative_maintenance.last_date_checked %></p></div>
+    </div>
+    <div class="field-box">
+      <div class="field-type"><%= @language['Next Date'] %></div>
+      <div class="field-info">
+        <p><%= @facility_preventative_maintenance.next_date %></p>
+      </div>
+    </div>
+  	<div class="field-box">
+      <div class="field-type"><%= @language['Days Since'] %></div>
+      <div class="field-info">
+        <p><%= @facility_preventative_maintenance.days_since %></p>
+      </div>
+    </div>
+
+    <div class="field-box">
+      <div class="field-type"><%= @language['Days'] %></div>
+      <div class="field-info"><%= f.number_field :days %></div>
+    </div>
+    <div class="field-box">
+      <div class="field-type"><%= @language['Weeks'] %></div>
+      <div class="field-info"><%= f.number_field :weeks %></div>
+    </div>
+    <div class="field-box">
+      <div class="field-type"><%= @language['Months'] %></div>
+      <div class="field-info"><%= f.number_field :months %></div>
+    </div>  
+    <div class="field-box">
+      <div class="field-type"><%= @language['Description'] %></div>
+      <div class="field-info"><%= f.text_area :description %></div>
+    </div>
+   
+    <div class="actions">
+      <%= f.submit @language['Save Changes']%>
+    </div>
   </div>
 <% end %>
