@@ -3,13 +3,15 @@
 }
 
 body {
+	position: absolute;
+	top: -8px;
+	left: -8px;
 	overflow: hidden;
-	height: 100%;
 }
 
 .vertical-divider{
 	border-left: thin solid #c7c7c7;
-	height: 101%;
+	height: 10000px;
 	width: 1px;
 	float: left;
 }
@@ -33,13 +35,12 @@ body {
 /********************************************/
 
 #left-nav{
-	float: left;
+	position:fixed;
 
 	background-color: #77ccbf;
 
 	height: 101%;
-	width: 24%;
-	max-width: 240px;
+	width: 240px;
 
 	z-index: 4;
 }
@@ -54,7 +55,7 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 
-	width: 100%;
+	width: 240px;
 	height: 150px;
 }
 
@@ -62,13 +63,12 @@ body {
 
 	background-color: #64b1a5;
 
-	width: 100%;
+	width: 240px;
 	height: 50px;
 }
 
 #left-nav > #left-nav_ul {
 	
-	width: 100%;
 	padding: 0px;
 	list-style: none;
 }
@@ -84,19 +84,18 @@ body {
 
 	margin: 0px;
 
-	width: 100%;
+	width: 240px;
 	height: 1px;
 
 }
 
 #left-nav > #left-nav_ul > a {
-	width :100%;
 	margin: 0;
 	padding: 0;
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li {
-	width: 100%;
+	width: 240px;
 	height: 60px;
 }
 
@@ -191,11 +190,11 @@ body {
 /* General */
 #mid-summary{
 	float: left;
+	margin-left: 240px;
 	height: 100%;
-	width: 37%; 
+	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 #mid-summary_ul {
@@ -481,9 +480,9 @@ body {
 /********************************************/
 
 #right-detail{
-	float: left;
+	float: right;
 	height: 100%;
-	width: 38%;
+	width: 400px; /*to be set by javascript */
 	background-color: #f9f9f9;
 	overflow-y: hidden;
 
@@ -493,8 +492,7 @@ body {
 	
 #object-form_top{
 	padding:20px 15px 20px 15px;
-	height : 30%;
-	max-height: 295px;
+	height: 295px;
 
 	#object-form-left{
 		float: left;
