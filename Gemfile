@@ -5,15 +5,19 @@ gem 'rails', '4.0.1'
 
 gem 'twilio-ruby'
 
-gem 'faker'
 # Use sqlite3 as the database for Active Record
 group :development do
     gem 'sqlite3'
 end
-
+group :development do
+    gem "better_errors"
+    gem "binding_of_caller" # 'optional' dep for better_errors
+end
 group :production do
   gem 'pg'
 end
+
+gem 'faker'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -61,7 +65,4 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm'
 
-group :development do
-    gem "better_errors"
-    gem "binding_of_caller" # 'optional' dep for better_errors
-end
+

@@ -1,5 +1,3 @@
-<p><%= @language['New Work Order'] %></p>
-
 <div id="object-form_top">
   <%= form_for(@facility_work_order) do |f| %>
     <% if @facility_work_order.errors.any? %>
@@ -13,58 +11,49 @@
         </div>x
     <% end %>
 
-    <div id="object-form-left">
-      <div class="item-info">    
-        <div class="field-box">
-          <div class="field-type"><%= @language['Owner'] %></div>
-          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
-        </div>
-        <div class="field-box">
-          <div class="field-type"><%= @language['Department'] %></div>
-          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name %></div>
-        </div>
+    <div id="object-form-single-col">
 
-        <div class="field-box small">
-          <div class="field-type"><%= @language['Date Expires'] %></div>
-          <div class="field-info"><%= f.date_select :date_expire %></div>
-        </div>
+      <div class="field-box">
+          <div class="field-type"><%= @language['Status'] %></div>
+          <div class="field-info">
+            <%= f.select( :status, @status) %>
+          </div>
+      </div>  
+      <div class="field-box">
+        <div class="field-type"><%= @language['Owner'] %></div>
+        <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
+      </div>
+      <div class="field-box">
+        <div class="field-type"><%= @language['Department'] %></div>
+        <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name %></div>
       </div>
 
-    </div>
-    <div id="object-form-right">
-        <div id="object-status-field">
-          <%= @language['Status'] %>
-          <%= f.select( :status, @status) %>
-        </div>
-        <div class = "icon"></div>
+      <div class="field-box">
+        <div class="field-type"><%= @language['Date Expires'] %></div>
+        <div class="field-info"><%= f.date_select :date_expire %></div>
+      </div>    
+      <div class="field-box">
+        <div class="field-type"><%= @language['Description'] %><br></div>
+        <div class="field-info"><%= f.text_area :description %></div>
+      </div>
+      <div class="field-box">
+        <div class="field-type"><%= @language['Cause Description'] %><br></div>
+        <div class="field-info"><%= f.text_area :cause_description %></div>
+      </div>
 
-        <div class="actions">
+      <div class="field-box">
+        <div class="field-type"><%= @language['Action Taken'] %><br></div>
+        <div class="field-info"><%= f.text_area :action_taken %></div>
+      </div>
+
+      <div class="field-box">
+        <div class="field-type"><%= @language['Prevention Taken'] %><br></div>
+        <div class="field-info"><%= f.text_area :prevention_taken %></div>
+      </div>
+
+      <div class="actions">
             <%= f.submit @language['Create'] %>
-        </div>
-    </div>
-
-    <div id="object-form-bottom">
-        <div class="item-info">   
-            <div class="field">
-              <%= @language['Description'] %><br>
-              <%= f.text_area :description %>
-            </div>
-            <div class="field">
-              <%= @language['Cause Description'] %><br>
-              <%= f.text_area :cause_description %>
-            </div>
-
-            <div class="field">
-              <%= @language['Action Taken'] %><br>
-              <%= f.text_area :action_taken %>
-            </div>
-
-            <div class="field">
-              <%= @language['Prevention Taken'] %><br>
-              <%= f.text_area :prevention_taken %>
-            </div>
-        </div>
-
+      </div>
     </div>
   <%end%>
 
