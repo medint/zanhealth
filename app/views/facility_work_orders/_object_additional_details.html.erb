@@ -14,8 +14,8 @@
   	
   </div>
   <div class="tab-pane" id="comment">
-  	<%= render :partial => 'facility_work_order_comments/comment_box' %>
-    <%= render :partial => 'facility_work_order_comments/comment_new' %>
+  	<%= render @facility_work_order_comments %>
+    <%= render 'facility_work_order_comments/comment_new' %>
   </div>
   <div class="tab-pane" id="cost">
 	<%= render :partial => 'facility_costs/cost_summary' %>  	
