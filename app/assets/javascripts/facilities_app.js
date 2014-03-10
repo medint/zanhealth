@@ -8,7 +8,7 @@ if (window.location.toString().match(/facility_work_orders/) || window.location.
 		
 		/* window resizing */
 
-		window_resize_handler();
+		/*window_resize_handler();
 
 		if(window.attachEvent) {
 			window.attachEvent('onresize', window_resize_handler);
@@ -16,7 +16,7 @@ if (window.location.toString().match(/facility_work_orders/) || window.location.
 		    window.addEventListener('resize', window_resize_handler, true);
 		}else {
 		    //The browser does not support Javascript event binding
-		}
+		}*/
 	});
 }
 
