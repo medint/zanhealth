@@ -153,7 +153,7 @@ function sort_by_date_created(){
 	}
 }
 
-function sort_by_date_started(){
+function sort_by_date(attr){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = new Array();
 	for (var i = 0; i < list_to_sort.length; i++) {
@@ -162,17 +162,17 @@ function sort_by_date_started(){
     	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
 	}
 	nodeArray.sort(function(a,b) {
-		if (a[0].getAttribute("datestarted") == "") {
+		if (a[0].getAttribute(attr) == "") {
 			var dateA = 0;
 		}
 		else {
-			var dateA = parseFloat(a[0].getAttribute("datestarted"));
+			var dateA = parseFloat(a[0].getAttribute(attr));
 		}
- 		if (b[0].getAttribute("datestarted") == "") {
+ 		if (b[0].getAttribute(attr) == "") {
  			dateB = 0;
  		}
  		else {
- 			var dateB = parseFloat(b[0].getAttribute("datestarted"));
+ 			var dateB = parseFloat(b[0].getAttribute(attr));
  		}
 		if (dateA < dateB) {
   			return 1;
@@ -188,7 +188,7 @@ function sort_by_date_started(){
 	}
 }
 
-function sort_by_requester(){
+function sort_by_name(attr){
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = new Array();
 	for (var i = 0; i < list_to_sort.length; i++) {
@@ -197,7 +197,7 @@ function sort_by_requester(){
     	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
 	}
 	nodeArray.sort(function(a,b) {
- 		var reqA=a[0].getAttribute("requester").toLowerCase(), reqB=b[0].getAttribute("requester").toLowerCase()
+ 		var reqA=a[0].getAttribute(attr).toLowerCase(), reqB=b[0].getAttribute(attr).toLowerCase()
  		if (reqA < reqB) {
   			return -1;
   		}
@@ -212,31 +212,8 @@ function sort_by_requester(){
 	}
 }
 
-function sort_by_owner(){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = new Array();
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
- 		var ownerA=a[0].getAttribute("owner").toLowerCase(), ownerB=b[0].getAttribute("owner").toLowerCase()
- 		if (ownerA < ownerB) {
-  			return -1;
-  		}
- 		if (ownerA > ownerB) {
-  			return 1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_status(){
+function sort_by_num(attr){
+	var attribute = attr;
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = new Array();
 	for (var i = 0; i < list_to_sort.length; i++) {
@@ -246,14 +223,13 @@ function sort_by_status(){
 
 	}
 	nodeArray.sort(function(a,b) {
-		return a[0].getAttribute("status") - b[0].getAttribute("status")
+		return a[0].getAttribute(attribute) - b[0].getAttribute(attribute)
 	});
 	for (var i = 0; i < nodeArray.length; i++){
 	 	list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
 	 	list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
 	}
 }
-
 
 $(document).on ("page:change",function() {
    $('.dropdown-menu').on('click', function(e) {

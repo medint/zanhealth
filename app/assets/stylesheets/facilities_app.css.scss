@@ -3,13 +3,15 @@
 }
 
 body {
+	position: absolute;
+	top: -8px;
+	left: -8px;
 	overflow: hidden;
-	height: 100%;
 }
 
 .vertical-divider{
 	border-left: thin solid #c7c7c7;
-	height: 101%;
+	height: 10000px;
 	width: 1px;
 	float: left;
 }
@@ -33,13 +35,12 @@ body {
 /********************************************/
 
 #left-nav{
-	float: left;
+	position:fixed;
 
 	background-color: #77ccbf;
 
 	height: 101%;
-	width: 24%;
-	max-width: 240px;
+	width: 240px;
 
 	z-index: 4;
 }
@@ -54,7 +55,7 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 
-	width: 100%;
+	width: 240px;
 	height: 150px;
 }
 
@@ -62,13 +63,12 @@ body {
 
 	background-color: #64b1a5;
 
-	width: 100%;
+	width: 240px;
 	height: 50px;
 }
 
 #left-nav > #left-nav_ul {
 	
-	width: 100%;
 	padding: 0px;
 	list-style: none;
 }
@@ -84,19 +84,18 @@ body {
 
 	margin: 0px;
 
-	width: 100%;
+	width: 240px;
 	height: 1px;
 
 }
 
 #left-nav > #left-nav_ul > a {
-	width :100%;
 	margin: 0;
 	padding: 0;
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li {
-	width: 100%;
+	width: 240px;
 	height: 60px;
 }
 
@@ -160,20 +159,6 @@ body {
 }
 
 
-#bottom-buttons{
-	font-size: 10px;
-	text-decoration: none;
-	position: absolute;
-	bottom:0px;
-}
-
-#bottom-buttons > a{
-	float:left;
-	margin:0;
-	padding:0 10px 0px 15px;
-}
-
-
 
 /*   End   */
 
@@ -191,11 +176,11 @@ body {
 /* General */
 #mid-summary{
 	float: left;
+	margin-left: 240px;
 	height: 100%;
-	width: 37%; 
+	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 #mid-summary_ul {
@@ -265,18 +250,6 @@ body {
 		width: 10px;
 	}
 
-	.status-text-0{
-		display:none;
-	}
-
-	.status-text-1{
-		display:none;
-	}
-
-	.status-text-2{
-		display:none;
-	}
-
 	#mid-summary_ul > a > .mid-summary_ul_li > .order_details{
 		margin-left: 15px;
 	}
@@ -303,8 +276,8 @@ body {
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .order_date{
+		
 		float: right;
-		width: 45px;
 		font-size: 12px;
 		color: #a1a1a1;
 		padding-top: 9px;
@@ -342,6 +315,7 @@ body {
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details{
 		margin-left: 15px;
+		width: 65%;
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details > .pm_id{
@@ -391,6 +365,7 @@ body {
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .request_details{
 		margin-left: 15px;
+		width: 75%;
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li {
@@ -447,7 +422,6 @@ body {
 		font-size: 10px;
 		color: #a1a1a1;
 		margin-top: -8px;
-		width: 80%;
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .request_date{
@@ -481,9 +455,9 @@ body {
 /********************************************/
 
 #right-detail{
-	float: left;
+	float: right;
 	height: 100%;
-	width: 38%;
+	width: 400px; /*to be set by javascript */
 	background-color: #f9f9f9;
 	overflow-y: hidden;
 
@@ -493,8 +467,7 @@ body {
 	
 #object-form_top{
 	padding:20px 15px 20px 15px;
-	height : 30%;
-	max-height: 295px;
+	height: 295px;
 
 	#object-form-left{
 		float: left;
@@ -512,29 +485,24 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
-				float:left;
-				font-size: 10px;
+				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
-				padding-top: 18px;
+				padding-top: 7px;
 
 			}
 
 			.field-info{
-				float:left;
+				width: inherit;
+			   	height: 20px;
 			   	overflow: hidden;
 			   	background-color: #fff;
-			   	padding-top:12px;
-			   	padding-left:10px;
-			   	font-size: 12px;
-
-			   	#requester{
-			   		padding-top:3px;
-			   	}
-
+			   	margin-top:-3px;
 				select{
 					background: transparent;
 					color: #000000;
+					
+					padding-left:10px;
 				   	width: inherit;
 				   	border: 0;
 				   	border-radius: 0;
@@ -726,96 +694,6 @@ body {
 			}
 		}
 	}
-
-	#object-form-single-col{
-		float: left;
-		height: 130px;
-		line-height: 12px;
-		width: 100%;
-
-		#field-box_item-id{
-			width: 100%;
-			height: 40px;
-			background-color: #323a45;
-			border: 1px solid;
-			border-radius: 2px;
-			.item-id{
-				color: white;
-				text-transform: uppercase;
-				font-weight: bold;
-				font-size: 14px;
-				margin-left: 11px;
-				margin-top: 11px;
-			}
-		}
-
-		.actions{
-			input[type=submit] {
-				height: 40px;
-				width: 100%;
-				padding:5px 15px; 
-				background:#77ccbf;
-				border:0 none;
-				cursor:pointer;
-				-webkit-border-radius: 3px;
-				border-radius: 5px; 
-
-				color: white;
-				letter-spacing: 1px;
-				font-weight: 600;
-				font-size: 15px;
-			}
-			input[type=submit]:hover{
-				color: black;
-			}
-		}
-
-		.field-box{
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
-			margin:0px -5px 0px 0px;
-
-			.field-type{
-				font-size: 12px;
-				color: #a7a7a7;
-				padding-left: 10px;
-				padding-top: 7px;
-
-			}
-
-			.field-info{
-			   	overflow: hidden;
-			   	background-color: #fff;
-			   	margin-top:0px;
-				
-				input, select, textarea{
-					background: transparent;
-					color: #000000;
-					font-size: 12px;
-					padding-left:10px;
-				   	border: 0;
-				   	border-radius: 0;
-				   	-webkit-appearance: none;
-				}
-				textarea{
-					width: 100%;
-				}
-				p {
-					background: transparent;
-					color: #000000;
-					font-size: 12px;
-					padding-left:10px;
-				   	width: inherit;
-				   	border: 0;
-				   	border-radius: 0;
-				   	-webkit-appearance: none;
-				}
-			}
-			
-		}
-	}
 }
 
 /*     object add-info     */
@@ -856,17 +734,6 @@ body {
 	}
 
 
-}
-
-.toggle-buttons{
-	list-style: none;
-	padding-left: 15px;
-	margin-top: 14px;
-	margin-bottom: 18px;
-	li{
-		float:left;
-		margin-right: 8px;
-	}
 }
 
 

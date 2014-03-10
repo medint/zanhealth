@@ -2,18 +2,30 @@
   <div id="top-dropdown">
     
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-    Sort : <div class="dropdown">
+    <%= @language['Sort'] %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        Select Attribute
+        <%= @language['Select Attribute'] %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
-       <li>Date Created</li>
-       <li>Date Started</li>
-       <li>Requester</li>
-       <li>Owner</li>
-       <li>Status</li>
+       <div>
+       <a onclick = "sort_by_date('datedue')">
+        <%= @language['Due Date'] %>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_num('dayssince')">
+        <%= @language['Days Since'] %>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_num('ID')">
+        <%=@language['ID']%>
+       </a>
+       </div>
+
       </ul>
+
     </div>
   </div>
 
