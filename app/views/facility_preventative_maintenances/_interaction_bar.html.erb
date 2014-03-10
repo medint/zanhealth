@@ -2,20 +2,20 @@
   <div id="top-dropdown">
     
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-    Sort: <div class="dropdown">
+    <%= @language['Sort'] %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        Select Attribute
+        <%= @language['Select Attribute'] %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
        <a onclick = "sort_by_date('datedue')">
-        Due Date
+        <%= @language['Due Date'] %>
        </a>
        </div>
        <div>
        <a onclick = "sort_by_num('dayssince')">
-        Days Since
+        <%= @language['Days Since'] %>
        </a>
        </div>
        <div>

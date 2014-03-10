@@ -1,40 +1,40 @@
 <div id='left-top'>
   <div id="top-dropdown">
-    Filter: <div class="dropdown">
+    <%= @language['Filter'] %>: <div class="dropdown">
       <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
-         Select Status
+         <%= @language['Select Status'] %>
          <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
        <li>
              <input id="cbox0" type="checkbox" name="unstarted" value="unstarted">
-             Unstarted
+             <%= @language['Unstarted'] %>
        </li>
        <li>
              <input id="cbox1" type="checkbox" name="inprogress" value="inprogress">
-             In Progress
+             <%= @language['In Progress'] %>
        </li>
        <li>
              <input id="cbox2" type="checkbox" name="completed" value="completed">
-             Completed
+             <%= @language['Completed'] %>
        </li>
       </ul>
     </div>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-    Sort: <div class="dropdown">
+    <%= @language['Sort'] %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        Select Attribute
+        <%= @language['Select Attribute'] %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
        <a onclick = "sort_by_date_created()">
-        Date Created
+        <%= @language['Date Created'] %>
        </a>
        </div>
        <div>
        <a onclick = "sort_by_date('datestarted')">
-        Date Started
+        <%= @language['Date Started'] %>
        </a>
        </div>
        <div>

@@ -12,7 +12,7 @@
         <div class="status-<%= facility_preventative_maintenance.status %>"></div>
         <div class="pm_details">
           <p class="pm_id">
-            Preventative Maintenance <%= facility_preventative_maintenance.id %>
+            <%= @language['Preventative Maintenance'] %> <%= facility_preventative_maintenance.id %>
           </p>
           <p class ="pm_description">
              <%= facility_preventative_maintenance.description[0...50] +  "..." %>

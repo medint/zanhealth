@@ -27,21 +27,21 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
         <div class="order_date">
           <div class="order_date_title">
-            Expire
+            <%= @language['Expire'] %>
           </div>
           <%= facility_work_order.date_expire.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
           <div class="order_date_title">
-            Start
+            <%= @language['Start'] %>
           </div>
           <%= facility_work_order.date_started.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
           <div class="order_date_title">
-            Created
+            <%= @language['Created'] %>
           </div>
           <%= facility_work_order.created_at.try(:strftime,"%^b %d") %> 
         </div>
