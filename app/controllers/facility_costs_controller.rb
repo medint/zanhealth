@@ -12,7 +12,7 @@ class FacilityCostsController < ApplicationController
 
     respond_to do |format|
       if @facility_cost.save
-        format.html { redirect_to @facility_cost, notice: 'Facility Cost was successfully created.' }
+        format.html { redirect_to @facility_cost.facility_work_order, notice: 'Facility Cost was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_cost }
       else
         format.html { render action: 'new' }
@@ -51,6 +51,6 @@ class FacilityCostsController < ApplicationController
     end
     def facility_cost_params
       p params
-      params.require(:facility_cost).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
+      params.require(:facility_cost).permit(:unit_quantity, :cost, :name, :facility_work_order_id)
     end
 end

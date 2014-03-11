@@ -18,7 +18,8 @@
     <%= render 'facility_work_order_comments/comment_new' %>
   </div>
   <div class="tab-pane" id="cost">
-	<%= render :partial => 'facility_costs/cost_summary' %>  	
+	 <%= render @facility_costs %>
+   <%= render 'facility_costs/facility_cost_form' %>
   </div>
   <div class="tab-pane" id="labor">
   	<%= render :partial => 'facility_labor_hours/labor_summary' %>
