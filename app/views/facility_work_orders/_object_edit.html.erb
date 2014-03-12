@@ -19,7 +19,7 @@
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Owner'] %></div>
-          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
+          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner" %></div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Department'] %></div>
