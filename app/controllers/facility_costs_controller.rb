@@ -4,9 +4,11 @@ class FacilityCostsController < ApplicationController
   def index
     @facility_costs=FacilityCost.all
   end
+  
   def new
     @facility_cost = FacilityCost.new
   end
+
   def create
     @facility_cost = FacilityCost.new(facility_cost_params)
 

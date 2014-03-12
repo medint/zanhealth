@@ -22,7 +22,8 @@
    <%= render 'facility_costs/facility_cost_form' %>
   </div>
   <div class="tab-pane" id="labor">
-  	<%= render :partial => 'facility_labor_hours/labor_summary' %>
+    <%= render @facility_labor_hours %>
+  	<%= render :partial => 'facility_labor_hours/facility_labor_hour_form' %>
   </div>
 </div>
 

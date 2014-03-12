@@ -1,0 +1,32 @@
+<%= form_for(@facility_labor_hour) do |f| %>
+  <% if @facility_labor_hour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facility_labor_hour.errors.count, "error") %> prohibited this facility_labor_hour from being saved:</h2>
+      <ul><% @facility_labor_hour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    Date Started
+    <%= f.text_area :date_started %>
+  </div>
+  <div class="field">
+    Duration
+    <%= f.text_area :duration %>
+  </div>
+  <div class="field">
+    Technician ID
+    <%= f.text_area :technician_id %>
+  </div>
+ 
+  <div class="field">
+    <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

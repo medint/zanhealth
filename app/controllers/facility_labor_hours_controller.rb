@@ -16,7 +16,7 @@ class FacilityLaborHoursController < ApplicationController
 
     respond_to do |format|
       if @labor_hour.save
-        format.html { redirect_to @labor_hour, notice: 'Facility Labor Hour was successfully created.' }
+        format.html { redirect_to @labor_hour.facility_work_order, notice: 'Facility Labor Hour was successfully created.' }
         format.json { render action: 'show', status: :created, location: @labor_hour }
       else
         format.html { render action: 'new' }
@@ -56,7 +56,7 @@ class FacilityLaborHoursController < ApplicationController
     end
     def labor_hour_params
       p params
-      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
+      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id)
     end
     
 end
