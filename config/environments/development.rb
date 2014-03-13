@@ -34,7 +34,7 @@ Med8::Application.configure do
   # jshum 2014-03-12 do take advantage of eager loading
   # source : https://github.com/flyerhzm/bullet
   config.after_initialize do
-    Bullet.enable = true
+    Bullet.enable = false 
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
