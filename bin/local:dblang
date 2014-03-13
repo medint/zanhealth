@@ -1,0 +1,1 @@
+bundle exec rake data:lang_seed RAILS_ENV=development

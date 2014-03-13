@@ -30,6 +30,10 @@ Med8::Application.routes.draw do
 
   resources :facility_work_order_comments
 
+  resources :facility_costs
+
+  resources :facility_labor_hours
+
   resources :facility_preventative_maintenances
 
   resources :facility_work_requests

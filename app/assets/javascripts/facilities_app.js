@@ -264,6 +264,5 @@ function printmainpage(){
 
 function printdetailpage(){
 	document.getElementById("print-css-selection").href = '/assets/application-print-detail.css'
-	window.print(); 
+	setTimeout(function(){window.print()},250); //fixes a printing bug on ff
 }
-

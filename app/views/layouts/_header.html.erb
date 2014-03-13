@@ -8,7 +8,7 @@
       <div id="work-order-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Work Order
+          <%= @language['Work Orders'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -21,7 +21,7 @@
       <div id="preventative-maintenance-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Preventative Maintenance
+          <%= @language['Preventative Maintenance'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -35,7 +35,7 @@
       <div id="inbox-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Inbox
+          <%= @language['Work Requests'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -48,6 +48,7 @@
       <a href='/logout'><%= @language['LOGOUT'] %></a>
       <a href='?language=english'>English</a>
       <a href='?language=swahili'>Swahili</a> 
+      <a href='?language=creole'>Creole</a> 
     </div>
   </div>
 </header>

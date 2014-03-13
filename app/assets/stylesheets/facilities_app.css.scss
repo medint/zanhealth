@@ -11,7 +11,7 @@ body {
 
 .vertical-divider{
 	border-left: thin solid #c7c7c7;
-	height: 10000px;
+	height: 100%;
 	width: 1px;
 	float: left;
 }
@@ -698,8 +698,10 @@ body {
 
 /*     object add-info     */
 #object_additional-details{
+	color:#fff;
 	background-color: #292929;
 	overflow: scroll;
+	
 
 	.additional-details_nav{
 		background-color: #312c2d;
@@ -707,6 +709,7 @@ body {
 		margin: 0px;
 		width:100%;
 		height: 40px;
+
 		li {
 			float:left;
 			a{
