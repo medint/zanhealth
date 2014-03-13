@@ -69,4 +69,5 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm'
 
-
+# march 14, 2014. when sass is updated to 3.3.2, shit breaks
+gem 'sass', '3.3.0'

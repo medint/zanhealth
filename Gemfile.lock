@@ -156,6 +156,7 @@ DEPENDENCIES
   rails-perftest
   rails_12factor
   ruby-prof
+  sass (= 3.3.0)
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
