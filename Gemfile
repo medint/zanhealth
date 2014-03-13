@@ -17,6 +17,9 @@ group :production do
   gem 'pg'
 end
 
+gem 'rails-perftest' 
+gem 'ruby-prof'
+
 gem 'faker'
 
 # Use SCSS for stylesheets
