@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306210755) do
+ActiveRecord::Schema.define(version: 20140313001902) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20140306210755) do
     t.string   "swahili"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "creole"
   end
 
   create_table "models", force: true do |t|
