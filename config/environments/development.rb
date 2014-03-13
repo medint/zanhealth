@@ -30,4 +30,17 @@ Med8::Application.configure do
 
   # jshum 2014-02-26
   config.serve_static_assets = true
+
+  # jshum 2014-03-12 do take advantage of eager loading
+  # source : https://github.com/flyerhzm/bullet
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.growl = false
+    Bullet.rails_logger = true
+    Bullet.add_footer = true
+  end
+
 end
