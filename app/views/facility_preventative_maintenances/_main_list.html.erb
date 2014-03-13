@@ -15,14 +15,14 @@
             <%= @language['Preventative Maintenance'] %> <%= facility_preventative_maintenance.id %>
           </p>
           <p class ="pm_description">
-             <%= facility_preventative_maintenance.description[0...50] +  "..." %>
+             <%= facility_preventative_maintenance.description[0...40] +  "..." %>
           </p>
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="pm_date">
           <div class="pm_date_title"> <%= @language['Days Since'] %>:</div>
-          <%= facility_preventative_maintenance.days_since.to_i %>   
+          <%= -facility_preventative_maintenance.days_since.to_i %>   
         </div>
 
         <div class="pm_date">

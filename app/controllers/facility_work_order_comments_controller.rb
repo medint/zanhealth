@@ -28,7 +28,7 @@ class FacilityWorkOrderCommentsController < ApplicationController
 
     respond_to do |format|
       if @facility_work_order_comment.save
-        format.html { redirect_to @facility_work_order_comment, notice: 'Facility Work Order comment was successfully created.' }
+        format.html { redirect_to @facility_work_order_comment.facility_work_order, notice: 'Facility Work Order comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_order_comment }
       else
         format.html { render action: 'new' }

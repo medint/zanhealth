@@ -46,7 +46,7 @@ body {
 /* General */
 #mid-summary{
 	float: left;
-	margin-left: 100px;
+	margin-left: 50px;
 	height: auto;
 	width: 400px; 
 	background-color: #f9f9f9;
@@ -84,6 +84,7 @@ body {
 
 
 #mid-summary_ul > a > .mid-summary_ul_li > .right-arrow{	
+	display:none;
 	float: right;
 	padding-right: 10px;
 	padding-top:22px;
@@ -178,8 +179,9 @@ body {
 		float: right;
 		font-size: 12px;
 		color: #a1a1a1;
+		width: 45px;
 		padding-top: 9px;
-		margin-right: 10px;
+		margin-right: 70px;
 		margin-left: 10px;
 		text-align: center;
 		color: #8b8b8b;
