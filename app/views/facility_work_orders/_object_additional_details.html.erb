@@ -11,18 +11,25 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div class="tab-pane active" id="details">
-  	
+  	<div class='additional-details_title'>Details</div>
   </div>
   <div class="tab-pane" id="comment">
-  	<%= render @facility_work_order_comments %>
+    <div class='additional-details_title'>Comments</div>
+  	<ul id='additional-details_comment_ul'><%= render @facility_work_order_comments %></ul>
     <%= render 'facility_work_order_comments/comment_new' %>
   </div>
   <div class="tab-pane" id="cost">
+    <div class='additional-details_title'>Costs</div>
+    <ul id='additional-details_comment_ul'>
 	 <%= render @facility_costs %>
+  </ul>
    <%= render 'facility_costs/facility_cost_form' %>
   </div>
   <div class="tab-pane" id="labor">
+    <div class='additional-details_title'>Labor Hours</div>
+    <ul id='additional-details_comment_ul'>
     <%= render @facility_labor_hours %>
+  </ul>
   	<%= render :partial => 'facility_labor_hours/facility_labor_hour_form' %>
   </div>
 </div>

@@ -1,3 +1,5 @@
+<div class='new_facility_work_order_comment'>
+  <hr class="additional-details_hr">
 <%= form_for(@facility_labor_hour) do |f| %>
   <% if @facility_labor_hour.errors.any? %>
     <div id="error_explanation">
@@ -9,24 +11,25 @@
     </div>
   <% end %>
   
-  <div class="field">
-    Date Started
-    <%= f.text_area :date_started %>
+  <div class="additional-detail_hours">
+    
+    <%= f.text_area :date_started, :value =>"Date Started" %>
   </div>
-  <div class="field">
-    Duration
-    <%= f.text_area :duration %>
+  <div class="additional-detail_hours">
+    
+    <%= f.text_area :duration, :value => "Duration" %>
   </div>
-  <div class="field">
-    Technician ID
-    <%= f.text_area :technician_id %>
+  <div class="additional-detail_hours">
+    
+    <%= f.text_area :technician_id, :value =>"Technician ID" %>
   </div>
  
   <div class="field">
     <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="additional-detail_actions">
+    <%= f.submit :value => ">"%>
   </div>
 <% end %>
+</div>

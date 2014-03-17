@@ -1,4 +1,6 @@
-<%= form_for(@facility_cost) do |f| %>
+<div class='new_facility_work_order_comment'>
+  <hr class="additional-details_hr">
+  <%= form_for(@facility_cost) do |f| %>
   <% if @facility_cost.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@facility_cost.errors.count, "error") %> prohibited this facility_cost from being saved:</h2>
@@ -9,24 +11,23 @@
     </div>
   <% end %>
   
-  <div class="field">
-    Name
-    <%= f.text_area :name %>
+  <div id="additional-detail_name">
+    <%= f.text_area :name, :value => 'Name'%>
   </div>
-  <div class="field">
-    Quantity
-    <%= f.text_area :unit_quantity %>
+  <div class="additional-detail_cost">
+
+    <%= f.text_area :unit_quantity, :value =>'Quantity' %>
   </div>
-  <div class="field">
-    Cost
-    <%= f.text_area :cost %>
+  <div class="additional-detail_cost">
+    <%= f.text_area :cost, :value =>"Cost" %>
   </div>
  
   <div class="field">
     <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="additional-detail_actions">
+    <%= f.submit :value => ">"%>
   </div>
 <% end %>
+</div>
