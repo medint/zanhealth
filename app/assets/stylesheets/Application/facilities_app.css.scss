@@ -164,18 +164,38 @@ body {
 	padding-top: 28px;
 }
 
+#login-avatar{
+	float:left;
+	margin-top: 5px;
+	margin-left: 15px;
+	margin-right: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: black;
+}
 
 #bottom-buttons{
-	font-size: 10px;
-	text-decoration: none;
-	position: absolute;
-	bottom:0px;
+	height: 50px;
+	margin-top: 10px;
+	float:left;
 }
 
 #bottom-buttons > a{
+	padding:0;
+	border:0;
+}
+
+#bottom-buttons > #language-icons {
+	width: 150px;
+}
+
+#bottom-buttons > #language-icons > a{
+	margin-top:-1px;
+	font-size: 10px;
 	float:left;
-	margin:0;
-	padding:0 10px 0px 15px;
+	margin-right: 10px;
+	padding:0;
+	border:0;
 }
 
 
@@ -995,6 +1015,71 @@ body {
 	 	background:url(../images/btn_hover.png) repeat-x !important;
 	}
 }
+
+.facility_work_order_cost{
+	height: 32px;
+	width: 100%;
+}
+
+.green-bar{
+	float:left;
+	display: block;
+	height: 32px;
+	width: 5%;
+	background-color: #3c8618;
+}
+
+#cost-name{
+	float:left;
+	height: 32px;
+	width: 20%;
+	background-color: #479a1f;
+
+	font-weight: 800;
+	font-size: 10px;
+	line-height:12px;
+}
+
+.cost-name{
+	display:block;
+	margin-left: 10px;
+	margin-top:4px;
+}
+
+#cost-detail{
+	float:left;
+	height: 32px;
+	width: 70%;
+	background-color: white;
+	padding-top: 8px;
+	padding-left: 35%;
+	color: black;
+	font-size: 13px;
+
+	.cost-quantity{
+		display:inline-block;
+		text-align: center;
+		width: 15%;
+		margin-left:4%;
+		margin-right:4%;
+	}
+	.cost-cost{
+		display:inline-block;
+		text-align: center;
+		width:15%;
+		margin-left:4%;
+		margin-right:4%;
+	}
+	.cost-total{
+		display:inline-block;
+		text-align: center;
+		width: 15%;
+		margin-left:4%;
+		margin-right:4%;
+	}
+}
+
+
 
 
   /********************************************/

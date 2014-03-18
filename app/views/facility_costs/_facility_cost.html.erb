@@ -1,7 +1,13 @@
-<li class="facility_work_order_comment">
-  <span class="cost-name"><%= facility_cost.name %></span>
-  <span class="cost-quantity"><%= facility_cost.unit_quantity %></span>
-  <span class="cost-cost">$<%= facility_cost.cost %></span>
-  <span class="cost-total">$<%= facility_cost.unit_quantity * facility_cost.cost %></span>
-  </span>
+<li class="facility_work_order_cost">
+  <div id="cost-name">
+  	<div class="green-bar"></div>
+  	<span class="cost-name"><%= facility_cost.name %></span>
+  </div>
+
+  <div id="cost-detail">
+	  <span class="cost-quantity"><%= facility_cost.unit_quantity %></span> X
+	  <span class="cost-cost">$<%= facility_cost.cost %></span> &#61;
+	  <span class="cost-total">$<%= facility_cost.unit_quantity * facility_cost.cost %></span>
+	  </span>
+  </div>
 </li>
