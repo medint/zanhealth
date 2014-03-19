@@ -12,14 +12,14 @@
   <% end %>
   
   <div id="additional-detail_name">
-    <%= f.text_area :name, :value => 'Name'%>
+    <%= f.text_area :name, :placeholder => @language['Name'] %>
   </div>
   <div class="additional-detail_cost">
 
-    <%= f.text_area :unit_quantity, :value =>'Quantity' %>
+    <%= f.number_field :unit_quantity, :placeholder => @language['Quantity'] %>
   </div>
   <div class="additional-detail_cost">
-    <%= f.text_area :cost, :value =>"Cost" %>
+    <%= f.number_field :cost, :placeholder => @language["Cost"] %>
   </div>
  
   <div class="field">

@@ -12,16 +12,16 @@
   <% end %>
   
   <div class="additional-detail_hours">
-    
-    <%= f.text_area :date_started, :value =>"Date Started" %>
+    <% @language['Date'] %>
+    <%= f.date_select :date_started, use_short_month: true %>    
   </div>
   <div class="additional-detail_hours">
     
-    <%= f.text_area :duration, :value => "Duration" %>
+    <%= f.number_field :duration, :placeholder => @language["Duration in Hours"] %>
   </div>
   <div class="additional-detail_hours">
+    <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>
     
-    <%= f.text_area :technician_id, :value =>"Technician ID" %>
   </div>
  
   <div class="field">
@@ -29,7 +29,7 @@
   </div>
 
   <div class="additional-detail_actions">
-    <%= f.submit :value => ">"%>
+    <%= f.submit :placeholder => ">"%>
   </div>
 <% end %>
 </div>

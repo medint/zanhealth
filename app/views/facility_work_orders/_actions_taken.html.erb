@@ -1,0 +1,31 @@
+  <%= form_for(@facility_work_order) do |f| %>
+    <% if @facility_work_order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@facility_work_order.errors.count, "error") %> prohibited this facility_work_order from being saved:</h2>
+            <ul> 
+              <% @facility_work_order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>x
+    <% end %>
+
+    <div class="field-box-description">   
+        <div class="field-type"><%= @language['Cause Description'] %></div>
+        <div class="field-info"><%= f.text_area :cause_description %></div>
+    </div>
+
+    <div class="field-box-description">   
+        <div class="field-type"><%= @language['Action Taken'] %></div>
+        <div class="field-info"><%= f.text_area :action_taken %></div>
+    </div>
+
+    <div class="field-box-description">   
+        <div class="field-type"><%= @language['Prevention Taken'] %></div>
+        <div class="field-info"><%= f.text_area :prevention_taken %></div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit @language['Save Changes']%>
+    </div>
+  <%end%>
