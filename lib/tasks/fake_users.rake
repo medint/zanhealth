@@ -10,5 +10,13 @@ namespace :test do
 			:language => "english",
 			:name => "Jayson"
 			)
+
+      User.create(:username => 'pihjosh',
+			:encrypted_password => Digest::MD5.hexdigest('zanhealthpih'),
+			:role => Role.find_by_name("admin"),
+			:facility => Facility.find_by_name("FACILITY A"),
+			:language => "english",
+			:name => "Jayson"
+			)
 	end
 end
