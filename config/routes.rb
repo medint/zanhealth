@@ -52,7 +52,7 @@ Med8::Application.routes.draw do
 
   get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"
 
-  root to: "bmet_work_orders#my"
+  root to: "facility_work_orders#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

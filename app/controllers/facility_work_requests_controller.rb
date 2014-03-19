@@ -80,6 +80,7 @@ before_action :set_departments, only: [:show]
   def new_shortcut
     @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
+    render :layout => "minimal"
   end
 
   def set_users_special
