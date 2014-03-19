@@ -8,7 +8,7 @@ z-index:1;}
 body {
 	
 	height: 100%;
-	width: 101%;
+	width: 100%;
 	min-width:800px;
 }
 
@@ -34,28 +34,31 @@ body {
 
 
   /********************************************/
- /*                 LEFT NAV                 */
+ /*                 3-COL PAGE               */
 /********************************************/
 
 #left-nav{
 	position:fixed;
-
 	background-color: #77ccbf;
-
 	height: 101%;
 	width: 240px;
-
 	z-index: 4;
 }
 
-  /********************************************/
- /*               Right Detail               */
-/********************************************/
+#mid-summary{
+	float: left;
+	margin-left: 240px;
+	height: 100%;
+	width: 400px; 
+	background-color: #f9f9f9;
+	overflow-x: hidden;
+}
 
 #right-detail{
-	float: left;
+	float: none;
+	//float anything causes problems in firefox because of the scrollbar presumably. there's some phantom width that is added.
 	height: 100%;
-	width: 400px; /*to be set by javascript */
+	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-y: hidden;
 
@@ -230,14 +233,6 @@ body {
 /********************************************/
 
 /* General */
-#mid-summary{
-	float: left;
-	margin-left: 240px;
-	height: 100%;
-	width: 400px; 
-	background-color: #f9f9f9;
-	overflow-x: hidden;
-}
 
 #mid-summary_ul {
 	margin: 0px;
@@ -857,9 +852,11 @@ body {
 #object_additional-details{
 	background-color: #4e4e4e;
 	overflow-y: scroll;
+	position : relative;
+	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
 
 	.additional-details_nav{
-		background-color: white;
+		background-color: #4e4e4e;
 		padding: 0px;
 		margin: 0px;
 		width:100%;
@@ -890,167 +887,192 @@ body {
 		}
 	}
 
-	.toggle-buttons{
-		list-style: none;
-		padding-left: 15px;
-		margin-top: 14px;
-		margin-bottom: 18px;
-		li{
-			float:left;
-			margin-right: 8px;
-		}
-	}
+}
 
-	.additional-details_title{
-		margin-top: 10px;
-		margin-bottom:10px;
-		font-size: 15px;
+.additional-details_content{
+	padding-left : 10px;
+}
+
+
+.toggle-buttons{
+	list-style: none;
+	padding-left: 15px;
+	margin-top: 14px;
+	margin-bottom: 18px;
+	li{
+		float:left;
+		margin-right: 8px;
+	}
+}
+
+.additional-details_title{
+	margin-top: 10px;
+	margin-bottom:10px;
+	font-size: 15px;
+	font-weight:100;
+	color: #bebebe;
+}
+
+#additional-details_comment_ul{
+	color:#ebebeb;
+	font-size:11px;
+	list-style-type:none;
+	padding:0;
+	border:0;
+	margin-left:0px;
+	word-wrap : break-word;
+	li{
+		margin-bottom:7px;
+	}
+}
+
+.additional-details_form-div{		
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width : 100%;
+	color : #bebebe;
+}
+
+.transparent-form-elem {
+	background: transparent;
+	padding:2px;
+	border: 0;
+   	border-radius: 0;
+   	-webkit-appearance: none;
+}
+
+.additional-detail_formstyle {
+	float:left;
+
+	textarea{
+		@extend .transparent-form-elem;
+		color: #ebebeb;
+		font-size: 12px;
+	   	width: 100%;		   	
+	   	height: 50px;		   	
+	   	resize: none;
+	}
+	input{
+		@extend .transparent-form-elem;
+		color: #ebebeb;
+		font-size: 12px;
+		width: 100%
+	}
+	select {
+		@extend .transparent-form-elem;
+		color: #ebebeb;
+	}
+}
+
+#additional-detail_cost_name{
+	width:60%;		
+	@extend .additional-detail_formstyle;
+}
+
+#additional-detail_cost_quantity{
+	width:15%;
+	@extend .additional-detail_formstyle;
+}
+
+#additional-detail_cost_amount{
+	width:15%;
+	@extend .additional-detail_formstyle;
+}
+
+#additional-detail_comment_descr{
+	width:85%;
+	@extend .additional-detail_formstyle;	
+}
+
+#additional-detail_labor_date {
+	width:40%;
+	@extend .additional-detail_formstyle;	
+}
+
+#additional-detail_labor_hours{
+	width:20%;
+	@extend .additional-detail_formstyle;	
+}
+
+#additional-detail_labor_tech{
+	width:30%;
+	@extend .additional-detail_formstyle;	
+}
+
+#labor_date-title{
+	float: left;
+	width: 40%
+}
+#labor_hour-title{
+	float: left;
+	width: 20%	;
+}
+#labor_technician-title{
+	float: left;
+	width: 30%
+}
+
+.additional-details_hr{
+	height:1px;
+	width:100%;
+	border:0px;
+	margin:0;
+	padding:0;
+	color: #bebebe;
+	background-color: #bebebe;
+}
+
+.additional-detail_actions{	
+	float:left;
+	input{
 		font-weight:100;
-		color: #bebebe;
+		border:0px !important;
+	 	text-decoration:none !important;
+	 	font-family:helvetica !important;
+	 	color:#ebebeb !important;
+	 	background:url(../images/btn_hover.png) repeat-x !important;
 	}
+}
 
-	#additional-details_comment_ul{
-		color:#ebebeb;
-		font-size:11px;
-		list-style-type:none;
-		padding:0;
-		border:0;
-		margin-left:0px;
-		li{
-			margin-bottom:7px;
-		}
+.facility_work_order_cost{
+	height: 32px;
+	width: 100%;
+	line-height:32px;
+	vertical-align:middle;
+}
+
+.cost-name{
+	float:left;
+	width: 30%;
+	background-color: #479a1f;
+	padding-left: 5px;
+	font-weight: 800;
+	font-size: 11px;
+}
+
+.cost-detail{
+	float:left;
+	width: 65%;
+	background-color: white;
+	color: black;
+	font-size: 13px;
+
+	.cost-quantity{
+		display:inline-block;
+		text-align: center;
+		width: 15%;
 	}
-
-	.new_facility_work_order_comment{
-		width:40%;
-		position: absolute;
-		bottom: 0px;
+	.cost-cost{
+		display:inline-block;
+		text-align: center;
+		width:25%;
 	}
-
-	.additional-detail_formstyle {
-		textarea{
-			background: transparent;
-			padding:2px;
-			color: #ebebeb;
-			font-size: 10px;
-		   	width: 100%;
-		   	border: 0;
-		   	border-radius: 0;
-		   	height: 20px;
-		   	-webkit-appearance: none;
-		   	resize: none;
-		}
+	.cost-total{
+		display:inline-block;
+		text-align: center;
+		width: 25%;
 	}
-
-	#additional-detail_name{
-		//width:60%;
-		float:left;
-		@extend .additional-detail_formstyle;
-	}
-
-	.additional-detail_cost{
-		//width:15%;
-		float:left;
-		@extend .additional-detail_formstyle;
-	}
-
-	.additional-detail_hours{
-		//width:30%;
-		float:left;
-		@extend .additional-detail_formstyle;
-	}
-
-	.additional-detail_field{
-		//width:90%;
-		float:left;
-		@extend .additional-detail_formstyle;
-	}
-
-	.additional-details_hr{
-		height:1px;
-		border:0px;
-		margin:0;
-		padding:0;
-		color: #bebebe;
-		background-color: #bebebe;
-	}
-
-	.additional-detail_actions{	
-		float:left;
-		input{
-			font-weight:100;
-			width: 20px;
-			border:0px !important;
-		 	text-decoration:none !important;
-		 	font-family:helvetica !important;
-		 	color:#ebebeb !important;
-		 	background:url(../images/btn_hover.png) repeat-x !important;
-		}
-	}
-
-	.facility_work_order_cost{
-		height: 32px;
-		width: 100%;
-	}
-
-	.green-bar{
-		float:left;
-		display: block;
-		height: 32px;
-		width: 5%;
-		background-color: #3c8618;
-	}
-
-	#cost-name{
-		float:left;
-		height: 32px;
-		width: 20%;
-		background-color: #479a1f;
-
-		font-weight: 800;
-		font-size: 10px;
-		line-height:12px;
-	}
-
-	.cost-name{
-		display:block;
-		margin-left: 10px;
-		margin-top:4px;
-	}
-
-	#cost-detail{
-		float:left;
-		height: 32px;
-		width: 70%;
-		background-color: white;
-		padding-top: 8px;
-		padding-left: 35%;
-		color: black;
-		font-size: 13px;
-
-		.cost-quantity{
-			display:inline-block;
-			text-align: center;
-			width: 15%;
-			margin-left:4%;
-			margin-right:4%;
-		}
-		.cost-cost{
-			display:inline-block;
-			text-align: center;
-			width:15%;
-			margin-left:4%;
-			margin-right:4%;
-		}
-		.cost-total{
-			display:inline-block;
-			text-align: center;
-			width: 15%;
-			margin-left:4%;
-			margin-right:4%;
-		}
-	}
-
 }
 
 
