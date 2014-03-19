@@ -1,7 +1,8 @@
 class FacilityWorkRequestsController < ApplicationController
+skip_before_action :authenticate, except: [:show, :index, :update, :destroy]
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
 before_action :set_status, only: [:show]
-before_action :set_users, only: [:show]
+before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
 
   layout 'layouts/facilities_app'
@@ -9,7 +10,6 @@ before_action :set_departments, only: [:show]
   def new
     @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
-    @users = User.where(:facility_id => user.facility.id).all.to_a
   end
 
   def index
@@ -21,7 +21,7 @@ before_action :set_departments, only: [:show]
     @input_object = FacilityWorkOrder.new
     @input_object.description = @facility_work_request.description
   end
-
+ 
   def update
     respond_to do |format|
       if @facility_work_request.update(facility_work_request_params)
@@ -73,12 +73,22 @@ before_action :set_departments, only: [:show]
   end
 
   def set_facility_work_request
+    set_users_special
     @facility_work_request = FacilityWorkRequest.find(params[:id])
+  end
+
+  def new_shortcut
+    @facility_work_requests = FacilityWorkRequest.all
+    @facility_work_request = FacilityWorkRequest.new
+  end
+
+  def set_users_special
+    @users = params[:num]
   end
 
   def facility_work_request_params
     p params
-    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at)
+    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
   end
 
 end

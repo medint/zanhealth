@@ -1,3 +1,4 @@
+<% @facility_work_request = FacilityWorkRequest.new %>
 <%= form_for(@facility_work_request) do |f| %>
   <% if @facility_work_request.errors.any? %>
     <div id="error_explanation">
@@ -32,7 +33,7 @@
   </div>
 
   <div class = "field">
-  	<%= @language['Phone Number'] %><br>
+  	<%= @language['Telephone number'] %><br>
   	<%= f.number_field :department %>
   </div>
 

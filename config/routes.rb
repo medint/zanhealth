@@ -46,6 +46,8 @@ Med8::Application.routes.draw do
   
   get "/text", to: "text#receive"
 
+  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"
+
   root to: "bmet_work_orders#my"
 
   # The priority is based upon order of creation: first created -> highest priority.
