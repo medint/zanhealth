@@ -2,7 +2,7 @@
 if window.location.toString().match(/login/)
     login = ->
         window.location = """
-            /models?username=
+            /facility_work_orders?username=
             #{$('[name=username]').val()}
             &encrypted_password=
             #{CryptoJS.MD5($('[name=password]').val()).toString()}

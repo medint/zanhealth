@@ -2,25 +2,31 @@
   <ul id="mid-summary_ul">
     <% @facility_work_requests.each do |facility_work_request| %>
     <%= link_to(facility_work_request) do %>
-      <li class="mid-summary_ul_li">
+      <li
+      class="mid-summary_ul_li"
+      requester="<%= facility_work_request.requester %>"
+      department="<%= facility_work_request.department %>"
+      ID="<%= facility_work_request.id %>"
+      >
       	<div class="bullet-bar"></div>
         
         <div class="request_details">
           <p class="request_id">
-            Work Request <%= facility_work_request.id %> :
+            <%= @language['Work Request'] %> <%= facility_work_request.id %>:
           </p>
 		  <p class="request_info">
-			Requester: <%= facility_work_request.requester %> | 			Department: <%= facility_work_request.department %>
+			<%= @language['Requester'] %>: <%= facility_work_request.requester %> |
+      <%= @language['Department'] %>: <%= facility_work_request.department %>
 		  </p>
 
           <p class ="request_description">
-             <%= facility_work_request.description[0...150] +  "..." %>
+             <%= facility_work_request.description[0...50] +  "..." %>
           </p>
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="request_date">
-          <div class="request_date_title"> Due Date:</div>
+          <div class="request_date_title"> <%= @language['Due Date'] %>:</div>
           <%= facility_work_request.created_at.try(:strftime,"%^b %d") %>
         </div>
 

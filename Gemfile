@@ -9,10 +9,19 @@ gem 'twilio-ruby'
 group :development do
     gem 'sqlite3'
 end
-
+group :development do
+    gem "better_errors"
+    gem "binding_of_caller" # 'optional' dep for better_errors
+    gem "bullet"
+end
 group :production do
   gem 'pg'
 end
+
+gem 'rails-perftest' 
+gem 'ruby-prof'
+
+gem 'faker'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -60,7 +69,5 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm'
 
-group :development do
-    gem "better_errors"
-    gem "binding_of_caller" # 'optional' dep for better_errors
-end
+# fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
+gem 'sprockets', '=2.11.0'

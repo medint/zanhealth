@@ -5,9 +5,10 @@ namespace :data do
 		Language.destroy_all
 		File.open(File.join('db','language.colon-separated'),'r') do |f|
 			f.each_line do |line|
-				english,swahili = line.chomp.split(SEPARATOR)
+				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,
-								:swahili => swahili
+								:swahili => swahili,
+                        :creole => creole
 							   )
 			end
 		end

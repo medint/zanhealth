@@ -1,6 +1,16 @@
 <header id="left-nav">
   <div id="logo"></div>
-  <div id="login"></div>
+  <div id="login">
+    <div id="login-avatar"></div>
+    <div id="bottom-buttons">
+      <a href='/logout'><%= @language['LOGOUT'] %></a>
+      <div id="language-icons">
+        <a href='?language=english'>English</a>
+        <a href='?language=swahili'>Swahili</a> 
+        <a href='?language=creole'>Creole</a> 
+      </div>
+    </div>
+  </div>
   <ul id="left-nav_ul">
     <hr>
     <%= link_to(facility_work_orders_url) do %>
@@ -8,7 +18,7 @@
       <div id="work-order-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Work Order
+          <%= @language['Work Orders'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -21,7 +31,7 @@
       <div id="preventative-maintenance-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Preventative Maintenance
+          <%= @language['Preventative Maintenance'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -35,7 +45,7 @@
       <div id="inbox-icon"></div>
       <div class="wrapper">
         <div class="title">
-          Inbox
+          <%= @language['Work Requests'] %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>

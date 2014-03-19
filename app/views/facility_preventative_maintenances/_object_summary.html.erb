@@ -1,12 +1,13 @@
 <%= link_to '', @facility_preventative_maintenance, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button2"%>
 
-<ul class="">
-  <li class="active"><a href="#view" data-toggle="tab">View</a></li>
-  <li><a href="#convert" data-toggle="tab">Convert to Work Order</a></li>  
+<ul class="toggle-buttons">
+  <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></li>
+  <span>&#47;</span>
+  <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
 </ul>
 
-<div class="tab-content">
-  <div class="tab-pane active" id="view">
+<div class="tab-content" id="object-form_top">
+  <div class="tab-pane active " id="view">
   	<%= render :partial => 'object_edit' %>
   </div>
   <div class="tab-pane" id="convert">
