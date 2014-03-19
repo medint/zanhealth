@@ -12,25 +12,26 @@
       </div>
     <% end %>
 
+    <div id="labor_technician-title">
+      Tech : <%= @language['Technician'] %>
+    </div>
     <div id="labor_date-title">
       Date : <%= @language['Date'] %>
     </div >
     <div id="labor_hour-title">
       <%= @language['Duration'] %>
     </div>
-    <div id="labor_technician-title">
-      Tech : <%= @language['Technician'] %>
+    
+    <div id="additional-detail_labor_tech">
+      <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>        
     </div>
-
     <div id="additional-detail_labor_date">      
       <%= f.date_select :date_started, use_short_month: true %>    
     </div>
     <div id="additional-detail_labor_hours">    
       <%= f.number_field :duration, :placeholder => @language["Hr"] %>
     </div>
-    <div id="additional-detail_labor_tech">
-      <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>        
-    </div>
+
     <div class="additional-detail_actions">
       <%= f.submit :value => ">"%>
     </div>
