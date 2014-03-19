@@ -194,11 +194,16 @@ namespace :test do
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			60.times do |fwo|
 				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_ord = FacilityWorkOrder.create(:department => rel_depts.sample, 
+				work_ord = FacilityWorkOrder.create( :department => rel_depts.sample, 
 									 :date_expire => date_u_wr,
 									 :date_completed => date_u_wr,
+									 :date_started => date_u_wr,
 									 :request_type => 1,
+									 :status => rand(3),
 									 :description => Faker::Lorem.sentence(word_count = rand(11)),
+									 :cause_description => Faker::Lorem.sentence(word_count=rand(10)),
+									 :action_taken => Faker::Lorem.sentence(word_count = rand(9)),
+									 :prevention_taken => Faker::Lorem.sentence(word_count = rand(10)),
 									 :owner => users.sample,
 									 :requester => users.sample
 									)
