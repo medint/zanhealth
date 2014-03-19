@@ -1,9 +1,9 @@
 <div>
   <ul>
     <% @facility_costs.each do |facility_cost| %>
-      <li>
+      <li class="facility_work_order_comment">
         <div class="cost-name">
-          Name: <%= facility_cost.name %>
+          <%= facility_cost.name :value => Name: %>
         </div>
         <div class="cost-quantity">
           Quantity: <%= facility_cost.unit_quantity %> units
