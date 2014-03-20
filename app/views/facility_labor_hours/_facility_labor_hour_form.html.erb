@@ -1,35 +1,49 @@
-<div class='new_facility_work_order_comment'>
+<div class='additional-details_form-div'>
   <hr class="additional-details_hr">
-<%= form_for(@facility_labor_hour) do |f| %>
-  <% if @facility_labor_hour.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@facility_labor_hour.errors.count, "error") %> prohibited this facility_labor_hour from being saved:</h2>
-      <ul><% @facility_labor_hour.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="additional-detail_hours">
-    
-    <%= f.text_area :date_started, :value =>"Date Started" %>
-  </div>
-  <div class="additional-detail_hours">
-    
-    <%= f.text_area :duration, :value => "Duration" %>
-  </div>
-  <div class="additional-detail_hours">
-    
-    <%= f.text_area :technician_id, :value =>"Technician ID" %>
-  </div>
- 
-  <div class="field">
-    <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
-  </div>
 
-  <div class="additional-detail_actions">
-    <%= f.submit :value => ">"%>
-  </div>
-<% end %>
+  <%= form_for(@facility_labor_hour) do |f| %>
+    <% if @facility_labor_hour.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@facility_labor_hour.errors.count, "error") %> prohibited this facility_labor_hour from being saved:</h2>
+        <ul><% @facility_labor_hour.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div id="labor_technician-title">
+      <%= @language['Technician'] %>
+    </div>
+    <div id="labor_date-title">
+      <%= @language['Worked On'] %>
+    </div >
+    <div id="labor_hour-title">
+      <%= @language['Duration'] %>
+    </div>
+    
+    <div id="additional-detail_labor_tech">
+      <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>        
+    </div>
+    <div id="additional-detail_labor_date">      
+      <%= f.date_select :date_started, use_short_month: true %>    
+    </div>
+    <div id="additional-detail_labor_hours">    
+      <%= f.number_field :duration, :placeholder => @language["Hr"] %>
+    </div>
+
+    <div class="additional-detail_actions">
+      <%= f.submit :value => ">"%>
+    </div>
+
+      
+      
+      
+     
+      <div class="field">
+        <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
+      </div>
+
+      
+  <% end %>
 </div>
