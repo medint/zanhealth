@@ -253,8 +253,6 @@ function printmainpage(){
 	$(".status-text-0").text("Unstarted");
 	$(".status-text-1").text("In Progress");
 	$(".status-text-2").text("Completed");
-	console.log('<%= asset_path("application-print-main-list")%>')
-	console.log("testing the best thing")
 	document.getElementById("print-css-selection").href = '<%= stylesheet_path("application-print-main-list")%>';
 	window.print();
 	
@@ -266,7 +264,6 @@ function printmainpage(){
 }
 
 function printdetailpage(){
-	console.log('<%= asset_path("application-print-detail.css")%>')
 	document.getElementById("print-css-selection").href = '<%= stylesheet_path("application-print-detail.css")%>'
 	setTimeout(function(){window.print()},250); //fixes a printing bug on ff
 }
