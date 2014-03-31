@@ -16,6 +16,8 @@ group :development do
 end
 group :production do
   gem 'pg'
+  gem 'unicorn'
+  gem 'rack-timeout'
 end
 
 gem 'rails-perftest' 

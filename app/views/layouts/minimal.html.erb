@@ -9,30 +9,6 @@
 </head>
 <body>
 
-<% if session[:user] %>
-<header>
-    <a href='/my_bmet_work_orders'>
-        <%= @language['My Requests'] %>
-    </a>
-    <a href='/bmet_work_orders'>
-        <%= @language['All Requests'] %>
-    </a>
-    <a href='/bmet_work_orders/new'>
-       <%= @language['Submit New Request'] %>
-    </a>
-    <a href='/bmet_items'>
-        <%= @language['All Items'] %>
-    </a>
-    <a href='#'>
-        <%= @language['Manage'] %>
-    </a>
-    <a href='/logout'>
-        <%= @language['LOGOUT'] %>
-    </a>
-</header>
-<div id='header-spacer'></div>
-<% end %>
-
 <div id='main'>
 
 <%= yield %>

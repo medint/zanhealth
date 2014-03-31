@@ -26,7 +26,7 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="request_date">
-          <div class="request_date_title"> <%= @language['Due Date'] %>:</div>
+          <div class="request_date_title"> <%= @language['Date Requested'] %>:</div>
           <%= facility_work_request.created_at.try(:strftime,"%^b %d") %>
         </div>
 

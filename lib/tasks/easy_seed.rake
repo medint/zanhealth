@@ -189,25 +189,47 @@ namespace :test do
 		FacilityCost.delete_all
 		role_eng = roles.find {|r| r.name == "technician" }
 		facilities.each do |f|
-			#users = User.where("facility_id =? and role_id =?", f.id,role_eng.id)
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			60.times do |fwo|
-				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_ord = FacilityWorkOrder.create(:department => rel_depts.sample, 
-									 :date_expire => date_u_wr,
-									 :date_completed => date_u_wr,
+				date_base = Time.now
+				date_expire = date_base + 60*60*24*(rand(10..100))
+				date_started = date_base - 60*60*24*(rand(5..15))
+				date_completed = date_base - 60*60*24*(rand(0..9))
+				if date_completed > date_started 
+					work_ord = FacilityWorkOrder.create( :department => rel_depts.sample, 
+									 :date_expire => date_expire,
+									 :date_completed => date_completed,
+									 :date_started => date_started,
 									 :request_type => 1,
+									 :status => rand(3),
 									 :description => Faker::Lorem.sentence(word_count = rand(11)),
+									 :cause_description => Faker::Lorem.sentence(word_count=rand(10)),
+									 :action_taken => Faker::Lorem.sentence(word_count = rand(9)),
+									 :prevention_taken => Faker::Lorem.sentence(word_count = rand(10)),
 									 :owner => users.sample,
 									 :requester => users.sample
 									)
-				FacilityWorkOrderComment.create(:datetime_stamp => Time.at(rand * Time.now.to_i),
+				else 
+					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
+														  :date_expire => date_expire,
+														  :date_started => date_started,
+														  :request_type => 1,
+														  :status => rand(3),
+														  :description => Faker::Lorem.sentence(word_count = rand(11)),
+														  :cause_description => Faker::Lorem.sentence(word_count = rand(12)),
+														  :action_taken => Faker::Lorem.sentence(word_count = rand(9)),
+														  :prevention_taken => Faker::Lorem.sentence(word_count = rand(10)),
+														  :owner => users.sample,
+														  :requester => users.sample
+														)
+				end
+				FacilityWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..5)),
 											:facility_work_order => work_ord,
 											:user => users.sample
 										   )
-				FacilityLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
-									 :duration => rand(100),
+				FacilityLaborHour.create(:date_started => date_base - 60*60*24*(rand(0..5)),
+									 :duration => rand(30),
 									 :technician => users.sample,
 									 :facility_work_order => work_ord
 									)
@@ -224,7 +246,7 @@ namespace :test do
 		FacilityWorkRequest.delete_all
 		facilities.each do |f|
 			20.times do |fpm|
-				FacilityPreventativeMaintenance.create(:last_date_checked => Time.at(rand * Time.now.to_i),
+				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(0..6)),
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
