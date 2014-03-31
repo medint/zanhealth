@@ -73,3 +73,6 @@ gem 'newrelic_rpm'
 
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
 gem 'sprockets', '=2.11.0'
+
+# Captcha
+gem "recaptcha", :require => "recaptcha/rails"
