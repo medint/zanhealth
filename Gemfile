@@ -15,6 +15,7 @@ group :development do
     gem "better_errors"
     gem "binding_of_caller" # 'optional' dep for better_errors
     gem "bullet"
+    gem "annotate" # gives nice things in models/
 end
 group :production do
   gem 'pg'

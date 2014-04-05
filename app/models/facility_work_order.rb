@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: facility_work_orders
+#
+#  id                :integer          not null, primary key
+#  date_expire       :datetime
+#  date_completed    :datetime
+#  request_type      :integer
+#  description       :text
+#  status            :integer
+#  owner_id          :integer
+#  requester_id      :integer
+#  cause_description :text
+#  action_taken      :text
+#  prevention_taken  :text
+#  created_at        :datetime
+#  updated_at        :datetime
+#  date_started      :datetime
+#  department_id     :integer
+#
+
 class FacilityWorkOrder < ActiveRecord::Base
   has_many :facility_work_order_comments
   belongs_to :owner, :class_name => "User"
