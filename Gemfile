@@ -5,6 +5,8 @@ gem 'rails', '4.0.1'
 
 gem 'twilio-ruby'
 
+gem 'rack-timeout'
+
 # Use sqlite3 as the database for Active Record
 group :development do
     gem 'sqlite3'
@@ -17,7 +19,6 @@ end
 group :production do
   gem 'pg'
   gem 'unicorn'
-  gem 'rack-timeout'
 end
 
 gem 'rails-perftest' 
