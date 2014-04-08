@@ -39,10 +39,6 @@ Med8::Application.routes.draw do
 
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
 
-  get "/login", to: "users#login"
-
-  get "/logout", to: "users#logout"
-
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
 
   get "/detailed_items", to: "bmet_items#detailed"

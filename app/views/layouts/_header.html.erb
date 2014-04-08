@@ -3,7 +3,7 @@
   <div id="login">
     <div id="login-avatar"></div>
     <div id="bottom-buttons">
-      <a href='/logout'><%= @language['LOGOUT'] %></a>
+        <%= link_to @language['LOGOUT'], destroy_user_session_path, :method => :delete %>.
       <div id="language-icons">
         <a href='?language=english'>English</a>
         <a href='?language=swahili'>Swahili</a> 
