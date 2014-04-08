@@ -70,8 +70,8 @@ gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm'
 gem 'twilio-ruby'
-gem 'rack-timeout'
-gem 'devise'
+gem 'rack-timeout' # for unicorn
+gem 'devise' # user authentication
 
 # Captcha
 gem "recaptcha", :require => "recaptcha/rails"

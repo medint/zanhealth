@@ -1,12 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date_requested: 2014-02-22 02:05:52
+  date_started: 2014-02-22 02:05:52
   date_expire: 2014-02-22 02:05:52
   date_completed: 2014-02-22 02:05:52
   request_type: 1
-  item: 1
-  cost: 1
   description: MyText
   status: 1
   owner_id: 1
@@ -16,12 +14,10 @@ one:
   prevention_taken: MyText
 
 two:
-  date_requested: 2014-02-22 02:05:52
+  date_started: 2014-02-22 02:05:52
   date_expire: 2014-02-22 02:05:52
   date_completed: 2014-02-22 02:05:52
   request_type: 1
-  item: 1
-  cost: 1
   description: MyText
   status: 1
   owner_id: 1

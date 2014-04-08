@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  item_id: 1
+  bmet_item_id: 1
   datetime: 2013-11-24 21:18:09
   status: 1
   utilization: 1
   remarks: MyText
 
 two:
-  item_id: 1
+  bmet_item_id: 1
   datetime: 2013-11-24 21:18:09
   status: 1
   utilization: 1
