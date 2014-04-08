@@ -1,5 +1,6 @@
 Med8::Application.routes.draw do
 
+  devise_for :users
   resources :parts
 
   resources :texts
@@ -19,8 +20,6 @@ Med8::Application.routes.draw do
   resources :roles
 
   resources :facilities
-
-  resources :users
 
   resources :departments
 

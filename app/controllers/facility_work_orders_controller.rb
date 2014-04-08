@@ -79,11 +79,11 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_users
-    @users = User.where(:facility_id => user.facility.id).all.to_a
+    @users = User.where(:facility_id => current_user.facility.id).all.to_a
   end
 
   def set_departments
-    @departments = Department.where(:facility_id => user.facility.id).all.to_a
+    @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
   end
 
   def facility_work_order_params

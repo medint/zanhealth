@@ -28,39 +28,18 @@ class ApplicationController < ActionController::Base
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
-    before_action :authenticate, :choose_language, :gen_permissions
-
-    def user
-        return nil if session[:user].nil?
-        @user ||= User.find_by_id(session[:user])
-    end
-    
-    def authenticate
-    	unless params[:controller] == 'text'
-    		p User.where(username: params[:username],
-    					 encrypted_password: params[:encrypted_password]).empty?
-    		if params[:username] and 
-    		   not User.where(username: params[:username],
-    						  encrypted_password: params[:encrypted_password]).empty?
-    			session[:user] = User.where(username: params[:username]).first.id
-    		elsif session[:user] and User.find_by_id(session[:user]) and not params[:username]
-    			#do nothing
-    		elsif not (params[:controller] == 'users' and params[:action] == 'login')
-    			redirect_to controller: 'users', action: 'login'
-    		end
-    	end
-    end
+    before_action :authenticate_user!, :choose_language
 
     def choose_language
         unless params[:language].nil?
             session[:language] = params[:language]
             if not session[:user].nil? and ((user = User.find_by_id(session[:user])))
-                user.language = params[:language]
-                user.save
+                current_user.language = params[:language]
+                current_user.save
             end
         else
             if not session[:user].nil? and ((user = User.find_by_id(session[:user])))
-                session[:language] = user.language || session[:language] || @@DEFAULT_LANGUAGE
+                session[:language] = current_user.language || session[:language] || @@DEFAULT_LANGUAGE
             else
                 session[:language] ||= @@DEFAULT_LANGUAGE
             end
@@ -74,10 +53,10 @@ class ApplicationController < ActionController::Base
     end
     
     def gen_permissions
-        if user
+        if current_user
             @permissions = {}
             @@PERMISSIONS.each do |permission, roles|
-                @permissions[permission] = roles[user.role.to_sym]
+                @permissions[permission] = roles[current_user.role_id.to_sym]
             end
         end
     end
@@ -85,7 +64,7 @@ class ApplicationController < ActionController::Base
     def require_permission permission
         if not user
             redirect_to '/login'
-        elsif not @@PERMISSIONS[permission][user.role.to_sym]
+        elsif not @@PERMISSIONS[permission][current_user.role_id.to_sym]
             redirect_to '/insufficient-permissions.html'
         else
             # do nothing.

@@ -43,4 +43,8 @@ Med8::Application.configure do
     Bullet.add_footer = true
   end
 
+  # jshum 2014-04-5 for devise gem
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+
 end
