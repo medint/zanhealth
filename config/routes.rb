@@ -37,6 +37,12 @@ Med8::Application.routes.draw do
 
   resources :facility_work_requests
 
+  get "/facility_dashboard/status", to: "facility_dashboard#status"
+
+  get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
+
+  resources :facility_dashboard
+
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
 
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
@@ -45,7 +51,7 @@ Med8::Application.routes.draw do
   
   get "/text", to: "text#receive"
 
-  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"
+  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"  
 
   root to: "facility_work_orders#index"
 
