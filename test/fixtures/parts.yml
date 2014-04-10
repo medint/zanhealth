@@ -3,21 +3,20 @@
 one:
   id: 
   name: MyString
-  manufacturer: MyString
   category: MyString
-  currentQuantity: 
-  minQuantity: 
+  quantity: 1
+  minQ: 1
   location: MyString
   related: MyText
-  actions: MyText
+  needs: MyText
 
 two:
   id: 
   name: MyString
-  manufacturer: MyString
   category: MyString
-  currentQuantity: 
-  minQuantity: 
+  quantity: 1 
+  minQ: 1
   location: MyString
   related: MyText
-  actions: MyText
+  needs: MyText
+

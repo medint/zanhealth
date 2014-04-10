@@ -1,5 +1,8 @@
 Med8::Application.routes.draw do
 
+  resources :part_transactions
+
+  devise_for :users
   resources :parts
 
   resources :texts
@@ -19,8 +22,6 @@ Med8::Application.routes.draw do
   resources :roles
 
   resources :facilities
-
-  resources :users
 
   resources :departments
 
@@ -45,10 +46,6 @@ Med8::Application.routes.draw do
   resources :facility_dashboard
 
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
-
-  get "/login", to: "users#login"
-
-  get "/logout", to: "users#logout"
 
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
 

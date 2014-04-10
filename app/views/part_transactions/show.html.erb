@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Change quantity:</strong>
+  <%= @part_transaction.change_quantity %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @part_transaction.date %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @part_transaction.vendor %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @part_transaction.price %>
+</p>
+
+<p>
+  <strong>Part:</strong>
+  <%= @part_transaction.part %>
+</p>
+
+<%= link_to 'Edit', edit_part_transaction_path(@part_transaction) %> |
+<%= link_to 'Back', part_transactions_path %>

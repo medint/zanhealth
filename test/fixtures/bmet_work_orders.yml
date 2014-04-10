@@ -5,7 +5,7 @@ one:
   date_expire: 2013-11-24 21:18:09
   date_completed: 2013-11-24 21:18:09
   request_type: 1
-  item: 1
+  bmet_item_id: 1
   cost: 1
   description: MyText
   status: 1
@@ -20,7 +20,7 @@ two:
   date_expire: 2013-11-24 21:18:09
   date_completed: 2013-11-24 21:18:09
   request_type: 1
-  item: 1
+  bmet_item_id: 1
   cost: 1
   description: MyText
   status: 1

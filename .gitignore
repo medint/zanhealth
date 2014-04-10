@@ -17,3 +17,4 @@ db/test.sqlite3
 db/test.sqlite3-journal
 db/development.sqlite3-journal
 db/development.sqlite3
+.bundle/

@@ -1,5 +1,4 @@
 class FacilitiesController < ApplicationController
-  skip_before_action :authenticate
   before_action :set_facility, only: [:show, :edit, :update, :destroy]
 
   # GET /facilities

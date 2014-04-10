@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-    belongs_to :role
-    belongs_to :facility
-    has_many :bmet_needs
-    has_many :bmet_work_orders
-    has_many :bmet_work_order_comments
+  	# Include default devise modules. Others available are:
+  	# :confirmable, :lockable, :timeoutable and :omniauthable
+  	devise :database_authenticatable, :registerable,
+  			:recoverable, :rememberable, :trackable, :validatable
 
-    validates :language, inclusion: { in: %w(english swahili, creole), message: 'For language, please select either "English" or "Swahili"' }
+	belongs_to :facility
+
+  	validates :language, inclusion: { in: %w(english swahili, creole), message: 'For language, please select either "english" or "swahili"' }
+
 end

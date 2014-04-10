@@ -6,6 +6,7 @@ one:
   weeks: 1
   months: 1
   next_date: 2014-02-22 02:09:07
+  description: this is description
 
 two:
   last_date_checked: 2014-02-22 02:09:07
@@ -13,3 +14,4 @@ two:
   weeks: 1
   months: 1
   next_date: 2014-02-22 02:09:07
+  description: this is description
