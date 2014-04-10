@@ -2,6 +2,9 @@ require 'test_helper'
 
 class DepartmentsControllerTest < ActionController::TestCase
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = createTestUser()
+    sign_in user
     @department = departments(:one)
   end
 
@@ -18,7 +21,7 @@ class DepartmentsControllerTest < ActionController::TestCase
 
   test "should create department" do
     assert_difference('Department.count') do
-      post :create, department: { name: @department.name, facilities_id: @department.facilities_id }
+      post :create, department: { name: @department.name, facility_id: @department.facility_id }
     end
 
     assert_redirected_to department_path(assigns(:department))
@@ -35,7 +38,7 @@ class DepartmentsControllerTest < ActionController::TestCase
   end
 
   test "should update department" do
-    patch :update, id: @department, department: { name: @department.name, facilities_id: @department.facilities_id }
+    patch :update, id: @department, department: { name: @department.name, facility_id: @department.facility_id }
     assert_redirected_to department_path(assigns(:department))
   end
 

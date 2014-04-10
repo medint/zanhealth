@@ -2,6 +2,9 @@ require 'test_helper'
 
 class PartTransactionsControllerTest < ActionController::TestCase
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = createTestUser()
+    sign_in user
     @part_transaction = part_transactions(:one)
   end
 

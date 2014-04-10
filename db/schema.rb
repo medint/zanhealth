@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405210419) do
+ActiveRecord::Schema.define(version: 20140410041645) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -196,6 +196,18 @@ ActiveRecord::Schema.define(version: 20140405210419) do
     t.datetime "updated_at"
     t.string   "category"
   end
+
+  create_table "part_transactions", force: true do |t|
+    t.integer  "change_quantity"
+    t.datetime "date"
+    t.string   "vendor"
+    t.integer  "price"
+    t.integer  "part_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "part_transactions", ["part_id"], name: "index_part_transactions_on_part_id"
 
   create_table "parts", force: true do |t|
     t.integer  "p_id"
