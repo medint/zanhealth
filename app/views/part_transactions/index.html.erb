@@ -1,0 +1,35 @@
+<h1>Listing part_transactions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Change quantity</th>
+      <th>Date</th>
+      <th>Vendor</th>
+      <th>Price</th>
+      <th>Part</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @part_transactions.each do |part_transaction| %>
+      <tr>
+        <td><%= part_transaction.change_quantity %></td>
+        <td><%= part_transaction.date %></td>
+        <td><%= part_transaction.vendor %></td>
+        <td><%= part_transaction.price %></td>
+        <td><%= part_transaction.part %></td>
+        <td><%= link_to 'Show', part_transaction %></td>
+        <td><%= link_to 'Edit', edit_part_transaction_path(part_transaction) %></td>
+        <td><%= link_to 'Destroy', part_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part transaction', new_part_transaction_path %>
