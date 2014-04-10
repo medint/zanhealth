@@ -39,7 +39,7 @@
 
     <div class="field-box">
       <div class="field-type"><%= @language['Days'] %></div>
-      <div class="field-info"><%= f.number_field :days %></div>
+      <div class="field-info"><%= f.number_field :days, :required => true %></div>
     </div>
     <div class="field-box">
       <div class="field-type"><%= @language['Weeks'] %></div>
@@ -51,7 +51,7 @@
     </div>  
     <div class="field-box">
       <div class="field-type"><%= @language['Description'] %></div>
-      <div class="field-info"><%= f.text_area :description %></div>
+      <div class="field-info"><%= f.text_area :description, :required => true %></div>
     </div>
    
     <div class="actions">

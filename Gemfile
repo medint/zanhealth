@@ -77,3 +77,6 @@ gem 'sprockets', '=2.11.0'
 
 # Captcha
 gem "recaptcha", :require => "recaptcha/rails"
+
+#Front-end form validation
+gem 'simple_form'
