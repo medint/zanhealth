@@ -222,17 +222,6 @@ ActiveRecord::Schema.define(version: 20140410041645) do
     t.datetime "updated_at"
   end
 
-  create_table "partsTransactions", force: true do |t|
-    t.integer  "db_id"
-    t.integer  "parts_id"
-    t.integer  "changeQ"
-    t.datetime "date"
-    t.string   "vendor"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "parts_inventory", force: true do |t|
     t.integer  "p_id"
     t.string   "name"
