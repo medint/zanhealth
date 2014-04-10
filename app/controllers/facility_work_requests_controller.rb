@@ -38,7 +38,7 @@ before_action :set_departments, only: [:show]
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
 
     respond_to do |format|
-      if @facility_work_request.save
+      if @facility_work_request.save && verify_recaptcha
         format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else

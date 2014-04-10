@@ -76,7 +76,6 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rack-timeout (0.0.4)
     rails (4.0.1)
       actionmailer (= 4.0.1)
       actionpack (= 4.0.1)
@@ -100,6 +99,7 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    recaptcha (0.3.6)
     ruby-prof (0.14.2)
     sass (3.3.2)
     sass-rails (4.0.1)
@@ -158,10 +158,10 @@ DEPENDENCIES
   jquery-rails
   newrelic_rpm
   pg
-  rack-timeout
   rails (= 4.0.1)
   rails-perftest
   rails_12factor
+  recaptcha
   ruby-prof
   sass-rails (~> 4.0.0)
   sdoc
