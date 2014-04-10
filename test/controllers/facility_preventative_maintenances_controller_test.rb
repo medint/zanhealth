@@ -3,12 +3,7 @@ require 'test_helper'
 class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = User.create!(
-        :email => "c@c.com",
-        :password => "11111111",
-        :language => "english",
-        :facility_id => 1
-    )
+    user = createTestUser()
     sign_in user
     @facility_preventative_maintenance = facility_preventative_maintenances(:one)
   end
