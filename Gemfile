@@ -81,7 +81,6 @@ gem "recaptcha", :require => "recaptcha/rails"
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
 gem 'sprockets', '=2.11.0'
 
-<<<<<<< HEAD
 # Captcha
 gem "recaptcha", :require => "recaptcha/rails"
 
