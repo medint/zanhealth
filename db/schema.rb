@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409030913) do
+ActiveRecord::Schema.define(version: 20140410041645) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140409030913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.integer  "work_request_id"
   end
 
   add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id"
@@ -198,6 +197,18 @@ ActiveRecord::Schema.define(version: 20140409030913) do
     t.string   "category"
   end
 
+  create_table "part_transactions", force: true do |t|
+    t.integer  "change_quantity"
+    t.datetime "date"
+    t.string   "vendor"
+    t.integer  "price"
+    t.integer  "part_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "part_transactions", ["part_id"], name: "index_part_transactions_on_part_id"
+
   create_table "parts", force: true do |t|
     t.integer  "p_id"
     t.string   "name"
@@ -207,17 +218,6 @@ ActiveRecord::Schema.define(version: 20140409030913) do
     t.string   "location"
     t.text     "related"
     t.string   "needs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "partsTransactions", force: true do |t|
-    t.integer  "db_id"
-    t.integer  "parts_id"
-    t.integer  "changeQ"
-    t.datetime "date"
-    t.string   "vendor"
-    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

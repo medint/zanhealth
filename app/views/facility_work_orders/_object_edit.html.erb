@@ -19,11 +19,11 @@
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Owner'] %></div>
-          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner" %></div>
+          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Department'] %></div>
-          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name %></div>
+          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></div>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
           <%= link_to '', @facility_work_order, method: :delete, data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
-          <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right"%>
+          <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 
         <div class="actions">
@@ -68,7 +68,7 @@
         </div>
         <div class="field-box-description">   
             <div class="field-type"><%= @language['Description'] %></div>
-            <div class="field-info"><%= f.text_area :description %></div>
+            <div class="field-info"><%= f.text_area :description, :required => true %></div>
         </div>
 
     </div>

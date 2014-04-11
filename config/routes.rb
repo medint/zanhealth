@@ -1,5 +1,7 @@
 Med8::Application.routes.draw do
 
+  resources :part_transactions
+
   devise_for :users
   resources :parts
 

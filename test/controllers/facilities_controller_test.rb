@@ -2,6 +2,9 @@ require 'test_helper'
 
 class FacilitiesControllerTest < ActionController::TestCase
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = createTestUser()
+    sign_in user
     @facility = facilities(:one)
   end
 

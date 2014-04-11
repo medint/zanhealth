@@ -13,5 +13,17 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def createTestUser
+  	user = User.find_by_email("c@c.com")
+  	if user.nil?  		
+		user = User.create!(
+	        :email => "c@c.com",
+	        :password => "11111111",
+	        :language => "english",
+	        :facility_id => 1
+	    )
+	end
+   	return user
+  end
   
 end

@@ -20,32 +20,32 @@
 
   <div class = "work_request_form-short">
     <%= @language['Requester'] %><br>
-    <%= f.text_area :requester %>
+    <%= f.text_area :requester, :required => true %>
   </div>
 
   <div class = "work_request_form-short">
   	<%= @language['Department'] %><br>
-  	<%= f.text_area :department %>
+  	<%= f.text_area :department, :required => true %>
   </div>
 
   <div class="work_request_form-long">
     <%= @language['Location'] %><br>
-    <%= f.text_area :location %>
+    <%= f.text_area :location, :required => true %>
   </div>
 
   <div class = "work_request_form-short">
   	<%= @language['Telephone number'] %><br>
-  	<%= f.number_field :department %>
+  	<%= f.number_field :department, :required => true %>
   </div>
 
   <div class = "work_request_form-short">
   	<%= @language['Email'] %><br>
-  	<%= f.text_area :email %>
+  	<%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
   </div>
 
   <div class = "work_request_form-long">
     <%= @language['Description'] %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :required => true %>
   </div>
 
   <div class="actions">

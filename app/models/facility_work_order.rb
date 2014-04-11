@@ -34,7 +34,7 @@ class FacilityWorkOrder < ActiveRecord::Base
 		self.date_started=DateTime.now
 	end
 
-    
+  
   end
 
   def init

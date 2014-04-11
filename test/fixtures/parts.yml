@@ -19,3 +19,4 @@ two:
   location: MyString
   related: MyText
   needs: MyText
+

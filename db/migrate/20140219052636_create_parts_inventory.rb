@@ -1,4 +1,4 @@
-class CreateParts < ActiveRecord::Migration
+class CreatePartsInventory < ActiveRecord::Migration
   def change
     create_table :parts_inventory do |t|
       t.integer :p_id
