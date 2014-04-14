@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313001902) do
+ActiveRecord::Schema.define(version: 20140405171617) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -165,8 +165,10 @@ ActiveRecord::Schema.define(version: 20140313001902) do
     t.datetime "updated_at"
     t.datetime "date_started"
     t.integer  "department_id"
+    t.datetime "deleted_at"
   end
 
+  add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at"
   add_index "facility_work_orders", ["department_id"], name: "index_facility_work_orders_on_department_id"
 
   create_table "facility_work_requests", force: true do |t|

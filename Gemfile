@@ -21,6 +21,8 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'paranoia', '~>2.0'
+
 gem 'rails-perftest' 
 gem 'ruby-prof'
 

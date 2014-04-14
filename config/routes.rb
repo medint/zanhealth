@@ -52,6 +52,8 @@ Med8::Application.routes.draw do
 
   get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"
 
+  put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
+
   root to: "facility_work_orders#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
