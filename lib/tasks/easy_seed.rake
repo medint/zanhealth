@@ -31,8 +31,8 @@ namespace :test do
 		csv_user = CSV.parse(user_data, :headers => true)
 		csv_user.each do |row|
 			user = User.create(:username => row[0],
-						:encrypted_password => row[1],
-						:role => roles.find { |r| r.name == row[2] },
+						:email => "#{row[0]}@email.com",
+						:password => row[1],
 						:telephone_num => row[3],
 						:facility => facilities.find { |f| f.name == row[4] },
 						:language => row[5],
