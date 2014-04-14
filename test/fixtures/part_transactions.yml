@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  change_quantity: 1
+  date: 2014-04-10 00:16:45
+  vendor: MyString
+  price: 1
+  part_id: 
+
+two:
+  change_quantity: 1
+  date: 2014-04-10 00:16:45
+  vendor: MyString
+  price: 1
+  part_id: 

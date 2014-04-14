@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405171617) do
+ActiveRecord::Schema.define(version: 20140410041645) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -199,6 +199,31 @@ ActiveRecord::Schema.define(version: 20140405171617) do
     t.string   "category"
   end
 
+  create_table "part_transactions", force: true do |t|
+    t.integer  "change_quantity"
+    t.datetime "date"
+    t.string   "vendor"
+    t.integer  "price"
+    t.integer  "part_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "part_transactions", ["part_id"], name: "index_part_transactions_on_part_id"
+
+  create_table "parts", force: true do |t|
+    t.integer  "p_id"
+    t.string   "name"
+    t.string   "category"
+    t.integer  "quantity"
+    t.integer  "minQ"
+    t.string   "location"
+    t.text     "related"
+    t.string   "needs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "parts_inventory", force: true do |t|
     t.integer  "p_id"
     t.string   "name"
@@ -228,17 +253,29 @@ ActiveRecord::Schema.define(version: 20140405171617) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "encrypted_password"
-    t.integer  "role_id"
-    t.datetime "created"
-    t.datetime "modified"
-    t.integer  "telephone_num"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.integer  "role_id"
+    t.integer  "telephone_num"
     t.integer  "facility_id"
     t.string   "language"
     t.string   "name"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["facility_id"], name: "index_users_on_facility_id"
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

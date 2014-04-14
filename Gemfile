@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-gem 'twilio-ruby'
-
-gem 'rack-timeout'
-
 # Use sqlite3 as the database for Active Record
 group :development do
     gem 'sqlite3'
@@ -15,18 +11,14 @@ group :development do
     gem "better_errors"
     gem "binding_of_caller" # 'optional' dep for better_errors
     gem "bullet"
+    gem "annotate" # gives nice things in models/
 end
 group :production do
   gem 'pg'
   gem 'unicorn'
 end
 
-gem 'paranoia', '~>2.0'
-
-gem 'rails-perftest' 
-gem 'ruby-prof'
-
-gem 'faker'
+#################### Front End ####################
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -45,6 +37,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+#################### Utilities #####################
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -56,11 +50,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails-perftest' 
+gem 'ruby-prof'
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -68,14 +63,23 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# For Heroku:
+
+#################### External Services #####################
 
 gem 'rails_12factor', group: :production
 
 gem 'newrelic_rpm'
+gem 'twilio-ruby'
+gem 'rack-timeout' # for unicorn
+gem 'devise' # user authentication
+
+# Captcha
+gem "recaptcha", :require => "recaptcha/rails"
+
+#################### Misc #####################
 
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
 gem 'sprockets', '=2.11.0'
 
-# Captcha
-gem "recaptcha", :require => "recaptcha/rails"
+#Front-end form validation
+gem 'simple_form'

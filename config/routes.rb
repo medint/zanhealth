@@ -1,5 +1,8 @@
 Med8::Application.routes.draw do
 
+  resources :part_transactions
+
+  devise_for :users
   resources :parts
 
   resources :texts
@@ -20,8 +23,6 @@ Med8::Application.routes.draw do
 
   resources :facilities
 
-  resources :users
-
   resources :departments
 
   resources :bmet_labor_hours
@@ -38,11 +39,13 @@ Med8::Application.routes.draw do
 
   resources :facility_work_requests
 
+  get "/facility_dashboard/status", to: "facility_dashboard#status"
+
+  get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
+
+  resources :facility_dashboard
+
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
-
-  get "/login", to: "users#login"
-
-  get "/logout", to: "users#logout"
 
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
 
@@ -50,7 +53,7 @@ Med8::Application.routes.draw do
   
   get "/text", to: "text#receive"
 
-  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"
+  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"  
 
   put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
 

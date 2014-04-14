@@ -1,0 +1,2 @@
+module PartTransactionsHelper
+end

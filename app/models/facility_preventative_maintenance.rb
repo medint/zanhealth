@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: facility_preventative_maintenances
+#
+#  id                :integer          not null, primary key
+#  last_date_checked :datetime
+#  days              :integer
+#  weeks             :integer
+#  months            :integer
+#  next_date         :datetime
+#  created_at        :datetime
+#  updated_at        :datetime
+#  description       :text
+#
+
 class FacilityPreventativeMaintenance < ActiveRecord::Base
   before_save :calc_next_date
   attr_accessor :days_since

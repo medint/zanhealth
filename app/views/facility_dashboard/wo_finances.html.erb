@@ -1,0 +1,19 @@
+<div id=dashboard>
+	<table id="dash_table">
+		<tr>
+			<th><%=@language['Work Order']%></th>
+			<th><%=@language['Expire']%> </th>
+		</tr>
+
+		<% @sumcost.each do |q| %>
+			<tr class="dash_tr">
+				<td class="work_order_id">
+					<%=@language['Work Order']%> <%= q[1] %>
+				</td>
+				<td class="work_order_status">
+					<%=  %>
+				</td>
+			</tr>
+		<%end%>
+	</table>
+</div>

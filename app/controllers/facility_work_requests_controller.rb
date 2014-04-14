@@ -1,5 +1,4 @@
 class FacilityWorkRequestsController < ApplicationController
-skip_before_action :authenticate, except: [:show, :index, :update, :destroy]
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]

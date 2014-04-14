@@ -1,0 +1,23 @@
+<div id=dashboard>
+	<table id="dash_table">
+		<tr>
+			<th><%=@language['Work Order']%></th>
+			<th><%=@language['Expire']%></th>
+			<th><%=@language['Status']%></th>
+		</tr>
+
+		<% @work_orders.each do |q| %>
+			<tr class="dash_tr">
+				<td class="work_order_id">
+					<%=@language['Work Order']%> <%= q.id %>
+				</td>
+				<td class="work_order_expire">
+					<%= q.date_expire.try(:strftime,"%^b %d") %>
+				</td>
+				<td class="work_order_status">
+					<%= @status[q.status] %>
+				</td>
+			</tr>
+		<%end%>
+	</table>
+</div>

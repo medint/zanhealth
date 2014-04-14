@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString
+userone:
+  username: User1
+  email: a@a.com
   encrypted_password: MyString
   role_id: 1
-  created: 2013-11-24 21:18:09
-  modified: 2013-11-24 21:18:09
   telephone_num: 1
 
-two:
-  username: MyString
+usertwo:
+  username: User2
+  email: b@b.com
   encrypted_password: MyString
   role_id: 1
-  created: 2013-11-24 21:18:09
-  modified: 2013-11-24 21:18:09
   telephone_num: 1
