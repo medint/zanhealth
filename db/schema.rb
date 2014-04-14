@@ -165,8 +165,10 @@ ActiveRecord::Schema.define(version: 20140410041645) do
     t.datetime "updated_at"
     t.datetime "date_started"
     t.integer  "department_id"
+    t.datetime "deleted_at"
   end
 
+  add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at"
   add_index "facility_work_orders", ["department_id"], name: "index_facility_work_orders_on_department_id"
 
   create_table "facility_work_requests", force: true do |t|

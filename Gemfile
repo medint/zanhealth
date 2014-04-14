@@ -83,3 +83,6 @@ gem 'sprockets', '=2.11.0'
 
 #Front-end form validation
 gem 'simple_form'
+
+# archive feature
+gem 'paranoia', '~> 2.0'
