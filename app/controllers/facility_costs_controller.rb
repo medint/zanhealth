@@ -38,7 +38,7 @@ class FacilityCostsController < ApplicationController
   def destroy
     @facility_cost.destroy
     respond_to do |format|
-      format.html { redirect_to bmet_work_order_url }
+      format.html { redirect_to @facility_cost.facility_work_order }
       format.json { head :no_content }
     end
   end

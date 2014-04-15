@@ -1,0 +1,33 @@
+<h1>Listing facility_costs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unit quantity</th>
+      <th>Cost</th>
+      <th>Facility work order</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facility_costs.each do |facility_cost| %>
+      <tr>
+        <td><%= facility_cost.name %></td>
+        <td><%= facility_cost.unit_quantity %></td>
+        <td><%= facility_cost.cost %></td>
+        <td><%= facility_cost.facility_work_order %></td>
+        <td><%= link_to 'Show', facility_cost %></td>
+        <td><%= link_to 'Edit', edit_facility_cost_path(facility_cost) %></td>
+        <td><%= link_to 'Destroy', facility_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility cost', new_facility_cost_path %>
