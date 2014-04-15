@@ -33,6 +33,7 @@ namespace :test do
 			user = User.create(:username => row[0],
 						:email => "#{row[0]}@email.com",
 						:password => row[1],
+						:role => roles.find { |r| r.name == row[2] },
 						:telephone_num => row[3],
 						:facility => facilities.find { |f| f.name == row[4] },
 						:language => row[5],
