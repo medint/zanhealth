@@ -2,9 +2,10 @@ class FacilityWorkOrdersController < ApplicationController
   layout 'layouts/facilities_app'
   before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive]
   before_action :set_facility_work_orders, only: [:index, :new, :show]
-  before_action :set_status, only: [:show, :new]
-  before_action :set_users, only: [:index, :new, :show]
-  before_action :set_departments, only: [:new, :show]
+  before_action :set_status, only: [:show, :new, :hidden]
+  before_action :set_users, only: [:index, :new, :show, :hidden]
+  before_action :set_departments, only: [:new, :show, :hidden]
+  before_action :show_hidden_work_orders, only: [:hidden]
 
 
   def new
@@ -36,6 +37,9 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
+  def hidden
+  end
+
   def create
     @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
 
@@ -55,7 +59,11 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_orders
-      @facility_work_orders = FacilityWorkOrder.all.includes(:owner, :requester)
+      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester)
+  end
+
+  def show_hidden_work_orders
+  	  @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester)
   end
 
   def destroy

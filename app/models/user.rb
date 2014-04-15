@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 	belongs_to :facility
 	attr_accessor :login
 
+	belongs_to :role
+
 	validates :username,:uniqueness => {:case_sensitive => false }
   	validates :language, inclusion: { in: %w(english swahili, creole), message: 'For language, please select either "english" or "swahili"' }
 
