@@ -1,0 +1,14 @@
+<%= simple_form_for(@facility_work_order_comment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :datetime_stamp %>
+    <%= f.association :facility_work_order %>
+    <%= f.association :user %>
+    <%= f.input :comment_text %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
