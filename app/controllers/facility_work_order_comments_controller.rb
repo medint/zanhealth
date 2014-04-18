@@ -42,7 +42,7 @@ class FacilityWorkOrderCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @facility_work_order_comment.update(facility_work_order_comment_params)
-        format.html { redirect_to @facility_work_order_comment, notice: 'Facility Work Order comment was successfully updated.' }
+        format.html { redirect_to @facility_work_order_comment.facility_work_order, notice: 'Facility Work Order comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class FacilityWorkOrderCommentsController < ApplicationController
   def destroy
     @facility_work_order_comment.destroy
     respond_to do |format|
-      format.html { redirect_to facility_work_order_comments_url }
+      format.html { redirect_to @facility_work_order_comment.facility_work_order }
       format.json { head :no_content }
     end
   end

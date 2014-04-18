@@ -1,0 +1,33 @@
+<h1>Listing facility_work_order_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datetime stamp</th>
+      <th>Facility work order</th>
+      <th>User</th>
+      <th>Comment text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facility_work_order_comments.each do |facility_work_order_comment| %>
+      <tr>
+        <td><%= facility_work_order_comment.datetime_stamp %></td>
+        <td><%= facility_work_order_comment.facility_work_order %></td>
+        <td><%= facility_work_order_comment.user %></td>
+        <td><%= facility_work_order_comment.comment_text %></td>
+        <td><%= link_to 'Show', facility_work_order_comment %></td>
+        <td><%= link_to 'Edit', edit_facility_work_order_comment_path(facility_work_order_comment) %></td>
+        <td><%= link_to 'Destroy', facility_work_order_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility work order comment', new_facility_work_order_comment_path %>
