@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datetime stamp:</strong>
+  <%= @facility_work_order_comment.datetime_stamp %>
+</p>
+
+<p>
+  <strong>Facility work order:</strong>
+  <%= @facility_work_order_comment.facility_work_order %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @facility_work_order_comment.user %>
+</p>
+
+<p>
+  <strong>Comment text:</strong>
+  <%= @facility_work_order_comment.comment_text %>
+</p>
+
+<%= link_to 'Edit', edit_facility_work_order_comment_path(@facility_work_order_comment) %> |
+<%= link_to 'Back', facility_work_order_comments_path %>
