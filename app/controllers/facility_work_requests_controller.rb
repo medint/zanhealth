@@ -64,11 +64,11 @@ before_action :set_departments, only: [:show]
   end
 
   def set_users
-    @users = User.where(:facility_id => user.facility.id).all.to_a
+    @users = User.where(:facility_id => current_user.facility_id).all.to_a
   end
 
   def set_departments
-    @departments = Department.where(:facility_id => user.facility.id).all.to_a
+    @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
   end
 
   def set_facility_work_request
