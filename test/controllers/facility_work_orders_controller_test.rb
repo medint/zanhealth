@@ -37,7 +37,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
   end
 
   test "should show facility_work_order" do
-    get :show, id: @facility_work_order
+  	get :show, id: @facility_work_order
     assert_response :success
   end
 

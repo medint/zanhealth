@@ -92,7 +92,6 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_users
-  	puts current_user
     @users = User.where(:facility_id => current_user.facility.id).all.to_a
   end
 

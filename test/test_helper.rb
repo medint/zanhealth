@@ -22,9 +22,17 @@ class ActiveSupport::TestCase
 		user = User.create!(
 	        :email => "c@c.com",
 	        :password => "11111111",
+	        :name => "Mike",
 	        :language => "english",
 	        :facility => facility
 	    )
+	    labor = FacilityLaborHour.create!(
+	    	:date_started => "2014-02-22 02:05:52",
+	    	:duration => 1,
+	    	:technician => user,
+	    	:facility_work_order_id => 1
+		)
+
 	end
    	return user
   end
