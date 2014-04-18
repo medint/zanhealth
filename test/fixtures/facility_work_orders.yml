@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   date_started: 2014-02-22 02:05:52
   date_expire: 2014-02-22 02:05:52
   date_completed: 2014-02-22 02:05:52

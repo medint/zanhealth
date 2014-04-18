@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @facility_cost.name %>
+</p>
+
+<p>
+  <strong>Unit quantity:</strong>
+  <%= @facility_cost.unit_quantity %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @facility_cost.cost %>
+</p>
+
+<p>
+  <strong>Facility work order:</strong>
+  <%= @facility_cost.facility_work_order %>
+</p>
+
+<%= link_to 'Edit', edit_facility_cost_path(@facility_cost) %> |
+<%= link_to 'Back', facility_costs_path %>
