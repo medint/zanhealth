@@ -16,11 +16,14 @@ class ActiveSupport::TestCase
   def createTestUser
   	user = User.find_by_email("c@c.com")
   	if user.nil?  		
+		facility = Facility.create!(
+			:name => "Test"
+		)
 		user = User.create!(
 	        :email => "c@c.com",
 	        :password => "11111111",
 	        :language => "english",
-	        :facility_id => 1
+	        :facility => facility
 	    )
 	end
    	return user
