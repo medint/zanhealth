@@ -2,12 +2,12 @@
 
 one:
   datetime_stamp: 2014-02-22 02:06:41
-  facility_work_order_id: 1
+  facility_work_order: one
   user_id: 1
   comment_text: MyText
 
 two:
   datetime_stamp: 2014-02-22 02:06:41
-  facility_work_order_id: 1
+  facility_work_order: one
   user_id: 1
   comment_text: MyText
