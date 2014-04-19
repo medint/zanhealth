@@ -58,7 +58,6 @@ body {
 
 #right-detail{
 	float: none;
-	//float anything causes problems in firefox because of the scrollbar presumably. there's some phantom width that is added.
 	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
@@ -83,6 +82,17 @@ body {
 
 	width: 240px;
 	height: 150px;
+}
+
+#app_type_label{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	color: white;
+	background-color: #303030;
+	font-size: 16px;
+	font-weight: 900;
+	letter-spacing: 1px;
 }
 
 #left-nav > #login {
@@ -184,19 +194,31 @@ body {
 	padding-top: 28px;
 }
 
-#login-avatar{
+
+#user_name{
 	float:left;
-	margin-top: 5px;
-	margin-left: 15px;
-	margin-right: 10px;
-	width: 40px;
-	height: 40px;
-	background-color: #4e4e4e;
+	color:white;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+#logout_button{
+	float:left;
+	margin-left: 145px;
+}
+
+#logout_button > a{
+	font-size: 9px;
+	color: white;
+	margin: 0px;
+	padding:0px;
+	border:0px;
 }
 
 #bottom-buttons{
-	height: 50px;
-	margin-top: 10px;
+	margin-left: 20px;
+	margin-top: 16px;
+	margin-bottom:0px;
 	float:left;
 }
 
@@ -205,13 +227,16 @@ body {
 	border:0;
 }
 
-#bottom-buttons > #language-icons {
-	width: 150px;
+#language-icons {
+	margin-top: 20px;
+	margin-left:65px;
 }
 
-#bottom-buttons > #language-icons > a{
-	margin-top:-1px;
+#language-icons > a{
+	margin-top:-3px;
 	font-size: 10px;
+	font-weight: 100;
+	color: white;
 	float:left;
 	margin-right: 10px;
 	padding:0;
@@ -541,6 +566,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				float:left;
 				font-size: 10px;
 				color: #a7a7a7;
@@ -641,13 +667,13 @@ body {
 				display:block;
 			}
 
-			#delete-button_right{
+			#archive-button_right{
 				margin-top: 4px;
 				margin-left: 4%;
 				margin-right: 4%;
 				float: right;
 
-				background-image: url(image_path('right/trashicon.png'));
+				background-image: url(image_path('right/archiveicon.png'));
 				background-size: 100%;
 				width: 14px;
 				height: 14px;
@@ -691,6 +717,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -729,6 +756,7 @@ body {
 			margin-top: 10px;
 
 			.field-type{
+				color: white;
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -808,6 +836,7 @@ body {
 			margin:0px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 12px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -923,7 +952,13 @@ body {
 
 .additional-details-box{
 	width: 100%;
-	@extend .additional-detail_formstyle
+	@extend .additional-detail_formstyle;
+
+	.field-type{
+		color: white;
+		font-weight: 700;
+	}
+
 }
 
 .additional-details_content{
@@ -1177,8 +1212,8 @@ body {
 	height: 22px;
 }
 
-#top-bar > #left-top > #top-button > #delete-button{
-	background-image: url(image_path('top/trashicon.png'));
+#top-bar > #left-top > #top-button > #archive-button{
+	background-image: url(image_path('top/archiveicon.png'));
 	width: 23px;
 	height: 22px;
 }

@@ -1,14 +1,10 @@
 <header id="left-nav">
   <div id="logo"></div>
+  <div id="app_type_label"> Zanhealth Facilities </div>
   <div id="login">
-    <div id="login-avatar"></div>
     <div id="bottom-buttons">
-        <%= link_to @language['LOGOUT'], destroy_user_session_path, :method => :delete %>.
-      <div id="language-icons">
-        <a href='?language=english'>English</a>
-        <a href='?language=swahili'>Swahili</a> 
-        <a href='?language=creole'>Creole</a> 
-      </div>
+        <span id="user_name"> <%= current_user.name %> </span>
+        <span id="logout_button"><%= link_to @language['Logout'], destroy_user_session_path, :method => :delete %></span>
     </div>
   </div>
   <ul id="left-nav_ul">
@@ -53,4 +49,9 @@
     <%end%>
     <hr>
   </ul>
+      <div id="language-icons">
+        <a href='?language=english'>English</a>
+        <a href='?language=swahili'>Swahili</a> 
+        <a href='?language=creole'>Creole</a> 
+      </div>
 </header>
