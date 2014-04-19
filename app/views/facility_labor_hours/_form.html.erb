@@ -1,0 +1,16 @@
+<%= simple_form_for(@facility_labor_hour) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date_started %>
+    <%= f.input :duration %>
+    <%= f.input :technician_id %>
+    <%= f.input :facility_work_order_id %>
+    <%= f.input :created_at %>
+    <%= f.input :updated_at %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -43,6 +43,8 @@ Med8::Application.routes.draw do
 
   get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
 
+  get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
+
   resources :facility_dashboard
 
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"

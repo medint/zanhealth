@@ -1,0 +1,48 @@
+<div id=dashboard>
+	<table id="dash_table">
+		<tr>
+			<th><%=@language['Technician']%></th>
+			<th><%=@language['Work Order']%></th>
+			<th><%=@language['Duration']%></th>
+		</tr>
+		<% currtech=0 %>
+		<% hoursbytech=0 %>
+		<% @labor_hours.each do |q| %>
+			<% if currtech!=q.technician_id%>
+				<% currtech=q.technician_id %>
+				<% if q!=@labor_hours.first %>
+					<tr>
+						<td></td>
+						<td></td>
+						<td class="sum_costs"><%=hoursbytech%></td>
+						<%hoursbytech=0%>
+					</tr>
+				<%end%>
+				<tr class="dash_tr">
+					<td class="work_order_expire">
+						<%= q.technician.name %>
+					</td>
+				</tr>
+			<%end%>
+			
+			<tr class="dash_tr">
+				<td class="work_order_expire">
+				</td>
+				<td class="work_order_id">
+					<%=@language['Work Order']%> <%= q.facility_work_order_id %>
+				</td>					
+				<td class="work_order_status">					
+					<%hoursbytech+=q.duration%>
+					<%=q.duration%>
+				</td>
+			</tr>
+			
+		<%end%>
+		<tr>
+			<td></td>
+			<td></td>
+			<td class="sum_costs"><%=hoursbytech%></td>
+			<%hoursbytech=0%>
+		</tr>
+	</table>
+</div>

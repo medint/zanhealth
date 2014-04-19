@@ -2,18 +2,72 @@
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Work Order']%></th>
-			<th><%=@language['Expire']%> </th>
+			<th><%=@language['Department']%></th>
+			<th><%=@language['Cost']%></th>
 		</tr>
-
-		<% @sumcost.each do |q| %>
+		<% currdepart=0 %>
+		<% costbydepart=0 %>
+		<% @work_orders.each do |q| %>
+			<% if currdepart!=q.department_id%>
+				<% currdepart=q.department_id %>
+				<% if q!=@work_orders.first %>
+					<tr>
+						<td></td>
+						<td></td>
+						<td class="sum_costs"><%=costbydepart%></td>
+						<%costbydepart=0%>
+					</tr>
+				<%end%>
+				<tr class="dash_tr">
+					<td class="work_order_expire">
+						<%= q.department.name %>
+					</td>
+				</tr>
+			<%end%>
+			
 			<tr class="dash_tr">
-				<td class="work_order_id">
-					<%=@language['Work Order']%> <%= q[1] %>
+				<td class="work_order_expire">
 				</td>
+				<td class="work_order_id">
+					<%=@language['Work Order']%> <%= q.id %>
+				</td>					
 				<td class="work_order_status">
-					<%=  %>
+					<%totalcost=0%>
+					<% q.facility_costs.each do |cost| %>
+						<%totalcost=totalcost+cost.cost*cost.unit_quantity %>
+					<%end%>
+					<%costbydepart+=totalcost%>
+					<%=totalcost%>
 				</td>
 			</tr>
+			
 		<%end%>
+		<tr>
+			<td></td>
+			<td></td>
+			<td class="sum_costs"><%=costbydepart%></td>
+			<%costbydepart=0%>
+		</tr>
 	</table>
 </div>
+
+
+<!-- <div id=dashboard>
+	<table id="dash_table">
+		<tr>
+			<th><%#=@language['Work Order']%></th>
+			<th><%#=@language['Expire']%> </th>
+		</tr>
+
+		<%# @sumcost.each do |q| %>
+			<tr class="dash_tr">
+				<td class="work_order_id">
+					<%#=@language['Work Order']%> <%#= q[1] %>
+				</td>
+				<td class="work_order_status">
+					<%#=  %>
+				</td>
+			</tr>
+		<%#end%>
+	</table>
+</div> -->

@@ -1,0 +1,37 @@
+<h1>Listing facility_labor_hours</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date started</th>
+      <th>Duration</th>
+      <th>Technician</th>
+      <th>Facility work order</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facility_labor_hours.each do |facility_labor_hour| %>
+      <tr>
+        <td><%= facility_labor_hour.date_started %></td>
+        <td><%= facility_labor_hour.duration %></td>
+        <td><%= facility_labor_hour.technician_id %></td>
+        <td><%= facility_labor_hour.facility_work_order_id %></td>
+        <td><%= facility_labor_hour.created_at %></td>
+        <td><%= facility_labor_hour.updated_at %></td>
+        <td><%= link_to 'Show', facility_labor_hour %></td>
+        <td><%= link_to 'Edit', edit_facility_labor_hour_path(facility_labor_hour) %></td>
+        <td><%= link_to 'Destroy', facility_labor_hour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility labor hour', new_facility_labor_hour_path %>

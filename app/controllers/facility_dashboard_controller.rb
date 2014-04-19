@@ -1,5 +1,5 @@
 class FacilityDashboardController < ApplicationController
-	before_action :set_status, only: [:status]
+	before_action :set_status, only: [:status, :wo_finances, :labor_hours]
 	layout 'layouts/facilities_app'
 
 	def index
@@ -10,24 +10,17 @@ class FacilityDashboardController < ApplicationController
 	end
 
 	def status
-		@work_orders=FacilityWorkOrder.where("date_expire >= :start_date AND date_expire <= :end_date", {start_date: params[:start_date], end_date: params[:end_date]})
+		@work_orders=FacilityWorkOrder.where("date_expire >= :start_date AND date_expire <= :end_date", {start_date: params[:start_date], end_date: params[:end_date]}).order(:status)
 	end
 
 	def wo_finances
-		@work_orders = FacilityWorkOrder.where("date_expire >= :start_date AND date_expire <= :end_date", {start_date: params[:start_date], end_date: params[:end_date]})
-		@ids=Array.new
-		@work_orders.each do |work_order|
-			@ids.push(work_order.id)
-		end
-		@costs=FacilityCost.where(facility_work_order_id:  @ids)
-		@hours=FacilityLaborHour.where(facility_work_order_id: @ids)
 
-		@sumcost=Hash.new(0)
-		@costs.each do |cost|
-			@sumcost[cost.facility_work_order_id]=@sumcost[cost.facility_work_order_id]+cost.cost
-		end
+		@work_orders = FacilityWorkOrder.where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: params[:start_date], end_date: params[:end_date]}).order(:department_id)
+	
+	end
 
-
+	def labor_hours
+		@labor_hours = FacilityLaborHour.joins(:facility_work_order).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: params[:start_date], end_date: params[:end_date]}).order(:technician_id)
 	end
 
 	def set_status
