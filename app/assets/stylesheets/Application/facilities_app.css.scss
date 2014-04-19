@@ -566,6 +566,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				float:left;
 				font-size: 10px;
 				color: #a7a7a7;
@@ -716,6 +717,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -754,6 +756,7 @@ body {
 			margin-top: 10px;
 
 			.field-type{
+				color: white;
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -833,6 +836,7 @@ body {
 			margin:0px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 12px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -948,7 +952,13 @@ body {
 
 .additional-details-box{
 	width: 100%;
-	@extend .additional-detail_formstyle
+	@extend .additional-detail_formstyle;
+
+	.field-type{
+		color: white;
+		font-weight: 700;
+	}
+
 }
 
 .additional-details_content{
