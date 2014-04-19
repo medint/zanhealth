@@ -1,5 +1,7 @@
 Med8::Application.routes.draw do
 
+  resources :bmet_costs
+
   resources :part_transactions
 
   devise_for :users

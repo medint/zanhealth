@@ -2,7 +2,7 @@
 //=require jquery
 
 //window resizing
-if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/)) {
+if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) {
 	$(document).on ("page:change",function() {
 		/* define variables */
 		
@@ -81,7 +81,7 @@ function edit_button_handler(){
 		object_form.style.display="none";
 	}
 }
-if (window.location.toString().match(/facility_work_orders/)) {
+if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/bmet_work_orders/)) {
 	$(document).on ("page:change",function() {
 
 		$("#cbox0").prop("checked",true)

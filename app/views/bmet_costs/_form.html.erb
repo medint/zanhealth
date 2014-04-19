@@ -1,0 +1,17 @@
+<%= simple_form_for(@bmet_cost) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :unit_quantity %>
+    <%= f.input :cost %>
+    <%= f.input :created_at %>
+    <%= f.input :updated_at %>
+    <%= f.input :bmet_work_order_id %>
+    <%= f.input :work_request_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

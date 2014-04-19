@@ -1,0 +1,66 @@
+<div id='left-top'>
+  <div id="top-dropdown">
+    <%= @language['Filter'] %>: <div class="dropdown">
+      <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
+         <%= @language['Select Status'] %>
+         <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+       <li>
+             <input id="cbox0" type="checkbox" name="unstarted" value="unstarted">
+             <%= @language['Unstarted'] %>
+       </li>
+       <li>
+             <input id="cbox1" type="checkbox" name="inprogress" value="inprogress">
+             <%= @language['In Progress'] %>
+       </li>
+       <li>
+             <input id="cbox2" type="checkbox" name="completed" value="completed">
+             <%= @language['Completed'] %>
+       </li>
+      </ul>
+    </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+    <%= @language['Sort'] %>: <div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+        <%= @language['Select Attribute'] %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+       <div>
+       <a onclick = "sort_by_date_created()">
+        <%= @language['Date Created'] %>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_date('datestarted')">
+        <%= @language['Date Started'] %>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_name('requester')">
+        <%=@language['Requester']%>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_name('owner')">
+        <%=@language['Owner']%>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_num('status')">
+        <%=@language['Status']%>
+       </a>
+       </div>
+
+      </ul>
+
+    </div>
+    <div></div>
+  </div>
+
+  <div id="top-button">
+    <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
+    <a href= "<%=new_facility_work_order_path%>" id='add-button'></a>
+  </div>
+</div>
