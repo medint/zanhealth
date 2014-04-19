@@ -59,11 +59,11 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_orders
-      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester)
+      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)
   end
 
   def show_hidden_work_orders
-  	  @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester)
+  	  @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
   end
 
   def destroy
