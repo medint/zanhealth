@@ -2,6 +2,9 @@ require 'test_helper'
 
 class BmetWorkRequestsControllerTest < ActionController::TestCase
   setup do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = createTestUser()
+    sign_in user
     @bmet_work_request = bmet_work_requests(:one)
   end
 
