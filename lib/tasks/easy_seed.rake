@@ -1,9 +1,13 @@
 require 'csv'
 require 'faker'
+ENV["RAILS_ENV"] ||= "test"
 
 namespace :test do
+
 	desc "seed the db with test data"
 	task :easy_seed => :environment do
+
+		ActiveRecord::Migration.check_pending!
 		puts "Starting test data import. Might take a while...."
 		Role.delete_all
 		roles = []

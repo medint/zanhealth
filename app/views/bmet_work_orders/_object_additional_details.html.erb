@@ -1,0 +1,64 @@
+<!--fill in with names of boxes-->
+<div id="object_additional-details">
+
+
+<ul class="additional-details_nav">
+  <li id="detail-icon" class="active"><a href="#details" data-toggle="tab">Details</a></li>
+  <li id ="comment-icon"><a href="#comment" data-toggle="tab">Comment</a></li>
+  <li id="cost-icon"><a href="#cost" data-toggle="tab">Cost</a></li>
+  <li id="labor-icon"><a href="#labor" data-toggle="tab">Labor Hours</a></li>
+</ul>
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="details">
+    <div class="additional-details_content">
+    	<div class='additional-details_title'>
+        <%= @language['Details'] %>
+      </div>  
+      <%= render 'actions_taken' %>
+    </div>
+  </div>
+  <div class="tab-pane" id="comment">    
+    <div class="additional-details_content">
+      <div class='additional-details_title'>
+        <%= @language['Comments'] %>
+      </div>
+    	<ul id='additional-details_comment_ul'>
+        <%= render @bmet_work_order_comments %>
+      </ul>
+    </div>
+      <%= render 'bmet_work_order_comments/comment_new' %>
+  </div>
+  <div class="tab-pane" id="cost">
+    <div class="additional-details_content">
+      <div class='additional-details_title'>
+        <%= @language['Costs'] %>
+      </div>
+      <ul id='additional-details_comment_ul'>
+	      <%= render @bmet_costs %>
+      </ul>
+    </div>      
+      <%= render 'bmet_costs/bmet_cost_form' %>
+  </div>
+  <div class="tab-pane" id="labor">
+    <div class="additional-details_content">
+      <div class='additional-details_title'>
+        <%= @language['Labor Hours'] %>
+      </div>
+      <ul id='additional-details_comment_ul'>
+        <%= render @bmet_labor_hours %>
+      </ul>
+    </div>
+  	 <%= render :partial => 'bmet_labor_hours/bmet_labor_hour_form' %>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+

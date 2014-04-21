@@ -11,7 +11,7 @@ one:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  department_id: 1
+  department: one
   location: MyString
   item_type: 1
   price: 1
@@ -27,7 +27,7 @@ two:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  department_id: 1
+  department: two
   location: MyString
   item_type: 1
   price: 1

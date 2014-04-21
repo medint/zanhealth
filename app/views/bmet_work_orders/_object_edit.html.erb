@@ -1,0 +1,77 @@
+<div id="object-form_top">
+  <%= form_for(@bmet_work_order) do |f| %>
+    <% if @bmet_work_order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
+            <ul> 
+              <% @bmet_work_order.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        </div>x
+    <% end %>
+
+    <div id="object-form-left">
+      <div class="item-info">    
+      	<div class="field-box">
+          <div class="field-type"><%= @language['Requester'] %></div>
+          <div class="field-info"><div id="requester"><%= @bmet_work_order.requester.try(:name) %></div></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Owner'] %></div>
+          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Department'] %></div>
+          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="object-form-right">
+        <div id="field-box_item-id">
+          <div class="item-id">
+          <%= @language['Work Order'] %> # <%= @bmet_work_order.id %>
+          </div>
+        </div>
+
+        <div id="object-status-field">
+          <%= f.select( :status, @status) %>
+		  <%= link_to '', hide_record_path(@bmet_work_order), method: :put,  data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
+		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
+        </div>
+
+        <div class="actions">
+            <%= f.submit @language['Save Changes'] %>
+        </div>
+    </div>
+
+    <div id="object-form-bottom">
+      <div class="field-box-date">
+          <div class="field-type"><%= @language['Date Created'] %></div>
+          <div class="field-info"><%= @bmet_work_order.created_at.try(:strftime,"%^b %d, %Y") %></div>
+        </div>
+        <div class="field-box-date">
+          <div class="field-type"><%= @language['Date Started'] %></div>
+          <div class="field-info">
+              <%= @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+              <%#=  @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+          </div>
+        </div>
+        <div class="field-box-date">
+          <div class="field-type"><%= @language['Date Expires'] %></div>
+          <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
+        </div>
+        <div class="field-box-date">
+          <div class="field-type"><%= @language['Date Completed'] %></div>
+          <div class="field-info"><%= @bmet_work_order.date_completed.try(:strftime,"%^b %d, %Y") %></div>
+        </div>
+        <div class="field-box-description">   
+            <div class="field-type"><%= @language['Description'] %></div>
+            <div class="field-info"><%= f.text_area :description, :required => true %></div>
+        </div>
+
+    </div>
+  <%end%>
+
+</div>

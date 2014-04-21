@@ -3,11 +3,11 @@
 one:
   date_started: 2014-02-22 02:07:02
   duration: 1
-  technician_id: 1
-  facility_work_order_id: 1
+  technician: userone
+  facility_work_order: one
 
 two:
   date_started: 2014-02-22 02:07:02
   duration: 1
-  technician_id: 1
-  facility_work_order_id: 1
+  technician: usertwo
+  facility_work_order: two

@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  facility_id: 1
+  facility: one
 
 two:
   name: MyString
-  facility_id: 1
+  facility: two

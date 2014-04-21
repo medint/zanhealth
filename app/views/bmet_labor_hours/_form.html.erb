@@ -1,8 +1,8 @@
-<%= form_for(@labor_hour) do |f| %>
-  <% if @labor_hour.errors.any? %>
+<%= form_for(@bmet_labor_hour) do |f| %>
+  <% if @bmet_labor_hour.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
-<ul> <% @labor_hour.errors.full_messages.each do |msg| %>
+<ul> <% @bmet_labor_hour.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

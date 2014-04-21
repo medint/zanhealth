@@ -1,0 +1,20 @@
+<div>
+  <ul>
+    <% @bmet_costs.each do |bmet_cost| %>
+      <li class="facility_work_order_comment">
+        <div class="cost-name">
+          <%= bmet_cost.name :value => Name: %>
+        </div>
+        <div class="cost-quantity">
+          Quantity: <%= bmet_cost.unit_quantity %> units
+        </div>
+        <div class="cost-cost">
+          Cost: $<%= bmet_cost.cost %>
+        </div>
+        <div class="cost-total">
+          Total: $<%= bmet_cost.unit_quantity * bmet_cost.cost %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

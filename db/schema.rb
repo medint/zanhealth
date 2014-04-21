@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20140419154502) do
 
+  create_table "bmet_costs", force: true do |t|
+    t.string   "name"
+    t.integer  "unit_quantity"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bmet_work_order_id"
+    t.integer  "work_request_id"
+  end
+
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
     t.datetime "datetime"
@@ -91,6 +101,8 @@ ActiveRecord::Schema.define(version: 20140419154502) do
     t.text     "prevention_taken"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "date_started"
+    t.integer  "department_id"
   end
 
   create_table "bmet_work_requests", force: true do |t|

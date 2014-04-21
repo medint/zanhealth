@@ -1,6 +1,8 @@
 Med8::Application.routes.draw do
 
   resources :bmet_work_requests
+  
+  resources :bmet_costs
 
   resources :part_transactions
 

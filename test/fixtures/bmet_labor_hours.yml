@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_started: 2014-04-19 14:39:06
+  duration: 1
+  technician: userone
+  bmet_work_order: one
+
+two:
+  date_started: 2014-04-19 14:39:06
+  duration: 1
+  technician: usertwo
+  bmet_work_order: two

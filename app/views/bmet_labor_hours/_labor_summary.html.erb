@@ -1,0 +1,17 @@
+<div>
+  <ul>
+    <% @bmet_labor_hours.each do |bmet_labor_hour| %>
+      <li>
+        <div class="labor-technician">
+          Technician ID: <%= bmet_labor_hour.technician_id %>
+        </div>
+        <div class="labor-duration">
+          Duration: <%= bmet_labor_hour.duration %> hours
+        </div>
+        <div class="labor-timestamp">
+          Time Started: <%= bmet_labor_hour.date_started %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

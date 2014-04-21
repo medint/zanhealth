@@ -1,0 +1,39 @@
+<h1>Listing bmet_costs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unit quantity</th>
+      <th>Cost</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th>Bmet work order</th>
+      <th>Work request</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bmet_costs.each do |bmet_cost| %>
+      <tr>
+        <td><%= bmet_cost.name %></td>
+        <td><%= bmet_cost.unit_quantity %></td>
+        <td><%= bmet_cost.cost %></td>
+        <td><%= bmet_cost.created_at %></td>
+        <td><%= bmet_cost.updated_at %></td>
+        <td><%= bmet_cost.bmet_work_order_id %></td>
+        <td><%= bmet_cost.work_request_id %></td>
+        <td><%= link_to 'Show', bmet_cost %></td>
+        <td><%= link_to 'Edit', edit_bmet_cost_path(bmet_cost) %></td>
+        <td><%= link_to 'Destroy', bmet_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bmet cost', new_bmet_cost_path %>
