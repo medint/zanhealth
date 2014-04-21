@@ -1,0 +1,32 @@
+<div id='left-top'>
+  <div id="top-dropdown">
+    
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+    <%= @language['Sort'] %>: <div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+        <%= @language['Select Attribute'] %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+       <div>
+       <a onclick = "sort_by_name('requester')">
+        <%=@language['Requester']%>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_num('Department')">
+        <%=@language['Department']%>
+       </a>
+       </div>
+       <div>
+       <a onclick = "sort_by_num('ID')">
+        <%=@language['ID']%>
+       </a>
+       </div>
+
+      </ul>
+
+    </div>
+  </div>
+  
+</div>

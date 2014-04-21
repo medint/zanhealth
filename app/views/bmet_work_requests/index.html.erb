@@ -1,37 +1,7 @@
-<h1>Listing bmet_work_requests</h1>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Requester</th>
-      <th>Department</th>
-      <th>Location</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= render :partial => 'main_list', :layout => 'layouts/col2' %>
 
-  <tbody>
-    <% @bmet_work_requests.each do |bmet_work_request| %>
-      <tr>
-        <td><%= bmet_work_request.requester %></td>
-        <td><%= bmet_work_request.department %></td>
-        <td><%= bmet_work_request.location %></td>
-        <td><%= bmet_work_request.phone %></td>
-        <td><%= bmet_work_request.email %></td>
-        <td><%= bmet_work_request.description %></td>
-        <td><%= link_to 'Show', bmet_work_request %></td>
-        <td><%= link_to 'Edit', edit_bmet_work_request_path(bmet_work_request) %></td>
-        <td><%= link_to 'Destroy', bmet_work_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="vertical-divider"></div>
 
-<br>
-
-<%= link_to 'New Bmet work request', new_bmet_work_request_path %>
+<%= render :partial =>'blank_box', :layout =>'layouts/col3' %>

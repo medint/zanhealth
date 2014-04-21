@@ -1,0 +1,38 @@
+<div id = "mid_facility-work-request">
+  <ul id="mid-summary_ul">
+    <% @bmet_work_requests.each do |bmet_work_request| %>
+    <%= link_to(bmet_work_request) do %>
+      <li
+      class="mid-summary_ul_li"
+      requester="<%= bmet_work_request.requester %>"
+      department="<%= bmet_work_request.department %>"
+      ID="<%= bmet_work_request.id %>"
+      >
+      	<div class="bullet-bar"></div>
+        
+        <div class="request_details">
+          <p class="request_id">
+            <%= @language['Work Request'] %> <%= bmet_work_request.id %>:
+          </p>
+		  <p class="request_info">
+			<%= @language['Requester'] %>: <%= bmet_work_request.requester %> |
+      <%= @language['Department'] %>: <%= bmet_work_request.department %>
+		  </p>
+
+          <p class ="request_description">
+             <%= bmet_work_request.description[0...50] +  "..." %>
+          </p>
+        </div>
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+
+        <div class="request_date">
+          <div class="request_date_title"> <%= @language['Date Requested'] %>:</div>
+          <%= bmet_work_request.created_at.try(:strftime,"%^b %d") %>
+        </div>
+
+      </li>
+      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
+    <% end %>
+    <% end %>
+  </ul>
+</div>

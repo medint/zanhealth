@@ -1,5 +1,7 @@
-<h1>New bmet_work_request</h1>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<%= render 'form' %>
+<%= render :partial => 'main_list', :layout => 'layouts/col3' %>
 
-<%= link_to 'Back', bmet_work_requests_path %>
+<div class="vertical-divider"></div>
+
+<%= render :partial =>'object_new', :layout =>'layouts/col2' %>

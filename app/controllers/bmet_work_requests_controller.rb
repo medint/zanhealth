@@ -1,48 +1,30 @@
 class BmetWorkRequestsController < ApplicationController
-  before_action :set_bmet_work_request, only: [:show, :edit, :update, :destroy]
+before_action :set_bmet_work_request, only: [:show, :update, :destroy]
+before_action :set_status, only: [:show]
+before_action :set_users, only: [:show], except: [:new, :create]
+before_action :set_departments, only: [:show]
 
-  # GET /bmet_work_requests
-  # GET /bmet_work_requests.json
+  layout 'layouts/facilities_app'
+
+  def new
+    @bmet_work_requests = BmetWorkRequest.all
+    @bmet_work_request = BmetWorkRequest.new
+  end
+
   def index
     @bmet_work_requests = BmetWorkRequest.all
   end
 
-  # GET /bmet_work_requests/1
-  # GET /bmet_work_requests/1.json
   def show
+    @bmet_work_requests = BmetWorkRequest.all
+    @input_object = BmetWorkOrder.new
+    @input_object.description = @bmet_work_request.description
   end
-
-  # GET /bmet_work_requests/new
-  def new
-    @bmet_work_request = BmetWorkRequest.new
-  end
-
-  # GET /bmet_work_requests/1/edit
-  def edit
-  end
-
-  # POST /bmet_work_requests
-  # POST /bmet_work_requests.json
-  def create
-    @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
-
-    respond_to do |format|
-      if @bmet_work_request.save
-        format.html { redirect_to @bmet_work_request, notice: 'Bmet work request was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @bmet_work_request }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /bmet_work_requests/1
-  # PATCH/PUT /bmet_work_requests/1.json
+ 
   def update
     respond_to do |format|
       if @bmet_work_request.update(bmet_work_request_params)
-        format.html { redirect_to @bmet_work_request, notice: 'Bmet work request was successfully updated.' }
+        format.html { redirect_to @bmet_work_request, notice: 'Work request was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -51,8 +33,20 @@ class BmetWorkRequestsController < ApplicationController
     end
   end
 
-  # DELETE /bmet_work_requests/1
-  # DELETE /bmet_work_requests/1.json
+  def create
+    @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
+
+    respond_to do |format|
+      if @bmet_work_request.save && verify_recaptcha
+        format.html { redirect_to @bmet_work_request, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @bmet_work_request }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @bmet_work_request.destroy
     respond_to do |format|
@@ -61,14 +55,40 @@ class BmetWorkRequestsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bmet_work_request
-      @bmet_work_request = BmetWorkRequest.find(params[:id])
-    end
+  def set_status
+    @status= {
+      'Unstarted' => 0,
+      'In Progress' => 1,
+      'Completed' => 2
+    }
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bmet_work_request_params
-      params.require(:bmet_work_request).permit(:requester, :department, :location, :phone, :email, :description)
-    end
+  def set_users
+    @users = User.where(:facility_id => current_user.facility_id).all.to_a
+  end
+
+  def set_departments
+    @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
+  end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
+
+  def set_bmet_work_request
+    set_users_special
+    @bmet_work_request = BmetWorkRequest.find(params[:id])
+  end
+
+  def new_shortcut
+    @bmet_work_requests = BmetWorkRequest.all
+    @bmet_work_request = BmetWorkRequest.new
+    render :layout => "minimal"
+  end
+
+  def set_users_special
+    @users = params[:num]
+  end
+
+  def bmet_work_request_params
+    p params
+    params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
+  end
+
 end
