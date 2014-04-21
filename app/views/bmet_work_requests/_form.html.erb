@@ -1,0 +1,16 @@
+<%= simple_form_for(@bmet_work_request) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :requester %>
+    <%= f.input :department %>
+    <%= f.input :location %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
