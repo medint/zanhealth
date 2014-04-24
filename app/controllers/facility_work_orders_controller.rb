@@ -7,6 +7,11 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden]
   before_action :show_hidden_work_orders, only: [:hidden]
 
+  def search
+    @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
+
+    render action: "index"
+  end
 
   def new
     @facility_work_order = FacilityWorkOrder.new
