@@ -14,6 +14,8 @@
 #
 
 class FacilityPreventativeMaintenance < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   before_save :calc_next_date
   attr_accessor :days_since
   attr_accessor :status

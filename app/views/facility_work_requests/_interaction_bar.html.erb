@@ -33,3 +33,8 @@
     <a href= "<%=new_facility_work_request_path%>" id='add-button'></a>
   </div>
 </div>
+  <%= form_tag search_facility_work_requests_path, method: 'get' do %>
+    <%= label_tag :query %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag :search %>
+  <% end %>

@@ -7,6 +7,12 @@ before_action :set_departments, only: [:show]
 
   layout 'layouts/facilities_app'
 
+  def search
+    @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+
+    render action: "index"
+  end
+
   def new
     @facility_work_request = FacilityWorkRequest.new
   end
