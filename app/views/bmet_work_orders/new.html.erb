@@ -1,4 +1,7 @@
-<h1><%=@language['New Work Request']%></h1>
-<%= render 'form' %>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<%= link_to @language['Back'], bmet_work_orders_path %>
+<%= render :partial => 'main_list', :layout => 'layouts/col2' %>
+
+<div class="vertical-divider"></div>
+
+<%= render :partial =>'object_new', :layout =>'layouts/col3' %>

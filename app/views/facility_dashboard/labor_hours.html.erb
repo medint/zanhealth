@@ -1,48 +1,47 @@
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawChart);
+</script>
 <div id=dashboard>
 	<table id="dash_table">
 		<tr>
-			<th><%=@language['Technician']%></th>
 			<th><%=@language['Work Order']%></th>
-			<th><%=@language['Duration']%></th>
+			<th><%=@language['Department']%></th>
+			<th><%=@language['Cost']%></th>
 		</tr>
-		<% currtech=0 %>
-		<% hoursbytech=0 %>
-		<% @labor_hours.each do |q| %>
-			<% if currtech!=q.technician_id%>
-				<% currtech=q.technician_id %>
-				<% if q!=@labor_hours.first %>
+		<% @labor_hours_json.each do |key,value| %>
+				<tr class="dash_tr">
+					<td class="department_name">
+						<%= key %>
+					</td>
+				</tr>
+			<% value.each do |key1,value1| %>
+			
+			<tr class="dash_tr">
+				<%if key1!="totalcost"%>
+					<td class="work_order_expire">
+					</td>
+					<td class="work_order_id">
+						<%=@language['Work Order']%> <%= key1 %>
+					</td>					
+					<td class="work_order_status">
+						<%=value1%>
+					</td>
+				<%else%>
 					<tr>
 						<td></td>
 						<td></td>
-						<td class="sum_costs"><%=hoursbytech%></td>
-						<%hoursbytech=0%>
+						<td class="sum_costs"><%=value1%></td>
 					</tr>
 				<%end%>
-				<tr class="dash_tr">
-					<td class="work_order_expire">
-						<%= q.technician.name %>
-					</td>
-				</tr>
+			</tr>
 			<%end%>
 			
-			<tr class="dash_tr">
-				<td class="work_order_expire">
-				</td>
-				<td class="work_order_id">
-					<%=@language['Work Order']%> <%= q.facility_work_order_id %>
-				</td>					
-				<td class="work_order_status">					
-					<%hoursbytech+=q.duration%>
-					<%=q.duration%>
-				</td>
-			</tr>
-			
 		<%end%>
-		<tr>
-			<td></td>
-			<td></td>
-			<td class="sum_costs"><%=hoursbytech%></td>
-			<%hoursbytech=0%>
-		</tr>
 	</table>
+	<div id='chart_div'></div>
 </div>
