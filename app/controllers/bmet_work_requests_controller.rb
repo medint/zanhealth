@@ -37,7 +37,7 @@ before_action :set_departments, only: [:show]
     @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
 
     respond_to do |format|
-      if @bmet_work_request.save && verify_recaptcha
+      if @bmet_work_request.save
         format.html { redirect_to @bmet_work_request, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_request }
       else
