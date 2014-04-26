@@ -10,17 +10,18 @@ class FacilityDashboardController < ApplicationController
 	end
 
 	def status
-		@work_orders=FacilityWorkOrder.where("date_expire >= :start_date AND date_expire <= :end_date", {start_date: params[:start_date], end_date: params[:end_date]}).order(:status)
+		#invalid dates can be inputted
+		@work_orders=FacilityWorkOrder.where("date_expire >= :start_date AND date_expire <= :end_date", {start_date: @starting_date, end_date: @ending_date}).order(:status)
 	end
 
 	def wo_finances
 
-		@work_orders = FacilityWorkOrder.where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: params[:start_date], end_date: params[:end_date]}).order(:department_id)
+		@work_orders = FacilityWorkOrder.where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: @starting_date, end_date: @ending_date}).order(:department_id)
 	
 	end
 
 	def labor_hours
-		@labor_hours = FacilityLaborHour.joins(:facility_work_order).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: params[:start_date], end_date: params[:end_date]}).order(:technician_id)
+		@labor_hours = FacilityLaborHour.joins(:facility_work_order).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: @starting_date, end_date: @ending_date}).order(:technician_id)
 	end
 
 	def set_status
@@ -29,6 +30,9 @@ class FacilityDashboardController < ApplicationController
 	      1 =>'In Progress',
 	      2 =>'Completed'
 	    }
+	    @starting_date=DateTime.civil_from_format :local, params[:dates]["start_date(1i)"].to_i, params[:dates]["start_date(2i)"].to_i, params[:dates]["start_date(3i)"].to_i
+		@ending_date=DateTime.civil_from_format :local, params[:dates]["end_date(1i)"].to_i, params[:dates]["end_date(2i)"].to_i, params[:dates]["end_date(3i)"].to_i
+
 	end
 
 
