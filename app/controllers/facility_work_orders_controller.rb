@@ -1,7 +1,7 @@
 class FacilityWorkOrdersController < ApplicationController
   layout 'layouts/facilities_app'
-  before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive]
-  before_action :set_facility_work_orders, only: [:index, :new, :show]
+  before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive, :hide]
+  before_action :set_facility_work_orders, only: [:new, :show, :index]
   before_action :set_status, only: [:show, :new, :hidden]
   before_action :set_users, only: [:index, :new, :show, :hidden]
   before_action :set_departments, only: [:new, :show, :hidden]
@@ -9,8 +9,8 @@ class FacilityWorkOrdersController < ApplicationController
 
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
-
-    render action: "index"
+    @facility_work_orders = @facility_work_orders.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
+    render action: 'index'
   end
 
   def new
@@ -80,7 +80,6 @@ class FacilityWorkOrdersController < ApplicationController
   end
 	
   def hide
-  	 @facility_work_order = FacilityWorkOrder.find(params[:id])
      @facility_work_order.destroy
     respond_to do |format|
       format.html { redirect_to facility_work_orders_url }
