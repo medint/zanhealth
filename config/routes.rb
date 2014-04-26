@@ -1,5 +1,7 @@
-Med8::Application.routes.draw do
+  Med8::Application.routes.draw do
 
+  resources :bmet_work_requests
+  
   resources :bmet_costs
 
   resources :part_transactions
@@ -29,7 +31,9 @@ Med8::Application.routes.draw do
 
   resources :bmet_labor_hours
 
-  resources :facility_work_orders
+  resources :facility_work_orders do
+    collection { get :search }
+  end
 
   resources :facility_work_order_comments
 
@@ -37,9 +41,13 @@ Med8::Application.routes.draw do
 
   resources :facility_labor_hours
 
-  resources :facility_preventative_maintenances
+  resources :facility_preventative_maintenances do
+    collection { get :search }
+  end
 
-  resources :facility_work_requests
+  resources :facility_work_requests do
+    collection { get :search }
+  end
 
   get "/facility_dashboard/status", to: "facility_dashboard#status"
 

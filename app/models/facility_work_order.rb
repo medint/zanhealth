@@ -20,6 +20,8 @@
 #
 
 class FacilityWorkOrder < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   acts_as_paranoid
   has_many :facility_work_order_comments
   has_many :facility_costs
@@ -45,5 +47,5 @@ class FacilityWorkOrder < ActiveRecord::Base
   end
 
 
-  
+
 end

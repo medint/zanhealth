@@ -1,22 +1,26 @@
 class FacilityWorkRequestsController < ApplicationController
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
+before_action :set_facility_work_requests, only:[:new, :index, :show]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
 
   layout 'layouts/facilities_app'
 
+  def search
+    @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+
+    render action: "index"
+  end
+
   def new
-    @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
   end
 
   def index
-  	@facility_work_requests = FacilityWorkRequest.all
   end
 
   def show
-    @facility_work_requests = FacilityWorkRequest.all
     @input_object = FacilityWorkOrder.new
     @input_object.description = @facility_work_request.description
   end
@@ -74,6 +78,10 @@ before_action :set_departments, only: [:show]
   def set_facility_work_request
     set_users_special
     @facility_work_request = FacilityWorkRequest.find(params[:id])
+  end
+
+  def set_facility_work_requests
+    @facility_work_requests = FacilityWorkRequest.all
   end
 
   def new_shortcut

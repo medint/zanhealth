@@ -5,6 +5,12 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_users, only: [:show]
   before_action :set_departments, only: [:show]
 
+  def search
+    @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
+
+    render action: "index"
+  end
+
   def new
 
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
