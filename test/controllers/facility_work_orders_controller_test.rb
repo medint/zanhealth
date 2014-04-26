@@ -69,4 +69,10 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
 
     assert_redirected_to facility_work_orders_path
   end
+
+  test "should search" do
+    get :search params["Description1"]
+    assert_redirected_to facility_work_orders(:one)
+  end
+
 end
