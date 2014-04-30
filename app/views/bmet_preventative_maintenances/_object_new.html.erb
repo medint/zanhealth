@@ -1,0 +1,37 @@
+
+<div id="object-form_top">
+  <%= form_for(@bmet_preventative_maintenance) do |f| %>
+    <% if @bmet_preventative_maintenance.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@bmet_preventative_maintenance.errors.count, "error") %> prohibited this bmet_preventative_maintenance from being saved:</h2>
+        <ul><% @bmet_preventative_maintenance.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+
+      <div id="object-form-single-col">
+        <div class="field-box">
+          <div class="field-type"><%= @language['Days'] %></div>
+          <div class="field-info"><%= f.number_field :days, :required => true, :value => 0 %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Weeks'] %></div>
+          <div class="field-info"><%= f.number_field :weeks, :required => true, :value => 0 %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Months'] %></div>
+          <div class="field-info"><%= f.number_field :months, :required => true, :value => 0 %></div>
+        </div>  
+        <div class="field-box">
+          <div class="field-type"><%= @language['Description'] %></div>
+          <div class="field-info"><%= f.text_area :description, :required => true %></div>
+        </div>
+     
+        <div class="actions">
+          <%= f.submit @language['Create PM']%>
+        </div>
+      </div>  
+  <% end %>
+  </div>

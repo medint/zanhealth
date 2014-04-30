@@ -55,7 +55,6 @@ class BmetLaborHoursController < ApplicationController
       @bmet_labor_hour = BmetLaborHour.find(params[:id])
     end
     def bmet_labor_hour_params
-      p params
       params.require(:bmet_labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
     end
 

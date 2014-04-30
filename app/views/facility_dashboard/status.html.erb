@@ -6,7 +6,9 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 // Set a callback to run when the Google Visualization API is loaded.
 google.setOnLoadCallback(drawStatusChart);
 </script>
-<div id=dashboard>
+
+<div id="dashboard">
+	<%=render 'navigation'%>
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Status']%></th>

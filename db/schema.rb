@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419173634) do
+ActiveRecord::Schema.define(version: 20140430172311) do
 
   create_table "bmet_costs", force: true do |t|
     t.string   "name"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(version: 20140419173634) do
     t.integer  "stage"
     t.date     "date_requested"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bmet_preventative_maintenances", force: true do |t|
+    t.datetime "last_date_checked"
+    t.integer  "days"
+    t.integer  "weeks"
+    t.integer  "months"
+    t.datetime "next_date"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -203,6 +214,7 @@ ActiveRecord::Schema.define(version: 20140419173634) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "facility_id"
   end
 
   create_table "languages", force: true do |t|
