@@ -1,26 +1,21 @@
 <div id=dashboard>
-<%= form_tag({controller: "facility_dashboard", action: "status"}, method: "get") do %>
-  <%= label_tag(:start_date, "Start Date:") %>
-  <%= date_field_tag(:start_date) %>
-  <%= label_tag(:end_date, "End Date:") %>
-  <%= date_field_tag(:end_date) %>
-  <%= submit_tag("Search") %>
+
+<%= simple_form_for :dates, { url: url_for(:action => 'status', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.button :submit, "Search" %>
 <% end %>
 
-<%= form_tag({controller: "facility_dashboard", action: "wo_finances"}, method: "get") do %>
-  <%= label_tag(:start_date, "Start Date:") %>
-  <%= date_field_tag(:start_date) %>
-  <%= label_tag(:end_date, "End Date:") %>
-  <%= date_field_tag(:end_date) %>
-  <%= submit_tag("Search") %>
+<%= simple_form_for :dates, { url: url_for(:action => 'wo_finances', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.button :submit, "Search" %>
 <% end %>
 
-<%= form_tag({controller: "facility_dashboard", action: "labor_hours"}, method: "get") do %>
-  <%= label_tag(:start_date, "Start Date:") %>
-  <%= date_field_tag(:start_date) %>
-  <%= label_tag(:end_date, "End Date:") %>
-  <%= date_field_tag(:end_date) %>
-  <%= submit_tag("Search") %>
+<%= simple_form_for :dates, { url: url_for(:action => 'labor_hours', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.button :submit, "Search" %>
 <% end %>
 
 </div>

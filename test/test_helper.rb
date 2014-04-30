@@ -1,11 +1,12 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'capybara/rails'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-
-  include Devise::TestHelpers # jshum 2014-04-08
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
@@ -20,9 +21,10 @@ class ActiveSupport::TestCase
 			:name => "Test"
 		)
 		user = User.create!(
-	        :email => "c@c.com",
+          :username => "testuser",
+	        :email => "test@test.com",
 	        :password => "11111111",
-	        :name => "Mike",
+	        :name => "Test",
 	        :language => "english",
 	        :facility => facility
 	    )
@@ -31,4 +33,17 @@ class ActiveSupport::TestCase
    	return user
   end
   
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers # jshum 2014-04-08
+end
+
+
+class ActionDispatch::IntegrationTest
+  # Make the Capybara DSL available in all integration tests
+  include Capybara::DSL
+
+  fixtures :all
+
 end

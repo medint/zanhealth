@@ -60,6 +60,10 @@ class ApplicationController < ActionController::Base
         end
     end
     
+    def after_sign_in_path_for(resource)
+        '/facility_work_orders'
+    end
+
     def gen_permissions
         if current_user
             @permissions = {}

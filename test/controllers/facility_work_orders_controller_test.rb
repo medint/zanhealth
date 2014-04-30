@@ -8,9 +8,9 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
     @facility_work_order = facility_work_orders(:one)
     FacilityLaborHour.create!(
 			:date_started => "2014-02-22 02:05:52",
-	    	:duration => 1,
-	    	:technician => user,
-	    	:facility_work_order => @facility_work_order
+	    :duration => 1,
+	   	:technician => user,
+	  	:facility_work_order => @facility_work_order
 	)
   end
 
