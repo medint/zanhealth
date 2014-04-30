@@ -1,15 +1,16 @@
 class BmetItemsController < ApplicationController
+  layout 'layouts/bmet_app'
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
   def index
-	@items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", user.facility).references(:facility)
+	@items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /detailed_items
   def detailed
-    @items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", user.facility).references(:facility)
+    @items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /items/1

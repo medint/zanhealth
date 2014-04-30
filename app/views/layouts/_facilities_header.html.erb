@@ -1,0 +1,71 @@
+<header id="left-nav">
+  <div id="logo"></div>
+  <div id="app_type_label"> Zanhealth Facilities </div>
+  <div id="login">
+    <div id="bottom-buttons">
+        <span id="user_name"> <%= current_user.name %> </span>
+        <span id="logout_button"><%= link_to @language['Logout'], destroy_user_session_path, :method => :delete %></span>
+    </div>
+  </div>
+  <ul id="left-nav_ul">
+    <hr>
+    <%= link_to(facility_work_orders_url) do %>
+    <li class="left-nav_ul_li" >
+      <div id="work-order-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Work Orders'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <%end%>
+
+    <hr>
+    <%= link_to(facility_preventative_maintenances_url) do %>
+    <li class="left-nav_ul_li">
+      <div id="preventative-maintenance-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Preventative Maintenance'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <% end %>
+
+
+    <hr>
+    <%= link_to(facility_work_requests_url) do %>
+    <li class="left-nav_ul_li">
+      <div id="inbox-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Work Requests'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <%end%>
+    
+    <hr>
+    <%= link_to(@facility_dashboard) do %>
+    <li class="left-nav_ul_li" >
+      <div id="work-order-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Dashboard'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <%end%>
+    <hr>
+
+  </ul>
+      <div id="language-icons">
+        <a href='?language=english'>English</a>
+        <a href='?language=swahili'>Swahili</a> 
+        <a href='?language=creole'>Creole</a> 
+      </div>
+</header>

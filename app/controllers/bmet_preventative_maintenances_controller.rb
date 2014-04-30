@@ -1,5 +1,5 @@
 class BmetPreventativeMaintenancesController < ApplicationController
-  layout 'layouts/facilities_app'
+  layout 'layouts/bmet_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
   before_action :set_status, only: [:show]
   before_action :set_users, only: [:show]

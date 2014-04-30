@@ -55,4 +55,11 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
 
     assert_redirected_to facility_preventative_maintenances_path
   end
+
+  test "should search and return something" do
+    @results = FacilityPreventativeMaintenance.search("Description1").records
+    assert_response :success
+    assert_not_equal @results, nil, flash[:notice]
+  end
+
 end

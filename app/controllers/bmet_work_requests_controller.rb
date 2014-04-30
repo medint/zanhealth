@@ -4,7 +4,7 @@ before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
 
-  layout 'layouts/facilities_app'
+  layout 'layouts/bmet_app'
 
   def new
     @bmet_work_requests = BmetWorkRequest.all
