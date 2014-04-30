@@ -1,6 +1,6 @@
 class FacilityWorkRequestsController < ApplicationController
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
-before_action :set_facility_work_requests, only:[:new, :index, :show]
+before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
@@ -9,7 +9,6 @@ before_action :set_departments, only: [:show]
 
   def search
     @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
-
     render action: "index"
   end
 
@@ -76,12 +75,12 @@ before_action :set_departments, only: [:show]
   end
 
   def set_facility_work_request
-    set_users_special
+    set_facility_specific_users
     @facility_work_request = FacilityWorkRequest.find(params[:id])
   end
 
   def set_facility_work_requests
-    @facility_work_requests = FacilityWorkRequest.all
+    @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
   end
 
   def new_shortcut
@@ -90,13 +89,13 @@ before_action :set_departments, only: [:show]
     render :layout => "minimal"
   end
 
-  def set_users_special
-    @users = params[:num]
+  def set_facility_specific_users
+    @users = params[:facility_id]
   end
 
   def facility_work_request_params
     p params
-    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
+    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
   end
 
 end

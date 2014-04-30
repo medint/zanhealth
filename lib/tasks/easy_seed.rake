@@ -259,10 +259,11 @@ namespace :test do
 												  )
 				FacilityWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
-									   :location => f.name,
+									   :location => Faker::Lorem.sentence,
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
-                              :description => Faker::Lorem.sentence(word_count = rand(11))
+                              		   :description => Faker::Lorem.sentence(word_count = rand(11)),
+                              		   :facility_id => rand(1..3)
 									  )
 			end
 		end

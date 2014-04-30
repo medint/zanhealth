@@ -66,7 +66,7 @@
   
   get "/text", to: "text#receive"
 
-  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"  
+  get "/facility_work_requests/:facility_id/new", to: "facility_work_requests#new_shortcut"  
 
   put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
   
