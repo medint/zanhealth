@@ -1,6 +1,25 @@
 /* Global Variables */
 //=require jquery
 
+if (window.location.toString().match(/facility_dashboard/)) {
+
+	window.addEventListener('load', function(){
+		$('#status-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/facility_dashboard/status");
+		});
+		$('#wo_finances-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/facility_dashboard/wo_finances");
+		});
+		$('#labor_hours-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/facility_dashboard/labor_hours");
+		});
+	}, false);
+
+}
+
+
+
+
 //window resizing
 if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) {
 	$(document).on ("page:change",function() {
