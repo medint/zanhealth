@@ -214,6 +214,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "facility_id"
   end
 
   create_table "languages", force: true do |t|

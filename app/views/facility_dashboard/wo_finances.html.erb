@@ -13,33 +13,28 @@ google.setOnLoadCallback(drawChart);
 			<th><%=@language['Department']%></th>
 			<th><%=@language['Cost']%></th>
 		</tr>
-		<% @work_orders_json.each do |key,value| %>
-				<tr class="dash_tr">
+		<% @work_orders_json.each do |department_name,value| %>
+				<tr>
 					<td class="department_name">
-						<%= key %>
+						<%= department_name %>
 					</td>
 				</tr>
-			<% value.each do |key1,value1| %>
-			
-			<tr class="dash_tr">
-				<%if key1!="totalcost"%>
-					<td class="work_order_expire">
-					</td>
+			<% value["costs"].each do |work_order_id,cost| %>
+				<tr>
+					<td></td>
 					<td class="work_order_id">
-						<%=@language['Work Order']%> <%= key1 %>
+						<%=@language['Work Order']%> <%= work_order_id %>
 					</td>					
-					<td class="work_order_status">
-						<%=value1%>
+					<td class="cost_by_id">
+						<%=cost%>
 					</td>
-				<%else%>
+				</tr>
+			<%end%>
 					<tr>
 						<td></td>
 						<td></td>
-						<td class="sum_costs"><%=value1%></td>
+						<td class="sum_costs"><%=value["totalcost"]%></td>
 					</tr>
-				<%end%>
-			</tr>
-			<%end%>
 			
 		<%end%>
 	</table>

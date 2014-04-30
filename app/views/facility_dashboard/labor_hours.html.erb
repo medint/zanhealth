@@ -4,42 +4,38 @@
 google.load('visualization', '1.0', {'packages':['corechart']});
 
 // Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawChart);
+google.setOnLoadCallback(drawLaborChart);
 </script>
 <div id=dashboard>
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Work Order']%></th>
 			<th><%=@language['Department']%></th>
-			<th><%=@language['Cost']%></th>
+			<th><%=@language['Duration']%></th>
 		</tr>
-		<% @labor_hours_json.each do |key,value| %>
-				<tr class="dash_tr">
-					<td class="department_name">
-						<%= key %>
+		<% @labor_hours_json.each do |technician_name,value| %>
+				<tr>
+					<td class="technician_name">
+						<%= technician_name %>
 					</td>
 				</tr>
-			<% value.each do |key1,value1| %>
-			
-			<tr class="dash_tr">
-				<%if key1!="totalcost"%>
-					<td class="work_order_expire">
-					</td>
-					<td class="work_order_id">
-						<%=@language['Work Order']%> <%= key1 %>
+			<% value["costs"].each do |work_order_id,duration| %>
+				<tr>
+					<td></td>
+					<td>
+						<%=@language['Work Order']%> <%= work_order_id %>
 					</td>					
-					<td class="work_order_status">
-						<%=value1%>
+					<td>
+						<%=duration%>
 					</td>
-				<%else%>
-					<tr>
-						<td></td>
-						<td></td>
-						<td class="sum_costs"><%=value1%></td>
-					</tr>
-				<%end%>
-			</tr>
+				</tr>
 			<%end%>
+
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="sum_costs"><%=value["totalcost"]%></td>
+			</tr>
 			
 		<%end%>
 	</table>
