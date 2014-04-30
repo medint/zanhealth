@@ -1,3 +1,11 @@
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawChart);
+</script>
 <div id=dashboard>
 	<table id="dash_table">
 		<tr>
@@ -5,50 +13,37 @@
 			<th><%=@language['Department']%></th>
 			<th><%=@language['Cost']%></th>
 		</tr>
-		<% currdepart=0 %>
-		<% costbydepart=0 %>
-		<% @work_orders.each do |q| %>
-			<% if currdepart!=q.department_id%>
-				<% currdepart=q.department_id %>
-				<% if q!=@work_orders.first %>
+		<% @work_orders_json.each do |key,value| %>
+				<tr class="dash_tr">
+					<td class="department_name">
+						<%= key %>
+					</td>
+				</tr>
+			<% value.each do |key1,value1| %>
+			
+			<tr class="dash_tr">
+				<%if key1!="totalcost"%>
+					<td class="work_order_expire">
+					</td>
+					<td class="work_order_id">
+						<%=@language['Work Order']%> <%= key1 %>
+					</td>					
+					<td class="work_order_status">
+						<%=value1%>
+					</td>
+				<%else%>
 					<tr>
 						<td></td>
 						<td></td>
-						<td class="sum_costs"><%=costbydepart%></td>
-						<%costbydepart=0%>
+						<td class="sum_costs"><%=value1%></td>
 					</tr>
 				<%end%>
-				<tr class="dash_tr">
-					<td class="work_order_expire">
-						<%= q.department.name %>
-					</td>
-				</tr>
+			</tr>
 			<%end%>
 			
-			<tr class="dash_tr">
-				<td class="work_order_expire">
-				</td>
-				<td class="work_order_id">
-					<%=@language['Work Order']%> <%= q.id %>
-				</td>					
-				<td class="work_order_status">
-					<%totalcost=0%>
-					<% q.facility_costs.each do |cost| %>
-						<%totalcost=totalcost+cost.cost*cost.unit_quantity %>
-					<%end%>
-					<%costbydepart+=totalcost%>
-					<%=totalcost%>
-				</td>
-			</tr>
-			
 		<%end%>
-		<tr>
-			<td></td>
-			<td></td>
-			<td class="sum_costs"><%=costbydepart%></td>
-			<%costbydepart=0%>
-		</tr>
 	</table>
+	<div id='chart_div'></div>
 </div>
 
 

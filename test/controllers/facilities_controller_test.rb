@@ -49,4 +49,5 @@ class FacilitiesControllerTest < ActionController::TestCase
 
     assert_redirected_to facilities_path
   end
+
 end

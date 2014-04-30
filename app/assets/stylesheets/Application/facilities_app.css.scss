@@ -1,3 +1,9 @@
+$red:#e9593e;
+$yellow:#ffc207;
+$green:#55aa2b;
+$gray:#4e4e4e;
+
+
 *{
 	font-family: Arial;
 }
@@ -29,7 +35,7 @@ body {
 	position: fixed;
 	height: 60px;
 	width: 100%;
-	background-color: #4e4e4e;
+	background-color: $gray;
 	margin-left: 240px;
 	z-index: 4;
 }
@@ -317,13 +323,13 @@ body {
 	}
 
 	.status-1{
-		background-color: #ffc207;
+		background-color: $yellow;
 		height: 50px;
 		width: 10px;
 	}
 
 	.status-2{
-		background-color: #55aa2b;
+		background-color: $green;
 		height: 50px;
 		width: 10px;
 	}
@@ -397,7 +403,7 @@ body {
 	}
 
 	.status-1{
-		background-color: #55aa2b;
+		background-color: $green;
 		height: 50px;
 		width: 10px;
 	}
@@ -881,13 +887,13 @@ body {
 
 /*     object add-info     */
 #object_additional-details{
-	background-color: #4e4e4e;
+	background-color: $gray;
 	overflow-y: scroll;
 	position : relative;
 	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
 
 	.additional-details_nav{
-		background-color: #4e4e4e;
+		background-color: $gray;
 		padding: 0px;
 		margin: 0px;
 		width:100%;
@@ -1150,9 +1156,32 @@ body {
 	}
 }
 
+.color-code-line{
+	margin:0;
+	padding:0;
+	border:0;
+	height:2px;
+}
 
+#created-line{
+	color: $red;
+	background-color: $red;
+}
 
+#started-line{
+	color: $yellow;
+	background-color:$yellow;
+}
 
+#expired-line{
+	color:$gray;
+	background:$gray;
+}
+
+#completed-line{
+	color: $green;
+	background-color:$green;
+}
 
 
 
