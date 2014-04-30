@@ -92,3 +92,8 @@ gem 'simple_form'
 
 # archive feature
 gem 'paranoia', '~> 2.0'
+
+#Rails integration for Elasticsearch
+gem "elasticsearch"
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

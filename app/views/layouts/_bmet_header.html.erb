@@ -1,6 +1,6 @@
 <header id="left-nav">
   <div id="logo"></div>
-  <div id="app_type_label"> Zanhealth Facilities </div>
+  <div id="app_type_label"> Zanhealth BMET </div>
   <div id="login">
     <div id="bottom-buttons">
         <span id="user_name"> <%= current_user.name %> </span>
@@ -9,7 +9,7 @@
   </div>
   <ul id="left-nav_ul">
     <hr>
-    <%= link_to(facility_work_orders_url) do %>
+    <%= link_to(bmet_work_orders_url) do %>
     <li class="left-nav_ul_li" >
       <div id="work-order-icon"></div>
       <div class="wrapper">
@@ -22,7 +22,20 @@
     <%end%>
 
     <hr>
-    <%= link_to(facility_preventative_maintenances_url) do %>
+    <%= link_to(bmet_items_url) do %>
+    <li class="left-nav_ul_li">
+      <div id="inbox-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Items'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <%end%>
+
+    <hr>
+    <%= link_to(bmet_work_orders_url) do %>
     <li class="left-nav_ul_li">
       <div id="preventative-maintenance-icon"></div>
       <div class="wrapper">
@@ -36,7 +49,7 @@
 
 
     <hr>
-    <%= link_to(facility_work_requests_url) do %>
+    <%= link_to(bmet_work_requests_url) do %>
     <li class="left-nav_ul_li">
       <div id="inbox-icon"></div>
       <div class="wrapper">

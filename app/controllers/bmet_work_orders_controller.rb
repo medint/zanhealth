@@ -1,5 +1,5 @@
 class BmetWorkOrdersController < ApplicationController
-  layout 'layouts/facilities_app'
+  layout 'layouts/bmet_app'
   before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden]

@@ -268,3 +268,40 @@ function printdetailpage(){
 	setTimeout(function(){window.print()},250); //fixes a printing bug on ff
 }
 
+
+
+// Callback that creates and populates a data table, 
+// instantiates the pie chart, passes in the data and
+// draws it.
+function drawChart() {
+
+// Create the data table.
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Department');
+data.addColumn('number', 'Cost');
+$( ".department_name" ).each(function( index ) {
+  console.log( index + ": " + $( this ).text() );
+  data.addRows(1);
+  data.setCell(index,0,$(this).text());
+});
+$( ".sum_costs" ).each(function( index ) {
+  console.log( index + ": " + $( this ).text() );
+  data.setCell(index,1,Math.round($(this).text()));
+});
+/*data.addRows([
+['Mushrooms', 3],
+['Onions', 1],
+['Olives', 1], 
+['Zucchini', 1],
+['Pepperoni', 2]
+])*/
+
+// Set chart options
+var options = {'title':'Costs by Department',
+             'width':600,
+             'height':400};
+
+// Instantiate and draw our chart, passing in some options.
+var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+chart.draw(data, options);
+}
