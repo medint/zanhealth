@@ -52,7 +52,6 @@ class FacilityCostsController < ApplicationController
       @facility_cost = FacilityCost.find(params[:id])
     end
     def facility_cost_params
-      p params
       params.require(:facility_cost).permit(:unit_quantity, :cost, :name, :facility_work_order_id)
     end
 end

@@ -93,7 +93,6 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
 
   def bmet_preventative_maintenance_params
-      p params
       params.require(:bmet_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
   end
 

@@ -1,19 +1,5 @@
-# == Schema Information
-#
-# Table name: facility_preventative_maintenances
-#
-#  id                :integer          not null, primary key
-#  last_date_checked :datetime
-#  days              :integer
-#  weeks             :integer
-#  months            :integer
-#  next_date         :datetime
-#  created_at        :datetime
-#  updated_at        :datetime
-#  description       :text
-#
-
-class FacilityPreventativeMaintenance < ActiveRecord::Base
+class BmetPreventativeMaintenance < ActiveRecord::Base
+  
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   before_save :calc_next_date
@@ -36,7 +22,7 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
   private
     def calc_next_date
       if self.last_date_checked.nil?
-          self.last_date_checked = Time.now
+          self.last_date_checked = Time.zone.now
       end
       self.next_date = self.last_date_checked
       unless self.days.nil?
@@ -49,8 +35,5 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
         self.next_date += self.months.months
       end
     end
-
-
-
 
 end
