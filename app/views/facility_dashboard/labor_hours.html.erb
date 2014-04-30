@@ -7,6 +7,7 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(drawLaborChart);
 </script>
 <div id=dashboard>
+	<%=render 'navigation'%>
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Work Order']%></th>
@@ -39,5 +40,5 @@ google.setOnLoadCallback(drawLaborChart);
 			
 		<%end%>
 	</table>
-	<div id='chart_div'></div>
+<div id='chart_div'></div>
 </div>

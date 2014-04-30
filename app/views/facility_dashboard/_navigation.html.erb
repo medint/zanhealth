@@ -1,0 +1,39 @@
+<div id="dashboard-navigation">
+
+	<div id="dashboard-header">
+
+
+		<%= simple_form_for :dates, { url: url_for(:action => 'status', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+			<div id="dashboard-header-title">
+				Clinical Administrator Dashboard
+			</div>
+
+			<div id="dashboard-dates">
+				<%= f.input :start_date, as: :date %>
+				<%= f.input :end_date, as: :date %>
+			</div>
+
+			<div id="dashboard-submit-div">
+			    <%= f.button :submit, "Statuses", :id => "status-submit", :class => "dashboard-submit" %>
+				<%= f.button :submit, "Finances", :id => "wo_finances-submit", :class => "dashboard-submit" %>
+				<%= f.button :submit, "Labor Hours", :id => "labor_hours-submit", :class => "dashboard-submit" %>
+			</div>
+		<% end %>
+
+<!-- 			<%= simple_form_for :dates, { url: url_for(:action => 'wo_finances', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+			  <%= f.input :start_date, as: :date %>
+			  <%= f.input :end_date, as: :date %>
+			  <%= f.button :submit, "Search" %>
+			<% end %>
+
+			<%= simple_form_for :dates, { url: url_for(:action => 'labor_hours', :controller => 'facility_dashboard'), method: 'get'} do |f| %>
+			  <%= f.input :start_date, as: :date %>
+			  <%= f.input :end_date, as: :date %>
+			  <%= f.button :submit, "Search" %>
+			<% end %> -->
+
+
+
+	</div>
+
+</div>

@@ -58,6 +58,8 @@
 
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
 
+  get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
+
   resources :facility_dashboard
 
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"

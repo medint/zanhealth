@@ -1,4 +1,14 @@
-<div id=dashboard>
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawStatusChart);
+</script>
+
+<div id="dashboard">
+	<%=render 'navigation'%>
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Status']%></th>
@@ -33,4 +43,8 @@
 		
 		<%end%>
 	</table>
+	<div id='params_to_send'><%=@params_to_send_back%></div>
+	<div><%=@starting_date%></div>
+	<div><%=@ending_date%></div>
+	<div id='chart_div'></div>
 </div>

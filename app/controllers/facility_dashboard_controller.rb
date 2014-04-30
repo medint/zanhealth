@@ -1,5 +1,5 @@
 class FacilityDashboardController < ApplicationController
-	before_action :set_status, only: [:status, :wo_finances, :labor_hours]
+	before_action :set_status, only: [:status, :wo_finances, :labor_hours, :statusAjax]
 	layout 'layouts/facilities_app'
 
 	def index
@@ -24,6 +24,45 @@ class FacilityDashboardController < ApplicationController
 			@work_orders_json[q.status]["work_orders"].push(q)
 			@work_orders_json[q.status]["num_work_orders"]+=1	
 		end
+		params["action"]="statusAjax"
+		@params_to_send_back=url_for(params)
+		timeago=@ending_date.to_i-@starting_date.to_i
+		@ending_date=@starting_date
+		@starting_date=@starting_date.ago(timeago)
+
+
+	end
+
+	def statusAjax
+
+
+		arrayoforders=[]
+		arrayoforders[0]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+		timeago=@ending_date.to_i-@starting_date.to_i
+		@ending_date=@starting_date
+		@starting_date=@starting_date.ago(timeago)
+		arrayoforders[1]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+
+		@work_orders_json= {}
+		@work_orders_json['cols']=[]
+		@work_orders_json['rows']=[]
+		@work_orders_json['cols'].push({id: 'A',label:'curr', type: 'string'})
+		@work_orders_json['cols'].push({id: 'A',label:'Unstarted', type: 'number'})
+		@work_orders_json['cols'].push({id: 'B',label:'In Progress', type: 'number'})
+		@work_orders_json['cols'].push({id: 'C',label:'Completed', type: 'number'})
+		index=0
+		arrayoforders.each do |r|
+
+			@work_orders_json['rows'].push({'c'=>[{'v'=>index},{'v'=>0},{'v'=>0},{'v'=>0}]})
+			r.each do |q|
+				@work_orders_json['rows'][index]['c'][q.status+1]['v']+=1	
+			end
+			index+=1
+
+		end
+		render json: @work_orders_json
+
+
 	end
 
 	def wo_finances
@@ -58,7 +97,7 @@ class FacilityDashboardController < ApplicationController
 	end
 
 	def labor_hours
-		@labor_hours = FacilityLaborHour.joins(:facility_work_order).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: @starting_date, end_date: @ending_date}).order(:technician_id)
+		@labor_hours = FacilityLaborHour.joins({:facility_work_order => {:department => :facility}}  ).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: @starting_date, end_date: @ending_date}).order(:technician_id)
 		@labor_hours_json= {}
 		currtech=0
 		hoursbytech=0
