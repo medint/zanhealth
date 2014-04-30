@@ -1,5 +1,7 @@
   Med8::Application.routes.draw do
 
+  resources :bmet_preventative_maintenances
+
   resources :bmet_work_requests
   
   resources :bmet_costs

@@ -87,7 +87,6 @@ before_action :set_departments, only: [:show]
   end
 
   def bmet_work_request_params
-    p params
     params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
   end
 

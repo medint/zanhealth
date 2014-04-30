@@ -117,7 +117,6 @@ class BmetWorkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      p params
       params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
     end
 

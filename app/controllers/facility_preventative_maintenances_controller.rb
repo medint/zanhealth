@@ -1,6 +1,7 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
+  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new]  
   before_action :set_status, only: [:show]
   before_action :set_users, only: [:show]
   before_action :set_departments, only: [:show]
@@ -11,29 +12,18 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     render action: "index"
   end
 
-  def new
-
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
-    @facility_preventative_maintenances.map {|i| i.calc_days_since}
+  def new    
     @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
 
   end
 
   def index
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all 
-    @facility_preventative_maintenances.map {|i| i.calc_days_since}
-    
+
   end
 
   def show
-
-
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
-    @facility_preventative_maintenances.map {|i| i.calc_days_since}
-    
     @input_object = FacilityWorkOrder.new
     @input_object.description = @facility_preventative_maintenance.description
-
   end
 
   def update
@@ -91,9 +81,12 @@ class FacilityPreventativeMaintenancesController < ApplicationController
       @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
   end
 
+  def set_facility_preventative_maintenances
+      @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+      @facility_preventative_maintenances.map {|i| i.calc_days_since}  
+  end
 
   def facility_preventative_maintenance_params
-      p params
       params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
   end
 

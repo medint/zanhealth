@@ -1,0 +1,16 @@
+<%= simple_form_for(@bmet_preventative_maintenance) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :last_date_checked %>
+    <%= f.input :days %>
+    <%= f.input :weeks %>
+    <%= f.input :months %>
+    <%= f.input :next_date %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

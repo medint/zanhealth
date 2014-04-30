@@ -93,7 +93,6 @@ class WorkRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_request_params
-      p params
       params.require(:work_request).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
     end
 end
