@@ -328,25 +328,35 @@ function drawLaborChart() {
 function drawStatusChart() {
 
 	// Create the data table.
-	var data = new google.visualization.DataTable();
-	data.addColumn('string', 'Department');
-	data.addColumn('number', 'hours');
-	$( ".technician_name" ).each(function( index ) {
-	  data.addRows(1);
-	  data.setCell(index,0,$(this).text());
+	/*var datajson=$.getJSON($("#params_to_send").text(),function(){
+		console.log("success");
 	});
+	console.log(datajson);*/
+	var jsonData = $.ajax({
+          url: $("#params_to_send").text(),
+          dataType:"json",
+          async: false
+          }).responseText;
+	/*var data_array=[['Status','Unstarted','In Progress','Completed'],['Current']]
 	$( ".sum_costs" ).each(function( index ) {
-	  data.setCell(index,1,Math.round($(this).text()));
-	});
+	  data_array[1].push(Math.round($(this).text()));
+	});*/
+
+	var data = new google.visualization.DataTable(jsonData);
+
+
 
 
 	// Set chart options
 	var options = {'title':'Hours by Technician',
 	             'width':700,
-	             'height':500};
+	             'height':500,
+	         	'isStacked':true,
+	         	colors:['#e9593e','#ffc207','#55aa2b']};
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 	chart.draw(data, options);
 }
+
 
