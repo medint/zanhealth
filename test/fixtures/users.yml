@@ -1,15 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Source for saltless encrypted_password : https://gist.github.com/henrydjacob/1344451
 
 userone:
   username: User1
   email: a@a.com
-  encrypted_password: MyString
+  encrypted_password: <%= User.new.send(:password_digest, "password") %>
   role_id: 1
+  facility: one
   telephone_num: 1
 
 usertwo:
   username: User2
   email: b@b.com
-  encrypted_password: MyString
+  encrypted_password: <%= User.new.send(:password_digest, "password") %>
   role_id: 1
+  facility: two
   telephone_num: 1

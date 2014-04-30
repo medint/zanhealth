@@ -1,21 +1,25 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.1.0'
 
 # Use sqlite3 as the database for Active Record
 group :development do
     gem 'sqlite3'
 end
+
 group :development do
-    gem "better_errors"
+    gem "better_errors" # better error page
     gem "binding_of_caller" # 'optional' dep for better_errors
-    gem "bullet"
+    gem "bullet" # gem that checks for N+1 queries
     gem "annotate" # gives nice things in models/
+    gem "railroady" # generates graphviz models for schema
+    gem "spring" # for testing, application reploader
 end
+
 group :production do
-  gem 'pg'
-  gem 'unicorn'
+  gem 'pg' # PostgreSQL
+  gem 'unicorn' # multi-threaded server
 end
 
 #################### Front End ####################
@@ -53,6 +57,8 @@ end
 gem 'rails-perftest' 
 gem 'ruby-prof'
 gem 'faker'
+gem 'capybara'
+gem 'poltergeist'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -79,7 +85,7 @@ gem "recaptcha", :require => "recaptcha/rails"
 #################### Misc #####################
 
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
-gem 'sprockets', '=2.11.0'
+# gem 'sprockets', '=2.11.0'
 
 #Front-end form validation
 gem 'simple_form'
