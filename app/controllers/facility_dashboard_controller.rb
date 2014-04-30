@@ -13,6 +13,17 @@ class FacilityDashboardController < ApplicationController
 		#invalid dates can be inputted
 
 		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+		@work_orders_json= {}
+		currstatus=-10000
+		for i in 0..2
+			@work_orders_json[i]={}
+			@work_orders_json[i]["work_orders"]=[]
+			@work_orders_json[i]["num_work_orders"]=0
+		end
+		@work_orders.each do |q|
+			@work_orders_json[q.status]["work_orders"].push(q)
+			@work_orders_json[q.status]["num_work_orders"]+=1	
+		end
 	end
 
 	def wo_finances
@@ -29,6 +40,7 @@ class FacilityDashboardController < ApplicationController
 				end
 				currdepart=q.department
 				@work_orders_json[q.department.name]={}
+				@work_orders_json[q.department.name]["costs"]={}
 				if q!=@work_orders.first
 					costbydepart=0					
 				end
@@ -38,7 +50,7 @@ class FacilityDashboardController < ApplicationController
 			q.facility_costs.each do |cost|
 				totalcost=totalcost+cost.cost*cost.unit_quantity
 			end
-			@work_orders_json[q.department.name][q.id]=totalcost
+			@work_orders_json[q.department.name]["costs"][q.id]=totalcost
 			costbydepart+=totalcost		
 		end
 		@work_orders_json[currdepart.name]["totalcost"]=costbydepart
@@ -57,11 +69,12 @@ class FacilityDashboardController < ApplicationController
 				end
 				currtech=q.technician
 				@labor_hours_json[q.technician.name]={}
+				@labor_hours_json[q.technician.name]["costs"]={}
 				if q!=@labor_hours.first
 					hoursbytech=0
 				end
 			end				
-			@labor_hours_json[q.technician.name][q.id]=q.duration	
+			@labor_hours_json[q.technician.name]["costs"][q.id]=q.duration	
 			hoursbytech+=q.duration			
 		end
 		@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
