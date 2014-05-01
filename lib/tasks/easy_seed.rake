@@ -87,7 +87,7 @@ namespace :test do
 
 		SEPARATOR = ': '
 		Language.delete_all
-		File.open(File.join('test','test_data','language.colon-separated'),'r') do |f|
+		File.open(File.join('db','language.colon-separated'),'r') do |f|
 			f.each_line do |line|
 				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,

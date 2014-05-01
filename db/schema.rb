@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140430172311) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bmet_costs", force: true do |t|
     t.string   "name"
     t.integer  "unit_quantity"
@@ -149,7 +152,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.integer  "facility_work_order_id"
   end
 
-  add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id"
+  add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id", using: :btree
 
   create_table "facility_labor_hours", force: true do |t|
     t.datetime "date_started"
@@ -160,7 +163,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "updated_at"
   end
 
-  add_index "facility_labor_hours", ["facility_work_order_id"], name: "index_facility_labor_hours_on_facility_work_order_id"
+  add_index "facility_labor_hours", ["facility_work_order_id"], name: "index_facility_labor_hours_on_facility_work_order_id", using: :btree
 
   create_table "facility_preventative_maintenances", force: true do |t|
     t.datetime "last_date_checked"
@@ -182,7 +185,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "updated_at"
   end
 
-  add_index "facility_work_order_comments", ["facility_work_order_id"], name: "index_facility_work_order_comments_on_facility_work_order_id"
+  add_index "facility_work_order_comments", ["facility_work_order_id"], name: "index_facility_work_order_comments_on_facility_work_order_id", using: :btree
 
   create_table "facility_work_orders", force: true do |t|
     t.datetime "date_expire"
@@ -202,8 +205,8 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "deleted_at"
   end
 
-  add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at"
-  add_index "facility_work_orders", ["department_id"], name: "index_facility_work_orders_on_department_id"
+  add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at", using: :btree
+  add_index "facility_work_orders", ["department_id"], name: "index_facility_work_orders_on_department_id", using: :btree
 
   create_table "facility_work_requests", force: true do |t|
     t.text     "requester"
@@ -244,7 +247,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "updated_at"
   end
 
-  add_index "part_transactions", ["part_id"], name: "index_part_transactions_on_part_id"
+  add_index "part_transactions", ["part_id"], name: "index_part_transactions_on_part_id", using: :btree
 
   create_table "parts", force: true do |t|
     t.integer  "p_id"
@@ -308,9 +311,9 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.string   "name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["facility_id"], name: "index_users_on_facility_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["facility_id"], name: "index_users_on_facility_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
