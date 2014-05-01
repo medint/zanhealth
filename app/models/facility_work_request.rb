@@ -11,6 +11,7 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  facility_id :integer
 #
 
 class FacilityWorkRequest < ActiveRecord::Base

@@ -18,6 +18,8 @@
 #  prevention_taken  :text
 #  created_at        :datetime
 #  updated_at        :datetime
+#  date_started      :datetime
+#  department_id     :integer
 #
 
 class BmetWorkOrder < ActiveRecord::Base

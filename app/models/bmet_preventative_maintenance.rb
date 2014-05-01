@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: bmet_preventative_maintenances
+#
+#  id                :integer          not null, primary key
+#  last_date_checked :datetime
+#  days              :integer
+#  weeks             :integer
+#  months            :integer
+#  next_date         :datetime
+#  description       :text
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 class BmetPreventativeMaintenance < ActiveRecord::Base
   
   include Elasticsearch::Model

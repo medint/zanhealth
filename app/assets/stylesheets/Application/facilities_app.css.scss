@@ -63,20 +63,12 @@ body {
 }
 
 #right-detail{
-	float: left;
+	float: none;
 	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-y: hidden;
 
-}
-
-.scrollable{
-	margin-top: 60px;
-	height: 100%;
-	font-size: 1em;
-	
-	overflow: auto;
 }
 
   /********************************************/
@@ -260,6 +252,14 @@ body {
 
 
 /*   End   */
+
+.scrollable{
+	padding-top: 60px;
+	height: 100%;
+	font-size: 1em;
+	z-index: 1;
+	overflow: auto;
+}
 
   /********************************************/
  /*                MID SUMMARY               */

@@ -17,6 +17,7 @@
 #  updated_at        :datetime
 #  date_started      :datetime
 #  department_id     :integer
+#  deleted_at        :datetime
 #
 
 class FacilityWorkOrder < ActiveRecord::Base

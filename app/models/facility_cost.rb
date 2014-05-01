@@ -9,7 +9,6 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  facility_work_order_id :integer
-#  work_request_id        :integer
 #
 
 class FacilityCost < ActiveRecord::Base
