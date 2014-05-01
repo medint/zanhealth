@@ -8,7 +8,6 @@ class FacilityWorkOrderUiTest < ActionDispatch::IntegrationTest
 
 	test "login" do
     # capybara methods, actually fills in forms and submits them  as a user would
-		user = createTestUser()
 		visit '/users/sign_in'
 
 		fill_in 'user_login', :with => @user.username
