@@ -5,24 +5,26 @@ class BmetItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-	@items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+	   @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /detailed_items
   def detailed
-    @items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+    @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-	@item_history = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
-	@latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
+      @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+	    @bmet_item_history = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
+	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
   # GET /items/new
   def new
-    @item = BmetItem.new
+    @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+    @bmet_item = BmetItem.new
   end
 
   # GET /items/1/edit
@@ -32,15 +34,15 @@ class BmetItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = BmetItem.new(item_params)
+    @bmet_item = BmetItem.new(item_params)
 
     respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @item }
+      if @bmet_item.save
+        format.html { redirect_to @bmet_item, notice: 'Item was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @bmet_item }
       else
         format.html { render action: 'new' }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.json { render json: @bmet_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,12 +51,12 @@ class BmetItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+      if @bmet_item.update(item_params)
+        format.html { redirect_to @bmet_item, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.json { render json: @bmet_item.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,7 +64,7 @@ class BmetItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item.destroy
+    @bmet_item.destroy
     respond_to do |format|
       format.html { redirect_to bmet_items_url }
       format.json { head :no_content }
@@ -72,7 +74,7 @@ class BmetItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = BmetItem.find(params[:id])
+      @bmet_item = BmetItem.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

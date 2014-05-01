@@ -1,27 +1,27 @@
 <div id = "mid_facility-work-order">
   <ul id="mid-summary_ul">
-    <% @bmet_work_orders.each do |facility_work_order| %>
-    <%= link_to(facility_work_order) do %>
+    <% @bmet_work_orders.each do |bmet_work_order| %>
+    <%= link_to(bmet_work_order) do %>
       <li
       class="mid-summary_ul_li"
-      requester="<%=facility_work_order.requester.try(:name)%>"
-      datecreated="<%= facility_work_order.created_at.to_s(:number) %>"
-      owner="<%=facility_work_order.owner.try(:name)%>"
-      status = "<%=facility_work_order.status%>"
-      datestarted="<%= facility_work_order.date_started.try(:to_s, :number)%>"
+      requester="<%=bmet_work_order.requester.try(:name)%>"
+      datecreated="<%= bmet_work_order.created_at.to_s(:number) %>"
+      owner="<%=bmet_work_order.owner.try(:name)%>"
+      status = "<%=bmet_work_order.status%>"
+      datestarted="<%= bmet_work_order.date_started.try(:to_s, :number)%>"
       >
-        <div class="status-<%= facility_work_order.status %>">
-          <div class="status-text-<%= facility_work_order.status %>"></div>
+        <div class="status-<%= bmet_work_order.status %>">
+          <div class="status-text-<%= bmet_work_order.status %>"></div>
         </div>
         <div class="order_details">
           <p class="order_id">
-            <%=@language['Work Order']%> <%= facility_work_order.id %>
+            <%=@language['Work Order']%> <%= bmet_work_order.id %>
           </p>
           <p class="order_requester">
-            <%=@language['Requester']%>: <%= facility_work_order.requester.try(:name) %>
+            <%=@language['Requester']%>: <%= bmet_work_order.requester.try(:name) %>
           </p>
           <p class="order_owner">
-            <%=@language['Owner']%>: <%= facility_work_order.owner.try(:name) %>
+            <%=@language['Owner']%>: <%= bmet_work_order.owner.try(:name) %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
@@ -29,21 +29,21 @@
           <div class="order_date_title">
             <%= @language['Expire'] %>
           </div>
-          <%= facility_work_order.date_expire.try(:strftime,"%^b %d") %> 
+          <%= bmet_work_order.date_expire.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
           <div class="order_date_title">
             <%= @language['Start'] %>
           </div>
-          <%= facility_work_order.date_started.try(:strftime,"%^b %d") %> 
+          <%= bmet_work_order.date_started.try(:strftime,"%^b %d") %> 
         </div>
 
         <div class="order_date">
           <div class="order_date_title">
             <%= @language['Created'] %>
           </div>
-          <%= facility_work_order.created_at.try(:strftime,"%^b %d") %> 
+          <%= bmet_work_order.created_at.try(:strftime,"%^b %d") %> 
         </div>
       </li>
       <hr class="mid-summary_ul_li_hr"><!--replace with border-->

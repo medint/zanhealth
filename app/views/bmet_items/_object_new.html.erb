@@ -1,0 +1,25 @@
+
+<div id="object-form_top">
+  <%= form_for(@bmet_item) do |f| %>
+    <% if @bmet_item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@bmet_item.errors.count, "error") %> prohibited this bmet_item from being saved:</h2>
+        <ul><% @bmet_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+
+      <div id="object-form-single-col">        
+        <div class="field-box">
+          <div class="field-type"><%= @language['Serial Number'] %></div>
+          <div class="field-info"><%= f.text_area :serial_number, :required => true %></div>
+        </div>
+     
+        <div class="actions">
+          <%= f.submit @language['Create Item']%>
+        </div>
+      </div>  
+  <% end %>
+  </div>
