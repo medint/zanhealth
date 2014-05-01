@@ -56,7 +56,6 @@ body {
 #mid-summary{
 	float: left;
 	margin-left: 240px;
-	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-x: hidden;
@@ -64,11 +63,19 @@ body {
 
 #right-detail{
 	float: none;
-	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-y: hidden;
+}
 
+.scrollable{
+	padding-top: 60px;
+	//padding instead of margin because height :100px includes padding but not margins
+	//consequence is scrollbar is a little screwy
+	height: 100%;
+	font-size: 1em;
+	z-index: 1;
+	overflow: auto;
 }
 
   /********************************************/
@@ -249,17 +256,9 @@ body {
 	border:0;
 }
 
-
-
 /*   End   */
 
-.scrollable{
-	padding-top: 60px;
-	height: 100%;
-	font-size: 1em;
-	z-index: 1;
-	overflow: auto;
-}
+
 
   /********************************************/
  /*                MID SUMMARY               */
