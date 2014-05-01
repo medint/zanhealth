@@ -7,8 +7,9 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(drawStatusChart);
 </script>
 
+<%=render 'navigation'%>
 <div id="dashboard">
-	<%=render 'navigation'%>
+	<div id='chart_div'></div>
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Status']%></th>
@@ -44,7 +45,5 @@ google.setOnLoadCallback(drawStatusChart);
 		<%end%>
 	</table>
 	<div id='params_to_send'><%=@params_to_send_back%></div>
-	<div><%=@starting_date%></div>
-	<div><%=@ending_date%></div>
-	<div id='chart_div'></div>
+	
 </div>

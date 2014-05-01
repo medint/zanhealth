@@ -6,8 +6,10 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 // Set a callback to run when the Google Visualization API is loaded.
 google.setOnLoadCallback(drawLaborChart);
 </script>
-<div id=dashboard>
-	<%=render 'navigation'%>
+<%=render 'navigation'%>
+<div id='dashboard'>
+	<div id='chart_div'></div>
+	
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Work Order']%></th>
@@ -40,5 +42,4 @@ google.setOnLoadCallback(drawLaborChart);
 			
 		<%end%>
 	</table>
-<div id='chart_div'></div>
 </div>

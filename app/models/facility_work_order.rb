@@ -38,6 +38,9 @@ class FacilityWorkOrder < ActiveRecord::Base
 	elsif self.status == 1 && self.date_started==nil
 		self.date_started=DateTime.now
 	end
+    if self.status == 2 &&self.date_completed==nil
+      self.date_completed=DateTime.now
+    end
 
   
   end

@@ -3,6 +3,8 @@ class FacilityDashboardController < ApplicationController
 	layout 'layouts/facilities_app'
 
 	def index
+		@starting_date=DateTime.now
+		@ending_date=DateTime.now
 	end
 
 	def show		
@@ -26,22 +28,24 @@ class FacilityDashboardController < ApplicationController
 		end
 		params["action"]="statusAjax"
 		@params_to_send_back=url_for(params)
-		timeago=@ending_date.to_i-@starting_date.to_i
-		@ending_date=@starting_date
-		@starting_date=@starting_date.ago(timeago)
+
 
 
 	end
 
 	def statusAjax
 
-
+		time_range_array=[]
 		arrayoforders=[]
-		arrayoforders[0]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
-		timeago=@ending_date.to_i-@starting_date.to_i
-		@ending_date=@starting_date
-		@starting_date=@starting_date.ago(timeago)
-		arrayoforders[1]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+		
+		for i in 0..5
+			time_range_array[i]=@starting_date.try(:strftime,"%^b %d")+"-"+@ending_date.try(:strftime,"%^b %d")
+			arrayoforders[i]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+			timeago=@ending_date.to_i-@starting_date.to_i
+			@ending_date=@starting_date
+			@starting_date=@starting_date.ago(timeago)
+		end
+
 
 		@work_orders_json= {}
 		@work_orders_json['cols']=[]
@@ -51,9 +55,9 @@ class FacilityDashboardController < ApplicationController
 		@work_orders_json['cols'].push({id: 'B',label:'In Progress', type: 'number'})
 		@work_orders_json['cols'].push({id: 'C',label:'Completed', type: 'number'})
 		index=0
-		arrayoforders.each do |r|
+		arrayoforders.reverse_each do |r|
 
-			@work_orders_json['rows'].push({'c'=>[{'v'=>index},{'v'=>0},{'v'=>0},{'v'=>0}]})
+			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[index]},{'v'=>0},{'v'=>0},{'v'=>0}]})
 			r.each do |q|
 				@work_orders_json['rows'][index]['c'][q.status+1]['v']+=1	
 			end
@@ -92,7 +96,9 @@ class FacilityDashboardController < ApplicationController
 			@work_orders_json[q.department.name]["costs"][q.id]=totalcost
 			costbydepart+=totalcost		
 		end
-		@work_orders_json[currdepart.name]["totalcost"]=costbydepart
+		if currdepart.try(:name)!=nil
+			@work_orders_json[currdepart.try(:name)]["totalcost"]=costbydepart
+		end
 
 	end
 
@@ -101,10 +107,11 @@ class FacilityDashboardController < ApplicationController
 		@labor_hours_json= {}
 		currtech=0
 		hoursbytech=0
+		testing=0
 		@labor_hours.each do |q|
-			if currtech!=q.technician_id
+			if currtech!=q.technician
 				if currtech!=0
-					@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
+					@labor_hours_json[currtech.name]["totalcost"]=testing
 				end
 				currtech=q.technician
 				@labor_hours_json[q.technician.name]={}
@@ -112,11 +119,18 @@ class FacilityDashboardController < ApplicationController
 				if q!=@labor_hours.first
 					hoursbytech=0
 				end
+				testing+=1
 			end				
-			@labor_hours_json[q.technician.name]["costs"][q.id]=q.duration	
+			if @labor_hours_json[q.technician.name]["costs"][q.facility_work_order_id]==nil
+				@labor_hours_json[q.technician.name]["costs"][q.facility_work_order_id]=q.duration
+			else
+				@labor_hours_json[q.technician.name]["costs"][q.facility_work_order_id]+=q.duration	
+			end
 			hoursbytech+=q.duration			
 		end
-		@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
+		if currtech.try(:name)!=nil
+			@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
+		end
 	end
 
 	def set_status
