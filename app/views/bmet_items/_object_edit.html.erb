@@ -24,11 +24,15 @@
     </div>
     <div class="field">
       <%= @language['Model'] %><br>
-      <%= f.number_field :bmet_model_id %>
+      <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
     </div>
     <div class="field">
       <%= @language['Serial Number'] %><br>
       <%= f.text_field :serial_number %>
+    </div>
+    <div class="field">
+      <%= @language['Department'] %><br>
+      <%= f.collection_select :department_id, @departments, :id, :name %>
     </div>
     <div class="field">
       <%= @language['Year Manufactured'] %><br>
@@ -57,10 +61,6 @@
     <div class="field">
       <%= @language['Service Agent'] %><br>
       <%= f.text_field :service_agent %>
-    </div>
-    <div class="field">
-      <%= @language['Department'] %><br>
-      <%= f.number_field :department_id %>
     </div>
     <div class="field">
       <%= @language['Price'] %><br>

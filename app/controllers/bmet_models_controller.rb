@@ -1,5 +1,7 @@
 class BmetModelsController < ApplicationController
+  layout 'layouts/bmet_app'
   before_action :set_bmet_model, only: [:show, :edit, :update, :destroy]
+  before_action :set_bmet_models, only: [:show, :index, :new]
 
   # GET /bmet_models
   # GET /bmet_models.json
@@ -65,6 +67,10 @@ class BmetModelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_model
       @bmet_model = BmetModel.find(params[:id])
+    end
+
+    def set_bmet_models
+      @bmet_models = BmetModel.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

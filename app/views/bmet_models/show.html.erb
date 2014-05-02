@@ -1,24 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<p>
-  <strong>Model name:</strong>
-  <%= @bmet_model.model_name %>
-</p>
+<%= render :partial => 'main_list', :layout => 'layouts/col2' %>
 
-<p>
-  <strong>Manufacturer name:</strong>
-  <%= @bmet_model.manufacturer_name %>
-</p>
+<div class="vertical-divider"></div>
 
-<p>
-  <strong>Vendor name:</strong>
-  <%= @bmet_model.vendor_name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @bmet_model.category %>
-</p>
-
-<%= link_to 'Edit', edit_bmet_model_path(@bmet_model) %> |
-<%= link_to 'Back', bmet_models_path %>
+<%= render :partial =>'object_summary', :layout =>'layouts/col3' %>

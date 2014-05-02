@@ -1,0 +1,24 @@
+<div id='left-top'>
+  <div id="top-dropdown">    
+    <%= @language['Sort'] %>: <div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+        <%= @language['Select Attribute'] %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+       <div>
+       <a onclick = "sort_by_date_created()">
+        <%= @language['Date Created'] %>
+       </a>
+       </div>      
+      </ul>
+
+    </div>
+    <div></div>
+  </div>
+
+  <div id="top-button">
+    <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
+    <a href= "<%=new_bmet_model_path%>" id='add-button'></a>
+  </div>
+</div>

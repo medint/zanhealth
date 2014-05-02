@@ -1,31 +1,7 @@
-<h1>Listing bmet_models</h1>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Model name</th>
-      <th>Manufacturer name</th>
-      <th>Vendor name</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render :partial => 'main_list', :layout => 'layouts/col2' %>
 
-  <tbody>
-    <% @bmet_models.each do |bmet_model| %>
-      <tr>
-        <td><%= bmet_model.model_name %></td>
-        <td><%= bmet_model.manufacturer_name %></td>
-        <td><%= bmet_model.vendor_name %></td>
-        <td><%= bmet_model.category %></td>
-        <td><%= link_to 'Show', bmet_model %></td>
-        <td><%= link_to 'Edit', edit_bmet_model_path(bmet_model) %></td>
-        <td><%= link_to 'Destroy', bmet_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="vertical-divider"></div>
 
-<br>
-
-<%= link_to 'New Bmet model', new_bmet_model_path %>
+<%= render :partial =>'empty_summary', :layout =>'layouts/col3' %>
