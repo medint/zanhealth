@@ -15,9 +15,58 @@
 
     <div id="field-box_item-id">
       <div class="item-id">
-        <%= @language['Preventative Maintenance'] %> # <%= @bmet_item.id %>
-      </div>
+        <%= @language['Item'] %>
     </div>
+    
+    <div class="field">
+      <%= @language['Asset ID'] %><br>
+      <%= f.text_field :asset_id %>
+    </div>
+    <div class="field">
+      <%= @language['Model'] %><br>
+      <%= f.number_field :bmet_model_id %>
+    </div>
+    <div class="field">
+      <%= @language['Serial Number'] %><br>
+      <%= f.text_field :serial_number %>
+    </div>
+    <div class="field">
+      <%= @language['Year Manufactured'] %><br>
+      <%= f.number_field :year_manufactured %>
+    </div>
+    <div class="field">
+      <%= @language['Funding'] %><br>
+      <%= f.text_field :funding %>
+    </div>
+    <div class="field">
+      <%= @language['Date Received'] %><br>
+      <%= f.date_select :date_received %>
+    </div>
+    <div class="field">
+      <%= @language['Warranty Expires'] %><br>
+      <%= f.date_select :warranty_expire %>
+    </div>
+    <div class="field">
+      <%= @language['Contract Expires'] %><br>
+      <%= f.date_select :contract_expire %>
+    </div>
+    <div class="field">
+      <%= @language['Warranty Notes'] %><br>
+      <%= f.text_area :warranty_notes %>
+    </div>
+    <div class="field">
+      <%= @language['Service Agent'] %><br>
+      <%= f.text_field :service_agent %>
+    </div>
+    <div class="field">
+      <%= @language['Department'] %><br>
+      <%= f.number_field :department_id %>
+    </div>
+    <div class="field">
+      <%= @language['Price'] %><br>
+      <%= f.number_field :price %>
+    </div>
+
 
     <div class="field-box">
       <div class="field-type"><%= @language['Created At'] %></div>

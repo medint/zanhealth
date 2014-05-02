@@ -1,6 +1,8 @@
 class BmetItemsController < ApplicationController
   layout 'layouts/bmet_app'
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_bmet_models, only: [:new, :show]
+  before_action :set_departments, only: [:new, :show]
 
   # GET /items
   # GET /items.json
@@ -75,6 +77,14 @@ class BmetItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @bmet_item = BmetItem.find(params[:id])
+    end
+
+    def set_bmet_models
+      @bmet_models = BmetModel.all
+    end
+
+    def set_departments
+      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

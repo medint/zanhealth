@@ -14,7 +14,85 @@
       <div id="object-form-single-col">        
         <div class="field-box">
           <div class="field-type"><%= @language['Serial Number'] %></div>
-          <div class="field-info"><%= f.text_area :serial_number, :required => true %></div>
+          <div class="field-info"><%= f.text_field :serial_number, :required => true %></div>
+        </div>
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Asset ID'] %></div>
+					<div class="field-info">
+            <%= f.text_field :asset_id %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Item Type'] %></div>
+          <div class="field-info">
+            <%= f.text_field :item_type %>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Model'] %></div>
+					<div class="field-info">
+            <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Department'] %></div>
+          <div class="field-info">
+            <%= f.collection_select :department_id, @departments, :id, :name %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Location'] %></div>
+          <div class="field-info">
+            <%= f.text_field :location %>
+        </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Year Manufactured'] %></div>
+					<div class="field-info">
+            <%= f.number_field :year_manufactured %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Funding'] %></div>
+					<div class="field-info">
+            <%= f.text_field :funding %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Date Received'] %></div>
+					<div class="field-info">
+            <%= f.date_select :date_received %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Warranty Expires'] %></div>
+					<div class="field-info">
+            <%= f.date_select :warranty_expire %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Contract Expires'] %></div>
+					<div class="field-info">
+            <%= f.date_select :contract_expire %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Warranty Notes'] %></div>
+					<div class="field-info">
+            <%= f.text_area :warranty_notes %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Service Agent'] %></div>
+					<div class="field-info">
+            <%= f.text_field :service_agent %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Price'] %></div>
+					<div class="field-info">
+            <%= f.number_field :price %>
+          </div>
         </div>
      
         <div class="actions">
