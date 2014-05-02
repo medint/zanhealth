@@ -83,13 +83,13 @@ before_action :set_departments, only: [:show]
     @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
   end
 
-  def new_shortcut
+  def new_shortcut_for_public
     @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
     render :layout => "minimal"
   end
 
-  def set_facility_specific_users
+  def set_facility_for_public
     @users = params[:facility_id]
   end
 
