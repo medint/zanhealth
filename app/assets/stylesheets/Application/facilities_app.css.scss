@@ -1123,25 +1123,24 @@ body {
 	margin-top: 23px;
 	margin-left: 15px;
 	font-size: 11px;
-	width: 40%;
+	width: 100%;
 }
 
 #top-bar > #left-top > *{
-	float:left;
+	display: inline-block;
 }
 
 #top-bar > #left-top > #top-dropdown{
-	display: block;
+	display: inline-block;
 	vertical-align: middle;
 	padding-top: 1px;
 }
 
 #top-bar > #left-top > #top-dropdown > *{
-	display: inline;
+	display: inline-block;
 }
 
 #top-bar > #left-top > #top-dropdown> .dropdown >a {
-	margin-left: 5px;
 	border-color: #bababa;
 	border-style: solid;
 	border-width: 1px;
@@ -1151,8 +1150,6 @@ body {
 }
 
 #top-bar > #left-top > #top-dropdown> .dropdown > a > .caret{
-	margin-left: 20px;
-	
 }
 
 #top-bar > #left-top > #top-button > *{

@@ -1,5 +1,11 @@
 <div id='left-top'>
   <div id="top-dropdown">
+  <%= form_tag search_facility_work_orders_path, method: 'get' do %>
+    <%= label_tag " " %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag :search %>
+  <% end %>
+    &nbsp&nbsp&nbsp&nbsp
     <%= @language['Filter'] %>: <div class="dropdown">
       <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
          <%= @language['Select Status'] %>
@@ -64,8 +70,3 @@
     <a href= "<%=new_facility_work_order_path%>" id='add-button'></a>
   </div>
 </div>
-  <%= form_tag search_facility_work_orders_path, method: 'get' do %>
-    <%= label_tag :query %>
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag :search %>
-  <% end %>
