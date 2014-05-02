@@ -1,4 +1,4 @@
-  Med8::Application.routes.draw do
+Zanhealth::Application.routes.draw do
 
   resources :bmet_preventative_maintenances
 

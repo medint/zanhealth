@@ -14,6 +14,7 @@ group :development do
     gem "bullet" # gem that checks for N+1 queries
     gem "annotate" # gives nice things in models/
     gem "railroady" # generates graphviz models for schema
+    gem "rails-erd" #generate diagrams for models
     gem "spring" # for testing, application reploader
 end
 

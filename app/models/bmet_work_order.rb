@@ -24,9 +24,9 @@
 
 class BmetWorkOrder < ActiveRecord::Base
     belongs_to :bmet_item
-    belongs_to :user
     has_many :bmet_work_order_comments
-    has_many :texts
+    has_many :bmet_costs
+    has_many :bmet_labor_hours
     belongs_to :owner, :class_name => "User"
     belongs_to :requester, :class_name => "User"
 end

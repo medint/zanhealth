@@ -18,3 +18,5 @@ db/test.sqlite3-journal
 db/development.sqlite3-journal
 db/development.sqlite3
 .bundle/
+doc/
+erd.pdf

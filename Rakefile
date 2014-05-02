@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Med8::Application.load_tasks
+Zanhealth::Application.load_tasks

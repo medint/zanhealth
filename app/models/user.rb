@@ -30,9 +30,8 @@ class User < ActiveRecord::Base
   			:recoverable, :rememberable, :trackable, :validatable
 
 	belongs_to :facility
-	attr_accessor :login
-
-	belongs_to :role
+	belongs_to :role   
+  attr_accessor :login
 
 	validates :username,:uniqueness => {:case_sensitive => false }
   	validates :language, inclusion: { in: %w(english swahili, creole), message: 'For language, please select either "english" or "swahili"' }

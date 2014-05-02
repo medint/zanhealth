@@ -12,5 +12,7 @@
 class Department < ActiveRecord::Base
     has_many :bmet_needs
     has_many :bmet_items
+    has_many :facility_work_orders
+    has_many :bmet_work_orders
     belongs_to :facility   
 end
