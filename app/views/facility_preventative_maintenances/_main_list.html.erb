@@ -10,23 +10,23 @@
       >
 
         <div class="status-<%= facility_preventative_maintenance.status %>"></div>
-        <div class="pm_details">
-          <p class="pm_id">
+        <div class="element_details">
+          <p class="element_title">
             <%= @language['Preventative Maintenance'] %> <%= facility_preventative_maintenance.id %>
           </p>
-          <p class ="pm_description">
+          <p class ="element_description">
              <%= facility_preventative_maintenance.description[0...40] +  "..." %>
           </p>
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
-        <div class="pm_date">
-          <div class="pm_date_title"> <%= @language['Days Since'] %>:</div>
+        <div class="element_date">
+          <div class="element_date_title"> <%= @language['Days Since'] %>:</div>
           <%= -facility_preventative_maintenance.days_since.to_i %>   
         </div>
 
-        <div class="pm_date">
-          <div class="pm_date_title"> <%= @language['Due Date'] %>:</div>
+        <div class="element_date">
+          <div class="element_date_title"> <%= @language['Due Date'] %>:</div>
           <%= facility_preventative_maintenance.next_date.try(:strftime,"%^b %d") %>
         </div>
 

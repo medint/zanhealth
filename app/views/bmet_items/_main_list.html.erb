@@ -1,4 +1,4 @@
-<div id = "mid_facility-work-order">
+<div id = "mid_bmet-item">
   <ul id="mid-summary_ul">
     <% @bmet_items.each do |bmet_item| %>
     <%= link_to(bmet_item) do %>
@@ -6,38 +6,18 @@
       class="mid-summary_ul_li"
       datecreated="<%= bmet_item.created_at.to_s(:number) %>"
       >        
-        <div class="order_details">
-          <p class="order_id">
-            <%=@language['Item']%> <%= bmet_item.id %>
+        <div class="element_details">
+          <p class="element_title">
+            <%= bmet_item.bmet_model.name %>
           </p>
-          <p class="order_requester">
-            a
-          </p>
-          <p class="order_owner">
-            b
+          <p class="element_description">
+            <%= bmet_item.location %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
-        <div class="order_date">
-          <div class="order_date_title">
-            <%= @language['Expire'] %>
-          </div>          
-        </div>
-
-        <div class="order_date">
-          <div class="order_date_title">
-            <%= @language['Start'] %>
-          </div>
-        </div>
-
-        <div class="order_date">
-          <div class="order_date_title">
-            <%= @language['Created'] %>
-          </div>
-          <%= bmet_item.created_at.try(:strftime,"%^b %d") %> 
-        </div>
+        
       </li>
-      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
+      <hr class="mid-summary_ul_li_hr"><!--replace with belement-->
     <% end %>
     <% end %>
   </ul>
