@@ -75,7 +75,7 @@ before_action :set_departments, only: [:show]
   end
 
   def set_facility_work_request
-    set_facility_specific_users
+    set_facility_for_public
     @facility_work_request = FacilityWorkRequest.find(params[:id])
   end
 
