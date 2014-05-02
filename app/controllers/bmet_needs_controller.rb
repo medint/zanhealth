@@ -69,6 +69,6 @@ class BmetNeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def need_params
-      params.require(:bmet_need).permit(:name, :department_id, :model_id, :quantity, :urgency, :reason, :remarks, :stage, :date_requested, :user_id)
+      params.require(:bmet_need).permit(:name, :department_id, :bmet_model_id, :quantity, :urgency, :reason, :remarks, :stage, :date_requested, :user_id)
     end
 end

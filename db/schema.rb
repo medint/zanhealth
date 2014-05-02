@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430172311) do
+ActiveRecord::Schema.define(version: 20140502042641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140430172311) do
   end
 
   create_table "bmet_items", force: true do |t|
-    t.integer  "model_id"
+    t.integer  "bmet_model_id"
     t.string   "serial_number"
     t.integer  "year_manufactured"
     t.string   "funding"
@@ -64,10 +64,19 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "updated_at"
   end
 
+  create_table "bmet_models", force: true do |t|
+    t.string   "model_name"
+    t.string   "manufacturer_name"
+    t.string   "vendor_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "category"
+  end
+
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
     t.integer  "department_id"
-    t.integer  "model_id"
+    t.integer  "bmet_model_id"
     t.integer  "quantity"
     t.integer  "urgency"
     t.text     "reason"
@@ -226,15 +235,6 @@ ActiveRecord::Schema.define(version: 20140430172311) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "creole"
-  end
-
-  create_table "models", force: true do |t|
-    t.string   "model_name"
-    t.string   "manufacturer_name"
-    t.string   "vendor_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "category"
   end
 
   create_table "part_transactions", force: true do |t|

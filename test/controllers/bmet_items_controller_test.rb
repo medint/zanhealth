@@ -21,7 +21,7 @@ class BmetItemsControllerTest < ActionController::TestCase
 
   test "should create bmet_item" do
     assert_difference('BmetItem.count') do
-      post :create, bmet_item: { asset_id: @bmet_item.asset_id, contract_expire: @bmet_item.contract_expire, date_received: @bmet_item.date_received, department_id: @bmet_item.department_id, funding: @bmet_item.funding, item_type: @bmet_item.item_type, location: @bmet_item.location, model_id: @bmet_item.model_id, price: @bmet_item.price, serial_number: @bmet_item.serial_number, service_agent: @bmet_item.service_agent, warranty_expire: @bmet_item.warranty_expire, warranty_notes: @bmet_item.warranty_notes, year_manufactured: @bmet_item.year_manufactured }
+      post :create, bmet_item: { asset_id: @bmet_item.asset_id, contract_expire: @bmet_item.contract_expire, date_received: @bmet_item.date_received, department_id: @bmet_item.department_id, funding: @bmet_item.funding, item_type: @bmet_item.item_type, location: @bmet_item.location, bmet_model_id: @bmet_item.bmet_model_id, price: @bmet_item.price, serial_number: @bmet_item.serial_number, service_agent: @bmet_item.service_agent, warranty_expire: @bmet_item.warranty_expire, warranty_notes: @bmet_item.warranty_notes, year_manufactured: @bmet_item.year_manufactured }
     end
 
     assert_redirected_to bmet_item_path(assigns(:bmet_item))
@@ -38,7 +38,7 @@ class BmetItemsControllerTest < ActionController::TestCase
   end
 
   test "should update bmet_item" do
-    patch :update, id: @bmet_item, bmet_item: { asset_id: @bmet_item.asset_id, contract_expire: @bmet_item.contract_expire, date_received: @bmet_item.date_received, department_id: @bmet_item.department_id, funding: @bmet_item.funding, item_type: @bmet_item.item_type, location: @bmet_item.location, model_id: @bmet_item.model_id, price: @bmet_item.price, serial_number: @bmet_item.serial_number, service_agent: @bmet_item.service_agent, warranty_expire: @bmet_item.warranty_expire, warranty_notes: @bmet_item.warranty_notes, year_manufactured: @bmet_item.year_manufactured }
+    patch :update, id: @bmet_item, bmet_item: { asset_id: @bmet_item.asset_id, contract_expire: @bmet_item.contract_expire, date_received: @bmet_item.date_received, department_id: @bmet_item.department_id, funding: @bmet_item.funding, item_type: @bmet_item.item_type, location: @bmet_item.location, bmet_model_id: @bmet_item.bmet_model_id, price: @bmet_item.price, serial_number: @bmet_item.serial_number, service_agent: @bmet_item.service_agent, warranty_expire: @bmet_item.warranty_expire, warranty_notes: @bmet_item.warranty_notes, year_manufactured: @bmet_item.year_manufactured }
     assert_redirected_to bmet_item_path(assigns(:bmet_item))
   end
 

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: models
+# Table name: bmet_models
 #
 #  id                :integer          not null, primary key
 #  model_name        :string(255)
@@ -11,7 +11,7 @@
 #  category          :string(255)
 #
 
-class Model < ActiveRecord::Base
+class BmetModel < ActiveRecord::Base
     has_many :bmet_needs
     has_many :bmet_items
 

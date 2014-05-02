@@ -21,7 +21,7 @@
 
   resources :bmet_items
 
-  resources :models
+  resources :bmet_models
 
   resources :bmet_work_orders
 

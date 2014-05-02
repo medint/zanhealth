@@ -3,7 +3,7 @@
 # Table name: bmet_items
 #
 #  id                :integer          not null, primary key
-#  model_id          :integer
+#  bmet_model_id     :integer
 #  serial_number     :string(255)
 #  year_manufactured :integer
 #  funding           :string(255)
@@ -22,7 +22,7 @@
 #
 
 class BmetItem < ActiveRecord::Base
-  belongs_to :model
+  belongs_to :bmet_model
   belongs_to :department
   has_many :bmet_work_orders
   has_many :bmet_item_histories

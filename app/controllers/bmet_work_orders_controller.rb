@@ -32,7 +32,7 @@ class BmetWorkOrdersController < ApplicationController
 
   # GET /bmet_work_orders/1/edit
   def edit
-  	  bmet_work_order = BmetWorkOrder.includes(:requester,:owner, {:bmet_item => [{:department => :facility},:model]}).where("bmet_work_orders.id=?",params[:id]).first
+  	  bmet_work_order = BmetWorkOrder.includes(:requester,:owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("bmet_work_orders.id=?",params[:id]).first
   	  facility = bmet_work_order.bmet_item.department.facility
   	  @item = bmet_work_order.bmet_item
   	  @users = User.where(:facility_id => facility.id).all.to_a
@@ -80,13 +80,13 @@ class BmetWorkOrdersController < ApplicationController
 
   # GET /my_bmet_work_orders
   def my
-  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
     @texts = Text.includes(:bmet_work_order=> {:bmet_item => {:department => :facility}}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   # GET /detailed_bmet_work_orders
   def detailed 
-  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   private
@@ -96,7 +96,7 @@ class BmetWorkOrdersController < ApplicationController
     end
 
     def set_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:model]})
+      @bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]})
     end
 
     def set_users

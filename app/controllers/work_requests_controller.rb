@@ -4,7 +4,7 @@ class WorkRequestsController < ApplicationController
   # GET /work_requests
   # GET /work_requests.json
   def index
-      @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("facilities.id=?",user.facility).references(:facility)
+      @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
   # GET /work_requests/1
@@ -23,7 +23,7 @@ class WorkRequestsController < ApplicationController
 
   # GET /work_requests/1/edit
   def edit
-  	  work_request = WorkRequest.includes(:requester,:owner, {:item => [{:department => :facility},:model]}).where("work_requests.id=?",params[:id]).first
+  	  work_request = WorkRequest.includes(:requester,:owner, {:item => [{:department => :facility},:bmet_model]}).where("work_requests.id=?",params[:id]).first
   	  facility = work_request.item.department.facility
   	  @item = work_request.item
   	  @users = User.where(:facility_id => facility.id).all.to_a
@@ -71,13 +71,13 @@ class WorkRequestsController < ApplicationController
 
   # GET /my_work_requests
   def my
-  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:model]}).where("owner_id =?",user.id).references(:owner)
+  	  @work_requests = WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility},:bmet_model]}).where("owner_id =?",user.id).references(:owner)
     @texts = Text.includes(:work_request => {:item => {:department => :facility}}).where("facilities.id=?",user.facility.id).references(:facility)
   end
 
   # GET /detailed_work_requests
   def detailed 
-  	  @work_requests=WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility}, :model]}).where("facilities.id=?",user.facility).references(:facility)
+  	  @work_requests=WorkRequest.includes(:requester, :owner, {:item => [{:department => :facility}, :bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
    # @work_requests = WorkRequest.where(owner_id: user.id)
    	  @texts = Text.includes(:work_request => {:item => {:department => :facility}}).where("facilities.id=?",user.facility).references(:facility)
     #@texts = Text.includes(:work_request)

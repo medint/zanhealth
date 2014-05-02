@@ -5,25 +5,25 @@ class BmetItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-	   @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+	   @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /detailed_items
   def detailed
-    @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+    @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-      @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
 	    @bmet_item_history = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
 	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
   # GET /items/new
   def new
-    @bmet_items = BmetItem.includes(:model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+    @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
     @bmet_item = BmetItem.new
   end
 
@@ -79,6 +79,6 @@ class BmetItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:bmet_item).permit(:asset_id, :model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :item_type, :price)
+      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :item_type, :price)
     end
 end
