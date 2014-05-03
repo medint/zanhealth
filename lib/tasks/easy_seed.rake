@@ -76,7 +76,7 @@ namespace :test do
 			date_updated = Time.at(rand * Time.now.to_i)
 			BmetNeed.create(:name => row[1],
 						:department => dept,
-						:model => model,
+						:bmet_model => model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => Faker::Lorem.sentence(word_count = rand(9)), 
@@ -127,7 +127,7 @@ namespace :test do
 								  )
 			else
 				item = BmetItem.create(:asset_id => row[0],
-								   :model => model,
+								   :bmet_model => model,
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
 								   :funding => row[4],
