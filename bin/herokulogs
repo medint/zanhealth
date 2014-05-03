@@ -1,1 +1,1 @@
-heroku logs -t --app medinternational-qa
+heroku logs -t --app medinternational-$1

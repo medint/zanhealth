@@ -1,1 +1,1 @@
-heroku run rake db:reset --app medinternational-qa
+heroku run rake db:reset --app medinternational-$1

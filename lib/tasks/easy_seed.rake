@@ -59,13 +59,13 @@ namespace :test do
 		end
 		puts "Imported departments"
 
-		Model.delete_all
+		BmetModel.delete_all
 		BmetNeed.delete_all
 		models = []
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
-			model = Model.create(:model_name => row[1],
+			model = BmetModel.create(:model_name => row[1],
 						 :manufacturer_name => row[2],
 						 :vendor_name => row[3],
 						 :category => row[0]
