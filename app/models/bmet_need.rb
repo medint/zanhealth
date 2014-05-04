@@ -5,7 +5,7 @@
 #  id             :integer          not null, primary key
 #  name           :string(255)
 #  department_id  :integer
-#  model_id       :integer
+#  bmet_model_id  :integer
 #  quantity       :integer
 #  urgency        :integer
 #  reason         :text
@@ -18,7 +18,7 @@
 #
 
 class BmetNeed < ActiveRecord::Base
-    belongs_to :model
+    belongs_to :bmet_model
     belongs_to :department
     belongs_to :user
 end

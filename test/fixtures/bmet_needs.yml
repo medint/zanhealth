@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  department_id: 1
-  model_id: 1
+  department: one
+  bmet_model: one
   quantity: 1
   urgency: 1
   reason: MyText
@@ -14,8 +14,8 @@ one:
 
 two:
   name: MyString
-  department_id: 1
-  model_id: 1
+  department: one
+  bmet_model: 1
   quantity: 1
   urgency: 1
   reason: MyText

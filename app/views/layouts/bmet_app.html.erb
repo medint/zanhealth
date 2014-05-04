@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		
+		<%= render 'layouts/analytics' %>	
+		<!--Google Chart Visualization-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
+	  	<%= stylesheet_link_tag    "application", media: "screen", "data-turbolinks-track" => true %>
+	  	<%= stylesheet_link_tag    "application-print-main-list", media: "print", "data-turbolinks-track" => true, :id => "print-css-selection" %>
+	  	<%= javascript_include_tag "facilities_app", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  	<%= csrf_meta_tags %>
+
+		<title>Zanhealth</title>
+	</head>
+
+	<body>
+		<%= render 'layouts/bmet_header' %>
+		<%= yield %>
+	</body>
+
+</html>

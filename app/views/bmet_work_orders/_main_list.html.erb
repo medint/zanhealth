@@ -1,0 +1,54 @@
+<div id = "mid_facility-work-order">
+  <ul id="mid-summary_ul">
+    <% @bmet_work_orders.each do |bmet_work_order| %>
+    <%= link_to(bmet_work_order) do %>
+      <li
+      class="mid-summary_ul_li"
+      requester="<%=bmet_work_order.requester.try(:name)%>"
+      datecreated="<%= bmet_work_order.created_at.to_s(:number) %>"
+      owner="<%=bmet_work_order.owner.try(:name)%>"
+      status = "<%=bmet_work_order.status%>"
+      datestarted="<%= bmet_work_order.date_started.try(:to_s, :number)%>"
+      >
+        <div class="status-<%= bmet_work_order.status %>">
+          <div class="status-text-<%= bmet_work_order.status %>"></div>
+        </div>
+        <div class="element_details">
+          <p class="element_title">
+            <%=@language['Work Order']%> <%= bmet_work_order.id %>
+          </p>
+          <p class="element_requester">
+            <%=@language['Requester']%>: <%= bmet_work_order.requester.try(:name) %>
+          </p>
+          <p class="element_owner">
+            <%=@language['Owner']%>: <%= bmet_work_order.owner.try(:name) %>
+          </p>          
+        </div>
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+        <div class="element_date">
+          <div class="element_date_title">
+            <%= @language['Expire'] %>
+          </div>
+          <%= bmet_work_order.date_expire.try(:strftime,"%^b %d") %> 
+        </div>
+
+        <div class="element_date">
+          <div class="element_date_title">
+            <%= @language['Start'] %>
+          </div>
+          <%= bmet_work_order.date_started.try(:strftime,"%^b %d") %> 
+        </div>
+
+        <div class="element_date">
+          <div class="element_date_title">
+            <%= @language['Created'] %>
+          </div>
+          <%= bmet_work_order.created_at.try(:strftime,"%^b %d") %> 
+        </div>
+      </li>
+      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+

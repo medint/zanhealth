@@ -59,13 +59,13 @@ namespace :test do
 		end
 		puts "Imported departments"
 
-		Model.delete_all
+		BmetModel.delete_all
 		BmetNeed.delete_all
 		models = []
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
-			model = Model.create(:model_name => row[1],
+			model = BmetModel.create(:model_name => row[1],
 						 :manufacturer_name => row[2],
 						 :vendor_name => row[3],
 						 :category => row[0]
@@ -76,7 +76,7 @@ namespace :test do
 			date_updated = Time.at(rand * Time.now.to_i)
 			BmetNeed.create(:name => row[1],
 						:department => dept,
-						:model => model,
+						:bmet_model => model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => Faker::Lorem.sentence(word_count = rand(9)), 
@@ -87,7 +87,7 @@ namespace :test do
 
 		SEPARATOR = ': '
 		Language.delete_all
-		File.open(File.join('test','test_data','language.colon-separated'),'r') do |f|
+		File.open(File.join('db','language.colon-separated'),'r') do |f|
 			f.each_line do |line|
 				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,
@@ -127,7 +127,7 @@ namespace :test do
 								  )
 			else
 				item = BmetItem.create(:asset_id => row[0],
-								   :model => model,
+								   :bmet_model => model,
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
 								   :funding => row[4],
@@ -259,10 +259,11 @@ namespace :test do
 												  )
 				FacilityWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
-									   :location => f.name,
+									   :location => Faker::Lorem.sentence,
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
-                              :description => Faker::Lorem.sentence(word_count = rand(11))
+                              		   :description => Faker::Lorem.sentence(word_count = rand(11)),
+                              		   :facility_id => rand(1..3)
 									  )
 			end
 		end

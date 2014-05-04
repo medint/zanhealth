@@ -2,7 +2,7 @@
 
 one:
   asset_id: 1
-  model_id: 1
+  bmet_model: one
   serial_number: MyString
   year_manufactured: 1
   funding: MyString
@@ -11,14 +11,14 @@ one:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  department_id: 1
+  department: one
   location: MyString
   item_type: 1
   price: 1
 
 two:
   asset_id: 1
-  model_id: 1
+  bmet_model: two
   serial_number: MyString
   year_manufactured: 1
   funding: MyString
@@ -27,7 +27,7 @@ two:
   contract_expire: 2013-11-24
   warranty_notes: MyText
   service_agent: MyString
-  department_id: 1
+  department: two
   location: MyString
   item_type: 1
   price: 1

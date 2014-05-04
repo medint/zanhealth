@@ -13,5 +13,6 @@
 
 class BmetLaborHour < ActiveRecord::Base
 	belongs_to :bmet_work_order
+	belongs_to :technician, :class_name => "User"
     
 end

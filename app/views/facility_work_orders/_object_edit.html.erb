@@ -52,10 +52,14 @@
 
     <div id="object-form-bottom">
       <div class="field-box-date">
-          <div class="field-type"><%= @language['Date Created'] %></div>
+        <hr class="color-code-line" id="created-line">
+          <div class="field-type">
+            <%= @language['Date Created'] %>
+          </div>
           <div class="field-info"><%= @facility_work_order.created_at.try(:strftime,"%^b %d, %Y") %></div>
         </div>
         <div class="field-box-date">
+          <hr class="color-code-line" id="started-line">
           <div class="field-type"><%= @language['Date Started'] %></div>
           <div class="field-info">
               <%= @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
@@ -63,10 +67,12 @@
           </div>
         </div>
         <div class="field-box-date">
+          <hr class="color-code-line" id="expired-line">
           <div class="field-type"><%= @language['Date Expires'] %></div>
           <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
         </div>
         <div class="field-box-date">
+          <hr class="color-code-line" id="completed-line">
           <div class="field-type"><%= @language['Date Completed'] %></div>
           <div class="field-info"><%= @facility_work_order.date_completed.try(:strftime,"%^b %d, %Y") %></div>
         </div>

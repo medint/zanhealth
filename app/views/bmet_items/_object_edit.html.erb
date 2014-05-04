@@ -1,0 +1,82 @@
+
+<%= form_for(@bmet_item) do |f| %>
+  <% if @bmet_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bmet_item.errors.count, "error") %> prohibited this bmet_item from being saved:</h2>
+      <ul><% @bmet_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <div id="object-form-single-col">
+
+    <div id="field-box_item-id">
+      <div class="item-id">
+        <%= @language['Item'] %>
+    </div>
+    
+    <div class="field">
+      <%= @language['Asset ID'] %><br>
+      <%= f.text_field :asset_id %>
+    </div>
+    <div class="field">
+      <%= @language['Model'] %><br>
+      <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
+    </div>
+    <div class="field">
+      <%= @language['Serial Number'] %><br>
+      <%= f.text_field :serial_number %>
+    </div>
+    <div class="field">
+      <%= @language['Department'] %><br>
+      <%= f.collection_select :department_id, @departments, :id, :name %>
+    </div>
+    <div class="field">
+      <%= @language['Year Manufactured'] %><br>
+      <%= f.number_field :year_manufactured %>
+    </div>
+    <div class="field">
+      <%= @language['Funding'] %><br>
+      <%= f.text_field :funding %>
+    </div>
+    <div class="field">
+      <%= @language['Date Received'] %><br>
+      <%= f.date_select :date_received %>
+    </div>
+    <div class="field">
+      <%= @language['Warranty Expires'] %><br>
+      <%= f.date_select :warranty_expire %>
+    </div>
+    <div class="field">
+      <%= @language['Contract Expires'] %><br>
+      <%= f.date_select :contract_expire %>
+    </div>
+    <div class="field">
+      <%= @language['Warranty Notes'] %><br>
+      <%= f.text_area :warranty_notes %>
+    </div>
+    <div class="field">
+      <%= @language['Service Agent'] %><br>
+      <%= f.text_field :service_agent %>
+    </div>
+    <div class="field">
+      <%= @language['Price'] %><br>
+      <%= f.number_field :price %>
+    </div>
+
+
+    <div class="field-box">
+      <div class="field-type"><%= @language['Created At'] %></div>
+      <div class="field-info">
+        <p><%= @bmet_item.created_at %></p></div>
+    </div>
+    
+   
+    <div class="actions">
+      <%= f.submit @language['Save Changes']%>
+    </div>
+  </div>
+<% end %>

@@ -17,9 +17,12 @@
 #  updated_at        :datetime
 #  date_started      :datetime
 #  department_id     :integer
+#  deleted_at        :datetime
 #
 
 class FacilityWorkOrder < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   acts_as_paranoid
   has_many :facility_work_order_comments
   has_many :facility_costs
@@ -36,6 +39,9 @@ class FacilityWorkOrder < ActiveRecord::Base
 	elsif self.status == 1 && self.date_started==nil
 		self.date_started=DateTime.now
 	end
+    if self.status == 2 &&self.date_completed==nil
+      self.date_completed=DateTime.now
+    end
 
   
   end
@@ -45,5 +51,5 @@ class FacilityWorkOrder < ActiveRecord::Base
   end
 
 
-  
+
 end

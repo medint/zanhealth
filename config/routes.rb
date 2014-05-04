@@ -1,4 +1,10 @@
-Med8::Application.routes.draw do
+Zanhealth::Application.routes.draw do
+
+  resources :bmet_preventative_maintenances
+
+  resources :bmet_work_requests
+  
+  resources :bmet_costs
 
   resources :part_transactions
 
@@ -15,7 +21,7 @@ Med8::Application.routes.draw do
 
   resources :bmet_items
 
-  resources :models
+  resources :bmet_models
 
   resources :bmet_work_orders
 
@@ -27,7 +33,9 @@ Med8::Application.routes.draw do
 
   resources :bmet_labor_hours
 
-  resources :facility_work_orders, except: :show
+  resources :facility_work_orders, except: :show do
+  	  collection { get :search }
+  end
 
   resources :facility_work_order_comments
 
@@ -35,15 +43,22 @@ Med8::Application.routes.draw do
 
   resources :facility_labor_hours
 
-  resources :facility_preventative_maintenances
+  resources :facility_preventative_maintenances do
+    collection { get :search }
+  end
 
-  resources :facility_work_requests
+  resources :facility_work_requests do
+    collection { get :search }
+  end
 
   get "/facility_dashboard/status", to: "facility_dashboard#status"
+
 
   get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
 
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
+
+  get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
 
   resources :facility_dashboard
 
@@ -55,7 +70,7 @@ Med8::Application.routes.draw do
   
   get "/text", to: "text#receive"
 
-  get "/facility_work_requests/:num/new", to: "facility_work_requests#new_shortcut"  
+  get "/facility_work_requests/:facility_id/new", to: "facility_work_requests#new_shortcut"  
 
   put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
   

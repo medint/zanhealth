@@ -11,7 +11,10 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  facility_id :integer
 #
 
 class FacilityWorkRequest < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 end

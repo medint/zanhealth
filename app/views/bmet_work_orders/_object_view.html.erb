@@ -1,0 +1,68 @@
+<div id="object-view">
+	<button onclick="edit_button_handler()"> Click me </button>
+	<div id="left_half">
+		<p>
+			<%=@language['ID'] %>:
+			<%= @facility_work_order.id %>
+		</p>
+
+		<p>
+			<%=@language['Date Expires'] %>:
+			<%= @facility_work_order.date_expire %>
+		</p>
+
+		<p>
+			<%=@language['Date Completed'] %>:
+			<%= @facility_work_order.date_completed %>
+		</p>
+
+		<p>
+			<%=@language['Created At'] %>:
+			<%= @facility_work_order.created_at %>
+		</p>
+		<p>	
+			<%=@language['Updated At'] %>:
+			<%= @facility_work_order.updated_at %>
+		</p>
+		<p>	
+			<%=@language['Request Type'] %>:
+			<%= @facility_work_order.request_type %>
+		</p>
+		<p>	
+			<%=@language['Status'] %>:
+			<%= @facility_work_order.status %>
+		</p>
+		<p>	
+			<%=@language['Owner ID'] %>:
+			<%= @facility_work_order.owner_id %>
+		</p>
+		<p>	
+			<%=@language['Requester ID'] %>:
+			<%= @facility_work_order.requester_id %>
+		</p>
+		<p>	
+			<%=@language['Description'] %>:
+			<%= @facility_work_order.description %>
+		</p>
+		<p>	
+			<%=@language['Cause Description'] %>:
+			<%= @facility_work_order.cause_description %>
+		</p>
+		<p>	
+			<%=@language['Action Taken'] %>:
+			<%= @facility_work_order.action_taken %>
+		</p>
+		<p>	
+			<%=@language['Prevention Taken'] %>:
+			<%= @facility_work_order.prevention_taken %>
+		</p>
+
+	</div>	
+
+	<div id = "right_half"> 
+	</div>
+
+
+</div>
+
+      

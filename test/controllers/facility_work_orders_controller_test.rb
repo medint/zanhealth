@@ -8,9 +8,9 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
     @facility_work_order = facility_work_orders(:one)
     FacilityLaborHour.create!(
 			:date_started => "2014-02-22 02:05:52",
-	    	:duration => 1,
-	    	:technician => user,
-	    	:facility_work_order => @facility_work_order
+	    :duration => 1,
+	   	:technician => user,
+	  	:facility_work_order => @facility_work_order
 	)
   end
 
@@ -69,4 +69,11 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
 
     assert_redirected_to facility_work_orders_path
   end
+
+  test "should search and return something" do
+    @results = FacilityWorkOrder.search("Description1").records
+    assert_response :success
+    assert_not_equal @results, nil, flash[:notice]
+  end
+
 end

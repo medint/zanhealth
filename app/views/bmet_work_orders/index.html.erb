@@ -1,44 +1,7 @@
-<h1><%= @language['All Work Requests'] %></h1>
+<%= render :partial => 'interaction_bar', :layout => 'layouts/topbar' %>
 
-<%= link_to @language['Detailed View'], "/detailed_bmet_work_orders" %><br>
-<%= link_to "+ #{@language['Work Request']}", new_bmet_work_order_path %>
-<table>
-  <thead>
-    <tr>
-      <th><%= @language['ID']%></th>
-      <th><%= @language['Asset ID']%></th>
-      <th><%= @language['Serial Number']%></th>
-      <th><%= @language['Manufacturer']%></th>
-      <th><%= @language['Category']%></th>
-      <th><%= @language['Department']%></th>
-      <th><%= @language['Date Requested']%></th>
-      <th><%= @language['Requester']%></th>
-      <th><%= @language['Owner']%></th>
-        </tr>
-  </thead>
+<%= render :partial => 'main_list', :layout => 'layouts/col2' %>
 
-  <tbody>
-    <% @bmet_work_orders.each do |bmet_work_order| %>
-      <tr>
-        <td><%= bmet_work_order.id %></td>
-        <td><%= link_to bmet_work_order.bmet_item.asset_id, bmet_work_order.bmet_item  %></td>
-        <td><%= bmet_work_order.bmet_item.serial_number %></td>
-        <td><%= bmet_work_order.bmet_item.model.manufacturer_name %></td>
-        <td><%= bmet_work_order.bmet_item.model.category %></td>
-        <td><%= bmet_work_order.bmet_item.location %></td>
-        <td><%= bmet_work_order.date_requested %></td>
-        <td><%= bmet_work_order.requester.name %></td>
-        <td><%= bmet_work_order.owner.name %></td>
-                  <td><%= link_to @language['Show'], bmet_work_order %></td>
-        <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
-        <td>
-          <% if @permissions[:bmet_work_order_delete] %>
-          <%= link_to @language['Destroy'], bmet_work_order, method: :delete, data: { confirm: @language['Are you sure?'] } %></td>
-          <% end %>
-     </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="vertical-divider"></div>
 
-<br>
-
+<%= render :partial =>'empty_summary', :layout =>'layouts/col3' %>

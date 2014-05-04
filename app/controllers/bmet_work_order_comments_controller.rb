@@ -28,7 +28,7 @@ class BmetWorkOrderCommentsController < ApplicationController
 
     respond_to do |format|
       if @bmet_work_order_comment.save
-        format.html { redirect_to @bmet_work_order_comment, notice: 'Work request comment was successfully created.' }
+        format.html { redirect_to @bmet_work_order_comment.bmet_work_order, notice: 'Work request comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order_comment }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class BmetWorkOrderCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @bmet_work_order_comment.update(bmet_work_order_comment_params)
-        format.html { redirect_to @bmet_work_order_comment, notice: 'Work request comment was successfully updated.' }
+        format.html { redirect_to @bmet_work_order_comment.bmet_work_order, notice: 'Work request comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class BmetWorkOrderCommentsController < ApplicationController
   def destroy
     @bmet_work_order_comment.destroy
     respond_to do |format|
-      format.html { redirect_to bmet_work_order_comments_url }
+      format.html { redirect_to @bmet_work_order_comment.bmet_work_order }
       format.json { head :no_content }
     end
   end

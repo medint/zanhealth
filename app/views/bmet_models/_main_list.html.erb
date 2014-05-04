@@ -1,0 +1,26 @@
+<div id = "mid_bmet-item">
+  <ul id="mid-summary_ul">
+    <% @bmet_models.each do |bmet_model| %>
+    <%= link_to(bmet_model) do %>
+      <li
+      class="mid-summary_ul_li"
+      datecreated="<%= bmet_model.created_at.to_s(:number) %>"
+      >        
+        <div class="element_details">
+          <p class="element_title">
+            <%= bmet_model.category %> <%= bmet_model.model_name %>
+          </p>
+          <p class="element_description">
+            <%= bmet_model.manufacturer_name %>
+          </p>          
+        </div>
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+        
+      </li>
+      <hr class="mid-summary_ul_li_hr"><!--replace with belement-->
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+
+

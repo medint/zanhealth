@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bmet_cost.name %>
+</p>
+
+<p>
+  <strong>Unit quantity:</strong>
+  <%= @bmet_cost.unit_quantity %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @bmet_cost.cost %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @bmet_cost.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @bmet_cost.updated_at %>
+</p>
+
+<p>
+  <strong>Bmet work order:</strong>
+  <%= @bmet_cost.bmet_work_order_id %>
+</p>
+
+<p>
+  <strong>Work request:</strong>
+  <%= @bmet_cost.work_request_id %>
+</p>
+
+<%= link_to 'Edit', edit_bmet_cost_path(@bmet_cost) %> |
+<%= link_to 'Back', bmet_costs_path %>

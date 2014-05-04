@@ -54,4 +54,11 @@ class FacilityWorkRequestsControllerTest < ActionController::TestCase
 
     assert_redirected_to facility_work_requests_path
   end
+
+  test "should search and return something" do
+    @results = FacilityWorkRequest.search("Description1").records
+    assert_response :success
+    assert_not_equal @results, nil, flash[:notice]
+  end
+
 end

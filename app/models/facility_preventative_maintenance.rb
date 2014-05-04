@@ -14,6 +14,8 @@
 #
 
 class FacilityPreventativeMaintenance < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   before_save :calc_next_date
   attr_accessor :days_since
   attr_accessor :status
@@ -33,6 +35,9 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 
   private
     def calc_next_date
+      if self.last_date_checked.nil?
+          self.last_date_checked = Time.now
+      end
       self.next_date = self.last_date_checked
       unless self.days.nil?
         self.next_date += self.days.days

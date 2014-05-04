@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Med8::Application.config.secret_key_base = 'f634252543ac230a689e3f4a613b63f1c04e56cb5b6db74db01955ea0b745d9f1b9911e4ef831654da2c44e644dbe2dfdca424bc8e6d8c1b4b4be746fae79626'
+Zanhealth::Application.config.secret_key_base = 'f634252543ac230a689e3f4a613b63f1c04e56cb5b6db74db01955ea0b745d9f1b9911e4ef831654da2c44e644dbe2dfdca424bc8e6d8c1b4b4be746fae79626'

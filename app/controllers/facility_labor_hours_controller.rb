@@ -55,7 +55,6 @@ class FacilityLaborHoursController < ApplicationController
       @facility_labor_hour = FacilityLaborHour.find(params[:id])
     end
     def labor_hour_params
-      p params
       params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id)
     end
     

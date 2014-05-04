@@ -8,6 +8,11 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_work_orders, only: [:show_all, :all]
 
+  def search
+    @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
+    @facility_work_orders = @facility_work_orders.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
+    render action: 'index'
+  end
 
   def new
     @facility_work_order = FacilityWorkOrder.new
@@ -150,7 +155,6 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def facility_work_order_params
-      p params
       params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
   end
 end

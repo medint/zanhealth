@@ -1,3 +1,9 @@
+$red:#e9593e;
+$yellow:#ffc207;
+$green:#55aa2b;
+$gray:#4e4e4e;
+
+
 *{
 	font-family: Arial;
 }
@@ -29,7 +35,7 @@ body {
 	position: fixed;
 	height: 60px;
 	width: 100%;
-	background-color: #4e4e4e;
+	background-color: $gray;
 	margin-left: 240px;
 	z-index: 4;
 }
@@ -50,7 +56,6 @@ body {
 #mid-summary{
 	float: left;
 	margin-left: 240px;
-	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-x: hidden;
@@ -58,12 +63,19 @@ body {
 
 #right-detail{
 	float: none;
-	//float anything causes problems in firefox because of the scrollbar presumably. there's some phantom width that is added.
-	height: 100%;
 	width: 400px; 
 	background-color: #f9f9f9;
 	overflow-y: hidden;
+}
 
+.scrollable{
+	padding-top: 60px;
+	//padding instead of margin because height :100px includes padding but not margins
+	//consequence is scrollbar is a little screwy
+	height: 100%;
+	font-size: 1em;
+	z-index: 1;
+	overflow: auto;
 }
 
   /********************************************/
@@ -83,6 +95,17 @@ body {
 
 	width: 240px;
 	height: 150px;
+}
+
+#app_type_label{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	color: white;
+	background-color: #303030;
+	font-size: 16px;
+	font-weight: 900;
+	letter-spacing: 1px;
 }
 
 #left-nav > #login {
@@ -129,37 +152,30 @@ body {
 	background-color: #2a7368;
 }
 
-#left-nav > #left-nav_ul > a > .left-nav_ul_li > #work-order-icon{
+.left_nav_icon {
 	float: left;
-	background-image: url(image_path('left/workorder.png'));
 	background-repeat: no-repeat;
 	background-size: 12px;
 	height: 13px;
 	width: 13px;
 	margin-left: 20px;
 	margin-top: 24px;
+}
+
+#left-nav > #left-nav_ul > a > .left-nav_ul_li > #work-order-icon{
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/workorder.png'));
+	
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #preventative-maintenance-icon{
-	float: left;
-	background-image: url(image_path('left/preventativemaintenance.png'));
-	background-repeat: no-repeat;
-	background-size: 12px;
-	height: 13px;
-	width: 13px;
-	margin-left: 20px;
-	margin-top: 24px;
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/preventativemaintenance.png'));	
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #inbox-icon{
-	float: left;
-	background-image: url(image_path('left/inbox.png'));
-	background-repeat: no-repeat;
-	background-size: 12px;
-	height: 13px;
-	width: 13px;
-	margin-left: 20px;
-	margin-top: 24px;
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/inbox.png'));	
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > .wrapper{
@@ -184,19 +200,31 @@ body {
 	padding-top: 28px;
 }
 
-#login-avatar{
+
+#user_name{
 	float:left;
-	margin-top: 5px;
-	margin-left: 15px;
-	margin-right: 10px;
-	width: 40px;
-	height: 40px;
-	background-color: #4e4e4e;
+	color:white;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+#logout_button{
+	float:left;
+	margin-left: 145px;
+}
+
+#logout_button > a{
+	font-size: 9px;
+	color: white;
+	margin: 0px;
+	padding:0px;
+	border:0px;
 }
 
 #bottom-buttons{
-	height: 50px;
-	margin-top: 10px;
+	margin-left: 20px;
+	margin-top: 16px;
+	margin-bottom:0px;
 	float:left;
 }
 
@@ -205,30 +233,25 @@ body {
 	border:0;
 }
 
-#bottom-buttons > #language-icons {
-	width: 150px;
+#language-icons {
+	margin-top: 20px;
+	margin-left:65px;
 }
 
-#bottom-buttons > #language-icons > a{
-	margin-top:-1px;
+#language-icons > a{
+	margin-top:-3px;
 	font-size: 10px;
+	font-weight: 100;
+	color: white;
 	float:left;
 	margin-right: 10px;
 	padding:0;
 	border:0;
 }
 
-
-
 /*   End   */
 
-.scrollable{
-	padding-top: 60px;
-	height: 100%;
-	font-size: 1em;
-	z-index: 1;
-	overflow: auto;
-}
+
 
   /********************************************/
  /*                MID SUMMARY               */
@@ -240,181 +263,144 @@ body {
 	margin: 0px;
 	padding: 0px;
 	list-style:none;
+
+	a {
+		text-decoration: none;
+
+		.mid-summary_ul_li {
+			height: 50px;
+			width: 400px;
+
+			.right-arrow{	
+				float: right;
+				padding-right: 10px;
+				padding-top:22px;
+			}
+
+			.due_date > *{
+				line-height: 13px;
+			}
+		}
+
+		.mid-summary_ul_li:hover {
+			background-color: #afafaf;
+		}
+
+		.mid-summary_ul_li > *{
+			float:left; 
+			display:inline
+		}
+
+		.mid-summary_ul_li_hr{
+			color: #c7c7c7;
+			background-color: #c7c7c7;
+			position:relative;
+			padding: 0px;
+			border: 0px;
+			margin: 0px;
+			height: 1px;
+		}
+	}	
+
+	.mid-summary_ul_li {
+
+		.element_details{
+			margin-left: 15px;
+			
+			.element_title{
+				font-weight: bold;
+				font-size: 12px;
+				color: #5c5c5c;
+				margin: 0px;
+			}
+
+			.element_requester{
+				font-size: 10px;
+				color: #a1a1a1;
+				margin-top: -5px;
+			}
+			
+			.element_owner{
+				font-size: 10px;
+				color: #a1a1a1;
+				margin-top: -15px;
+				margin-bottom: 0px;
+			}
+
+			.element_description{
+				font-size: 10px;
+				color: #a1a1a1;
+				margin-top: -7px;
+			}
+		}
+
+		.element_date{
+			float: right;
+			width: 45px;
+			font-size: 12px;
+			color: #a1a1a1;
+			padding-top: 9px;
+			margin-right: 10px;
+			margin-left: 10px;
+			text-align: center;
+			color: #8b8b8b;
+			font-weight: 800;
+
+			.element_date_title{
+				font-size: 6px;
+				margin-bottom: -7px;
+				color: #a1a1a1;
+				font-weight: 300;
+			}
+		}
+	}
+
+
+
 }
 
-#mid-summary_ul > a{
-	text-decoration: none;
+@mixin status-bar($color){
+	background-color: $color;
+	height:50px;
+	width:10px;
 }
-
-#mid-summary_ul > a > .mid-summary_ul_li {
-	height: 50px;
-	width: 400px;
+/*   Color Status Updates   */
+.status-0{
+	@include status-bar($red);
 }
-
-#mid-summary_ul > a > .mid-summary_ul_li:hover {
-	background-color: #afafaf;
+.status-1{
+	@include status-bar($yellow);
 }
-
-#mid-summary_ul > a > .mid-summary_ul_li > *{
-	float:left; 
-	display:inline
-}
-
-#mid-summary_ul > a > .mid-summary_ul_li > .due_date > *{
-	line-height: 13px;
-}
-
-
-#mid-summary_ul > a > .mid-summary_ul_li > .right-arrow{	
-	float: right;
-	padding-right: 10px;
-	padding-top:22px;
-}
-
-#mid-summary_ul > a > .mid-summary_ul_li_hr{
-	color: #c7c7c7;
-	background-color: #c7c7c7;
-	position:relative;
-	padding: 0px;
-	border: 0px;
-	margin: 0px;
-	width: 240px;
-	height: 1px;
+.status-2{
+	@include status-bar($green);
 }
 
 /* Work Order */
 #mid_facility-work-order{
-	/*   Color Status Updates   */
-	.status-0{
-		background-color: #e9593e;
-		height: 50px;
-		width: 10px;
-	}
-
-	.status-1{
-		background-color: #ffc207;
-		height: 50px;
-		width: 10px;
-	}
-
-	.status-2{
-		background-color: #55aa2b;
-		height: 50px;
-		width: 10px;
-	}
-
-	.status-text-0{
-		display:none;
-	}
-
-	.status-text-1{
-		display:none;
-	}
-
-	.status-text-2{
-		display:none;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_details{
-		margin-left: 15px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_id{
-		padding-top: 4px;
-		font-weight: bold;
-		font-size: 12px;
-		color: #5c5c5c;
-		margin: 0px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_requester{
-		font-size: 10px;
-		color: #a1a1a1;
-		margin-top: -5px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_details > .order_owner{
-		font-size: 10px;
-		color: #a1a1a1;
-		margin-top: -15px;
-		margin-bottom: 0px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_date{
-		float: right;
-		width: 45px;
-		font-size: 12px;
-		color: #a1a1a1;
-		padding-top: 9px;
-		margin-right: 10px;
-		margin-left: 10px;
-		text-align: center;
-		color: #8b8b8b;
-		font-weight: 800;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .order_date > .order_date_title{
-		font-size: 6px;
-		margin-bottom: -7px;
-		color: #a1a1a1;
-		font-weight: 300;
-	}
+	.element_details{
+		.element_title {
+			padding-top: 4px;
+		}
+	}	
 }
-
 
 /* PM */
 #mid_facility-preventative-maintenance{
-	/*   Color Status Updates   */
-	.status-0{
-		background-color: #e9593e;
-		height: 50px;
-		width: 10px;
+
+	.element_details{
+		.element_title {
+			padding-top: 10px;
+		}
 	}
+}
+/* BMET ITEM */
+#mid_bmet-item{
 
-	.status-1{
-		background-color: #55aa2b;
-		height: 50px;
-		width: 10px;
+	.element_details{
+		.element_title {
+			padding-top: 10px;
+		}
 	}
-
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details{
-		margin-left: 15px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details > .pm_id{
-		padding-top: 10px;
-		font-weight: bold;
-		font-size: 12px;
-		color: #5c5c5c;
-		margin: 0px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .pm_details > .pm_description{
-		font-size: 10px;
-		color: #a1a1a1;
-		margin-top: -7px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .pm_date{
-		float: right;
-		font-size: 12px;
-		color: #a1a1a1;
-		padding-top: 9px;
-		margin-right: 10px;
-		margin-left: 10px;
-		text-align: center;
-		color: #8b8b8b;
-		font-weight: 800;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .pm_date > .pm_date_title{
-		font-size: 6px;
-		margin-bottom: -7px;
-		color: #a1a1a1;
-		font-weight: 300;
-	}
-
 }
 
 
@@ -429,6 +415,25 @@ body {
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .request_details{
 		margin-left: 15px;
+
+		.request_id{
+			padding-top: 14px;
+			font-weight: bold;
+			font-size: 12px;
+			color: #5c5c5c;
+			margin: 0px;
+		}
+		.request_info{
+			font-size: 11px;
+			color: #5c5c5c;
+			margin-top: -1px;
+		}
+		.request_description{
+			font-size: 10px;
+			color: #a1a1a1;
+			margin-top: -8px;
+			width: 80%;
+		}
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li {
@@ -436,56 +441,10 @@ body {
 		width: 400px;
 	}
 
-	#mid-summary_ul > a > .mid-summary_ul_li:hover {
-		background-color: #afafaf;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > *{
-		
-		float:left; 
-		display:inline
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .due_date > *{
-		line-height: 13px;
-	}
-
-
 	#mid-summary_ul > a > .mid-summary_ul_li > .right-arrow{	
 		float: right;
 		padding-right: 10px;
 		padding-top:58px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li_hr{
-		color: #c7c7c7;
-		background-color: #c7c7c7;
-		position:relative;
-		padding: 0px;
-		border: 0px;
-		margin: 0px;
-		width: 240px;
-		height: 1px;
-	}
-	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_id{
-		padding-top: 14px;
-		font-weight: bold;
-		font-size: 12px;
-		color: #5c5c5c;
-		margin: 0px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_info{
-		font-size: 11px;
-		color: #5c5c5c;
-		margin-top: -1px;
-	}
-
-	#mid-summary_ul > a > .mid-summary_ul_li > .request_details > .request_description{
-		font-size: 10px;
-		color: #a1a1a1;
-		margin-top: -8px;
-		width: 80%;
 	}
 
 	#mid-summary_ul > a > .mid-summary_ul_li > .request_date{
@@ -541,6 +500,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				float:left;
 				font-size: 10px;
 				color: #a7a7a7;
@@ -627,31 +587,28 @@ body {
 				float:left;
 			}
 
-			#print-button_right{
+			.object_form_icons {
 				margin-top: 4px;
 				margin-left: 4%;
 				margin-right: 4%;
 
 				float:right;
 
-				background-image: url(image_path('right/printericon.png'));
+				
 				background-size: 100%;
 				width: 14px;
 				height: 14px;
 				display:block;
 			}
 
-			#delete-button_right{
-				margin-top: 4px;
-				margin-left: 4%;
-				margin-right: 4%;
-				float: right;
+			#print-button_right{
+				@extend .object_form_icons;
+				background-image: url(image_path('right/printericon.png'));
+			}
 
-				background-image: url(image_path('right/trashicon.png'));
-				background-size: 100%;
-				width: 14px;
-				height: 14px;
-				display:block;
+			#archive-button_right{				
+				@extend .object_form_icons;
+				background-image: url(image_path('right/archiveicon.png'));				
 			}
 		}
 		.actions{
@@ -691,6 +648,7 @@ body {
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -729,6 +687,7 @@ body {
 			margin-top: 10px;
 
 			.field-type{
+				color: white;
 				font-size: 8px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -808,6 +767,7 @@ body {
 			margin:0px -5px 0px 0px;
 
 			.field-type{
+
 				font-size: 12px;
 				color: #a7a7a7;
 				padding-left: 10px;
@@ -852,13 +812,13 @@ body {
 
 /*     object add-info     */
 #object_additional-details{
-	background-color: #4e4e4e;
+	background-color: $gray;
 	overflow-y: scroll;
 	position : relative;
 	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
 
 	.additional-details_nav{
-		background-color: #4e4e4e;
+		background-color: $gray;
 		padding: 0px;
 		margin: 0px;
 		width:100%;
@@ -923,7 +883,13 @@ body {
 
 .additional-details-box{
 	width: 100%;
-	@extend .additional-detail_formstyle
+	@extend .additional-detail_formstyle;
+
+	.field-type{
+		color: white;
+		font-weight: 700;
+	}
+
 }
 
 .additional-details_content{
@@ -1115,9 +1081,32 @@ body {
 	}
 }
 
+.color-code-line{
+	margin:0;
+	padding:0;
+	border:0;
+	height:2px;
+}
 
+#created-line{
+	color: $red;
+	background-color: $red;
+}
 
+#started-line{
+	color: $yellow;
+	background-color:$yellow;
+}
 
+#expired-line{
+	color:$gray;
+	background:$gray;
+}
+
+#completed-line{
+	color: $green;
+	background-color:$green;
+}
 
 
 
@@ -1134,25 +1123,24 @@ body {
 	margin-top: 23px;
 	margin-left: 15px;
 	font-size: 11px;
-	width: 40%;
+	width: 100%;
 }
 
 #top-bar > #left-top > *{
-	float:left;
+	display: inline-block;
 }
 
 #top-bar > #left-top > #top-dropdown{
-	display: block;
+	display: inline-block;
 	vertical-align: middle;
 	padding-top: 1px;
 }
 
 #top-bar > #left-top > #top-dropdown > *{
-	display: inline;
+	display: inline-block;
 }
 
 #top-bar > #left-top > #top-dropdown> .dropdown >a {
-	margin-left: 5px;
 	border-color: #bababa;
 	border-style: solid;
 	border-width: 1px;
@@ -1162,8 +1150,6 @@ body {
 }
 
 #top-bar > #left-top > #top-dropdown> .dropdown > a > .caret{
-	margin-left: 20px;
-	
 }
 
 #top-bar > #left-top > #top-button > *{
@@ -1177,8 +1163,8 @@ body {
 	height: 22px;
 }
 
-#top-bar > #left-top > #top-button > #delete-button{
-	background-image: url(image_path('top/trashicon.png'));
+#top-bar > #left-top > #top-button > #archive-button{
+	background-image: url(image_path('top/archiveicon.png'));
 	width: 23px;
 	height: 22px;
 }
@@ -1195,7 +1181,8 @@ body {
 
 #dashboard {
 	float: left;
-	margin-left: 240px;
+	padding-left: 240px;
+	width:100%;
 }
 
 #dash_table{
@@ -1204,4 +1191,7 @@ body {
 
 .sum_costs{
 	font-weight:bold;
+}
+#params_to_send {
+	display: none;
 }

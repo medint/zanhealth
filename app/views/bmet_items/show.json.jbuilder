@@ -1,1 +1,1 @@
-json.extract! @item, :asset_id, :model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :item_type, :price, :created_at, :updated_at
+json.extract! @bmet_item, :id, :model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :price, :asset_id, :item_type, :location, :created_at, :updated_at

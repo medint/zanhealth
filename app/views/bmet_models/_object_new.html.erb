@@ -1,0 +1,35 @@
+
+<div id="object-form_top">
+  <%= form_for(@bmet_model) do |f| %>
+    <% if @bmet_model.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@bmet_model.errors.count, "error") %> prohibited this bmet_model from being saved:</h2>
+        <ul><% @bmet_model.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
+
+      <div id="object-form-single-col">        
+        <div class="field-box">
+          <div class="field-type"><%= @language['Category'] %></div>
+          <div class="field-info"><%= f.text_field :category, :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Manufacturer Name'] %></div>
+					<div class="field-info">
+            <%= f.text_field :manufacturer_name %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Model Name'] %></div>
+          <div class="field-info">
+            <%= f.text_field :model_name %>
+        </div>        
+        <div class="actions">
+          <%= f.submit @language['Create Item']%>
+        </div>
+      </div>  
+  <% end %>
+  </div>

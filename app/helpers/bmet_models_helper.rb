@@ -1,0 +1,2 @@
+module BmetModelsHelper
+end

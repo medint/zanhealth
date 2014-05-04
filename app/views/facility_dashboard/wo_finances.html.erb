@@ -1,53 +1,45 @@
-<div id=dashboard>
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawChart);
+</script>
+<%=render 'navigation'%>
+<div id='dashboard'>
+	<div id='chart_div'></div>
+	
 	<table id="dash_table">
 		<tr>
 			<th><%=@language['Work Order']%></th>
 			<th><%=@language['Department']%></th>
 			<th><%=@language['Cost']%></th>
 		</tr>
-		<% currdepart=0 %>
-		<% costbydepart=0 %>
-		<% @work_orders.each do |q| %>
-			<% if currdepart!=q.department_id%>
-				<% currdepart=q.department_id %>
-				<% if q!=@work_orders.first %>
-					<tr>
-						<td></td>
-						<td></td>
-						<td class="sum_costs"><%=costbydepart%></td>
-						<%costbydepart=0%>
-					</tr>
-				<%end%>
-				<tr class="dash_tr">
-					<td class="work_order_expire">
-						<%= q.department.name %>
+		<% @work_orders_json.each do |department_name,value| %>
+				<tr>
+					<td class="department_name">
+						<%= department_name %>
+					</td>
+				</tr>
+			<% value["costs"].each do |work_order_id,cost| %>
+				<tr>
+					<td></td>
+					<td class="work_order_id">
+						<%=@language['Work Order']%> <%= work_order_id %>
+					</td>					
+					<td class="cost_by_id">
+						<%=cost%>
 					</td>
 				</tr>
 			<%end%>
-			
-			<tr class="dash_tr">
-				<td class="work_order_expire">
-				</td>
-				<td class="work_order_id">
-					<%=@language['Work Order']%> <%= q.id %>
-				</td>					
-				<td class="work_order_status">
-					<%totalcost=0%>
-					<% q.facility_costs.each do |cost| %>
-						<%totalcost=totalcost+cost.cost*cost.unit_quantity %>
-					<%end%>
-					<%costbydepart+=totalcost%>
-					<%=totalcost%>
-				</td>
-			</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td class="sum_costs"><%=value["totalcost"]%></td>
+					</tr>
 			
 		<%end%>
-		<tr>
-			<td></td>
-			<td></td>
-			<td class="sum_costs"><%=costbydepart%></td>
-			<%costbydepart=0%>
-		</tr>
 	</table>
 </div>
 

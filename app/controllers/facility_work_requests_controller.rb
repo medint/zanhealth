@@ -1,22 +1,25 @@
 class FacilityWorkRequestsController < ApplicationController
 before_action :set_facility_work_request, only: [:show, :update, :destroy]
+before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
 
   layout 'layouts/facilities_app'
 
+  def search
+    @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+    render action: "index"
+  end
+
   def new
-    @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
   end
 
   def index
-  	@facility_work_requests = FacilityWorkRequest.all
   end
 
   def show
-    @facility_work_requests = FacilityWorkRequest.all
     @input_object = FacilityWorkOrder.new
     @input_object.description = @facility_work_request.description
   end
@@ -37,7 +40,7 @@ before_action :set_departments, only: [:show]
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
 
     respond_to do |format|
-      if @facility_work_request.save && verify_recaptcha
+      if @facility_work_request.save && verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY'])
         format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
@@ -72,23 +75,26 @@ before_action :set_departments, only: [:show]
   end
 
   def set_facility_work_request
-    set_users_special
+    set_facility_for_public
     @facility_work_request = FacilityWorkRequest.find(params[:id])
   end
 
-  def new_shortcut
+  def set_facility_work_requests
+    @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+  end
+
+  def new_shortcut_for_public
     @facility_work_requests = FacilityWorkRequest.all
     @facility_work_request = FacilityWorkRequest.new
     render :layout => "minimal"
   end
 
-  def set_users_special
-    @users = params[:num]
+  def set_facility_for_public
+    @users = params[:facility_id]
   end
 
   def facility_work_request_params
-    p params
-    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
+    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
   end
 
 end

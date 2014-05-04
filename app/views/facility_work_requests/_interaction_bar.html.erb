@@ -1,7 +1,10 @@
 <div id='left-top'>
   <div id="top-dropdown">
-    
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <%= form_tag search_facility_work_requests_path, method: 'get' do %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag :search %>
+  <% end %>
+    &nbsp&nbsp&nbsp&nbsp
     <%= @language['Sort'] %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
         <%= @language['Select Attribute'] %>
@@ -28,5 +31,8 @@
 
     </div>
   </div>
-  
+  <div id="top-button">
+    <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
+    <a href= "<%=new_facility_work_request_path%>" id='add-button'></a>
+  </div>
 </div>

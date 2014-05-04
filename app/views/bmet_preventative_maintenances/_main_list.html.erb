@@ -1,0 +1,45 @@
+<div id = "mid_facility-preventative-maintenance">
+  <ul id="mid-summary_ul">
+    <% @bmet_preventative_maintenances.each do |bmet_preventative_maintenance| %>
+    <%= link_to(bmet_preventative_maintenance) do %>
+      <li
+      class="mid-summary_ul_li"
+      datedue="<%= bmet_preventative_maintenance.next_date.try(:to_s, :number) %>"
+      dayssince="<%= bmet_preventative_maintenance.days_since.to_i %>"
+      ID="<%= bmet_preventative_maintenance.id %>"
+      >
+
+        <div class="status-<%= bmet_preventative_maintenance.status %>"></div>
+        <div class="element_details">
+          <p class="element_title">
+            <%= @language['Preventative Maintenance'] %> <%= bmet_preventative_maintenance.id %>
+          </p>
+          <p class ="element_description">
+             <%= bmet_preventative_maintenance.description[0...40] +  "..." %>
+          </p>
+        </div>
+        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+
+        <div class="element_date">
+          <div class="element_date_title"> <%= @language['Days Since'] %>:</div>
+          <%= -bmet_preventative_maintenance.days_since.to_i %>   
+        </div>
+
+        <div class="element_date">
+          <div class="element_date_title"> <%= @language['Due Date'] %>:</div>
+          <%= bmet_preventative_maintenance.next_date.try(:strftime,"%^b %d") %>
+        </div>
+
+
+
+      </li>
+      <hr class="mid-summary_ul_li_hr"><!--replace with bpm-->
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+
