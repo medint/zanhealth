@@ -1,11 +1,12 @@
 class FacilityWorkOrdersController < ApplicationController
   layout 'layouts/facilities_app'
-  before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive]
+  before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive, :show_hidden, :show_all]
   before_action :set_facility_work_orders, only: [:index, :new, :show]
-  before_action :set_status, only: [:show, :new, :hidden]
-  before_action :set_users, only: [:index, :new, :show, :hidden]
-  before_action :set_departments, only: [:new, :show, :hidden]
-  before_action :show_hidden_work_orders, only: [:hidden]
+  before_action :set_status, only: [:show, :new, :hidden, :show_hidden, :all, :show_all]
+  before_action :set_users, only: [:index, :new, :show, :hidden, :show_hidden, :all, :show_all]
+  before_action :set_departments, only: [:new, :show, :hidden, :show_hidden, :all, :show_all]
+  before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
+  before_action :set_all_work_orders, only: [:show_all, :all]
 
 
   def new
@@ -14,6 +15,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def index
+  	  @link = facility_work_orders_url+"/unhidden/"
   end
 
   def show
@@ -25,10 +27,37 @@ class FacilityWorkOrdersController < ApplicationController
   	@facility_labor_hour = FacilityLaborHour.new
   end
 
+  def show_hidden
+	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+    @facility_work_order_comment = FacilityWorkOrderComment.new
+    @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
+    @facility_cost = FacilityCost.new
+    @facility_labor_hours = FacilityLaborHour.where(facility_work_order_id:params[:id])
+  	@facility_labor_hour = FacilityLaborHour.new
+  	render "show"
+  end
+
+  def show_all
+	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+    @facility_work_order_comment = FacilityWorkOrderComment.new
+    @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
+    @facility_cost = FacilityCost.new
+    @facility_labor_hours = FacilityLaborHour.where(facility_work_order_id:params[:id])
+  	@facility_labor_hour = FacilityLaborHour.new
+  	render "show"
+  end
+
   def update
     respond_to do |format|
       if @facility_work_order.update(facility_work_order_params)
-        format.html { redirect_to @facility_work_order, notice: 'Work request was successfully updated.' }
+      	  link = request.referer.split("/")[-2]
+      	if link == "hidden"
+      		format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		elsif link == "all"
+			format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		else
+        	format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -37,7 +66,14 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
+  def all
+  	  @link = facility_work_orders_url+"/all/"
+  	  render "index"
+  end
+
   def hidden
+  	  @link = facility_work_orders_url+"/hidden/"
+  	  render "index"
   end
 
   def create
@@ -45,7 +81,7 @@ class FacilityWorkOrdersController < ApplicationController
 
     respond_to do |format|
       if @facility_work_order.save
-        format.html { redirect_to @facility_work_order, notice: 'Work order was successfully created.' }
+        format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_order }
       else
         format.html { render action: 'new' }
@@ -55,15 +91,19 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_order
-      @facility_work_order = FacilityWorkOrder.find(params[:id])
+      @facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
   end
 
   def set_facility_work_orders
       @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)
   end
 
-  def show_hidden_work_orders
+  def set_hidden_work_orders
   	  @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+  end
+
+  def set_all_work_orders
+  	  @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
   end
 
   def destroy
@@ -75,10 +115,20 @@ class FacilityWorkOrdersController < ApplicationController
   end
 	
   def hide
-  	 @facility_work_order = FacilityWorkOrder.find(params[:id])
-     @facility_work_order.destroy
+  	 @facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
+  	 if @facility_work_order.destroyed?
+  	 	 FacilityWorkOrder.restore(@facility_work_order.id)
+	 else
+	 	 @facility_work_order.destroy
+	end
     respond_to do |format|
-      format.html { redirect_to facility_work_orders_url }
+      link = "/"+request.referer.split("/")[-2]
+      	if link == "/all"
+      		format.html { redirect_to request.referer }
+		else
+      	link = facility_work_orders_url+link
+	  	format.html { redirect_to link }
+		end
       format.json { head :no_content }
     end
   end

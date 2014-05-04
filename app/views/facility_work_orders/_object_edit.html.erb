@@ -37,7 +37,11 @@
 
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
-		  <%= link_to '', hide_record_path(@facility_work_order), method: :put,  data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
+		  <% if @facility_work_order.destroyed? %>
+			  <%= link_to "", hide_record_path(@facility_work_order), method: :put, :id => "print-button_right" %>
+		  <% else %>
+		  	<%= link_to '', hide_record_path(@facility_work_order), method: :put, :id => "delete-button_right"%>
+		  <% end %>
 		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 
