@@ -14,8 +14,10 @@ class FacilityDashboardController < ApplicationController
 	def status
 		#invalid dates can be inputted
 
-		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 		@work_orders_json= {}
+		puts(@work_orders)
+
 		currstatus=-10000
 		for i in 0..2
 			@work_orders_json[i]={}
@@ -28,6 +30,8 @@ class FacilityDashboardController < ApplicationController
 		end
 		params["action"]="statusAjax"
 		@params_to_send_back=url_for(params)
+		@params=params
+		@testing=12
 
 
 
@@ -40,7 +44,7 @@ class FacilityDashboardController < ApplicationController
 		
 		for i in 0..5
 			time_range_array[i]=@starting_date.try(:strftime,"%^b %d")+"-"+@ending_date.try(:strftime,"%^b %d")
-			arrayoforders[i]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+			arrayoforders[i]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 			timeago=@ending_date.to_i-@starting_date.to_i
 			@ending_date=@starting_date
 			@starting_date=@starting_date.ago(timeago)
@@ -71,7 +75,7 @@ class FacilityDashboardController < ApplicationController
 
 	def wo_finances
 
-		@work_orders = FacilityWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2 AND facilities.id == :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:department_id)
+		@work_orders = FacilityWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:department_id)
 		@work_orders_json= {}
 		currdepart=0
 		costbydepart=0
@@ -103,7 +107,7 @@ class FacilityDashboardController < ApplicationController
 	end
 
 	def labor_hours
-		@labor_hours = FacilityLaborHour.joins({:facility_work_order => {:department => :facility}}  ).where("date_completed >= :start_date AND date_completed <= :end_date AND status==2", {start_date: @starting_date, end_date: @ending_date}).order(:technician_id)
+		@labor_hours = FacilityLaborHour.joins({:facility_work_order => {:department => :facility}}  ).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:technician_id)
 		@labor_hours_json= {}
 		currtech=0
 		hoursbytech=0
