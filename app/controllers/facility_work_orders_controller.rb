@@ -60,7 +60,11 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_order
-      @facility_work_order = FacilityWorkOrder.find(params[:id])
+      @facility_work_order = FacilityWorkOrder.find_by_id(params[:id])
+      if (@facility_work_order==nil || @facility_work_order.owner.facility_id!=current_user.facility_id)
+        @facility_work_order=nil
+        redirect_to "/404"
+      end
   end
 
   def set_facility_work_orders

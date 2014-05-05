@@ -13,3 +13,7 @@ two:
 three:
   name: MyString
   facility: three
+
+four:
+  name: dashTesting
+  facility: three

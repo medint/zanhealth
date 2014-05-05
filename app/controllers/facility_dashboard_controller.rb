@@ -16,7 +16,6 @@ class FacilityDashboardController < ApplicationController
 
 		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 		@work_orders_json= {}
-		puts(@work_orders)
 
 		currstatus=-10000
 		for i in 0..2
@@ -30,8 +29,6 @@ class FacilityDashboardController < ApplicationController
 		end
 		params["action"]="statusAjax"
 		@params_to_send_back=url_for(params)
-		@params=params
-		@testing=12
 
 
 
