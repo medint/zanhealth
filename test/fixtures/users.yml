@@ -16,3 +16,13 @@ usertwo:
   role_id: 1
   facility: two
   telephone_num: 1
+
+
+#dashboard
+userdboard:
+  username: Userd
+  email: d@d.com
+  encrypted_password: <%= User.new.send(:password_digest, "password") %>
+  role_id: 1
+  facility: three
+  telephone_num: 1

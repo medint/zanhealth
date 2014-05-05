@@ -7,3 +7,9 @@ one:
 two:
   name: MyString
   facility: two
+
+
+#dashboard
+three:
+  name: MyString
+  facility: three

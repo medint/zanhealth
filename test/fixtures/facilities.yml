@@ -5,3 +5,7 @@ one:
 
 two:
   name: MyString
+
+#dashboard
+three:
+  name: MyString

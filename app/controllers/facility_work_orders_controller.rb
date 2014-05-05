@@ -100,7 +100,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_orders
-      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)
+      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
   end
 
   def set_hidden_work_orders

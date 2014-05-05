@@ -7,8 +7,9 @@ one:
   request_type: 1
   description: Description1
   status: 1
-  owner_id: 1
+  owner: userone
   requester_id: 1
+  department: one
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText
@@ -20,8 +21,9 @@ two:
   request_type: 1
   description: Description2
   status: 1
-  owner_id: 1
+  owner: userone
   requester_id: 1
+  department: one
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText
@@ -33,8 +35,96 @@ three:
   request_type: 1
   description: Description3
   status: 1
-  owner_id: 1
+  owner: userone
   requester_id: 1
+  department: one
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+
+
+#DONT TOUCH its for the dashboard
+four:
+  date_started: 2010-02-22 02:05:52
+  date_expire: 2010-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 1
+  owner: userdboard
+  requester_id: 1
+  department: three
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+five:
+  date_started: 2014-02-22 02:05:52
+  date_expire: 2020-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 1
+  owner: userdboard
+  requester_id: 1
+  department: three
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+six:
+  date_started: 2014-02-22 02:05:52
+  date_expire: 2014-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 0
+  owner: userdboard
+  requester_id: 1
+  department: three
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+seven:
+  date_started: 2014-02-22 02:05:52
+  date_expire: 2014-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 1
+  owner: userone
+  requester_id: 1
+  department: one
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+eight:
+  date_started: 2014-02-22 02:05:52
+  date_expire: 2014-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 1
+  owner: userdboard
+  requester_id: 1
+  department: three
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+
+nine:
+  date_started: 2014-02-22 02:05:52
+  date_expire: 2014-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description3
+  status: 1
+  owner: userdboard
+  requester_id: 1
+  department: three
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText
