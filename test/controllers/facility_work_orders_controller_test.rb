@@ -39,7 +39,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
       	  								   action_taken: @facility_work_order.action_taken, 
       	  								   prevention_taken: @facility_work_order.prevention_taken  }
     end
-    assert_redirected_to facility_work_order_path(assigns(:facility_work_order))
+    assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
   end
 
   test "should show facility_work_order" do
@@ -48,6 +48,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
   end
 
   test "should update facility_work_order" do
+  	@request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order.id.to_s)
     patch :update, id: @facility_work_order, facility_work_order: { date_started: @facility_work_order.date_started, 
     																date_expire: @facility_work_order.date_expire, 
     																date_completed: @facility_work_order.date_completed,
@@ -59,7 +60,42 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
     																cause_description: @facility_work_order.cause_description,
     																action_taken: @facility_work_order.action_taken,
     																prevention_taken: @facility_work_order.prevention_taken }
-    assert_redirected_to facility_work_order_path(assigns(:facility_work_order))
+    assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
+  end
+
+	test "should hide facility_work_order" do
+  	@request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order.id.to_s)
+    put :hide, id: @facility_work_order, facility_work_order: { date_started: @facility_work_order.date_started, 
+    																date_expire: @facility_work_order.date_expire, 
+    																date_completed: @facility_work_order.date_completed,
+    																request_type: @facility_work_order.request_type,
+    															 	description: @facility_work_order.description,
+    																status: @facility_work_order.status,
+    																owner_id: @facility_work_order.owner_id,
+    																requester_id: @facility_work_order.requester_id,
+    																cause_description: @facility_work_order.cause_description,
+    																action_taken: @facility_work_order.action_taken,
+    																prevention_taken: @facility_work_order.prevention_taken }
+    assert_not_nil assigns["facility_work_order"].deleted_at
+    assert_redirected_to "/facility_work_orders/unhidden"
+  end
+
+  test "should unhide facility_work_order" do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/hidden/"+(@facility_work_order.id.to_s)
+  	  put :hide, id: @facility_work_order, facility_work_order: { date_started: @facility_work_order.date_started,
+  	  	  														  date_expire: @facility_work_order.date_expire,
+  	  	  														  date_completed: @facility_work_order.date_completed,
+  	  	  														  request_type: @facility_work_order.request_type,
+  	  	  														  description: @facility_work_order.description,
+  	  	  														  status: @facility_work_order.status,
+  	  	  														  owner_id: @facility_work_order.owner_id,
+  	  	  														  requester_id: @facility_work_order.requester_id,
+  	  	  														  cause_description: @facility_work_order.cause_description,
+  	  	  														  action_taken: @facility_work_order.action_taken,
+  	  	  														  prevention_taken: @facility_work_order.prevention_taken,
+  	  	  														  deleted_at: @facility_work_order.date_started }
+  	  assert_not_equal(assigns["facility_work_order"].deleted_at, assigns["facility_work_order"].date_started)
+  	  assert_redirected_to "/facility_work_orders/hidden"
   end
 
   test "should destroy facility_work_order" do

@@ -38,3 +38,17 @@ three:
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText
+
+four:
+  date_started: 2014-01-12 02:05:52
+  date_expire: 2014-02-22 02:05:52
+  date_completed: 2014-02-22 02:05:52
+  request_type: 1
+  description: Description4
+  status: 1
+  owner_id: 1
+  requester_id: 1
+  cause_description: MyText
+  action_taken: MyText
+  prevention_taken: MyText
+  deleted_at: 2014-02-21 02:05:21
