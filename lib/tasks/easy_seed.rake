@@ -273,6 +273,29 @@ namespace :test do
 			end
 		end
 		puts "Created facility preventative maintenance and work requests"
-		
+
+		BmetPreventativeMaintenance.delete_all
+		BmetWorkRequest.delete_all
+		facilities.each do |f|
+			20.times do |fpm|
+				date_base = Time.now-60*60*24*(rand(0..4))
+				BmetPreventativeMaintenance.create(:last_date_checked => date_base, 
+													:days => 1,
+													:weeks => 0,
+													:months => 0,
+													:created_at => Time.now - 60*60*24*(rand(6..10)),
+													:description => Faker::Lorem.sentence(word_count = rand(10)) 
+												   )
+				BmetWorkRequest.create(:requester => Faker::Name.name,
+									   :department => depts.sample,
+									   :location => Faker::Lorem.sentence,
+									   :phone => Faker::PhoneNumber.phone_number,
+									   :email => Faker::Internet.email,
+									   :created_at => Time.now - 60*60*24*(rand(6..10)),
+									   :description => Faker::Lorem.sentence(word_count = rand(11))
+									  )
+			end
+		end
+		puts "Created bmet preventative maintenance and work requests"
 	end
 end
