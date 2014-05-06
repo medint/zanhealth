@@ -3,7 +3,7 @@ require 'test_helper'
 class FacilityWorkOrdersControllerTest < ActionController::TestCase
   setup do
   	@request.env["devise.mapping"] = Devise.mappings[:user]
-  	user = createTestUser()
+  	user = users(:userone)
   	sign_in user
     @facility_work_order = facility_work_orders(:one)
     FacilityLaborHour.create!(

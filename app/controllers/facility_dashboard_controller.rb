@@ -112,7 +112,7 @@ class FacilityDashboardController < ApplicationController
 		@labor_hours.each do |q|
 			if currtech!=q.technician
 				if currtech!=0
-					@labor_hours_json[currtech.name]["totalcost"]=testing
+					@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
 				end
 				currtech=q.technician
 				@labor_hours_json[q.technician.name]={}
