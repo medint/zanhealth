@@ -1,965 +1,602 @@
 name,model,manufacturer,vendor_id
-Incubator,"apt-line b28 ",Binder,NULL
-Microscope,"humascope fluo led b/g",Human-Gmbh,NULL
-Microscope,cx21FS1,Olympus,NULL
-"Hot Plate",HP-155A,Truman,NULL
-Centrifuge,egl-12e,Axiom,NULL
-Spectrophotometer,ae-350,Erma,NULL
-"Microplate Reader",ax-9602,Axiom,NULL
-"Microplate Reader",ax-9602,Axiom,NULL
-"Electronic Balance","ast 320-4m","Kern & John Gmbh",NULL
-"Safety Cabinet",mn120,Nuve,NULL
-Microscope,"primostar iled",Zeiss,NULL
-Autoclave,3870m,Tuttnauer,NULL
-Microscope,"eclipse e200",Nikon,NULL
-Glucometer,elite,Bayer,NULL
-Glucometer,"Ghaco Plus","Gluco Plus Inc",NULL
-"Hemoglobin Analyzer","Hemocue Hb 201+","Hemocue A6",NULL
-Microscope,ch40,Olympus,NULL
-Centrifuge,4236,Aic,NULL
-Glucometer,c07000,Wpa,NULL
-Centrifuge,dsc3005d,"Digisystem Laboratory Instruments, Inc",NULL
-"Water Bath",Dk-420,"Axiom Gmbh",NULL
-Microscope,cx21FS1,Olympus,NULL
-Centrifuge,R303,Remi,NULL
-"Refrigerator, Blood","Emotega 250",Frigoriferi,NULL
-"Chemistry Analyzer","screen master 3000 evolution","Biochemical System International",NULL
-"Nortex Mixer",vm-1000,"Digisystem Laboratory Instruments, Inc",NULL
-"Refridgerator/Freezer, Reagents",ZR-440FC,Zec,NULL
-"Hematology Analyzer","micros 60 ot","Harriba Abs",NULL
-"Cd4 Machine","BD Facs Count TM Instrument","Bd Biosciences San Jose, Ca 9513 Usa",NULL
-Ecg,mac500,"Ge Medical Systems",NULL
-Ecg,cardiofax-3,Medical,NULL
-"Xray Light Box",NULL,Unknown,NULL
-Xray,s175,"Villa $C",NULL
-"Xray Light Box",NULL,Unknown,NULL
-"Xray Dryer",NULL,Unknown,NULL
-"Safe Light","VA 05",Dupix,NULL
-"Xray Manual Processing Tank",NULL,Unknown,NULL
-"Weighing Scale",NULL,Wunder,NULL
-Ultrasound,SSD-650CL,Aloka,NULL
-Ultrasound,au560cfm,"Ansaldo Electronica Biomedicale",NULL
-"Ultrasound Monitor",ezu-mt12-s1,Hitachi,NULL
-"Operation Table",OPT20,Opt,NULL
-"Examination Lamp","ML 3005",Martin,NULL
-"Cardiac Monitor",NULL,Unknown,NULL
-"Anesthesia Machine",NULL,Unknown,NULL
-"Weighing Scale",NULL,"Milano Bilonce Salus",NULL
-"Air Compressor",A-L-Kompressor,"Dragerwerk Ag Wbeck",NULL
-"Cardiac Monitor","multinex 4000",Datascope,1
-"Surgical Lamp","haravlux 2004",Heraeus,NULL
-"Suction Machine","CS M101","Attrezzature Medica Sanitarie (Ams) Trento",NULL
-"Anesthesia Machine",Libretta,Medec,NULL
-"Cardiac Monitor","sirecust 732",Siemens,NULL
-"Cardiac Monitor/Defibrillator",Cardioserve,"Ge Medical Systems",NULL
-"Oxygen Concentrator","catalog #51 saks",Devilbiss,NULL
-"Air Compressor",event,"Ekom (Slovak Republic)",NULL
-"Suction Machine","Tobi clinic",Gima,NULL
-"Operating Table",opt,Opt,NULL
-"Oxygen Concentrator",515ks,Devilbiss,NULL
-Autoclave,NULL,Eegegari,NULL
-Autoclave,NULL,Fegegari,NULL
-Autoclave,70317,Titanox,NULL
-Sterilizer,dxba3321,Kenriago,NULL
-"Diathermy Machine",martin,"Gebr.Martin Tuttlinger",NULL
-"Diathermy Machine","hyfrecator plus",Birtcher,NULL
-"Diathermy Machine",martin,"Gebr.Martin Tuttlinger",NULL
-"Electric Hotplate",AHP-3,Nikura,NULL
-"Suction Machine",NULL,Medela,NULL
-"Exam Light",ls-150,Welch-Allyn,NULL
-"Neonatal Scale",NULL,Sella,NULL
-Oven,NULL,Memert,NULL
-"Neonatal Incubator",6-ft,"Kiacomo Bertocchi",NULL
-"Fetal Heart Dector",D206,Sonicaid,NULL
-"Delivery Bed",NULL,Ivo,2
-"Delivery Bed",NULL,Unknown,NULL
-"Delivery Bed",NULL,Unknown,NULL
-"Delivery Bed",NULL,"Offcimadi Protesy",NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Patient Trolley",NULL,Unknown,NULL
-"Operating Bed",NULL,Unknown,NULL
-"Examination Lamp",NULL,"Martin (Germany)",NULL
-"Ether Machine (Anesthesia)",NULL,Penlon,NULL
-"Weighing Scale",NULL,"Health O Meter",NULL
-Oven,Pasteur,Titanox,NULL
-"Dental Xray",sn82,"Orix Aet",NULL
-"Dental Chair",NULL,Technodent,NULL
-"Dental Unit",NULL,Unknown,NULL
-"Exam Light",esb25,Elsunk,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Chair",NULL,Unknown,NULL
-Autoclave,NULL,Titanox,NULL
-"Lens Microscope","lensmaster lm-25",Shin-Nippon,NULL
-"Patient Chair",NULL,Unknown,NULL
-"Vision Unit","Vistion tester D","Suenska Optiska Ab",NULL
-"Auto Refractor","AR 530",Hoya,NULL
-"Examination Microscope/ Slit Lamp",Y25F1,"Pacific Optics Electronic",NULL
-Projector,NULL,Unknown,NULL
-Grinderr,LE-400,Sudore,NULL
-"Work Shop Grainder",NULL,Seford123,NULL
-"Heat Gun",NULL,Unknown,NULL
-Microscope,NULL,Unknown,NULL
-"Pattern Cutter",ls-100,Supore,NULL
-Refrigerator,"RCW 50 EK",Electrolux,NULL
-"Examination Bed",NULL,Unknown,NULL
-Scale,2171721009,Seca,NULL
-"Bp Machine","Bigben Round",Reigter,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Standing Scale",8811021659,Seca,NULL
-"Grinder Machine",NULL,"S2Ford 123",NULL
-"Tint Machine",NULL,Unknown,NULL
-"Bp Machine",NULL,Riester,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Weighing Scale",NULL,Unknown,NULL
-"Bp Machine",NULL,Riester,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Weighing Scale",8811021659,Seca,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Weighing Scale",NULL,Unknown,NULL
-Autoclave,NULL,Titanox,NULL
-"Examination Bed",NULL,Unknown,NULL
-Otoscope,11730,"Welch Allyn",NULL
-Otoscope,335828,Heine,NULL
-"Blood Pressure Machine Manual",NULL,Unknown,NULL
-"Examination Table",NULL,Unknown,NULL
-"Weighing Scale",NULL,Wunder,NULL
-"Examination Lamp",NULL,Unknown,NULL
-Refrigerator,PR-151-GX,"West Point International",NULL
-Refrigerator,NULL,Goldstar,NULL
-Refrigerator,NULL,Sanyo,NULL
-"Examination Bed",NULL,Unknown,NULL
-Refrigerator,Donfoce,Unknown,NULL
-"Washing Machine",wm30e,Grandimpianti,NULL
-"Washing Machine",30e,Grandimpianti,NULL
-"Washing Machine",inm30e,Grandimpianti,NULL
-Dryer,30ce,"Huebsch Originators",NULL
-Dryer,30ce,"Huebsch Originators",NULL
-"Laundry Rinser",hem89,Peko,NULL
-"Iron Press",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Water Heater",NULL,"Sadia Heating Ltd (England)",NULL
-"Examination Bed",NULL,Unknown,NULL
-"Physiotherapy Drill",NULL,Unknown,NULL
-"Rotor Machine",NULL,Unknown,NULL
-"Weighing Scale",NULL,Seca,NULL
-Microscope,kogaku-kakai,Topcon,NULL
-"X-Ray Light Box",NULL,Unknown,NULL
-"Parallel Bars",NULL,Vso,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Traction Bed",NULL,Unknown,NULL
-"Exercise Bicycle",NULL,Fonti,NULL
-"Wall Ladder (Traction)",NULL,Unknown,NULL
-"Infrared Bath",NULL,Unknown,NULL
-Ultrasound,megasonic-400,"Bn Electronica",NULL
-"Electrical Stimulator (?)",hz-100,Hezheng,NULL
-Walker,DMA,"Bridgewd Uk",NULL
-"Examination Bed",NULL,Unknown,NULL
-"Infrared Examination Lamp",NULL,Unknown,NULL
-"Suction Machine",NULL,Askir,NULL
-"Bp Machine",NULL,Unknown,NULL
-"Weighing Scale",EKS,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-Autoclave,NULL,Titanox,NULL
-"Xray Light Box",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-Autoclave,NULL,Titanox,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Blood Pressure Machine Manual",NULL,Riester,NULL
-Refrigerator,ZEC-ZR180DF,"Sdg 081",NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-Doppler,ES-107P2,"Hayashi Denki",NULL
-"Ward Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",CE,Unknown,NULL
-"Hand Exercise Machine",NULL,Unknown,NULL
-"Weighing Scale",NULL,Wunder,NULL
-"Weighing Scale",NULL,Wunder,3
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-Autoclave,NULL,Titanox,NULL
-"Neonatal Incubator",YP-90A,Axiom,NULL
-"Suction Machine",NULL,Fazzini,NULL
-Nebulizer,NULL,Pari,NULL
-"Weighing Scale",3341321008,Seca,NULL
-"Bp Machine",475874,Spengler,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-Spectrophotometer,6065,Jenway,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Weighing Scale",NULL,Wunder,NULL
-"Weighing Scale",NULL,Wunder,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Ward Bed",NULL,Unknown,NULL
-"Weighing Scale",NULL,Wunder,NULL
-Refrigerator,7R-180DF,Zec,NULL
-"Weighing Balance",NULL,"Shuang Guan",NULL
-"Weighing Balance",NULL,Unknown,NULL
-"Water Bath","thermo boy","Karl Kolb",NULL
-Refrigerator,ARF-175D,Nicura,NULL
-"Weighing Balance",NULL,Unknown,NULL
-Spectrophotometer,6506,Jenway,NULL
-Spectrophotometer,NULL,Cecil,NULL
-"Weighing Balance","CP 2245",Sartorius,NULL
-"Examination Lamp",NULL,Etl,NULL
-"Anesthesia Machine",omega,Stare,NULL
-"Theater Lamp",gallois,Unknown,NULL
-"Theater Lamp",gallois,Unknown,NULL
-"Weighing Scale",NULL,Unknown,NULL
-"Fracture Ward Bed",NULL,Unknown,NULL
-"Surgical Ward Bed",NULL,"Cooperazione Italiana",NULL
-"Xray Light Box",NULL,Unknown,NULL
-"Xray Light Box",NULL,Unknown,NULL
-"Xray Light Box",NULL,Unknown,NULL
-"Examination Lamp",NULL,Unknown,NULL
-"Xray Machine",NULL,Unknown,NULL
-"Maternity Ward Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Maternity Ward Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Examination Bed",NULL,Unknown,NULL
-"Water Distiller",NULL,Axiom,NULL
-"Jaundice Phototherapy Unit","XHZ 090",Pema,NULL
-"Freezer, ultra low",ULT2090/5/V31,Revco,NULL
-"Freezer, ultra low",ULT2090/5/V31,Revco,NULL
-"Freezer, ultra low",CF60,Whirlpool,NULL
-Refrigerator,FR/142,Daewoo,NULL
-Refrigerator,NULL,Hitachi,NULL
-"Freezer, ultra low",NULL,Tropical,NULL
-Refrigerator,WRTD20V4AWO,"Electrolux International",NULL
-Centrifuge,"Microfuge 22R","Beckman Coulter",NULL
-Centrifuge,Z400,Hermle,NULL
-Centrifuge,"Labofuge 400",Kendro,NULL
-Refrigerator,R/610AUK3K,Hitachi,NULL
-Microscope,CHD,Olympus,NULL
-Microscope,CHD,Olympus,NULL
-Microscope,CHD,Olympus,NULL
-"Stirrer and hot plate","RFT S8","Janke & Kunkel",NULL
-Centrifuge,308002,"International equipment company",NULL
-Autoclave,"T 340 150","WC Heraeus Hanau",NULL
-Microscope,CX41RF,Olympus,NULL
-"Stirrer and hot plate","Ika Werk","Janke & Kunkel",NULL
-Microscope,CH/20,Olympus,NULL
-Microscope,CH/20,Olympus,NULL
-Microscope,CH/20,Olympus,NULL
-Microscope,CH/20,Olympus,NULL
-Microscope,S2/ST,Olympus,NULL
-Microscope,TMS,Nikon,NULL
-Microscope,"Eclipse 6200",Nikon,NULL
-Monitor,"FlexScan SX2262W","EI20 Corporation",NULL
-"Image processor, CPU",DP21/CB,Olympus,NULL
-Monitor,TM/A17OG,JVC,NULL
-Centrifuge,"1040 series","Centurion Scientific",NULL
-"Safety Cabinet","Microflow 2",Bioquell,NULL
-Incubator,NULL,"International Equipment",NULL
-Incubator,IBP,Ambassador,NULL
-Incubator,NULL,"Inter Continental Equipment",NULL
-"Hot Air Oven",NULL,"Inter Continental Equipment",NULL
-Distiller,A74410,Barnstead,NULL
-Autoclave,NULL,"PBI International",NULL
-"Pressure Steam Sterilizer",000055C,"Wisconsin Aluminium Foundry",NULL
-Distiller,2204,GFL,NULL
-"Hot Plate with Magnetic Stirrer","Ika Werk","Janke and Kunkel",NULL
-Vortex,"Automatic Mixer",EckII/Electronic,NULL
-"Hematology Coulter Counter","MICROS 60CT","Horiba ABX Diagnostics",NULL
-Inspicetor,GD100,Grant,NULL
-"Water Bath",NULL,"Inter Continental Equipment",NULL
-Reflectron,"Feflotron Plus",Roche,NULL
-Autoclave,"Autoclavi Spa",Fedegari,NULL
-"Microplate Reader",mrx,"Thermo Labsystems",NULL
-Refrigerator,R/220UK1,Hitachi,NULL
-"Pipette Gun",NULL,"Accu Jet",NULL
-"Weighing Scale",NULL,Sartorius,NULL
-Freezer,"U535 INNOVA","New Brunsmick Scientific",NULL
-"CO2 Incubator",MCO/17AIC,Sanyo,NULL
-"Blood Culture System","Bacter 9050",BD,NULL
-"Blood Culture System","Bacter 9050",BD,NULL
-"Fume Hood","Jupiter 4",Celbio,NULL
-"Water Bath",1013,"GFL/Gescellschaft Fviv",NULL
-"Mass Scale",PG203/5,"Mettler Toledo",NULL
-"Pressure Pump",WP6122050,Millipore,NULL
-"Particle Counter",CYFLOW,Dartec,NULL
-Microscope,CXAO,Olympus,NULL
-"Microcompressor PH Meter","PH 211","Hanna Instruments",NULL
-"Plate Shaker",A625/1,"Lab/Line Instruments",NULL
-"Microscope (Discecting)","Twin Z","Medline Scientific",NULL
-Vortex,"Vortex Genie 2",Fisher,NULL
-"Water Bath",NULL,"PBI International",NULL
-Vortex,NULL,"Inter Continental Equipment",NULL
-Refrigerator,NR/B651B,Panasonic,NULL
-Stainer,Previ,Biomcrieux,NULL
-"Microbial Analyzer","VITEK 2 Compact",Biomerieux,NULL
-"Microbial Analyzer","VITEK 2 Compact",Biomerieux,NULL
-"Media Dispenser","APS One","AES Chemunex",NULL
-"Cu,ture Media Preparator","Masterclave 09","AES Chemunex",NULL
-Incubator,"ECB 1.1 Digital",Odontobras,NULL
-"Water Bath","Thermomix BM/E","B.Braun Biotech International",NULL
-Microscope,CX/Bi,Magnus,NULL
-Microscope,CX/Bi,Magnus,NULL
-"Hematology Analyzer",KX/21,Sysmex,NULL
-Printer,"Sunrise Remote",Tecan,NULL
-"Plate Washer","Columbus Plus",Tecan,NULL
-Microscope,EC3,"Leica Microsystems",NULL
-"Thermal Cycler","MyCycler Thermal Cycler",BioRad,NULL
-"Dual Intensity UV Transilluminator","DyNa Light","National Labnet Company",NULL
-"Magnetic Stirrer","MSH 300",Boeco,NULL
-"Electrophoraysis Machine","PowerPac Basic",BioRad,NULL
-Refrigerator,NR/B651B,Panasonic,NULL
-Centrifuge,"Rotina 35R",Hettich,NULL
-Thermomixer,"Thermomixer Compact","Eppendorf AG",NULL
-"Block Heater","SBH 130D",Stuart,NULL
-Vortex,NULL,"German Industrial Corporation",NULL
-Centrifuge,"Centrifuge 5430","Eppendorf AG",NULL
-Centrifuge,"Centrifuge 5415D","Eppendorf AG",NULL
-Shaker,261,Merck,NULL
-"Hot Plate with Magnetic Stirrer",HMS/1024,Fargo,NULL
-"Safety Cabinet",Bio2+,Envair,NULL
-Refrigerator,R/2320AUK7K,Hitachi,NULL
-Incubator,100/800,Memmert,NULL
-Distiller,2204,GFL,NULL
-Spectrophotometer,DU520,"Beckman Coulter",NULL
-Blender,L6,Blender,NULL
-"Vacuum pump",707,Asal,NULL
-Microscope,TMS,Nikon,NULL
-Microscope,CHD,Olympus,NULL
-Microscope,CHD,Olympus,NULL
-Microscope,NULL,Nikon,NULL
-Microscope,NULL,P20,NULL
-Microscope,NULL,P20,NULL
-Fluorometer,FM109510/33,Wagtech,NULL
-"Pipette Gun",NULL,Accu/Jet,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-"Hemoglobin photometer",B/Hemoglobin,Hemocue,NULL
-Glucometer,"Glucose 201+",Hemocue,NULL
-Glucometer,"Glucose 201+",Hemocue,NULL
-"Hemoglobin photometer","Hb 201+",Hemocue,NULL
-"Hemoglobin photometer","Hb 201+",Hemocue,NULL
-Ultrasound,"180 Plus",Sonosite,NULL
-Refrigerator,NULL,"Brentwood Blood Bank Robert C Schutte",NULL
-Refrigerator,Fiocchetti,"Frigoriferi Scientifigi",NULL
-"Water Bath","180 Series Water Bath","Thermo Scientific",NULL
-Centrifuge,AX-CNO,Axiom,NULL
-Microscope,CX21FSI,Olympus,NULL
-"Hot Plate",NULL,"Lab Hosp",NULL
-"Hemoglobin Analyzer","HB 201+","Hemocue ",NULL
-Refrigerator,NULL,"Dr Dairei",NULL
-Refrigerator,NULL,"Dr Dairei",NULL
-Centrifuge,"Rotofix 32","Hettich Zentrifugen",1
-"Clinical Laboratory Mixer",R75,NULL,NULL
-Microscope,CX21FSI,Olympus,NULL
-"Safety Cabinet (Microbiological)","MN 120",Nuve,NULL
-Incubator,Heraeus,"Thermo Scientific",NULL
-Incubator,"Heraeus B6200","Thermo scientific",NULL
-Microscope,"Primo Star","Carl Zeiss",NULL
-Refrigerator,NULL,Geepas,NULL
-"Water Bath","180 Series Water Bath","Thermo Scientific",NULL
-Autoclave,FN500,Memmert,NULL
-"Magnetic Stirrer (Heated)",F20500060,"Velp Scientifica",NULL
-"Scale (Clinical Laboratory)","Harvard Trip Balance",Ohaus,NULL
-"pH Meter","Orion 3 Star pH Bench Top","Thermo Scientific",NULL
-"Scale (Clinical Laboratory)","EC-Type T7037",Kern,NULL
-"Hot Plate",NULL,"Lab Hosp",NULL
-"CD4 Machine","FACS Count","Becton Dickinson",NULL
-"Microscope (Teaching)","BX S1",Olympus,NULL
-"Printer (Haematology Analyzer)",LX-300+II,Epson,NULL
-"Haematology Analyzer Computer",NULL,"Abbott Laboratories",NULL
-"Haematology Analyzer","Cell-Dyn 3700","Abbott Laboratories",NULL
-Refrigerator,NULL,Dairei,NULL
-Refrigerator,NULL,Fiocchetti,NULL
-"Haematology Analyzer","Pentra XL80","Horiba Abx",NULL
-"Water Bath","Tissue Water Bath",Kedee,NULL
-"Biochemistry Analyzer",AE-600,"Erma Inc",NULL
-"Rotary Microtome",NULL,Spencers,2
-"Tissue Embedding Center",KD-BM,"Jinhua Kedi",NULL
-"Tissue Bath-Baking Processor",KD-T,"Jinhua Kedi",2
-"Automatic Tissue Processor",1040-STP-003,Spencers,2
-Microscope,CX21FSI,Olympus,NULL
-Microscope,BX51,Olympus,NULL
-"Staining Machine",NULL,Spencers,NULL
-Refrigerator,ECTR,Fiocchetti,NULL
-Refrigerator,ECTR,Fiocchetti,NULL
-Autoclave,AX-75L,Axiom,NULL
-Autoclave,AX-75L,Axiom,NULL
-"Hot Plate",NULL,Reme,NULL
-Autoclave,NULL,NULL,NULL
-"Safety Cabinet (Microbiological)",MN,Nuve,NULL
-Refrigerator,"super arctic 7002t",Fiocchetti,NULL
-Refrigerator,"super arctic 7002t",Fiocchetti,NULL
-"Chemistry Analyzer",Fully,"Biomedical System International",NULL
-Microscope,RXL-5B,Olympus,NULL
-Centrifuge,"C854/6 9/07","Remi Motors",NULL
-"Hot Plate","RHP-CI Hot Plate",Remi,NULL
-"Microplate Reader",AX-9602,Axiom,NULL
-"Electrophoresis Machine",BTS-100,Biosystems,NULL
-"Electrophoresis Machine",BTS-100,Biosystems,NULL
-"Microplate Washer",AX-9602,Axiom,NULL
-"Microplate Reader",AX-9602,Axiom,NULL
-Spectrophotometer,TRSP,NULL,NULL
-"Microplate Washer",AX-9602,Axiom,NULL
-"Magnetic Stirrer",Arec-X,"Velp Scientifica",NULL
-"Microplate Washer","Axiom 9602",Axiom,NULL
-"Clinical Laboratory Mixer",R75,NULL,NULL
-"Scale (Clinical Laboratory)","ABT 320-4M","Kern & Sohn",NULL
-"Hemoglobin Analyzer","HB 201+","Hemocue ",NULL
-"Weighing Scale","CS 5000",Ohaus,NULL
-Vortex,Vibromix,"Glouchester Cozslguk",NULL
-Centrifuge,AX-12B,Axiom,NULL
-"pH Meter","Orion 3 Star pH Bench Top","Thermo Scientific",NULL
-"Clotting Analyzer",Humaclot-Duo,Human,NULL
-"Blood Chemistry Machine",Humaclot-Duo,Human,NULL
-Centrifuge,"Rotofix 32",Hettich,NULL
-Incubator,ED115,Binder,NULL
-"Elisa Machine","Siar Fax 4700","Awareneness Technology",NULL
-"Chemistry Analyzer",BTS-305,Biosystems,3
-"Electrolyte Analyzer","Biolyte 2000",Human,3
-"Elisa Washer","Well Washer 4 MK2","Thermo Fisher",NULL
-"Elisa Reader",Multiskan,"Thermo Fisher",4
-Centrifuge,"DSC_300 SD","Digisystem Laboratory Instruments",NULL
-"Chemistry Analyzer",BS-200,Mindray,NULL
-"Chemistry Analyzer",BS-200,Mindray,NULL
-"Chemistry Analyzer",Fully,"Biomedical System International",NULL
-"Electrolyte Analyzer",Humalyte,Hunan,NULL
-Refrigerator,USS7480IKL,Safe,NULL
-Refrigerator,"Vitamin +, GR-V212R",LG,NULL
-Microscope,CX21FSI,Olympus,NULL
-Refrigerator,"super arctic 7002t",Fiocchetti,NULL
-Distiller,D12661,"Thermo Scientific",NULL
-Centrifuge,"Rotofix 32",Hettich,NULL
-"Urine Analyzer","Uriscan Optima II","YD Electronics",NULL
-Microscope,CX21FSI,Olympus,NULL
-Microscope,CX21FSI,Olympus,NULL
-Microscope,CX21FSI,Olympus,NULL
-Microscope,CX21FSI,Olympus,NULL
-Microscope,CX21FSI,Olympus,NULL
-"Slide Drying Bench",NULL,"Thermo Fisher",NULL
-Refrigerator,R-T320EUKIK-1,Hitachi,5
-"Weighing Scale",424,Weylux,NULL
-"Oxygen Concentrator",Forlife,Airsep,NULL
-Ultrasound,"sonoline Sienna",Siemmens,NULL
-Refrigerator,NULL,Whirlpool,NULL
-Ultrasound,"Sonoace X8","Medison ",NULL
-"Coagulation Meter","3666794, Coaguchek X5",Roche,NULL
-"Exam Bed",NULL,NULL,NULL
-"Exam Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-"Child-Size Ward Bed",NULL,NULL,NULL
-Refrigerator,"super arctic 7002t",fiocchetti,NULL
-"Exam Bed",NULL,NULL,NULL
-"Weighing Scale","MP 25","NWI OJH",NULL
-Refrigerator,"RG 2250 Indesit","Merlow C-LC-TR",NULL
-"Weighing Scale","1524kl healthometer",Pelstar,NULL
-"Weighing Scale",NULL,Seca,NULL
-"Phototherapy Unit",xhz-90,Pema,NULL
-"Phototherapy Unit",XHZ-90,Pema,NULL
-"Phototherapy Unit",XHZ-90,Pema,NULL
-"Suction Machine","Vario 18",Medela,NULL
-Nebulizer,porta-neb,"Philips Respironics",NULL
-"Oxygen Concentrator","OPI 1020006","Ever Flo",NULL
-"Oxygen Concentrator","OPI 1020006","Ever Flo",NULL
-"Oxygen Concentrator","OPI 1020006","Ever Flo",NULL
-"Vital Signs Monitor","argus LCM Plus",Schiller,NULL
-"ECG Monitor","m12041a 24c omnicare","Hewlett Packard",NULL
-"Infant Basin",NULL,NULL,NULL
-"Infant Basin",NULL,NULL,NULL
-"Infant Basin",NULL,NULL,NULL
-"X-Ray Light Box",NULL,Rege,NULL
-Nebulizer,porta-neb,Medic-Aid,NULL
-"Child-Sized Ward Bed",NULL,NULL,NULL
-"Child-Sized Ward Bed",NULL,NULL,NULL
-"Child-Sized Ward Bed",NULL,NULL,NULL
-"Blood Pressure Machine (Manual)",NULL,Provident,NULL
-"Blood Pressure Machine (Manual)",NULL,Fazzini,NULL
-"Blood Pressure Machine (Manual)",NULL,Provident,NULL
-"Blood Pressure Machine (Manual)","lian scenic-5",Spangler,NULL
-Nebulizer,porta-neb,"Philips Respironics",NULL
-"Exam Bed",NULL,NULL,NULL
-"Exam Bed",NULL,NULL,NULL
-"Infrared Lamp",NULL,Greenham,NULL
-"Exam Bed",NULL,NULL,NULL
-"Traction Machine","BTL-16 Plus",BTL,NULL
-"Tense Machine",BTC-5620,NULL,NULL
-"Exam Bed",NULL,NULL,NULL
-"Infrared Lamp",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Quadripon Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Tilting bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"X-Ray Light Box",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Tense Machine",btl-5000,"BTL Industries",NULL
-"Muscle Stimulator","dynatron 438","Dynatron Enraf Nonius Delft",NULL
-"Step Machine",NULL,Trojan,NULL
-"Exercise Bicycle","ergomedic 818e",Monark,NULL
-"Exercise Bicycle","Cycle PEC-3000",Proteus,NULL
-Oven,NULL,Titanox,NULL
-"Examination Lamp",NULL,NULL,NULL
-"ENT Examination Machine",2F-020-02-P,"Down Surgical",NULL
-"ENT Examination Machine",2F-020-02-P,"Down Surgical",NULL
-"Diagnostic Audiometer","5610 Assens Denmark","Interacoustics AS DK",NULL
-"Polisher for Ear Molds",18099,GD,6
-Autoclave,NULL,"Heraeus Kutzer",NULL
-"Ear Mold Machine and Compressor",5000t,"GD Carlo de Grogi",6
-"Exam Bed",NULL,NULL,NULL
-Tympanometer,NULL,Kamplex,NULL
+AC Automatic Voltage Regulator,SVC-SOOON,Matsunaga,NULL
+Acupuncture Machine,NULL,NULL,NULL
+Acupuncture Machine,W-101,NULL,NULL
+Air Compressor,A-L-Kompressor,Dragerwerk Ag Wbeck,NULL
+Air Compressor,event,Ekom (Slovak Republic),NULL
+Anesthesia Machine,Aeon7500A,Aeonmed,NULL
+Anesthesia Machine,AMS 100,AMS,NULL
+Anesthesia Machine,AMS100,Advanced Medical Services,NULL
+Anesthesia Machine,artec,Stephan,NULL
+Anesthesia Machine,ergotronic-3,Temel,NULL
+Anesthesia Machine,excel 210se,Omeda,NULL
+Anesthesia Machine,Libretta,Medec,NULL
+Anesthesia Machine,NULL,Unknown,NULL
+Anesthesia Machine,omega,Stare,NULL
+Anesthesia Machine,unidad respiratoria,Temel,NULL
 Audiometer,eb-350i,"EB, Eikstein Bros Inc.",NULL
-"Rolling Pin Machine",NULL,NULL,NULL
-"Parallel Bars",NULL,NULL,NULL
-"Weighing Scale",NULL,NULL,NULL
-"Standing Frame",55003-35,NULL,NULL
-"Hand Bicycle",NULL,NULL,NULL
-Oven,HCALI0800,Promedics,NULL
-Oven,NULL,Prestige,NULL
-"Tense Machine",N604,"Everyway Medical",NULL
-"Surgical Microscope",M793-220,"Global Corporation",NULL
-Oven,NULL,Remi,NULL
-"Operating Table","D-68642 Hustak",Axiom,NULL
-"Examination Lamp","Mach 115","Dr Mach",NULL
-"Anesthesia Machine","excel 210se",Omeda,NULL
-"Surgical Microscope",NULL,"Carl Zeiss",NULL
-"Washing Machine",W-9700S,Toshiba,NULL
-Refrigerator,PFC145W,Proline,NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-"Ward Bed",976,"AB Sangfabriken",NULL
-Oven,Lapetite,Panacea,NULL
-"Acupuncture Machine",W-101,NULL,NULL
-"Weighing Scale",713,Seca,NULL
-"Acupuncture Machine",NULL,NULL,NULL
-"Patient Trolley",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"Treatment Bed",NULL,NULL,NULL
-"X-Ray Light Box",PD-FA,Yuenva,NULL
-"Surgical Microscope","Opmi Pico","Carl Zeiss",NULL
-"Operating Table",NULL,Instacare,NULL
-"O2 Adapter",NULL,"Inter Med",NULL
-"Flow Meter",TR200,"Fabrica do Por",NULL
-"Vital Signs Monitor",Top-1800,"Beijing Dotops",NULL
-"Anesthesia Machine",Aeon7500A,Aeonmed,NULL
-"Diathermy Machine",NULL,"Karl Storz",NULL
-"Operating Lamp",NULL,NULL,NULL
-"Diathermy Machine",AX-H900,Axiom,NULL
-"Diathermy Machine",AB-250B,AVIS,NULL
-"Surgical Head Lamp",NULL,NULL,NULL
-"Operating Table",NULL,NULL,NULL
-"Video Otoscope",NULL,"Med RX Inc",NULL
-Nebulizer,225,Schuco,NULL
-Ventilator,"ivent 201",Versamed,NULL
-"Suction Machine","new askir 30",Cami,NULL
-"Suction Machine",f170,Fazzini,NULL
-"Suction Machine",f170,Fazzini,NULL
-Refrigerator,SG-R210,"Super General",NULL
-"Oxygen Concentrator","new life elite",Airset,NULL
-"Pulse Oximeter",n180,Nelcor,NULL
-"Oxygen Concentrator",lf-h-10a,"Zhejiang Longfei Industry",NULL
-"ECG Triscope",8021,S&W,NULL
-"Pulse Oximeter",n-200,Nelcor,NULL
-"Pulse Oximeter",n180,Nelcor,NULL
-"Nasal CPAP System",apd2,"Medtronic Sullivan",NULL
-"Vital Signs Monitor",3800,Omeda,NULL
-Defibrillator,"Lifepak 9","Physio-Control Corporation",NULL
-Defibrillator,78660A,"Hewlett Packard",NULL
-"Vital Signs Monitor",PVM-2701,"Nihon Kohden",NULL
-"Pulse Oximeter",V450/T,Daray,NULL
-"Vital Signs Monitor","Siaetron 3000","Nihon Kohden",NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Suction Machine",YB.DX23D,Jahaf,NULL
-"Vital Signs Monitor",PVM-2701,"Nihon Kohden",NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Ventilator, Vital Signs Monitor",RM3000TFT,"Siare Engineering International Group",NULL
-"Vital Signs Monitor",PVM-2701,"Nihon Kohden",NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Infusion Pump",P-600,Atom,NULL
-"Infusion Pump",6K6001B,SK,NULL
-"Ventilator, Vital Signs Monitor","Siaetron 3000","Siare Engineering International Group",NULL
-Defibrillator,"Lifepak 9","Physio-Control Corporation",NULL
-"Vital Signs Monitor",PVM-2701,"Nihon Kohden",NULL
-"Suction Machine",TobiClinic,Gima,NULL
-"Infusion Pump",P-600,Atom,NULL
-"Oxygen Concentrator",Nuvo,"Nidek Medical",NULL
-"Electrolyte Analyzer",URIT-910A,URIT,NULL
-"Blood Gas Machine","Easy Blood Gas",Medica,NULL
-"ECG Monitor","CardiofaxV ECG-1550K","Nihon Kohden",NULL
-"Blood Pressure Machine (Manual)",NULL,Conduren,NULL
-Oven,"A3-214-535, Via Canove n.2/a",Titanox,NULL
-"X-Ray Film Holder","Bucky Diagnost 984850029301",Phillips,NULL
-"X-Ray Automatic Developer","Optimax 2010 1160-1-0000","Protec Medical Systems",NULL
-"X-Ray Light Box","cold light illuminators",Kodak,NULL
-"X-Ray Light Box",Planilux,"Felix Schulte",NULL
-"X-Ray Machine","07093110 Axiom Iconos R100",Siemens,NULL
-"Ultrasound ","Sonoace X8",Medison,NULL
-Refrigerator,NULL,Daewoo,NULL
-"Blood Pressure Machine (Manual)",NULL,"Welch Allyn",NULL
-"Blood Pressure Machine (Manual) ",NULL,"Gluco Plus",NULL
-"Blood Pressure Machine (Manual)",NULL,NULL,NULL
-Refrigerator,NULL,NULL,NULL
-"Weighing Scale",811021859,Seca,NULL
-"Height Scale",2171721009,Seca,NULL
-"Examination Lamp",NULL,NULL,NULL
-"AC Automatic Voltage Regulator",SVC-SOOON,Matsunaga,NULL
-Oven,NULL,Titanox,NULL
-Oven,A3-214-535,Titanox,NULL
-"Dental Unit",yzx,Axiom,2
-"Dental Unit",yzx,Axiom,2
-"Examination Lamp",NULL,Heraeus,NULL
-Autoclave,tr50n,"Triumph Industrial",NULL
-Oven,1911,Aeshulap,NULL
-"Dental X-Ray machine",oy-00880,Planmeca,NULL
-"Oxygen Concentrator",102006,"Ever Flo",NULL
-"Infant Incubator",yp-90a,Axiom,NULL
-"Infant Incubator",yp-90a,Axiom,NULL
-"Infant Basin",NULL,NULL,NULL
-"Suction Machine",0706CAOS,"New Aska 30",NULL
-"Infant Incubator","c2vha-1 isolette c2000","Hill Rom Air Shields, Drager",NULL
-"Oxygen Concentrator",102006,"Ever Flo",NULL
-"Infant Basin",NULL,NULL,NULL
-"Infant Incubator","c2vha-1 isolette c2000","Hill Rom Air Shields, Drager",NULL
-"Infant Incubator","c2vha-1 isolette c2000","Hill Rom Air Shields, Drager",NULL
-"Infant Incubator",xp-90a,Axiom,NULL
-"Pulse Oximeter","set rad-8",Masimo,NULL
-"Infant Incubator",yp-90a,Axiom,NULL
-"Oxygen Concentrator",1020006,"Ever Flo",NULL
-"Oxygen Concentrator",1020006,"Ever Flo",NULL
-"Oxygen Concentrator",1020006,"Ever Flo",NULL
-"Oxygen Concentrator",1020006,"Ever Flo",NULL
-"Weighing Scale",Premium,EKS,NULL
-"Suction Machine","vario 18",Medela,NULL
-"Pulse Oximeter","set rad-8",Masimo,NULL
-"Pulse Oximeter","set rad-8",Masimo,NULL
-"Pulse Oximeter","set rad-8",Masimo,NULL
-"Infant Incubator",d-f-2858,Trident,NULL
-"Phototherapy Unit",XHZ-90,Pema,NULL
-"Phototherapy Unit",Neoblue,Natus,NULL
-"Oxygen Concentrator",AL35277,Pepak,NULL
-"Phototherapy Unit",Neoblue,Natus,NULL
-"Infant Basin",NULL,NULL,NULL
-"Infant Basin",NULL,NULL,NULL
-"Infant Basin",NULL,NULL,NULL
-"Diathermy Machine","Force 40s","Valley Lab",NULL
-"Blood Pressure Machine (Manual)",NULL,"Welch Allyn",NULL
-"Anesthesia Machine",Aeon7500A,Aeonmed,1
-"Operating Table",2080,Amsco,NULL
-"Operating Table",J4,"Eschman Equipment",NULL
-"X-Ray Light Box",IRIS70,Planilux,NULL
-"X-Ray Light Box",IRIS70,Planilux,NULL
-"Pulse Oximeter",AH-M1,Acare,NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Suction Machine",D7MX,Hersill,NULL
-"Anesthesia Machine",Aeon7500A,Aeonmed,NULL
-"Operating Lamp",3500,"Original Hunau Quarzlampen",NULL
-"Pulse Oximeter","Masimo Set RAD-5",Masimo,NULL
-"Pulse Oximeter",AH-M1,Acare,NULL
-"Suction Machine",310356/03,Gima,7
-"X-Ray Light Box",LJ-S,Planilux,NULL
-"Diathermy Machine",GD350-P,Hutong,NULL
-"Suction Machine",LX-3,Jhali,NULL
-"Surgical Microscope","Opmics, KBC/KBD002","Carl Zeiss",NULL
-"X-Ray Machine (Portable)",eco-22-gen-cx9,Ecoray,2
-"Digital Display Screen for Portable X-Ray",ECO-MCART-CX9,Ecoray,NULL
-"X-Ray Light Box","IRIS, 23085","Geratebau F. Schulte",NULL
-"X-Ray Light Box",23085,"Geratebau F. Schulte",NULL
-Defibrillator,"lifepak 9b",Physiocontrol,NULL
-"Diathermy Machine","BMS4400 Powerplus","Birtcher Medical Systems",NULL
-"Operating Lamp ",NULL,Hanaulu,NULL
-"Operating Table",AX-3008H,Axiom,2
-"Suction Machine",SR1,Fazzini,NULL
-"Suction Machine",NULL,Gima,7
-"Operating Table",ot-125a,"St Francis Medical Equipment",NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Vital Signs Monitor","amamap 8u5xt",Critikon,NULL
-"Suction Machine",NULL,Gima,7
-"Anesthesia Machine",AMS100,"Advanced Medical Services",NULL
-"Operating Lamp",66858,"Original Hanaulux",NULL
-"Diathermy Machine","physiogard sm785",Odam,NULL
-"Pulse Oximeter","biox 3740",Omeda,NULL
-"Suction Machine","new akir 30","Cami italian medical touch",NULL
-"Suction Machine",f-36,Fazzini,NULL
-"Delivery Table",NULL,NULL,NULL
-"Delivery Table",NULL,NULL,NULL
-"Delivery Table",NULL,NULL,NULL
-"Delivery Table",NULL,NULL,NULL
-"Resuscitation Table with Heating Lamp","multiradia 30",mms,NULL
-"Suction Machine","vario 18",Medela,NULL
-"Suction Machine","new askir 30",Cami,NULL
-"Suction Machine",NULL,Dameca,NULL
-"Patient Trolley",er24,Stryker,NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,NULL
-"Weighing Scale",TA-8859,Target,NULL
-Refrigerator,"Best One GR-1515",Goldstar,NULL
-Glucometer,NULL,"Gluco Plus",NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-Autoclave,GE224C,Getinge,NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-Oven,NULL,Titanox,NULL
-"Delivery Table",NULL,NULL,NULL
-"Delivery Bed",NULL,"Famed Zywier",NULL
-Autoclave,NULL,Binder,NULL
-"Exam Bed (maternity)",NULL,NULL,NULL
-"Blood Pressure Machine (Manual)",NULL,"Welch Allyn",NULL
-Nebulizer,"Omron NE-CO8","Omron Healthcare",NULL
-"Blood Pressure Machine (Manual) ","big ben round",Reister,NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,1
-"Blood Pressure Machine (Manual)","big ben round",Reister,1
-"Blood Pressure Machine (Manual)",nova-presameter,Reister,1
-"Height and Weight Scale","Soehnle Professional",soehnle,NULL
-"Blood Pressure Machine (Manual)","big ben round",Reister,1
-"Blood Pressure Machine (Manual)","big ben round",Reister,1
-"Weighing Scale",NULL,NULL,1
-"Blood Pressure Machine (Manual) ","big ben round",Reister,1
-"Blood Pressure Machine (Manual)","big ben round",Reister,1
-"Blood Pressure Machine (Manual)",NULL,KC,NULL
-"Weighing Scale",TG-8866,Target,NULL
-Glucometer,NULL,"Gluco Plus",NULL
-Glucometer,NULL,"Gluco Plus",NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-Glucometer,NULL,"Gluco Plus",NULL
-Refrigerator,NULL,Hitachi,NULL
-Refrigerator,"The Slim Deluxe",Samsung,NULL
-"Weighing Scale","Health Scale",MIC,NULL
-"Weighing Scale",NULL,ADE,NULL
-Refrigerator,NULL,Helkama,NULL
-"Anesthesia Machine","AMS 100",AMS,NULL
-"Anesthesia Machine","unidad respiratoria",Temel,NULL
-"Anesthesia Machine",ergotronic-3,Temel,NULL
-"Operating Table","Surgical 2080",Amsco,NULL
-"Operating Lamp",NULL,Hanaulux,NULL
-"Blood Pressure Machine (Manual) ","big ben round",Reister,NULL
-"Patient Trolley","Tran Star",Hill-Rom,NULL
-"Patient Trolley",ER18,Stryker,NULL
-Autoclave,NULL,Titanox,NULL
+Auto Refractor,AR 530,Hoya,NULL
+Autoclave,70317,Titanox,NULL
+Autoclave,3870m,Tuttnauer,NULL
+Autoclave,Autoclavi Spa,Fedegari,NULL
 Autoclave,ax-450,Axiom,NULL
-"Anesthesia Machine",artec,Stephan,NULL
-Refrigerator,BCD-216W,"Shang Ling",NULL
-"Exam Bed (maternity)","Con-Verge Series",Hausted,NULL
-Oven,NULL,Memmert,NULL
-"Exam Bed (maternity)",NULL,Hamilton,NULL
-"Washing Machine",Atlantis,Maytag,NULL
-"Washing Machine",Atlantis,Maytag,NULL
-"Vital Signs Monitor","4532388EH5IU Sirecust 610",Siemens,NULL
-Autoclave,LS-B100L,NULL,NULL
-Autoclave,LS-B100L,NULL,NULL
-"Blood Pressure Machine (Manual)",NULL,NULL,NULL
-"Delivery Bed",NULL,"Famed Zywiec",NULL
-"Exam Bed (maternity)",NULL,NULL,NULL
-"Weighing Scale",Health-o-meter,"Continental Scale Corporation",NULL
-"Blood Pressure Machine (Manual)",NULL,"Welch Allyn",NULL
-Microscope,CX21,Olympus,NULL
-Centrifuge,Bloodbanken,"Vestsjaellands Amtskommnne",NULL
-"Chemistry Analyzer",BTS-305,Biosystems,NULL
-"Hot Plate",NULL,"Tepma 03",NULL
-"Hematology Analyzer","AutoCounter 910 Eco+",Swelab,NULL
-"Hemoglobin Analyzer","Hb 201+",Hemocue,NULL
-Glucometer,NULL,"Gluco Plus",NULL
-Centrifuge,NULL,"Falcon Optik",NULL
-Centrifuge,R303,"Remi Motors",NULL
-Centrifuge,Bloodbanken,"Vestsjaellands Amtskommnne",NULL
-"Blood Pressure Machine (Manual)",NULL,NULL,NULL
-Refrigerator,ZR-140FC,ZEC,NULL
-Refrigerator,ZR-155,ZEC,NULL
-Refrigerator,SGR101,"Super General",NULL
-Refrigerator,SGR101,"Super General",NULL
-Refrigerator,SGR101,"Super General",NULL
-Refrigerator,SGR101,"Super General",NULL
-"Suction Machine",F-36,Fazzini,NULL
-Refrigerator,ZR-155,ZEC,NULL
-Refrigerator,ZR-155,ZEC,NULL
-"Diathermy Machine","GDZ 9651A","WBL Medical",NULL
-"Blood Pressure Machine (Manual)",NULL,Hico,NULL
-"Blood Pressure Machine (Manual)",NULL,SK,NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-"Blood Pressure Machine (Manual)",NULL,NULL,NULL
-"Blood Pressure Machine (Manual)",NULL,Conticare,NULL
-"Fetal Doppler","Fetatrack 120","Ultrasound Technologies",NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-"Blood Pressure Machine (Manual)",NULL,NULL,NULL
-"Blood Pressure Machine (Manual)",NULL,Axiom,NULL
-"Blood Pressure Machine (Manual)",NULL,Reister,NULL
-"Suction machine",NULL,Gima,NULL
-"Blood Pressure Machine (Manual)",A107291-8,"Moore Medical",NULL
-"Blood Pressure Machine (Manual)",NULL,Axiom,NULL
-"Blood Pressure Machine (Manual)",NULL,Conticare,NULL
-"Blood Pressure Machine (Manual)",NULL,"Moore Medical",NULL
-"Blood Pressure Machine (Manual)",NULL,Nissei,NULL
-"Fetal Doppler",CTJ-1A,Jinsong,NULL
-"Fetal Doppler","Dopplex D920","Huntleigh Healthcare",NULL
-"Fetal Doppler","Dopplex II FD2","Huntleigh Healthcare",NULL
-"Fetal Doppler",NULL,NULL,NULL
-"Blood Pressure Machine (Manual)",nova-presameter,Reister,NULL
-Autoclave,NULL,"Chas F Thacray",NULL
-"CT Scanner Exposure Control",8598885K1555,Siemens,8
-"CT Scanner Injection System Control",VRC60025,Medrad,8
-"CT Scanner Injection System Control",VEC600,Medrad,8
-"CT Scanner Table",08596566,Siemens,8
-"CT Scanner",10165880,Siemens,8
-"CT Scanner Injection System",VHU600,Medrad,8
-"CT Scanner Generator",10165884,Siemens,8
-"X-Ray Light Box",NULL,Planilux,NULL
-"X-Ray Light Box",NULL,NULL,NULL
-Laryngoscope,NULL,NULL,NULL
-Laryngoscope,NULL,NULL,NULL
-Laryngoscope,NULL,NULL,NULL
-Autoclave,NULL,Titanox,NULL
-Autoclave,NULL,Scholtes,NULL
-Defibrillator,NULL,"Hewlett Packard",NULL
-"Blood Pressure Machine (Manual)",NULL,"Welch Allyn",NULL
-"Ultrasound ","Ultramark 4 Plus","Advanced Technology Laboratories",NULL
+Autoclave,AX-75L,Axiom,NULL
 Autoclave,AXSM-210-600,Axiom,NULL
 Autoclave,B33KW18,Gettinge,NULL
-"Compressor (Dental)",R52,Midmark,9
-"Vacuum Pump (Dental)",029-5135-00,Midmark,9
-Ultrasound,SSD-4000,Aloka,NULL
+Autoclave,FN500,Memmert,NULL
+Autoclave,GE224C,Getinge,NULL
+Autoclave,LS-B100L,NULL,NULL
+Autoclave,NULL,Binder,NULL
+Autoclave,NULL,Chas F Thacray,NULL
+Autoclave,NULL,Eegegari,NULL
+Autoclave,NULL,Heraeus Kutzer,NULL
+Autoclave,NULL,NULL,NULL
+Autoclave,NULL,PBI International,NULL
+Autoclave,NULL,Scholtes,NULL
+Autoclave,NULL,Titanox,NULL
+Autoclave,T 340 150,WC Heraeus Hanau,NULL
+Autoclave,tr50n,Triumph Industrial,NULL
+Automatic Tissue Processor,1040-STP-003,Spencers,2
+Biochemistry Analyzer,AE-600,Erma Inc,NULL
+Blender,L6,Blender,NULL
+Block Heater,SBH 130D,Stuart,NULL
+Blood Chemistry Machine,Humaclot-Duo,Human,NULL
+Blood Culture System,Bacter 9050,BD,NULL
+Blood Gas Machine,Easy Blood Gas,Medica,NULL
+Blood Pressure Machine (Manual),A107291-8,Moore Medical,NULL
+Blood Pressure Machine (Manual),big ben round,Reister,NULL
+Blood Pressure Machine (Manual),lian scenic-5,Spangler,NULL
+Blood Pressure Machine (Manual),nova-presameter,Reister,NULL
+Blood Pressure Machine (Manual),NULL,Axiom,NULL
+Blood Pressure Machine (Manual),NULL,Conduren,NULL
+Blood Pressure Machine (Manual),NULL,Conticare,NULL
+Blood Pressure Machine (Manual),NULL,Fazzini,NULL
+Blood Pressure Machine (Manual),NULL,Hico,NULL
+Blood Pressure Machine (Manual),NULL,KC,NULL
+Blood Pressure Machine (Manual),NULL,Moore Medical,NULL
+Blood Pressure Machine (Manual),NULL,Nissei,NULL
+Blood Pressure Machine (Manual),NULL,NULL,NULL
+Blood Pressure Machine (Manual),NULL,Provident,NULL
+Blood Pressure Machine (Manual),NULL,Reister,NULL
+Blood Pressure Machine (Manual),NULL,SK,NULL
+Blood Pressure Machine (Manual),NULL,Welch Allyn,NULL
+Blood Pressure Machine (Manual) ,big ben round,Reister,NULL
+Blood Pressure Machine (Manual) ,NULL,Gluco Plus,NULL
+Blood Pressure Machine Manual,NULL,Riester,NULL
+Blood Pressure Machine Manual,NULL,Unknown,NULL
+Bp Machine,475874,Spengler,NULL
+Bp Machine,Bigben Round,Reigter,NULL
+Bp Machine,NULL,Riester,NULL
+Bp Machine,NULL,Unknown,NULL
+Cardiac Monitor,multinex 4000,Datascope,1
+Cardiac Monitor,NULL,Unknown,NULL
+Cardiac Monitor,sirecust 732,Siemens,NULL
+Cardiac Monitor/Defibrillator,Cardioserve,Ge Medical Systems,NULL
+Cd4 Machine,BD Facs Count TM Instrument,"Bd Biosciences San Jose, Ca 9513 Usa",NULL
+CD4 Machine,FACS Count,Becton Dickinson,NULL
+Centrifuge,4236,Aic,NULL
+Centrifuge,308002,International equipment company,NULL
+Centrifuge,1040 series,Centurion Scientific,NULL
+Centrifuge,AX-12B,Axiom,NULL
+Centrifuge,AX-CNO,Axiom,NULL
+Centrifuge,Bloodbanken,Vestsjaellands Amtskommnne,NULL
+Centrifuge,C854/6 9/07,Remi Motors,NULL
+Centrifuge,Centrifuge 5415D,Eppendorf AG,NULL
+Centrifuge,Centrifuge 5430,Eppendorf AG,NULL
+Centrifuge,DSC_300 SD,Digisystem Laboratory Instruments,NULL
+Centrifuge,dsc3005d,"Digisystem Laboratory Instruments, Inc",NULL
+Centrifuge,egl-12e,Axiom,NULL
+Centrifuge,Labofuge 400,Kendro,NULL
+Centrifuge,Microfuge 22R,Beckman Coulter,NULL
+Centrifuge,NULL,Falcon Optik,NULL
+Centrifuge,R303,Remi,NULL
+Centrifuge,R303,Remi Motors,NULL
+Centrifuge,Rotina 35R,Hettich,NULL
+Centrifuge,Rotofix 32,Hettich,NULL
+Centrifuge,Z400,Hermle,NULL
+Chemistry Analyzer,BS-200,Mindray,NULL
+Chemistry Analyzer,BTS-305,Biosystems,NULL
+Chemistry Analyzer,Fully,Biomedical System International,NULL
+Chemistry Analyzer,screen master 3000 evolution,Biochemical System International,NULL
+Child-Size Ward Bed,NULL,NULL,NULL
+Child-Sized Ward Bed,NULL,NULL,NULL
+Clinical Laboratory Mixer,R75,NULL,NULL
+Clotting Analyzer,Humaclot-Duo,Human,NULL
+CO2 Incubator,MCO/17AIC,Sanyo,NULL
+Coagulation Meter,"3666794, Coaguchek X5",Roche,NULL
+Compressor (Dental),R52,Midmark,9
+CT Scanner,10165880,Siemens,8
+CT Scanner Exposure Control,8598885K1555,Siemens,8
+CT Scanner Generator,10165884,Siemens,8
+CT Scanner Injection System,VHU600,Medrad,8
+CT Scanner Injection System Control,VEC600,Medrad,8
+CT Scanner Injection System Control,VRC60025,Medrad,8
+CT Scanner Table,8596566,Siemens,8
+"Cu,ture Media Preparator",Masterclave 09,AES Chemunex,NULL
+Defibrillator,78660A,Hewlett Packard,NULL
+Defibrillator,Lifepak 9,Physio-Control Corporation,NULL
+Defibrillator,lifepak 9b,Physiocontrol,NULL
+Defibrillator,NULL,Hewlett Packard,NULL
+Delivery Bed,NULL,Famed Zywiec,NULL
+Delivery Bed,NULL,Famed Zywier,NULL
+Delivery Bed,NULL,Ivo,2
+Delivery Bed,NULL,Offcimadi Protesy,NULL
+Delivery Bed,NULL,Unknown,NULL
+Delivery Table,NULL,NULL,NULL
+Dental Chair,NULL,Technodent,NULL
+Dental Unit,NULL,Unknown,NULL
+Dental Unit,yzx,Axiom,2
+Dental X-Ray machine,oy-00880,Planmeca,NULL
+Dental Xray,sn82,Orix Aet,NULL
+Diagnostic Audiometer,5610 Assens Denmark,Interacoustics AS DK,NULL
+Diathermy Machine,AB-250B,AVIS,NULL
+Diathermy Machine,AX-H900,Axiom,NULL
+Diathermy Machine,BMS4400 Powerplus,Birtcher Medical Systems,NULL
+Diathermy Machine,Force 40s,Valley Lab,NULL
+Diathermy Machine,GD350-P,Hutong,NULL
+Diathermy Machine,GDZ 9651A,WBL Medical,NULL
+Diathermy Machine,hyfrecator plus,Birtcher,NULL
+Diathermy Machine,martin,Gebr.Martin Tuttlinger,NULL
+Diathermy Machine,NULL,Karl Storz,NULL
+Diathermy Machine,physiogard sm785,Odam,NULL
+Digital Display Screen for Portable X-Ray,ECO-MCART-CX9,Ecoray,NULL
+Distiller,2204,GFL,NULL
+Distiller,2204,GFL,NULL
+Distiller,A74410,Barnstead,NULL
+Distiller,D12661,Thermo Scientific,NULL
+Doppler,ES-107P2,Hayashi Denki,NULL
+Dryer,30ce,Huebsch Originators,NULL
+Dual Intensity UV Transilluminator,DyNa Light,National Labnet Company,NULL
+Ear Mold Machine and Compressor,5000t,GD Carlo de Grogi,6
+Ecg,cardiofax-3,Medical,NULL
+Ecg,mac500,Ge Medical Systems,NULL
+ECG Monitor,CardiofaxV ECG-1550K,Nihon Kohden,NULL
+ECG Monitor,m12041a 24c omnicare,Hewlett Packard,NULL
+ECG Triscope,8021,S&W,NULL
+Electric Hotplate,AHP-3,Nikura,NULL
+Electrical Stimulator (?),hz-100,Hezheng,NULL
+Electrolyte Analyzer,Biolyte 2000,Human,3
+Electrolyte Analyzer,Humalyte,Hunan,NULL
+Electrolyte Analyzer,URIT-910A,URIT,NULL
+Electronic Balance,ast 320-4m,Kern & John Gmbh,NULL
+Electrophoraysis Machine,PowerPac Basic,BioRad,NULL
+Electrophoresis Machine,BTS-100,Biosystems,NULL
+Elisa Machine,Siar Fax 4700,Awareneness Technology,NULL
+Elisa Reader,Multiskan,Thermo Fisher,4
+Elisa Washer,Well Washer 4 MK2,Thermo Fisher,NULL
+ENT Examination Machine,2F-020-02-P,Down Surgical,NULL
+Ether Machine (Anesthesia),NULL,Penlon,NULL
+Exam Bed,NULL,NULL,NULL
+Exam Bed (maternity),Con-Verge Series,Hausted,NULL
+Exam Bed (maternity),NULL,Hamilton,NULL
+Exam Bed (maternity),NULL,NULL,NULL
+Exam Light,esb25,Elsunk,NULL
+Exam Light,ls-150,Welch-Allyn,NULL
+Examination Bed,NULL,Unknown,NULL
+Examination Chair,NULL,Unknown,NULL
+Examination Lamp,Mach 115,Dr Mach,NULL
+Examination Lamp,ML 3005,Martin,NULL
+Examination Lamp,NULL,Etl,NULL
+Examination Lamp,NULL,Heraeus,NULL
+Examination Lamp,NULL,Martin (Germany),NULL
+Examination Lamp,NULL,NULL,NULL
+Examination Lamp,NULL,Unknown,NULL
+Examination Microscope/ Slit Lamp,Y25F1,Pacific Optics Electronic,NULL
+Examination Table,NULL,Unknown,NULL
+Exercise Bicycle,Cycle PEC-3000,Proteus,NULL
+Exercise Bicycle,ergomedic 818e,Monark,NULL
+Exercise Bicycle,NULL,Fonti,NULL
+Fetal Doppler,CTJ-1A,Jinsong,NULL
+Fetal Doppler,Dopplex D920,Huntleigh Healthcare,NULL
+Fetal Doppler,Dopplex II FD2,Huntleigh Healthcare,NULL
+Fetal Doppler,Fetatrack 120,Ultrasound Technologies,NULL
+Fetal Doppler,NULL,NULL,NULL
+Fetal Heart Dector,D206,Sonicaid,NULL
+Flow Meter,TR200,Fabrica do Por,NULL
+Fluorometer,FM109510/33,Wagtech,NULL
+Fracture Ward Bed,NULL,Unknown,NULL
+Freezer,U535 INNOVA,New Brunsmick Scientific,NULL
+"Freezer, ultra low",CF60,Whirlpool,NULL
+"Freezer, ultra low",NULL,Tropical,NULL
+"Freezer, ultra low",ULT2090/5/V31,Revco,NULL
+Fume Hood,Jupiter 4,Celbio,NULL
+Glucometer,c07000,Wpa,NULL
+Glucometer,elite,Bayer,NULL
+Glucometer,Ghaco Plus,Gluco Plus Inc,NULL
+Glucometer,Glucose 201+,Hemocue,NULL
+Glucometer,NULL,Gluco Plus,NULL
+Grinder Machine,NULL,S2Ford 123,NULL
+Grinderr,LE-400,Sudore,NULL
+Haematology Analyzer,Cell-Dyn 3700,Abbott Laboratories,NULL
+Haematology Analyzer,Pentra XL80,Horiba Abx,NULL
+Haematology Analyzer Computer,NULL,Abbott Laboratories,NULL
+Hand Bicycle,NULL,NULL,NULL
+Hand Exercise Machine,NULL,Unknown,NULL
+Heat Gun,NULL,Unknown,NULL
+Height and Weight Scale,Soehnle Professional,soehnle,NULL
+Height Scale,2171721009,Seca,NULL
+Hematology Analyzer,AutoCounter 910 Eco+,Swelab,NULL
+Hematology Analyzer,KX/21,Sysmex,NULL
+Hematology Analyzer,micros 60 ot,Harriba Abs,NULL
+Hematology Coulter Counter,MICROS 60CT,Horiba ABX Diagnostics,NULL
+Hemoglobin Analyzer,Hb 201+,Hemocue,NULL
+Hemoglobin Analyzer,HB 201+,Hemocue ,NULL
+Hemoglobin Analyzer,Hemocue Hb 201+,Hemocue A6,NULL
+Hemoglobin photometer,B/Hemoglobin,Hemocue,NULL
+Hemoglobin photometer,Hb 201+,Hemocue,NULL
+Hot Air Oven,NULL,Inter Continental Equipment,NULL
+Hot Plate,HP-155A,Truman,NULL
+Hot Plate,NULL,Lab Hosp,NULL
+Hot Plate,NULL,Reme,NULL
+Hot Plate,NULL,Tepma 03,NULL
+Hot Plate,RHP-CI Hot Plate,Remi,NULL
+Hot Plate with Magnetic Stirrer,HMS/1024,Fargo,NULL
+Hot Plate with Magnetic Stirrer,Ika Werk,Janke and Kunkel,NULL
+"Image processor, CPU",DP21/CB,Olympus,NULL
+Incubator,100/800,Memmert,NULL
+Incubator,apt-line b28 ,Binder,NULL
+Incubator,ECB 1.1 Digital,Odontobras,NULL
+Incubator,ED115,Binder,NULL
+Incubator,Heraeus,Thermo Scientific,NULL
+Incubator,Heraeus B6200,Thermo scientific,NULL
+Incubator,IBP,Ambassador,NULL
+Incubator,NULL,Inter Continental Equipment,NULL
+Incubator,NULL,International Equipment,NULL
+Infant Basin,NULL,NULL,NULL
+Infant Incubator,c2vha-1 isolette c2000,"Hill Rom Air Shields, Drager",NULL
+Infant Incubator,d-f-2858,Trident,NULL
+Infant Incubator,xp-90a,Axiom,NULL
+Infant Incubator,yp-90a,Axiom,NULL
+Infrared Bath,NULL,Unknown,NULL
+Infrared Examination Lamp,NULL,Unknown,NULL
+Infrared Lamp,NULL,Greenham,NULL
+Infrared Lamp,NULL,NULL,NULL
+Infusion Pump,6K6001B,SK,NULL
+Infusion Pump,P-600,Atom,NULL
+Inspicetor,GD100,Grant,NULL
+Iron Press,NULL,Unknown,NULL
+Jaundice Phototherapy Unit,XHZ 090,Pema,NULL
+Laryngoscope,NULL,NULL,NULL
+Laundry Rinser,hem89,Peko,NULL
+Lens Microscope,lensmaster lm-25,Shin-Nippon,NULL
+Magnetic Stirrer,Arec-X,Velp Scientifica,NULL
+Magnetic Stirrer,MSH 300,Boeco,NULL
+Magnetic Stirrer (Heated),F20500060,Velp Scientifica,NULL
+Mass Scale,PG203/5,Mettler Toledo,NULL
+Maternity Ward Bed,NULL,Unknown,NULL
+Media Dispenser,APS One,AES Chemunex,NULL
+Microbial Analyzer,VITEK 2 Compact,Biomerieux,NULL
+Microcompressor PH Meter,PH 211,Hanna Instruments,NULL
+Microplate Reader,ax-9602,Axiom,NULL
+Microplate Reader,AX-9602,Axiom,NULL
+Microplate Reader,mrx,Thermo Labsystems,NULL
+Microplate Washer,AX-9602,Axiom,NULL
+Microplate Washer,Axiom 9602,Axiom,NULL
+Microscope,BX51,Olympus,NULL
+Microscope,CH/20,Olympus,NULL
+Microscope,ch40,Olympus,NULL
+Microscope,CHD,Olympus,NULL
+Microscope,CX/Bi,Magnus,NULL
+Microscope,CX21,Olympus,NULL
+Microscope,cx21FS1,Olympus,NULL
+Microscope,CX21FSI,Olympus,NULL
+Microscope,CX41RF,Olympus,NULL
+Microscope,CXAO,Olympus,NULL
+Microscope,EC3,Leica Microsystems,NULL
+Microscope,Eclipse 6200,Nikon,NULL
+Microscope,eclipse e200,Nikon,NULL
+Microscope,humascope fluo led b/g,Human-Gmbh,NULL
+Microscope,kogaku-kakai,Topcon,NULL
+Microscope,NULL,Nikon,NULL
+Microscope,NULL,P20,NULL
+Microscope,NULL,Unknown,NULL
+Microscope,Primo Star,Carl Zeiss,NULL
+Microscope,primostar iled,Zeiss,NULL
+Microscope,RXL-5B,Olympus,NULL
+Microscope,S2/ST,Olympus,NULL
+Microscope,TMS,Nikon,NULL
+Microscope (Discecting),Twin Z,Medline Scientific,NULL
+Microscope (Teaching),BX S1,Olympus,NULL
+Monitor,FlexScan SX2262W,EI20 Corporation,NULL
+Monitor,TM/A17OG,JVC,NULL
+Muscle Stimulator,dynatron 438,Dynatron Enraf Nonius Delft,NULL
+Nasal CPAP System,apd2,Medtronic Sullivan,NULL
+Nebulizer,225,Schuco,NULL
+Nebulizer,NULL,Pari,NULL
+Nebulizer,Omron NE-CO8,Omron Healthcare,NULL
+Nebulizer,porta-neb,Medic-Aid,NULL
+Nebulizer,porta-neb,Philips Respironics,NULL
+Neonatal Incubator,6-ft,Kiacomo Bertocchi,NULL
+Neonatal Incubator,YP-90A,Axiom,NULL
+Neonatal Scale,NULL,Sella,NULL
+Nortex Mixer,vm-1000,"Digisystem Laboratory Instruments, Inc",NULL
+O2 Adapter,NULL,Inter Med,NULL
+Operating Bed,NULL,Unknown,NULL
+Operating Lamp,3500,Original Hunau Quarzlampen,NULL
+Operating Lamp,66858,Original Hanaulux,NULL
+Operating Lamp,NULL,Hanaulux,NULL
+Operating Lamp,NULL,NULL,NULL
+Operating Lamp ,NULL,Hanaulu,NULL
+Operating Table,2080,Amsco,NULL
+Operating Table,AX-3008H,Axiom,2
+Operating Table,D-68642 Hustak,Axiom,NULL
+Operating Table,J4,Eschman Equipment,NULL
+Operating Table,NULL,Instacare,NULL
+Operating Table,NULL,NULL,NULL
+Operating Table,opt,Opt,NULL
+Operating Table,ot-125a,St Francis Medical Equipment,NULL
+Operating Table,Surgical 2080,Amsco,NULL
+Operation Table,OPT20,Opt,NULL
+Otoscope,11730,Welch Allyn,NULL
+Otoscope,335828,Heine,NULL
+Oven,1911,Aeshulap,NULL
+Oven,A3-214-535,Titanox,NULL
+Oven,"A3-214-535, Via Canove n.2/a",Titanox,NULL
+Oven,HCALI0800,Promedics,NULL
+Oven,Lapetite,Panacea,NULL
+Oven,NULL,Memert,NULL
+Oven,NULL,Memmert,NULL
+Oven,NULL,Prestige,NULL
+Oven,NULL,Remi,NULL
+Oven,NULL,Titanox,NULL
+Oven,Pasteur,Titanox,NULL
+Oxygen Concentrator,102006,Ever Flo,NULL
+Oxygen Concentrator,1020006,Ever Flo,NULL
+Oxygen Concentrator,515ks,Devilbiss,NULL
+Oxygen Concentrator,AL35277,Pepak,NULL
+Oxygen Concentrator,catalog #51 saks,Devilbiss,NULL
+Oxygen Concentrator,Forlife,Airsep,NULL
+Oxygen Concentrator,lf-h-10a,Zhejiang Longfei Industry,NULL
+Oxygen Concentrator,new life elite,Airset,NULL
+Oxygen Concentrator,Nuvo,Nidek Medical,NULL
+Oxygen Concentrator,OPI 1020006,Ever Flo,NULL
+Parallel Bars,NULL,NULL,NULL
+Parallel Bars,NULL,Vso,NULL
+Particle Counter,CYFLOW,Dartec,NULL
+Patient Chair,NULL,Unknown,NULL
+Patient Trolley,ER18,Stryker,NULL
+Patient Trolley,er24,Stryker,NULL
+Patient Trolley,NULL,NULL,NULL
+Patient Trolley,NULL,Unknown,NULL
+Patient Trolley,Tran Star,Hill-Rom,NULL
+Pattern Cutter,ls-100,Supore,NULL
+pH Meter,Orion 3 Star pH Bench Top,Thermo Scientific,NULL
+Phototherapy Unit,Neoblue,Natus,NULL
+Phototherapy Unit,xhz-90,Pema,NULL
+Phototherapy Unit,XHZ-90,Pema,NULL
+Physiotherapy Drill,NULL,Unknown,NULL
+Pipette Gun,NULL,Accu/Jet,NULL
+Plate Shaker,A625/1,Lab/Line Instruments,NULL
+Plate Washer,Columbus Plus,Tecan,NULL
+Polisher for Ear Molds,18099,GD,6
+Pressure Pump,WP6122050,Millipore,NULL
+Pressure Steam Sterilizer,000055C,Wisconsin Aluminium Foundry,NULL
+Printer,Sunrise Remote,Tecan,NULL
+Printer (Haematology Analyzer),LX-300+II,Epson,NULL
+Projector,NULL,Unknown,NULL
+Pulse Oximeter,AH-M1,Acare,NULL
+Pulse Oximeter,biox 3740,Omeda,NULL
+Pulse Oximeter,Masimo Set RAD-5,Masimo,NULL
+Pulse Oximeter,n-200,Nelcor,NULL
+Pulse Oximeter,n180,Nelcor,NULL
+Pulse Oximeter,set rad-8,Masimo,NULL
+Pulse Oximeter,V450/T,Daray,NULL
+Quadripon Bed,NULL,NULL,NULL
+Reflectron,Feflotron Plus,Roche,NULL
+"Refridgerator/Freezer, Reagents",ZR-440FC,Zec,NULL
+Refrigerator,7R-180DF,Zec,NULL
+Refrigerator,ARF-175D,Nicura,NULL
+Refrigerator,BCD-216W,Shang Ling,NULL
+Refrigerator,Best One GR-1515,Goldstar,NULL
+Refrigerator,Donfoce,Unknown,NULL
+Refrigerator,ECTR,Fiocchetti,NULL
+Refrigerator,Fiocchetti,Frigoriferi Scientifigi,NULL
+Refrigerator,FR/142,Daewoo,NULL
+Refrigerator,NR/B651B,Panasonic,NULL
+Refrigerator,NULL,Brentwood Blood Bank Robert C Schutte,NULL
+Refrigerator,NULL,Daewoo,NULL
+Refrigerator,NULL,Dairei,NULL
+Refrigerator,NULL,Dr Dairei,NULL
+Refrigerator,NULL,Dr Dairei,NULL
+Refrigerator,NULL,Fiocchetti,NULL
+Refrigerator,NULL,Geepas,NULL
+Refrigerator,NULL,Goldstar,NULL
+Refrigerator,NULL,Helkama,NULL
+Refrigerator,NULL,Hitachi,NULL
+Refrigerator,NULL,NULL,NULL
+Refrigerator,NULL,Sanyo,NULL
+Refrigerator,NULL,Whirlpool,NULL
+Refrigerator,PFC145W,Proline,NULL
+Refrigerator,PR-151-GX,West Point International,NULL
+Refrigerator,R-T320EUKIK-1,Hitachi,5
+Refrigerator,R/220UK1,Hitachi,NULL
+Refrigerator,R/2320AUK7K,Hitachi,NULL
+Refrigerator,R/610AUK3K,Hitachi,NULL
+Refrigerator,RCW 50 EK,Electrolux,NULL
+Refrigerator,RG 2250 Indesit,Merlow C-LC-TR,NULL
+Refrigerator,SG-R210,Super General,NULL
+Refrigerator,SGR101,Super General,NULL
+Refrigerator,super arctic 7002t,Fiocchetti,NULL
+Refrigerator,super arctic 7002t,fiocchetti,NULL
+Refrigerator,The Slim Deluxe,Samsung,NULL
+Refrigerator,USS7480IKL,Safe,NULL
+Refrigerator,"Vitamin +, GR-V212R",LG,NULL
+Refrigerator,WRTD20V4AWO,Electrolux International,NULL
+Refrigerator,ZEC-ZR180DF,Sdg 081,NULL
+Refrigerator,ZR-140FC,ZEC,NULL
+Refrigerator,ZR-155,ZEC,NULL
+"Refrigerator, Blood",Emotega 250,Frigoriferi,NULL
+Resuscitation Table with Heating Lamp,multiradia 30,mms,NULL
+Rolling Pin Machine,NULL,NULL,NULL
+Rotary Microtome,NULL,Spencers,2
+Rotor Machine,NULL,Unknown,NULL
+Safe Light,VA 05,Dupix,NULL
+Safety Cabinet,Bio2+,Envair,NULL
+Safety Cabinet,Microflow 2,Bioquell,NULL
+Safety Cabinet,mn120,Nuve,NULL
+Safety Cabinet (Microbiological),MN,Nuve,NULL
+Safety Cabinet (Microbiological),MN 120,Nuve,NULL
+Scale,2171721009,Seca,NULL
+Scale (Clinical Laboratory),ABT 320-4M,Kern & Sohn,NULL
+Scale (Clinical Laboratory),EC-Type T7037,Kern,NULL
+Scale (Clinical Laboratory),Harvard Trip Balance,Ohaus,NULL
+Shaker,261,Merck,NULL
+Slide Drying Bench,NULL,Thermo Fisher,NULL
+Spectrophotometer,6065,Jenway,NULL
+Spectrophotometer,6506,Jenway,NULL
+Spectrophotometer,ae-350,Erma,NULL
+Spectrophotometer,DU520,Beckman Coulter,NULL
+Spectrophotometer,NULL,Cecil,NULL
+Spectrophotometer,TRSP,NULL,NULL
+Stainer,Previ,Biomcrieux,NULL
+Staining Machine,NULL,Spencers,NULL
+Standing Frame,55003-35,NULL,NULL
+Standing Scale,8811021659,Seca,NULL
+Step Machine,NULL,Trojan,NULL
+Sterilizer,dxba3321,Kenriago,NULL
+Stirrer and hot plate,Ika Werk,Janke & Kunkel,NULL
+Stirrer and hot plate,RFT S8,Janke & Kunkel,NULL
+Suction Machine,0706CAOS,New Aska 30,NULL
+Suction Machine,310356/03,Gima,7
+Suction Machine,CS M101,Attrezzature Medica Sanitarie (Ams) Trento,NULL
+Suction Machine,D7MX,Hersill,NULL
+Suction Machine,f-36,Fazzini,NULL
+Suction Machine,F-36,Fazzini,NULL
+Suction Machine,f170,Fazzini,NULL
+Suction Machine,LX-3,Jhali,NULL
+Suction Machine,new akir 30,Cami italian medical touch,NULL
+Suction Machine,new askir 30,Cami,NULL
+Suction Machine,NULL,Askir,NULL
+Suction Machine,NULL,Dameca,NULL
+Suction Machine,NULL,Fazzini,NULL
+Suction machine,NULL,Gima,NULL
+Suction Machine,NULL,Medela,NULL
+Suction Machine,SR1,Fazzini,NULL
+Suction Machine,Tobi clinic,Gima,NULL
+Suction Machine,TobiClinic,Gima,NULL
+Suction Machine,Vario 18,Medela,NULL
+Suction Machine,vario 18,Medela,NULL
+Suction Machine,YB.DX23D,Jahaf,NULL
+Surgical Head Lamp,NULL,NULL,NULL
+Surgical Lamp,haravlux 2004,Heraeus,NULL
+Surgical Microscope,M793-220,Global Corporation,NULL
+Surgical Microscope,NULL,Carl Zeiss,NULL
+Surgical Microscope,Opmi Pico,Carl Zeiss,NULL
+Surgical Microscope,"Opmics, KBC/KBD002",Carl Zeiss,NULL
+Surgical Ward Bed,NULL,Cooperazione Italiana,NULL
+Tense Machine,BTC-5620,NULL,NULL
+Tense Machine,btl-5000,BTL Industries,NULL
+Tense Machine,N604,Everyway Medical,NULL
+Theater Lamp,gallois,Unknown,NULL
+Thermal Cycler,MyCycler Thermal Cycler,BioRad,NULL
+Thermomixer,Thermomixer Compact,Eppendorf AG,NULL
+Tilting bed,NULL,NULL,NULL
+Tint Machine,NULL,Unknown,NULL
+Tissue Bath-Baking Processor,KD-T,Jinhua Kedi,2
+Tissue Embedding Center,KD-BM,Jinhua Kedi,NULL
+Traction Bed,NULL,Unknown,NULL
+Traction Machine,BTL-16 Plus,BTL,NULL
+Treatment Bed,NULL,NULL,NULL
+Tympanometer,NULL,Kamplex,NULL
+Ultrasound,180 Plus,Sonosite,NULL
+Ultrasound,au560cfm,Ansaldo Electronica Biomedicale,NULL
 Ultrasound,EUB-555,Hitachi,NULL
 Ultrasound,M2540A,Philips,NULL
-Ultrasound,"Sigma 44HVCD","Kontron Instruments",NULL
-Ultrasound,"Sigma 330","Konron Medical",NULL
+Ultrasound,megasonic-400,Bn Electronica,NULL
+Ultrasound,Sigma 330,Konron Medical,NULL
+Ultrasound,Sigma 44HVCD,Kontron Instruments,NULL
+Ultrasound,Sonoace X8,Medison ,NULL
+Ultrasound,sonoline Sienna,Siemmens,NULL
+Ultrasound,SSD-4000,Aloka,NULL
+Ultrasound,SSD-650CL,Aloka,NULL
+Ultrasound ,Sonoace X8,Medison,NULL
+Ultrasound ,Ultramark 4 Plus,Advanced Technology Laboratories,NULL
+Ultrasound Monitor,ezu-mt12-s1,Hitachi,NULL
+Urine Analyzer,Uriscan Optima II,YD Electronics,NULL
+Vacuum pump,707,Asal,NULL
+Vacuum Pump (Dental),029-5135-00,Midmark,9
+Ventilator,ivent 201,Versamed,NULL
+"Ventilator, Vital Signs Monitor",RM3000TFT,Siare Engineering International Group,NULL
+"Ventilator, Vital Signs Monitor",Siaetron 3000,Siare Engineering International Group,NULL
+Video Otoscope,NULL,Med RX Inc,NULL
+Vision Unit,Vistion tester D,Suenska Optiska Ab,NULL
+Vital Signs Monitor,3800,Omeda,NULL
+Vital Signs Monitor,4532388EH5IU Sirecust 610,Siemens,NULL
+Vital Signs Monitor,amamap 8u5xt,Critikon,NULL
+Vital Signs Monitor,argus LCM Plus,Schiller,NULL
+Vital Signs Monitor,PVM-2701,Nihon Kohden,NULL
+Vital Signs Monitor,Siaetron 3000,Nihon Kohden,NULL
+Vital Signs Monitor,Top-1800,Beijing Dotops,NULL
+Vortex,Automatic Mixer,EckII/Electronic,NULL
+Vortex,NULL,German Industrial Corporation,NULL
+Vortex,NULL,Inter Continental Equipment,NULL
+Vortex,Vibromix,Glouchester Cozslguk,NULL
+Vortex,Vortex Genie 2,Fisher,NULL
+Walker,DMA,Bridgewd Uk,NULL
+Wall Ladder (Traction),NULL,Unknown,NULL
+Ward Bed,976,AB Sangfabriken,NULL
+Ward Bed,CE,Unknown,NULL
+Ward Bed,NULL,NULL,NULL
+Ward Bed,NULL,Unknown,NULL
+Washing Machine,30,Grandimpianti,NULL
+Washing Machine,Atlantis,Maytag,NULL
+Washing Machine,inm30e,Grandimpianti,NULL
+Washing Machine,W-9700S,Toshiba,NULL
+Washing Machine,wm30e,Grandimpianti,NULL
+Water Bath,1013,GFL/Gescellschaft Fviv,NULL
+Water Bath,180 Series Water Bath,Thermo Scientific,NULL
+Water Bath,Dk-420,Axiom Gmbh,NULL
+Water Bath,NULL,Inter Continental Equipment,NULL
+Water Bath,NULL,PBI International,NULL
+Water Bath,thermo boy,Karl Kolb,NULL
+Water Bath,Thermomix BM/E,B.Braun Biotech International,NULL
+Water Bath,Tissue Water Bath,Kedee,NULL
+Water Distiller,NULL,Axiom,NULL
+Water Heater,NULL,Sadia Heating Ltd (England),NULL
+Weighing Balance,CP 2245,Sartorius,NULL
+Weighing Balance,NULL,Shuang Guan,NULL
+Weighing Balance,NULL,Unknown,NULL
+Weighing Scale,424,Weylux,NULL
+Weighing Scale,713,Seca,NULL
+Weighing Scale,811021859,Seca,NULL
+Weighing Scale,3341321008,Seca,NULL
+Weighing Scale,8811021659,Seca,NULL
+Weighing Scale,1524kl healthometer,Pelstar,NULL
+Weighing Scale,CS 5000,Ohaus,NULL
+Weighing Scale,EKS,Unknown,NULL
+Weighing Scale,Health Scale,MIC,NULL
+Weighing Scale,Health-o-meter,Continental Scale Corporation,NULL
+Weighing Scale,MP 25,NWI OJH,NULL
+Weighing Scale,NULL,ADE,NULL
+Weighing Scale,NULL,Health O Meter,NULL
+Weighing Scale,NULL,Milano Bilonce Salus,NULL
+Weighing Scale,NULL,NULL,1
+Weighing Scale,NULL,Sartorius,NULL
+Weighing Scale,NULL,Seca,NULL
+Weighing Scale,NULL,Unknown,NULL
+Weighing Scale,NULL,Wunder,3
+Weighing Scale,Premium,EKS,NULL
+Weighing Scale,TA-8859,Target,NULL
+Weighing Scale,TG-8866,Target,NULL
+Work Shop Grainder,NULL,Seford123,NULL
+X-Ray Automatic Developer,Optimax 2010 1160-1-0000,Protec Medical Systems,NULL
+X-Ray Film Holder,Bucky Diagnost 984850029301,Phillips,NULL
+X-Ray Light Box,23085,Geratebau F. Schulte,NULL
+X-Ray Light Box,cold light illuminators,Kodak,NULL
+X-Ray Light Box,"IRIS, 23085",Geratebau F. Schulte,NULL
+X-Ray Light Box,IRIS70,Planilux,NULL
+X-Ray Light Box,IRIS70,Planilux,NULL
+X-Ray Light Box,LJ-S,Planilux,NULL
+X-Ray Light Box,NULL,NULL,NULL
+X-Ray Light Box,NULL,Planilux,NULL
+X-Ray Light Box,NULL,Rege,NULL
+X-Ray Light Box,NULL,Unknown,NULL
+X-Ray Light Box,PD-FA,Yuenva,NULL
+X-Ray Light Box,Planilux,Felix Schulte,NULL
+X-Ray Machine,07093110 Axiom Iconos R100,Siemens,NULL
+X-Ray Machine (Portable),eco-22-gen-cx9,Ecoray,2
+Xray,s175,Villa $C,NULL
+Xray Dryer,NULL,Unknown,NULL
+Xray Light Box,NULL,Unknown,NULL
+Xray Machine,NULL,Unknown,NULL
+Xray Manual Processing Tank,NULL,Unknown,NULL
