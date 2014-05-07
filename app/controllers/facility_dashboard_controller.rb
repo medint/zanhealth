@@ -58,7 +58,7 @@ class FacilityDashboardController < ApplicationController
 		index=0
 		arrayoforders.reverse_each do |r|
 
-			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[index]},{'v'=>0},{'v'=>0},{'v'=>0}]})
+			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[5-index]},{'v'=>0},{'v'=>0},{'v'=>0}]})
 			r.each do |q|
 				@work_orders_json['rows'][index]['c'][q.status+1]['v']+=1	
 			end

@@ -186,14 +186,16 @@ body {
 				margin-top: 4px;
 				margin-left: 4%;
 				margin-right: 4%;
-				float: right;
 
-				background-image: url(image_path('right/trashicon.png'));
+				float:right;
+
+				background-image: url(image_path('right/printericon.png'));
 				background-size: 100%;
 				width: 14px;
 				height: 14px;
 				display:block;
 			}
+		
 		}
 		.actions{
 			input[type=submit] {

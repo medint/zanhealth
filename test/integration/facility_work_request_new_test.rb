@@ -1,7 +1,7 @@
 require 'test_helper'
 Capybara.current_driver = :poltergeist
 
-class FacilityWorkOrderNewTest < ActionDispatch::IntegrationTest
+class FacilityWorkRequestNewTest < ActionDispatch::IntegrationTest
   setup do
   		@user = users(:userone)
 		visit '/users/sign_in'
@@ -12,15 +12,15 @@ class FacilityWorkOrderNewTest < ActionDispatch::IntegrationTest
 		
   end
 
-  test "create new work order form" do
-      visit '/facility_work_orders/new' 
+  test "create new work request form" do
+      visit '/facility_work_requests/new' 
 
-		assert_equal '/facility_work_orders/new', current_path
+		assert_equal '/facility_work_requests/new', current_path
       # page.save_screenshot('screenshot.png')
       click_button 'Create'
       # important note, if javascript not enabled, then will allow creation
       # unless backend validation is there.
-		assert_equal '/facility_work_orders/new', current_path
-    
+		assert_equal '/facility_work_requests/new', current_path 
+
   end
 end

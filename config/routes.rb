@@ -33,8 +33,8 @@ Zanhealth::Application.routes.draw do
 
   resources :bmet_labor_hours
 
-  resources :facility_work_orders do
-    collection { get :search }
+  resources :facility_work_orders, except: :show do
+  	  collection { get :search }
   end
 
   resources :facility_work_order_comments
@@ -74,7 +74,17 @@ Zanhealth::Application.routes.draw do
 
   put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
   
-  get "/hidden_facility_work_orders", to: "facility_work_orders#hidden"
+  get "/facility_work_orders/unhidden", to: "facility_work_orders#index"
+
+  get "/facility_work_orders/unhidden/:id", to: "facility_work_orders#show"
+  
+  get "/facility_work_orders/hidden/", to: "facility_work_orders#hidden"
+
+  get "/facility_work_orders/hidden/:id", to: "facility_work_orders#show_hidden"
+
+  get "/facility_work_orders/all/", to: "facility_work_orders#all"
+
+  get "/facility_work_orders/all/:id", to: "facility_work_orders#show_all"
 
   get '/404', :to => redirect('/404.html')
 
