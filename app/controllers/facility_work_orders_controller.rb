@@ -4,9 +4,9 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_facility_work_orders, only: [:index, :new, :show]
   before_action :set_status, only: [:show, :new, :hidden, :show_hidden, :all, :show_all]
   before_action :set_users, only: [:index, :new, :show, :hidden, :show_hidden, :all, :show_all]
-  before_action :set_departments, only: [:new, :show, :hidden, :show_hidden, :all, :show_all]
+  before_action :set_departments, only: [:new, :show, :hidden, :show_hidden, :all, :show_all] 
   before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
-  before_action :set_all_work_orders, only: [:show_all, :all]
+  before_action :set_all_work_orders, only: [:show_all, :all, :as_csv]
 
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
@@ -22,6 +22,11 @@ class FacilityWorkOrdersController < ApplicationController
   def index
   	  @link = facility_work_orders_url+"/unhidden/"
   end
+
+  def as_csv
+  	  	 send_data @facility_work_orders.as_csv, type: "text/csv", filename: "facility_work_orders.csv"
+  end
+
 
   def show
     @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
