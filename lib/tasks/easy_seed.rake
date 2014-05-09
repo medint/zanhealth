@@ -1,6 +1,7 @@
 require 'csv'
 require 'faker'
 ENV["RAILS_ENV"] ||= "test"
+puts ENV["RAILS_ENV"]
 
 namespace :test do
 
