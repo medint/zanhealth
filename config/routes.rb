@@ -86,7 +86,11 @@ Zanhealth::Application.routes.draw do
 
   get "/facility_work_orders/all/:id", to: "facility_work_orders#show_all"
 
+  get '/404', :to => redirect('/404.html')
+
   root to: "facility_work_orders#index"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

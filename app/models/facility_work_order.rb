@@ -36,19 +36,19 @@ class FacilityWorkOrder < ActiveRecord::Base
   def auto_date_start
   	if self.status == 0
   		self.date_started=nil
-	elsif self.status == 1 && self.date_started==nil
-		self.date_started=DateTime.now
-	end
+  	elsif self.status == 1 && self.date_started==nil
+  		self.date_started=DateTime.now
+  	end
     if self.status == 2 &&self.date_completed==nil
       self.date_completed=DateTime.now
-    end
-
-  
+    end  
   end
 
   def init
      self.status ||=0
   end
+
+
 
 
 

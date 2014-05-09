@@ -83,6 +83,7 @@ class FacilityWorkOrdersController < ApplicationController
 
   def create
     @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
+    @facility_work_order.requester_id=current_user.id
 
     respond_to do |format|
       if @facility_work_order.save
@@ -96,7 +97,12 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def set_facility_work_order
-      @facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
+      @facility_work_order = FacilityWorkOrder.with_deleted.find_by_id(params[:id])
+      if (@facility_work_order==nil || @facility_work_order.owner.facility_id!=current_user.facility_id)
+        @facility_work_order=nil
+        redirect_to "/404"
+      end
+
   end
 
   def set_facility_work_orders
@@ -155,6 +161,6 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def facility_work_order_params
-      params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
+      params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
   end
 end

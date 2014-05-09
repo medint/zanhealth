@@ -20,6 +20,7 @@ usertwo:
 
 #dashboard
 userdboard:
+  name: userd  
   username: Userd
   email: d@d.com
   encrypted_password: <%= User.new.send(:password_digest, "password") %>

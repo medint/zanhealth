@@ -199,6 +199,7 @@ namespace :test do
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			60.times do |fwo|
 				date_base = Time.now
+				date_created = date_base - 60*60*24*(rand(17..25))
 				date_expire = date_base + 60*60*24*(rand(10..100))
 				date_started = date_base - 60*60*24*(rand(5..15))
 				date_completed = date_base - 60*60*24*(rand(0..9))
@@ -207,6 +208,7 @@ namespace :test do
 									 :date_expire => date_expire,
 									 :date_completed => date_completed,
 									 :date_started => date_started,
+									 :created_at => date_created,
 									 :request_type => 1,
 									 :status => rand(3),
 									 :description => Faker::Lorem.sentence(word_count = rand(11)),
@@ -220,6 +222,7 @@ namespace :test do
 					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
 														  :date_expire => date_expire,
 														  :date_started => date_started,
+														  :created_at => date_created,
 														  :request_type => 1,
 														  :status => rand(3),
 														  :description => Faker::Lorem.sentence(word_count = rand(11)),
@@ -256,6 +259,7 @@ namespace :test do
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
+												   :created_at => Time.now - 60*60*24*(rand(8..12)),
                                        :description => Faker::Lorem.sentence(word_count = rand(11))
 												  )
 				FacilityWorkRequest.create(:requester => Faker::Name.name,
@@ -263,12 +267,36 @@ namespace :test do
 									   :location => Faker::Lorem.sentence,
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
+									   :created_at => Time.now - 60*60*24*(rand(9..15)),
                               		   :description => Faker::Lorem.sentence(word_count = rand(11)),
                               		   :facility_id => rand(1..3)
 									  )
 			end
 		end
 		puts "Created facility preventative maintenance and work requests"
-		
+
+		BmetPreventativeMaintenance.delete_all
+		BmetWorkRequest.delete_all
+		facilities.each do |f|
+			20.times do |fpm|
+				date_base = Time.now-60*60*24*(rand(0..4))
+				BmetPreventativeMaintenance.create(:last_date_checked => date_base, 
+													:days => 1,
+													:weeks => 0,
+													:months => 0,
+													:created_at => Time.now - 60*60*24*(rand(6..10)),
+													:description => Faker::Lorem.sentence(word_count = rand(10)) 
+												   )
+				BmetWorkRequest.create(:requester => Faker::Name.name,
+									   :department => depts.sample,
+									   :location => Faker::Lorem.sentence,
+									   :phone => Faker::PhoneNumber.phone_number,
+									   :email => Faker::Internet.email,
+									   :created_at => Time.now - 60*60*24*(rand(6..10)),
+									   :description => Faker::Lorem.sentence(word_count = rand(11))
+									  )
+			end
+		end
+		puts "Created bmet preventative maintenance and work requests"
 	end
 end
