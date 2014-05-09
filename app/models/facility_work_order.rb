@@ -48,6 +48,36 @@ class FacilityWorkOrder < ActiveRecord::Base
      self.status ||=0
   end
 
+  def self.as_csv
+  	  colnames = column_names.dup
+  	  colnames.shift
+  	  CSV.generate do |csv|
+  	  	  csv << colnames
+  	  	  all.each do |item|
+  	  	  	  puts "csv cols"
+  	  	  	  puts colnames
+  	  	  	  puts "real cols"
+  	  	  	  puts column_names
+  	  	  	  values = item.attributes.values_at(*colnames)
+  	  	  	  values[4] = item.set_status(values[4])
+  	  	  	  values[5] = User.find(values[5]).name
+  	  	  	  values[6] = User.find(values[6]).name
+  	  	  	  values[13] = Department.find(values[13]).name 
+  	  	  	  csv << values
+		  end
+	  end
+  end
+
+  def set_status(status)
+  	if status == 0
+  		return "Uncompleted"
+  	elsif status == 1
+  		return "In Progress"
+	else 
+		return "Completed"
+	end
+  end
+
 
 
 

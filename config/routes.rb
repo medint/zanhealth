@@ -84,6 +84,8 @@ Zanhealth::Application.routes.draw do
 
   get "/facility_work_orders/all/", to: "facility_work_orders#all"
 
+  get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
+
   get "/facility_work_orders/all/:id", to: "facility_work_orders#show_all"
 
   get '/404', :to => redirect('/404.html')
