@@ -1,7 +1,7 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
-  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new]  
+  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new, :as_csv]  
   before_action :set_status, only: [:show]
   before_action :set_users, only: [:show]
   before_action :set_departments, only: [:show]
@@ -18,7 +18,19 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def index
+  	  @link = facility_preventative_maintenances_url+"/unhidden/"
+  end
 
+  def hidden
+  	 @link = facility_preventative_maintenances_url+"/hidden/"
+  end
+
+  def all
+  	  @link = facility_preventative_maintenances_url+"/all/"
+  end
+
+  def as_csv
+  	  send_data @facility_preventative_maintenances.as_csv, type: "text/csv", filename:"facility_preventative_maintenances.csv"
   end
 
   def show
@@ -53,11 +65,30 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def destroy
-    @facility_preventative_maintenance.destroy
+    @facility_preventative_maintenance.really_destroy!
     respond_to do |format|
       format.html { redirect_to facility_preventative_maintenances_url }
       format.json { head :no_content }
     end
+  end
+
+  def hide
+  	  @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find(params[:id])
+  	  if @facility_preventative_maintenance.destroyed?
+  	  	  FacilityPreventativeMaintenance.restore(@facility_preventative_maintenance.id)
+	  else
+	  	  @facility_preventative_maintenance.destroy
+	  end
+	  respond_to do |format|
+	  	  link = "/"+request.referer.split("/")[-2]
+	  	  if link == "/all"
+	  	  	  format.html { redirect_to request.referer }
+		  else
+		  	  link = facility_preventative_maintenances_url+link
+		  	  format.html { redirect_to link }
+		  end
+		  format.json { head :no_content }
+	  end
   end
 
   def set_status

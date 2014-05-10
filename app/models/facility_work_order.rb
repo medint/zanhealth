@@ -53,7 +53,6 @@ class FacilityWorkOrder < ActiveRecord::Base
   	  colnames.shift
   	  CSV.generate do |csv|
   	  	  csv << colnames
-  	  	  puts all
   	  	  all.each do |item|
   	  	  	  values = item.attributes.values_at(*colnames)
   	  	  	  values[4] = item.set_status(values[4])

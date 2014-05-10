@@ -16,6 +16,7 @@
 class FacilityPreventativeMaintenance < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  acts_as_paranoid
   before_save :calc_next_date
   attr_accessor :days_since
   attr_accessor :status
@@ -50,7 +51,17 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
       end
     end
 
-
+	def self.as_csv
+		colnames = column_names.dup
+		colnames.shift
+		CSV.generate do |csv|
+			csv << colnames
+			all.each do |item|
+				values = item.attributes.values_at(*colnames)
+				csv << values
+			end
+		end
+	end
 
 
 end

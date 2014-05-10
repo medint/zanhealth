@@ -199,17 +199,14 @@ namespace :test do
 			60.times do |fwo|
 				date_base = Time.now
 				date_created = date_base - 60*60*24*(rand(17..25))
-				date_expire = date_base + 60*60*24*(rand(10..100))
-				date_started = date_base - 60*60*24*(rand(5..15))
-				date_completed = date_base - 60*60*24*(rand(0..9))
-				if date_completed > date_started 
+				date_expire = date_base + 60*60*24*(rand(20..100))
+				wo_status = rand(3)
+				if wo_status == 0 
 					work_ord = FacilityWorkOrder.create( :department => rel_depts.sample, 
 									 :date_expire => date_expire,
-									 :date_completed => date_completed,
-									 :date_started => date_started,
 									 :created_at => date_created,
 									 :request_type => 1,
-									 :status => rand(3),
+									 :status => 0,
 									 :description => Faker::Lorem.sentence(word_count = rand(3..11)),
 									 :cause_description => Faker::Lorem.sentence(word_count=rand(3..10)),
 									 :action_taken => Faker::Lorem.sentence(word_count = rand(3..9)),
@@ -217,13 +214,13 @@ namespace :test do
 									 :owner => users.sample,
 									 :requester => users.sample
 									)
-				else 
+				elsif wo_status == 1 
 					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
 														  :date_expire => date_expire,
-														  :date_started => date_started,
+														  :date_started => date_base-60*60*24*(rand(2..9)),
 														  :created_at => date_created,
 														  :request_type => 1,
-														  :status => rand(3),
+														  :status => 1,
 														  :description => Faker::Lorem.sentence(word_count = rand(3..11)),
 														  :cause_description => Faker::Lorem.sentence(word_count = rand(3..12)),
 														  :action_taken => Faker::Lorem.sentence(word_count = rand(3..9)),
@@ -231,12 +228,27 @@ namespace :test do
 														  :owner => users.sample,
 														  :requester => users.sample
 														)
+				else 
+					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
+														:date_expire => date_expire,
+														:date_started => date_base-60*60*24*(rand(8..14)),
+														:date_completed => date_base-60*60*24*(rand(1..7)),
+														:created_at => date_created,
+														:request_type => 1,
+														:status => 2,
+														:description => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:cause_description => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:action_taken => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:prevention_taken => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:owner => users.sample,
+														:requester => users.sample
+													   )
 				end
-				FacilityWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..5)),
+				FacilityWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(3..10)),
 											:facility_work_order => work_ord,
 											:user => users.sample
 										   )
-				FacilityLaborHour.create(:date_started => date_base - 60*60*24*(rand(0..5)),
+				FacilityLaborHour.create(:date_started => date_base - 60*60*24*(rand(3..10)),
 									 :duration => rand(30),
 									 :technician => users.sample,
 									 :facility_work_order => work_ord

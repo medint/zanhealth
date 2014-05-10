@@ -43,6 +43,7 @@ Zanhealth::Application.routes.draw do
 
   resources :facility_labor_hours
 
+  get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   resources :facility_preventative_maintenances do
     collection { get :search }
   end
