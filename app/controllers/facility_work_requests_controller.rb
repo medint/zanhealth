@@ -38,6 +38,7 @@ before_action :set_departments, only: [:show]
 
   def create
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
+    @facility_work_request.facility_id=current_user.facility_id
 
     respond_to do |format|
       if @facility_work_request.save #&& verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY'])

@@ -52,6 +52,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
   def create
     @facility_preventative_maintenance = FacilityPreventativeMaintenance.new(facility_preventative_maintenance_params)
+    @facility_preventative_maintenance.requester_id = current_user.id
 
     respond_to do |format|
       if @facility_preventative_maintenance.save
@@ -113,7 +114,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def set_facility_preventative_maintenances
-      @facility_preventative_maintenances = FacilityPreventativeMaintenance.all
+      @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
       @facility_preventative_maintenances.map {|i| i.calc_days_since}  
   end
 
