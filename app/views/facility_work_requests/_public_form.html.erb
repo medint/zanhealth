@@ -29,7 +29,7 @@
 
   <div class = "work_request_form-short">
   	<%= @language['Telephone number'] %><br>
-  	<%= f.number_field :department, :required => true %>
+  	<%= f.number_field :phone, :required => true %>
   </div>
 
   <div class = "work_request_form-short">
@@ -43,6 +43,7 @@
   </div>
 
   <div class="actions">
+    <%= recaptcha_tags %>
     <%= f.submit @language['Create Facility Work Request'] %>
   </div>
 <% end %>
