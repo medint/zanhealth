@@ -99,3 +99,4 @@ gem 'paranoia', '~> 2.0'
 gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'

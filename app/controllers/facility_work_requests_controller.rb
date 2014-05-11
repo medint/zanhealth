@@ -24,7 +24,10 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   def show
     @input_object = FacilityWorkOrder.new
-    @input_object.description = @facility_work_request.description
+    @input_object.description = "Description: " + @facility_work_request.description + "\n" + 
+    "Location: "+@facility_work_request.location + "\n" + 
+    "Email: "+@facility_work_request.email + "\n" +
+    "Phone: "+@facility_work_request.phone + "\n" 
   end
  
   def update
