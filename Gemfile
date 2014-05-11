@@ -3,12 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
-# Use sqlite3 as the database for Active Record
-group :development do
-    gem 'sqlite3'
-end
 
 group :development do
+    gem 'sqlite3' # Use sqlite3 as the database for Active Record
     gem "better_errors" # better error page
     gem "binding_of_caller" # 'optional' dep for better_errors
     gem "bullet" # gem that checks for N+1 queries
@@ -99,4 +96,4 @@ gem 'paranoia', '~> 2.0'
 gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'bonsai-elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks

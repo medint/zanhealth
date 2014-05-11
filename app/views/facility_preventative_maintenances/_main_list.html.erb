@@ -1,7 +1,7 @@
 <div id = "mid_facility-preventative-maintenance">
   <ul id="mid-summary_ul">
     <% @facility_preventative_maintenances.each do |facility_preventative_maintenance| %>
-    <%= link_to(facility_preventative_maintenance) do %>
+    <%= link_to(@link.to_s+facility_preventative_maintenance.id.to_s) do %>
       <li
       class="mid-summary_ul_li"
       datedue="<%= facility_preventative_maintenance.next_date.try(:to_s, :number) %>"
@@ -21,8 +21,7 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="element_date">
-          <div class="element_date_title"> <%= @language['Days Since'] %>:</div>
-          <%= -facility_preventative_maintenance.days_since.to_i %>   
+          <div class="element_date_title"><%= @language['Days Until'] %>:</div><%= facility_preventative_maintenance.days_since.to_i %>         
         </div>
 
         <div class="element_date">

@@ -1,10 +1,12 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
   layout 'layouts/facilities_app'
-  before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy]
-  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new, :as_csv]  
-  before_action :set_status, only: [:show]
-  before_action :set_users, only: [:show]
-  before_action :set_departments, only: [:show]
+  before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy, :show_hidden, :show_all]
+  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new]   
+  before_action :set_status, only: [:show, :show_hidden, :show_all]
+  before_action :set_users, only: [:show, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_hidden_facility_preventative_maintenances, only: [:hidden, :show_hidden]
+  before_action :set_all_facility_preventative_maintenances, only:[:all, :show_all]
 
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
@@ -12,9 +14,10 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     render action: "index"
   end
 
-  def new    
-    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
-
+  def new
+    if :days != 0 or :weeks != 0 or :months != 0
+      @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
+    end
   end
 
   def index
@@ -23,13 +26,16 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
   def hidden
   	 @link = facility_preventative_maintenances_url+"/hidden/"
+  	 render 'index'
   end
 
   def all
   	  @link = facility_preventative_maintenances_url+"/all/"
+  	  render 'index'
   end
 
   def as_csv
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
   	  send_data @facility_preventative_maintenances.as_csv, type: "text/csv", filename:"facility_preventative_maintenances.csv"
   end
 
@@ -38,13 +44,32 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     @input_object.description = @facility_preventative_maintenance.description
   end
 
+  def show_hidden
+    @input_object = FacilityWorkOrder.new
+    @input_object.description = @facility_preventative_maintenance.description
+    render 'show'
+  end
+
+  def show_all
+    @input_object = FacilityWorkOrder.new
+    @input_object.description = @facility_preventative_maintenance.description
+    render 'show'
+  end
+
   def update
     respond_to do |format|
+    	link = request.referer.split("/")[-2]
       if @facility_preventative_maintenance.update(facility_preventative_maintenance_params)
-        format.html { redirect_to @facility_preventative_maintenance, notice: 'Work request was successfully updated.' }
+      	if link == "hidden"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/hidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  elsif link == "all"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/all/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  else
+         	format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'show' }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -56,10 +81,10 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @facility_preventative_maintenance.save
-        format.html { redirect_to @facility_preventative_maintenance, notice: 'Work order was successfully created.' }
+        format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_preventative_maintenance }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'show' }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -109,7 +134,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def set_facility_preventative_maintenance
-      @facility_preventative_maintenance = FacilityPreventativeMaintenance.find_by_id(params[:id])
+      @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find_by_id(params[:id])
       if (@facility_preventative_maintenance==nil || @facility_preventative_maintenance.requester.facility_id!=current_user.facility_id)
         @facility_preventative_maintenance=nil
         redirect_to "/404"
@@ -123,8 +148,18 @@ class FacilityPreventativeMaintenancesController < ApplicationController
       @facility_preventative_maintenances.map {|i| i.calc_days_since}  
   end
 
+  def set_hidden_facility_preventative_maintenances
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+  	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+  end
+
+  def set_all_facility_preventative_maintenances
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+  	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+  end
+
   def facility_preventative_maintenance_params
-      params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at)
+      params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
   end
 
 end

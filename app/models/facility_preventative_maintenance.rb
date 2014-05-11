@@ -14,13 +14,16 @@
 #
 
 class FacilityPreventativeMaintenance < ActiveRecord::Base
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date
   attr_accessor :days_since
   attr_accessor :status
+  validate :not_all_zero
 
   def calc_days_since
     unless self.next_date.nil?
@@ -33,6 +36,12 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
           self.status = 0
       end
     end
+  end
+
+  def not_all_zero
+    errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)
+      
+
   end
 
   private
@@ -59,6 +68,7 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 			csv << colnames
 			all.each do |item|
 				values = item.attributes.values_at(*colnames)
+				values[9] = User.find(values[9]).name
 				csv << values
 			end
 		end
