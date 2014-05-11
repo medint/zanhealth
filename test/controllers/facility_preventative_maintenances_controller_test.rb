@@ -31,6 +31,7 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
       
     end
     assert_equal(@user.id,assigns["facility_preventative_maintenance"].requester_id)
+    assert_equal(@user.facility_id,assigns["facility_preventative_maintenance"].requester.facility_id)
 
     assert_redirected_to facility_preventative_maintenance_path(assigns(:facility_preventative_maintenance))
   end
