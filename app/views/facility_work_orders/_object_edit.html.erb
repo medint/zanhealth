@@ -38,9 +38,9 @@
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
 		  <% if @facility_work_order.destroyed? %>
-			  <%= link_to "", hide_record_path(@facility_work_order), method: :put, :id => "archive-button_right", :required => true %>
+			  <%= link_to "", hide_record_path(@facility_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true %>
 		  <% else %>
-			  <%= link_to "", hide_record_path(@facility_work_order), method: :put, :id => "archive-button_right", :required => true%>
+			  <%= link_to "", hide_record_path(@facility_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true%>
 		  <% end %>
 		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>

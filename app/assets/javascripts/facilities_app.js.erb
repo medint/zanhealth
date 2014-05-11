@@ -21,7 +21,9 @@ if (window.location.toString().match(/facility_dashboard/)) {
 
 
 //window resizing
-if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/) ||window.location.toString().match(/facility_dashboard/)) {
+//if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) 
+if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/))) 
+{
 	$(document).on ("page:change",function() {
 		/* define variables */
 		

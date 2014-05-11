@@ -3,7 +3,7 @@ Capybara.current_driver = :poltergeist
 
 class FacilityWorkOrderNewTest < ActionDispatch::IntegrationTest
   setup do
-  		@user = users(:userone)
+  	@user = users(:userone)
 		visit '/users/sign_in'
 
 		fill_in 'user_login', :with => @user.username
