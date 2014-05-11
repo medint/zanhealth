@@ -16,7 +16,6 @@ class FacilityDashboardController < ApplicationController
 
 		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 		@work_orders_json= {}
-		puts(@work_orders)
 
 		currstatus=-10000
 		for i in 0..2
@@ -30,8 +29,6 @@ class FacilityDashboardController < ApplicationController
 		end
 		params["action"]="statusAjax"
 		@params_to_send_back=url_for(params)
-		@params=params
-		@testing=12
 
 
 
@@ -61,7 +58,7 @@ class FacilityDashboardController < ApplicationController
 		index=0
 		arrayoforders.reverse_each do |r|
 
-			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[index]},{'v'=>0},{'v'=>0},{'v'=>0}]})
+			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[5-index]},{'v'=>0},{'v'=>0},{'v'=>0}]})
 			r.each do |q|
 				@work_orders_json['rows'][index]['c'][q.status+1]['v']+=1	
 			end
@@ -115,7 +112,7 @@ class FacilityDashboardController < ApplicationController
 		@labor_hours.each do |q|
 			if currtech!=q.technician
 				if currtech!=0
-					@labor_hours_json[currtech.name]["totalcost"]=testing
+					@labor_hours_json[currtech.name]["totalcost"]=hoursbytech
 				end
 				currtech=q.technician
 				@labor_hours_json[q.technician.name]={}

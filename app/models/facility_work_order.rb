@@ -36,19 +36,45 @@ class FacilityWorkOrder < ActiveRecord::Base
   def auto_date_start
   	if self.status == 0
   		self.date_started=nil
-	elsif self.status == 1 && self.date_started==nil
-		self.date_started=DateTime.now
-	end
+  	elsif self.status == 1 && self.date_started==nil
+  		self.date_started=DateTime.now
+  	end
     if self.status == 2 &&self.date_completed==nil
       self.date_completed=DateTime.now
-    end
-
-  
+    end  
   end
 
   def init
      self.status ||=0
   end
+
+  def self.as_csv
+  	  colnames = column_names.dup
+  	  colnames.shift
+  	  CSV.generate do |csv|
+  	  	  csv << colnames
+  	  	  all.each do |item|
+  	  	  	  values = item.attributes.values_at(*colnames)
+  	  	  	  values[4] = item.set_status(values[4])
+  	  	  	  values[5] = User.find(values[5]).name
+  	  	  	  values[6] = User.find(values[6]).name
+  	  	  	  values[13] = Department.find(values[13]).name 
+  	  	  	  csv << values
+		  end
+	  end
+  end
+
+  def set_status(status)
+  	if status == 0
+  		return "Uncompleted"
+  	elsif status == 1
+  		return "In Progress"
+	else 
+		return "Completed"
+	end
+  end
+
+
 
 
 

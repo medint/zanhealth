@@ -41,6 +41,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   def create
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
+    @facility_work_request.facility_id=current_user.facility_id
 
     respond_to do |format|
       if @facility_work_request.save

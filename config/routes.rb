@@ -35,6 +35,8 @@ Zanhealth::Application.routes.draw do
     collection { get :search }
   end
   
+  get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
+  get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
   #dashboard
   resources :facility_dashboard
   get "/facility_dashboard/status", to: "facility_dashboard#status"
@@ -59,8 +61,11 @@ Zanhealth::Application.routes.draw do
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
   get "/detailed_items", to: "bmet_items#detailed"
   get "/text", to: "text#receive"
-
+    
+  get '/404', :to => redirect('/404.html')
   root to: "facility_work_orders#index"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -79,7 +79,7 @@ namespace :test do
 						:bmet_model => model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
-						:reason => Faker::Lorem.sentence(word_count = rand(9)), 
+						:reason => Faker::Lorem.sentence(word_count = rand(3..9)), 
 						:date_requested => date_updated
 					   )
 		end
@@ -147,7 +147,7 @@ namespace :test do
 				BmetItemHistory.create(:bmet_item => item,
 								   :status => 0,
 								   :utilization => 0,
-								   :remarks => Faker::Lorem.sentence(word_count = rand(10)),
+								   :remarks => Faker::Lorem.sentence(word_count = rand(3..10)),
 								   :updated_at => date_u
 								  )
 			end
@@ -158,7 +158,7 @@ namespace :test do
 				work_req = BmetWorkOrder.create(:date_requested => date_u_wr,
 													  :bmet_item => item,
 													  :status => 0,
-													  :description => Faker::Lorem.sentence(word_count = rand(10)),
+													  :description => Faker::Lorem.sentence(word_count = rand(3..10)),
 													  :owner => users.sample,
 													  :requester => users.sample 
 											)
@@ -167,7 +167,7 @@ namespace :test do
 					BmetWorkOrderComment.create(:datetime_stamp => date_u_wrc,
 													  :bmet_work_order => work_req,
 													  :user_id => users.sample,
-													  :comment_text => Faker::Lorem.sentence(word_count = rand(10))
+													  :comment_text => Faker::Lorem.sentence(word_count = rand(3..10))
 											)
 				end
 				1.times do |txt|
@@ -199,44 +199,56 @@ namespace :test do
 			60.times do |fwo|
 				date_base = Time.now
 				date_created = date_base - 60*60*24*(rand(17..25))
-				date_expire = date_base + 60*60*24*(rand(10..100))
-				date_started = date_base - 60*60*24*(rand(5..15))
-				date_completed = date_base - 60*60*24*(rand(0..9))
-				if date_completed > date_started 
+				date_expire = date_base + 60*60*24*(rand(20..100))
+				wo_status = rand(3)
+				if wo_status == 0 
 					work_ord = FacilityWorkOrder.create( :department => rel_depts.sample, 
 									 :date_expire => date_expire,
-									 :date_completed => date_completed,
-									 :date_started => date_started,
 									 :created_at => date_created,
 									 :request_type => 1,
-									 :status => rand(3),
-									 :description => Faker::Lorem.sentence(word_count = rand(11)),
-									 :cause_description => Faker::Lorem.sentence(word_count=rand(10)),
-									 :action_taken => Faker::Lorem.sentence(word_count = rand(9)),
-									 :prevention_taken => Faker::Lorem.sentence(word_count = rand(10)),
+									 :status => 0,
+									 :description => Faker::Lorem.sentence(word_count = rand(3..11)),
+									 :cause_description => Faker::Lorem.sentence(word_count=rand(3..10)),
+									 :action_taken => Faker::Lorem.sentence(word_count = rand(3..9)),
+									 :prevention_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
 									 :owner => users.sample,
 									 :requester => users.sample
 									)
-				else 
+				elsif wo_status == 1 
 					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
 														  :date_expire => date_expire,
-														  :date_started => date_started,
+														  :date_started => date_base-60*60*24*(rand(2..9)),
 														  :created_at => date_created,
 														  :request_type => 1,
-														  :status => rand(3),
-														  :description => Faker::Lorem.sentence(word_count = rand(11)),
-														  :cause_description => Faker::Lorem.sentence(word_count = rand(12)),
-														  :action_taken => Faker::Lorem.sentence(word_count = rand(9)),
-														  :prevention_taken => Faker::Lorem.sentence(word_count = rand(10)),
+														  :status => 1,
+														  :description => Faker::Lorem.sentence(word_count = rand(3..11)),
+														  :cause_description => Faker::Lorem.sentence(word_count = rand(3..12)),
+														  :action_taken => Faker::Lorem.sentence(word_count = rand(3..9)),
+														  :prevention_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
 														  :owner => users.sample,
 														  :requester => users.sample
 														)
+				else 
+					work_ord = FacilityWorkOrder.create(:department => rel_depts.sample,
+														:date_expire => date_expire,
+														:date_started => date_base-60*60*24*(rand(8..14)),
+														:date_completed => date_base-60*60*24*(rand(1..7)),
+														:created_at => date_created,
+														:request_type => 1,
+														:status => 2,
+														:description => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:cause_description => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:action_taken => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:prevention_taken => Faker::Lorem.sentence(word_count = rand(3..11)),
+														:owner => users.sample,
+														:requester => users.sample
+													   )
 				end
-				FacilityWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..5)),
+				FacilityWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(3..10)),
 											:facility_work_order => work_ord,
 											:user => users.sample
 										   )
-				FacilityLaborHour.create(:date_started => date_base - 60*60*24*(rand(0..5)),
+				FacilityLaborHour.create(:date_started => date_base - 60*60*24*(rand(3..10)),
 									 :duration => rand(30),
 									 :technician => users.sample,
 									 :facility_work_order => work_ord
@@ -259,7 +271,7 @@ namespace :test do
 												   :weeks => 0,
 												   :months => 0,
 												   :created_at => Time.now - 60*60*24*(rand(8..12)),
-                                       :description => Faker::Lorem.sentence(word_count = rand(11))
+                                       :description => Faker::Lorem.sentence(word_count = rand(3..11))
 												  )
 				FacilityWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
@@ -267,7 +279,7 @@ namespace :test do
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
 									   :created_at => Time.now - 60*60*24*(rand(9..15)),
-                              		   :description => Faker::Lorem.sentence(word_count = rand(11)),
+                              		   :description => Faker::Lorem.sentence(word_count = rand(3..11)),
                               		   :facility_id => rand(1..3)
 									  )
 			end
@@ -284,7 +296,7 @@ namespace :test do
 													:weeks => 0,
 													:months => 0,
 													:created_at => Time.now - 60*60*24*(rand(6..10)),
-													:description => Faker::Lorem.sentence(word_count = rand(10)) 
+													:description => Faker::Lorem.sentence(word_count = rand(3..10)) 
 												   )
 				BmetWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
@@ -292,7 +304,7 @@ namespace :test do
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
 									   :created_at => Time.now - 60*60*24*(rand(6..10)),
-									   :description => Faker::Lorem.sentence(word_count = rand(11))
+									   :description => Faker::Lorem.sentence(word_count = rand(3..11))
 									  )
 			end
 		end

@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   name: MyString
   unit_quantity: 1
   cost: 1
@@ -10,10 +9,34 @@ one:
   facility_work_order: one
 
 two:
-  id: 2
   name: MyString
   unit_quantity: 1
   cost: 1
   created_at: 2014-02-22 02:05:52
   updated_at: 2014-02-22 02:05:52
   facility_work_order: one
+
+#dashboard
+three:
+  name: MyString
+  unit_quantity: 10
+  cost: 15
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  facility_work_order: ten
+
+four:
+  name: MyString
+  unit_quantity: 100
+  cost: 5
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  facility_work_order: ten
+
+five:
+  name: MyString
+  unit_quantity: 20
+  cost: 20
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  facility_work_order: eleven

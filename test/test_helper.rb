@@ -19,7 +19,6 @@ class ActiveSupport::TestCase
   	if user.nil?  		
 		facility = Facility.create!(
 			:name => "Test",
-      :id => 1
 		)
 		user = User.create!(
           :username => "testuser",
