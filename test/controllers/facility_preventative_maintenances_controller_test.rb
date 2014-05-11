@@ -31,8 +31,11 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
     end
     assert_equal(@user.id,assigns["facility_preventative_maintenance"].requester_id)
 
-    assert_redirected_to facility_preventative_maintenance_path(assigns(:facility_preventative_maintenance))
+    assert_redirected_to "/facility_preventative_maintenances/unhidden/"+(assigns["facility_preventative_maintenance"].id).to_s
+    assert_response :redirect
+  
   end
+
 
   test "should show facility_preventative_maintenance" do
     get :show, id: @facility_preventative_maintenance
@@ -40,13 +43,42 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
   end
 
   test "should update facility_preventative_maintenance" do
+  	@request.headers["HTTP_REFERER"] = "/facility_preventative_maintenances/unhidden/"+(@facility_preventative_maintenance.id.to_s)
     patch :update, id: @facility_preventative_maintenance, facility_preventative_maintenance: { 
         last_date_checked: @facility_preventative_maintenance.last_date_checked, 
         days: @facility_preventative_maintenance.days,
         months: @facility_preventative_maintenance.months,
         next_date: @facility_preventative_maintenance.next_date,  
       }
-    assert_redirected_to facility_preventative_maintenance_path(assigns(:facility_preventative_maintenance))
+    assert_redirected_to "/facility_preventative_maintenances/unhidden/"+(assigns["facility_preventative_maintenance"].id).to_s
+    assert_response :redirect
+  end
+
+  test  "should hide facility_preventative_maintenance" do
+  	@request.headers["HTTP_REFERER"] = "/facility_preventative_maintenances/unhidden/"+(@facility_preventative_maintenance.id.to_s)
+  	put :hide, id: @facility_preventative_maintenance, facility_preventative_maintenance: {
+		last_date_checked: @facility_preventative_maintenance.last_date_checked,
+		days: @facility_preventative_maintenance.days,
+		months: @facility_preventative_maintenance.months,
+		next_date: @facility_preventative_maintenance.next_date
+	}
+	assert_not_nil assigns["facility_preventative_maintenance"].deleted_at
+	assert_redirected_to "/facility_preventative_maintenances/unhidden"
+	assert_response :redirect
+  end
+
+  test "should unhide facility_preventative_maintenance" do
+  	@request.headers["HTTP_REFERER"] = "/facility_preventative_maintenances/hidden/"+(@facility_preventative_maintenance.id.to_s)
+  	put :hide, id:@facility_preventative_maintenance, facility_preventative_maintenance: {
+		last_date_checked: @facility_preventative_maintenance.last_date_checked,
+		days: @facility_preventative_maintenance.days,
+		months: @facility_preventative_maintenance.months,
+		next_date: @facility_preventative_maintenance.next_date,
+		deleted_at: @facility_preventative_maintenance.last_date_checked
+	}
+	assert_not_equal(assigns["facility_preventative_maintenance"].deleted_at, assigns["facility_preventative_maintenance"].last_date_checked)
+	assert_redirected_to "/facility_preventative_maintenances/hidden"
+	assert_response :redirect
   end
 
   test "should destroy facility_preventative_maintenance" do

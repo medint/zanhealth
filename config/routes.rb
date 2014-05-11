@@ -28,15 +28,17 @@ Zanhealth::Application.routes.draw do
   resources :facility_work_order_comments
   resources :facility_costs
   resources :facility_labor_hours
-  resources :facility_preventative_maintenances do
+  resources :facility_preventative_maintenances, except: :show do
     collection { get :search }
   end
   resources :facility_work_requests do
     collection { get :search }
   end
   
+  # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
+
   #dashboard
   resources :facility_dashboard
   get "/facility_dashboard/status", to: "facility_dashboard#status"
@@ -44,8 +46,8 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
 
-  # hide/unhide features
-  put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record
+  # hide/unhide features for facility work orders
+  put "hide_facility_work_order/:id", to:"facility_work_orders#hide", :as => :hide_facility_work_order
   get "/facility_work_orders/unhidden", to: "facility_work_orders#index"
   get "/facility_work_orders/unhidden/:id", to: "facility_work_orders#show"
   get "/facility_work_orders/hidden/", to: "facility_work_orders#hidden"
@@ -53,6 +55,18 @@ Zanhealth::Application.routes.draw do
   get "/facility_work_orders/all/", to: "facility_work_orders#all"
   get "/facility_work_orders/all/:id", to: "facility_work_orders#show_all"
   get "/facility_work_orders/:id", to: "facility_work_orders#show_all"
+
+  # hide/unhide features for facility preventative maintenances
+  put "hide_facility_preventative_maintenance/:id", to: "facility_preventative_maintenances#hide", :as => :hide_facility_preventative_maintenance
+  get "/facility_preventative_maintenances/unhidden", to: "facility_preventative_maintenances#index"
+  get "/facility_preventative_maintenances/unhidden/:id", to: "facility_preventative_maintenances#show"
+  get "/facility_preventative_maintenances/hidden", to: "facility_preventative_maintenances#hidden"
+  get "/facility_preventative_maintenances/hidden/:id", to: "facility_preventative_maintenances#show_hidden"
+  get "/facility_preventative_maintenances/all", to: "facility_preventative_maintenances#all"
+  get "/facility_preventative_maintenances/all/:id", to: "facility_preventative_maintenances#show_all"
+
+  # hide/unhide features for bmet work orders
+  put "hide_bmet_work_order/:id", to: "bmet_work_orders#hide", :as => :hide_bmet_work_order
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  
