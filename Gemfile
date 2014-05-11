@@ -96,4 +96,4 @@ gem 'paranoia', '~> 2.0'
 gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'bonsai-elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
