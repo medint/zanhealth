@@ -1,164 +1,164 @@
 *Model ID: Nambari ya …. (not sure what model in this sense is in Kiswahili…)I’m having trouble differentiating it from item ID: 'xxx'
 *Recent comments: I’m having trouble with this because the most applicable word for comments is used to mean “opinion”: 'xxx'
-About: 'xxx': 'xxx'
-Action Taken: Hatua iliyochukuliwa: 'xxx'
-Add New Item: Ongeza kifaa kipya: 'xxx'
-All Items: Vifaa vyote: 'xxx'
-All Requests: Maombi yote: 'xxx'
-All Work Requests: Maombi yote ya kazi: 'xxx'
-Are you sure?: 'xxx xxx xxx?': 'xxx'
-Asset ID: nambari ya kitambulisho ya mali: 'xxx'
-Back: 'xxx': 'xxx'
-Broken: Kimeharibika: 'xxx'
-Building: 'xxx': 'xxx'
-Category: Kundi: 'xxx'
-Category*: Kundi BUT maybe they use “kategoria” in Tanzania: 'xxx'
-Cause Description: 'xxx xxx': 'xxx'
-Comment: 'xxx': 'xxx'
-Comments: 'xxx': 'xxx'
-Completed: 'xxx': 'xxx'
-Contact Us: 'xxx xxx': 'xxx'
-Content: Yaliyomo: 'xxx'
-Context: 'xxx': 'xxx'
-Contract Expires: Tarehe ya mwisho wa mkandarasi: 'xxx'
-Convert: 'xxx': 'xxx'
-Convert to Work Order: 'xxx xxx xxx xxx': 'xxx'
-Cost: Bei: 'xxx'
-Costs: Bei: 'xxx'
-Create: 'xxx': 'xxx'
-Create Facility Work Request: 'xxx xxx xxx xxx': 'xxx'
-Create PM: 'xxx xxx': 'xxx'
-Create Work Order: 'xxx xxx xxx': 'xxx'
-Created At: 'xxx xxx': 'xxx'
-Created: 'xxx': 'xxx'
-Dashboard: 'xxx': 'xxx'
-Date Completed: Tarehe ya kukamilishwa: 'xxx'
-Date Created: 'xxx xxx': 'xxx'
-Date Expires: Tarehe ya mwisho kutumika : 'xxx'
-Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…): 'xxx'
-Date Received: Siku kifaa kilipokewa: 'xxx'
-Date Requested: Tarehe ya ombi: 'xxx'
-Date Started: 'xxx xxx': 'xxx'
-Date/Time: 'xxx': 'xxx'
-Days: 'xxx': 'xxx'
-Days Since: 'xxx xxx': 'xxx'
-Department: 'xxx': 'xxx'
-Description: Maelezo: 'xxx'
-Destroy: Futa: 'xxx'
-Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote: 'xxx'
-Detailed View: Tazama kwa ukamilifu: 'xxx'
-Details: 'xxx': 'xxx'
-Domain: Uwanja: 'xxx'
-Due Date: 'xxx xxx': 'xxx'
-Duration: 'xxx': 'xxx'
-Edit: Hariri: 'xxx'
-Editing:'xxx': 'xxx'
-Email: 'xxx': 'xxx'
+About: 'xxx': konsènan
+Action Taken: Hatua iliyochukuliwa: Aksyon akonpli
+Add New Item: Ongeza kifaa kipya: Ajoute yon nouvo bagay
+All Items: Vifaa vyote: tout bagay yo
+All Requests: Maombi yote: tout demann
+All Work Requests: Maombi yote ya kazi: tout demann travay 
+Are you sure?: 'xxx xxx xxx?': eske ou si?
+Asset ID: nambari ya kitambulisho ya mali: numewo idantifikasyon
+Back: 'xxx': tounen
+Broken: Kimeharibika: kase
+Building: 'xxx': bilding nan
+Category: Kundi: kategori
+Category*: Kundi BUT maybe they use “kategoria” in Tanzania: kategori
+Cause Description: 'xxx xxx': rezon bagay la kase
+Comment: 'xxx': kòmantè
+Comments: 'xxx': kòmantè
+Completed: 'xxx': konplete
+Contact Us: 'xxx xxx': kontakte nou
+Content: Yaliyomo: kontni
+Context: 'xxx': kontèks
+Contract Expires: Tarehe ya mwisho wa mkandarasi: kontra ekspire
+Convert: 'xxx': konvèti
+Convert to Work Order: 'xxx xxx xxx xxx': konvèti a lòd travay
+Cost: Bei: pri
+Costs: Bei: depans
+Create: 'xxx': kreye
+Create Facility Work Request: 'xxx xxx xxx xxx': kreye demann travay de mentnans
+Create PM: 'xxx xxx': kreye mentnans prevantif
+Create Work Order: 'xxx xxx xxx': kreye lòd travay
+Created At: 'xxx xxx': kote bagay la te kreye
+Created: 'xxx': kreye
+Dashboard: 'xxx': grafik infòmasyon
+Date Completed: Tarehe ya kukamilishwa: dat konplete
+Date Created: 'xxx xxx': dat kreye
+Date Expires: Tarehe ya mwisho kutumika : dat ekspirasyon
+Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date something expires, and not the date the request expires, it was unclear to me…): dat ekspirasyon
+Date Received: Siku kifaa kilipokewa: dat resevwa
+Date Requested: Tarehe ya ombi: dat de demann
+Date Started: 'xxx xxx': dat kòmanse
+Date/Time: 'xxx': dat/lè
+Days: 'xxx': jou
+Days Since: 'xxx xxx': jou pase
+Department: 'xxx': depateman
+Description: Maelezo: deskripsyon
+Destroy: Futa: detwi
+Detailed view just means all columns: Tazama kwa ukamilifu kunamaanisha safy zote: wè infòmasyon an detay
+Detailed View: Tazama kwa ukamilifu: wè infòmasyon an detay
+Details: 'xxx': detay
+Domain: Uwanja: 'xxx': 'xxx'
+Due Date: 'xxx xxx': dat dènye delè
+Duration: 'xxx': dire
+Edit: Hariri: modifye
+Editing:'xxx': koreksyon
+Email: 'xxx': imèl
 Encrypted password:'xxx xxx': 'xxx'
-Expire: 'xxx': 'xxx'
-Facilities: 'xxx': 'xxx'
-Facility:'xxx': 'xxx'
-Filter: 'xxx': 'xxx'
-Floor: 'xxx': 'xxx'
-Form: 'xxx': 'xxx'
-Funding: Fedha: 'xxx'
-Full Description: 'xxx xxx': 'xxx'
-Home: xxx: 'xxx'
-ID: Nambari ya kitambulisho: 'xxx'
-*ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”: 'xxx'
-In Progress: 'xxx xxx': 'xxx'
-Item ID: Nambari ya kitambulisho ya kifaa: 'xxx'
-Item Cost: Bei ya kitus: 'xxx'
-Item Histories: 'xxx xxx': 'xxx'
-Item Type: Aina ya kifaa: 'xxx'
-Item: 'xxx': 'xxx'
-Items: 'xxx': 'xxx'
-LOGOUT: Ondoka: 'xxx'
-Labor Hour: 'xxx': 'xxx'
-Labor Hours: 'xxx': 'xxx'
-Last Date Checked: 'xxx xxx xxx': 'xxx'
-Last Updated: Tarehe ya mwisho ya usasishaji: 'xxx'
-Listing: 'xxx': 'xxx'
-Location: Eneo: 'xxx'
-Login: kuingia: 'xxx'
-Logout: Ondoka: 'xxx'
-Manage: Simamia: 'xxx'
-Manufacturer: Mtengenezaji: 'xxx'
-Model: 'xxx': 'xxx'
-Modified: 'xxx': 'xxx'
-Months: 'xxx': 'xxx'
-My Requests: Maombi yangu: 'xxx'
-My Texts: Maandiko Yangu: 'xxx'
-Name: 'xxx': 'xxx'
-Need: 'xxx' (As a noun): 'xxx'
-New Facility: 'xxx xxx': 'xxx'
-New Item: 'xxx xxx': 'xxx'
-New Text: 'xxx xxx': 'xxx'
-New User:'xxx xxx': 'xxx'
-New Work Order: 'xxx xxx xxx': 'xxx'
-New Work Request: 'xxx xxx xxx': 'xxx'
-Next Date: 'xxx xxx': 'xxx'
-Notice: 'xxx': 'xxx'
-Number: 'xxx': 'xxx'
-Owner: Mmiliki: 'xxx'
-Owner ID: 'xxx': 'xxx'
-Phone Number: 'xxx xxx': 'xxx'
-Preventative Maintenance: 'xxx xxx': 'xxx'
-Prevention Taken: Uzuiaji Uliofanywa: 'xxx'
-Price: Bei: 'xxx'
-Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use): 'xxx'
-Quantity: 'xxx': 'xxx'
-Reason: 'xxx': 'xxx'
-Recent History: Historia ya hivi karibuni: 'xxx'
-Recent Status: Hali ya hivi karibuni: 'xxx'
-Remarks: 'xxx': 'xxx'
-Request ID: Nambari ya ombi (Request number): 'xxx'
-Request Type: Aina ya ombi: 'xxx'
-Requester: Anayewasilisha ombi: 'xxx'
-Requester ID: 'xxx': 'xxx'
-Role: 'xxx': 'xxx'
-Room: 'xxx': 'xxx'
-Save Changes: 'xxx': 'xxx'
-Select Attribute: 'xxx xxx': 'xxx'
-Select Status: 'xxx xxx': 'xxx'
-Serial Number: Namba tambulishi: 'xxx'
-Service Agent: Wakala wa huduma: 'xxx'
+Expire: 'xxx': ekspire
+Facilities: 'xxx': mentnans
+Facility:'xxx': etablisman
+Filter: 'xxx': filtre
+Floor: 'xxx': atè a
+Form: 'xxx': fòmilè
+Funding: Fedha: finansman
+Full Description: 'xxx xxx': deskripsyon konplè
+Home: xxx: paj lakay
+ID: Nambari ya kitambulisho: idantifikasyon
+*ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”: numero idantifikasyon
+In Progress: 'xxx xxx': an pwogre
+Item ID: Nambari ya kitambulisho ya kifaa: nimewo idantifikasyon objè a
+Item Cost: Bei ya kitus: pri objè a
+Item Histories: 'xxx xxx': istwa objè a
+Item Type: Aina ya kifaa: tip objè a
+Item: 'xxx': objè
+Items: 'xxx': objè
+LOGOUT: Ondoka: fèmen sesyon an
+Labor Hour: 'xxx': èdtan travay
+Labor Hours: 'xxx': èdtan travay
+Last Date Checked: 'xxx xxx xxx': denye dat tcheke
+Last Updated: Tarehe ya mwisho ya usasishaji: denye ajou
+Listing: 'xxx': lis 
+Location: Eneo: kote
+Login: kuingia: fèmen sesyon an
+Logout: Ondoka: soti
+Manage: Simamia: jere
+Manufacturer: Mtengenezaji: fabrikan
+Model: 'xxx': modèl
+Modified: 'xxx': modifye
+Months: 'xxx': mwa
+My Requests: Maombi yangu: demann mwen
+My Texts: Maandiko Yangu: tèks mwen
+Name: 'xxx': nom
+Need: 'xxx' (As a noun): bezwen
+New Facility: 'xxx xxx': nouvo etablisman
+New Item: 'xxx xxx': nouvo objè
+New Text: 'xxx xxx': nouvo teks
+New User:'xxx xxx': nouvo itilizatè
+New Work Order: 'xxx xxx xxx': nouvo lòd travay
+New Work Request: 'xxx xxx xxx': nouvo demann travay
+Next Date: 'xxx xxx': dat pwochen pou tcheke
+Notice: 'xxx': notifikasyon
+Number: 'xxx': nimewo
+Owner: Mmiliki: pwopriyetè
+Owner ID: 'xxx': idantifikasyon pwopriyetè
+Phone Number: 'xxx xxx': nimewo telefòn
+Preventative Maintenance: 'xxx xxx': mentnans prevantif
+Prevention Taken: Uzuiaji Uliofanywa: prevansyon pran
+Price: Bei: pri
+Priority: “Umuhimu wa kwanza” or “kipaumbele” (confirm with the Swahili speaking technicians which they prefer to use): priyorite
+Quantity: 'xxx': kantite
+Reason: 'xxx': rezon
+Recent History: Historia ya hivi karibuni: istwa resan
+Recent Status: Hali ya hivi karibuni: esati resan
+Remarks: 'xxx': remak
+Request ID: Nambari ya ombi (Request number): idantifikasyon de demann
+Request Type: Aina ya ombi: tip de demann
+Requester: Anayewasilisha ombi: demandè
+Requester ID: 'xxx': idantifikasyon de demandè
+Role: 'xxx': wòl
+Room: 'xxx': chanm
+Save Changes: 'xxx': sove chanjman
+Select Attribute: 'xxx xxx': chwazi atribi
+Select Status: 'xxx xxx': chwazi estati
+Serial Number: Namba tambulishi: nimewo seri
+Service Agent: Wakala wa huduma: ajan sèvis
 *Service Agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer: 'xxx'
-Settings: Mipangilio binafsi: 'xxx'
-Show: Onyesha: 'xxx'
-Simple View: Mtazamo rahisi: 'xxx'
-Sort: 'xxx': 'xxx'
-Stage: 'xxx': 'xxx'
-Start: 'xxx': 'xxx'
-Status: Hali: 'xxx'
-Submit New Request: Wasilisha ombi jipya: 'xxx'
-Tag: 'xxx': 'xxx'
-Technician: 'xxx': 'xxx'
-Telephone number: 'xxx xxx': 'xxx'
-Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) : 'xxx'
-Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax): 'xxx'
-Time: Wakati: 'xxx'
-Total: 'xxx': 'xxx'
-Unstarted: 'xxx': 'xxx'
-Updated At:'xxx': 'xxx'
-Urgency: 'xxx': 'xxx'
-User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name: 'xxx'
-User: 'xxx': 'xxx'
-Username: 'xxx': 'xxx'
-Users: 'xxx': 'xxx'
-Utilization: 'xxx': 'xxx'
-Vendor: 'xxx': 'xxx'
-View: 'xxx': 'xxx'
-Warranty Expires: Tarehe ya mwisho wa hati: 'xxx'
-Warranty Notes: Muhtasari wa hati or  Maelezo ya hati: 'xxx'
-*Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term): 'xxx'
-Weeks: 'xxx': 'xxx'
-Work Order: 'xxx xxx': 'xxx'
-Work Orders: 'xxx xxx': 'xxx'
-Work Request ID: 'xxx xxx xxx': 'xxx'
-Work Request: 'xxx xxx': 'xxx'
-Work Requests: 'xxx xxx': 'xxx'
-Worked On: 'xxx xxx': 'xxx'
-Working: Kinafanya kazi vizuri : 'xxx'
-Year Manufactured: Mwaka wa kutengenezwa: 'xxx'
-Text: 'xxx': 'xxx'
+Settings: Mipangilio binafsi: ajan sèvis
+Show: Onyesha: montre
+Simple View: Mtazamo rahisi: infòmasyon senplifye
+Sort: 'xxx': triye
+Stage: 'xxx': etap
+Start: 'xxx': kòmanse
+Status: Hali: estati
+Submit New Request: Wasilisha ombi jipya: soumèt demann
+Tag: 'xxx': etikèt
+Technician: 'xxx': teknisyen
+Telephone number: 'xxx xxx': nimewo telefòn
+Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the item was changed?) : lè chanjman
+Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax): lè kreye
+Time: Wakati: lè
+Total: 'xxx': total
+Unstarted: 'xxx': poko kòmanse
+Updated At:'xxx': lè de ajoutman
+Urgency: 'xxx': ijans
+User ID: Namba ya kitambulisho ya mtumiaji (If it is a number) but “Jina la mtumiaji” if it is a name: idantifikasyon de itilizatè
+User: 'xxx': itilizatè
+Username: 'xxx': nom itilizatè
+Users: 'xxx': itilizatè yo
+Utilization: 'xxx': itilizasyon
+Vendor: 'xxx': machann
+View: 'xxx': vi
+Warranty Expires: Tarehe ya mwisho wa hati: garanti ekspire
+Warranty Notes: Muhtasari wa hati or  Maelezo ya hati: nòt garanti a
+*Warranty Notes: Muhtasari wa hati or  Maelezo ya hati(the second one means warranty description, I think this is a more user friendly term): nòt garanti a
+Weeks: 'xxx': semèn
+Work Order: 'xxx xxx': lòd travay
+Work Orders: 'xxx xxx': lòd travay yo
+Work Request ID: 'xxx xxx xxx': idantifikasyon de demann travay
+Work Request: 'xxx xxx': demann travay
+Work Requests: 'xxx xxx': demann travay yo
+Worked On: 'xxx xxx': jou ou te travay sou li
+Working: Kinafanya kazi vizuri : ap travay
+Year Manufactured: Mwaka wa kutengenezwa: ane de fabrikasyon
+Text: 'xxx': teks

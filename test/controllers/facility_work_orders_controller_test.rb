@@ -40,6 +40,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
       	  								   prevention_taken: @facility_work_order.prevention_taken  }
     end
     assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
+    
   end
 
   test "should show facility_work_order" do

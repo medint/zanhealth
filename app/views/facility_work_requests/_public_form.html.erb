@@ -1,5 +1,5 @@
-<% @facility_work_request = FacilityWorkRequest.new %>
-<%= form_for(@facility_work_request) do |f| %>
+<h1><%=@language['New Work Request']%></h1>
+<%= simple_form_for @facility_work_request, { url:  facility_work_requests_public_create_path } do |f| %>
   <% if @facility_work_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@facility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
@@ -9,15 +9,9 @@
       </ul>
     </div>
   <% end %>
-  
-  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-  <% if params[:action] == 'new' %>
-      <div class="work_request_form-field">
-      <input type="hidden" name="facility_work_request[requester_id]" value=<%= session[:user] %>> </input>
-      </div>
-  <% elsif params[:action] == 'edit' %>
-  <% end %>
 
+  <input type="hidden" name="facility_work_request[facility_id]" value=<%= @facility_work_request.facility_id %>> </input>  
+  
   <div class = "work_request_form-short">
     <%= @language['Requester'] %><br>
     <%= f.text_area :requester, :required => true %>
@@ -35,7 +29,7 @@
 
   <div class = "work_request_form-short">
   	<%= @language['Telephone number'] %><br>
-  	<%= f.number_field :department, :required => true %>
+  	<%= f.number_field :phone, :required => true %>
   </div>
 
   <div class = "work_request_form-short">
@@ -49,6 +43,7 @@
   </div>
 
   <div class="actions">
+    <%= recaptcha_tags %>
     <%= f.submit @language['Create Facility Work Request'] %>
   </div>
 <% end %>

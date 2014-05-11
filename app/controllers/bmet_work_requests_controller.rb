@@ -79,7 +79,7 @@ before_action :set_departments, only: [:show]
   def new_shortcut
     @bmet_work_requests = BmetWorkRequest.all
     @bmet_work_request = BmetWorkRequest.new
-    render :layout => "minimal"
+    render :layout => "application"
   end
 
   def set_users_special
