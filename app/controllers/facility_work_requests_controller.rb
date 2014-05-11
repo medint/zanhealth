@@ -106,7 +106,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def set_facility_work_request
-    @facility_work_request = FacilityWorkRequest.find(params[:id])
+    @facility_work_request = FacilityWorkRequest.find_by_id(params[:id])
+    if (@facility_work_request==nil || @facility_work_request.facility_id!=current_user.facility_id)
+        @facility_work_request=nil
+        redirect_to "/404"
+      end
   end
 
   def set_facility_work_requests
