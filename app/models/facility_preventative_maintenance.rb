@@ -14,8 +14,10 @@
 #
 
 class FacilityPreventativeMaintenance < ActiveRecord::Base
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date

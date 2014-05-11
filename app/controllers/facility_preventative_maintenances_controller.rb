@@ -12,9 +12,10 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     render action: "index"
   end
 
-  def new    
-    @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
-
+  def new
+    if :days != 0 or :weeks != 0 or :months != 0
+      @facility_preventative_maintenance = FacilityPreventativeMaintenance.new
+    end
   end
 
   def index
