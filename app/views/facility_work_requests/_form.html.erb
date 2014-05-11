@@ -1,59 +1,55 @@
-<% @facility_work_request = FacilityWorkRequest.new %>
-<%= form_for(@facility_work_request) do |f| %>
-  <% if @facility_work_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@facility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
-<ul> <% @work_request.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-    <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-    <% if params[:action] == 'new' %>
-        <div class="work_request_form-field">
-        <input type="hidden" name="facility_work_request[requester_id]" value=<%= session[:user] %>> </input>
-        </div>
-    <% elsif params[:action] == 'edit' %>
+<div id="object-form_top">
+  <%= form_for(@facility_work_request) do |f| %>
+    <% if @facility_work_request.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@facility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
+  <ul> <% @work_request.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    <div id="object-form-single-col">
+    
+      <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+      <% if params[:action] == 'new' %>
+          <div class="work_request_form-field">
+          <input type="hidden" name="facility_work_request[requester_id]" value=<%= session[:user] %>> </input>
+          </div>
+      <% elsif params[:action] == 'edit' %>
+      <% end %>
+      <div id="object-form-single-col">
 
-      <div class="field-box">
-        <div class="field-type"><%= @language['Requester'] %></div>
-        <div class="field-info"><%= f.text_area :requester, :required => true %></div>
-      </div>
-      <div class="field-box">
-        <div class="field-type"><%= @language['Department'] %></div>
-        <div class="field-info"><%= f.text_area :department, :required => true %></div>
-      </div>
-      <div class="field-box">
-        <div class="field-type"><%= @language['Location'] %><br></div>
-        <div class="field-info"><%= f.text_area :location, :required => true%></div>
-      </div>
-      <div class="field-box">
-        <div class="field-type"><%= @language['Telephone number'] %><br></div>
-        <div class="field-info"><%= f.number_field :department, :required => true %></div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Requester'] %></div>
+          <div class="field-info"><%= f.text_area :requester, :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Department'] %></div>
+          <div class="field-info"><%= f.text_area :department, :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Location'] %><br></div>
+          <div class="field-info"><%= f.text_area :location, :required => true%></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Telephone number'] %><br></div>
+          <div class="field-info"><%= f.number_field :phone, :required => true %></div>
+        </div>
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Email'] %><br></div>
+          <div class="field-info"><%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
+        </div>
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Description'] %><br></div>
+          <div class="field-info"><%= f.text_area :description, :required => true%></div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit @language['Create Facility Work Request'] %>
+        </div>
       </div>
 
-      <div class="field-box">
-        <div class="field-type"><%= @language['Email'] %><br></div>
-        <div class="field-info"><%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
-      </div>
-
-      <div class="field-box">
-        <div class="field-type"><%= @language['Description'] %><br></div>
-        <div class="field-info"><%= f.text_area :description, :required => true%></div>
-      </div>
-
-<<<<<<< HEAD
-      <div class="actions">
-            <%= f.submit @language['Create'] %>
-      </div>
-    </div>
-=======
-  <div class="actions">
-    <%= f.submit @language['Create Facility Work Request'] %>
-  </div>
->>>>>>> 25fe0c21092d6d32eaf400f2545b93508e1e4cc1
-<% end %>
+  <% end %>
+</div>

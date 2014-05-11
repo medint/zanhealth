@@ -44,7 +44,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_equal(@user.facility_id,assigns["facility_work_order"].department.facility_id)
     assert_equal(@user.id,assigns["facility_work_order"].requester_id)
-    
+
   end
 
   test "should show facility_work_order" do
