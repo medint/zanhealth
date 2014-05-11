@@ -21,6 +21,7 @@ end
 group :production do
   gem 'pg' # PostgreSQL
   gem 'unicorn' # multi-threaded server
+  gem 'bonsai-elasticsearch-rails'
 end
 
 #################### Front End ####################
@@ -99,4 +100,3 @@ gem 'paranoia', '~> 2.0'
 gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'bonsai-elasticsearch-rails'

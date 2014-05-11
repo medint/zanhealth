@@ -10,6 +10,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   def search
     @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+    @facility_work_requests = @facility_work_requests.where(:facility_id => current_user.facility_id).all.to_a
     render action: "index"
   end
 
