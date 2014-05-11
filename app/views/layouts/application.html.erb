@@ -9,30 +9,6 @@
 </head>
 <body>
 
-<% if session[:user] %>
-<header>
-    <a href='/my_bmet_work_orders'>
-        <%= @language['My Requests'] %>
-    </a>
-    <a href='/bmet_work_orders'>
-        <%= @language['All Requests'] %>
-    </a>
-    <a href='/bmet_work_orders/new'>
-       <%= @language['Submit New Request'] %>
-    </a>
-    <a href='/bmet_items'>
-        <%= @language['All Items'] %>
-    </a>
-    <a href='#'>
-        <%= @language['Manage'] %>
-    </a>
-    <a href='/logout'>
-        <%= @language['LOGOUT'] %>
-    </a>
-</header>
-<div id='header-spacer'></div>
-<% end %>
-
 <div id='main'>
 
 <%= yield %>
@@ -42,10 +18,10 @@
 <footer>
   <a href='?language=english'>English</a> | 
   <a href='?language=swahili'>Swahili</a> | 
-  <%= @language['Home']%> |
+  <%= link_to @language['Home'], '/' %> |
   <%= @language['About'] %> zanhealth |
-  <%= @language['Contact Us']%> |
-  © 2013 Med International
+  <%= link_to @language['Contact Us'], 'mailto:help@zanhealth.co' %> |
+  © 2014 <%= link_to "Med International", "medinternational-us.org" %>
 </footer>
 
 </body>

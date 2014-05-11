@@ -4,6 +4,7 @@ before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
+skip_before_action :authenticate_user!, only: [:public_new, :public_create]
 
   layout 'layouts/facilities_app'
 
@@ -14,6 +15,12 @@ before_action :set_departments, only: [:show]
 
   def new
     @facility_work_request = FacilityWorkRequest.new
+  end
+
+  def public_new    
+    @facility_work_request = FacilityWorkRequest.new
+    @facility_work_request.facility_id = params[:facility_id]
+    render :layout => "application"
   end
 
   def index
@@ -50,6 +57,20 @@ before_action :set_departments, only: [:show]
     end
   end
 
+  def public_create    
+    @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
+
+    respond_to do |format|
+      if @facility_work_request.save
+        format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @facility_work_request }
+      else
+        format.html { render action: 'public_new' }
+        format.json { render json: @facility_work_request.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @facility_work_request.destroy
     respond_to do |format|
@@ -75,22 +96,11 @@ before_action :set_departments, only: [:show]
   end
 
   def set_facility_work_request
-    set_facility_for_public
     @facility_work_request = FacilityWorkRequest.find(params[:id])
   end
 
   def set_facility_work_requests
     @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
-  end
-
-  def new_shortcut_for_public
-    @facility_work_requests = FacilityWorkRequest.all
-    @facility_work_request = FacilityWorkRequest.new
-    render :layout => "minimal"
-  end
-
-  def set_facility_for_public
-    @users = params[:facility_id]
   end
 
   def facility_work_request_params
