@@ -12,18 +12,18 @@
   <% end %>
   
   <div id="additional-detail_cost_name">
-    <%= f.text_area :name, :placeholder => @language['Name'] %>
+    <%= f.text_area :name, :required => true, :placeholder => @language['Name'] %>
   </div>
   <div id="additional-detail_cost_quantity">
 
-    <%= f.number_field :unit_quantity, :placeholder => @language['Quantity'] %>
+    <%= f.number_field :unit_quantity, :required => true, :placeholder => @language['Quantity'] %>
   </div>
   <div id="additional-detail_cost_amount">
-    <%= f.number_field :cost, :placeholder => @language["Cost"] %>
+    <%= f.number_field :cost, :required => true, :placeholder => @language["Cost"] %>
   </div>
  
   <div class="field">
-    <%= f.hidden_field :facility_work_order_id, value: @facility_work_order.id %>
+    <%= f.hidden_field :facility_work_order_id, :required => true, value: @facility_work_order.id %>
   </div>
 
   <div class="additional-detail_actions">
