@@ -3,9 +3,10 @@ require 'test_helper'
 class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    @user = createTestUser()
+    @user = users(:userone)
     sign_in @user
     @facility_preventative_maintenance = facility_preventative_maintenances(:one)
+    @facility_preventative_maintenance_diff_facility = facility_preventative_maintenances(:two)
   end
 
   test "should get index" do
@@ -30,6 +31,7 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
       
     end
     assert_equal(@user.id,assigns["facility_preventative_maintenance"].requester_id)
+    assert_equal(@user.facility_id,assigns["facility_preventative_maintenance"].requester.facility_id)
 
     assert_redirected_to "/facility_preventative_maintenances/unhidden/"+(assigns["facility_preventative_maintenance"].id).to_s
     assert_response :redirect
@@ -38,8 +40,10 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
 
 
   test "should show facility_preventative_maintenance" do
-    get :show, id: @facility_preventative_maintenance
+    get :show, id: @facility_preventative_maintenance.id
     assert_response :success
+    get :show, id: @facility_preventative_maintenance_diff_facility
+    assert_response :redirect #should redirect to 404
   end
 
   test "should update facility_preventative_maintenance" do

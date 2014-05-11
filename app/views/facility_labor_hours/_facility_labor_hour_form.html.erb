@@ -26,10 +26,10 @@
       <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>        
     </div>
     <div id="additional-detail_labor_date">      
-      <%= f.date_select :date_started, use_short_month: true %>    
+      <%= f.date_select :date_started, :required => true,use_short_month: true %>    
     </div>
     <div id="additional-detail_labor_hours">    
-      <%= f.number_field :duration, :placeholder => @language["Hr"] %>
+      <%= f.number_field :duration, :required => true,:placeholder => @language["Hr"] %>
     </div>
 
     <div class="additional-detail_actions">

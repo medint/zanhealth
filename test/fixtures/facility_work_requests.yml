@@ -7,6 +7,7 @@ one:
   phone: MyText
   email: MyText
   description: MyText
+  facility: one
 
 two:
   requester: MyText
@@ -15,3 +16,4 @@ two:
   phone: MyText
   email: MyText
   description: MyText
+  facility: two

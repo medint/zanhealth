@@ -3,13 +3,14 @@ require 'test_helper'
 class FacilityWorkOrdersControllerTest < ActionController::TestCase
   setup do
   	@request.env["devise.mapping"] = Devise.mappings[:user]
-  	user = users(:userone)
-  	sign_in user
+  	@user = users(:userone)
+  	sign_in @user
     @facility_work_order = facility_work_orders(:one)
+    @facility_work_order_diff_facility = facility_work_orders(:five)
     FacilityLaborHour.create!(
 			:date_started => "2014-02-22 02:05:52",
 	    :duration => 1,
-	   	:technician => user,
+	   	:technician => @user,
 	  	:facility_work_order => @facility_work_order
 	)
   end
@@ -33,20 +34,24 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
       	  								   request_type: @facility_work_order.request_type, 
       	  								   description: @facility_work_order.description, 
       	  								   status: @facility_work_order.status, 
-      	  								   owner_id: @facility_work_order.owner_id, 
-      	  								   requester_id: @facility_work_order.requester_id, 
+      	  								   owner_id: @facility_work_order.owner_id,
       	  								   cause_description: @facility_work_order.cause_description, 
       	  								   action_taken: @facility_work_order.action_taken, 
-      	  								   prevention_taken: @facility_work_order.prevention_taken  }
+      	  								   prevention_taken: @facility_work_order.prevention_taken,
+                             department_id: @facility_work_order.department_id  }
     end
     assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
     assert_response :redirect
-    
+    assert_equal(@user.facility_id,assigns["facility_work_order"].department.facility_id)
+    assert_equal(@user.id,assigns["facility_work_order"].requester_id)
+
   end
 
   test "should show facility_work_order" do
   	get :show, id: @facility_work_order
     assert_response :success
+    get :show, id: @facility_work_order_diff_facility
+    assert_response :redirect #should redirect to 404
   end
 
   test "should update facility_work_order" do

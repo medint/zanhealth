@@ -20,8 +20,6 @@
 #  deleted_at        :datetime
 #
 
-require 'elasticsearch/model'
-
 class FacilityWorkOrder < ActiveRecord::Base
 
   include Elasticsearch::Model

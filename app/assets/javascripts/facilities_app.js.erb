@@ -22,7 +22,7 @@ if (window.location.toString().match(/facility_dashboard/)) {
 
 //window resizing
 //if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) 
-if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/))) 
+if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) )) 
 {
 	$(document).on ("page:change",function() {
 		/* define variables */
@@ -262,15 +262,7 @@ $(document).on ("page:change",function() {
 });
 
 function printmainpage(){
-	if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1)	{
-		var numVis = $('.mid-summary_ul_li').length - $('.mid-summary_ul_li[style$="display: none;"]').length;
-		var hBlock = 50*numVis;
-		$('.vertical-divider').css("height",hBlock);
-		$('.vertical-divider').show()
-	}
-	else if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
-		$('.vertical-divider').css("display","none");
-	}
+
 	$(".status-text-0").show();
 	$(".status-text-1").show();
 	$(".status-text-2").show();
@@ -280,11 +272,7 @@ function printmainpage(){
 	document.getElementById("print-css-selection").href = '<%= stylesheet_path("application-print-main-list")%>';
 	window.print();
 	
-	$('.vertical-divider').css("height",10000);
-	if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){
-		$('.vertical-divider').css("display","inline")
-	}
-
+	
 	$(".status-text-0").hide();
 	$(".status-text-1").hide();
 	$(".status-text-2").hide();
