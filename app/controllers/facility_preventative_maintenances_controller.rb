@@ -60,16 +60,16 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     respond_to do |format|
     	link = request.referer.split("/")[-2]
       if @facility_preventative_maintenance.update(facility_preventative_maintenance_params)
-      	  if link == "hidden"
-      	  	  format.html { redirect_to facility_preventative_maintenances_url+"/hidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  elsif link == "all"
-      	  	  format.html { redirect_to facility_preventative_maintenances_url+"/all/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  else
-        	format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  end
+      	if link == "hidden"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/hidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  elsif link == "all"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/all/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  else
+         	format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'show' }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -84,7 +84,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
         format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_preventative_maintenance }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'show' }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
