@@ -265,13 +265,15 @@ namespace :test do
 		FacilityPreventativeMaintenance.delete_all
 		FacilityWorkRequest.delete_all
 		facilities.each do |f|
+			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			20.times do |fpm|
 				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(0..6)),
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
 												   :created_at => Time.now - 60*60*24*(rand(8..12)),
-                                       :description => Faker::Lorem.sentence(word_count = rand(3..11))
+                                       :description => Faker::Lorem.sentence(word_count = rand(3..11)),
+                                       :requester => users.sample
 												  )
 				FacilityWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
@@ -280,7 +282,7 @@ namespace :test do
 									   :email => Faker::Internet.email,
 									   :created_at => Time.now - 60*60*24*(rand(9..15)),
                               		   :description => Faker::Lorem.sentence(word_count = rand(3..11)),
-                              		   :facility_id => rand(1..3)
+                              		   :facility_id => f.id
 									  )
 			end
 		end
