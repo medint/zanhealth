@@ -3,8 +3,8 @@ require 'test_helper'
 class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = createTestUser()
-    sign_in user
+    @user = createTestUser()
+    sign_in @user
     @facility_preventative_maintenance = facility_preventative_maintenances(:one)
   end
 
@@ -29,6 +29,7 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
     }
       
     end
+    assert_equal(@user.id,assigns["facility_preventative_maintenance"].requester_id)
 
     assert_redirected_to facility_preventative_maintenance_path(assigns(:facility_preventative_maintenance))
   end
