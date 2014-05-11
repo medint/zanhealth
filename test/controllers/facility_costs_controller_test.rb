@@ -19,12 +19,31 @@ class FacilityCostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create facility_cost" do
+  test "should create facility_cost with unhidden work request" do
     assert_difference('FacilityCost.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
       post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
     end
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
+    assert_response :redirect
+  end
 
-    assert_redirected_to @facility_cost.facility_work_order
+  test "should create facility_cost with hidden work request" do
+    assert_difference('FacilityCost.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/hidden/"+(@facility_cost.facility_work_order.id.to_s)
+      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+    end
+    assert_redirected_to "/facility_work_orders/hidden/"+(@facility_cost.facility_work_order.id.to_s)
+    assert_response :redirect
+  end
+
+  test "should create facility_cost with all work request" do
+    assert_difference('FacilityCost.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/all/"+(@facility_cost.facility_work_order.id.to_s)
+      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+    end
+    assert_redirected_to "/facility_work_orders/all/"+(@facility_cost.facility_work_order.id.to_s)
+    assert_response :redirect
   end
 
   test "should show facility_cost" do

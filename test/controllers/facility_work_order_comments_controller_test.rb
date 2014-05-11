@@ -19,12 +19,34 @@ class FacilityWorkOrderCommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create facility_work_order_comment" do
+  test "should create facility_work_order_comment with unhidden work order" do
     assert_difference('FacilityWorkOrderComment.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
       post :create, facility_work_order_comment: { comment_text: @facility_work_order_comment.comment_text, datetime_stamp: @facility_work_order_comment.datetime_stamp, facility_work_order_id: @facility_work_order_comment.facility_work_order_id, user_id: @facility_work_order_comment.user_id }
     end
 
-    assert_redirected_to @facility_work_order_comment.facility_work_order
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
+    assert_response  :redirect
+  end
+  
+  test "should create facility_work_order_comment with hidden work order" do
+    assert_difference('FacilityWorkOrderComment.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/hidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
+      post :create, facility_work_order_comment: { comment_text: @facility_work_order_comment.comment_text, datetime_stamp: @facility_work_order_comment.datetime_stamp, facility_work_order_id: @facility_work_order_comment.facility_work_order_id, user_id: @facility_work_order_comment.user_id }
+    end
+
+    assert_redirected_to "/facility_work_orders/hidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
+    assert_response  :redirect
+  end
+
+  test "should create facility_work_order_comment with all work orders" do
+    assert_difference('FacilityWorkOrderComment.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/all/"+(@facility_work_order_comment.facility_work_order.id.to_s)
+      post :create, facility_work_order_comment: { comment_text: @facility_work_order_comment.comment_text, datetime_stamp: @facility_work_order_comment.datetime_stamp, facility_work_order_id: @facility_work_order_comment.facility_work_order_id, user_id: @facility_work_order_comment.user_id }
+    end
+
+    assert_redirected_to "/facility_work_orders/all/"+(@facility_work_order_comment.facility_work_order.id.to_s)
+    assert_response  :redirect
   end
 
   test "should show facility_work_order_comment" do
