@@ -59,6 +59,7 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 			csv << colnames
 			all.each do |item|
 				values = item.attributes.values_at(*colnames)
+				values[9] = User.find(values[9]).name
 				csv << values
 			end
 		end

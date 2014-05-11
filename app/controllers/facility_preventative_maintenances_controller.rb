@@ -6,7 +6,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_users, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_facility_preventative_maintenances, only: [:hidden, :show_hidden]
-  before_action :set_all_facility_preventative_maintenances, only:[:all, :as_csv, :show_all]
+  before_action :set_all_facility_preventative_maintenances, only:[:all, :show_all]
 
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
@@ -34,6 +34,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def as_csv
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
   	  send_data @facility_preventative_maintenances.as_csv, type: "text/csv", filename:"facility_preventative_maintenances.csv"
   end
 
