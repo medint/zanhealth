@@ -20,6 +20,31 @@
       </ul>
     </div>
     &nbsp&nbsp&nbsp&nbsp
+   <%= "View" %>
+  <div class="dropdown">
+	  <a id=facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+		  Select View:
+		  <b class="caret"></b>
+	  </a>
+	  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/unhidden" %>">
+				  Visible Work Orders
+			  </a>
+		  </div>
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/hidden" %>">
+				  Hidden Work Orders
+			  </a>
+		  </div>
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/all" %>">
+				  All Work Orders
+			  </a>
+		  </div>
+	  </ul>
+  </div>
+    &nbsp&nbsp&nbsp&nbsp
     <%= form_tag search_facility_preventative_maintenances_path, method: 'get' do %>
       <%= text_field_tag :q, params[:q] %>
       <%= submit_tag :search %>
