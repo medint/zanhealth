@@ -28,7 +28,14 @@ class FacilityWorkOrderCommentsController < ApplicationController
     
     respond_to do |format|
       if @facility_work_order_comment.save
-        format.html { redirect_to @facility_work_order_comment.facility_work_order, notice: 'Facility Work Order comment was successfully created.' }
+        link = request.referer.split("/")[-2]
+        if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order_comment.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+        elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order_comment.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+        else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order_comment.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+        end        
         format.json { render action: 'show', status: :created, location: @facility_work_order_comment }
       else
         format.html { render action: 'new' }
