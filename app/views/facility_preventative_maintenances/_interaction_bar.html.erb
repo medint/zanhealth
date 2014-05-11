@@ -30,6 +30,31 @@
     <a href= "<%=new_facility_preventative_maintenance_path%>" id='add-button'></a>
   </div>
 
+  <%= "View" %>
+  <div class="dropdown">
+	  <a id=facworkorder_view" role="button" data-toggle="dropdown" href="#">
+		  Select View:
+		  <b class="caret"></b>
+	  </a>
+	  <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_view">
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/unhidden" %>">
+				  Visible Work Orders
+			  </a>
+		  </div>
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/hidden" %>">
+				  Hidden Work Orders
+			  </a>
+		  </div>
+		  <div>
+			  <a href="<%= facility_preventative_maintenances_url+"/all" %>">
+				  All Work Orders
+			  </a>
+		  </div>
+	  </ul>
+  </div>
+
   <div id="top-button">
 	  <%= link_to "Export Data", facility_preventative_maintenances_url+"/download" %>
   </div>
