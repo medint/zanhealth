@@ -1,10 +1,10 @@
 class FacilityWorkRequestsController < ApplicationController
-before_action :set_facility_work_request, only: [:show, :update, :destroy]
+before_action :set_facility_work_request, only: [:show, :update, :destroy, :public_show]
 before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
-skip_before_action :authenticate_user!, only: [:public_new, :public_create]
+skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/facilities_app'
 
@@ -17,11 +17,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create]
     @facility_work_request = FacilityWorkRequest.new
   end
 
-  def public_new    
-    @facility_work_request = FacilityWorkRequest.new
-    @facility_work_request.facility_id = params[:facility_id]
-    render :layout => "application"
-  end
+
 
   def index
   end
@@ -48,7 +44,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create]
 
     respond_to do |format|
       if @facility_work_request.save && verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY'])
-        format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
+        format.html { redirect_to @facility_work_request, notice: 'Work request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
         format.html { render action: 'new' }
@@ -57,18 +53,28 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create]
     end
   end
 
+  def public_new    
+    @facility_work_request = FacilityWorkRequest.new
+    @facility_work_request.facility_id = params[:facility_id]
+    render :layout => "application"
+  end
+
   def public_create    
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
 
     respond_to do |format|
       if @facility_work_request.save
-        format.html { redirect_to @facility_work_request, notice: 'Work order was successfully created.' }
+        format.html { redirect_to '/facility_work_requests/public_show/'+@facility_work_request.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
         format.html { render action: 'public_new' }
         format.json { render json: @facility_work_request.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def public_show
+    render :layout => "application"
   end
 
   def destroy

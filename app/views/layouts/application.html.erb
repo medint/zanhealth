@@ -9,20 +9,23 @@
 </head>
 <body>
 
-<div id='main'>
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
+  <div id='main'>
 
-<%= yield %>
+  <%= yield %>
 
-</div>
+  </div>
 
-<footer>
-  <a href='?language=english'>English</a> | 
-  <a href='?language=swahili'>Swahili</a> | 
-  <%= link_to @language['Home'], '/' %> |
-  <%= @language['About'] %> zanhealth |
-  <%= link_to @language['Contact Us'], 'mailto:help@zanhealth.co' %> |
-  © 2014 <%= link_to "Med International", "medinternational-us.org" %>
-</footer>
+  <footer>
+    <a href='?language=english'>English</a> | 
+    <a href='?language=swahili'>Swahili</a> | 
+    <%= link_to @language['Home'], '/' %> |
+    <%= @language['About'] %> zanhealth |
+    <%= link_to @language['Contact Us'], 'mailto:help@zanhealth.co' %> |
+    © 2014 <%= link_to "Med International", "medinternational-us.org" %>
+  </footer>
 
 </body>
 </html>
