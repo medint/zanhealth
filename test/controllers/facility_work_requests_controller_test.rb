@@ -3,14 +3,11 @@ require 'test_helper'
 class FacilityWorkRequestsControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    @user = User.create!(
-      email: "c@c.com",
-      password: "11111111",
-      language: "english",
-      facility_id: 1
-    )
+    @user = users(:userone)
     sign_in @user
     @facility_work_request = facility_work_requests(:one)
+    @facility_work_request_diff_facility = facility_work_requests(:two)
+
   end
 
   test "should get index" do
@@ -36,6 +33,8 @@ class FacilityWorkRequestsControllerTest < ActionController::TestCase
   test "should show facility_work_request" do
     get :show, id: @facility_work_request
     assert_response :success
+    get :show, id: @facility_work_request_diff_facility
+    assert_response :redirect #should redirect to 404
   end
 
   test "should get edit" do

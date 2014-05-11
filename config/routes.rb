@@ -38,11 +38,12 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
   #dashboard
-  resources :facility_dashboard
+  
   get "/facility_dashboard/status", to: "facility_dashboard#status"
   get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
+  resources :facility_dashboard
 
   # hide/unhide features
   put "hide_record/:id", to:"facility_work_orders#hide", :as => :hide_record

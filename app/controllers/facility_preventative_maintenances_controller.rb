@@ -109,8 +109,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def set_facility_preventative_maintenance
-      @facility_preventative_maintenance = FacilityPreventativeMaintenance.find(params[:id])
-      @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+      @facility_preventative_maintenance = FacilityPreventativeMaintenance.find_by_id(params[:id])
+      if (@facility_preventative_maintenance==nil || @facility_preventative_maintenance.requester.facility_id!=current_user.facility_id)
+        @facility_preventative_maintenance=nil
+        redirect_to "/404"
+      else
+        @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+      end
   end
 
   def set_facility_preventative_maintenances
