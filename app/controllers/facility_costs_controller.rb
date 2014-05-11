@@ -14,14 +14,7 @@ class FacilityCostsController < ApplicationController
 
     respond_to do |format|
       if @facility_cost.save
-        link = request.referer.split("/")[-2]
-        if link == "hidden"
-          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_cost.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-        elsif link == "all"
-          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_cost.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-        else
-          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_cost.facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-        end
+        format.html { redirect_to :back, notice: 'Work order was successfully updated.' }
         format.json { render action: 'show', status: :created, location: @facility_cost }
       else
         format.html { render action: 'new' }

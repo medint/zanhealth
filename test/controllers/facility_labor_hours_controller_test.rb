@@ -20,12 +20,12 @@ class FacilityLaborHoursControllerTest < ActionController::TestCase
   end
 
   test "should create facility_labor_hour" do
-    @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order.id.to_s)
+    @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_labor_hour.facility_work_order.id.to_s)
     assert_difference('FacilityLaborHour.count') do
       post :create, facility_labor_hour: { created_at: @facility_labor_hour.created_at, date_started: @facility_labor_hour.date_started, duration: @facility_labor_hour.duration, facility_work_order_id: @facility_labor_hour.facility_work_order_id, technician_id: @facility_labor_hour.technician_id, updated_at: @facility_labor_hour.updated_at }
     end
-    assert_redirected_to @facility_labor_hour.facility_work_order
-    assert_response :success
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_labor_hour.facility_work_order.id.to_s)
+    assert_response :redirect
 
   end
 

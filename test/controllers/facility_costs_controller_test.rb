@@ -21,10 +21,10 @@ class FacilityCostsControllerTest < ActionController::TestCase
 
   test "should create facility_cost" do
     assert_difference('FacilityCost.count') do
+  	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
       post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
     end
-
-    assert_redirected_to @facility_cost.facility_work_order
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
   end
 
   test "should show facility_cost" do
