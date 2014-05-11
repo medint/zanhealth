@@ -1,5 +1,5 @@
 class FacilityWorkRequestsController < ApplicationController
-before_action :set_facility_work_request, only: [:show, :update, :destroy, :public_show]
+before_action :set_facility_work_request, only: [:show, :update, :destroy, :public_show, :edit]
 before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
@@ -17,7 +17,9 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     @facility_work_request = FacilityWorkRequest.new
   end
 
+  def edit
 
+  end
 
   def index
   end

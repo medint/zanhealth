@@ -1,5 +1,5 @@
 class BmetWorkRequestsController < ApplicationController
-before_action :set_bmet_work_request, only: [:show, :update, :destroy]
+before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
@@ -13,6 +13,10 @@ before_action :set_departments, only: [:show]
 
   def index
     @bmet_work_requests = BmetWorkRequest.all
+  end
+
+  def edit
+
   end
 
   def show

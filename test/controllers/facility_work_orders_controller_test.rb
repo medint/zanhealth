@@ -41,7 +41,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
     end
     assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
     assert_response :redirect
-    
+      
   end
 
   test "should show facility_work_order" do
