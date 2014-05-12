@@ -18,5 +18,6 @@ class FacilityWorkRequest < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  acts_as_paranoid
   belongs_to :facility
 end

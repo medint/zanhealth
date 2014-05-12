@@ -31,7 +31,7 @@ Zanhealth::Application.routes.draw do
   resources :facility_preventative_maintenances, except: :show do
     collection { get :search }
   end
-  resources :facility_work_requests do
+  resources :facility_work_requests, except: :show  do
     collection { get :search }
   end
   
@@ -65,6 +65,15 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/hidden/:id", to: "facility_preventative_maintenances#show_hidden"
   get "/facility_preventative_maintenances/all", to: "facility_preventative_maintenances#all"
   get "/facility_preventative_maintenances/all/:id", to: "facility_preventative_maintenances#show_all"
+
+  # hide/unhide features for facility work requests
+  put "hide_facility_work_request/:id", to: "facility_work_requests#hide", :as => :hide_facility_work_request
+  get "/facility_work_requests/unhidden", to: "facility_work_requests#index"
+  get "/facility_work_requests/unhidden/:id", to: "facility_work_requests#show"
+  get "/facility_work_requests/hidden", to: "facility_work_requests#hidden"
+  get "/facility_work_requests/hidden/:id", to: "facility_work_requests#show_hidden"
+  get "/facility_work_requests/all", to: "facility_work_requests#all"
+  get "/facility_work_requests/all/:id", to: "facility_work_requests#show_all"
 
   # hide/unhide features for bmet work orders
   put "hide_bmet_work_order/:id", to: "bmet_work_orders#hide", :as => :hide_bmet_work_order

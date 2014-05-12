@@ -11,6 +11,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
     @facility_preventative_maintenances = @facility_preventative_maintenances.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    @link = facility_preventative_maintenances_url+"/all/"
     render action: "index"
   end
 
