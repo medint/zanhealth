@@ -208,8 +208,13 @@ body {
 	font-size: 20px;
 }
 
+#fac_name{
+	color:white;
+}
+
 #logout_button{
 	float:left;
+	margin-top: -30px;
 	margin-left: 145px;
 }
 
@@ -223,7 +228,7 @@ body {
 
 #bottom-buttons{
 	margin-left: 20px;
-	margin-top: 16px;
+	margin-top: 10px;
 	margin-bottom:0px;
 	float:left;
 }
