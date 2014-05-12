@@ -20,6 +20,32 @@
       </ul>
     </div>
     &nbsp&nbsp&nbsp&nbsp
+	<%= "View" %>
+	<div class="dropdown">
+		<a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+			Select View
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+			<div>
+				<a href="<%= facility_work_requests_url+"/unhidden" %>">
+					Visible Work Requests
+				</a>
+			</div>
+			<div>
+				<a href="<%= facility_work_requests_url+"/hidden" %>">
+					Hidden Work Requests
+				</a>
+			</div>
+			<div>
+				<a href="<%= facility_work_requests_url+"/all" %>">
+					All Work Requests
+				</a>
+			</div>
+		</ul>
+
+	</div>
+    &nbsp&nbsp&nbsp&nbsp
     <%= form_tag search_facility_work_requests_path, method: 'get' do %>
       <%= text_field_tag :q, params[:q] %>
       <%= submit_tag :search %>
@@ -28,5 +54,6 @@
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <a href= "<%=new_facility_work_request_path%>" id='add-button'></a>
+	<%= link_to "Export Data", facility_work_requests_url+"/download" %>
   </div>
 </div>

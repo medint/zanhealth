@@ -3,7 +3,8 @@
   <div id="app_type_label"> Zanhealth Facilities </div>
   <div id="login">
     <div id="bottom-buttons">
-        <span id="user_name"> <%= current_user.name %> </span>
+        <%= link_to current_user.name, edit_user_registration_path, :id => "user_name" %></br>
+        <%= link_to current_user.facility.name, "#", :id => "fac_name" %></br>
         <span id="logout_button"><%= link_to @language['Logout'], destroy_user_session_path, :method => :delete %></span>
     </div>
   </div>
@@ -36,7 +37,7 @@
 
 
     <hr>
-    <%= link_to(facility_work_requests_url) do %>
+    <%= link_to(facility_work_requests_url+"/unhidden") do %>
     <li class="left-nav_ul_li">
       <div id="inbox-icon"></div>
       <div class="wrapper">

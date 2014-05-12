@@ -11,6 +11,7 @@ class FacilityWorkOrdersController < ApplicationController
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
     @facility_work_orders = @facility_work_orders.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
+    @link = facility_work_orders_url+"/all/"
     render action: 'index'
   end
 
@@ -70,7 +71,7 @@ class FacilityWorkOrdersController < ApplicationController
 		end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_work_order.errors, status: :unprocessable_entity }
       end
     end
@@ -95,7 +96,7 @@ class FacilityWorkOrdersController < ApplicationController
         format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_order }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_work_order.errors, status: :unprocessable_entity }
       end
     end

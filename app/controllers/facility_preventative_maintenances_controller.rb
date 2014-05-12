@@ -11,6 +11,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
     @facility_preventative_maintenances = @facility_preventative_maintenances.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    @link = facility_preventative_maintenances_url+"/all/"
     render action: "index"
   end
 
@@ -69,7 +70,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'show' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -84,7 +85,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
         format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_preventative_maintenance }
       else
-        format.html { render action: 'show' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
