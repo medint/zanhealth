@@ -38,6 +38,7 @@ Zanhealth::Application.routes.draw do
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
+  get "/facility_work_requests/download", to: "facility_work_requests#as_csv"
 
   #dashboard
   

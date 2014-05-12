@@ -22,7 +22,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def edit
+  end
 
+  def as_csv
+    @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id)
+    send_data @facility_work_requests.as_csv, type: "text/csv", filename: "facility_work_requests.csv"
   end
 
   def index
