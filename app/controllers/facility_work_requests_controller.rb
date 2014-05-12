@@ -78,7 +78,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 		end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_work_request.errors, status: :unprocessable_entity }
       end
     end
@@ -93,7 +93,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
         format.html { redirect_to facility_work_requests_url+"/unhidden/"+@facility_work_request.id.to_s, notice: 'Work request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_work_request.errors, status: :unprocessable_entity }
       end
     end
