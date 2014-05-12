@@ -1,5 +1,5 @@
 class FacilityWorkRequestsController < ApplicationController
-before_action :set_facility_work_request, only: [:show, :update, :destroy, :public_show, :edit, :show_hidden, :show_all]
+before_action :set_facility_work_request, only: [:show, :update, :destroy, :edit, :show_hidden, :show_all]
 before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show, :hidden, :all, :show_all, :show_hidden]
 before_action :set_users, only: [:show, :hidden, :all, :show_all, :show_hidden], except: [:new, :create]
@@ -120,6 +120,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def public_show
+    @facility_work_request = FacilityWorkRequest.find_by_id(params[:id])
     render :layout => "application"
   end
 
