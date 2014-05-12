@@ -33,15 +33,15 @@ Zanhealth::Application.configure do
 
   # jshum 2014-03-12 do take advantage of eager loading
   # source : https://github.com/flyerhzm/bullet
-  config.after_initialize do
-    Bullet.enable = false 
-    Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.growl = false
-    Bullet.rails_logger = true
-    Bullet.add_footer = true
-  end
+  # config.after_initialize do
+  #   Bullet.enable = false 
+  #   Bullet.alert = true
+  #   Bullet.bullet_logger = true
+  #   Bullet.console = true
+  #   Bullet.growl = false
+  #   Bullet.rails_logger = true
+  #   Bullet.add_footer = true
+  # end
 
   # jshum 2014-04-5 for devise gem
   config.action_mailer.default_url_options = { host: 'localhost:3000' }

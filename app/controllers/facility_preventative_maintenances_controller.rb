@@ -6,11 +6,12 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_users, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_facility_preventative_maintenances, only: [:hidden, :show_hidden]
-  before_action :set_all_facility_preventative_maintenances, only:[:all, :as_csv, :show_all]
+  before_action :set_all_facility_preventative_maintenances, only:[:all, :show_all]
 
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
     @facility_preventative_maintenances = @facility_preventative_maintenances.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    @link = facility_preventative_maintenances_url+"/all/"
     render action: "index"
   end
 
@@ -35,6 +36,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def as_csv
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
   	  send_data @facility_preventative_maintenances.as_csv, type: "text/csv", filename:"facility_preventative_maintenances.csv"
   end
 
@@ -59,16 +61,16 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     respond_to do |format|
     	link = request.referer.split("/")[-2]
       if @facility_preventative_maintenance.update(facility_preventative_maintenance_params)
-      	  if link == "hidden"
-      	  	  format.html { redirect_to facility_preventative_maintenances_url+"/hidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  elsif link == "all"
-      	  	  format.html { redirect_to facility_preventative_maintenances_url+"/all/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  else
-        	format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
-		  end
+      	if link == "hidden"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/hidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  elsif link == "all"
+       	  format.html { redirect_to facility_preventative_maintenances_url+"/all/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  else
+         	format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work request was successfully updated.' }
+  		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -83,7 +85,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
         format.html { redirect_to facility_preventative_maintenances_url+"/unhidden/"+@facility_preventative_maintenance.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_preventative_maintenance }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back }
         format.json { render json: @facility_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end

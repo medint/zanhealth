@@ -155,11 +155,11 @@ body {
 .left_nav_icon {
 	float: left;
 	background-repeat: no-repeat;
-	background-size: 12px;
-	height: 13px;
-	width: 13px;
-	margin-left: 20px;
-	margin-top: 24px;
+	background-size: 20px;
+	height: 21px;
+	width: 21px;
+	margin-left: 16px;
+	margin-top: 20px;
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #work-order-icon{
@@ -208,8 +208,13 @@ body {
 	font-size: 20px;
 }
 
+#fac_name{
+	color:white;
+}
+
 #logout_button{
 	float:left;
+	margin-top: -30px;
 	margin-left: 145px;
 }
 
@@ -223,7 +228,7 @@ body {
 
 #bottom-buttons{
 	margin-left: 20px;
-	margin-top: 16px;
+	margin-top: 10px;
 	margin-bottom:0px;
 	float:left;
 }
@@ -336,7 +341,7 @@ body {
 
 		.element_date{
 			float: right;
-			width: 45px;
+			width: 55px;
 			font-size: 12px;
 			color: #a1a1a1;
 			padding-top: 9px;
@@ -347,7 +352,7 @@ body {
 			font-weight: 800;
 
 			.element_date_title{
-				font-size: 6px;
+				font-size: 10px;
 				margin-bottom: -7px;
 				color: #a1a1a1;
 				font-weight: 300;
@@ -481,7 +486,7 @@ body {
 /*     object form     */
 	
 #object-form_top{
-	padding:20px 15px 20px 15px;
+	padding:10px 10px 10px 10px;
 	height: 295px;
 
 	#object-form-left{
@@ -574,10 +579,8 @@ body {
 				text-transform: uppercase;
 				text-align: center;
 				margin-top: 3px;
-				padding-left: 30px;
-				padding-right:25px;
 				border: 0px;
-				font-size: 9px;
+				font-size: 12px;
 				background-color: transparent;
 				float:left;
 				-webkit-appearance: none;
@@ -637,20 +640,37 @@ body {
 	#object-form-bottom{
 		display: block;
 
-		.field-box-date{
-			float: left;
-			width: 25%;
-			height: 40px;
+		.field-box {
+			float: left;			
 			background-color: #ffffff;
 			border:1px solid;
 			border-color: #f0f0f0;
 			border-radius:2px;
+		}
+
+		.field-type {
+			font-size: 8px;
+			color: #a7a7a7;
+		}
+
+		.field-info {
+		   	background-color: #fff;
+			textarea, select{
+				background: transparent;
+			   	border: 0;
+			   	border-radius: 0;
+			   	-webkit-appearance: none;
+			}
+		}
+
+		.field-box-date{
+			@extend .field-box;
+			width: 25%;
+			height: 40px;
 			margin:-1px -5px 0px 0px;
 
 			.field-type{
-
-				font-size: 8px;
-				color: #a7a7a7;
+				@extend .field-type;
 				padding-left: 10px;
 				padding-top: 4px;
 			}
@@ -659,37 +679,26 @@ body {
 				width: 100%;
 			   	height: 20px;
 			   	overflow: hidden;
-			   	background-color: #fff;
 			   	margin-top:-6px;
 				color: #000000;
 				font-size: 10px;
 				padding-left:10px;
 				select{
-					background: transparent;
-				   	width: auto;
-				   	border: 0;
-				   	border-radius: 0;
+				   	width: auto;				 
 				   	height: 20px;
-				   	-webkit-appearance: none;
 				}
 			}
 
 		}
 
 		.field-box-description{
-			float: left;
+			@extend .field-box;
 			width: 97%;
 			height: 70px;
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
 			margin-top: 10px;
 
 			.field-type{
-				color: white;
-				font-size: 8px;
-				color: #a7a7a7;
+				@extend .field-type;
 				padding-left: 10px;
 				padding-top: 7px;
 
@@ -698,18 +707,13 @@ body {
 			.field-info{
 				width: inherit;
 			   	height: 20px;
-			   	background-color: #fff;
 			   	margin-top:-3px;
-				textarea{
-					background: transparent;
+				textarea{				
 					color: #000000;
 					font-size: 10px;
 					margin-left:10px;
 				   	width: inherit;
-				   	border: 0;
-				   	border-radius: 0;
 				   	height: 40px;
-				   	-webkit-appearance: none;
 				   	resize: none;
 				}
 			}

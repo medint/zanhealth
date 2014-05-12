@@ -18,11 +18,11 @@
 
   </div>
 
-  <footer class="footer">
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <footer class="footer">    
+    <%= link_to @language['Home'], '/' %> |
     <a href='?language=english'>English</a> | 
     <a href='?language=swahili'>Swahili</a> | 
-    <%= link_to @language['Home'], '/' %> |
+    <a href='?language=creole'>Creole</a> |     
     <%= @language['About'] %> zanhealth |
     <%= link_to @language['Contact Us'], 'mailto:help@zanhealth.co' %> |
     © 2014 <%= link_to "Med International", "medinternational-us.org" %>
