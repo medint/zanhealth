@@ -3,13 +3,14 @@ Capybara.current_driver = :poltergeist
 
 class FacilityWorkRequestNewTest < ActionDispatch::IntegrationTest
   setup do
-  		@user = users(:userone)
+  	@user = users(:userone)
 		visit '/users/sign_in'
 
-		fill_in 'user_login', :with => @user.username
-		fill_in 'user_password', :with => 'password'
+    fill_in 'user_login', :with => @user.username
+    fill_in 'user_password', :with => 'password'
+
 		click_button 'Sign in'
-		
+
   end
 
   test "create new work request form" do
