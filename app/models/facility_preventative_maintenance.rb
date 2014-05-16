@@ -39,9 +39,7 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
   end
 
   def not_all_zero
-    errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)
-      
-
+    errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)      
   end
 
   private

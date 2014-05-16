@@ -32,13 +32,14 @@ class BmetPreventativeMaintenancesController < ApplicationController
   # POST /bmet_preventative_maintenances.json
   def create
     @bmet_preventative_maintenance = BmetPreventativeMaintenance.new(bmet_preventative_maintenance_params)
+    @bmet_preventative_maintenance.requester_id = current_user.id
 
     respond_to do |format|
       if @bmet_preventative_maintenance.save
         format.html { redirect_to @bmet_preventative_maintenance, notice: 'Bmet preventative maintenance was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_preventative_maintenance }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back }
         format.json { render json: @bmet_preventative_maintenance.errors, status: :unprocessable_entity }
       end
     end
@@ -87,13 +88,14 @@ class BmetPreventativeMaintenancesController < ApplicationController
     end
 
     def set_bmet_preventative_maintenance
+
       @bmet_preventative_maintenance = BmetPreventativeMaintenance.find(params[:id])
       @bmet_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
     end
 
     def set_bmet_preventative_maintenances
-      @bmet_preventative_maintenances = BmetPreventativeMaintenance.all
-      @bmet_preventative_maintenances.map {|i| i.calc_days_since}  
+      @bmet_preventative_maintenances = BmetPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+      @bmet_preventative_maintenances.map {|i| i.calc_days_since}        
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
