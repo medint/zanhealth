@@ -40,6 +40,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   def create
     @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
+    @bmet_work_request.facility_id=current_user.facility_id
 
     respond_to do |format|
       if @bmet_work_request.save
