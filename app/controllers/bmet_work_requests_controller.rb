@@ -3,6 +3,7 @@ before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
+skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/bmet_app'
 
@@ -49,6 +50,31 @@ before_action :set_departments, only: [:show]
         format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+    def public_new    
+    @bmet_work_request = BmetWorkRequest.new
+    @bmet_work_request.facility_id = params[:facility_id]
+    render :layout => "application"
+  end
+
+  def public_create    
+    @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
+
+    respond_to do |format|
+      if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @bmet_work_request.save
+        format.html { redirect_to '/bmet_work_requests/public_show/'+@bmet_work_request.id.to_s, notice: 'Work order was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @bmet_work_request }
+      else
+        format.html { render action: 'public_new', layout: "application" }
+        format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def public_show
+    @bmet_work_request = BmetWorkRequest.find_by_id(params[:id])
+    render :layout => "application"
   end
 
   def destroy

@@ -83,6 +83,10 @@ Zanhealth::Application.routes.draw do
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  
   get "/facility_work_requests/public_show/:id", to: "facility_work_requests#public_show"  
 
+  get "/bmet_work_requests/:facility_id/public_new", to: "bmet_work_requests#public_new"  
+  post "/bmet_work_requests/public_create", to: "bmet_work_requests#public_create"  
+  get "/bmet_work_requests/public_show/:id", to: "bmet_work_requests#public_show"  
+
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
   get "/detailed_items", to: "bmet_items#detailed"
