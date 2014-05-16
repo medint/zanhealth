@@ -47,8 +47,9 @@ class FacilityCostsController < ApplicationController
       @facility_costs=FacilityCost.all
   end
 
- # Never trust parameters from the scary internet, only allow the white list through.
-  def set_facility_cost
+  private 
+  
+    def set_facility_cost
       @facility_cost = FacilityCost.find(params[:id])
     end
     def facility_cost_params

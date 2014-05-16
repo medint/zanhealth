@@ -116,49 +116,51 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 	  end
   end
 
-  def set_status
-    @status= {
-      'Unstarted' => 0,
-      'In Progress' => 1,
-      'Completed' => 2
-    }
-  end
+  private 
+  
+    def set_status
+      @status= {
+        'Unstarted' => 0,
+        'In Progress' => 1,
+        'Completed' => 2
+      }
+    end
 
-  def set_users
-    @users = User.where(:facility_id => current_user.facility_id).all.to_a
-  end
+    def set_users
+      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+    end
 
-  def set_departments
-    @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
-  end
+    def set_departments
+      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
+    end
 
-  def set_facility_preventative_maintenance
-      @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find_by_id(params[:id])
-      if (@facility_preventative_maintenance==nil || @facility_preventative_maintenance.requester.facility_id!=current_user.facility_id)
-        @facility_preventative_maintenance=nil
-        redirect_to "/404"
-      else
-        @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
-      end
-  end
+    def set_facility_preventative_maintenance
+        @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find_by_id(params[:id])
+        if (@facility_preventative_maintenance==nil || @facility_preventative_maintenance.requester.facility_id!=current_user.facility_id)
+          @facility_preventative_maintenance=nil
+          redirect_to "/404"
+        else
+          @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+        end
+    end
 
-  def set_facility_preventative_maintenances
-      @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-      @facility_preventative_maintenances.map {|i| i.calc_days_since}  
-  end
+    def set_facility_preventative_maintenances
+        @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+        @facility_preventative_maintenances.map {|i| i.calc_days_since}  
+    end
 
-  def set_hidden_facility_preventative_maintenances
-  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-  	@facility_preventative_maintenances.map {|i| i.calc_days_since}
-  end
+    def set_hidden_facility_preventative_maintenances
+    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    end
 
-  def set_all_facility_preventative_maintenances
-  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-  	@facility_preventative_maintenances.map {|i| i.calc_days_since}
-  end
+    def set_all_facility_preventative_maintenances
+    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    end
 
-  def facility_preventative_maintenance_params
-      params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
-  end
+    def facility_preventative_maintenance_params
+        params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
+    end
 
 end

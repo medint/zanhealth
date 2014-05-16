@@ -27,6 +27,7 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
         days: @facility_preventative_maintenance.days,
         months: @facility_preventative_maintenance.months,
         next_date: @facility_preventative_maintenance.next_date, 
+        weeks: @facility_preventative_maintenance.weeks
     }
       
     end

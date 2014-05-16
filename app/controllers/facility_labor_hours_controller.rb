@@ -50,8 +50,8 @@ class FacilityLaborHoursController < ApplicationController
       #@facility_labor_hour=LaborHour.where(:id => params[:id])
   end
 
- # Never trust parameters from the scary internet, only allow the white list through.
-  def set_labor_hour
+  private 
+    def set_labor_hour
       @facility_labor_hour = FacilityLaborHour.find(params[:id])
     end
     def labor_hour_params

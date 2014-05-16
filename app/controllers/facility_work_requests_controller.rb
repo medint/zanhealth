@@ -6,6 +6,7 @@ before_action :set_users, only: [:show, :hidden, :all, :show_all, :show_hidden],
 before_action :set_departments, only: [:show, :hidden, :all, :show_all, :show_hidden]
 before_action :set_hidden_facility_work_requests, only: [:hidden, :show_hidden]
 before_action :set_all_facility_work_requests, only: [:all, :show_all]
+before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
 skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/facilities_app'
@@ -44,29 +45,15 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def show
-    @input_object = FacilityWorkOrder.new
-    @input_object.description = "Description: " + @facility_work_request.description + "\n" + 
-    "Location: "+@facility_work_request.location + "\n" + 
-    "Email: "+@facility_work_request.email + "\n" +
-    "Phone: "+@facility_work_request.phone + "\n" 
+
   end
 
   def show_hidden
-	@input_object = FacilityWorkOrder.new
- 	@input_object.description = "Description: "+ @facility_work_request.description + "\n"+
- 		"Location: "+@facility_work_request.location + "\n" +
- 		"Email: "+@facility_work_request.email + "\n" +
- 		"Phone: "+@facility_work_request.phone + "\n"
  	 	render 'show'
   end
  
-  def show_all
-  	@input_object = FacilityWorkOrder.new
- 	@input_object.description = "Description: "+ @facility_work_request.description + "\n"+
- 		"Location: "+@facility_work_request.location + "\n" +
- 		"Email: "+@facility_work_request.email + "\n" +
- 		"Phone: "+@facility_work_request.phone + "\n"
- 	render 'show'
+  def show_all  	
+ 	  render 'show'
   end
 
   def update
@@ -155,44 +142,52 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 	end
   end
 
-  def set_status
-    @status= {
-      'Unstarted' => 0,
-      'In Progress' => 1,
-      'Completed' => 2
-    }
-  end
-
-  def set_users
-    @users = User.where(:facility_id => current_user.facility_id).all.to_a
-  end
-
-  def set_departments
-    @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
-  end
-
-  def set_facility_work_request
-    @facility_work_request = FacilityWorkRequest.with_deleted.find_by_id(params[:id])
-    if (@facility_work_request==nil || @facility_work_request.facility_id!=current_user.facility_id)
-        @facility_work_request=nil
-        redirect_to "/404"
+  private 
+    def set_status
+      @status= {
+        'Unstarted' => 0,
+        'In Progress' => 1,
+        'Completed' => 2
+      }
     end
-  end
 
-  def set_facility_work_requests
-    @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
-  end
+    def set_users
+      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+    end
 
- def set_hidden_facility_work_requests
-    @facility_work_requests = FacilityWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
-  end
+    def set_departments
+      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
+    end
 
-  def set_all_facility_work_requests
-    @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
-  end
+    def set_facility_work_request
+      @facility_work_request = FacilityWorkRequest.with_deleted.find_by_id(params[:id])
+      if (@facility_work_request==nil || @facility_work_request.facility_id!=current_user.facility_id)
+          @facility_work_request=nil
+          redirect_to "/404"
+      end
+    end
 
-  def facility_work_request_params
-    params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
-  end
+    def set_facility_work_requests
+      @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+    end
 
+   def set_hidden_facility_work_requests
+      @facility_work_requests = FacilityWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+    end
+
+    def set_all_facility_work_requests
+      @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+    end
+
+    def facility_work_request_params
+      params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
+    end
+
+    def set_convert_object
+      @input_object = FacilityWorkOrder.new
+      @input_object.description = "Description: "+ @facility_work_request.description + "\n"+
+      "Location: "+@facility_work_request.location + "\n" +
+      "Email: "+@facility_work_request.email + "\n" +
+      "Phone: "+@facility_work_request.phone + "\n"
+    end
 end

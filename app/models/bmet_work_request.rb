@@ -14,4 +14,6 @@
 #
 
 class BmetWorkRequest < ActiveRecord::Base
+
+	belongs_to :facility
 end

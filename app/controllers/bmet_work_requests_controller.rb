@@ -1,29 +1,26 @@
 class BmetWorkRequestsController < ApplicationController
+before_action :set_bmet_work_requests, only:[:new, :index, :show]
 before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit]
 before_action :set_status, only: [:show]
 before_action :set_users, only: [:show], except: [:new, :create]
 before_action :set_departments, only: [:show]
+before_action :set_convert_object, only: [:show]
 skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/bmet_app'
 
   def new
-    @bmet_work_requests = BmetWorkRequest.all
     @bmet_work_request = BmetWorkRequest.new
   end
 
   def index
-    @bmet_work_requests = BmetWorkRequest.all
   end
 
   def edit
 
   end
 
-  def show
-    @bmet_work_requests = BmetWorkRequest.all
-    @input_object = BmetWorkOrder.new
-    @input_object.description = @bmet_work_request.description
+  def show    
   end
  
   def update
@@ -86,32 +83,45 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
   end
 
-  def set_status
-    @status= {
-      'Unstarted' => 0,
-      'In Progress' => 1,
-      'Completed' => 2
-    }
-  end
-
-  def set_users
-    @users = User.where(:facility_id => current_user.facility_id).all.to_a
-  end
-
-  def set_departments
-    @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
-  end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
-
-  def set_bmet_work_request
-    @bmet_work_request = BmetWorkRequest.find_by_id(params[:id])
-    if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
-        @bmet_work_request=nil
-        redirect_to "/404"
+  private 
+    def set_status
+      @status= {
+        'Unstarted' => 0,
+        'In Progress' => 1,
+        'Completed' => 2
+      }
     end
-  end
 
-  def bmet_work_request_params
-    params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
-  end
+    def set_users
+      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+    end
+
+    def set_departments
+      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
+    end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
+
+    def set_bmet_work_requests
+      @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+    end
+
+    def set_bmet_work_request
+      @bmet_work_request = BmetWorkRequest.find_by_id(params[:id])
+      if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
+          @bmet_work_request=nil
+          redirect_to "/404"
+      end
+    end
+
+    def bmet_work_request_params
+      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
+    end
+
+    def set_convert_object
+      @input_object = BmetWorkOrder.new
+      @input_object.description = "Description: "+ @bmet_work_request.description + "\n"+
+      "Location: "+@bmet_work_request.location + "\n" +
+      "Email: "+@bmet_work_request.email + "\n" +
+      "Phone: "+@bmet_work_request.phone + "\n"
+    end
 
 end

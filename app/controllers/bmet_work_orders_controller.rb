@@ -42,6 +42,7 @@ class BmetWorkOrdersController < ApplicationController
   # POST /bmet_work_orders.json
   def create
     @bmet_work_order = BmetWorkOrder.new(bmet_work_order_params)
+    @bmet_work_order.requester_id=current_user.id
 
     respond_to do |format|
       if @bmet_work_order.save
@@ -103,6 +104,8 @@ class BmetWorkOrdersController < ApplicationController
 
     def set_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+
+      # @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
     end
 
     def set_users
@@ -123,7 +126,7 @@ class BmetWorkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
+      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id)
     end
 
 end
