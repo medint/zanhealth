@@ -103,18 +103,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
 
   def set_bmet_work_request
-    set_users_special
-    @bmet_work_request = BmetWorkRequest.find(params[:id])
-  end
-
-  def new_shortcut
-    @bmet_work_requests = BmetWorkRequest.all
-    @bmet_work_request = BmetWorkRequest.new
-    render :layout => "application"
-  end
-
-  def set_users_special
-    @users = params[:num]
+    @bmet_work_request = BmetWorkRequest.find_by_id(params[:id])
+    if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
+        @bmet_work_request=nil
+        redirect_to "/404"
+    end
   end
 
   def bmet_work_request_params

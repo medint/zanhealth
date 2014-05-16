@@ -89,8 +89,13 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
     def set_bmet_preventative_maintenance
 
-      @bmet_preventative_maintenance = BmetPreventativeMaintenance.find(params[:id])
-      @bmet_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+      @bmet_preventative_maintenance = BmetPreventativeMaintenance.find_by_id(params[:id])
+      if (@bmet_preventative_maintenance==nil || @bmet_preventative_maintenance.requester.facility_id!=current_user.facility_id)
+        @bmet_preventative_maintenance=nil
+        redirect_to "/404"
+      else
+        @bmet_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+      end      
     end
 
     def set_bmet_preventative_maintenances

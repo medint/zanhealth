@@ -91,12 +91,18 @@ class BmetWorkOrdersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_bmet_work_order
       @bmet_work_order = BmetWorkOrder.find(params[:id])
+      if (@bmet_work_order==nil || @bmet_work_order.owner.facility_id!=current_user.facility_id)
+        @bmet_work_order=nil
+        redirect_to "/404"
+      end
     end
 
+
     def set_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]})
+      @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
     end
 
     def set_users
