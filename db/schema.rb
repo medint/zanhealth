@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20140516034347) do
     t.datetime "updated_at"
     t.text     "description"
     t.datetime "deleted_at"
-    t.integer  "requester_id"    
+    t.integer  "requester_id"
   end
 
   add_index "facility_preventative_maintenances", ["deleted_at"], name: "index_facility_preventative_maintenances_on_deleted_at", using: :btree
