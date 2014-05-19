@@ -15,6 +15,7 @@
 
 class BmetPreventativeMaintenance < ActiveRecord::Base
   
+  acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date
   attr_accessor :days_since
