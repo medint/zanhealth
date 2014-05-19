@@ -36,7 +36,6 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
     respond_to do |format|
       if @bmet_preventative_maintenance.save
-      	  puts @bmet_preventative_maintenance.description
         format.html { redirect_to @bmet_preventative_maintenance, notice: 'Bmet preventative maintenance was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_preventative_maintenance }
       else
