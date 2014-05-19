@@ -15,7 +15,8 @@ Zanhealth::Application.routes.draw do
   resources :bmet_models
   resources :bmet_needs
   resources :bmet_preventative_maintenances
-  resources :bmet_work_orders
+
+  resources :bmet_work_orders, except: :show
   resources :bmet_work_order_comments
   resources :bmet_work_requests
   resources :bmet_costs
@@ -78,6 +79,12 @@ Zanhealth::Application.routes.draw do
 
   # hide/unhide features for bmet work orders
   put "hide_bmet_work_order/:id", to: "bmet_work_orders#hide", :as => :hide_bmet_work_order
+  get "/bmet_work_orders/unhidden", to: "bmet_work_orders#index"
+  get "/bmet_work_orders/unhidden/:id", to: "bmet_work_orders#show"
+  get "/bmet_work_orders/hidden", to: "bmet_work_orders#hidden"
+  get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
+  get "/bmet_work_orders/all", to: "bmet_work_orders#all"
+  get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  

@@ -23,6 +23,7 @@
 #
 
 class BmetWorkOrder < ActiveRecord::Base
+	acts_as_paranoid
     belongs_to :bmet_item
     has_many :bmet_work_order_comments
     has_many :bmet_costs

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516034347) do
+ActiveRecord::Schema.define(version: 20140519020015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,7 +127,10 @@ ActiveRecord::Schema.define(version: 20140516034347) do
     t.datetime "updated_at"
     t.datetime "date_started"
     t.integer  "department_id"
+    t.datetime "deleted_at"
   end
+
+  add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
 
   create_table "bmet_work_requests", force: true do |t|
     t.text     "requester"

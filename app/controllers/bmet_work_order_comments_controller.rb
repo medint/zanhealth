@@ -28,7 +28,7 @@ class BmetWorkOrderCommentsController < ApplicationController
 
     respond_to do |format|
       if @bmet_work_order_comment.save
-        format.html { redirect_to @bmet_work_order_comment.bmet_work_order, notice: 'Work request comment was successfully created.' }
+        format.html { redirect_to  :back,  notice: 'Work request comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order_comment }
       else
         format.html { render action: 'new' }

@@ -1,7 +1,7 @@
 <div id = "mid_facility-work-order">
   <ul id="mid-summary_ul">
     <% @bmet_work_orders.each do |bmet_work_order| %>
-    <%= link_to(bmet_work_order) do %>
+    <%= link_to(@link.to_s+bmet_work_order.id.to_s) do %>
       <li
       class="mid-summary_ul_li"
       requester="<%=bmet_work_order.requester.try(:name)%>"

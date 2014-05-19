@@ -19,12 +19,31 @@ class BmetLaborHoursControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create bmet_labor_hour" do
+  test "should create bmet_labor_hour with unhidden work orders" do
     assert_difference('BmetLaborHour.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/unhidden/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
       post :create, bmet_labor_hour: { bmet_work_order_id: @bmet_labor_hour.bmet_work_order_id, date_started: @bmet_labor_hour.date_started, duration: @bmet_labor_hour.duration, technician_id: @bmet_labor_hour.technician_id }
     end
+    assert_redirected_to "/bmet_work_orders/unhidden/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
+    assert_response :redirect
+  end
 
-    assert_redirected_to @bmet_labor_hour.bmet_work_order
+  test "should create bmet_labor_hour with hidden work orders" do
+    assert_difference('BmetLaborHour.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/hidden/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
+      post :create, bmet_labor_hour: { bmet_work_order_id: @bmet_labor_hour.bmet_work_order_id, date_started: @bmet_labor_hour.date_started, duration: @bmet_labor_hour.duration, technician_id: @bmet_labor_hour.technician_id }
+    end
+    assert_redirected_to "/bmet_work_orders/hidden/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
+    assert_response :redirect
+  end
+
+ test "should create bmet_labor_hour with all work orders" do
+    assert_difference('BmetLaborHour.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/all/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
+      post :create, bmet_labor_hour: { bmet_work_order_id: @bmet_labor_hour.bmet_work_order_id, date_started: @bmet_labor_hour.date_started, duration: @bmet_labor_hour.duration, technician_id: @bmet_labor_hour.technician_id }
+    end
+    assert_redirected_to "/bmet_work_orders/all/"+(@bmet_labor_hour.bmet_work_order.id.to_s)
+    assert_response :redirect
   end
 
   test "should show bmet_labor_hour" do

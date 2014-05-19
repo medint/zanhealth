@@ -1,28 +1,57 @@
 class BmetWorkOrdersController < ApplicationController
   layout 'layouts/bmet_app'
-  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
-  before_action :set_users, only: [:index, :new, :show, :hidden]
-  before_action :set_departments, only: [:new, :show, :hidden]
-  before_action :set_status, only: [:show, :new, :hidden]
+  before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
+  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
+  before_action :set_all_bmet_work_orders, only: [:all, :show_all]
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-	puts current_user.facility_id
-	puts current_user.name
+  	  @link = bmet_work_orders_url+"/unhidden/"
+  end
+
+  def hidden
+  	  @link = bmet_work_orders_url+"/hidden/"
+  	  render "index"
+  end
+
+  def all
+  	  @link = bmet_work_orders_url+"/all/"
+  	  render "index"
   end
 
   # GET /bmet_work_orders/1
   # GET /bmet_work_orders/1.json
   def show
-      #@wr_comment = BmetWorkOrderComment.where(:bmet_work_order_id => params[:id]).order(:created_at)
-      #@labor_hours=BmetLaborHour.where(:bmet_work_order_id => params[:id]).all.to_a
     @bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+  end
+
+  def show_hidden
+	@bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
+    @bmet_work_order_comment = BmetWorkOrderComment.new
+    @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
+    @bmet_cost = BmetCost.new
+    @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
+    @bmet_labor_hour = BmetLaborHour.new
+    render "show"
+  end
+
+  def show_all
+	@bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
+    @bmet_work_order_comment = BmetWorkOrderComment.new
+    @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
+    @bmet_cost = BmetCost.new
+    @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
+    @bmet_labor_hour = BmetLaborHour.new
+    render "show"
   end
 
   # GET /bmet_work_orders/new
@@ -47,10 +76,10 @@ class BmetWorkOrdersController < ApplicationController
 
     respond_to do |format|
       if @bmet_work_order.save
-        format.html { redirect_to @bmet_work_order, notice: 'Work order was successfully created.' }
+        format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order }
       else
-        format.html { render action: 'new' }
+        format.html { render :back }
         format.json { render json: @bmet_work_order.errors, status: :unprocessable_entity }
       end
     end
@@ -61,10 +90,17 @@ class BmetWorkOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
-        format.html { redirect_to @bmet_work_order, notice: 'Work order was successfully updated.' }
+      	  link = request.referer.split("/")[-2]
+      	  if link == "hidden"
+      	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		  elsif link == "all"
+      	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		  else
+        format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render :back }
         format.json { render json: @bmet_work_order.errors, status: :unprocessable_entity }
       end
     end
@@ -73,11 +109,30 @@ class BmetWorkOrdersController < ApplicationController
   # DELETE /bmet_work_orders/1
   # DELETE /bmet_work_orders/1.json
   def destroy
-    @bmet_work_order.destroy
+    @bmet_work_order.really_destroy!
     respond_to do |format|
       format.html { redirect_to bmet_work_orders_url }
       format.json { head :no_content }
     end
+  end
+
+  def hide
+  	  @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+  	  if @bmet_work_order.destroyed?
+  	  	  BmetWorkOrder.restore(@bmet_work_order)
+	  else
+	  	  @bmet_work_order.destroy
+	  end
+	  respond_to do |format|
+	  	  link = "/"+request.referer.split("/")[-2]
+	  	  if link == "/all"
+	  	  	  format.html { redirect_to request.referer }
+		  else
+		  	  link = bmet_work_orders_url+link
+		  	  format.html { redirect_to link }
+		  end
+		  format.json { head :no_content }
+	  end
   end
 
   # GET /my_bmet_work_orders
@@ -95,7 +150,7 @@ class BmetWorkOrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_bmet_work_order
-      @bmet_work_order = BmetWorkOrder.find(params[:id])
+      @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
       if (@bmet_work_order==nil || @bmet_work_order.owner.facility_id!=current_user.facility_id)
         @bmet_work_order=nil
         redirect_to "/404"
@@ -105,8 +160,15 @@ class BmetWorkOrdersController < ApplicationController
 
     def set_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
-      # @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
     end
+
+    def set_hidden_bmet_work_orders
+      @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+	end
+
+	def set_all_bmet_work_orders
+      @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+	end
 
     def set_users
       @users = User.where(:facility_id => current_user.facility.id).all.to_a
