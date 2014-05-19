@@ -8,7 +8,8 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-
+	puts current_user.facility_id
+	puts current_user.name
   end
 
   # GET /bmet_work_orders/1
@@ -81,8 +82,8 @@ class BmetWorkOrdersController < ApplicationController
 
   # GET /my_bmet_work_orders
   def my
-  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
-    @texts = Text.includes(:bmet_work_order=> {:bmet_item => {:department => :facility}}).where("facilities.id=?",user.facility).references(:facility)
+  	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",current_user.facility).references(:facility)
+    @texts = Text.includes(:bmet_work_order=> {:bmet_item => {:department => :facility}}).where("facilities.id=?",current_user.facility).references(:facility)
   end
 
   # GET /detailed_bmet_work_orders
@@ -104,7 +105,6 @@ class BmetWorkOrdersController < ApplicationController
 
     def set_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
-
       # @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
     end
 
