@@ -14,7 +14,7 @@ Zanhealth::Application.routes.draw do
   resources :bmet_labor_hours
   resources :bmet_models
   resources :bmet_needs
-  resources :bmet_preventative_maintenances
+  resources :bmet_preventative_maintenances, except: :show
 
   resources :bmet_work_orders, except: :show
   resources :bmet_work_order_comments
@@ -85,6 +85,15 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
   get "/bmet_work_orders/all", to: "bmet_work_orders#all"
   get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+
+  # hide/unhide feature for bmet preventative maintenance
+  put "hide_bmet_preventative_maintenance/:id", to: "bmet_preventative_maintenances#hide", :as => :hide_bmet_preventative_maintenance 
+  get "/bmet_preventative_maintenances/unhidden", to: "bmet_preventative_maintenances#index"
+  get "/bmet_preventative_maintenances/unhidden/:id", to: "bmet_preventative_maintenances#show"
+  get "/bmet_preventative_maintenances/hidden", to: "bmet_preventative_maintenances#hidden"
+  get "/bmet_preventative_maintenances/hidden/:id", to: "bmet_preventative_maintenances#show_hidden"
+  get "/bmet_preventative_maintenances/all", to: "bmet_preventative_maintenances#all"
+  get "/bmet_preventative_maintenances/all/:id", to: "bmet_preventative_maintenances#show_all"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  

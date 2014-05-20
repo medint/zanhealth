@@ -25,8 +25,32 @@
        </div>
 
       </ul>
-
     </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+	<%= "View:" %>
+	<div class="dropdown">
+			<a id="facworkorder_view" role="button" data-toggle="dropdown" href="#">
+				Select View:
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_view">
+				<div>
+					<a href="<%= bmet_preventative_maintenances_url+'/unhidden' %>">
+						Visible Work Orders
+					</a>
+				</div>
+				<div>
+					<a href="<%= bmet_preventative_maintenances_url+'/hidden' %>">
+						Hidden Work Orders
+					</a>
+				</div>
+				<div>
+					<a href="<%= bmet_preventative_maintenances_url+'/all' %>">
+						All Work Orders
+					</a>
+				</div>
+			</ul>
+		</div>
   </div>
 
   <div id="top-button">
