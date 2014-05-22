@@ -25,6 +25,12 @@
         <div class="field-info"><%= f.text_area :prevention_taken %></div>
     </div>
 
+    <div class="additional-details-box">
+          <a href="<%= facility_work_orders_url + '/all/' + ':id'%>">
+            <%= @language['Origin'] %>
+          </a>
+    </div>
+
     <div class="actions">
       <%= f.submit @language['Save Changes']%>
     </div>

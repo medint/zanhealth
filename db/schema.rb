@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519220108) do
+ActiveRecord::Schema.define(version: 20140520211229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,6 +226,8 @@ ActiveRecord::Schema.define(version: 20140519220108) do
     t.datetime "date_started"
     t.integer  "department_id"
     t.datetime "deleted_at"
+    t.integer  "pm_origin"
+    t.integer  "wr_origin"
   end
 
   add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at", using: :btree
