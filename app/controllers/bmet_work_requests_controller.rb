@@ -1,10 +1,12 @@
 class BmetWorkRequestsController < ApplicationController
 before_action :set_bmet_work_requests, only:[:new, :index, :show]
-before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit]
-before_action :set_status, only: [:show]
-before_action :set_users, only: [:show], except: [:new, :create]
-before_action :set_departments, only: [:show]
-before_action :set_convert_object, only: [:show]
+before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit, :show_hidden, :show_all]
+before_action :set_status, only: [:show, :hidden, :all, :show_hidden, :show_all]
+before_action :set_users, only: [:show, :hidden, :all, :show_hidden, :show_all], except: [:new, :create]
+before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show_all]
+before_action :set_convert_object, only: [:show, :show_hidden, :show_all]
+before_action :set_hidden_bmet_work_requests, only: [:hidden, :show_hidden]
+before_action :set_all_bmet_work_requests, only: [:all, :show_all]
 skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/bmet_app'
@@ -14,6 +16,17 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def index
+  	  @link = bmet_work_requests_url+"/unhidden/"
+  end
+
+  def hidden
+  	  @link = bmet_work_requests_url+"/hidden/"
+  	  render 'index'
+  end
+
+  def all
+  	  @link = bmet_work_requests_url+"/all/"
+  	  render 'index'
   end
 
   def edit
@@ -23,13 +36,28 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   def show    
   end
  
+  def show_hidden
+  	  render 'show'
+  end
+
+  def show_all
+  	  render 'show'
+  end
+
   def update
     respond_to do |format|
       if @bmet_work_request.update(bmet_work_request_params)
-        format.html { redirect_to @bmet_work_request, notice: 'Work request was successfully updated.' }
+      	  link = request.referer.split("/")[-2]
+      	  if link == "hidden"
+      	  	  format.html { redirect_to bmet_work_requests_url+"/hidden/"+@bmet_work_request.id.to_s, notice: 'Work request was successfully updated' }
+		  elsif link == "all"
+		  	  format.html { redirect_to bmet_work_requests_url+"/all/"+@bmet_work_request.id.to_s, notice: 'Work request was successfully updated' }
+		  else
+        	format.html { redirect_to bmet_work_requests_url+"/unhidden/"+@bmet_work_request.id.to_s, notice: 'Work request was successfully updated.' }
+		  end
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render :back }
         format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
       end
     end
@@ -41,10 +69,10 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
     respond_to do |format|
       if @bmet_work_request.save
-        format.html { redirect_to @bmet_work_request, notice: 'Work order was successfully created.' }
+        format.html { redirect_to bmet_work_requests_url+"/unhidden/"+@bmet_work_request.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_request }
       else
-        format.html { render action: 'new' }
+        format.html { render :back }
         format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
       end
     end
@@ -76,11 +104,30 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def destroy
-    @bmet_work_request.destroy
+    @bmet_work_request.really_destroy!
     respond_to do |format|
       format.html { redirect_to bmet_work_requests_url }
       format.json { head :no_content }
     end
+  end
+
+  def hide
+  	  @bmet_work_request =  BmetWorkRequest.with_deleted.find(params[:id])
+  	  if @bmet_work_request.destroyed?
+		 BmetWorkRequest.restore(@bmet_work_request.id)
+	  else
+	  	  @bmet_work_request.destroy
+	  end
+	  respond_to do |format|
+	  	  link = "/"+request.referer.split("/")[-2]
+	  	  if link == "/all"
+	  	  	  format.html { redirect_to request.referer }
+		  else
+		  	  link = bmet_work_requests_url+link
+		  	  format.html { redirect_to link }
+		  end
+		  format.json { head :no_content }
+	  end
   end
 
   private 
@@ -104,8 +151,16 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
     end
 
+    def set_hidden_bmet_work_requests
+    	@bmet_work_requests = BmetWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+	end
+
+	def set_all_bmet_work_requests
+		@bmet_work_requests = BmetWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+	end
+
     def set_bmet_work_request
-      @bmet_work_request = BmetWorkRequest.find_by_id(params[:id])
+      @bmet_work_request = BmetWorkRequest.with_deleted.find(params[:id])
       if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
           @bmet_work_request=nil
           redirect_to "/404"
