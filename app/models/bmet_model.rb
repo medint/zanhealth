@@ -15,7 +15,13 @@ class BmetModel < ActiveRecord::Base
     has_many :bmet_needs
     has_many :bmet_items
 
-    def name
+    def manufacturer_name
       "#{manufacturer_name} #{category} #{model_name}" 
     end
+
+    def self.import(file)
+  		CSV.foreach(file.path, headers: true) do |row|
+  			BmetModel.create! row.to_hash
+  		end
+  	end
 end

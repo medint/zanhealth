@@ -22,8 +22,15 @@
 #
 
 class BmetItem < ActiveRecord::Base
+
   belongs_to :bmet_model
   belongs_to :department
   has_many :bmet_work_orders
   has_many :bmet_item_histories
+
+    def self.import(file)
+  		CSV.foreach(file.path, headers: true) do |row|
+  			BmetItem.create! row.to_hash
+  		end
+  	end
 end

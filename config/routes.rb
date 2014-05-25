@@ -9,7 +9,9 @@ Zanhealth::Application.routes.draw do
   resources :texts
   
   #bmet app
-  resources :bmet_items
+  resources :bmet_items do
+    collection { post :import }
+  end
   resources :bmet_item_histories
   resources :bmet_labor_hours
   resources :bmet_models

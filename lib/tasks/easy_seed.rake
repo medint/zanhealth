@@ -93,7 +93,7 @@ namespace :test do
 				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,
 								:swahili => swahili,
-                        :creole => creole
+                        		:creole => creole
 							   )
 			end
 		end

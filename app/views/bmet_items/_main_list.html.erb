@@ -4,11 +4,10 @@
     <%= link_to(bmet_item) do %>
       <li
       class="mid-summary_ul_li"
-      datecreated="<%= bmet_item.created_at.to_s(:number) %>"
-      >        
+      datecreated="<%= bmet_item.created_at.to_s(:number) %>">
         <div class="element_details">
           <p class="element_title">
-            <%= bmet_item.bmet_model.name %>
+            <%= bmet_item.bmet_model.model_name %>
           </p>
           <p class="element_description">
             <%= bmet_item.location %>

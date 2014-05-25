@@ -73,6 +73,12 @@ class BmetItemsController < ApplicationController
     end
   end
 
+  def import
+    BmetItem.import(params[:file])
+    BmetModel.import(params[:file])
+    redirect_to root_url, notice: "Items and associated models imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
