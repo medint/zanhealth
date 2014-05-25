@@ -1,53 +1,55 @@
-<%= form_for(@bmet_work_request) do |f| %>
-  <% if @bmet_work_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bmet_work_request.errors.count, "error") %> prohibited this bmet_work_request from being saved:</h2>
-<ul> <% @work_request.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-  <% if params[:action] == 'new' %>
-      <div class="work_request_form-field">
-      <input type="hidden" name="bmet_work_request[requester_id]" value=<%= session[:user] %>> </input>
+<div id="object-form_top">
+  <%= form_for(@bmet_work_request) do |f| %>
+    <% if @bmet_work_request.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@bmet_work_request.errors.count, "error") %> prohibited this bmet_work_request from being saved:</h2>
+  <ul> <% @work_request.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
       </div>
-  <% elsif params[:action] == 'edit' %>
+    <% end %>
+    
+      <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+      <% if params[:action] == 'new' %>
+          <div class="work_request_form-field">
+          <input type="hidden" name="bmet_work_request[requester_id]" value=<%= session[:user] %>> </input>
+          </div>
+      <% elsif params[:action] == 'edit' %>
+      <% end %>
+      <div id="object-form-single-col">
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Requester'] %></div>
+          <div class="field-info"><%= f.text_area :requester, :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Department'] %></div>
+          <div class="field-info"><%= f.text_area :department, :required => true %></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Location'] %><br></div>
+          <div class="field-info"><%= f.text_area :location, :required => true%></div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= @language['Telephone number'] %><br></div>
+          <div class="field-info"><%= f.number_field :phone, :required => true %></div>
+        </div>
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Email'] %><br></div>
+          <div class="field-info"><%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
+        </div>
+
+        <div class="field-box">
+          <div class="field-type"><%= @language['Description'] %><br></div>
+          <div class="field-info"><%= f.text_area :description, :required => true%></div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit @language['Create Facility Work Request'] %>
+        </div>
+      </div>
+
   <% end %>
-
-  <div class = "work_request_form-short">
-    <%= @language['Requester'] %><br>
-    <%= f.text_area :requester, :required => true %>
-  </div>
-
-  <div class = "work_request_form-short">
-    <%= @language['Department'] %><br>
-    <%= f.text_area :department, :required => true %>
-  </div>
-
-  <div class="work_request_form-long">
-    <%= @language['Location'] %><br>
-    <%= f.text_area :location, :required => true %>
-  </div>
-
-  <div class = "work_request_form-short">
-    <%= @language['Telephone number'] %><br>
-    <%= f.number_field :department, :required => true %>
-  </div>
-
-  <div class = "work_request_form-short">
-    <%= @language['Email'] %><br>
-    <%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
-  </div>
-
-  <div class = "work_request_form-long">
-    <%= @language['Description'] %><br>
-    <%= f.text_area :description, :required => true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit @language['Create Bmet Work Request'] %>
-  </div>
-<% end %>
+</div>

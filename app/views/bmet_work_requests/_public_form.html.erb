@@ -1,8 +1,7 @@
-
-<%= simple_form_for @facility_work_request, { url:  facility_work_requests_public_create_path } do |f| %>
-  <% if @facility_work_request.errors.any? %>
+<%= simple_form_for @bmet_work_request, { url:  bmet_work_requests_public_create_path } do |f| %>
+  <% if @bmet_work_request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@facility_work_request.errors.count, "error") %> prohibited this facility_work_request from being saved:</h2>
+      <h2><%= pluralize(@bmet_work_request.errors.count, "error") %> prohibited this bmet_work_request from being saved:</h2>
 <ul> <% @work_request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -10,7 +9,7 @@
     </div>
   <% end %>
 
-  <input type="hidden" name="facility_work_request[facility_id]" value=<%= @facility_work_request.facility_id %>> </input>  
+  <input type="hidden" name="bmet_work_request[facility_id]" value=<%= @bmet_work_request.facility_id %>> </input>  
   
   <div class = "work_request_form-short">
     <%= @language['Requester'] %><br>
@@ -44,6 +43,6 @@
 
   <div class="actions">
     <%= recaptcha_tags %>
-    <%= f.submit @language['Create Facility Work Request'] %>
+    <%= f.submit @language['Create Bmet Work Request'] %>
   </div>
 <% end %>

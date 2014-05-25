@@ -14,10 +14,11 @@ Zanhealth::Application.routes.draw do
   resources :bmet_labor_hours
   resources :bmet_models
   resources :bmet_needs
-  resources :bmet_preventative_maintenances
-  resources :bmet_work_orders
+  resources :bmet_preventative_maintenances, except: :show
+
+  resources :bmet_work_orders, except: :show
   resources :bmet_work_order_comments
-  resources :bmet_work_requests
+  resources :bmet_work_requests, except: :show
   resources :bmet_costs
   resources :part_transactions
   
@@ -78,10 +79,38 @@ Zanhealth::Application.routes.draw do
 
   # hide/unhide features for bmet work orders
   put "hide_bmet_work_order/:id", to: "bmet_work_orders#hide", :as => :hide_bmet_work_order
+  get "/bmet_work_orders/unhidden", to: "bmet_work_orders#index"
+  get "/bmet_work_orders/unhidden/:id", to: "bmet_work_orders#show"
+  get "/bmet_work_orders/hidden", to: "bmet_work_orders#hidden"
+  get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
+  get "/bmet_work_orders/all", to: "bmet_work_orders#all"
+  get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+
+  # hide /unhide feature for bmet_work_request
+  put "hide_bmet_work_request/:id", to: "bmet_work_requests#hide", :as => :hide_bmet_work_request
+  get "/bmet_work_requests/unhidden", to: "bmet_work_requests#index"
+  get "/bmet_work_requests/unhidden/:id", to: "bmet_work_requests#show"
+  get "/bmet_work_requests/hidden", to: "bmet_work_requests#hidden"
+  get "/bmet_work_requests/hidden/:id", to: "bmet_work_requests#show_hidden"
+  get "/bmet_work_requests/all", to: "bmet_work_requests#all"
+  get "/bmet_work_requests/all/:id", to: "bmet_work_requests#show_all"
+
+  # hide/unhide feature for bmet preventative maintenance
+  put "hide_bmet_preventative_maintenance/:id", to: "bmet_preventative_maintenances#hide", :as => :hide_bmet_preventative_maintenance 
+  get "/bmet_preventative_maintenances/unhidden", to: "bmet_preventative_maintenances#index"
+  get "/bmet_preventative_maintenances/unhidden/:id", to: "bmet_preventative_maintenances#show"
+  get "/bmet_preventative_maintenances/hidden", to: "bmet_preventative_maintenances#hidden"
+  get "/bmet_preventative_maintenances/hidden/:id", to: "bmet_preventative_maintenances#show_hidden"
+  get "/bmet_preventative_maintenances/all", to: "bmet_preventative_maintenances#all"
+  get "/bmet_preventative_maintenances/all/:id", to: "bmet_preventative_maintenances#show_all"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  
   get "/facility_work_requests/public_show/:id", to: "facility_work_requests#public_show"  
+
+  get "/bmet_work_requests/:facility_id/public_new", to: "bmet_work_requests#public_new"  
+  post "/bmet_work_requests/public_create", to: "bmet_work_requests#public_create"  
+  get "/bmet_work_requests/public_show/:id", to: "bmet_work_requests#public_show"  
 
   get "/my_bmet_work_orders", to: "bmet_work_orders#my"
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"

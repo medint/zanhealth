@@ -37,7 +37,11 @@
 
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
-		  <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), method: :put,  data: { confirm: @language['Are you sure?'] }, :id => "delete-button_right"%>
+		  <% if @bmet_work_order.destroyed? %>
+		  <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+	  <% else %>
+		  <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+	  <% end %>
 		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 

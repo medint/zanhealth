@@ -102,27 +102,6 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
-  def set_facility_work_order
-      @facility_work_order = FacilityWorkOrder.with_deleted.find_by_id(params[:id])
-      if (@facility_work_order==nil || @facility_work_order.owner.facility_id!=current_user.facility_id)
-        @facility_work_order=nil
-        redirect_to "/404"
-      end
-
-  end
-
-  def set_facility_work_orders
-      @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
-  end
-
-  def set_hidden_work_orders
-  	  @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
-  end
-
-  def set_all_work_orders
-  	  @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
-  end
-
   def destroy
  	@facility_work_order.really_destroy!
  	respond_to do |format|
@@ -150,23 +129,46 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
-  def set_status
-    @status= {
-      'Unstarted' => 0,
-      'In Progress' => 1,
-      'Completed' => 2
-    }
-  end
+  private 
+    def set_status
+      @status= {
+        'Unstarted' => 0,
+        'In Progress' => 1,
+        'Completed' => 2
+      }
+    end
 
-  def set_users
-    @users = User.where(:facility_id => current_user.facility.id).all.to_a
-  end
+    def set_facility_work_order
+        @facility_work_order = FacilityWorkOrder.with_deleted.find_by_id(params[:id])
+        if (@facility_work_order==nil || @facility_work_order.owner.facility_id!=current_user.facility_id)
+          @facility_work_order=nil
+          redirect_to "/404"
+        end
 
-  def set_departments
-    @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
-  end
+    end
 
-  def facility_work_order_params
-      params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
-  end
+    def set_facility_work_orders
+        @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+    end
+
+    def set_hidden_work_orders
+        @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+    end
+
+    def set_all_work_orders
+        @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+    end
+
+
+    def set_users
+      @users = User.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def set_departments
+      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def facility_work_order_params
+        params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :pm_origin, :wr_origin)
+    end
 end

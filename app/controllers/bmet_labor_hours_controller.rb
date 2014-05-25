@@ -16,7 +16,7 @@ class BmetLaborHoursController < ApplicationController
 
     respond_to do |format|
       if @bmet_labor_hour.save
-        format.html { redirect_to @bmet_labor_hour.bmet_work_order, notice: 'Bmet Labor Hour was successfully created.' }
+        format.html { redirect_to :back, notice: 'Bmet Labor Hour was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_labor_hour }
       else
         format.html { render action: 'new' }

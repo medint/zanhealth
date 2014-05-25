@@ -28,7 +28,7 @@ class BmetCostsController < ApplicationController
 
     respond_to do |format|
       if @bmet_cost.save
-        format.html { redirect_to @bmet_cost.bmet_work_order, notice: 'Bmet cost was successfully created.' }
+        format.html { redirect_to :back, notice: 'Bmet cost was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_cost }
       else
         format.html { render action: 'new' }

@@ -25,6 +25,31 @@
          </div>
       </ul>
     </div>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+	<%= "View:" %>
+	<div class="dropdown">
+		<a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+			Select View
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+			<div>
+				<a href="<%= bmet_work_requests_url+"/unhidden" %>">
+					Visible Work Requests
+				</a>
+			</div>
+			<div>
+				<a href="<%= bmet_work_requests_url+"/hidden" %>">
+					Hidden Work Requests
+				</a>
+			</div>
+			<div>
+				<a href="<%= bmet_work_requests_url+"/all" %>">
+					All Work Requests
+				</a>
+			</div>
+		</ul>
+	</div>
   </div>
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
