@@ -74,9 +74,13 @@ class BmetItemsController < ApplicationController
   end
 
   def import
-    BmetItem.import(params[:file])
-    BmetModel.import(params[:file])
-    redirect_to root_url, notice: "Items and associated models imported."
+    begin
+      BmetItem.import(params[:file])
+      BmetModel.import(params[:file])
+      redirect_to bmet_items_path, notice: "Items and associated models imported."
+    rescue
+       redirect_to bmet_items_path, notice: "Invalid CSV file format."    
+    end 
   end
 
   private

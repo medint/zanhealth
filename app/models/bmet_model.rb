@@ -20,8 +20,14 @@ class BmetModel < ActiveRecord::Base
     end
 
     def self.import(file)
-  		CSV.foreach(file.path, headers: true) do |row|
-  			BmetModel.create! row.to_hash
+      CSV.foreach(file.path, headers: true) do |row|
+        model = find_by_model_name(row["model_name"]) || new
+        model.attributes = row.to_hash.slice(
+          :model_name,
+          :manufacturer_name,
+          :vendor_name
+          )
+        model.save!
   		end
   	end
 end

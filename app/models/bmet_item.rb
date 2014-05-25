@@ -30,7 +30,23 @@ class BmetItem < ActiveRecord::Base
 
     def self.import(file)
   		CSV.foreach(file.path, headers: true) do |row|
-  			BmetItem.create! row.to_hash
+  			item = find_by_serial_number(row["serial_number"]) || new
+  			item.attributes = row.to_hash.slice(
+  				:serial_number,
+  				:year_manufactured,
+  				:funding,
+  				:date_received,
+  				:warranty_expire,
+  				:contract_expire,
+  				:warranty_notes,
+  				:service_agent,
+  				:department_id,
+  				:price,
+  				:asset_id,
+  				:item_type,
+  				:location
+  				)
+  			item.save!
   		end
   	end
 end
