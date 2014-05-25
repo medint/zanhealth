@@ -25,9 +25,8 @@
         <div class="field-info"><%= f.text_area :prevention_taken %></div>
     </div>
 
-    <div class="additional-details-box"> <!-- Unfinished, will link to origin PM/WR -->
+    <div class="additional-details-box">
       <% if @facility_work_order.wr_origin %>
-          <%= @facility_work_order.wr_origin %>
           <a style="color:white" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
             View original work request
           </a>
@@ -36,9 +35,6 @@
             View original preventative maintenance
           </a>
       <% else %>
-          <div class="field-info" style="color:white">
-            This work order did not originate from any work request or preventative maintenance
-          </div>
       <% end %>
     </div>
     &nbsp

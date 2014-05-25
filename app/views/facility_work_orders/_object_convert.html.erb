@@ -56,9 +56,9 @@
         <div class = "field-box">
           <div class="field-info">
             <% if @input_object.wr_origin %>
-              <%= f.text_area :wr_origin %>
+              <%= f.hidden_field :wr_origin %>
             <% else %>
-              <%= f.text_area :pm_origin %>
+              <%= f.hidden_field :pm_origin %>
             <% end %>
           </div>
         </div>          

@@ -156,7 +156,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     end
 
     def facility_preventative_maintenance_params
-        params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
+        params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id, :pm_origin)
     end
 
     def set_convert_object
