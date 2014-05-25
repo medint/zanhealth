@@ -189,5 +189,8 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       "Location: "+@facility_work_request.location + "\n" +
       "Email: "+@facility_work_request.email + "\n" +
       "Phone: "+@facility_work_request.phone + "\n"
+      @input_object.pm_origin = nil
+      @input_object.wr_origin = @facility_work_request.id
     end
+    
 end

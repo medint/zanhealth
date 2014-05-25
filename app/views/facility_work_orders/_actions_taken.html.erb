@@ -26,9 +26,19 @@
     </div>
 
     <div class="additional-details-box"> <!-- Unfinished, will link to origin PM/WR -->
-          <a href="<%= facility_work_orders_url + '/all/' %>">
-            <%= @language['Origin'] %>
+      <% if @facility_work_order.wr_origin %>
+          <a class="field-info" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
+            View original work request
           </a>
+      <% elsif @facility_work_order.pm_origin %>
+          <a class="field-info" href="<%= facility_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin.to_s %>">
+            View original preventative maintenance
+          </a>
+      <% else %>
+          <div class="field-info">
+            This work order did not originate from any work request or preventative maintenance
+          </div>
+      <% end %>
     </div>
 
     <div class="actions">
