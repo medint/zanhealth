@@ -168,7 +168,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def bmet_work_request_params
-      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :num)
+      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :wr_origin)
     end
 
     def set_convert_object
@@ -177,6 +177,8 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       "Location: "+@bmet_work_request.location + "\n" +
       "Email: "+@bmet_work_request.email + "\n" +
       "Phone: "+@bmet_work_request.phone + "\n"
+      @input_object.pm_origin = nil
+      @input_object.wr_origin = @bmet_work_request.id
     end
 
 end
