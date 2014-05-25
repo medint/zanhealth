@@ -27,20 +27,21 @@
 
     <div class="additional-details-box"> <!-- Unfinished, will link to origin PM/WR -->
       <% if @facility_work_order.wr_origin %>
-          <a class="field-info" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
+          <%= @facility_work_order.wr_origin %>
+          <a style="color:white" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
             View original work request
           </a>
       <% elsif @facility_work_order.pm_origin %>
-          <a class="field-info" href="<%= facility_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin.to_s %>">
+          <a style="color:white" href="<%= facility_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin.to_s %>">
             View original preventative maintenance
           </a>
       <% else %>
-          <div class="field-info">
+          <div class="field-info" style="color:white">
             This work order did not originate from any work request or preventative maintenance
           </div>
       <% end %>
     </div>
-
+    &nbsp
     <div class="actions">
       <%= f.submit @language['Save Changes']%>
     </div>
