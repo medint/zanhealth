@@ -51,6 +51,12 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
   resources :facility_dashboard
 
+  get "/bmet_dashboard/status", to: "bmet_dashboard#status"
+  get "/bmet_dashboard/wo_finances", to: "bmet_dashboard#wo_finances"
+  get "/bmet_dashboard/labor_hours", to: "bmet_dashboard#labor_hours"
+  get "/bmet_dashboard/statusAjax", to: "bmet_dashboard#statusAjax"
+  resources :bmet_dashboard
+
   # hide/unhide features for facility work orders
   put "hide_facility_work_order/:id", to:"facility_work_orders#hide", :as => :hide_facility_work_order
   get "/facility_work_orders/unhidden", to: "facility_work_orders#index"
