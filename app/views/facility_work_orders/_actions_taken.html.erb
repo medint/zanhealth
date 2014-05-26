@@ -25,6 +25,19 @@
         <div class="field-info"><%= f.text_area :prevention_taken %></div>
     </div>
 
+    <div class="additional-details-box">
+      <% if @facility_work_order.wr_origin %>
+          <a style="color:white" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
+            View original work request
+          </a>
+      <% elsif @facility_work_order.pm_origin %>
+          <a style="color:white" href="<%= facility_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin.to_s %>">
+            View original preventative maintenance
+          </a>
+      <% else %>
+      <% end %>
+    </div>
+    &nbsp
     <div class="actions">
       <%= f.submit @language['Save Changes']%>
     </div>

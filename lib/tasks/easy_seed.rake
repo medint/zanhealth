@@ -93,7 +93,7 @@ namespace :test do
 				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,
 								:swahili => swahili,
-                        :creole => creole
+                        		:creole => creole
 							   )
 			end
 		end
@@ -124,6 +124,7 @@ namespace :test do
 								   :department => dept,
 								   :location => row[11],
 								   :item_type => row[12],
+								   :created_at => Time.now - 60*60*24*(rand(22..40)),
 								   :price => row[13]
 								  )
 			else
@@ -140,32 +141,34 @@ namespace :test do
 								   :department => dept,
 								   :location => row[11],
 								   :item_type => row[12],
+								   :created_at => Time.now - 60*60*24*(rand(22..40)),
 								   :price => row[13]
 								  )
 			end
 			2.times do |x|
-				date_u = Time.at(rand * Time.now.to_i)
 				BmetItemHistory.create(:bmet_item => item,
 								   :status => 0,
 								   :utilization => 0,
 								   :remarks => Faker::Lorem.sentence(word_count = rand(3..10)),
-								   :updated_at => date_u
+								   :updated_at => Time.now - 60*60*24*(rand(3..20)) 
 								  )
 			end
 			role_eng = roles.find {|r| r.name == "technician" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
+			rel_depts = depts.select { |d| d.facility_id == f.id }
 			1.times do |wr|
-				date_u_wr = Time.at(rand * Time.now.to_i)
-				work_req = BmetWorkOrder.create(:date_requested => date_u_wr,
+				date_base = Time.now
+				work_req = BmetWorkOrder.create(:date_requested => date_base - 60*60*24*(rand(15.20)),
+													  :created_at => date_base - 60*60*24*(rand(2..13)),
 													  :bmet_item => item,
 													  :status => 0,
 													  :description => Faker::Lorem.sentence(word_count = rand(3..10)),
+													  :department => rel_depts.sample,
 													  :owner => users.sample,
 													  :requester => users.sample 
 											)
 				1.times do |wrc|
-					date_u_wrc = Time.at(rand * Time.now.to_i)
-					BmetWorkOrderComment.create(:datetime_stamp => date_u_wrc,
+					BmetWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..13)),
 													  :bmet_work_order => work_req,
 													  :user_id => users.sample,
 													  :comment_text => Faker::Lorem.sentence(word_count = rand(3..10))
@@ -173,15 +176,14 @@ namespace :test do
 				end
 				1.times do |txt|
 					Text.create(:content => "checked item",
-										#:number => "#{rand(100)}"+ "#{rand(1000)}"+"#{rand(10000)}",
 										:number => Faker::PhoneNumber.phone_number,
 										:bmet_work_order => work_req
 								)
 				end
 				1.times do |lb|
-					BmetLaborHour.create(:date_started => Time.at(rand * Time.now.to_i),
+					BmetLaborHour.create(:date_started => date_base - 60*60*24*(rand(4..9)),
 										 :duration => 1,
-										 :technician_id => 1,
+										 :technician => users.sample,
 										 :bmet_work_order => work_req
 										)
 				end
@@ -268,7 +270,7 @@ namespace :test do
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			20.times do |fpm|
-				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(0..6)),
+				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(-10..6)),
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
@@ -292,21 +294,24 @@ namespace :test do
 		BmetPreventativeMaintenance.delete_all
 		BmetWorkRequest.delete_all
 		facilities.each do |f|
+			role_eng = roles.find {|r| r.name == "technician" }
+			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			20.times do |fpm|
-				date_base = Time.now-60*60*24*(rand(0..4))
-				BmetPreventativeMaintenance.create(:last_date_checked => date_base, 
+				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(-10..6)),
 													:days => 1,
 													:weeks => 0,
 													:months => 0,
 													:created_at => Time.now - 60*60*24*(rand(6..10)),
+													:requester => users.sample,
 													:description => Faker::Lorem.sentence(word_count = rand(3..10)) 
-												   )
+												   ).save
 				BmetWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
 									   :location => Faker::Lorem.sentence,
 									   :phone => Faker::PhoneNumber.phone_number,
 									   :email => Faker::Internet.email,
 									   :created_at => Time.now - 60*60*24*(rand(6..10)),
+									   :facility => f,
 									   :description => Faker::Lorem.sentence(word_count = rand(3..11))
 									  )
 			end

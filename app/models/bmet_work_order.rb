@@ -23,10 +23,12 @@
 #
 
 class BmetWorkOrder < ActiveRecord::Base
+	acts_as_paranoid
     belongs_to :bmet_item
     has_many :bmet_work_order_comments
     has_many :bmet_costs
     has_many :bmet_labor_hours
     belongs_to :owner, :class_name => "User"
     belongs_to :requester, :class_name => "User"
+    belongs_to :department
 end

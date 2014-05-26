@@ -22,8 +22,31 @@
 #
 
 class BmetItem < ActiveRecord::Base
+
   belongs_to :bmet_model
   belongs_to :department
   has_many :bmet_work_orders
   has_many :bmet_item_histories
+
+    def self.import(file)
+  		CSV.foreach(file.path, headers: true) do |row|
+  			item = find_by_serial_number(row["serial_number"]) || new
+  			item.attributes = row.to_hash.slice(
+  				:serial_number,
+  				:year_manufactured,
+  				:funding,
+  				:date_received,
+  				:warranty_expire,
+  				:contract_expire,
+  				:warranty_notes,
+  				:service_agent,
+  				:department_id,
+  				:price,
+  				:asset_id,
+  				:item_type,
+  				:location
+  				)
+  			item.save!
+  		end
+  	end
 end

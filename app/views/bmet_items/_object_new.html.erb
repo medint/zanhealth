@@ -31,7 +31,7 @@
         <div class="field-box">
           <div class="field-type"><%= @language['Model'] %></div>
 					<div class="field-info">
-            <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
+            <%= f.collection_select :bmet_model_id, @bmet_models, :id, :model_name %>
           </div>
         </div>
         <div class="field-box">

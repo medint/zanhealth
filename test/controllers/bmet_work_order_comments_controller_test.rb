@@ -19,12 +19,31 @@ class BmetWorkOrderCommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create bmet_work_order_comment" do
+  test "should create bmet_work_order_comment with unhidden work order" do
     assert_difference('BmetWorkOrderComment.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/unhidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
       post :create, bmet_work_order_comment: { bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id, comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id }
     end
+    assert_redirected_to "/bmet_work_orders/unhidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
+    assert_response :redirect
+  end
 
-    assert_redirected_to @bmet_work_order_comment.bmet_work_order
+ test "should create bmet_work_order_comment with hidden work order" do
+    assert_difference('BmetWorkOrderComment.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/hidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
+      post :create, bmet_work_order_comment: { bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id, comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id }
+    end
+    assert_redirected_to "/bmet_work_orders/hidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
+    assert_response :redirect
+  end
+
+ test "should create bmet_work_order_comment with all work order" do
+    assert_difference('BmetWorkOrderComment.count') do
+    	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/all/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
+      post :create, bmet_work_order_comment: { bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id, comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id }
+    end
+    assert_redirected_to "/bmet_work_orders/all/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
+    assert_response :redirect
   end
 
   test "should show bmet_work_order_comment" do

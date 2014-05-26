@@ -1,4 +1,4 @@
-<h1><%=@language['New Work Request']%></h1>
+
 <%= simple_form_for @facility_work_request, { url:  facility_work_requests_public_create_path } do |f| %>
   <% if @facility_work_request.errors.any? %>
     <div id="error_explanation">
