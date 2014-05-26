@@ -168,7 +168,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def bmet_work_request_params
-      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :wr_origin)
+      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
     end
 
     def set_convert_object

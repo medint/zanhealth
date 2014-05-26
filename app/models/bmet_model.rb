@@ -15,7 +15,7 @@ class BmetModel < ActiveRecord::Base
     has_many :bmet_needs
     has_many :bmet_items
 
-    def manufacturer_name
+    def name
       "#{manufacturer_name} #{category} #{model_name}" 
     end
 
