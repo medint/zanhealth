@@ -1,0 +1,49 @@
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawStatusChart);
+</script>
+
+<%=render 'navigation'%>
+<div id="dashboard">
+	<div id='chart_div'></div>
+	<table id="dash_table">
+		<tr>
+			<th><%=@language['Status']%></th>
+			<th><%=@language['Work Order']%></th>
+			<th><%=@language['Expire']%></th>
+
+		</tr>
+
+		<% @work_orders_json.each do |status,hash| %>
+				<tr>
+					<td class="status">
+						<%= @status[status] %>
+					</td>
+				</tr>
+			<% hash["work_orders"].each do |work_order| %>
+				<tr>
+					<td></td>
+					<td>
+						<%=@language['Work Order']%> <%= work_order.id %>
+					</td>					
+					<td>
+						<%=work_order.date_expire.try(:strftime,"%^b %d")%>
+					</td>
+				</tr>
+			<%end%>
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="sum_costs"><%=hash["num_work_orders"]%></td>
+			</tr>
+
+		
+		<%end%>
+	</table>
+	<div id='params_to_send'><%=@params_to_send_back%></div>
+	
+</div>
