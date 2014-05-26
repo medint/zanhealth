@@ -180,7 +180,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def facility_work_request_params
-      params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :wr_origin)
+      params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
     end
 
     def set_convert_object
