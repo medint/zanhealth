@@ -56,4 +56,17 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
       end
     end
 
+  def self.as_csv
+    colnames = column_names.dup
+    colnames.shift
+    CSV.generate do |csv|
+      csv << colnames
+      all.each do |item|
+        values = item.attributes.values_at(*colnames)
+        values[8] = User.find(values[8]).name
+        csv << values
+      end
+    end
+  end
+
 end

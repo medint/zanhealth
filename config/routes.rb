@@ -9,7 +9,7 @@ Zanhealth::Application.routes.draw do
   resources :texts
   
   #bmet app
-  resources :bmet_items do
+  resources :bmet_items, except: :show do
     collection { post :import }
   end
   resources :bmet_item_histories
@@ -43,6 +43,12 @@ Zanhealth::Application.routes.draw do
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
   get "/facility_work_requests/download", to: "facility_work_requests#as_csv"
 
+  get "/bmet_work_orders/download", to: "bmet_work_orders#as_csv"
+  get "/bmet_preventative_maintenances/download", to: "bmet_preventative_maintenances#as_csv"
+  get "/bmet_work_requests/download", to: "bmet_work_requests#as_csv"
+  get "/bmet_items/download", to: "bmet_items#as_csv"
+  get "/bmet_items/:id", to: "bmet_items#show"
+
   #dashboard
   
   get "/facility_dashboard/status", to: "facility_dashboard#status"
@@ -50,6 +56,12 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
   resources :facility_dashboard
+
+  get "/bmet_dashboard/status", to: "bmet_dashboard#status"
+  get "/bmet_dashboard/wo_finances", to: "bmet_dashboard#wo_finances"
+  get "/bmet_dashboard/labor_hours", to: "bmet_dashboard#labor_hours"
+  get "/bmet_dashboard/statusAjax", to: "bmet_dashboard#statusAjax"
+  resources :bmet_dashboard
 
   # hide/unhide features for facility work orders
   put "hide_facility_work_order/:id", to:"facility_work_orders#hide", :as => :hide_facility_work_order

@@ -17,14 +17,49 @@ if (window.location.toString().match(/facility_dashboard/)) {
 
 }
 
+if (window.location.toString().match(/bmet_dashboard/)) {
+
+	window.addEventListener('page:change', function(){
+		$('#status-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/bmet_dashboard/status");
+		});
+		$('#wo_finances-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/bmet_dashboard/wo_finances");
+		});
+		$('#labor_hours-submit').click(function( event ) {
+			$(".simple_form").attr("action", "/bmet_dashboard/labor_hours");
+		});
+	}, false);
+
+}
+
 
 
 
 //window resizing
 //if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) 
+// if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) )) 
+// {
+// 	$(document).on ("page:change",function() {
+// 		/* define variables */
+		
+// 		/* window resizing */
+
+// 		window_resize_handler();
+
+// 		if(window.attachEvent) {
+// 			window.attachEvent('onresize', window_resize_handler);
+// 		}else if(window.addEventListener) {
+// 		    window.addEventListener('resize', window_resize_handler, true);
+// 		}else {
+// 		    //The browser does not support Javascript event binding
+// 		}
+// 	});
+// }
+$(document).on ("page:change",function() {
 if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) )) 
 {
-	$(document).on ("page:change",function() {
+	
 		/* define variables */
 		
 		/* window resizing */
@@ -38,8 +73,8 @@ if (!(window.location.toString().match(/users/) || window.location.toString().ma
 		}else {
 		    //The browser does not support Javascript event binding
 		}
-	});
-}
+	};
+})
 
 // This area of code is causing javascript errors because convert-button isn't a real thing.
 // Doesn't seem to perform any actual function, and I believe this has been around since way
@@ -348,19 +383,13 @@ function drawLaborChart() {
 function drawStatusChart() {
 
 	// Create the data table.
-	/*var datajson=$.getJSON($("#params_to_send").text(),function(){
-		console.log("success");
-	});
-	console.log(datajson);*/
+
 	var jsonData = $.ajax({
           url: $("#params_to_send").text(),
           dataType:"json",
           async: false
           }).responseText;
-	/*var data_array=[['Status','Unstarted','In Progress','Completed'],['Current']]
-	$( ".sum_costs" ).each(function( index ) {
-	  data_array[1].push(Math.round($(this).text()));
-	});*/
+
 
 	var data = new google.visualization.DataTable(jsonData);
 

@@ -25,6 +25,11 @@ class BmetPreventativeMaintenancesController < ApplicationController
   	  render 'index'
   end
 
+  def as_csv
+    @bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+      send_data @bmet_preventative_maintenances.as_csv, type: "text/csv", filename:"bmet_preventative_maintenances.csv"
+  end
+
   # GET /bmet_preventative_maintenances/1
   # GET /bmet_preventative_maintenances/1.json
   def show

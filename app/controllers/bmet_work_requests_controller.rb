@@ -33,6 +33,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   end
 
+  def as_csv
+    @bmet_work_requests = BmetWorkRequest.with_deleted.where(:facility_id => current_user.facility_id)
+    send_data @bmet_work_requests.as_csv, type: "text/csv", filename: "bmet_work_requests.csv"
+  end
+
   def show    
   end
  

@@ -49,4 +49,18 @@ class BmetItem < ActiveRecord::Base
   			item.save!
   		end
   	end
+
+    def self.as_csv
+      colnames = column_names.dup
+      colnames.shift
+      CSV.generate do |csv|
+          csv << colnames
+          all.each do |item|
+              values = item.attributes.values_at(*colnames)
+              values[0] = BmetModel.find(values[0]).name
+              values[9] = Department.find(values[9]).name
+              csv << values
+      end
+    end
+  end
 end
