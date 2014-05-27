@@ -31,4 +31,47 @@ class BmetWorkOrder < ActiveRecord::Base
     belongs_to :owner, :class_name => "User"
     belongs_to :requester, :class_name => "User"
     belongs_to :department
+    before_save :auto_date_start
+  	before_create :init
+
+    def auto_date_start
+  	if self.status == 0
+  		self.date_started=nil
+  	elsif self.status == 1 && self.date_started==nil
+  		self.date_started=DateTime.now
+  	end
+    if self.status == 2 &&self.date_completed==nil
+      self.date_completed=DateTime.now
+    end  
+  end
+
+  def init
+     self.status ||=0
+  end
+
+  def self.as_csv
+  	  colnames = column_names.dup
+  	  colnames.shift
+  	  CSV.generate do |csv|
+  	  	  csv << colnames
+  	  	  all.each do |item|
+  	  	  	  values = item.attributes.values_at(*colnames)
+  	  	  	  values[7] = item.set_status(values[7])
+  	  	  	  values[8] = User.find_by_id(values[8]).try(:name)
+  	  	  	  values[9] = User.find_by_id(values[9]).try(:name)
+  	  	  	  values[16] = Department.find_by_id(values[16]).try(:name) 
+  	  	  	  csv << values
+		  end
+	  end
+  end
+
+  def set_status(status)
+  	if status == 0
+  		return "Uncompleted"
+  	elsif status == 1
+  		return "In Progress"
+	else 
+		return "Completed"
+	end
+  end
 end

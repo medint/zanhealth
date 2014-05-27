@@ -60,6 +60,19 @@
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
     </li>
     <%end%>
+
+    <hr>
+    <%= link_to("/bmet_dashboard") do %>
+    <li class="left-nav_ul_li" >
+      <div id="work-order-icon"></div>
+      <div class="wrapper">
+        <div class="title">
+          <%= @language['Dashboard'] %>
+        </div>
+      </div>
+      <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
+    </li>
+    <%end%>
     <hr>
   </ul>
       <div id="language-icons">

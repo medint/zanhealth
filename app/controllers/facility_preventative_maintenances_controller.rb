@@ -2,12 +2,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   load_and_authorize_resource
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy, :show_hidden, :show_all]
-  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new]   
+  before_action :set_facility_preventative_maintenances, only: [:show, :index, :new, :search]   
   before_action :set_status, only: [:show, :show_hidden, :show_all]
   before_action :set_users, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_facility_preventative_maintenances, only: [:hidden, :show_hidden]
   before_action :set_all_facility_preventative_maintenances, only:[:all, :show_all]
+  before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
 
   def search
     @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
@@ -40,19 +41,14 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def show
-    @input_object = FacilityWorkOrder.new
-    @input_object.description = @facility_preventative_maintenance.description
+
   end
 
   def show_hidden
-    @input_object = FacilityWorkOrder.new
-    @input_object.description = @facility_preventative_maintenance.description
     render 'show'
   end
 
   def show_all
-    @input_object = FacilityWorkOrder.new
-    @input_object.description = @facility_preventative_maintenance.description
     render 'show'
   end
 
@@ -162,6 +158,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
     def facility_preventative_maintenance_params
         params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
+    end
+
+    def set_convert_object
+      @input_object = FacilityWorkOrder.new
+      @input_object.description = @facility_preventative_maintenance.description
+      @input_object.pm_origin = @facility_preventative_maintenance.id
+      @input_object.wr_origin = nil
     end
 
 end

@@ -11,3 +11,24 @@ two:
   duration: 1
   technician: usertwo
   bmet_work_order: two
+
+
+#dashboard
+
+three:
+  date_started: 2014-02-22 02:07:02
+  duration: 1
+  technician: usertwo
+  bmet_work_order: ten
+
+four:
+  date_started: 2014-02-22 02:07:02
+  duration: 15
+  technician: userdboard
+  bmet_work_order: ten
+
+five:
+  date_started: 2014-02-22 02:07:02
+  duration: 20
+  technician: userdboard
+  bmet_work_order: eleven

@@ -54,5 +54,6 @@
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <a href= "<%=new_bmet_work_request_path%>" id='add-button'></a>
+    <%= link_to "Export Data", bmet_work_requests_url+"/download" %>
   </div>
 </div>

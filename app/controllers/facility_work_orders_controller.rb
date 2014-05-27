@@ -170,6 +170,6 @@ class FacilityWorkOrdersController < ApplicationController
     end
 
     def facility_work_order_params
-        params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken)
+        params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :pm_origin, :wr_origin)
     end
 end

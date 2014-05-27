@@ -33,12 +33,12 @@
         </div>
         <div class="field-box">
           <div class="field-type"><%= @language['Telephone number'] %><br></div>
-          <div class="field-info"><%= f.number_field :phone, :required => true %></div>
+          <div class="field-info"><%= f.telephone_field :phone, :required => true %></div>
         </div>
 
         <div class="field-box">
           <div class="field-type"><%= @language['Email'] %><br></div>
-          <div class="field-info"><%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
+          <div class="field-info"><%= f.email_field :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
         </div>
 
         <div class="field-box">

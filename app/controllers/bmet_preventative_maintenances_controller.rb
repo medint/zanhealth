@@ -8,6 +8,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
   before_action :set_departments, only: [:show, :all, :hidden, :show_all, :show_hidden]
   before_action :set_hidden_bmet_preventative_maintenances, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_preventative_maintenances, only: [:all, :show_all]
+  before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
 
   # GET /bmet_preventative_maintenances
   # GET /bmet_preventative_maintenances.json
@@ -25,22 +26,21 @@ class BmetPreventativeMaintenancesController < ApplicationController
   	  render 'index'
   end
 
+  def as_csv
+    @bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+      send_data @bmet_preventative_maintenances.as_csv, type: "text/csv", filename:"bmet_preventative_maintenances.csv"
+  end
+
   # GET /bmet_preventative_maintenances/1
   # GET /bmet_preventative_maintenances/1.json
   def show
-    @input_object = BmetWorkOrder.new
-    @input_object.description = @bmet_preventative_maintenance.description
   end
 
   def show_hidden
-  	  @input_object = BmetWorkOrder.new
-  	  @input_object.description = @bmet_preventative_maintenance.description
   	  render 'show'
   end
 
   def show_all
-  	  @input_object = BmetWorkOrder.new
-  	  @input_object.description = @bmet_preventative_maintenance.description
   	  render 'show'
   end
 
@@ -168,4 +168,12 @@ class BmetPreventativeMaintenancesController < ApplicationController
     def bmet_preventative_maintenance_params
       params.require(:bmet_preventative_maintenance).permit(:late_date_checked, :days, :weeks, :months, :next_date, :description)
     end
+
+    def set_convert_object
+      @input_object = BmetWorkOrder.new
+      @input_object.wr_origin = nil
+      @input_object.pm_origin = @bmet_preventative_maintenance.id
+      @input_object.description = @bmet_preventative_maintenance.description
+    end
+
 end

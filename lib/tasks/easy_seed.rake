@@ -99,7 +99,7 @@ namespace :test do
 				english,swahili,creole = line.chomp.split(SEPARATOR)
 				Language.create(:english => english,
 								:swahili => swahili,
-                        :creole => creole
+                        		:creole => creole
 							   )
 			end
 		end
@@ -283,7 +283,7 @@ namespace :test do
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			20.times do |fpm|
-				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(0..6)),
+				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(-10..6)),
 												   :days => 1,
 												   :weeks => 0,
 												   :months => 0,
@@ -310,7 +310,7 @@ namespace :test do
 			role_eng = roles.find {|r| r.name == "bmet_tech" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			20.times do |fpm|
-				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(0..4)),
+				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(-10..6)),
 													:days => 1,
 													:weeks => 0,
 													:months => 0,

@@ -53,6 +53,16 @@
           <div class="field-info"><%= f.text_area :prevention_taken %></div>
         </div>
 
+        <div class = "field-box">
+          <div class="field-info">
+            <% if @input_object.wr_origin %>
+              <%= f.hidden_field :wr_origin %>
+            <% else %>
+              <%= f.hidden_field :pm_origin %>
+            <% end %>
+          </div>
+        </div>          
+
         <div class="actions">
           <%= f.submit @language ['Create Work Order']%>
         </div>

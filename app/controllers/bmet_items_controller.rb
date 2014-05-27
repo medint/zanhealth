@@ -24,6 +24,11 @@ class BmetItemsController < ApplicationController
 	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
+  def as_csv
+    @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      send_data @bmet_items.as_csv, type: "text/csv", filename: "bmet_items.csv"
+  end
+
   # GET /items/new
   def new
     @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
@@ -72,6 +77,16 @@ class BmetItemsController < ApplicationController
       format.html { redirect_to bmet_items_url }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    begin
+      BmetItem.import(params[:file])
+      BmetModel.import(params[:file])
+      redirect_to bmet_items_path, notice: "Items and associated models imported."
+    rescue
+       redirect_to bmet_items_path, notice: "Invalid CSV file format."    
+    end 
   end
 
   private

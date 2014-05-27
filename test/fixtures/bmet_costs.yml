@@ -17,3 +17,28 @@ two:
   updated_at: 2014-04-19 13:36:34
   bmet_work_order: two
   work_request_id: 1
+
+#dashboard
+three:
+  name: MyString
+  unit_quantity: 10
+  cost: 15
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: ten
+
+four:
+  name: MyString
+  unit_quantity: 100
+  cost: 5
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: ten
+
+five:
+  name: MyString
+  unit_quantity: 20
+  cost: 20
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: eleven
