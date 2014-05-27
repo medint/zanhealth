@@ -1,4 +1,5 @@
 class FacilityWorkOrderCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_facility_work_order_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /facility_work_order_comments

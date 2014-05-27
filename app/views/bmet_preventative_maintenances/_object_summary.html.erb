@@ -1,11 +1,13 @@
 <ul class="toggle-buttons">
   <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
-  <% if @bmet_preventative_maintenance.destroyed? %>
+  <% if can? :hide, current_user %>
+  	<% if @bmet_preventative_maintenance.destroyed? %>
 	  <%= link_to "Unhide", hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Unhide preventative maintenance", rel: "tooltip", method: :put %>
-  <% else %>
+  	<% else %>
 	  <%= link_to "Hide", hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Hide preventative maintenance", rel: "tooltip", method: :put %>
-  <% end %>
+  	<% end %>
+<% end %>
 </ul>
 
 <div class="tab-content" id="object-form_top">

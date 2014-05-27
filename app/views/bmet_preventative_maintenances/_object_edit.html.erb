@@ -54,8 +54,10 @@
       <div class="field-info"><%= f.text_area :description, :required => true %></div>
     </div>
    
-    <div class="actions">
-      <%= f.submit @language['Save Changes']%>
-    </div>
+	<% if can? :update, current_user %>
+    	<div class="actions">
+      		<%= f.submit @language['Save Changes']%>
+    	</div>
+	<% end %>
   </div>
 <% end %>

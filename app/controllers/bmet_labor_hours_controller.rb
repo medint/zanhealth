@@ -1,5 +1,5 @@
 class BmetLaborHoursController < ApplicationController
-
+	load_and_authorize_resource
 	before_action :set_bmet_labor_hour, only: [:show, :edit, :update, :destroy]
 
   def index

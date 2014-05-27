@@ -1,4 +1,5 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy, :show_hidden, :show_all]
   before_action :set_facility_preventative_maintenances, only: [:show, :index, :new]   

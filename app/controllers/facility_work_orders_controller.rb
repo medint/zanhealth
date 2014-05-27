@@ -1,4 +1,5 @@
 class FacilityWorkOrdersController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/facilities_app'
   before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive, :show_hidden, :show_all]
   before_action :set_facility_work_orders, only: [:index, :new, :show]

@@ -1,4 +1,5 @@
 class BmetItemsController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:new, :show]
@@ -80,7 +81,7 @@ class BmetItemsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.all
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility.id)
     end
 
     def set_departments

@@ -1,4 +1,5 @@
 class BmetCostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_bmet_cost, only: [:show, :edit, :update, :destroy]
 
   # GET /bmet_costs

@@ -1,10 +1,19 @@
 username,encrypted_password,role.name,telephone_num,facility.name,language,name
-userAHE1,password,"technician",NULL,"FACILITY A",english,UserAHE1
-userAHE2,password,"technician",NULL,"FACILITY A",english,UserAHE2
-userBHE1,password,"technician",NULL,"FACILITY B",english,UserBHE1
-userBHE2,password,"technician",NULL,"FACILITY B",english,UserBHE2
-userCHE1,password,"technician",NULL,"FACILITY C",english,UserCHE1
-userCHE2,password,"technician",NULL,"FACILITY C",english,UserCHE2
+btechA1,password,"bmet_tech",NULL,"FACILITY A",english,BmetTechA1
+ftechA1,password,"fac_tech",NULL,"FACILITY A",english,FacTechA1
+btechA2,password,"bmet_tech",NULL,"FACILITY A",english,BmetTechA2
+ftechA2,password,"fac_tech",NULL,"FACILITY A",english,FacTechA2
+btechB1,password,"bmet_tech",NULL,"FACILITY B",english,BmetTechB1
+ftechB1,password,"fac_tech",NULL,"FACILITY B",english,FacTechB1
+btechB2,password,"bmet_tech",NULL,"FACILITY B",english,BmetTechB2
+ftechB2,password,"fac_tech",NULL,"FACILITY B",english,FacTechB2
+btechC1,password,"bmet_tech",NULL,"FACILITY C",english,BmetTechC1
+ftechC1,password,"fac_tech",NULL,"FACILITY C",english,FacTechC1
+btechC2,password,"bmet_tech",NULL,"FACILITY C",english,BmetTechC2
+ftechC2,password,"fac_tech",NULL,"FACILITY C",english,FacTechC2
+bftechA1,password,"bmet_fac_tech",NULL,"FACILITY A",english,BFTechA1
+bftechB1,password,"bmet_fac_tech",NULL,"FACILITY B",english,BFTechB1
+bftechC1,password,"bmet_fac_tech",NULL,"FACILITY C",english,BFTechC1
 userAHA1,password,"chief",NULL,"FACILITY A",english,UserAHA1
 userBHA1,password,"chief",NULL,"FACILITY B",english,UserBHA1
 userCHA1,password,"chief",NULL,"FACILITY C",english,UserCHA1
@@ -18,4 +27,4 @@ userAP1,password,"procurement",NULL,"FACILITY A",english,UserAP1
 userBP1,password,"procurement",NULL,"FACILITY B",english,UserBP1
 userCP1,password,"procurement",NULL,"FACILITY C",english,UserCP1
 admin,admin,"admin",NULL,"FACILITY A",english,Admin
-bob,password,"technician",NULL,"FACILITY A",english,Bob
+bob,password,"bmet_tech",NULL,"FACILITY A",english,Bob

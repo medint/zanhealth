@@ -3,11 +3,13 @@
   	<%= @language['View'] %>
   </a></li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert to Work Order'] %></a></li>  
-  <% if @facility_work_request.destroyed? %>
-	  <%= link_to "Unhide", hide_facility_work_request_path(@facility_work_request), title: "Unhide work request", rel: "tooltip", method: :put, :required => true %>
-  <% else %>
-	  <%= link_to "Hide", hide_facility_work_request_path(@facility_work_request), title: "Hide work request", rel: "tooltip", method: :put, :required => true %>
- <% end %>
+  <% if can? :hide, current_user %>
+  	<% if @facility_work_request.destroyed? %>
+	  	<%= link_to "Unhide", hide_facility_work_request_path(@facility_work_request), title: "Unhide work request", rel: "tooltip", method: :put, :required => true %>
+  	<% else %>
+	 	<%= link_to "Hide", hide_facility_work_request_path(@facility_work_request), title: "Hide work request", rel: "tooltip", method: :put, :required => true %>
+ 	<% end %>
+<% end %>
 </ul>
 
 <div class="tab-content" id="object-form_top">

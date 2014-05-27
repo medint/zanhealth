@@ -12,6 +12,7 @@
 #
 
 class BmetModel < ActiveRecord::Base
+	belongs_to :facility
     has_many :bmet_needs
     has_many :bmet_items
 

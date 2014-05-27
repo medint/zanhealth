@@ -1,4 +1,5 @@
 class FacilityCostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_facility_cost, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -77,6 +77,7 @@ gem 'newrelic_rpm'
 gem 'twilio-ruby'
 gem 'rack-timeout' # for unicorn
 gem 'devise' # user authentication
+gem 'cancancan', '~> 1.8' # role-based permissions
 
 # Captcha
 gem "recaptcha", :require => "recaptcha/rails"
