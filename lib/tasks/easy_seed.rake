@@ -158,14 +158,19 @@ namespace :test do
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			1.times do |wr|
 				date_base = Time.now
-				work_req = BmetWorkOrder.create(:date_requested => date_base - 60*60*24*(rand(15.20)),
+				work_req = BmetWorkOrder.create(:date_requested => date_base - 60*60*24*(rand(15..20)),
+													  :date_expire => date_base + 60*60*24*(rand(15..20)),
 													  :created_at => date_base - 60*60*24*(rand(2..13)),
 													  :bmet_item => item,
-													  :status => 0,
+													  :status => rand(0..2),
 													  :description => Faker::Lorem.sentence(word_count = rand(3..10)),
 													  :department => rel_depts.sample,
 													  :owner => users.sample,
-													  :requester => users.sample 
+													  :requester => users.sample,
+													  :cause_description => Faker::Lorem.sentence(word_count = rand(3..10)),
+													  :action_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
+													  :prevention_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
+													  :cost => rand(50..2000)
 											)
 				1.times do |wrc|
 					BmetWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..13)),

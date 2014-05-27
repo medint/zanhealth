@@ -28,8 +28,8 @@ class BmetItem < ActiveRecord::Base
   has_many :bmet_work_orders
   has_many :bmet_item_histories
 
-    def self.import(file)
-  		CSV.foreach(file.path, headers: true) do |row|
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
   			item = find_by_serial_number(row["serial_number"]) || new
   			item.attributes = row.to_hash.slice(
   				:serial_number,
