@@ -6,7 +6,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
-  before_action :set_all_bmet_work_orders, only: [:all, :show_all]
+  before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
@@ -21,6 +21,10 @@ class BmetWorkOrdersController < ApplicationController
   def all
   	  @link = bmet_work_orders_url+"/all/"
   	  render "index"
+  end
+
+  def as_csv
+    send_data @bmet_work_orders.as_csv, type: "text/csv", filename: "bmet_work_orders.csv"
   end
 
   # GET /bmet_work_orders/1
@@ -150,7 +154,7 @@ class BmetWorkOrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_bmet_work_order
-      @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+      @bmet_work_order = BmetWorkOrder.with_deleted.find_by_id(params[:id])
       if (@bmet_work_order==nil || @bmet_work_order.owner.facility_id!=current_user.facility_id)
         @bmet_work_order=nil
         redirect_to "/404"

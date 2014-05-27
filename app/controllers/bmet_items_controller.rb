@@ -23,6 +23,11 @@ class BmetItemsController < ApplicationController
 	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
+  def as_csv
+    @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      send_data @bmet_items.as_csv, type: "text/csv", filename: "bmet_items.csv"
+  end
+
   # GET /items/new
   def new
     @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)

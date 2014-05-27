@@ -9,7 +9,7 @@ Zanhealth::Application.routes.draw do
   resources :texts
   
   #bmet app
-  resources :bmet_items do
+  resources :bmet_items, except: :show do
     collection { post :import }
   end
   resources :bmet_item_histories
@@ -42,6 +42,12 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
   get "/facility_work_requests/download", to: "facility_work_requests#as_csv"
+
+  get "/bmet_work_orders/download", to: "bmet_work_orders#as_csv"
+  get "/bmet_preventative_maintenances/download", to: "bmet_preventative_maintenances#as_csv"
+  get "/bmet_work_requests/download", to: "bmet_work_requests#as_csv"
+  get "/bmet_items/download", to: "bmet_items#as_csv"
+  get "/bmet_items/:id", to: "bmet_items#show"
 
   #dashboard
   

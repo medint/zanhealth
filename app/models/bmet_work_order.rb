@@ -56,10 +56,10 @@ class BmetWorkOrder < ActiveRecord::Base
   	  	  csv << colnames
   	  	  all.each do |item|
   	  	  	  values = item.attributes.values_at(*colnames)
-  	  	  	  values[4] = item.set_status(values[4])
-  	  	  	  values[5] = User.find(values[5]).name
-  	  	  	  values[6] = User.find(values[6]).name
-  	  	  	  values[13] = Department.find(values[13]).name 
+  	  	  	  values[7] = item.set_status(values[7])
+  	  	  	  values[8] = User.find_by_id(values[8]).try(:name)
+  	  	  	  values[9] = User.find_by_id(values[9]).try(:name)
+  	  	  	  values[16] = Department.find_by_id(values[16]).try(:name) 
   	  	  	  csv << values
 		  end
 	  end
