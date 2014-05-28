@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525193601) do
+ActiveRecord::Schema.define(version: 20140525193454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 20140525193601) do
     t.datetime "updated_at"
     t.integer  "requester_id"
     t.datetime "deleted_at"
-    t.integer  "pm_origin"
   end
 
   add_index "bmet_preventative_maintenances", ["deleted_at"], name: "index_bmet_preventative_maintenances_on_deleted_at", using: :btree
@@ -149,7 +148,6 @@ ActiveRecord::Schema.define(version: 20140525193601) do
     t.datetime "updated_at"
     t.integer  "facility_id"
     t.datetime "deleted_at"
-    t.integer  "wr_origin"
   end
 
   add_index "bmet_work_requests", ["deleted_at"], name: "index_bmet_work_requests_on_deleted_at", using: :btree
@@ -201,7 +199,6 @@ ActiveRecord::Schema.define(version: 20140525193601) do
     t.text     "description"
     t.datetime "deleted_at"
     t.integer  "requester_id"
-    t.integer  "pm_origin"
   end
 
   add_index "facility_preventative_maintenances", ["deleted_at"], name: "index_facility_preventative_maintenances_on_deleted_at", using: :btree
@@ -251,7 +248,6 @@ ActiveRecord::Schema.define(version: 20140525193601) do
     t.datetime "updated_at"
     t.integer  "facility_id"
     t.datetime "deleted_at"
-    t.integer  "wr_origin"
   end
 
   add_index "facility_work_requests", ["deleted_at"], name: "index_facility_work_requests_on_deleted_at", using: :btree

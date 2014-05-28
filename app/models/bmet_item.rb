@@ -30,25 +30,40 @@ class BmetItem < ActiveRecord::Base
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-  			item = find_by_serial_number(row["serial_number"]) || new
-  			item.attributes = row.to_hash.slice(
-  				:serial_number,
-  				:year_manufactured,
-  				:funding,
-  				:date_received,
-  				:warranty_expire,
-  				:contract_expire,
-  				:warranty_notes,
-  				:service_agent,
-  				:department_id,
-  				:price,
-  				:asset_id,
-  				:item_type,
-  				:location
-  				)
-  			item.save!
-  		end
-  	end
+        if !BmetItem.find_by_serial_number(row["serial_number"])
+          item = BmetItem.new
+        # item.attributes = row.to_hash.slice(
+        #   :serial_number,
+        #   :year_manufactured,
+        #   :funding,
+        #   :date_received,
+        #   :warranty_expire,
+        #   :contract_expire,
+        #   :warranty_notes,
+        #   :service_agent,
+        #   :department_id,
+        #   :price,
+        #   :asset_id,
+        #   :item_type,
+        #   :location
+        #   )
+          item.serial_number = row["serial_number"]
+          item.year_manufactured = row["year_manufactured"]
+          item.funding = row["funding"]
+          item.date_received = row["date_received"]
+          item.warranty_expire = row["warranty_expire"]
+          item.service_agent = row["service_agent"]
+          item.department_id = Department.find_by_name(row["department_name"]).id
+          item.price = row["price"]
+          item.asset_id = row["asset_id"]
+          item.item_type = row["item_type"]
+          item.location = row["location"]
+          item.department = Department.find_by_name(row["department_name"])
+          item.bmet_model = BmetModel.find_by_model_name(row["model_name"])
+          item.save!
+        end
+      end
+    end
 
     def self.as_csv
       colnames = column_names.dup
