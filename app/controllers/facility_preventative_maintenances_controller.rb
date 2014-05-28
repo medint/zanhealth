@@ -162,7 +162,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     def set_convert_object
       @input_object = FacilityWorkOrder.new
       @input_object.description = @facility_preventative_maintenance.description
-      @input_object.pm_origin = @facility_preventative_maintenance.id
+      @input_object.pm_origin = @facility_preventative_maintenance
       @input_object.wr_origin = nil
     end
 

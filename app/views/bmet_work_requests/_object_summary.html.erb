@@ -2,14 +2,17 @@
 
 <ul class="toggle-buttons">
   <li class="active"><a href="#view" data-toggle="tab">
-  	<%= @language['View'] %>
-  </a></li>
+  	<%= @language['View'] %></a>
+  </li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert to Work Order'] %></a></li>  
+  <li>
   <% if @bmet_work_request.destroyed? %>
-	  <%= link_to "Unhide", hide_bmet_work_request_path(@bmet_work_request), title: "Unhide work request", rel: "tooltip", method: :put %>
+	  <%= link_to @language["Unhide"], hide_bmet_work_request_path(@bmet_work_request), title: "Unhide work request", rel: "tooltip", method: :put %>
   <% else %>
-	  <%= link_to "Hide", hide_bmet_work_request_path(@bmet_work_request), title: "Hide work request", rel: "tooltip", method: :put %>
+	  <%= link_to @language["Hide"], hide_bmet_work_request_path(@bmet_work_request), title: "Hide work request", rel: "tooltip", method: :put %>
   <% end %>
+  </li>
+  <li><%= link_to @language["Delete Forever"], @bmet_work_request, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 </ul>
 
 <div class="tab-content" id="object-form_top">

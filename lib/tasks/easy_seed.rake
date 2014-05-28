@@ -263,7 +263,7 @@ namespace :test do
 									)
 				FacilityCost.create(:name => Faker::Commerce.product_name,
 								:unit_quantity => rand(100),
-								:cost => rand(200),
+								:cost => 1.1*rand(200),
 								:facility_work_order => work_ord)
 
 			end

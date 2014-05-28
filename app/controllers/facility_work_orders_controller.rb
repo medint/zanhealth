@@ -90,6 +90,9 @@ class FacilityWorkOrdersController < ApplicationController
   def create
     @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
     @facility_work_order.requester_id=current_user.id
+    if @facility_work_order.wr_origin
+      @facility_work_order.wr_origin.destroy # hiding it immediately
+    end
 
     respond_to do |format|
       if @facility_work_order.save
@@ -111,11 +114,11 @@ class FacilityWorkOrdersController < ApplicationController
   end
 	
   def hide
-  	 @facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
-  	 if @facility_work_order.destroyed?
-  	 	 FacilityWorkOrder.restore(@facility_work_order.id)
-	 else
-	 	 @facility_work_order.destroy
+  	@facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
+    if @facility_work_order.destroyed?
+      FacilityWorkOrder.restore(@facility_work_order.id)
+    else
+      @facility_work_order.destroy
 	end
     respond_to do |format|
       link = "/"+request.referer.split("/")[-2]
@@ -169,6 +172,6 @@ class FacilityWorkOrdersController < ApplicationController
     end
 
     def facility_work_order_params
-        params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :pm_origin, :wr_origin)
+        params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :pm_origin_id, :wr_origin_id)
     end
 end

@@ -77,6 +77,9 @@ class BmetWorkOrdersController < ApplicationController
   def create
     @bmet_work_order = BmetWorkOrder.new(bmet_work_order_params)
     @bmet_work_order.requester_id=current_user.id
+    if @bmet_work_order.wr_origin
+      @bmet_work_order.wr_origin.destroy # hiding it immediately
+    end
 
     respond_to do |format|
       if @bmet_work_order.save
@@ -192,7 +195,7 @@ class BmetWorkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin, :pm_origin)
+      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id)
     end
 
 end

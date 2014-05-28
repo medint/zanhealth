@@ -25,6 +25,8 @@ class FacilityWorkOrderCommentsController < ApplicationController
   # POST /facility_work_order_comments.json
   def create
     @facility_work_order_comment = FacilityWorkOrderComment.new(facility_work_order_comment_params)
+    @facility_work_order_comment.user = current_user
+    
     respond_to do |format|
       if @facility_work_order_comment.save
         format.html { redirect_to :back, notice: 'Work order was successfully updated.' }

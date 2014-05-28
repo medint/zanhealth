@@ -171,7 +171,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
     def set_convert_object
       @input_object = BmetWorkOrder.new
       @input_object.wr_origin = nil
-      @input_object.pm_origin = @bmet_preventative_maintenance.id
+      @input_object.pm_origin = @bmet_preventative_maintenance
       @input_object.description = @bmet_preventative_maintenance.description
     end
 

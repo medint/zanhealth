@@ -71,10 +71,11 @@ class BmetWorkRequestsControllerTest < ActionController::TestCase
   end
 
   test "should destroy bmet_work_request" do
+    @request.headers["HTTP_REFERER"] = "/bmet_work_requests/unhidden/"+@bmet_work_request.id.to_s
     assert_difference('BmetWorkRequest.count', -1) do
       delete :destroy, id: @bmet_work_request
     end
 
-    assert_redirected_to bmet_work_requests_path
+    assert_redirected_to bmet_work_requests_path+"/unhidden/"
   end
 end

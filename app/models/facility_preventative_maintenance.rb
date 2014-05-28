@@ -11,6 +11,8 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  description       :text
+#  deleted_at        :datetime
+#  requester_id      :integer
 #
 
 class FacilityPreventativeMaintenance < ActiveRecord::Base
