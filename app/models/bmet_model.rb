@@ -19,9 +19,11 @@ class BmetModel < ActiveRecord::Base
       "#{manufacturer_name} #{category} #{model_name}" 
     end
 
-  def self.import(file)
+  def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        if !BmetModel.find_by_model_name(row["model_name"])
+        match = BmetModel.find_by_model_name(row["model_name"])
+        #check the syntax on this line
+        if !match || !BmetModel.where("match.bmet_items[0].department.facility_id = ?", facility_id)
           mod = BmetModel.new
           mod.model_name = row["model_name"]
           mod.manufacturer_name = row["manufacturer_name"]

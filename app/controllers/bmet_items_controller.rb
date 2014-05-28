@@ -78,8 +78,8 @@ class BmetItemsController < ApplicationController
   def import
     begin
       Department.import(params[:file], current_user.facility.id)
-      BmetModel.import(params[:file])
-      BmetItem.import(params[:file])
+      BmetModel.import(params[:file], current_user.facility.id)
+      BmetItem.import(params[:file], current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
     rescue
        redirect_to bmet_items_path, notice: "Invalid CSV file format."    

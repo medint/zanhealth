@@ -18,7 +18,8 @@ class Department < ActiveRecord::Base
 
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        if !Department.find_by_name(row["department_name"])
+    	match = Department.find_by_name(row["department_name"])
+        if !match || !Department.where("match.facility_id = ?", facility_id)
           department = Department.new
           department.name = row["department_name"]
           department.facility_id = facility_id

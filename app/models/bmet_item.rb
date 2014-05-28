@@ -28,9 +28,10 @@ class BmetItem < ActiveRecord::Base
   has_many :bmet_work_orders
   has_many :bmet_item_histories
 
-  def self.import(file)
+  def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        if !BmetItem.find_by_serial_number(row["serial_number"])
+        match = BmetItem.find_by_serial_number(row["serial_number"])
+        if !match || !BmetItem.where("match.department.facility_id = ?", facility_id)
           item = BmetItem.new
         # item.attributes = row.to_hash.slice(
         #   :serial_number,
