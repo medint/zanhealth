@@ -474,14 +474,19 @@ body {
 }
 
 
-
-
-
-
   /********************************************/
  /*               Right Detail               */
 /********************************************/
 
+#
+
+/*		object box 		*/
+#properties-box {
+	overflow-y: scroll;
+	background-color : white;
+	padding: 10px;
+
+}
 
 /*     object form     */
 	

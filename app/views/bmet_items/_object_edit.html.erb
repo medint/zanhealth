@@ -10,73 +10,71 @@
     </div>
   <% end %>
 
-  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-  <div id="object-form-single-col">
-
-    <div id="field-box_item-id">
-      <div class="item-id">
-        <%= @language['Item'] %>
-    </div>
-    
-    <div class="field">
-      <%= @language['Asset ID'] %><br>
-      <%= f.text_field :asset_id %>
-    </div>
-    <div class="field">
-      <%= @language['Model'] %><br>
-      <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
-    </div>
-    <div class="field">
-      <%= @language['Serial Number'] %><br>
-      <%= f.text_field :serial_number %>
-    </div>
-    <div class="field">
-      <%= @language['Department'] %><br>
-      <%= f.collection_select :department_id, @departments, :id, :name %>
-    </div>
-    <div class="field">
-      <%= @language['Year Manufactured'] %><br>
-      <%= f.number_field :year_manufactured %>
-    </div>
-    <div class="field">
-      <%= @language['Funding'] %><br>
-      <%= f.text_field :funding %>
-    </div>
-    <div class="field">
-      <%= @language['Date Received'] %><br>
-      <%= f.date_select :date_received %>
-    </div>
-    <div class="field">
-      <%= @language['Warranty Expires'] %><br>
-      <%= f.date_select :warranty_expire %>
-    </div>
-    <div class="field">
-      <%= @language['Contract Expires'] %><br>
-      <%= f.date_select :contract_expire %>
-    </div>
-    <div class="field">
-      <%= @language['Warranty Notes'] %><br>
-      <%= f.text_area :warranty_notes %>
-    </div>
-    <div class="field">
-      <%= @language['Service Agent'] %><br>
-      <%= f.text_field :service_agent %>
-    </div>
-    <div class="field">
-      <%= @language['Price'] %><br>
-      <%= f.number_field :price %>
-    </div>
-
-
-    <div class="field-box">
-      <div class="field-type"><%= @language['Created At'] %></div>
-      <div class="field-info">
-        <p><%= @bmet_item.created_at %></p></div>
-    </div>
-    
-   
+  <div id="action-bar">
+  <ul>
+    <li>item id <%= @bmet_item.id%></li>
+    <li>print</li>
     <div class="actions">
       <%= f.submit @language['Save Changes']%>
     </div>
+  </ul>
+  </div>
+  <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+  <div id="properties-box">
+    <table>
+      <tr>
+        <td><%= @language['Model'] %></td>
+        <td><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Asset ID'] %><br></td>
+        <td><%= f.text_field :asset_id %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Serial Number'] %></td>
+        <td><%= f.text_field :serial_number %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Department'] %></td>
+        <td><%= f.collection_select :department_id, @departments, :id, :name %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Year Manufactured'] %></td>
+        <td><%= f.number_field :year_manufactured %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Funding'] %></td>
+        <td><%= f.text_field :funding %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Date Received'] %></td>
+        <td><%= f.date_select :date_received %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Warranty Expires'] %></td>
+        <td><%= f.date_select :warranty_expire %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Contract Expires'] %></td>
+        <td><%= f.date_select :contract_expire %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Warranty Notes'] %></td>
+        <td><%= f.text_area :warranty_notes %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Service Agent'] %></td>
+        <td><%= f.text_field :service_agent %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Price'] %></td>
+        <td><%= f.number_field :price %></td>
+      </tr>
+      <tr>
+        <td><%= @language['Created At'] %></td>
+        <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>
+      </tr>
+    </table>     
+
   </div>
 <% end %>
