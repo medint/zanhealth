@@ -12,6 +12,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  facility_id :integer
+#  deleted_at  :datetime
 #
 
 class FacilityWorkRequest < ActiveRecord::Base

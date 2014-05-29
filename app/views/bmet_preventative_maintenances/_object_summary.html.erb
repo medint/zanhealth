@@ -2,9 +2,9 @@
   <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
   <% if @bmet_preventative_maintenance.destroyed? %>
-	  <%= link_to "Unhide", hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Unhide preventative maintenance", rel: "tooltip", method: :put %>
+	  <%= link_to @language["Unhide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Unhide preventative maintenance", rel: "tooltip", method: :put %>
   <% else %>
-	  <%= link_to "Hide", hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Hide preventative maintenance", rel: "tooltip", method: :put %>
+	  <%= link_to @language["Hide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Hide preventative maintenance", rel: "tooltip", method: :put %>
   <% end %>
 </ul>
 
@@ -13,7 +13,7 @@
   	<%= render :partial => 'object_edit' %>
   </div>
   <div class="tab-pane" id="convert">
-  	<%= render :partial => 'facility_work_orders/object_convert' %>  	
+  	<%= render :partial => 'bmet_work_orders/object_convert' %>  	
   </div>  
 </div>
 

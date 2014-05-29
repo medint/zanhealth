@@ -11,6 +11,8 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  facility_id :integer
+#  deleted_at  :datetime
 #
 
 class BmetWorkRequest < ActiveRecord::Base

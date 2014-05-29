@@ -8,9 +8,9 @@ group :development do
     gem 'sqlite3' # Use sqlite3 as the database for Active Record
     gem "better_errors" # better error page
     gem "binding_of_caller" # 'optional' dep for better_errors
-    gem "bullet" # gem that checks for N+1 queries
-    gem "annotate" # gives nice things in models/
-    gem "railroady" # generates graphviz models for schema
+    gem "bullet" # gem that checks for N+1 queries 
+    gem "annotate" # gives nice things in models/ 
+    gem "railroady" # generates graphviz models for schema 
     gem "rails-erd" #generate diagrams for models
     gem "spring" # for testing, application reploader
 end
@@ -97,3 +97,5 @@ gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
+
+gem "rmagick", :require => 'RMagick'

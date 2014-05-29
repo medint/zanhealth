@@ -1,7 +1,7 @@
 <li class="facility_work_order_comment">
   <span class="comment-comment_text"><%= bmet_work_order_comment.comment_text %></span>
   <span class="comment-timestamp">
-    Posted <%= time_ago_in_words(bmet_work_order_comment.created_at) %> ago by 
+    - posted <%= time_ago_in_words(bmet_work_order_comment.created_at) %> ago by 
     <span class="comment-user">
       <%= bmet_work_order_comment.user.try(:name) %>.
     </span>

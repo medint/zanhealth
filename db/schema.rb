@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525193454) do
+ActiveRecord::Schema.define(version: 20140528220247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20140525193454) do
   create_table "bmet_costs", force: true do |t|
     t.string   "name"
     t.integer  "unit_quantity"
-    t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
+    t.decimal  "cost",               precision: 5, scale: 2
   end
 
   create_table "bmet_item_histories", force: true do |t|
@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(version: 20140525193454) do
     t.datetime "date_started"
     t.integer  "department_id"
     t.datetime "deleted_at"
-    t.integer  "pm_origin"
-    t.integer  "wr_origin"
+    t.integer  "pm_origin_id"
+    t.integer  "wr_origin_id"
   end
 
   add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
@@ -169,10 +169,10 @@ ActiveRecord::Schema.define(version: 20140525193454) do
   create_table "facility_costs", force: true do |t|
     t.string   "name"
     t.integer  "unit_quantity"
-    t.integer  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
+    t.decimal  "cost",                   precision: 5, scale: 2
   end
 
   add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id", using: :btree
@@ -230,8 +230,8 @@ ActiveRecord::Schema.define(version: 20140525193454) do
     t.datetime "date_started"
     t.integer  "department_id"
     t.datetime "deleted_at"
-    t.integer  "pm_origin"
-    t.integer  "wr_origin"
+    t.integer  "pm_origin_id"
+    t.integer  "wr_origin_id"
   end
 
   add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at", using: :btree

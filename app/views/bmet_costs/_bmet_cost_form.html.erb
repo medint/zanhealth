@@ -1,6 +1,6 @@
 <div class='additional-details_form-div'>
   <hr class="additional-details_hr">
-  <%= form_for(@bmet_cost) do |f| %>
+  <%= simple_form_for(@bmet_cost) do |f| %>
   <% if @bmet_cost.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bmet_cost.errors.count, "error") %> prohibited this bmet_cost from being saved:</h2>
@@ -19,7 +19,7 @@
     <%= f.number_field :unit_quantity, :required => true, :placeholder => @language['Quantity'] %>
   </div>
   <div id="additional-detail_cost_amount">
-    <%= f.number_field :cost, :required => true, :placeholder => @language["Cost"] %>
+    <%= f.input_field :cost, :as => "decimal", :required => true, :placeholder => @language["Cost"] %>
   </div>
  
   <div class="field">
