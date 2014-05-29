@@ -3,36 +3,34 @@ class BmetItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:new, :show]
   before_action :set_departments, only: [:new, :show]
+  before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new]
 
   # GET /items
   # GET /items.json
   def index
-	   @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+	
   end
 
   # GET /detailed_items
   def detailed
-    @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
 	    @bmet_item_history = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
 	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
   def as_csv
-    @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
-      puts @bmet_items
+      @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+
       send_data @bmet_items.as_csv, type: "text/csv", filename: "bmet_items.csv"
-      puts @bmet_items
+
   end
 
   # GET /items/new
   def new
-    @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
     @bmet_item = BmetItem.new
   end
 
@@ -81,13 +79,14 @@ class BmetItemsController < ApplicationController
   end
 
   def import
-    #begin
-      BmetItem.import(params[:file])
-      BmetModel.import(params[:file])
+    begin
+      Department.import(params[:file], current_user.facility.id)
+      BmetModel.import(params[:file], current_user.facility.id)
+      BmetItem.import(params[:file], current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    #rescue
-       #redirect_to bmet_items_path, notice: "Invalid CSV file format."    
-    #end 
+    rescue
+       redirect_to bmet_items_path, notice: "Invalid CSV file format."    
+    end 
   end
 
   private
@@ -102,6 +101,10 @@ class BmetItemsController < ApplicationController
 
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def set_bmet_items
+      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
