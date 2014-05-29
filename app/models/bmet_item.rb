@@ -33,21 +33,6 @@ class BmetItem < ActiveRecord::Base
         match = BmetItem.find_by_serial_number(row["serial_number"])
         if !match || !BmetItem.where("match.department.facility_id = ?", facility_id)
           item = BmetItem.new
-        # item.attributes = row.to_hash.slice(
-        #   :serial_number,
-        #   :year_manufactured,
-        #   :funding,
-        #   :date_received,
-        #   :warranty_expire,
-        #   :contract_expire,
-        #   :warranty_notes,
-        #   :service_agent,
-        #   :department_id,
-        #   :price,
-        #   :asset_id,
-        #   :item_type,
-        #   :location
-        #   )
           item.serial_number = row["serial_number"]
           item.year_manufactured = row["year_manufactured"]
           item.funding = row["funding"]

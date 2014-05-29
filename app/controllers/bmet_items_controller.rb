@@ -3,7 +3,7 @@ class BmetItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:new, :show]
   before_action :set_departments, only: [:new, :show]
-  before_action :set_bmet_items, onlly: [:index, :detailed, :show, :as_csv, :new]
+  before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new]
 
   # GET /items
   # GET /items.json
