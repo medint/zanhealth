@@ -2,9 +2,9 @@
   <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
   <% if @facility_preventative_maintenance.destroyed? %>
-	  <%= link_to "Unhide", hide_facility_preventative_maintenance_path(@facility_preventative_maintenance), title: "Unhide preventative maintenance", rel:"tooltip", method: :put, :required => true %>
+	  <%= link_to @language["Unhide"], hide_facility_preventative_maintenance_path(@facility_preventative_maintenance), title: "Unhide preventative maintenance", rel:"tooltip", method: :put, :required => true %>
   <% else %>
-	  <%= link_to "Hide", hide_facility_preventative_maintenance_path(@facility_preventative_maintenance), title: "Hide preventative maintenance", rel:"tooltip", method: :put, :required => true %>
+	  <%= link_to @language["Hide"], hide_facility_preventative_maintenance_path(@facility_preventative_maintenance), title: "Hide preventative maintenance", rel:"tooltip", method: :put, :required => true %>
   <% end %>
 </ul>
 

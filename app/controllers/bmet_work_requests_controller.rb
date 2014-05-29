@@ -108,10 +108,18 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     render :layout => "application"
   end
 
+
   def destroy
     @bmet_work_request.really_destroy!
     respond_to do |format|
-      format.html { redirect_to bmet_work_requests_url }
+      link = request.referer.split("/")[-2]
+      if link == "hidden"
+        format.html { redirect_to bmet_work_requests_url+"/hidden/", notice: 'Work request was successfully deleted.' }
+      elsif link == "all"
+        format.html { redirect_to bmet_work_requests_url+"/all/", notice: 'Work request was successfully deleted.' }
+      else
+        format.html { redirect_to bmet_work_requests_url+"/unhidden/", notice: 'Work request was successfully deleted.' }
+      end
       format.json { head :no_content }
     end
   end
@@ -183,7 +191,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       "Email: "+@bmet_work_request.email + "\n" +
       "Phone: "+@bmet_work_request.phone + "\n"
       @input_object.pm_origin = nil
-      @input_object.wr_origin = @bmet_work_request.id
+      @input_object.wr_origin = @bmet_work_request
     end
 
 end

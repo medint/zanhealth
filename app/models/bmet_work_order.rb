@@ -20,6 +20,9 @@
 #  updated_at        :datetime
 #  date_started      :datetime
 #  department_id     :integer
+#  deleted_at        :datetime
+#  pm_origin         :integer
+#  wr_origin         :integer
 #
 
 class BmetWorkOrder < ActiveRecord::Base
@@ -30,6 +33,8 @@ class BmetWorkOrder < ActiveRecord::Base
     has_many :bmet_labor_hours
     belongs_to :owner, :class_name => "User"
     belongs_to :requester, :class_name => "User"
+    belongs_to :pm_origin, :class_name => "BmetPreventativeMaintenance"
+    belongs_to :wr_origin, :class_name => "BmetWorkRequest"
     belongs_to :department
     before_save :auto_date_start
   	before_create :init

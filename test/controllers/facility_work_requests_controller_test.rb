@@ -81,11 +81,12 @@ class FacilityWorkRequestsControllerTest < ActionController::TestCase
   end
 
   test "should destroy facility_work_request" do
+    @request.headers["HTTP_REFERER"] = "/facility_work_requests/unhidden/"+(@facility_work_request.id.to_s)
     assert_difference('FacilityWorkRequest.count', -1) do
       delete :destroy, id: @facility_work_request
     end
 
-    assert_redirected_to facility_work_requests_path
+    assert_redirected_to facility_work_requests_path+"/unhidden/"
   end
 
   test "should search and return something" do
