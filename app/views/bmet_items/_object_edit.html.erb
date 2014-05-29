@@ -11,20 +11,20 @@
   <% end %>
 
   <div id="action-bar">
-  <ul>
-    <li>item id <%= @bmet_item.id%></li>
-    <li>print</li>
-    <div class="actions">
+    <div id="field-box_item-id">      
+      <div class="item-id">Item <%= @bmet_item.id%></div>
+    </div>    
+    <div id="print-button_right"></div>
+    <div id="action-bar_submit">
       <%= f.submit @language['Save Changes']%>
     </div>
-  </ul>
   </div>
   <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
   <div id="properties-box">
-    <table>
+    <table id="properties-table">
       <tr>
         <td><%= @language['Model'] %></td>
-        <td><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
+        <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
       </tr>
       <tr>
         <td><%= @language['Asset ID'] %><br></td>
