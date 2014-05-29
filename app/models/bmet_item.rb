@@ -55,12 +55,21 @@ class BmetItem < ActiveRecord::Base
     def self.as_csv
       colnames = column_names.dup
       colnames.shift
+      fullcolnames=colnames.dup
+      colnames.shift
+      colnames.delete_at(8)
+      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
       CSV.generate do |csv|
           csv << colnames
-          all.each do |item|
-              values = item.attributes.values_at(*colnames)
-              values[0] = BmetModel.find(values[0]).name
-              values[9] = Department.find(values[9]).name
+          all.each do |item|              
+              values = item.attributes.values_at(*fullcolnames)
+              bmet_model=BmetModel.find(values[0])
+              values.append(Department.find(values[9]).name)
+              values.append(bmet_model.manufacturer_name)
+              values.append(bmet_model.model_name)
+              values.append(bmet_model.vendor_name)
+              values.shift
+              values.delete_at(8)
               csv << values
       end
     end

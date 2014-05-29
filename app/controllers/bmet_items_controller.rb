@@ -23,7 +23,10 @@ class BmetItemsController < ApplicationController
   end
 
   def as_csv
+      @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+
       send_data @bmet_items.as_csv, type: "text/csv", filename: "bmet_items.csv"
+
   end
 
   # GET /items/new
