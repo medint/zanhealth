@@ -39,7 +39,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def show_hidden
-	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+	  @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
     @facility_work_order_comment = FacilityWorkOrderComment.new
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_cost = FacilityCost.new
@@ -49,7 +49,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def show_all
-	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+	  @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
     @facility_work_order_comment = FacilityWorkOrderComment.new
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_cost = FacilityCost.new

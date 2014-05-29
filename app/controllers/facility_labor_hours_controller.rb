@@ -40,7 +40,16 @@ class FacilityLaborHoursController < ApplicationController
   def destroy
     @facility_labor_hour.destroy
     respond_to do |format|
-      format.html { redirect_to @facility_labor_hour.facility_work_order }
+      link = request.referer.split("/")[-2]
+      @facility_work_order = @facility_labor_hour.facility_work_order
+      if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @facility_labor_hour.facility_work_order }
       format.json { head :no_content }
     end
   end

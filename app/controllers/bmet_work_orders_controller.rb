@@ -97,14 +97,14 @@ class BmetWorkOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
-      	  link = request.referer.split("/")[-2]
-      	  if link == "hidden"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  elsif link == "all"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  else
+    	  link = request.referer.split("/")[-2]
+    	  if link == "hidden"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      elsif link == "all"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      else
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  end
+	      end
         format.json { head :no_content }
       else
         format.html { render :back }

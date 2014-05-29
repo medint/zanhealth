@@ -7,6 +7,7 @@
 	  <span class="cost-quantity"><%= facility_cost.unit_quantity %></span> X
 	  <span class="cost-cost">$<%= facility_cost.cost %></span> &#61;
 	  <span class="cost-total">$<%= facility_cost.cost * facility_cost.unit_quantity %></span>
-	  </span>
+	  
   </div>
+  <%= link_to 'X', facility_cost, method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>
