@@ -38,8 +38,9 @@ class BmetItem < ActiveRecord::Base
           item.funding = row["funding"]
           item.date_received = row["date_received"]
           item.warranty_expire = row["warranty_expire"]
+          item.warranty_notes = row["warranty_notes"]
+          item.contract_expire = row["contract_expire"]
           item.service_agent = row["service_agent"]
-          item.department_id = Department.find_by_name(row["department_name"]).id
           item.price = row["price"]
           item.asset_id = row["asset_id"]
           item.item_type = row["item_type"]
