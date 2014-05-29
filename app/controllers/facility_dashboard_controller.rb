@@ -40,7 +40,7 @@ class FacilityDashboardController < ApplicationController
 		arrayoforders=[]
 		
 		for i in 0..5
-			time_range_array[i]=@starting_date.try(:strftime,"%^b %d")+"-"+@ending_date.try(:strftime,"%^b %d")
+			time_range_array[i]=@starting_date.try(:strftime,"%b %d, %Y")+"-"+@ending_date.try(:strftime,"%b %d, %Y")
 			arrayoforders[i]=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 			timeago=@ending_date.to_i-@starting_date.to_i
 			@ending_date=@starting_date
