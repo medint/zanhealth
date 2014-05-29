@@ -57,7 +57,7 @@ class BmetItem < ActiveRecord::Base
       fullcolnames=colnames.dup
       colnames.shift
       colnames.delete_at(8)
-      colnames << "department" << "manufacturer_name" << "model_name" <<"vendor_name"      
+      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
       CSV.generate do |csv|
           csv << colnames
           all.each do |item|              
