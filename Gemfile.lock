@@ -155,6 +155,7 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     recaptcha (0.3.6)
+    rmagick (2.13.2)
     ruby-graphviz (1.0.9)
     ruby-prof (0.15.1)
     sass (3.2.19)
@@ -238,6 +239,7 @@ DEPENDENCIES
   rails-perftest
   rails_12factor
   recaptcha
+  rmagick
   ruby-prof
   sass-rails (~> 4.0.0)
   sdoc

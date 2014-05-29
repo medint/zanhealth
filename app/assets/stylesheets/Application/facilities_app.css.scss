@@ -478,13 +478,28 @@ body {
  /*               Right Detail               */
 /********************************************/
 
-/*		object box 		*/
+/*		action bar		*/
 
+#field-box_item-id{
+	height: 35px;
+	background-color: #323a45;
+	border: 1px solid;
+	-webkit-border-radius: 3px;
+	border-radius: 5px; 
+	.item-id{
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 14px;		
+	}
+}
 .object_form_icons {					
 	background-size: 100%;
-	width: 14px;
-	height: 14px;
+	width: 20px;
+	height: 20px;
+	margin : 5px;
 	display:block;
+	background-color: white;
 }
 
 #print-button_right{
@@ -497,34 +512,9 @@ body {
 	background-image: url(image_path('right/archiveicon.png'));				
 }
 
-#field-box_item-id{
-	height: 40px;
-	background-color: #323a45;
-	border: 1px solid;
-	border-radius: 2px;
-	.item-id{
-		color: white;
-		text-transform: uppercase;
-		font-weight: bold;
-		font-size: 14px;		
-	}
-}
-
-#action-bar{
-	margin-top: 20px;
-	margin-left: 10px;
-	#field-box_item-id{
-		width:80px;
-		.item-id{
-			margin-left: 10px;
-			margin-top: 13px;
-		}
-	}
-}
-
 #action-bar_submit{
 	input[type=submit] {
-		height: 40px;
+		height: 35px;
 		padding:5px 15px; 
 		background:#77ccbf;
 		border:0 none;
@@ -542,12 +532,51 @@ body {
 	}
 }
 
+/* for bmet_item page */
+#bmet_item_summary {
+	#action-bar{
+		margin-top: 10px;
+		margin-left: 20px;
+		#field-box_item-id{
+			float: left;
+			width:80px;
+			.item-id{
+				margin-left: 10px;
+				margin-top: 11px;
+			}
+		}
+		#print-button_right {
+			float:right;
+		}
+		#action-bar_submit {
+			float:right;
+			margin-right: 20px;
+		}
+	}
+}
+ 
+
+/*      object box     */
+.transparent-form-elements {
+	input, textarea, select{
+		background: transparent;
+		color: #000000;
+	   	border: 0;
+	   	border-radius: 0;
+	   	height: 20px;
+	   	-webkit-appearance: none;
+	}
+}
+
 #properties-box {
+	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color : white;
 	padding:10px;
+	padding-bottom: 20px;
 	margin-left: 20px;
 	margin-right: 20px;
+	margin-top: 10px;
 	height: 50%;
 
 }
@@ -561,19 +590,13 @@ body {
 	td:nth-child(2){
 		width: 60%;
 		padding-left: 10px;
+		@extend .transparent-form-elements;
 	}
 	tr{
 		padding-bottom: 10px;
 	}
-	select{
-		background: transparent;
-		color: #000000;
-	   	border: 0;
-	   	border-radius: 0;
-	   	height: 20px;
-	   	-webkit-appearance: none;
-	}
 }
+
 
 
 /*     object form     */
