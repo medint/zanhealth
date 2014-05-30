@@ -3,7 +3,7 @@ Zanhealth::Application.routes.draw do
   # general
   resources :departments
   resources :facilities
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations" }
   resources :parts
   resources :roles
   resources :texts
