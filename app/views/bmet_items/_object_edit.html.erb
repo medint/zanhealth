@@ -15,7 +15,18 @@
       <div id="field-box_item-id">      
         <div class="item-id">Item <%= @bmet_item.id%></div>
       </div>    
-      <div id="action-bar_submit">
+      <div class="action-bar_box bmet_item_status<%= @bmet_item.try(:status) %>">      
+        STATUS
+        <div class="action-bar-box_text ">
+          <%= @bmet_item.try(:status) %>
+        </div>
+      </div>    
+      <div id="action-bar_box bmet_item_condition<%= @bmet_item.try(:condition) %>">      
+        CONDITION
+        <div class="action-bar-box_text">
+          <%= @bmet_item.try(:condition) %>
+        </div>
+      <div class="action_submit">
         <%= f.submit @language['Save Changes']%>
       </div>
       <div id="print-button_right"></div>

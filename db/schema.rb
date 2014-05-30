@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528220247) do
+ActiveRecord::Schema.define(version: 20140529214619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,14 @@ ActiveRecord::Schema.define(version: 20140528220247) do
     t.text     "warranty_notes"
     t.string   "service_agent"
     t.integer  "department_id"
-    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "asset_id"
     t.string   "item_type"
     t.string   "location"
+    t.integer  "status"
+    t.integer  "condition"
+    t.decimal  "price",             precision: 5, scale: 2
   end
 
   create_table "bmet_labor_hours", force: true do |t|

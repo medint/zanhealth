@@ -125,7 +125,9 @@ namespace :test do
 								   :location => row[11],
 								   :item_type => row[12],
 								   :created_at => Time.now - 60*60*24*(rand(22..40)),
-								   :price => row[13]
+								   :price => row[13],
+								   :status => rand(0..2),
+								   :condition => rand(0..3)
 								  )
 			else
 				item = BmetItem.create(:asset_id => row[0],
