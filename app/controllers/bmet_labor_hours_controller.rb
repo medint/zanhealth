@@ -61,7 +61,7 @@ class BmetLaborHoursController < ApplicationController
 
  # Never trust parameters from the scary internet, only allow the white list through.
  	def set_bmet_labor_hour
-      @bmet_labor_hour = BmetLaborHour.find(params[:id])
+      @bmet_labor_hour = BmetLaborHour.find_by_id(params[:id])
     end
     def bmet_labor_hour_params
       params.require(:bmet_labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)

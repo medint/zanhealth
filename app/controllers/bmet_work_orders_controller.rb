@@ -126,7 +126,7 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   def hide
-  	  @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+  	  @bmet_work_order = BmetWorkOrder.with_deleted.find_by_id(params[:id])
   	  if @bmet_work_order.destroyed?
   	  	  BmetWorkOrder.restore(@bmet_work_order)
 	  else

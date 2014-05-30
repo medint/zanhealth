@@ -93,7 +93,7 @@ class BmetItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @bmet_item = BmetItem.find(params[:id])
+      @bmet_item = BmetItem.find_by_id(params[:id])
     end
 
     def set_bmet_models

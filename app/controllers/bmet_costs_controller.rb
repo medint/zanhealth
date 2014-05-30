@@ -74,7 +74,7 @@ class BmetCostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_cost
-      @bmet_cost = BmetCost.find(params[:id])
+      @bmet_cost = BmetCost.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

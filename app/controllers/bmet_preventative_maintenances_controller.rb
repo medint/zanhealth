@@ -102,7 +102,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
   end
 
   def hide
-  	  @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find(params[:id])
+  	  @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
   	  if @bmet_preventative_maintenance.destroyed?
   	  	  BmetPreventativeMaintenance.restore(@bmet_preventative_maintenance)
 	  else
@@ -140,7 +140,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
     def set_bmet_preventative_maintenance
 
-      @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find(params[:id])
+      @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
       if (@bmet_preventative_maintenance==nil || @bmet_preventative_maintenance.requester.facility_id!=current_user.facility_id)
         @bmet_preventative_maintenance=nil
         redirect_to "/404"

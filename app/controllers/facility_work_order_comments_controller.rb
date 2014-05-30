@@ -75,7 +75,7 @@ class FacilityWorkOrderCommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_facility_work_order_comment
-      @facility_work_order_comment = FacilityWorkOrderComment.find(params[:id])
+      @facility_work_order_comment = FacilityWorkOrderComment.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

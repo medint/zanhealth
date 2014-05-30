@@ -67,7 +67,7 @@ class BmetModelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_model
-      @bmet_model = BmetModel.find(params[:id])
+      @bmet_model = BmetModel.find_by_id(params[:id])
     end
 
     def set_bmet_models
