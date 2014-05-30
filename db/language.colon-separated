@@ -39,9 +39,11 @@ Date Expires-comment: Tarehe ya mwisho kutumika (I assumed this was the date som
 Date Received: Siku kifaa kilipokewa: dat resevwa
 Date Requested: Tarehe ya ombi: dat de demann
 Date Started: 'xxx xxx': dat kòmanse
+Date to Start PM: 'swahili': 'creole'
 Date/Time: 'xxx': dat/lè
 Days: 'xxx': jou
 Days Until: 'xxx xxx': xxx xxx
+Delete Forever: 'xxx': 'creole'
 Department: 'xxx': depateman
 Description: Maelezo: deskripsyon
 Destroy: Futa: detwi
@@ -56,6 +58,7 @@ Editing:'xxx': koreksyon
 Email: 'xxx': imèl
 Encrypted password:'xxx xxx': 'xxx'
 Expire: 'xxx': ekspire
+Export Data: 'xxx': 'creole'
 Facilities: 'xxx': mentnans
 Facility:'xxx': etablisman
 Filter: 'xxx': filtre
@@ -63,6 +66,7 @@ Floor: 'xxx': atè a
 Form: 'xxx': fòmilè
 Funding: Fedha: finansman
 Full Description: 'xxx xxx': deskripsyon konplè
+Hide: 'xxx': 'creole'
 Home: xxx: paj lakay
 ID: Nambari ya kitambulisho: idantifikasyon
 *ID: Nambari ya kitambulisho (we usually translate ID as ID number, which is what I’ve done) or you could just put “Kitambulisho”: numero idantifikasyon
@@ -123,6 +127,7 @@ Save Changes: 'xxx': sove chanjman
 Select Attribute: 'xxx xxx': chwazi atribi
 Select Status: 'xxx xxx': chwazi estati
 Serial Number: Namba tambulishi: nimewo seri
+Select View : 'xxx': 'creole'
 Service Agent: Wakala wa huduma: ajan sèvis
 *Service Agent: Wakala wa huduma/Ajenti wa huduma, confirm which one they prefer: 'xxx'
 Settings: Mipangilio binafsi: ajan sèvis
@@ -140,6 +145,7 @@ Time changed: Wakati kifaa kilibadilishwa (I’m assuming you mean the time the 
 Time created: Wakati yaliyowekwa (I’m assuming this is the time the comments were created, my advice is don’t use it yet until we find a description for “comments”, it will affect the syntax): lè kreye
 Time: Wakati: lè
 Total: 'xxx': total
+Unhide: 'xxx': 'creole'
 Unstarted: 'xxx': poko kòmanse
 Updated At:'xxx': lè de ajoutman
 Urgency: 'xxx': ijans

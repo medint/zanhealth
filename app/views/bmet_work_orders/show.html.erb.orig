@@ -10,7 +10,7 @@
       </p>
 
       <p>
-        <strong><%= @language['Date Expires'] %>:</strong>
+        <strong><%= @language['Expected Date of Completion'] %>:</strong>
         <%= @bmet_work_order.date_expire %>
       </p>
 

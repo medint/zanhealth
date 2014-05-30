@@ -38,16 +38,16 @@
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
 		  <% if can? :hide, current_user%>
-		  	<% if @bmet_work_order.destroyed? %>
-		  		<%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
-	  		<% else %>
-		 		 <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
-	  		<% end %>
+		  	  <% if @bmet_work_order.destroyed? %>
+    		    <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+    	    <% else %>
+    		    <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+    	    <% end %>
 		<% end %>
-		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
+	        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 
-        <div class="actions">
+        <div id="action-bar_submit">
             <%= f.submit @language['Save Changes'] %>
         </div>
     </div>
@@ -65,7 +65,7 @@
           </div>
         </div>
         <div class="field-box-date">
-          <div class="field-type"><%= @language['Date Expires'] %></div>
+          <div class="field-type"><%= @language['Expected Date of Completion'] %></div>
           <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
         </div>
         <div class="field-box-date">

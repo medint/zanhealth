@@ -47,7 +47,7 @@
 		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 
-        <div class="actions">
+        <div id="action-bar_submit">
             <%= f.submit @language['Save Changes'] %>
         </div>
     </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="field-box-date">
           <hr class="color-code-line" id="expired-line">
-          <div class="field-type"><%= @language['Date Expires'] %></div>
+          <div class="field-type"><%= @language['Expected Date of Completion'] %></div>
           <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
         </div>
         <div class="field-box-date">

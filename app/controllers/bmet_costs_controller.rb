@@ -57,7 +57,16 @@ class BmetCostsController < ApplicationController
   def destroy
     @bmet_cost.destroy
     respond_to do |format|
-      format.html { redirect_to @bmet_cost.bmet_work_order }
+      link = request.referer.split("/")[-2]
+      @bmet_work_order = @bmet_cost.bmet_work_order
+      if link == "hidden"
+          format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+        format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @bmet_cost.bmet_work_order }
       format.json { head :no_content }
     end
   end

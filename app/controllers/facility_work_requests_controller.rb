@@ -63,11 +63,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       	link = request.referer.split("/")[-2]
       	if link == "hidden"
       		format.html { redirect_to facility_work_requests_url+"/hidden/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
-		elsif link == "all"
+		    elsif link == "all"
       		format.html { redirect_to facility_work_requests_url+"/all/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
       	else
       		format.html { redirect_to facility_work_requests_url+"/unhidden/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
-		end
+		    end
         format.json { head :no_content }
       else
         format.html { redirect_to :back }
@@ -119,7 +119,14 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   def destroy
     @facility_work_request.really_destroy!
     respond_to do |format|
-      format.html { redirect_to facility_work_requests_url }
+      link = request.referer.split("/")[-2]
+      if link == "hidden"
+        format.html { redirect_to facility_work_requests_url+"/hidden/", notice: 'Work request was successfully deleted.' }
+      elsif link == "all"
+        format.html { redirect_to facility_work_requests_url+"/all/", notice: 'Work request was successfully deleted.' }
+      else
+        format.html { redirect_to facility_work_requests_url+"/unhidden/", notice: 'Work request was successfully deleted.' }
+      end
       format.json { head :no_content }
     end
   end
@@ -191,7 +198,8 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       "Email: "+@facility_work_request.email + "\n" +
       "Phone: "+@facility_work_request.phone + "\n"
       @input_object.pm_origin = nil
-      @input_object.wr_origin = @facility_work_request.id
+      @input_object.wr_origin = @facility_work_request
+
     end
     
 end

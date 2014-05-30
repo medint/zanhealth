@@ -95,7 +95,7 @@
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <%= link_to "", new_facility_work_order_path, :id => "add-button"%>
-    <%= link_to "Export Data", facility_work_orders_url+"/download" %>
+    <%= link_to @language["Export Data"], facility_work_orders_url+"/download" %>
   </div>
 
 </div>

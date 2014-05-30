@@ -26,6 +26,8 @@ class FacilityWorkOrderCommentsController < ApplicationController
   # POST /facility_work_order_comments.json
   def create
     @facility_work_order_comment = FacilityWorkOrderComment.new(facility_work_order_comment_params)
+    @facility_work_order_comment.user = current_user
+    
     respond_to do |format|
       if @facility_work_order_comment.save
         format.html { redirect_to :back, notice: 'Work order was successfully updated.' }
@@ -56,7 +58,16 @@ class FacilityWorkOrderCommentsController < ApplicationController
   def destroy
     @facility_work_order_comment.destroy
     respond_to do |format|
-      format.html { redirect_to @facility_work_order_comment.facility_work_order }
+      link = request.referer.split("/")[-2]
+      @facility_work_order = @facility_work_order_comment.facility_work_order
+      if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @facility_work_order_comment.facility_work_order }
       format.json { head :no_content }
     end
   end
