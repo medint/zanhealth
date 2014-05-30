@@ -1,4 +1,5 @@
 class BmetWorkOrderCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_bmet_work_order_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /bmet_work_order_comments

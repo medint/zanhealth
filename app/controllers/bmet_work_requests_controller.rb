@@ -1,4 +1,5 @@
 class BmetWorkRequestsController < ApplicationController
+  load_and_authorize_resource :except => [:public_new, :public_create, :public_show]
 before_action :set_bmet_work_requests, only:[:new, :index, :show]
 before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit, :show_hidden, :show_all]
 before_action :set_status, only: [:show, :hidden, :all, :show_hidden, :show_all]

@@ -1,6 +1,7 @@
 class BmetDashboardController < ApplicationController
 	before_action :set_status, only: [:status, :wo_finances, :labor_hours, :statusAjax]
 	layout 'layouts/bmet_app'
+	authorize_resource :class => false
 
 	def index
 		@starting_date=DateTime.now

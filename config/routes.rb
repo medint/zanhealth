@@ -3,7 +3,7 @@ Zanhealth::Application.routes.draw do
   # general
   resources :departments
   resources :facilities
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations" }
   resources :parts
   resources :roles
   resources :texts
@@ -132,7 +132,7 @@ Zanhealth::Application.routes.draw do
   get "/text", to: "text#receive"
     
   get '/404', :to => redirect('/404.html')
-  root to: "facility_work_orders#index"
+  root to: "application#home"
 
 
 

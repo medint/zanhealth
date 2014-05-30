@@ -38,6 +38,15 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :language) }
     end   
 
+    def home
+    	if current_user.role.name == "bmet_tech"
+    		redirect_to '/bmet_work_orders/unhidden'
+		elsif current_user.role.name == "fac_tech"
+			redirect_to '/facility_work_orders/unhidden'
+		else
+		end
+	end
+
     def choose_language
         unless params[:language].nil?
             session[:language] = params[:language]
@@ -61,7 +70,7 @@ class ApplicationController < ActionController::Base
     end
     
     def after_sign_in_path_for(resource)
-        '/facility_work_orders'
+			''
     end
 
     def gen_permissions

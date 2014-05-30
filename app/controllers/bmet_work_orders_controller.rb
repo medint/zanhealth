@@ -7,6 +7,8 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
+  load_and_authorize_resource
+
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index

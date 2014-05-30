@@ -1,4 +1,5 @@
 class BmetPreventativeMaintenancesController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_bmet_preventative_maintenance, only: [:show, :edit, :update, :destroy, :show_all, :show_hidden]
   before_action :set_bmet_preventative_maintenances, only: [:show, :index, :new]

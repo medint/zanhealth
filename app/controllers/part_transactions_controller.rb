@@ -1,5 +1,6 @@
 class PartTransactionsController < ApplicationController
   before_action :set_part_transaction, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /part_transactions
   # GET /part_transactions.json

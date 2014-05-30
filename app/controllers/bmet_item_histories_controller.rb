@@ -1,4 +1,5 @@
 class BmetItemHistoriesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_item_history, only: [:show, :edit, :update, :destroy]
 
   # GET /item_histories

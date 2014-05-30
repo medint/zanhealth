@@ -1,4 +1,5 @@
 class BmetModelsController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_bmet_model, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:show, :index, :new]

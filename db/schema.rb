@@ -73,7 +73,10 @@ ActiveRecord::Schema.define(version: 20140529214619) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+    t.integer  "facility_id"
   end
+
+  add_index "bmet_models", ["facility_id"], name: "index_bmet_models_on_facility_id", using: :btree
 
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
