@@ -560,7 +560,6 @@ body {
 .transparent-form-elements {
 	input, textarea, select{
 		background: transparent;
-		color: #000000;
 	   	border: 0;
 	   	border-radius: 0;
 	   	height: 20px;
@@ -591,6 +590,9 @@ body {
 		width: 60%;
 		padding-left: 10px;
 		@extend .transparent-form-elements;
+		input, textarea, select{
+			color: #000000;
+		}
 	}
 	tr{
 		padding-bottom: 10px;
@@ -909,18 +911,10 @@ body {
 
 }
 
-.transparent-form-elem {
-	background: transparent;
-	padding:2px;
-	border: 0;
-   	border-radius: 0;
-   	-webkit-appearance: none;
-}
-
 .additional-detail_formstyle {
 	float:left;
+	@extend .transparent-form-elements;
 	textarea{
-		@extend .transparent-form-elem;
 		color: #ebebeb;
 		font-size: 12px;
 	   	width: 100%;		   	
@@ -928,13 +922,11 @@ body {
 	   	resize: none;
 	}
 	input{
-		@extend .transparent-form-elem;
 		color: #ebebeb;
 		font-size: 12px;
 		width: 100%
 	}
 	select {
-		@extend .transparent-form-elem;
 		color: #ebebeb;
 	}
 }
