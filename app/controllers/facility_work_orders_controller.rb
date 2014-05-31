@@ -115,7 +115,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 	
   def hide
-  	@facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
+  	@facility_work_order = FacilityWorkOrder.with_deleted.find_by_id(params[:id])
     if @facility_work_order.destroyed?
       FacilityWorkOrder.restore(@facility_work_order.id)
     else

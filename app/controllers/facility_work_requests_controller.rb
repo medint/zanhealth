@@ -132,7 +132,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def hide
-  	@facility_work_request = FacilityWorkRequest.with_deleted.find(params[:id])
+  	@facility_work_request = FacilityWorkRequest.with_deleted.find_by_id(params[:id])
   	if @facility_work_request.destroyed?
   		FacilityWorkRequest.restore(@facility_work_request.id)
 	else

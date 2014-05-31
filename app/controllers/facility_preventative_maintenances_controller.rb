@@ -95,7 +95,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def hide
-  	  @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find(params[:id])
+  	  @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find_by_id(params[:id])
   	  if @facility_preventative_maintenance.destroyed?
   	  	  FacilityPreventativeMaintenance.restore(@facility_preventative_maintenance.id)
 	  else
