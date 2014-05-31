@@ -534,6 +534,7 @@ body {
 
 /* for bmet_item page */
 #bmet_item_summary {
+	padding:10px 10px 10px 10px;
 	#action-bar{
 		margin-top: 10px;
 		margin-left: 20px;
@@ -562,7 +563,6 @@ body {
 		background: transparent;
 	   	border: 0;
 	   	border-radius: 0;
-	   	height: 20px;
 	   	-webkit-appearance: none;
 	}
 }
@@ -571,31 +571,39 @@ body {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background-color : white;
-	padding:10px;
-	padding-bottom: 20px;
-	margin-left: 20px;
-	margin-right: 20px;
 	margin-top: 10px;
-	height: 50%;
+	height: 65%;
+	width:100%;
+	float:left;
 
 }
 #properties-table {
 	width:100%;
+	padding:10px;
+	padding-bottom: 20px;
 
 	td:nth-child(1){
-		width: 40%;
-		font-weight: bold;
+		padding-top: 1px;
+		padding-bottom: 1px;
+		padding-left: 10px;
+		width: 25%;
+		color: #a7a7a7;
 	}
 	td:nth-child(2){
-		width: 60%;
+		width: 75%;
 		padding-left: 10px;
 		@extend .transparent-form-elements;
 		input, textarea, select{
 			color: #000000;
+			height: 20px;
+			width:100%;
 		}
 	}
 	tr{
-		padding-bottom: 10px;
+		height:30px;
+		border:1px solid;
+		border-color: #f0f0f0;
+		border-radius:2px;;
 	}
 }
 
@@ -605,8 +613,69 @@ body {
 	
 #object-form_top{
 	padding:10px 10px 10px 10px;
-	height: 295px;
+	overflow-y: scroll;
+	height: 295px;	
 
+	#field-box_item-id {
+		width: 30%;
+		float:left;
+	}
+	#action-bar {
+		width:100%;
+		height: 40px;
+		display: block;
+		#archive-button_right{
+			float:left;
+		}
+		#print-button_right{
+			float:left;
+		}
+		.action_submit {
+			float:left;
+		}
+		#work_order_status{
+			float:left;
+		}
+	}
+
+	#work_order_dates{
+		margin-top: 5px;
+		width:100%;
+		background-color: #fff;
+		@extend .transparent-form-elements;
+
+		.field-box {
+			width: 22%;
+			height: 40px;
+			float: left;			
+			background-color: #ffffff;
+			border:1px solid;
+			border-color: #f0f0f0;
+			border-radius:2px;
+			padding-left:10px;
+		}
+		#expected-date-box{
+			width:34%;
+		}
+
+		.field-type {
+			color: #a7a7a7;
+			padding-top: 4px;
+		}
+
+		.field-info{
+			width: 100%;
+		   	overflow: hidden;
+		   	margin-top:-6px;
+			color: #000000;
+			select{
+			   	width: auto;				 
+			   	height: 20px;
+			}
+		}
+	}
+
+	/* kill */
 	#object-form-left{
 		float: left;
 		width: 55%;
