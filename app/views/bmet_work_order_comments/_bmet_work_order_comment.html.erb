@@ -6,4 +6,5 @@
       <%= bmet_work_order_comment.user.try(:name) %>.
     </span>
   </span>
+  <%= link_to 'X', bmet_work_order_comment, method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>

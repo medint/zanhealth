@@ -7,6 +7,8 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
+  load_and_authorize_resource
+
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
@@ -97,14 +99,14 @@ class BmetWorkOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
-      	  link = request.referer.split("/")[-2]
-      	  if link == "hidden"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  elsif link == "all"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  else
+    	  link = request.referer.split("/")[-2]
+    	  if link == "hidden"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      elsif link == "all"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      else
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  end
+	      end
         format.json { head :no_content }
       else
         format.html { render :back }
@@ -124,7 +126,7 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   def hide
-  	  @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+  	  @bmet_work_order = BmetWorkOrder.with_deleted.find_by_id(params[:id])
   	  if @bmet_work_order.destroyed?
   	  	  BmetWorkOrder.restore(@bmet_work_order)
 	  else

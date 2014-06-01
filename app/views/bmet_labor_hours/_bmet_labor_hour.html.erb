@@ -6,5 +6,7 @@
   	<div class="labor_hour-detail">
   		<span class="labor_hour-date"><%= bmet_labor_hour.date_started.try(:strftime,"%^b %d, %Y") %></span>	
   		<span class="labor_hour-duration"><%= bmet_labor_hour.duration %></span>
+
   	</div>
+  	<%= link_to 'X', bmet_labor_hour, method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>

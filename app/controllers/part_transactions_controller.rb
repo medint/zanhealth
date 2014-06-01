@@ -1,5 +1,6 @@
 class PartTransactionsController < ApplicationController
   before_action :set_part_transaction, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /part_transactions
   # GET /part_transactions.json
@@ -64,7 +65,7 @@ class PartTransactionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_part_transaction
-      @part_transaction = PartTransaction.find(params[:id])
+      @part_transaction = PartTransaction.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

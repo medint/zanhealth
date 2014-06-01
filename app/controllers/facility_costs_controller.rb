@@ -1,4 +1,5 @@
 class FacilityCostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_facility_cost, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,7 +39,16 @@ class FacilityCostsController < ApplicationController
   def destroy
     @facility_cost.destroy
     respond_to do |format|
-      format.html { redirect_to @facility_cost.facility_work_order }
+      link = request.referer.split("/")[-2]
+      @facility_work_order = @facility_cost.facility_work_order
+      if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @facility_cost.facility_work_order }
       format.json { head :no_content }
     end
   end
@@ -50,7 +60,7 @@ class FacilityCostsController < ApplicationController
   private 
   
     def set_facility_cost
-      @facility_cost = FacilityCost.find(params[:id])
+      @facility_cost = FacilityCost.find_by_id(params[:id])
     end
     def facility_cost_params
       params.require(:facility_cost).permit(:unit_quantity, :cost, :name, :facility_work_order_id)

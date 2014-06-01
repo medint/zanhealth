@@ -1,4 +1,5 @@
 class FacilityWorkOrdersController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/facilities_app'
   before_action :set_facility_work_order, only: [:show, :update, :destroy, :archive, :show_hidden, :show_all]
   before_action :set_facility_work_orders, only: [:index, :new, :show]
@@ -46,7 +47,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def show_hidden
-	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+	  @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
     @facility_work_order_comment = FacilityWorkOrderComment.new
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_cost = FacilityCost.new
@@ -56,7 +57,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 
   def show_all
-	@facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
+	  @facility_work_order_comments = FacilityWorkOrderComment.where(facility_work_order_id:params[:id])
     @facility_work_order_comment = FacilityWorkOrderComment.new
     @facility_costs = FacilityCost.where(facility_work_order_id:params[:id])
     @facility_cost = FacilityCost.new
@@ -121,7 +122,7 @@ class FacilityWorkOrdersController < ApplicationController
   end
 	
   def hide
-  	@facility_work_order = FacilityWorkOrder.with_deleted.find(params[:id])
+  	@facility_work_order = FacilityWorkOrder.with_deleted.find_by_id(params[:id])
     if @facility_work_order.destroyed?
       FacilityWorkOrder.restore(@facility_work_order.id)
     else

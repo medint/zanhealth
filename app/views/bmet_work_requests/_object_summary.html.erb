@@ -5,13 +5,15 @@
   	<%= @language['View'] %></a>
   </li>
   <li><a href="#convert" data-toggle="tab"><%= @language['Convert to Work Order'] %></a></li>  
-  <li>
+  <% if can? :hide, current_user %>
+   <li>
   <% if @bmet_work_request.destroyed? %>
 	  <%= link_to @language["Unhide"], hide_bmet_work_request_path(@bmet_work_request), title: "Unhide work request", rel: "tooltip", method: :put %>
   <% else %>
 	  <%= link_to @language["Hide"], hide_bmet_work_request_path(@bmet_work_request), title: "Hide work request", rel: "tooltip", method: :put %>
   <% end %>
   </li>
+  <% end %>
   <li><%= link_to @language["Delete Forever"], @bmet_work_request, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 </ul>
 

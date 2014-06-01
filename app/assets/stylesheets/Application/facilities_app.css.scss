@@ -474,13 +474,129 @@ body {
 }
 
 
-
-
-
-
   /********************************************/
  /*               Right Detail               */
 /********************************************/
+
+/*		action bar		*/
+
+#field-box_item-id{
+	height: 35px;
+	background-color: #323a45;
+	border: 1px solid;
+	-webkit-border-radius: 3px;
+	border-radius: 5px; 
+	.item-id{
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 14px;		
+	}
+}
+.object_form_icons {					
+	background-size: 100%;
+	width: 20px;
+	height: 20px;
+	margin : 5px;
+	display:block;
+	background-color: white;
+}
+
+#print-button_right{
+	@extend .object_form_icons;
+	background-image: url(image_path('right/printericon.png'));
+}
+
+#archive-button_right{				
+	@extend .object_form_icons;
+	background-image: url(image_path('right/archiveicon.png'));				
+}
+
+.action_submit{
+	input[type=submit] {
+		height: 35px;
+		padding:5px 15px; 
+		background:#77ccbf;
+		border:0 none;
+		cursor:pointer;
+		-webkit-border-radius: 3px;
+		border-radius: 5px; 
+
+		color: white;
+		letter-spacing: 1px;
+		font-weight: 600;
+		font-size: 15px;
+	}
+	input[type=submit]:hover{
+		color: black;
+	}
+}
+
+/* for bmet_item page */
+#bmet_item_summary {
+	#action-bar{
+		margin-top: 10px;
+		margin-left: 20px;
+		#field-box_item-id{
+			float: left;
+			width:80px;
+			.item-id{
+				margin-left: 10px;
+				margin-top: 11px;
+			}
+		}
+		#print-button_right {
+			float:right;
+		}
+		.action_submit {
+			float:right;
+			margin-right: 20px;
+		}
+	}
+}
+ 
+
+/*      object box     */
+.transparent-form-elements {
+	input, textarea, select{
+		background: transparent;
+		color: #000000;
+	   	border: 0;
+	   	border-radius: 0;
+	   	height: 20px;
+	   	-webkit-appearance: none;
+	}
+}
+
+#properties-box {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color : white;
+	padding:10px;
+	padding-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	height: 50%;
+
+}
+#properties-table {
+	width:100%;
+
+	td:nth-child(1){
+		width: 40%;
+		font-weight: bold;
+	}
+	td:nth-child(2){
+		width: 60%;
+		padding-left: 10px;
+		@extend .transparent-form-elements;
+	}
+	tr{
+		padding-bottom: 10px;
+	}
+}
+
 
 
 /*     object form     */
@@ -553,15 +669,7 @@ body {
 		height: 130px;
 		#field-box_item-id{
 			width: 100%;
-			height: 40px;
-			background-color: #323a45;
-			border: 1px solid;
-			border-radius: 2px;
 			.item-id{
-				color: white;
-				text-transform: uppercase;
-				font-weight: bold;
-				font-size: 14px;
 				margin-left: 11px;
 				margin-top: 11px;
 			}
@@ -594,44 +702,12 @@ body {
 				margin-top: 4px;
 				margin-left: 4%;
 				margin-right: 4%;
-
-				float:right;
-
-				
-				background-size: 100%;
-				width: 14px;
-				height: 14px;
-				display:block;
 			}
-
-			#print-button_right{
-				@extend .object_form_icons;
-				background-image: url(image_path('right/printericon.png'));
-			}
-
-			#archive-button_right{				
-				@extend .object_form_icons;
-				background-image: url(image_path('right/archiveicon.png'));				
-			}
+		
 		}
-		.actions{
+		.action_submit{
 			input[type=submit] {
-				height: 40px;
-				width: 100%;
-				padding:5px 15px; 
-				background:#77ccbf;
-				border:0 none;
-				cursor:pointer;
-				-webkit-border-radius: 3px;
-				border-radius: 5px; 
-
-				color: white;
-				letter-spacing: 1px;
-				font-weight: 600;
-				font-size: 15px;
-			}
-			input[type=submit]:hover{
-				color: black;
+				width: 100%;				
 			}
 		}
 
@@ -729,37 +805,15 @@ body {
 		#field-box_item-id{
 			width: 100%;
 			height: 40px;
-			background-color: #323a45;
-			border: 1px solid;
-			border-radius: 2px;
 			.item-id{
-				color: white;
-				text-transform: uppercase;
-				font-weight: bold;
-				font-size: 14px;
 				margin-left: 11px;
 				margin-top: 11px;
 			}
 		}
 
-		.actions{
+		.action_submit{
 			input[type=submit] {
-				height: 40px;
-				width: 100%;
-				padding:5px 15px; 
-				background:#77ccbf;
-				border:0 none;
-				cursor:pointer;
-				-webkit-border-radius: 3px;
-				border-radius: 5px; 
-
-				color: white;
-				letter-spacing: 1px;
-				font-weight: 600;
-				font-size: 15px;
-			}
-			input[type=submit]:hover{
-				color: black;
+				width: 100%;				
 			}
 		}
 

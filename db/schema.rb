@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528220247) do
+ActiveRecord::Schema.define(version: 20140529214619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,14 @@ ActiveRecord::Schema.define(version: 20140528220247) do
     t.text     "warranty_notes"
     t.string   "service_agent"
     t.integer  "department_id"
-    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "asset_id"
     t.string   "item_type"
     t.string   "location"
+    t.integer  "status"
+    t.integer  "condition"
+    t.decimal  "price",             precision: 5, scale: 2
   end
 
   create_table "bmet_labor_hours", force: true do |t|
@@ -71,7 +73,10 @@ ActiveRecord::Schema.define(version: 20140528220247) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+    t.integer  "facility_id"
   end
+
+  add_index "bmet_models", ["facility_id"], name: "index_bmet_models_on_facility_id", using: :btree
 
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
@@ -131,8 +136,8 @@ ActiveRecord::Schema.define(version: 20140528220247) do
     t.datetime "date_started"
     t.integer  "department_id"
     t.datetime "deleted_at"
-    t.integer  "pm_origin"
-    t.integer  "wr_origin"
+    t.integer  "pm_origin_id"
+    t.integer  "wr_origin_id"
   end
 
   add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
@@ -230,8 +235,8 @@ ActiveRecord::Schema.define(version: 20140528220247) do
     t.datetime "date_started"
     t.integer  "department_id"
     t.datetime "deleted_at"
-    t.integer  "pm_origin"
-    t.integer  "wr_origin"
+    t.integer  "pm_origin_id"
+    t.integer  "wr_origin_id"
   end
 
   add_index "facility_work_orders", ["deleted_at"], name: "index_facility_work_orders_on_deleted_at", using: :btree

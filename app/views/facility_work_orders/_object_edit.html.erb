@@ -37,15 +37,17 @@
 
         <div id="object-status-field">
           <%= f.select( :status, @status) %>
-		  <% if @facility_work_order.destroyed? %>
-			  <%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true %>
-		  <% else %>
-			  <%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true%>
-		  <% end %>
+		  <% if can? :hide, current_user %>
+		  	<% if @facility_work_order.destroyed? %>
+			  	<%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true %>
+		  	<% else %>
+			  	<%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true%>
+		  	<% end %>
+		<% end %>
 		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
         </div>
 
-        <div class="actions">
+        <div class="action_submit">
             <%= f.submit @language['Save Changes'] %>
         </div>
     </div>

@@ -66,7 +66,7 @@ namespace :test do
 		model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
 		csv_model = CSV.parse(model_data, :headers => true)
 		csv_model.each do |row|
-			model = BmetModel.create(:model_name => row[1],
+			model = BmetModel.new(:model_name => row[1],
 						 :manufacturer_name => row[2],
 						 :vendor_name => row[3],
 						 :category => row[0]
@@ -75,9 +75,15 @@ namespace :test do
 			f = facilities.sample
 			dept = depts.select { |d| d.facility_id == f.id }.sample
 			date_updated = Time.at(rand * Time.now.to_i)
+			fac_model = BmetModel.create(:model_name => model.model_name,
+										 :manufacturer_name => model.manufacturer_name,
+										 :vendor_name => model.vendor_name,
+										 :category => model.category,
+										 :facility => f
+										)
 			BmetNeed.create(:name => row[1],
 						:department => dept,
-						:bmet_model => model,
+						:bmet_model => fac_model,
 						:quantity => rand(10)+1,
 						:urgency => 0,
 						:reason => Faker::Lorem.sentence(word_count = rand(3..9)), 
@@ -125,11 +131,19 @@ namespace :test do
 								   :location => row[11],
 								   :item_type => row[12],
 								   :created_at => Time.now - 60*60*24*(rand(22..40)),
-								   :price => row[13]
+								   :price => row[13],
+								   :status => rand(0..2),
+								   :condition => rand(0..3)
 								  )
 			else
+				fac_model = BmetModel.find_or_create_by(model_name: model.name,
+											 manufacturer_name: model.manufacturer_name,
+											 vendor_name: model.vendor_name,
+											 category: model.category,
+											 facility_id: f.id
+											)
 				item = BmetItem.create(:asset_id => row[0],
-								   :bmet_model => model,
+								   :bmet_model => fac_model,
 								   :serial_number => row[2],
 								   :year_manufactured => row[3],
 								   :funding => row[4],
@@ -153,7 +167,7 @@ namespace :test do
 								   :updated_at => Time.now - 60*60*24*(rand(3..20)) 
 								  )
 			end
-			role_eng = roles.find {|r| r.name == "technician" }
+			role_eng = roles.find {|r| r.name == "bmet_tech" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			1.times do |wr|
@@ -200,7 +214,7 @@ namespace :test do
 		FacilityWorkOrderComment.delete_all
 		FacilityLaborHour.delete_all
 		FacilityCost.delete_all
-		role_eng = roles.find {|r| r.name == "technician" }
+		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			rel_depts = depts.select { |d| d.facility_id == f.id }
@@ -272,6 +286,7 @@ namespace :test do
 
 		FacilityPreventativeMaintenance.delete_all
 		FacilityWorkRequest.delete_all
+		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			20.times do |fpm|
@@ -299,7 +314,7 @@ namespace :test do
 		BmetPreventativeMaintenance.delete_all
 		BmetWorkRequest.delete_all
 		facilities.each do |f|
-			role_eng = roles.find {|r| r.name == "technician" }
+			role_eng = roles.find {|r| r.name == "bmet_tech" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			20.times do |fpm|
 				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(-10..6)),

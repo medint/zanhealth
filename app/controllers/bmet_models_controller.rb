@@ -1,4 +1,5 @@
 class BmetModelsController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_bmet_model, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:show, :index, :new]
@@ -66,7 +67,7 @@ class BmetModelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_model
-      @bmet_model = BmetModel.find(params[:id])
+      @bmet_model = BmetModel.find_by_id(params[:id])
     end
 
     def set_bmet_models

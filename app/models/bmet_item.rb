@@ -13,12 +13,14 @@
 #  warranty_notes    :text
 #  service_agent     :string(255)
 #  department_id     :integer
-#  price             :integer
 #  created_at        :datetime
 #  updated_at        :datetime
 #  asset_id          :string(255)
 #  item_type         :string(255)
 #  location          :string(255)
+#  status            :integer
+#  condition         :integer
+#  price             :decimal(5, 2)
 #
 
 class BmetItem < ActiveRecord::Base

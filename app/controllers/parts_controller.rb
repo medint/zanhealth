@@ -1,5 +1,6 @@
 class PartsController < ApplicationController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /parts
   # GET /parts.json
@@ -64,7 +65,7 @@ class PartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_part
-      @part = Part.find(params[:id])
+      @part = Part.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

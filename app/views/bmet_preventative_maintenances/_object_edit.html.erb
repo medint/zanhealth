@@ -31,7 +31,7 @@
       </div>
     </div>
   	<div class="field-box">
-      <div class="field-type"><%= @language['Days Since'] %></div>
+      <div class="field-type"><%= @language['Days Until'] %></div>
       <div class="field-info">
         <p><%= @bmet_preventative_maintenance.days_since %></p>
       </div>
@@ -54,8 +54,10 @@
       <div class="field-info"><%= f.text_area :description, :required => true %></div>
     </div>
    
-    <div class="actions">
-      <%= f.submit @language['Save Changes']%>
-    </div>
+  	<% if can? :update, current_user %>
+      	<div class="action_submit">
+        		<%= f.submit @language['Save Changes']%>
+      	</div>
+  	<% end %>
   </div>
 <% end %>

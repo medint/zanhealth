@@ -1,4 +1,5 @@
 class BmetWorkRequestsController < ApplicationController
+  load_and_authorize_resource :except => [:public_new, :public_create, :public_show]
 before_action :set_bmet_work_requests, only:[:new, :index, :show]
 before_action :set_bmet_work_request, only: [:show, :update, :destroy, :edit, :show_hidden, :show_all]
 before_action :set_status, only: [:show, :hidden, :all, :show_hidden, :show_all]
@@ -125,7 +126,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def hide
-  	  @bmet_work_request =  BmetWorkRequest.with_deleted.find(params[:id])
+  	  @bmet_work_request =  BmetWorkRequest.with_deleted.find_by_id(params[:id])
   	  if @bmet_work_request.destroyed?
 		 BmetWorkRequest.restore(@bmet_work_request.id)
 	  else
@@ -173,7 +174,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 	end
 
     def set_bmet_work_request
-      @bmet_work_request = BmetWorkRequest.with_deleted.find(params[:id])
+      @bmet_work_request = BmetWorkRequest.with_deleted.find_by_id(params[:id])
       if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
           @bmet_work_request=nil
           redirect_to "/404"

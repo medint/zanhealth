@@ -5,11 +5,11 @@
 #  id                 :integer          not null, primary key
 #  name               :string(255)
 #  unit_quantity      :integer
-#  cost               :integer
 #  created_at         :datetime
 #  updated_at         :datetime
 #  bmet_work_order_id :integer
 #  work_request_id    :integer
+#  cost               :decimal(5, 2)
 #
 
 class BmetCost < ActiveRecord::Base

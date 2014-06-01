@@ -1,4 +1,5 @@
 class FacilityWorkOrderCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_facility_work_order_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /facility_work_order_comments
@@ -57,7 +58,16 @@ class FacilityWorkOrderCommentsController < ApplicationController
   def destroy
     @facility_work_order_comment.destroy
     respond_to do |format|
-      format.html { redirect_to @facility_work_order_comment.facility_work_order }
+      link = request.referer.split("/")[-2]
+      @facility_work_order = @facility_work_order_comment.facility_work_order
+      if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @facility_work_order_comment.facility_work_order }
       format.json { head :no_content }
     end
   end
@@ -65,7 +75,7 @@ class FacilityWorkOrderCommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_facility_work_order_comment
-      @facility_work_order_comment = FacilityWorkOrderComment.find(params[:id])
+      @facility_work_order_comment = FacilityWorkOrderComment.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

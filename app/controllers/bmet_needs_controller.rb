@@ -1,4 +1,5 @@
 class BmetNeedsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_need, only: [:show, :edit, :update, :destroy]
 
   # GET /needs
@@ -64,7 +65,7 @@ class BmetNeedsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_need
-      @need = BmetNeed.find(params[:id])
+      @need = BmetNeed.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -21,8 +21,8 @@
 #  date_started      :datetime
 #  department_id     :integer
 #  deleted_at        :datetime
-#  pm_origin         :integer
-#  wr_origin         :integer
+#  pm_origin_id      :integer
+#  wr_origin_id      :integer
 #
 
 class BmetWorkOrder < ActiveRecord::Base
