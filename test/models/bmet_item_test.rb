@@ -11,10 +11,10 @@ class BmetItemTest < ActiveSupport::TestCase
 	end
   
   	
-	test "should export to csv" do
-		test =BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
+	test "should export to csv and then import the same things and then export again" do
+		testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
 		#test = BmetWorkOrder.includes(:owner, :requester, :department).where("id=?", @bmet_work_orders.id)
-		csv_string = test.as_csv
+		csv_string = testItems.as_csv
 		rows = CSV.parse(csv_string)
 		expected_values = @bmet_items.attributes.dup
 		expected_values.shift
@@ -29,6 +29,24 @@ class BmetItemTest < ActiveSupport::TestCase
 				assert false
 			end
 		end
+
+		BmetItem.destroy_all
+
+		#check the syntax at this line
+		testFile = File.new("testFile", csv_string.to_s)
+
+		Department.import(testFile, :userone)
+		BmetModel.import(testFile, :userone)
+		BmetItem.import(testFile, :userone)
+		newTestItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
+		new_csv = newTestItems.as_csv
+		rows = CSV.parse(new_csv)
+		rows[1].zip(expected_values.values).each do |result, expected|
+			if result.to_s != expected.to_s
+				assert false
+			end		
+		end
 		assert true
 	end
+
 end
