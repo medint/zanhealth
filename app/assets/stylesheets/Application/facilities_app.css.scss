@@ -479,13 +479,25 @@ body {
 /********************************************/
 
 /*		action bar		*/
-
-#field-box_item-id{
+.action-bar_box {
 	height: 35px;
-	background-color: #323a45;
-	border: 1px solid;
 	-webkit-border-radius: 3px;
 	border-radius: 5px; 
+}
+.transparent-form-elements {
+	input, textarea, select{
+		background: transparent;
+	   	border: 0;
+	   	border-radius: 0;
+	   	-webkit-appearance: none;
+	}
+}
+
+#field-box_item-id{
+	@extend .action-bar_box;
+	border: 1px solid;
+	background-color: #323a45;
+	padding: 5px 5px;
 	.item-id{
 		color: white;
 		text-transform: uppercase;
@@ -493,6 +505,34 @@ body {
 		font-size: 14px;		
 	}
 }
+.work_order_status-0{
+	background-color: $red;
+}
+.work_order_status-1{
+	background-color: $yellow;	
+}
+.work_order_status-2{
+	background-color: $green;
+}
+
+.work_order_status{
+	@extend .action-bar_box;
+	@extend .transparent-form-elements;
+	color: white;
+	margin-left : 10px;
+	select{
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 12px;
+		float:left;
+	}
+	#work_order_status-label{
+		padding-left : 5px;
+		font-weight : bold;
+	}
+}
+
+
 .object_form_icons {					
 	background-size: 100%;
 	width: 20px;
@@ -514,13 +554,11 @@ body {
 
 .action_submit{
 	input[type=submit] {
-		height: 35px;
-		padding:5px 15px; 
+		@extend .action-bar_box;
+		padding: 5px 10px;
 		background:#77ccbf;
 		border:0 none;
 		cursor:pointer;
-		-webkit-border-radius: 3px;
-		border-radius: 5px; 
 
 		color: white;
 		letter-spacing: 1px;
@@ -555,17 +593,8 @@ body {
 		}
 	}
 }
- 
 
 /*      object box     */
-.transparent-form-elements {
-	input, textarea, select{
-		background: transparent;
-	   	border: 0;
-	   	border-radius: 0;
-	   	-webkit-appearance: none;
-	}
-}
 
 #properties-box {
 	overflow-x: hidden;
@@ -625,15 +654,18 @@ body {
 		height: 40px;
 		display: block;
 		#archive-button_right{
+			margin-left:10px;
 			float:left;
 		}
 		#print-button_right{
+			margin-left:10px;
 			float:left;
 		}
 		.action_submit {
+			margin-left:10px;
 			float:left;
 		}
-		#work_order_status{
+		.work_order_status{
 			float:left;
 		}
 	}
@@ -645,8 +677,8 @@ body {
 		@extend .transparent-form-elements;
 
 		.field-box {
+			height:45px;
 			width: 22%;
-			height: 40px;
 			float: left;			
 			background-color: #ffffff;
 			border:1px solid;
@@ -666,7 +698,6 @@ body {
 		.field-info{
 			width: 100%;
 		   	overflow: hidden;
-		   	margin-top:-6px;
 			color: #000000;
 			select{
 			   	width: auto;				 
