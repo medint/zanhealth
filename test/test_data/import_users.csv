@@ -27,4 +27,4 @@ userAP1,password,"procurement",NULL,"FACILITY A",english,UserAP1
 userBP1,password,"procurement",NULL,"FACILITY B",english,UserBP1
 userCP1,password,"procurement",NULL,"FACILITY C",english,UserCP1
 admin,admin,"admin",NULL,"FACILITY A",english,Admin
-bob,password,"bmet_tech",NULL,"FACILITY A",english,Bob
+bob,password,"chief",NULL,"FACILITY A",english,Bob
