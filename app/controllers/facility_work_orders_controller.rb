@@ -9,6 +9,13 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_all_work_orders, only: [:show_all, :all, :as_csv]
 
   def search
+    if current_url == facility_work_orders_url+"/all"
+      search_param = "/all/"
+    elsif current_url == facility_work_orders+"/unhidden"
+      search_param = "/unhidden/"
+    else
+      search_param = "/hidden"
+    end
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
     @facility_work_orders = @facility_work_orders.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
     @link = facility_work_orders_url+"/all/"
