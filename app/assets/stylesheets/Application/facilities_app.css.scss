@@ -640,7 +640,7 @@ body {
 
 /*     object form     */
 	
-#object-form_top{
+#object_table_layout{
 	padding:10px 10px 10px 10px;
 	overflow-y: scroll;
 	height: 295px;	
@@ -705,268 +705,82 @@ body {
 			}
 		}
 	}
+}
 
-	/* kill */
-	#object-form-left{
-		float: left;
-		width: 55%;
-		height: 130px;
-		line-height: 12px;
+#object-single-col-box {
+	margin: 10px;
+	height: 100%;
+	overflow-y: scroll;
+}
 
-		.field-box{
-			width: 100%;
-			height: 40px;
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
-			margin:-1px -5px 0px 0px;
+#object-form-single-col{
+	float: left;
+	height: 130px;
+	line-height: 12px;
+	width: 100%;
 
-			.field-type{
-
-				float:left;
-				font-size: 10px;
-				color: #a7a7a7;
-				padding-left: 10px;
-				padding-top: 18px;
-
-			}
-
-			.field-info{
-				float:left;
-			   	overflow: hidden;
-			   	background-color: #fff;
-			   	padding-top:12px;
-			   	padding-left:10px;
-			   	font-size: 12px;
-
-			   	#requester{
-			   		padding-top:3px;
-			   	}
-
-				select{
-					background: transparent;
-					color: #000000;
-				   	width: inherit;
-				   	border: 0;
-				   	border-radius: 0;
-				   	height: 20px;
-				   	-webkit-appearance: none;
-				}
-			}
+	#field-box_item-id{
+		width: 100%;
+		height: 40px;
+		.item-id{
+			margin-left: 11px;
+			margin-top: 11px;
 		}
-
-		.small{
-			float: left;
-			width:51%;
-		}
-
-
 	}
 
-	#object-form-right{
-		display: inline-block;
-		margin-left: 2%;
-		width:40%;
-		height: 130px;
-		#field-box_item-id{
-			width: 100%;
-			.item-id{
-				margin-left: 11px;
-				margin-top: 11px;
-			}
+	.action_submit{
+		input[type=submit] {
+			width: 100%;				
 		}
-		#object-status-field{
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
-			height: 25px;
-			width: 100%;
-			margin-bottom: 10px;
-
-			select{
-				text-transform: uppercase;
-				text-align: center;
-				margin-top: 3px;
-				border: 0px;
-				font-size: 12px;
-				background-color: transparent;
-				float:left;
-				-webkit-appearance: none;
-			}
-
-			a{
-				float:left;
-			}
-
-			.object_form_icons {
-				margin-top: 4px;
-				margin-left: 4%;
-				margin-right: 4%;
-			}
-		
-		}
-		.action_submit{
-			input[type=submit] {
-				width: 100%;				
-			}
-		}
-
 	}
 
-	#object-form-bottom{
-		display: block;
+	.field-box{
+		background-color: #ffffff;
+		border:1px solid;
+		border-color: #f0f0f0;
+		border-radius:2px;
+		margin:0px -5px 0px 0px;
 
-		.field-box {
-			float: left;			
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
-		}
+		.field-type{
 
-		.field-type {
-			font-size: 8px;
+			font-size: 12px;
 			color: #a7a7a7;
+			padding-left: 10px;
+			padding-top: 7px;
+
 		}
 
-		.field-info {
+		.field-info{
+		   	overflow: hidden;
 		   	background-color: #fff;
-			textarea, select{
+		   	margin-top:0px;
+			
+			input, select, textarea{
 				background: transparent;
+				color: #000000;
+				font-size: 12px;
+				padding-left:10px;
+			   	border: 0;
+			   	border-radius: 0;
+			   	-webkit-appearance: none;
+			   	resize: none;
+			}
+			textarea{
+				width: 100%;
+				resize: none;
+			}
+			p {
+				background: transparent;
+				color: #000000;
+				font-size: 12px;
+				padding-left:10px;
+			   	width: inherit;
 			   	border: 0;
 			   	border-radius: 0;
 			   	-webkit-appearance: none;
 			}
 		}
-
-		.field-box-date{
-			@extend .field-box;
-			width: 25%;
-			height: 40px;
-			margin:-1px -5px 0px 0px;
-
-			.field-type{
-				@extend .field-type;
-				padding-left: 10px;
-				padding-top: 4px;
-			}
-
-			.field-info{
-				width: 100%;
-			   	height: 20px;
-			   	overflow: hidden;
-			   	margin-top:-6px;
-				color: #000000;
-				font-size: 10px;
-				padding-left:10px;
-				select{
-				   	width: auto;				 
-				   	height: 20px;
-				}
-			}
-
-		}
-
-		.field-box-description{
-			@extend .field-box;
-			width: 97%;
-			height: 70px;
-			margin-top: 10px;
-
-			.field-type{
-				@extend .field-type;
-				padding-left: 10px;
-				padding-top: 7px;
-
-			}
-
-			.field-info{
-				width: inherit;
-			   	height: 20px;
-			   	margin-top:-3px;
-				textarea{				
-					color: #000000;
-					font-size: 10px;
-					margin-left:10px;
-				   	width: inherit;
-				   	height: 40px;
-				   	resize: none;
-				}
-			}
-		}
-	}
-
-	#object-form-single-col{
-		float: left;
-		height: 130px;
-		line-height: 12px;
-		width: 100%;
-
-		#field-box_item-id{
-			width: 100%;
-			height: 40px;
-			.item-id{
-				margin-left: 11px;
-				margin-top: 11px;
-			}
-		}
-
-		.action_submit{
-			input[type=submit] {
-				width: 100%;				
-			}
-		}
-
-		.field-box{
-			background-color: #ffffff;
-			border:1px solid;
-			border-color: #f0f0f0;
-			border-radius:2px;
-			margin:0px -5px 0px 0px;
-
-			.field-type{
-
-				font-size: 12px;
-				color: #a7a7a7;
-				padding-left: 10px;
-				padding-top: 7px;
-
-			}
-
-			.field-info{
-			   	overflow: hidden;
-			   	background-color: #fff;
-			   	margin-top:0px;
-				
-				input, select, textarea{
-					background: transparent;
-					color: #000000;
-					font-size: 12px;
-					padding-left:10px;
-				   	border: 0;
-				   	border-radius: 0;
-				   	-webkit-appearance: none;
-				   	resize: none;
-				}
-				textarea{
-					width: 100%;
-					resize: none;
-				}
-				p {
-					background: transparent;
-					color: #000000;
-					font-size: 12px;
-					padding-left:10px;
-				   	width: inherit;
-				   	border: 0;
-				   	border-radius: 0;
-				   	-webkit-appearance: none;
-				}
-			}
-			
-		}
+		
 	}
 }
 

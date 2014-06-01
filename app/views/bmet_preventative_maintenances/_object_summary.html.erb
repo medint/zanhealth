@@ -1,21 +1,22 @@
-<ul class="toggle-buttons">
-  <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></li>
-  <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
-  <% if can? :hide, current_user %>
-    <% if @bmet_preventative_maintenance.destroyed? %>
-	  <%= link_to @language["Unhide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Unhide preventative maintenance", rel: "tooltip", method: :put %>
-  <% else %>
-	  <%= link_to @language["Hide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Hide preventative maintenance", rel: "tooltip", method: :put %>
-  <% end %>
-  <% end %>
-</ul>
+<div id="object-single-col-box">
+  <ul class="toggle-buttons">
+    <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></a></li>
+    <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
+    <% if can? :hide, current_user %>
+      <% if @bmet_preventative_maintenance.destroyed? %>
+  	  <%= link_to @language["Unhide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Unhide preventative maintenance", rel: "tooltip", method: :put %>
+    <% else %>
+  	  <%= link_to @language["Hide"], hide_bmet_preventative_maintenance_path(@bmet_preventative_maintenance), title: "Hide preventative maintenance", rel: "tooltip", method: :put %>
+    <% end %>
+    <% end %>
+  </ul>
 
-<div class="tab-content" id="object-form_top">
-  <div class="tab-pane active " id="view">
-  	<%= render :partial => 'object_edit' %>
+  <div class="tab-content">
+    <div class="tab-pane active " id="view">
+    	<%= render :partial => 'object_edit' %>
+    </div>
+    <div class="tab-pane" id="convert">
+    	<%= render :partial => 'bmet_work_orders/object_convert' %>  	
+    </div>  
   </div>
-  <div class="tab-pane" id="convert">
-  	<%= render :partial => 'bmet_work_orders/object_convert' %>  	
-  </div>  
 </div>
-
