@@ -1,0 +1,26 @@
+<div id="settings-navigation">
+
+	<div id="settings-header">
+
+			<div id="settings-header-title">
+				Clinical Administrator Settings
+			</div>
+
+			<div id="settings-submit-div">
+			<ul class="toggle-buttons">
+  				<li id = "users-submit", class = "settings-submit" ><a href="#users_view" data-toggle="tab"><%= 'Manage Users' %></li>
+  				<li id = "departments-submit", class = "settings-submit" ><a href="#departments_view" data-toggle="tab">
+  					<%= 'Manage Departments' %></a></li>
+  			</ul>
+			</div>
+	</div>
+</div>
+
+<div class="tab-content" id="object-form_top">
+  <div class="tab-pane active " id="users_view">
+  	<%= render :partial => 'users' %>
+  </div>
+  <div class="tab-pane" id="departments_view">
+  	<%= render :partial => 'departments' %>  	
+  </div>  
+</div>
