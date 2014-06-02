@@ -11,15 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="field-info">
+    <%= f.text_field :name, :required => true, :value => @department.name %>
   </div>
-  <div class="field">
-    <%= f.label :facility_id %><br>
-    <%= f.number_field :facility_id %>
+  <div class = 'action_submit'>
+    <%= f.submit 'Edit department name' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

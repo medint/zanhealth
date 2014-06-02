@@ -7,6 +7,7 @@ Zanhealth::Application.routes.draw do
   resources :parts
   resources :roles
   resources :texts
+  resources :settings
   
   #bmet app
   resources :bmet_items, except: :show do
@@ -130,6 +131,10 @@ Zanhealth::Application.routes.draw do
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
   get "/detailed_items", to: "bmet_items#detailed"
   get "/text", to: "text#receive"
+
+  get "/settings", to: "settings#index"
+  post "/settings/create_user", to: "settings#create_user"
+  post "/settings/create_department", to: "settings#create_department"
     
   get '/404', :to => redirect('/404.html')
   root to: "application#home"

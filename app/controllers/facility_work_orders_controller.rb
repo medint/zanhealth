@@ -12,7 +12,7 @@ class FacilityWorkOrdersController < ApplicationController
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
     @facility_work_orders = @facility_work_orders.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
-    @link = facility_work_orders_url+"/all/"
+    @link = facility_work_orders_url+"/hidden/"
     render action: 'index'
   end
 
