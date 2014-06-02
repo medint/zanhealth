@@ -91,16 +91,16 @@
             <td><%= @language['Prevention Taken'] %></td>
             <td><%= f.text_area :prevention_taken %></td>
         </tr>        
-        <% if @bmet_work_order.wr_origin %>
+        <% if @bmet_work_order.wr_origin_id %>
           <tr>
             <td>Original Work Request</td>
             <td>
             <a style="color:white" href="<%= bmet_work_requests_url + '/all/' + @bmet_work_order.wr_origin_id.to_s %>">
-              Work Order <%= @bmet_work_order.wr_origin_id %>
+              Work Request <%= @bmet_work_order.wr_origin_id %>
             </a>
             </td>
           </tr>
-        <% elsif @bmet_work_order.pm_origin %>
+        <% elsif @bmet_work_order.pm_origin_id %>
           <tr>
             <td>Origin Preventative Maintenance</td>
             <td>

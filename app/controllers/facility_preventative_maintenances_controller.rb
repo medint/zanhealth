@@ -22,16 +22,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def index
-  	  @link = facility_preventative_maintenances_url+"/unhidden/"
   end
 
   def hidden
-  	 @link = facility_preventative_maintenances_url+"/hidden/"
   	 render 'index'
   end
 
   def all
-  	  @link = facility_preventative_maintenances_url+"/all/"
   	  render 'index'
   end
 
@@ -144,16 +141,27 @@ class FacilityPreventativeMaintenancesController < ApplicationController
     def set_facility_preventative_maintenances
         @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
         @facility_preventative_maintenances.map {|i| i.calc_days_since}  
+        @link = facility_preventative_maintenances_url+"/unhidden/"
+  end
+
+  def hidden     
+     render 'index'
+  end
+
+  def all      
+      render 'index'
     end
 
     def set_hidden_facility_preventative_maintenances
     	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
     	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+      @link = facility_preventative_maintenances_url+"/hidden/"
     end
 
     def set_all_facility_preventative_maintenances
     	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
     	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+      @link = facility_preventative_maintenances_url+"/all/"
     end
 
     def facility_preventative_maintenance_params

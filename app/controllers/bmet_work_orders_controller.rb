@@ -7,21 +7,20 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
+  after_action :set_converted_wr, only: [:create]
   load_and_authorize_resource
 
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-  	  @link = bmet_work_orders_url+"/unhidden/"
+  	  
   end
 
   def hidden
-  	  @link = bmet_work_orders_url+"/hidden/"
   	  render "index"
   end
 
   def all
-  	  @link = bmet_work_orders_url+"/all/"
   	  render "index"
   end
 
@@ -79,9 +78,6 @@ class BmetWorkOrdersController < ApplicationController
   def create
     @bmet_work_order = BmetWorkOrder.new(bmet_work_order_params)
     @bmet_work_order.requester_id=current_user.id
-    if @bmet_work_order.wr_origin
-      @bmet_work_order.wr_origin.destroy # hiding it immediately
-    end
 
     respond_to do |format|
       if @bmet_work_order.save
@@ -169,14 +165,17 @@ class BmetWorkOrdersController < ApplicationController
 
     def set_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @link = bmet_work_orders_url+"/unhidden/"
     end
 
     def set_hidden_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @link = bmet_work_orders_url+"/hidden/"
 	end
 
 	def set_all_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @link = bmet_work_orders_url+"/all/"
 	end
 
     def set_users
@@ -193,6 +192,16 @@ class BmetWorkOrdersController < ApplicationController
         'In Progress' => 1,
         'Completed' => 2
       }
+    end
+
+    def set_converted_wr
+      if @bmet_work_order.wr_origin_id
+        @wr_origin = BmetWorkRequest.find(@bmet_work_order.wr_origin_id)
+        @wr_origin.wo_convert_id = @bmet_work_order.id
+        @wr_origin.converted_at = Time.zone.now      
+        @wr_origin.save
+        @wr_origin.destroy # hiding it immediately        
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

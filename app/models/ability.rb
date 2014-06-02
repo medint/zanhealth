@@ -66,6 +66,8 @@ class Ability
 	  elsif user.role.name == "chief"
 	  	  can :manage, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance,BmetWorkOrderComment,FacilityWorkOrderComment,BmetCost,FacilityCost,BmetLaborHour,FacilityLaborHour,BmetModel,Part,PartTransaction,BmetItem,:bmet_dashboard, :facility_dashboard]
 	  	  cannot :delete, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance]
+        can [:hidden, :all, :show_all, :show_hidden, :set_users, :set_departments, :set_status,:as_csv,:search], [BmetWorkOrder, BmetWorkRequest,BmetPreventativeMaintenance]
+        can [:hidden, :all, :show_all, :show_hidden, :set_users, :set_departments, :set_status,:as_csv,:search], [FacilityWorkOrder,FacilityWorkRequest, FacilityPreventativeMaintenance]
 	  	  cannot :manage, :registration
 	  elsif user.role.name == "admin"
 	  	  can :manage, [:all, :bmet_dashboard, :facility_dashboard, :registration]

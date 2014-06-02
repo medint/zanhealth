@@ -31,17 +31,14 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     send_data @facility_work_requests.as_csv, type: "text/csv", filename: "facility_work_requests.csv"
   end
 
-  def index
-  	  @link = facility_work_requests_url+"/unhidden/"
+  def index  	  
   end
 
   def hidden
-  	  @link = facility_work_requests_url+"/hidden/"
   	  render 'index'
   end
 
   def all
-  	  @link = facility_work_requests_url+"/all/"
   	  render 'index'
   end
 
@@ -135,19 +132,19 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   	@facility_work_request = FacilityWorkRequest.with_deleted.find_by_id(params[:id])
   	if @facility_work_request.destroyed?
   		FacilityWorkRequest.restore(@facility_work_request.id)
-	else
-		@facility_work_request.destroy
-	end
-	respond_to do |format|
-		link = "/"+request.referer.split("/")[-2]
-		if link == "/all"
-			format.html { redirect_to request.referer }
-		else
-			link = facility_work_requests_url+link
-			format.html { redirect_to link }
-		end
-		format.json { head :no_content }
-	end
+  	else
+  		@facility_work_request.destroy
+  	end
+  	respond_to do |format|
+  		link = "/"+request.referer.split("/")[-2]
+  		if link == "/all"
+  			format.html { redirect_to request.referer }
+  		else
+  			link = facility_work_requests_url+link
+  			format.html { redirect_to link }
+  		end
+  		format.json { head :no_content }
+  	end
   end
 
   private 
@@ -177,14 +174,17 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
     def set_facility_work_requests
       @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+      @link = facility_work_requests_url+"/unhidden/"
     end
 
    def set_hidden_facility_work_requests
       @facility_work_requests = FacilityWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @link = facility_work_requests_url+"/hidden/"
     end
 
     def set_all_facility_work_requests
       @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @link = facility_work_requests_url+"/all/"
     end
 
     def facility_work_request_params

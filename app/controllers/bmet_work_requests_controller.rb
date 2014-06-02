@@ -17,16 +17,13 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   end
 
   def index
-  	  @link = bmet_work_requests_url+"/unhidden/"
   end
 
-  def hidden
-  	  @link = bmet_work_requests_url+"/hidden/"
+  def hidden  	 
   	  render 'index'
   end
 
   def all
-  	  @link = bmet_work_requests_url+"/all/"
   	  render 'index'
   end
 
@@ -163,17 +160,23 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
     def set_bmet_work_requests
       @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+      @link = bmet_work_requests_url+"/unhidden/"
     end
 
     def set_hidden_bmet_work_requests
     	@bmet_work_requests = BmetWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @link = bmet_work_requests_url+"/hidden/"
 	end
 
 	def set_all_bmet_work_requests
 		@bmet_work_requests = BmetWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+    @link = bmet_work_requests_url+"/all/"
 	end
 
     def set_bmet_work_request
+      puts 'xxxxxxxxxxxxxxxxxxxxx'
+      puts params
+      puts 'xxxxxxxxxxxxxxxxxxxxx'
       @bmet_work_request = BmetWorkRequest.with_deleted.find_by_id(params[:id])
       if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
           @bmet_work_request=nil

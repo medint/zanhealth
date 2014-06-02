@@ -21,8 +21,7 @@ class FacilityWorkOrdersController < ApplicationController
 
   end
 
-  def index
-  	  @link = facility_work_orders_url+"/unhidden/"
+  def index  	  
   end
 
   def as_csv
@@ -78,13 +77,11 @@ class FacilityWorkOrdersController < ApplicationController
     end
   end
 
-  def all
-  	  @link = facility_work_orders_url+"/all/"
+  def all  	  
   	  render "index"
   end
 
   def hidden
-  	  @link = facility_work_orders_url+"/hidden/"
   	  render "index"
   end
 
@@ -92,7 +89,9 @@ class FacilityWorkOrdersController < ApplicationController
     @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
     @facility_work_order.requester_id=current_user.id
     if @facility_work_order.wr_origin
-      @facility_work_order.wr_origin.destroy # hiding it immediately
+      @facility_work_order.wr_origin.wo_convert = @facility_work_order
+      @facility_work_order.wr_origin.converted_at = Time.zone.now
+      @facility_work_order.wr_origin.destroy # hiding it immediately      
     end
 
     respond_to do |format|
@@ -153,14 +152,17 @@ class FacilityWorkOrdersController < ApplicationController
 
     def set_facility_work_orders
         @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+        @link = facility_work_orders_url+"/unhidden/"
     end
 
     def set_hidden_work_orders
         @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+        @link = facility_work_orders_url+"/hidden/"
     end
 
     def set_all_work_orders
         @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+        @link = facility_work_orders_url+"/all/"
     end
 
 
