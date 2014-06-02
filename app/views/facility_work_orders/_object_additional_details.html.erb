@@ -1,10 +1,8 @@
 <!--fill in with names of boxes-->
 <div id="object_additional-details">
 
-
 <ul class="additional-details_nav">
-  <li id="detail-icon" class="active"><a href="#details" data-toggle="tab">Details</a></li>
-  <li id="comment-icon"><a href="#comment" data-toggle="tab">Comment</a></li>
+  <li id="comment-icon" class="active"><a href="#comment" data-toggle="tab">Comment</a></li>
   <li id="cost-icon"><a href="#cost" data-toggle="tab">Cost</a></li>
   <li id="labor-icon"><a href="#labor" data-toggle="tab">Labor Hours</a></li>
 </ul>
@@ -12,15 +10,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="details">
-    <div class="additional-details_content">
-    	<div class='additional-details_title'>
-        <%= @language['Details'] %>
-      </div>  
-      <%= render 'actions_taken' %>
-    </div>
-  </div>
-  <div class="tab-pane" id="comment">    
+  <div class="tab-pane active" id="comment">    
     <div class="additional-details_content">
       <div class='additional-details_title'>
         <%= @language['Comments'] %>

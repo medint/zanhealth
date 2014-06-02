@@ -1,4 +1,4 @@
-<div id="object-form_top">
+<div id="object_table_layout">
   <%= form_for(@facility_work_order) do |f| %>
     <% if @facility_work_order.errors.any? %>
         <div id="error_explanation">
@@ -11,78 +11,110 @@
         </div>x
     <% end %>
 
-    <div id="object-form-left">
-      <div class="item-info">    
-      	<div class="field-box">
-          <div class="field-type"><%= @language['Requester'] %></div>
-          <div class="field-info"><div id="requester"><%= @facility_work_order.requester.try(:name) %></div></div>
+    <div id="action-bar">
+      <div id="field-box_item-id" >      
+        <div class="item-id"><%= @language['Work Order'] %> # <%= @facility_work_order.id %></div>
+      </div>    
+      <div class="work_order_status work_order_status-<%= @facility_work_order.status %>">
+        <div id="work_order_status-label">
+          STATUS
         </div>
-        <div class="field-box">
-          <div class="field-type"><%= @language['Owner'] %></div>
-          <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></div>
-        </div>
-        <div class="field-box">
-          <div class="field-type"><%= @language['Department'] %></div>
-          <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></div>
-        </div>
+        <%= f.select :status, @status %>
+      </div>
+      <% if @facility_work_order.destroyed? %>
+        <%= link_to '', hide_facility_work_order_path(@facility_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+      <% else %>
+        <%= link_to '', hide_facility_work_order_path(@facility_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+      <% end %>
+      
+      <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
+      
+      <div class="action_submit">
+        <%= f.submit @language['Save Changes']%>
       </div>
     </div>
 
-    <div id="object-form-right">
-        <div id="field-box_item-id">
-          <div class="item-id">
-          <%= @language['Work Order'] %> # <%= @facility_work_order.id %>
-          </div>
-        </div>
-
-        <div id="object-status-field">
-          <%= f.select( :status, @status) %>
-		  <% if can? :hide, current_user %>
-		  	<% if @facility_work_order.destroyed? %>
-			  	<%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true %>
-		  	<% else %>
-			  	<%= link_to "", hide_facility_work_order_path(@facility_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right", :required => true%>
-		  	<% end %>
-		<% end %>
-		  <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
-        </div>
-
-        <div class="action_submit">
-            <%= f.submit @language['Save Changes'] %>
-        </div>
-    </div>
-
-    <div id="object-form-bottom">
-      <div class="field-box-date">
-        <hr class="color-code-line" id="created-line">
-          <div class="field-type">
-            <%= @language['Date Created'] %>
-          </div>
+    <div id="work_order_dates">
+      <div class="field-box">
+          <hr class="color-code-line" id="created-line">
+          <div class="field-type"><%= @language['Date Created'] %></div>
           <div class="field-info"><%= @facility_work_order.created_at.try(:strftime,"%^b %d, %Y") %></div>
         </div>
-        <div class="field-box-date">
+        <div class="field-box">
           <hr class="color-code-line" id="started-line">
           <div class="field-type"><%= @language['Date Started'] %></div>
           <div class="field-info">
               <%= @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+              <%#=  @facility_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
           </div>
         </div>
-        <div class="field-box-date">
+        <div class="field-box" id="expected-date-box">
           <hr class="color-code-line" id="expired-line">
           <div class="field-type"><%= @language['Expected Date of Completion'] %></div>
           <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
         </div>
-        <div class="field-box-date">
+        <div class="field-box">
           <hr class="color-code-line" id="completed-line">
           <div class="field-type"><%= @language['Date Completed'] %></div>
           <div class="field-info"><%= @facility_work_order.date_completed.try(:strftime,"%^b %d, %Y") %></div>
         </div>
-        <div class="field-box-description">   
-            <div class="field-type"><%= @language['Description'] %></div>
-            <div class="field-info"><%= f.text_area :description, :required => true %></div>
-        </div>
-
     </div>
+    <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+    <div id="properties-box">
+      <table id="properties-table">
+        <tr>
+          <td><%= @language['Requester'] %></td>
+          <td><%= @facility_work_order.requester.try(:name) %></td>
+        </tr>
+        <tr>
+          <td><%= @language['Owner'] %></td>
+          <td><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></td>
+        </tr>
+        <tr>
+          <td><%= @language['Department'] %></td>
+          <td><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></td>
+        </tr>
+        <tr>
+          <td><%= @language['Description'] %></td>
+          <td><%= f.text_area :description, :required => true %></td>
+        </tr>
+        <tr>
+            <td><%= @language['Cause Description'] %></td>
+            <td><%= f.text_area :cause_description %></td>
+        </tr>
+        <tr>
+            <td><%= @language['Action Taken'] %></td>
+            <td><%= f.text_area :action_taken %></td>
+        </tr>
+
+        <tr>   
+            <td><%= @language['Prevention Taken'] %></td>
+            <td><%= f.text_area :prevention_taken %></td>
+        </tr>        
+        <% if @facility_work_order.wr_origin %>
+          <tr>
+            <td>Original Work Request</td>
+            <td>
+            <a style="color:white" href="<%= bmet_work_requests_url + '/all/' + @facility_work_order.wr_origin_id.to_s %>">
+              Work Order <%= @facility_work_order.wr_origin_id %>
+            </a>
+            </td>
+          </tr>
+        <% elsif @facility_work_order.pm_origin %>
+          <tr>
+            <td>Origin Preventative Maintenance</td>
+            <td>
+            <a style="color:white" href="<%= bmet_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin_id.to_s %>">
+              Preventative Maintenance <%= @facility_work_order.pm_origin_id %>
+            </a>
+            </td>
+          </tr>
+        <% else %>
+        <% end %>
+        </tr>
+      </table>     
+    </div>
+
   <%end%>
 
 </div>

@@ -99,3 +99,4 @@ gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
 
 gem "rmagick", :require => 'RMagick'
+gem "rqrcode_png"
