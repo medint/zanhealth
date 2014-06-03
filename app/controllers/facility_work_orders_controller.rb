@@ -76,6 +76,14 @@ class FacilityWorkOrdersController < ApplicationController
         format.json { render json: @facility_work_order.errors, status: :unprocessable_entity }
       end
     end
+
+    if @facility_work_order.status == 2 and @facility_work_order.pm_origin
+      pm = @facility_work_order.pm_origin
+      pm.last_date_checked = Time.now
+      pm.next_date = Time.now + pm.days.days + pm.weeks.weeks + pm.months.months
+      pm.save!
+    end
+
   end
 
   def all  	  
