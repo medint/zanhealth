@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th><%= @language['Content']%></th>
-      <th><%= @language['Number']%></th>
-      <th><%= @language['Work Request']%></th>
+      <th><%= t(:content).capitalize%></th>
+      <th><%= t(:number).capitalize%></th>
+      <th><%= t(:work_request).titlecase%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,9 +18,9 @@
         <td><%= text.content %></td>
         <td><%= text.number %></td>
         <td><%= text.bmet_work_order_id %></td>
-        <td><%= link_to @language['Show'], text %></td>
-        <td><%= link_to @language['Edit'], edit_text_path(text) %></td>
-        <td><%= link_to @language['Destroy'], text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, text %></td>
+        <td><%= link_to t(:edit).capitalize, edit_text_path(text) %></td>
+        <td><%= link_to t(:destroy).capitalize, text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to @language['New Text'], new_text_path %>
+<%= link_to t(:new_text).titlecase, new_text_path %>

@@ -12,51 +12,51 @@
   <% end %>
 
   <div class="field">
-    <%= @language['Asset ID'] %><br>
+    <%= t(:asset_id).titlecase %><br>
     <%= f.text_field :asset_id %>
   </div>
  <div class="field">
-    <%= @language['Model'] %><br>
+    <%= t(:model).capitalize %><br>
     <%= f.number_field :bmet_model_id %>
   </div>
   <div class="field">
-    <%= @language['Serial Number'] %><br>
+    <%= t(:serial_number).titlecase %><br>
     <%= f.text_field :serial_number %>
   </div>
   <div class="field">
-    <%= @language['Year Manufactured'] %><br>
+    <%= t(:year_manufactured).titlecase %><br>
     <%= f.number_field :year_manufactured %>
   </div>
   <div class="field">
-    <%= @language['Funding'] %><br>
+    <%= t(:funding).capitalize %><br>
     <%= f.text_field :funding %>
   </div>
   <div class="field">
-    <%= @language['Date Received'] %><br>
+    <%= t(:date_received).titlecase %><br>
     <%= f.date_select :date_received %>
   </div>
   <div class="field">
-    <%= @language['Warranty Expires'] %><br>
+    <%= t(:warranty_expires).titlecase %><br>
     <%= f.date_select :warranty_expire %>
   </div>
   <div class="field">
-    <%= @language['Contract Expires'] %><br>
+    <%= t(:contract_expires).titlecase %><br>
     <%= f.date_select :contract_expire %>
   </div>
   <div class="field">
-    <%= @language['Warranty Notes'] %><br>
+    <%= t(:warranty_notes).titlecase %><br>
     <%= f.text_area :warranty_notes %>
   </div>
   <div class="field">
-    <%= @language['Service Agent'] %><br>
+    <%= t(:service_agent).titlecase %><br>
     <%= f.text_field :service_agent %>
   </div>
   <div class="field">
-    <%= @language['Department'] %><br>
+    <%= t(:department).capitalize %><br>
     <%= f.number_field :department_id %>
   </div>
   <div class="field">
-    <%= @language['Price'] %><br>
+    <%= t(:price).capitalize %><br>
     <%= f.number_field :price %>
   </div>
   <div class="actions">

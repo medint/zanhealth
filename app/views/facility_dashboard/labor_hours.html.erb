@@ -12,9 +12,9 @@ google.setOnLoadCallback(drawLaborChart);
 	
 	<table id="dash_table">
 		<tr>
-			<th><%=@language['Work Order']%></th>
-			<th><%=@language['Department']%></th>
-			<th><%=@language['Duration']%></th>
+			<th><%=t(:work_order).titlecase %></th>
+			<th><%=t(:department).capitalize%></th>
+			<th><%=t(:duration).capitalize%></th>
 		</tr>
 		<% @labor_hours_json.each do |technician_name,value| %>
 				<tr>
@@ -26,7 +26,7 @@ google.setOnLoadCallback(drawLaborChart);
 				<tr>
 					<td></td>
 					<td>
-						<%#= link_to @language['Work Order']+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
+						<%#= link_to t(:work_order).titlecase +' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
 						<%= link_to 'Work Order'+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
 					</td>					
 					<td>

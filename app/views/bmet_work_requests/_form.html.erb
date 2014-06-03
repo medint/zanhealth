@@ -18,34 +18,34 @@
     <% end %>
     <div id="object-form-single-col">
       <div class="field-box">
-        <div class="field-type"><%= @language['Requester'] %></div>
+        <div class="field-type"><%= t(:requester).capitalize %></div>
         <div class="field-info"><%= f.text_area :requester, :required => true %></div>
       </div>
       <div class="field-box">
-        <div class="field-type"><%= @language['Department'] %></div>
+        <div class="field-type"><%= t(:department).capitalize %></div>
         <div class="field-info"><%= f.text_area :department, :required => true %></div>
       </div>
       <div class="field-box">
-        <div class="field-type"><%= @language['Location'] %><br></div>
+        <div class="field-type"><%= t(:location).capitalize %><br></div>
         <div class="field-info"><%= f.text_area :location, :required => true%></div>
       </div>
       <div class="field-box">
-        <div class="field-type"><%= @language['Telephone number'] %><br></div>
+        <div class="field-type"><%= t(:telephone_number).titlecase %><br></div>
         <div class="field-info"><%= f.number_field :phone, :required => true %></div>
       </div>
 
       <div class="field-box">
-        <div class="field-type"><%= @language['Email'] %><br></div>
+        <div class="field-type"><%= t(:email).capitalize %><br></div>
         <div class="field-info"><%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}'%></div>
       </div>
 
       <div class="field-box">
-        <div class="field-type"><%= @language['Description'] %><br></div>
+        <div class="field-type"><%= t(:description).capitalize %><br></div>
         <div class="field-info"><%= f.text_area :description, :required => true%></div>
       </div>
 
       <div class="action_submit">
-        <%= f.submit @language['Create Facility Work Request'] %>
+        <%= f.submit t(:create_facility_work_request).titlecase %>
       </div>
     </div>
 

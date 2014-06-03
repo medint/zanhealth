@@ -1,35 +1,35 @@
-<h2><%= @language['My Requests']%></h2>
+<h2><%= t(:my_requests).titlecase%></h2>
 
 
 <table id=my-requests>
   <thead>
     <tr>
       <th>
-        <%= @language['ID'] %>
+        <%= t(:id).capitalize %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Item ID'] %>
+        <%= t(:item_id).titlecase %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Serial Number'] %>
+        <%= t(:serial_number).titlecase %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Manufacturer'] %>
+        <%= t(:manufacturer).capitalize %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Category'] %>
+        <%= t(:category).capitalize %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Department'] %>
+        <%= t(:department).capitalize %>
         <span id=sort-sticker></span>
       </th>
       <th>
-        <%= @language['Date Requested'] %>
+        <%= t(:date_requested).titlecase %>
         <span id=sort-sticker></span>
       </th>
       <th></th>
@@ -46,19 +46,19 @@
         <td><%= bmet_work_order.bmet_item.model.category %></td>
         <td><%= bmet_work_order.bmet_item.location %></td>
         <td><%= bmet_work_order.date_requested %></td>
-        <td><%= link_to @language['Edit'], edit_bmet_work_order_path(bmet_work_order) %></td>
+        <td><%= link_to t(:edit).capitalize, edit_bmet_work_order_path(bmet_work_order) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h2><%= @language['My Texts']%></h2>
+<h2><%= t(:my_texts).titlecase%></h2>
 <table>
   <thead>
-	  <th><%= @language['Time']%></th>
-	  <th><%= @language['ID']%></th>
-	  <th><%= @language['Request ID']%></th>
-	  <th><%= @language['Comment']%></th>
+	  <th><%= t(:time).capitalize%></th>
+	  <th><%= t(:id).capitalize%></th>
+	  <th><%= t(:request_id).titlecase%></th>
+	  <th><%= t(:comment).capitalize%></th>
  </thead>
 
   <tbody>

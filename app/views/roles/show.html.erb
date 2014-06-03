@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @language['Name']%>:</strong>
+  <strong><%= t(:name).capitalize%>:</strong>
   <%= @role.name %>
 </p>
 
-<%= link_to @language['Edit'], edit_role_path(@role) %> |
-<%= link_to @language['Back'], roles_path %>
+<%= link_to t(:edit).capitalize, edit_role_path(@role) %> |
+<%= link_to t(:back).capitalize, roles_path %>

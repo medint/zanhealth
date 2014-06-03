@@ -1,26 +1,26 @@
 <div class='wr'>
-  <%= link_to @language['Edit'], edit_bmet_work_order_path(@bmet_work_order) %>
+  <%= link_to t(:edit).capitalize, edit_bmet_work_order_path(@bmet_work_order) %>
   <div class='attributes'>
     <div class='left-attributes'>
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong><%= @language['Date Requested'] %>:</strong>
+        <strong><%= t(:date_requested).titlecase %>:</strong>
         <%= @bmet_work_order.date_requested %>
       </p>
 
       <p>
-        <strong><%= @language['Expected Date of Completion'] %>:</strong>
+        <strong><%= t(:expected_date_of_completion).titlecase %>:</strong>
         <%= @bmet_work_order.date_expire %>
       </p>
 
       <p>
-        <strong><%= @language['Date Completed'] %>:</strong>
+        <strong><%= t(:date_completed).titlecase %>:</strong>
         <%= @bmet_work_order.date_completed %>
       </p>
 
       <p>
-        <strong><%= @language['Request Type'] %>:</strong>
+        <strong><%= t(:request_type).titlecase %>:</strong>
         <%= @bmet_work_order.request_type %>
       </p>
 
@@ -30,59 +30,59 @@
      </p>
 
       <p>
-        <strong><%= @language['Cost'] %>:</strong>
+        <strong><%= t(:cost).capitalize %>:</strong>
         <%= @bmet_work_order.cost %>
       </p>
 
       <p>
-        <strong><%= @language['Description'] %>:</strong>
+        <strong><%= t(:description).capitalize %>:</strong>
         <%= @bmet_work_order.description %>
       </p>
 
       <p>
-        <strong><%= @language['Owner'] %>:</strong>
+        <strong><%= t(:owner).capitalize %>:</strong>
         <%= @bmet_work_order.owner_id %>
       </p>
 
       <p>
-        <strong><%= @language['Requester'] %>:</strong>
+        <strong><%= t(:requester).capitalize %>:</strong>
         <%= @bmet_work_order.requester_id %>
       </p>
 
       <p>
-        <strong><%= @language['Cause Description'] %>:</strong>
+        <strong><%= t(:cause_description).titlecase %>:</strong>
         <%= @bmet_work_order.cause_description %>
       </p>
 
       <p>
-        <strong><%= @language['Action Taken'] %>:</strong>
+        <strong><%= t(:action_taken).titlecase %>:</strong>
         <%= @bmet_work_order.action_taken %>
       </p>
 
       <p>
-        <strong><%= @language['Prevention Taken'] %>:</strong>
+        <strong><%= t(:prevention_taken).titlecase %>:</strong>
         <%= @bmet_work_order.prevention_taken %>
       </p>
     </div>
 
     <div class='right-attributes'>
       <p class='status'>
-        <strong><%= @language['Status'] %>:</strong>
+        <strong><%= t(:status).capitalize %>:</strong>
         <%= @bmet_work_order.status %>
       </p>
     </div>
   </div>
-  <p> <span class="comment-title"> <%= @language['Recent Comments'] %> </span>
-  <form class="create-comment" action="/bmet_work_order_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @bmet_work_order.id %>> </input> <input type="submit" value=<%= '+ '+@language['Comment'] %> />
+  <p> <span class="comment-title"> <%= t(:recent_comments).titlecase %> </span>
+  <form class="create-comment" action="/bmet_work_order_comments/new" method="GET"> <input type="hidden" name="id" value=<%= @bmet_work_order.id %>> </input> <input type="submit" value=<%= '+ '+t(:comment).capitalize %> />
   </form>
   </p>
   <div class="comment"> 
 	  <table>
 		  <thead>
-			  <th class="comment-table-header"><%= @language['Time Created'] %></th>
-			  <th class="comment-table-header"><%= @language['Last Updated'] %></th>
-			  <th class="comment-table-header"><%= @language['User ID'] %> </th>
-			  <th><%= @language['Content'] %> </th>
+			  <th class="comment-table-header"><%= t(:time_created).titlecase %></th>
+			  <th class="comment-table-header"><%= t(:last_updated).titlecase %></th>
+			  <th class="comment-table-header"><%= t(:user_id).titlecase %> </th>
+			  <th><%= t(:content).capitalize %> </th>
 		  </thead>
 		  <tbody>
 			  <% @wr_comment.each do |comment| %>

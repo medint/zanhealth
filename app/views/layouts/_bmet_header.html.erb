@@ -5,7 +5,7 @@
     <div id="bottom-buttons">
         <%= link_to current_user.name, edit_user_registration_path, :id => "user_name" %></br>
         <%= link_to current_user.facility.name, "#", :id => "fac_name" %></br>
-        <span id="logout_button"><%= link_to @language['Logout'], destroy_user_session_path, :method => :delete %></span>
+        <span id="logout_button"><%= link_to t(:logout).capitalize, destroy_user_session_path, :method => :delete %></span>
     </div>
   </div>
   <ul id="left-nav_ul">
@@ -15,7 +15,7 @@
       <div id="work-order-icon"></div>
       <div class="wrapper">
         <div class="title">
-          <%= @language['Work Orders'] %>
+          <%= t(:work_orders).titlecase %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -28,7 +28,7 @@
       <div id="inbox-icon"></div>
       <div class="wrapper">
         <div class="title">
-          <%= @language['Items'] %>
+          <%= t(:items).capitalize %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -41,7 +41,7 @@
       <div id="preventative-maintenance-icon"></div>
       <div class="wrapper">
         <div class="title">
-          <%= @language['Preventative Maintenance'] %>
+          <%= t(:preventative_maintenance).titlecase %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -55,7 +55,7 @@
       <div id="inbox-icon"></div>
       <div class="wrapper">
         <div class="title">
-          <%= @language['Work Requests'] %>
+          <%= t(:work_requests).titlecase %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>
@@ -68,7 +68,7 @@
       <div id="work-order-icon"></div>
       <div class="wrapper">
         <div class="title">
-          <%= @language['Dashboard'] %>
+          <%= t(:dashboard).capitalize %>
         </div>
       </div>
       <%= image_tag("rightarrow_white.png", class: "right-arrow") %>

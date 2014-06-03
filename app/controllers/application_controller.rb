@@ -61,6 +61,14 @@ class ApplicationController < ActionController::Base
                 session[:language] ||= @@DEFAULT_LANGUAGE
             end
         end
+        
+        if session[:language] == 'english'
+            I18n.locale = :en
+        elsif session[:language] == 'creole'
+            I18n.locale = :ht
+        elsif session[:language] == 'swahili'
+            I18n.locale = :sw
+        end
 
         @language = {}
         Language.select("english, #{session[:language]}").each do |translation|

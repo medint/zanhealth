@@ -1,6 +1,6 @@
-<h1><%= "#{@language['Editing']} #{@language['Item']}" %></h1>
+<h1><%= "#{t(:editing).capitalize} #{t(:item).capitalize}" %></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @item %> |
-<%= link_to @language['Back'], bmet_items_path %>
+<%= link_to t(:show).capitalize, @item %> |
+<%= link_to t(:back).capitalize, bmet_items_path %>

@@ -13,13 +13,13 @@
     <% end %>
 
     <div id="labor_technician-title">
-      <%= @language['Technician'] %>
+      <%= t(:technician).capitalize %>
     </div>
     <div id="labor_date-title">
-      <%= @language['Worked On'] %>
+      <%= t(:worked_on).titlecase %>
     </div >
     <div id="labor_hour-title">
-      <%= @language['Duration'] %>
+      <%= t(:duration).capitalize %>
     </div>
     
     <div id="additional-detail_labor_tech">
@@ -29,7 +29,7 @@
       <%= f.date_select :date_started, :required => true,use_short_month: true %>    
     </div>
     <div id="additional-detail_labor_hours">    
-      <%= f.number_field :duration, :required => true,:placeholder => @language["Hr"] %>
+      <%= f.number_field :duration, :required => true,:placeholder => t(:hr).capitalize %>
     </div>
 
     <div class="additional-detail_actions">

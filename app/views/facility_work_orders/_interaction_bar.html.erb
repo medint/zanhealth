@@ -2,59 +2,59 @@
   <div id="top-dropdown">
     
     &nbsp&nbsp&nbsp&nbsp
-    <%= @language['Filter'] %>: 
+    <%= t(:filter).capitalize %>: 
     <div class="dropdown">
       <a id="facworkorder_progress" role="button" data-toggle="dropdown" href="#">
-         <%= @language['Select Status'] %>
+         <%= t(:select_status).titlecase %>
          <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
        <li>
              <input id="cbox0" type="checkbox" name="unstarted" value="unstarted">
-             <%= @language['Unstarted'] %>
+             <%= t(:unstarted).capitalize %>
        </li>
        <li>
              <input id="cbox1" type="checkbox" name="inprogress" value="inprogress">
-             <%= @language['In Progress'] %>
+             <%= t(:in_progress).titlecase %>
        </li>
        <li>
              <input id="cbox2" type="checkbox" name="completed" value="completed">
-             <%= @language['Completed'] %>
+             <%= t(:completed).capitalize %>
        </li>
       </ul>
     </div>
 
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-    <%= @language['Sort'] %>: 
+    <%= t(:sort).capitalize %>: 
     <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-          <%= @language['Select Attribute'] %>
+          <%= t(:select_attribute).titlecase %>
           <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
          <div>
          <a onclick = "sort_by_date_created()">
-          <%= @language['Date Created'] %>
+          <%= t(:date_created).titlecase %>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_date('datestarted')">
-          <%= @language['Date Started'] %>
+          <%= t(:date_started).titlecase %>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_name('requester')">
-          <%=@language['Requester']%>
+          <%=t(:requester).capitalize%>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_name('owner')">
-          <%=@language['Owner']%>
+          <%=t(:owner).capitalize%>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_num('status')">
-          <%=@language['Status']%>
+          <%=t(:status).capitalize%>
          </a>
          </div>
       </ul>
@@ -95,7 +95,7 @@
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <%= link_to "", new_facility_work_order_path, :id => "add-button"%>
-    <%= link_to @language["Export Data"], facility_work_orders_url+"/download" %>
+    <%= link_to t(:export_data).titlecase, facility_work_orders_url+"/download" %>
   </div>
 
 </div>
