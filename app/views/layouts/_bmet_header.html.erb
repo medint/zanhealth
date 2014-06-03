@@ -3,8 +3,8 @@
   <div id="app_type_label"> Zanhealth BMET </div>
   <div id="login">
     <div id="bottom-buttons">
-        <%= link_to current_user.name, edit_user_registration_path, :id => "user_name" %></br>
-        <%= link_to current_user.facility.name, "#", :id => "fac_name" %></br>
+        <%= link_to current_user.name, edit_user_registration_path, :id => "current_user_name" %></br>
+        <%= link_to current_user.facility.name, "#", :id => "current_fac_name" %></br>
         <span id="logout_button"><%= link_to @language['Logout'], destroy_user_session_path, :method => :delete %></span>
     </div>
   </div>
