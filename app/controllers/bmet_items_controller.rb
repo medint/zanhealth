@@ -5,6 +5,8 @@ class BmetItemsController < ApplicationController
   before_action :set_bmet_models, only: [:new, :show]
   before_action :set_departments, only: [:new, :show]
   before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new]
+  before_action :set_status, only: [:show, :new]
+  before_action :set_conditions, only: [:show, :new]
 
   # GET /items
   # GET /items.json
@@ -92,6 +94,23 @@ class BmetItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_status
+      @status= {
+        'Active' => 0,
+        'Inactive' => 1,
+        'Retired' => 2
+      }
+    end
+
+    def set_conditions 
+      @conditions = {
+        'Poor' => 0,
+        'Fair' => 1,
+        'Good' => 2,
+        'Very Good' => 3
+      }
+    end
+
     def set_item
       @bmet_item = BmetItem.find_by_id(params[:id])
     end

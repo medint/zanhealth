@@ -3,8 +3,8 @@ require 'test_helper'
 class FacilityWorkOrderCommentsControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = createTestUser()
-    sign_in user
+    @user = users(:userone)
+    sign_in @user
     @facility_work_order_comment = facility_work_order_comments(:one)
   end
 
@@ -65,10 +65,11 @@ class FacilityWorkOrderCommentsControllerTest < ActionController::TestCase
   end
 
   test "should destroy facility_work_order_comment" do
+    @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
     assert_difference('FacilityWorkOrderComment.count', -1) do
       delete :destroy, id: @facility_work_order_comment
     end
 
-    assert_redirected_to @facility_work_order_comment.facility_work_order
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
   end
 end

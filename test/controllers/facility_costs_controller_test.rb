@@ -3,8 +3,8 @@ require 'test_helper'
 class FacilityCostsControllerTest < ActionController::TestCase
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = createTestUser()
-    sign_in user
+    @user = users(:userone)
+    sign_in @user
     @facility_cost = facility_costs(:one)
   end
 
@@ -62,10 +62,11 @@ class FacilityCostsControllerTest < ActionController::TestCase
   end
 
   test "should destroy facility_cost" do
+    @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
     assert_difference('FacilityCost.count', -1) do
       delete :destroy, id: @facility_cost
     end
 
-    assert_redirected_to @facility_cost.facility_work_order
+    assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
   end
 end

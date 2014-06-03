@@ -1,96 +1,96 @@
 <div id="bmet_item_summary">
+  <div id="object_table_layout">
+    <%= form_for(@bmet_item) do |f| %>
+      <% if @bmet_item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@bmet_item.errors.count, "error") %> prohibited this bmet_item from being saved:</h2>
+          <ul><% @bmet_item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <%= form_for(@bmet_item) do |f| %>
-    <% if @bmet_item.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@bmet_item.errors.count, "error") %> prohibited this bmet_item from being saved:</h2>
-        <ul><% @bmet_item.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+      <div id="action-bar">
+        <div id="field-box_item-id">      
+          <div class="item-id">Item <%= @bmet_item.id%></div>
+        </div>    
+        <div class="bmet_item_status bmet_item_status-<%= @bmet_item.try(:status) %>">      
+          STATUS
+          <div class="action-bar-box_text ">
+            <%= f.select :status, @status %>
+          </div>
+        </div>    
+        <div class="bmet_item_condition bmet_item_condition-<%= @bmet_item.try(:condition) %>">      
+          CONDITION
+          <div class="action-bar-box_text">
+            <%= f.select :condition, @conditions %>
+          </div>
+        </div>
+        <div class="action_submit">
+          <%= f.submit @language['Save Changes']%>
+        </div>
+        <div id="print-button_right"></div>
+        
+      </div>
+      <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+      <div id="properties-box">
+        <table id="properties-table">
+          <tr>
+            <td><%= @language['Model'] %></td>
+            <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Asset ID'] %></td>
+            <td><%= f.text_field :asset_id %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Serial Number'] %></td>
+            <td><%= f.text_field :serial_number %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Department'] %></td>
+            <td><%= f.collection_select :department_id, @departments, :id, :name %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Year Manufactured'] %></td>
+            <td><%= f.number_field :year_manufactured %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Funding'] %></td>
+            <td><%= f.text_field :funding %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Date Received'] %></td>
+            <td><%= f.date_select :date_received %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Warranty Expires'] %></td>
+            <td><%= f.date_select :warranty_expire %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Contract Expires'] %></td>
+            <td><%= f.date_select :contract_expire %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Warranty Notes'] %></td>
+            <td><%= f.text_area :warranty_notes %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Service Agent'] %></td>
+            <td><%= f.text_field :service_agent %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Price'] %></td>
+            <td><%= f.number_field :price %></td>
+          </tr>
+          <tr>
+            <td><%= @language['Created At'] %></td>
+            <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>
+          </tr>
+        </table>     
+
       </div>
     <% end %>
-
-    <div id="action-bar">
-      <div id="field-box_item-id">      
-        <div class="item-id">Item <%= @bmet_item.id%></div>
-      </div>    
-      <div class="action-bar_box bmet_item_status<%= @bmet_item.try(:status) %>">      
-        STATUS
-        <div class="action-bar-box_text ">
-          <%= @bmet_item.try(:status) %>
-        </div>
-      </div>    
-      <div id="action-bar_box bmet_item_condition<%= @bmet_item.try(:condition) %>">      
-        CONDITION
-        <div class="action-bar-box_text">
-          <%= @bmet_item.try(:condition) %>
-        </div>
-      <div class="action_submit">
-        <%= f.submit @language['Save Changes']%>
-      </div>
-      <div id="print-button_right"></div>
-      
-    </div>
-    </br>
-    </br>
-    <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-    <div id="properties-box">
-      <table id="properties-table">
-        <tr>
-          <td><%= @language['Model'] %></td>
-          <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Asset ID'] %></td>
-          <td><%= f.text_field :asset_id %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Serial Number'] %></td>
-          <td><%= f.text_field :serial_number %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Department'] %></td>
-          <td><%= f.collection_select :department_id, @departments, :id, :name %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Year Manufactured'] %></td>
-          <td><%= f.number_field :year_manufactured %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Funding'] %></td>
-          <td><%= f.text_field :funding %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Date Received'] %></td>
-          <td><%= f.date_select :date_received %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Warranty Expires'] %></td>
-          <td><%= f.date_select :warranty_expire %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Contract Expires'] %></td>
-          <td><%= f.date_select :contract_expire %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Warranty Notes'] %></td>
-          <td><%= f.text_area :warranty_notes %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Service Agent'] %></td>
-          <td><%= f.text_field :service_agent %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Price'] %></td>
-          <td><%= f.number_field :price %></td>
-        </tr>
-        <tr>
-          <td><%= @language['Created At'] %></td>
-          <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>
-        </tr>
-      </table>     
-
-    </div>
-  <% end %>
+  </div>
 </div>

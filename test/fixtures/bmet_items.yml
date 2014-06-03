@@ -14,7 +14,7 @@ one:
   department: one
   location: MyString
   item_type: 1
-  price: 1
+  price: 1.0
 
 two:
   asset_id: 1
@@ -30,4 +30,4 @@ two:
   department: two
   location: MyString
   item_type: 1
-  price: 1
+  price: 1.0
