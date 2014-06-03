@@ -17,3 +17,12 @@ two:
   email: MyText
   description: MyText
   facility: two
+
+fac_wr_origin:
+  requester: "John"
+  department: MyText
+  location: MyText
+  phone: MyText
+  email: MyText
+  description: MyText
+  facility: two

@@ -1,120 +1,122 @@
-<div id="object_table_layout">
-  <%= form_for(@bmet_work_order) do |f| %>
-    <% if @bmet_work_order.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
-            <ul> 
-              <% @bmet_work_order.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-        </div>x
-    <% end %>
-
-    <div id="action-bar">
-      <div id="field-box_item-id" >      
-        <div class="item-id"><%= t(:work_order).titlecase  %> # <%= @bmet_work_order.id %></div>
-      </div>    
-      <div class="work_order_status work_order_status-<%= @bmet_work_order.status %>">
-        <div id="work_order_status-label">
-          STATUS
-        </div>
-        <%= f.select :status, @status %>
-      </div>
-      <% if @bmet_work_order.destroyed? %>
-        <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
-      <% else %>
-        <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+<div id="work_order_summary">
+  <div id="object_table_layout">
+    <%= form_for(@bmet_work_order) do |f| %>
+      <% if @bmet_work_order.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
+              <ul> 
+                <% @bmet_work_order.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+          </div>x
       <% end %>
-      
-      <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
-      
-      <div class="action_submit">
-        <%= f.submit t(:save_changes).titlecase%>
-      </div>
-    </div>
 
-    <div id="work_order_dates">
-      <div class="field-box">
-          <hr class="color-code-line" id="created-line">
-          <div class="field-type"><%= t(:date_created).titlecase %></div>
-          <div class="field-info"><%= @bmet_work_order.created_at.try(:strftime,"%^b %d, %Y") %></div>
-        </div>
-        <div class="field-box">
-          <hr class="color-code-line" id="started-line">
-          <div class="field-type"><%= t(:date_started).titlecase %></div>
-          <div class="field-info">
-              <%= @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
-              <%#=  @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+      <div id="action-bar">
+        <div id="field-box_item-id" >      
+          <div class="item-id"><%= t(:work_order).titlecase  %> # <%= @bmet_work_order.id %></div>
+        </div>    
+        <div class="work_order_status work_order_status-<%= @bmet_work_order.status %>">
+          <div id="work_order_status-label">
+            STATUS
           </div>
+          <%= f.select :status, @status %>
         </div>
-        <div class="field-box" id="expected-date-box">
-        <hr class="color-code-line" id="expired-line">
-          <div class="field-type"><%= t(:expected_date_of_completion).titlecase %></div>
-          <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
-        </div>
-        <div class="field-box">
-          <hr class="color-code-line" id="completed-line">
-          <div class="field-type"><%= t(:date_completed).titlecase %></div>
-          <div class="field-info"><%= @bmet_work_order.date_completed.try(:strftime,"%^b %d, %Y") %></div>
-        </div>
-    </div>
-    <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
-    <div id="properties-box">
-      <table id="properties-table">
-        <tr>
-          <td><%= t(:requester).capitalize %></td>
-          <td><%= @bmet_work_order.requester.try(:name) %></td>
-        </tr>
-        <tr>
-          <td><%= t(:owner).capitalize %></td>
-          <td><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></td>
-        </tr>
-        <tr>
-          <td><%= t(:department).capitalize %></td>
-          <td><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></td>
-        </tr>
-        <tr>
-          <td><%= t(:description).capitalize %></td>
-          <td><%= f.text_area :description, :required => true %></td>
-        </tr>
-        <tr>
-            <td><%= t(:cause_description).titlecase %></td>
-            <td><%= f.text_area :cause_description %></td>
-        </tr>
-        <tr>
-            <td><%= t(:action_taken).titlecase %></td>
-            <td><%= f.text_area :action_taken %></td>
-        </tr>
-
-        <tr>   
-            <td><%= t(:prevention_taken).titlecase %></td>
-            <td><%= f.text_area :prevention_taken %></td>
-        </tr>        
-        <% if @bmet_work_order.wr_origin_id %>
-          <tr>
-            <td>Original Work Request</td>
-            <td>
-            <a href="<%= bmet_work_requests_url + '/all/' + @bmet_work_order.wr_origin_id.to_s %>">
-              Work Request <%= @bmet_work_order.wr_origin_id %>
-            </a>
-            </td>
-          </tr>
-        <% elsif @bmet_work_order.pm_origin_id %>
-          <tr>
-            <td>Origin Preventative Maintenance</td>
-            <td>
-            <a href="<%= bmet_preventative_maintenances_url + '/all/' + @bmet_work_order.pm_origin_id.to_s %>">
-              Preventative Maintenance <%= @bmet_work_order.pm_origin_id %>
-            </a>
-            </td>
-          </tr>
+        <% if @bmet_work_order.destroyed? %>
+          <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% else %>
+          <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% end %>
-        </tr>
-      </table>     
-    </div>
+        
+        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
+        
+        <div class="action_submit">
+          <%= f.submit t(:save_changes).titlecase%>
+        </div>
+      </div>
 
-  <%end%>
+      <div id="work_order_dates">
+        <div class="field-box">
+            <hr class="color-code-line" id="created-line">
+            <div class="field-type"><%= t(:date_created).titlecase %></div>
+            <div class="field-info"><%= @bmet_work_order.created_at.try(:strftime,"%^b %d, %Y") %></div>
+          </div>
+          <div class="field-box">
+            <hr class="color-code-line" id="started-line">
+            <div class="field-type"><%= t(:date_started).titlecase %></div>
+            <div class="field-info">
+                <%= @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+                <%#=  @bmet_work_order.date_started.try(:strftime,"%^b %d, %Y") %>
+            </div>
+          </div>
+          <div class="field-box" id="expected-date-box">
+          <hr class="color-code-line" id="expired-line">
+            <div class="field-type"><%= t(:expected_date_of_completion).titlecase %></div>
+            <div class="field-info"><%= f.date_select :date_expire, use_short_month: true %></div>
+          </div>
+          <div class="field-box">
+            <hr class="color-code-line" id="completed-line">
+            <div class="field-type"><%= t(:date_completed).titlecase %></div>
+            <div class="field-info"><%= @bmet_work_order.date_completed.try(:strftime,"%^b %d, %Y") %></div>
+          </div>
+      </div>
+      <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
+      <div id="properties-box">
+        <table id="properties-table">
+          <tr>
+            <td><%= t(:requester).capitalize %></td>
+            <td><%= @bmet_work_order.requester.try(:name) %></td>
+          </tr>
+          <tr>
+            <td><%= t(:owner).capitalize %></td>
+            <td><%= f.collection_select :owner_id, @users, :id, :name, :id => "owner", :required => true %></td>
+          </tr>
+          <tr>
+            <td><%= t(:department).capitalize %></td>
+            <td><%= f.collection_select :department_id, @departments, :id, :name, :required => true %></td>
+          </tr>
+          <tr>
+            <td><%= t(:description).capitalize %></td>
+            <td><%= f.text_area :description, :required => true %></td>
+          </tr>
+          <tr>
+              <td><%= t(:cause_description).titlecase %></td>
+              <td><%= f.text_area :cause_description %></td>
+          </tr>
+          <tr>
+              <td><%= t(:action_taken).titlecase %></td>
+              <td><%= f.text_area :action_taken %></td>
+          </tr>
 
+          <tr>   
+              <td><%= t(:prevention_taken).titlecase %></td>
+              <td><%= f.text_area :prevention_taken %></td>
+          </tr>        
+          <% if @bmet_work_order.wr_origin_id %>
+            <tr>
+              <td>Original Work Request</td>
+              <td>
+              <a href="<%= bmet_work_requests_url + '/all/' + @bmet_work_order.wr_origin_id.to_s %>">
+                Work Request <%= @bmet_work_order.wr_origin_id %>
+              </a>
+              </td>
+            </tr>
+          <% elsif @bmet_work_order.pm_origin_id %>
+            <tr>
+              <td>Origin Preventative Maintenance</td>
+              <td>
+              <a href="<%= bmet_preventative_maintenances_url + '/all/' + @bmet_work_order.pm_origin_id.to_s %>">
+                Preventative Maintenance <%= @bmet_work_order.pm_origin_id %>
+              </a>
+              </td>
+            </tr>
+          <% else %>
+          <% end %>
+          </tr>
+        </table>     
+      </div>
+
+    <%end%>
+
+  </div>
 </div>

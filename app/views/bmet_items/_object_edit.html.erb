@@ -39,7 +39,7 @@
           <tr>
             <td>
               <%= t(:model).capitalize %>
-              <% link_to '('+t(:current_model).titlecase+')', bmet_model_path(<%= </span>
+              <%= link_to '('+t(:current_model).titlecase+')', @bmet_item.bmet_model %>
             </td>
             <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
           </tr>

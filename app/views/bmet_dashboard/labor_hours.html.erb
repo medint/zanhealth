@@ -26,8 +26,7 @@ google.setOnLoadCallback(drawLaborChart);
 				<tr>
 					<td></td>
 					<td>
-						<%# link_to t(:work_order).titlecase +' '+work_order_id, bmet_work_orders_path+'/all/'+work_order_id %>
-						<%= link_to 'Work Order'+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>
+						<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>
 					</td>					
 					<td>
 						<%=duration%>

@@ -26,7 +26,7 @@ google.setOnLoadCallback(drawChart);
 				<tr>
 					<td></td>
 					<td class="work_order_id">
-						<%=t(:work_order).titlecase %> <%= work_order_id %>
+						<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>						
 					</td>					
 					<td class="cost_by_id">
 						<%=cost%>
