@@ -26,7 +26,8 @@ google.setOnLoadCallback(drawLaborChart);
 				<tr>
 					<td></td>
 					<td>
-						<%= link_to @language['Work Order']+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
+						<%#= link_to @language['Work Order']+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
+						<%= link_to 'Work Order'+' '+work_order_id.to_s, facility_work_orders_path+'/all/'+work_order_id.to_s %>
 					</td>					
 					<td>
 						<%=duration%>

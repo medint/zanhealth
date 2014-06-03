@@ -5,7 +5,7 @@ class RolesControllerTest < ActionController::TestCase
     @request.env["devise.mapping"] = Devise.mappings[:user]
     user = createTestUser()
     sign_in user
-    @role = roles(:one)
+    @role = roles(:admin)
   end
 
   test "should get index" do

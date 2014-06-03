@@ -5,6 +5,20 @@
         	<%= @language['Work Request'] %> # <%= @facility_work_request.id %>
       		</div>
     	</div>
+    	<% if @facility_work_request.wo_convert_id %>
+			<div class="field-box">
+			  <div class="field-type"><%= @language['Converted WO Order'] %></div>
+			  <div class="field-info">
+			      <p>
+				      Converted to 
+				      <%= link_to @language['Work Order']+' '+@facility_work_request.wo_convert_id.to_s, 
+				        bmet_work_orders_path+'/all/'+@facility_work_request.wo_convert_id.to_s %>
+				      On 
+				      <%= @facility_work_request.converted_at.try(:strftime,"%^b %d, %Y") %>
+			      </p>
+			   </div>			
+			</div>      
+		<% end %>
 		<div class="field-box">
 			<div class="field-type"> <%= @language['Requester'] %></div>
 			<div class="field-info"><p><%= @facility_work_request.requester %></p></div>

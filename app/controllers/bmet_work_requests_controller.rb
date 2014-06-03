@@ -174,9 +174,6 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 	end
 
     def set_bmet_work_request
-      puts 'xxxxxxxxxxxxxxxxxxxxx'
-      puts params
-      puts 'xxxxxxxxxxxxxxxxxxxxx'
       @bmet_work_request = BmetWorkRequest.with_deleted.find_by_id(params[:id])
       if (@bmet_work_request==nil || @bmet_work_request.facility_id!=current_user.facility_id)
           @bmet_work_request=nil

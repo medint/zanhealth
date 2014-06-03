@@ -1,7 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+admin:
+  name: "admin"
 
-two:
-  name: MyString
+bmet_tech:
+  name: "bmet_tech"
+
+fac_tech:
+  name: "fac_tech"
+
+bmet_fac_tech:
+  name: "bmet_fac_tech"
+
+chief:
+  name: "chief"
+
+finance:
+  name: "finance"
+
+procurement:
+  name: "procurement"	

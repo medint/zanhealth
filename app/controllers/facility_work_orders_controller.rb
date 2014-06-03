@@ -8,6 +8,7 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :show_hidden, :all, :show_all] 
   before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_work_orders, only: [:show_all, :all, :as_csv]
+  after_action :set_converted_wr, only: [:create]
 
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
@@ -88,11 +89,6 @@ class FacilityWorkOrdersController < ApplicationController
   def create
     @facility_work_order = FacilityWorkOrder.new(facility_work_order_params)
     @facility_work_order.requester_id=current_user.id
-    if @facility_work_order.wr_origin
-      @facility_work_order.wr_origin.wo_convert = @facility_work_order
-      @facility_work_order.wr_origin.converted_at = Time.zone.now
-      @facility_work_order.wr_origin.destroy # hiding it immediately      
-    end
 
     respond_to do |format|
       if @facility_work_order.save
@@ -172,6 +168,16 @@ class FacilityWorkOrdersController < ApplicationController
 
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def set_converted_wr
+      if @facility_work_order.wr_origin_id
+        @wr_origin = FacilityWorkRequest.find(@facility_work_order.wr_origin_id)
+        @wr_origin.wo_convert_id = @facility_work_order.id
+        @wr_origin.converted_at = Time.zone.now      
+        @wr_origin.save
+        @wr_origin.destroy # hiding it immediately        
+      end
     end
 
     def facility_work_order_params

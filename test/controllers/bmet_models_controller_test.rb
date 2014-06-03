@@ -3,8 +3,8 @@ require 'test_helper'
 class BmetModelsControllerTest < ActionController::TestCase
   setup do
     @bmet_model = bmet_models(:one)
-    user = createTestUser()
-    sign_in user
+    @user = users(:userone)
+    sign_in @user
     @bmet_item = bmet_items(:one)
   end
 

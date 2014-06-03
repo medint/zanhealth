@@ -6,7 +6,6 @@ class FacilityDashboardControllerTest < ActionController::TestCase
   # end
   setup do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    # user = createTestUser()
     @user = users(:userdboard)
     sign_in @user
   end
