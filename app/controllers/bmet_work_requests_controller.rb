@@ -159,17 +159,17 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
 
     def set_bmet_work_requests
-      @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+      @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.order(:created_at).reverse_order()
       @link = bmet_work_requests_url+"/unhidden/"
     end
 
     def set_hidden_bmet_work_requests
-    	@bmet_work_requests = BmetWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+    	@bmet_work_requests = BmetWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.order(:created_at).reverse_order()
       @link = bmet_work_requests_url+"/hidden/"
 	end
 
 	def set_all_bmet_work_requests
-		@bmet_work_requests = BmetWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+		@bmet_work_requests = BmetWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.order(:created_at).reverse_order()
     @link = bmet_work_requests_url+"/all/"
 	end
 

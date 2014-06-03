@@ -164,17 +164,17 @@ class BmetWorkOrdersController < ApplicationController
 
 
     def set_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
       @link = bmet_work_orders_url+"/unhidden/"
     end
 
     def set_hidden_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
       @link = bmet_work_orders_url+"/hidden/"
 	end
 
 	def set_all_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
       @link = bmet_work_orders_url+"/all/"
 	end
 
