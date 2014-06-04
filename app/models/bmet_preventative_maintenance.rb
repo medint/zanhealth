@@ -43,8 +43,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
 
   def reset
     self.last_date_checked = Time.now
-    self.next_date = Time.now + self.days.days + self.weeks.weeks + self.months.months
-    self.save!
+    self.calc_next_date
   end
 
   private
