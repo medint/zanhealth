@@ -188,9 +188,7 @@ class FacilityWorkOrdersController < ApplicationController
     def reset_original_pm
       if @facility_work_order.status == 2 and @facility_work_order.pm_origin
         pm = @facility_work_order.pm_origin
-        pm.last_date_checked = Time.now
-        pm.next_date = Time.now + pm.days.days + pm.weeks.weeks + pm.months.months
-        pm.save!
+        pm.reset()
       end
     end
 end

@@ -1,7 +1,8 @@
 <div id="object-single-col-box">
   <ul class="toggle-buttons">
     <li class="active"><a href="#view" data-toggle="tab"><%= @language['View'] %></a></li>
-    <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>  
+    <li><a href="#convert" data-toggle="tab"><%= @language['Convert'] %></a></li>
+    <li><a><%= link_to @language['Reset'], reset_facility_preventative_maintenance_path+"/"+@facility_preventative_maintenance.id.to_s, method: :put %> </a></li>
     <% if can? :hide, current_user %>
     	  <% if @facility_preventative_maintenance.destroyed? %>
   	  <%= link_to @language["Unhide"], hide_facility_preventative_maintenance_path(@facility_preventative_maintenance), title: "Unhide preventative maintenance", rel:"tooltip", method: :put, :required => true %>

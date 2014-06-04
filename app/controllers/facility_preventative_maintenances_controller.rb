@@ -110,6 +110,10 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 	  end
   end
 
+  def reset
+    @facility_preventative_maintenance.reset()
+  end
+
   private 
   
     def set_status
@@ -142,14 +146,14 @@ class FacilityPreventativeMaintenancesController < ApplicationController
         @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
         @facility_preventative_maintenances.map {|i| i.calc_days_since}  
         @link = facility_preventative_maintenances_url+"/unhidden/"
-  end
+    end
 
-  def hidden     
-     render 'index'
-  end
+    def hidden     
+       render 'index'
+    end
 
-  def all      
-      render 'index'
+    def all      
+        render 'index'
     end
 
     def set_hidden_facility_preventative_maintenances
