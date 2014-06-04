@@ -3,7 +3,7 @@
   <div id="app_type_label"> Zanhealth Facilities </div>
   <div id="login">
     <div id="bottom-buttons">
-		<% if can? :manage, current_user %>
+		<% if can? :edit_user, current_user %>
         	<%= link_to current_user.name, edit_user_registration_path, :id => "user_name" %></br>
 	<% else %>
 		<span id="user_name"> <%= current_user.name %></span></br>

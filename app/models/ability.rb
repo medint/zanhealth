@@ -38,7 +38,8 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :bmet_dashboard 
           cannot [:delete,:hide], [BmetItem, BmetWorkOrder,BmetWorkRequest,BmetPreventativeMaintenance, BmetModel, Part,PartTransaction] 
           cannot :manage, :registration
-          cannot :labor_hours, :bmet_dashboard
+          cannot :labor_hours, user
+          cannot :edit_user, user
 	  elsif user.role.name == "fac_tech"
 	  	  can :manage, [FacilityCost, FacilityLaborHour, FacilityWorkOrderComment]
 	  	  can [:read, :create, :update], [FacilityWorkOrder, FacilityWorkRequest,Part,PartTransaction]
@@ -49,7 +50,8 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :facility_dashboard 
 	  	  cannot [:destroy, :hide], [FacilityWorkOrder,FacilityWorkRequest,FacilityPreventativeMaintenance,Part,PartTransaction]
 	  	  cannot :manage, :registration
-	  	  cannot :labor_hours, :facility_dashboard
+	  	  cannot :labor_hours, user
+	  	  cannot :edit_user, user
 	  elsif user.role.name == "bmet_fac_tech"
 	  	  can :manage, [FacilityCost, FacilityLaborHour, FacilityWorkOrderComment, BmetCost, BmetLaborHour, BmetWorkOrderComment,BmetItemHistory,BmetNeed]
 	  	  can [:read, :create, :update], [BmetWorkOrder, FacilityWorkOrder,BmetWorkRequest, FacilityWorkRequest,BmetItem,BmetModel,Part,PartTransaction]
@@ -62,14 +64,17 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], [:facility_dashboard, :bmet_dashboard]
 	  	  cannot [:destroy, :hide], [BmetWorkOrder, FacilityWorkOrder, BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance,BmetItem, BmetModel,Part, PartTransaction]
 	  	  cannot :manage, :registration
-	  	  cannot :labor_hours, [:bmet_dashboard, :facility_dashboard]
+	  	  cannot :labor_hours, user 
+	  	  cannot :edit_user, user
 	  elsif user.role.name == "chief"
-	  	  can :manage, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance,BmetWorkOrderComment,FacilityWorkOrderComment,BmetCost,FacilityCost,BmetLaborHour,FacilityLaborHour,BmetModel,Part,PartTransaction,BmetItem,:bmet_dashboard, :facility_dashboard]
+	  	  can :manage, :all
+	  	  can :labor_hours, user
 	  	  cannot :delete, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance]
-        can [:hidden, :all, :show_all, :show_hidden, :set_users, :set_departments, :set_status,:as_csv,:search], [BmetWorkOrder, BmetWorkRequest,BmetPreventativeMaintenance]
-        can [:hidden, :all, :show_all, :show_hidden, :set_users, :set_departments, :set_status,:as_csv,:search], [FacilityWorkOrder,FacilityWorkRequest, FacilityPreventativeMaintenance]
 	  	  cannot :manage, :registration
+	  	  cannot :edit_user, user
 	  elsif user.role.name == "admin"
+	  	  can :edit_user, user
+	  	  can :labor_hours, user
 	  	  can :manage, [:all, :bmet_dashboard, :facility_dashboard, :registration]
 	  end
   end
