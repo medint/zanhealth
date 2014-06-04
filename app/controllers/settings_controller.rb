@@ -36,6 +36,7 @@ class SettingsController < ApplicationController
     end
 
     def update_user
+        @user = User.find_by_id(user_params[:id])
         respond_to do |format|
           if @user.update(user_params)
             format.html { redirect_to settings_url, notice: 'User was successfully updated.' }
@@ -63,7 +64,7 @@ class SettingsController < ApplicationController
 	  end
 
     def user_params
-        params.require(:user).permit(:name, :username, :facility_id, :email, :language)
+        params.require(:user).permit(:id, :name, :username, :facility_id, :email, :language)
     end
 
     def department_params

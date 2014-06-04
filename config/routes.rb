@@ -135,6 +135,7 @@ Zanhealth::Application.routes.draw do
   get "/settings", to: "settings#index"
   post "/settings/create_user", to: "settings#create_user"
   post "/settings/create_department", to: "settings#create_department"
+  post "/settings/update_user", to: "settings#update_user"
     
   get '/404', :to => redirect('/404.html')
   root to: "application#home"

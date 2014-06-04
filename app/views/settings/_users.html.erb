@@ -12,13 +12,15 @@
 
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
        <li>
-         <%= form_for user, { url: url_for(:action => 'update', :controller => 'registrations'), method: 'edit'} do |f| %>
+         <%= form_for user, { url: url_for(:action => 'update_user', :controller => 'settings'), method: 'post'} do |f| %>
+
         <div><%= f.label :name %><br />
-          <%= f.text_field user.name, :value => user.name %></div>
+          <%= f.text_field :name %></div>
         <div><%= f.label :username %><br />
           <%= f.text_field :username%></div>
         <div><%= f.label :email %><br />
           <%= f.email_field :email%></div>
+          <div><%= f.hidden_field :id%></div>
          
             <div class="action_submit">
               <%=f.submit 'Update user'%>

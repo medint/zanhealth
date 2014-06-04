@@ -32,24 +32,31 @@ class BmetItem < ActiveRecord::Base
 
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        match = BmetItem.find_by_serial_number(row["serial_number"])
-        if !match || !BmetItem.where("match.department.facility_id = ?", facility_id)
-          item = BmetItem.new
-          item.serial_number = row["serial_number"]
-          item.year_manufactured = row["year_manufactured"]
-          item.funding = row["funding"]
-          item.date_received = row["date_received"]
-          item.warranty_expire = row["warranty_expire"]
-          item.warranty_notes = row["warranty_notes"]
-          item.contract_expire = row["contract_expire"]
-          item.service_agent = row["service_agent"]
-          item.price = row["price"]
-          item.asset_id = row["asset_id"]
-          item.item_type = row["item_type"]
-          item.location = row["location"]
-          item.department = Department.find_by_name(row["department_name"])
-          item.bmet_model = BmetModel.find_by_model_name(row["model_name"])
-          item.save!
+        matches = BmetItem.find_all_by_serial_number(row["serial_number"])
+        if !matches
+            item = BmetItem.new
+            item.serial_number = row["serial_number"]
+            item.year_manufactured = row["year_manufactured"]
+            item.funding = row["funding"]
+            item.date_received = row["date_received"]
+            item.warranty_expire = row["warranty_expire"]
+            item.warranty_notes = row["warranty_notes"]
+            item.contract_expire = row["contract_expire"]
+            item.service_agent = row["service_agent"]
+            item.price = row["price"]
+            item.asset_id = row["asset_id"]
+            item.item_type = row["item_type"]
+            item.location = row["location"]
+            item.department = Department.find_by_name(row["department_name"])
+            item.bmet_model = BmetModel.find_by_model_name(row["model_name"])
+            item.save!
+        else
+          matches.each do |match|
+            
+            if BmetItem.where("match.department.facility_id = ?", facility_id)
+
+            end
+          end
         end
       end
     end
