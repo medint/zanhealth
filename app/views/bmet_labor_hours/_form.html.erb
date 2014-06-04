@@ -17,13 +17,6 @@
   <% elsif params[:action] == 'edit' %>
   <% end %>
 
-  <!--
-  <div class="field">
-    <%#= t(:owner).capitalize %><br>
-	<%#= f.collection_select :owner_id, @users, :id, :name %>
-  </div>
--->
-
   <div class="field">
     <%= t(:date_started).titlecase %><br>
     <%= f.datetime_select :date_started %>

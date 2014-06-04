@@ -18,10 +18,10 @@
             <%= t(:work_order).titlecase %> <%= bmet_work_order.id %>
           </p>
           <p class="element_requester">
-            <%=t(:requester).capitalize%>: <%= bmet_work_order.requester.try(:name) %>
+            <%=t(:requester).capitalize%>: <%= bmet_work_order.requester.name %>
           </p>
           <p class="element_owner">
-            <%=t(:owner).capitalize%>: <%= bmet_work_order.owner.try(:name) %>
+            <%=t(:owner).capitalize%>: <%= bmet_work_order.owner.name %>
           </p>          
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>

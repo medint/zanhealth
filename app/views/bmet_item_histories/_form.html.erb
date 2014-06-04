@@ -1,43 +1,16 @@
-<%= form_for(@item_history) do |f| %>
-  <% if @item_history.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item_history.errors.count, "error") %> prohibited this item_history from being saved:</h2>
+<%= simple_form_for(@bmet_item_history) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @item_history.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.association :bmet_item %>
+    <%= f.input :bmet_item_status %>
+    <%= f.input :bmet_item_condition %>
+    <%= f.input :remarks %>
+    <%= f.input :work_order %>
+    <%= f.input :work_order_status %>
+  </div>
 
-  <div class="field">
-	  <% if params[:id].present? %>
-		  <%= f.label :bmet_item_id %> <br>
-		  <%= params[:id] %>
-	  <% else %>
-    	<%= f.label :bmet_item_id %><br>
-		<%= f.number_field :bmet_item_id %>
-	<% end %>
-	</div>
-
-  <div class="field">
-    <%= f.label :datetime %><br>
-    <%= f.datetime_select :datetime %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :utilization %><br>
-    <%= f.number_field :utilization %>
-  </div>
-  <div class="field">
-    <%= f.label :remarks %><br>
-    <%= f.text_area :remarks %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>

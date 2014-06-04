@@ -14,9 +14,9 @@
           <div class="status-text-<%= facility_work_order.status %>"></div>
         </div>
         <div class="element_details">
-          <p class="element_title">
+          <div class="element_title">
             <%=t(:work_order).titlecase %> <%= facility_work_order.id %>
-          </p>
+          </div>
           <p class="element_requester">
             <%=t(:requester).capitalize%>: <%= facility_work_order.requester.try(:name) %>
           </p>

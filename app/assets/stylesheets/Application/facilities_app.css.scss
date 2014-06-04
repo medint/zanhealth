@@ -328,6 +328,7 @@ body {
 				font-size: 12px;
 				color: #5c5c5c;
 				margin: 0px;
+				
 			}
 
 			.element_requester{
@@ -510,10 +511,11 @@ body {
 	color:white;
 	margin-left : 10px;
 	font-weight : bold;
+	font-size: 10px;
 	select{
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 12px;
+		font-size: 10px;
 		float:left;
 	}
 }
@@ -589,6 +591,8 @@ body {
 	background-image: url(image_path('right/archiveicon.png'));				
 }
 
+
+
 .action_submit{
 	input[type=submit] {
 		@extend .rounded_box;
@@ -620,7 +624,6 @@ body {
 	overflow-y: scroll;
 	background-color : white;
 	margin-top: 10px;
-	height: 65%;
 	width:100%;
 	float:left;
 
@@ -661,6 +664,7 @@ body {
 
 /* for bmet_item page */
 #bmet_item_summary {
+	height:55%; //this percentage height setting works fine
 	#action-bar{
 		#field-box_item-id{
 			float: left;
@@ -678,6 +682,14 @@ body {
 		.action_submit {
 			float:left;
 		}
+		.create_wo_for_item{
+			@extend .action-bar_select_box;
+			background-color: $red;
+			float:left;
+		}
+	}
+	#properties-box {
+		height:80%;
 	}
 }
 
@@ -744,12 +756,16 @@ body {
 			}
 		}
 	}
+	#properties-box {
+		height:65%;
+	}
 }
 
 #object-single-col-box {
 	margin: 10px;
 	height: 100%;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #object-form-single-col{
@@ -821,6 +837,13 @@ body {
 		}
 		
 	}
+}
+
+#bmet_item_details{
+	background-color: $gray;
+	overflow-y: scroll;
+	position : relative;
+	height:45%;
 }
 
 /*     object add-info     */

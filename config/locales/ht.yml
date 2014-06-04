@@ -52,6 +52,8 @@ ht:
    create_work_order: "kreye lòd travay" 
    created_at: "kote bagay la te kreye" 
    created: "kreye" 
+   current_model: "creole"
+   current: "creole"
    dashboard: "grafik infòmasyon" 
    date_added: "creole"
    date_completed: "dat konplete" 
