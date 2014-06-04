@@ -112,6 +112,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
   def reset
     @facility_preventative_maintenance.reset()
+    redirect_to :back, notice: 'Preventative Maintenance successfully reset'
   end
 
   private 
