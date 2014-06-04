@@ -98,8 +98,9 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
 
     respond_to do |format|
-      if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @facility_work_request.save
-        format.html { redirect_to '/facility_work_requests/public_show/'+@facility_work_request.id.to_s, notice: 'Work order was successfully created.' }
+      # if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @facility_work_request.save
+      if @facility_work_request.save
+        format.html { redirect_to '/facility_work_requests/public_show/'+@facility_work_request.id.to_s, notice: 'Work request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
         format.html { render action: 'public_new', layout: "application" }
