@@ -24,6 +24,7 @@ class BmetWorkOrderCommentsControllerTest < ActionController::TestCase
     	@request.headers["HTTP_REFERER"] = "/bmet_work_orders/unhidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
       post :create, bmet_work_order_comment: { bmet_work_order_id: @bmet_work_order_comment.bmet_work_order_id, comment_text: @bmet_work_order_comment.comment_text, datetime_stamp: @bmet_work_order_comment.datetime_stamp, user_id: @bmet_work_order_comment.user_id }
     end
+    assert_equal assigns(:bmet_work_order_comment).user_id, @user.id
     assert_redirected_to "/bmet_work_orders/unhidden/"+(@bmet_work_order_comment.bmet_work_order.id.to_s)
     assert_response :redirect
   end

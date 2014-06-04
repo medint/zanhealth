@@ -70,6 +70,7 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
                    
                            }
     end      
+    assert_not_nil facility_work_requests(:fac_wr_origin).deleted_at # means it is hidden
     #be careful of FacilityWorkRequest. right now the behavior of find includes deleted_at, 
     assert_not_nil FacilityWorkRequest.find(assigns["facility_work_order"].wr_origin_id).wo_convert_id
     assert_not_nil facility_work_requests(:fac_wr_origin).wo_convert_id

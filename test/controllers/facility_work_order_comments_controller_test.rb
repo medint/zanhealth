@@ -22,9 +22,14 @@ class FacilityWorkOrderCommentsControllerTest < ActionController::TestCase
   test "should create facility_work_order_comment with unhidden work order" do
     assert_difference('FacilityWorkOrderComment.count') do
   	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
-      post :create, facility_work_order_comment: { comment_text: @facility_work_order_comment.comment_text, datetime_stamp: @facility_work_order_comment.datetime_stamp, facility_work_order_id: @facility_work_order_comment.facility_work_order_id, user_id: @facility_work_order_comment.user_id }
+      post :create, facility_work_order_comment: { 
+        comment_text: @facility_work_order_comment.comment_text,
+        datetime_stamp: @facility_work_order_comment.datetime_stamp,
+        facility_work_order_id: @facility_work_order_comment.facility_work_order_id
+      }
     end
 
+    assert_equal assigns(:facility_work_order_comment).user_id, @user.id
     assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_work_order_comment.facility_work_order.id.to_s)
     assert_response  :redirect
   end

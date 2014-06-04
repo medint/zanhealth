@@ -28,7 +28,7 @@ google.setOnLoadCallback(drawStatusChart);
 				<tr>
 					<td></td>
 					<td>
-						<%= link_to t(:work_order).titlecase +' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>						
+						<%= link_to t(:work_order).titlecase+' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>						
 					</td>					
 					<td>
 						<%=work_order.date_expire.try(:strftime,"%^b %d, %Y")%>
