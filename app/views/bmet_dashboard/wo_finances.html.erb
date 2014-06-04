@@ -12,9 +12,9 @@ google.setOnLoadCallback(drawChart);
 	
 	<table id="dash_table">
 		<tr>
-			<th><%=@language['Work Order']%></th>
-			<th><%=@language['Department']%></th>
-			<th><%=@language['Cost']%></th>
+			<th><%=t(:work_order).titlecase %></th>
+			<th><%=t(:department).capitalize%></th>
+			<th><%=t(:cost).capitalize%></th>
 		</tr>
 		<% @work_orders_json.each do |department_name,value| %>
 				<tr>
@@ -26,7 +26,7 @@ google.setOnLoadCallback(drawChart);
 				<tr>
 					<td></td>
 					<td class="work_order_id">
-						<%=@language['Work Order']%> <%= work_order_id %>
+						<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>						
 					</td>					
 					<td class="cost_by_id">
 						<%=cost%>
@@ -47,14 +47,14 @@ google.setOnLoadCallback(drawChart);
 <!-- <div id=dashboard>
 	<table id="dash_table">
 		<tr>
-			<th><%#=@language['Work Order']%></th>
-			<th><%#=@language['Expire']%> </th>
+			<th><%#=t(:work_order).titlecase %></th>
+			<th><%#=t(:expire).capitalize%> </th>
 		</tr>
 
 		<%# @sumcost.each do |q| %>
 			<tr class="dash_tr">
 				<td class="work_order_id">
-					<%#=@language['Work Order']%> <%#= q[1] %>
+					<%#=t(:work_order).titlecase %> <%#= q[1] %>
 				</td>
 				<td class="work_order_status">
 					<%#=  %>

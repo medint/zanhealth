@@ -15,48 +15,48 @@
 
     <div id="field-box_item-id">
       <div class="item-id">
-        <%= @language['Preventative Maintenance'] %> # <%= @facility_preventative_maintenance.id %>
+        <%= t(:preventative_maintenance).titlecase %> # <%= @facility_preventative_maintenance.id %>
       </div>
     </div>
 
     <div class="field-box">
-      <div class="field-type"><%= @language['Last Date Checked'] %></div>
+      <div class="field-type"><%= t(:last_date_checked).titlecase %></div>
       <div class="field-info">
         <p><%= @facility_preventative_maintenance.last_date_checked %></p></div>
     </div>
     <div class="field-box">
-      <div class="field-type"><%= @language['Next Date'] %></div>
+      <div class="field-type"><%= t(:next_date).titlecase %></div>
       <div class="field-info">
         <p><%= @facility_preventative_maintenance.next_date %></p>
       </div>
     </div>
   	<div class="field-box">
-      <div class="field-type"><%= @language['Days Until'] %></div>
+      <div class="field-type"><%= t(:days_until).titlecase %></div>
       <div class="field-info">
         <p><%= @facility_preventative_maintenance.days_since %></p>
       </div>
     </div>
 
     <div class="field-box">
-      <div class="field-type"><%= @language['Days'] %></div>
+      <div class="field-type"><%= t(:days).capitalize %></div>
       <div class="field-info"><%= f.number_field :days, :required => true %></div>
     </div>
     <div class="field-box">
-      <div class="field-type"><%= @language['Weeks'] %></div>
+      <div class="field-type"><%= t(:weeks).capitalize %></div>
       <div class="field-info"><%= f.number_field :weeks %></div>
     </div>
     <div class="field-box">
-      <div class="field-type"><%= @language['Months'] %></div>
+      <div class="field-type"><%= t(:months).capitalize %></div>
       <div class="field-info"><%= f.number_field :months %></div>
     </div>  
     <div class="field-box">
-      <div class="field-type"><%= @language['Description'] %></div>
+      <div class="field-type"><%= t(:description).capitalize %></div>
       <div class="field-info"><%= f.text_area :description, :required => true %></div>
     </div>
    
   	<% if can? :update, current_user %>
       	<div class="action_submit">
-       		 <%= f.submit @language['Save Changes']%>
+       		 <%= f.submit t(:save_changes).titlecase%>
       	</div>
   	<% end %>
   </div>

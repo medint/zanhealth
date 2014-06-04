@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="action_submit">
-          <%= f.submit @language['Save Changes']%>
+          <%= f.submit t(:save_changes).titlecase%>
         </div>
         <div id="print-button_right"></div>
         
@@ -37,55 +37,58 @@
       <div id="properties-box">
         <table id="properties-table">
           <tr>
-            <td><%= @language['Model'] %></td>
+            <td>
+              <%= t(:model).capitalize %>
+              <%= link_to '('+t(:current_model).titlecase+')', @bmet_item.bmet_model %>
+            </td>
             <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
           </tr>
           <tr>
-            <td><%= @language['Asset ID'] %></td>
+            <td><%= t(:asset_id).titlecase %></td>
             <td><%= f.text_field :asset_id %></td>
           </tr>
           <tr>
-            <td><%= @language['Serial Number'] %></td>
+            <td><%= t(:serial_number).titlecase %></td>
             <td><%= f.text_field :serial_number %></td>
           </tr>
           <tr>
-            <td><%= @language['Department'] %></td>
+            <td><%= t(:department).capitalize %></td>
             <td><%= f.collection_select :department_id, @departments, :id, :name %></td>
           </tr>
           <tr>
-            <td><%= @language['Year Manufactured'] %></td>
+            <td><%= t(:year_manufactured).titlecase %></td>
             <td><%= f.number_field :year_manufactured %></td>
           </tr>
           <tr>
-            <td><%= @language['Funding'] %></td>
+            <td><%= t(:funding).capitalize %></td>
             <td><%= f.text_field :funding %></td>
           </tr>
           <tr>
-            <td><%= @language['Date Received'] %></td>
+            <td><%= t(:date_received).titlecase %></td>
             <td><%= f.date_select :date_received %></td>
           </tr>
           <tr>
-            <td><%= @language['Warranty Expires'] %></td>
+            <td><%= t(:warranty_expires).titlecase %></td>
             <td><%= f.date_select :warranty_expire %></td>
           </tr>
           <tr>
-            <td><%= @language['Contract Expires'] %></td>
+            <td><%= t(:contract_expires).titlecase %></td>
             <td><%= f.date_select :contract_expire %></td>
           </tr>
           <tr>
-            <td><%= @language['Warranty Notes'] %></td>
+            <td><%= t(:warranty_notes).titlecase %></td>
             <td><%= f.text_area :warranty_notes %></td>
           </tr>
           <tr>
-            <td><%= @language['Service Agent'] %></td>
+            <td><%= t(:service_agent).titlecase %></td>
             <td><%= f.text_field :service_agent %></td>
           </tr>
           <tr>
-            <td><%= @language['Price'] %></td>
+            <td><%= t(:price).capitalize %></td>
             <td><%= f.number_field :price %></td>
           </tr>
           <tr>
-            <td><%= @language['Created At'] %></td>
+            <td><%= t(:created_at).titlecase %></td>
             <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>
           </tr>
         </table>     

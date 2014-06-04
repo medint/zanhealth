@@ -1,6 +1,6 @@
-<h1><%= @language['Role']%></h1>
+<h1><%= t(:role).capitalize%></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @role %> |
-<%= link_to @language['Back'], roles_path %>
+<%= link_to t(:show).capitalize, @role %> |
+<%= link_to t(:back).capitalize, roles_path %>

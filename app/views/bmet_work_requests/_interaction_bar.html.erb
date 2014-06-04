@@ -2,25 +2,25 @@
   <div id="top-dropdown">
     
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-    <%= @language['Sort'] %>: <div class="dropdown">
+    <%= t(:sort).capitalize %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        <%= @language['Select Attribute'] %>
+        <%= t(:select_attribute).titlecase %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
          <div>
          <a onclick = "sort_by_name('requester')">
-          <%=@language['Requester']%>
+          <%=t(:requester).capitalize%>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_num('Department')">
-          <%=@language['Department']%>
+          <%=t(:department).capitalize%>
          </a>
          </div>
          <div>
          <a onclick = "sort_by_num('ID')">
-          <%=@language['ID']%>
+          <%=t(:id).capitalize%>
          </a>
          </div>
       </ul>
@@ -54,6 +54,6 @@
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
     <a href= "<%=new_bmet_work_request_path%>" id='add-button'></a>
-    <%= link_to @language["Export Data"], bmet_work_requests_url+"/download" %>
+    <%= link_to t(:export_data).titlecase, bmet_work_requests_url+"/download" %>
   </div>
 </div>

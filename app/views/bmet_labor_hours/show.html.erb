@@ -1,26 +1,26 @@
 <div class='wr'>
-  <%= link_to @language['Edit'], edit_bmet_labor_hour_path(@bmet_labor_hour) %>
+  <%= link_to t(:edit).capitalize, edit_bmet_labor_hour_path(@bmet_labor_hour) %>
   <div class='attributes'>
     <div class='left-attributes'>
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong><%= @language['Date Started'] %>:</strong>
+        <strong><%= t(:date_started).titlecase %>:</strong>
         <%= @bmet_labor_hour.date_started %>
       </p>
 
       <p>
-        <strong><%= @language['Duration'] %>:</strong>
+        <strong><%= t(:duration).capitalize %>:</strong>
         <%= @bmet_labor_hour.duration %>
       </p>
 
       <p>
-        <strong><%= @language['Technician ID'] %>:</strong>
+        <strong><%= t(:technician_id).titlecase %>:</strong>
         <%= @bmet_labor_hour.technician_id %>
       </p>
 
       <p>
-        <strong><%= @language['Work Request ID'] %>:</strong>
+        <strong><%= t(:work_request_id).titlecase %>:</strong>
         <%= @bmet_labor_hour.bmet_work_order_id %>
       </p>
     </div>

@@ -1,6 +1,6 @@
-<h1><%= "Editing #{@language['Labor Hours']}" %></h1>
+<h1><%= "Editing #{t(:labor_hours).titlecase}" %></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @bmet_work_order %> |
-<%= link_to @language['Back'], bmet_work_orders_path %>
+<%= link_to t(:show).capitalize, @bmet_work_order %> |
+<%= link_to t(:back).capitalize, bmet_work_orders_path %>

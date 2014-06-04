@@ -12,28 +12,28 @@
 
       <div id="object-form-single-col">
         <div class="field-box">
-          <div class="field-type"><%= @language['Date to Start PM'] %></div>
+          <div class="field-type"><%= t(:date_to_start_pm).titlecase %></div>
           <div class="field-info"><%= f.date_select :last_date_checked, use_short_month: true %></div>
         </div>
         <div class="field-box">
-          <div class="field-type"><%= @language['Days'] %></div>
+          <div class="field-type"><%= t(:days).capitalize %></div>
           <div class="field-info"><%= f.number_field :days, :required => true, :value => 0 %></div>
         </div>
         <div class="field-box">
-          <div class="field-type"><%= @language['Weeks'] %></div>
+          <div class="field-type"><%= t(:weeks).capitalize %></div>
           <div class="field-info"><%= f.number_field :weeks, :required => true, :value => 0 %></div>
         </div>
         <div class="field-box">
-          <div class="field-type"><%= @language['Months'] %></div>
+          <div class="field-type"><%= t(:months).capitalize %></div>
           <div class="field-info"><%= f.number_field :months, :required => true, :value => 0 %></div>
         </div>  
         <div class="field-box">
-          <div class="field-type"><%= @language['Description'] %></div>
+          <div class="field-type"><%= t(:description).capitalize %></div>
           <div class="field-info"><%= f.text_area :description, :required => true %></div>
         </div>
      
         <div class="action_submit">
-          <%= f.submit @language['Create PM']%>
+          <%= f.submit t(:create_pm).titlecase%>
         </div>
       </div>  
   <% end %>

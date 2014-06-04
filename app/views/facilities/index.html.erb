@@ -1,9 +1,9 @@
-<h1><%= @language['Facilities']%></h1>
+<h1><%= t(:facilities).capitalize%></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= @language['Name']%></th>
+      <th><%= t(:name).capitalize%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +14,9 @@
     <% @facilities.each do |facility| %>
       <tr>
         <td><%= facility.name %></td>
-        <td><%= link_to @language['Show'], facility %></td>
-        <td><%= link_to @language['Edit'], edit_facility_path(facility) %></td>
-        <td><%= link_to @language['Destroy'], facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, facility %></td>
+        <td><%= link_to t(:edit).capitalize, edit_facility_path(facility) %></td>
+        <td><%= link_to t(:destroy).capitalize, facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to @language['New Facility'], new_facility_path %>
+<%= link_to t(:new_facility).titlecase, new_facility_path %>

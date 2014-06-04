@@ -1,9 +1,9 @@
-<h1><%= @language['Role'] %></h1>
+<h1><%= t(:role).capitalize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= @language['Name'] %></th>
+      <th><%= t(:name).capitalize %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,9 +14,9 @@
     <% @roles.each do |role| %>
       <tr>
         <td><%= role.name %></td>
-        <td><%= link_to @language['Show'], role %></td>
-        <td><%= link_to @language['Edit'], edit_role_path(role) %></td>
-        <td><%= link_to @language['Destroy'], role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, role %></td>
+        <td><%= link_to t(:edit).capitalize, edit_role_path(role) %></td>
+        <td><%= link_to t(:destroy).capitalize, role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to @language['New Role'], new_role_path %>
+<%= link_to t(:new_role).titlecase, new_role_path %>

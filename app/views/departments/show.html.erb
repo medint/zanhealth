@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @language['Name'] %></strong>
+  <strong><%= t(:name).capitalize %></strong>
   <%= @department.name %>
 </p>
 
 <p>
-  <strong><%= @language['Facilities'] %></strong>
+  <strong><%= t(:facilities).capitalize %></strong>
   <%= @department.facility_id %>
 </p>
 

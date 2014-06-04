@@ -1,38 +1,38 @@
 <div>
 	<div id="left_half">
 		<p>
-			<%=@language['ID'] %>:
+			<%=t(:id).capitalize %>:
 			<%= @facility_preventative_maintenance.id %>
 		</p>
 
 		<p>
-			<%=@language['Last Date Checked'] %>:
+			<%=t(:last_date_checked).titlecase %>:
 			<%= @facility_preventative_maintenance.last_date_checked %>
 		</p>
 		<p>
-			<%=@language['Days'] %>:
+			<%=t(:days).capitalize %>:
 			<%= @facility_preventative_maintenance.days %>
 		</p>
 
 		<p>
-			<%=@language['Weeks'] %>:
+			<%=t(:weeks).capitalize %>:
 			<%= @facility_preventative_maintenance.weeks %>
 		</p>
 
 		<p>
-			<%=@language['Months'] %>:
+			<%=t(:months).capitalize %>:
 			<%= @facility_preventative_maintenance.months %>
 		</p>
 		<p>	
-			<%=@language['Next Date'] %>:
+			<%=t(:next_date).titlecase %>:
 			<%= @facility_preventative_maintenance.next_date %>
 		</p>
 		<p>	
-			<%=@language['Created At'] %>:
+			<%=t(:created_at).titlecase %>:
 			<%= @facility_preventative_maintenance.created_at %>
 		</p>
 		<p>	
-			<%=@language['Updated At'] %>:
+			<%=t(:updated_at).titlecase %>:
 			<%= @facility_preventative_maintenance.updated_at %>
 		</p>
 		

@@ -570,7 +570,6 @@ body {
 	}
 }
 
-
 .object_form_icons {					
 	background-size: 100%;
 	width: 20px;
@@ -608,29 +607,13 @@ body {
 	}
 }
 
-/* for bmet_item page */
-#bmet_item_summary {
-	#action-bar{
-		#field-box_item-id{
-			float: left;
-			width:120px;			
-		}
-		.bmet_item_status {
-			float:left;
-		}
-		.bmet_item_condition {
-			float:left;
-		}
-		#print-button_right {
-			float:left;
-		}
-		.action_submit {
-			float:left;
-		}
-	}
-}
-
 /*      object box     */
+
+#object_table_layout{
+	padding:10px 10px 10px 10px;
+	overflow-y: scroll;
+	height: 295px;
+}
 
 #properties-box {
 	overflow-x: hidden;
@@ -672,18 +655,43 @@ body {
 	}
 }
 
+
+
+/* page specific scopes */
+
+/* for bmet_item page */
+#bmet_item_summary {
+	#action-bar{
+		#field-box_item-id{
+			float: left;
+			width:120px;			
+		}
+		.bmet_item_status {
+			float:left;
+		}
+		.bmet_item_condition {
+			float:left;
+		}
+		#print-button_right {
+			float:left;
+		}
+		.action_submit {
+			float:left;
+		}
+	}
+}
+
 /*     object form     */
 	
-#object_table_layout{
-	padding:10px 10px 10px 10px;
-	overflow-y: scroll;
-	height: 295px;	//move to work order specific scope
-
+#work_order_summary{
 
 	#action-bar {
 		width:100%;
 		height: 40px;
 		display: block;
+		#field-box_item-id{
+			float: left;
+		}
 		#archive-button_right{
 			margin-left:10px;
 			float:left;

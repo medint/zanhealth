@@ -1,29 +1,29 @@
-<p id="notice"><%= @language['Notice'] %></p>
+<p id="notice"><%= t(:notice).capitalize %></p>
 
 <p>
-  <strong><%= @language['Item']%>:</strong>
+  <strong><%= t(:item).capitalize%>:</strong>
   <%= @item_history.bmet_item_id %>
 </p>
 
 <p>
-  <strong><%= @language['Date/Time']%>:</strong>
+  <strong><%= t(:date_added).titlecase %>:</strong>
   <%= @item_history.datetime %>
 </p>
 
 <p>
-  <strong><%= @language['Status']%>:</strong>
+  <strong><%= t(:status).capitalize%>:</strong>
   <%= @item_history.status %>
 </p>
 
 <p>
-  <strong><%= @language['Utilization']%>:</strong>
+  <strong><%= t(:utilization).capitalize%>:</strong>
   <%= @item_history.utilization %>
 </p>
 
 <p>
-  <strong><%= @language['Remarks']%>:</strong>
+  <strong><%= t(:remarks).capitalize%>:</strong>
   <%= @item_history.remarks %>
 </p>
 
-<%= link_to @language['Edit'], edit_bmet_item_history_path(@item_history) %> |
-<%= link_to @language['Back'], bmet_item_histories_path %>
+<%= link_to t(:edit).capitalize, edit_bmet_item_history_path(@item_history) %> |
+<%= link_to t(:back).capitalize, bmet_item_histories_path %>
