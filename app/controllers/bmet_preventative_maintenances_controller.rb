@@ -117,6 +117,11 @@ class BmetPreventativeMaintenancesController < ApplicationController
 	  end
   end
 
+  def reset
+    @bmet_preventative_maintenance.reset()
+    redirect_to :back, notice: 'Preventative Maintenance successfully reset'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status

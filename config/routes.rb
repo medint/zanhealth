@@ -119,6 +119,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_preventative_maintenances/hidden/:id", to: "bmet_preventative_maintenances#show_hidden"
   get "/bmet_preventative_maintenances/all", to: "bmet_preventative_maintenances#all"
   get "/bmet_preventative_maintenances/all/:id", to: "bmet_preventative_maintenances#show_all"
+  put "/reset_bmet_preventative_maintenance/:id", to: "bmet_preventative_maintenances#reset"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  

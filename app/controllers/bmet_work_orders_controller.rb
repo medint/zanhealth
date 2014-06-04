@@ -211,8 +211,8 @@ class BmetWorkOrdersController < ApplicationController
     end
 
     def reset_original_pm
-      if @facility_work_order.status == 2 and @facility_work_order.pm_origin
-        pm = @facility_work_order.pm_origin
+      if @bmet_work_order.status == 2 and @bmet_work_order.pm_origin
+        pm = @bmet_work_order.pm_origin
         pm.reset()
       end
     end
