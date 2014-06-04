@@ -9,6 +9,7 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_work_orders, only: [:show_all, :all, :as_csv]
   after_action :set_converted_wr, only: [:create]
+  after_action :reset_original_pm, only: [:create, :update]
 
   def search
     @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
@@ -62,14 +63,14 @@ class FacilityWorkOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @facility_work_order.update(facility_work_order_params)
-      	  link = request.referer.split("/")[-2]
+        link = request.referer.split("/")[-2]
       	if link == "hidden"
       		format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		elsif link == "all"
-			format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		else
+		    elsif link == "all"
+			    format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+		    else
         	format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		end
+		    end
         format.json { head :no_content }
       else
         format.html { redirect_to :back }
@@ -147,17 +148,17 @@ class FacilityWorkOrdersController < ApplicationController
     end
 
     def set_facility_work_orders
-        @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+        @facility_work_orders = FacilityWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
         @link = facility_work_orders_url+"/unhidden/"
     end
 
     def set_hidden_work_orders
-        @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+        @facility_work_orders = FacilityWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).order(:created_at).reverse_order()
         @link = facility_work_orders_url+"/hidden/"
     end
 
     def set_all_work_orders
-        @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+        @facility_work_orders = FacilityWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).order(:created_at).reverse_order()
         @link = facility_work_orders_url+"/all/"
     end
 
@@ -182,5 +183,12 @@ class FacilityWorkOrdersController < ApplicationController
 
     def facility_work_order_params
         params.require(:facility_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :item_id, :department_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :pm_origin_id, :wr_origin_id)
+    end
+
+    def reset_original_pm
+      if @facility_work_order.status == 2 and @facility_work_order.pm_origin
+        pm = @facility_work_order.pm_origin
+        pm.reset()
+      end
     end
 end

@@ -147,19 +147,19 @@ class BmetPreventativeMaintenancesController < ApplicationController
     end
 
     def set_bmet_preventative_maintenances
-      @bmet_preventative_maintenances = BmetPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+      @bmet_preventative_maintenances = BmetPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
       @bmet_preventative_maintenances.map {|i| i.calc_days_since}        
       @link = bmet_preventative_maintenances_url+'/unhidden/'
     end
 
     def set_hidden_bmet_preventative_maintenances
-    	@bmet_preventative_maintenances = BmetPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+    	@bmet_preventative_maintenances = BmetPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
     	@bmet_preventative_maintenances.map {|i| i.calc_days_since }
       @link = bmet_preventative_maintenances_url+'/hidden/'
 	end
 
 	def set_all_bmet_preventative_maintenances
-		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
 		@bmet_preventative_maintenances.map {|i| i.calc_days_since }
     @link = bmet_preventative_maintenances_url+'/all/'
 	end

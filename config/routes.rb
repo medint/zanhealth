@@ -82,6 +82,7 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/hidden/:id", to: "facility_preventative_maintenances#show_hidden"
   get "/facility_preventative_maintenances/all", to: "facility_preventative_maintenances#all"
   get "/facility_preventative_maintenances/all/:id", to: "facility_preventative_maintenances#show_all"
+  put "/reset_facility_preventative_maintenance/:id", to: "facility_preventative_maintenances#reset"
 
   # hide/unhide features for facility work requests
   put "hide_facility_work_request/:id", to: "facility_work_requests#hide", :as => :hide_facility_work_request

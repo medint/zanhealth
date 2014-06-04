@@ -184,7 +184,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def set_all_facility_work_requests
-      @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a.order(:created_at).reverse_order()
       @link = facility_work_requests_url+"/all/"
     end
 
