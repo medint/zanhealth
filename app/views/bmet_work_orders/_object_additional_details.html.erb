@@ -27,9 +27,11 @@
       <div class='extra-details_title'>
         <%= t(:costs).capitalize %>
       </div>
-      <ul id='extra-details_comment_ul'>
+      <table id="costs_table">
+      <!-- <ul id='extra-details_comment_ul'> -->
 	      <%= render @bmet_costs %>
-      </ul>
+      <!-- </ul> -->
+      </table>
     </div>      
       <%= render 'bmet_costs/bmet_cost_form' %>
   </div>

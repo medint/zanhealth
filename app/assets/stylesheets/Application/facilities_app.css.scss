@@ -871,6 +871,7 @@ body {
 #object_extra-details{
 	background-color: $gray;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	position : relative;
 	height:45%;
 	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
@@ -942,6 +943,7 @@ body {
 
 .extra-details_content{
 	padding-left : 10px;
+	padding-right : 10px;
 	min-height:100px;
 }
 
@@ -964,6 +966,52 @@ body {
 	font-weight:100;
 	color: #bebebe;
 }
+
+ #costs_table {
+  width:100%;
+  margin-bottom:10px;
+  td{
+    background-color: white;
+    color:black;
+  }
+  td:nth-child(1){ //name
+    width: 45%;
+    color: #ebebeb;
+    background-color: #479a1f;
+    padding-left:5px;
+  }
+  td:nth-child(2){ //$
+    padding-left:10px;
+  }
+  td:nth-child(3){ //unit cost
+    width: 10%;
+    text-align:right;
+  }
+  td:nth-child(4){ //X
+    padding-left:15px;
+  }
+  td:nth-child(5){ //quantity
+    text-align:right;
+    width: 8%;
+  }
+  td:nth-child(6){ //= $
+    padding-left:15px;
+  }
+  td:nth-child(7){ //unit total
+    text-align:right;
+    width:13%;
+  }
+  td:nth-child(8){
+    color:red;
+    padding-left:10px;
+    padding-right: 5px;
+  }
+
+  tr{
+    height:20px;
+  }
+}
+
 
 #extra-details_comment_ul{
 	color:#ebebeb;
