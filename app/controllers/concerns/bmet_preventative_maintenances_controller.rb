@@ -15,14 +15,14 @@ class BmetPreventativeMaintenancesController < ApplicationController
   def new
 
     @bmet_preventative_maintenances = BmetPreventativeMaintenance.all
-    @bmet_preventative_maintenances.map {|i| i.calc_days_since}
+    @bmet_preventative_maintenances.map {|i| i.calc_days_until}
     @bmet_preventative_maintenance = BmetPreventativeMaintenance.new
 
   end
 
   def index
     @bmet_preventative_maintenances = BmetPreventativeMaintenance.all 
-    @bmet_preventative_maintenances.map {|i| i.calc_days_since}
+    @bmet_preventative_maintenances.map {|i| i.calc_days_until}
     
   end
 
@@ -30,7 +30,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
 
     @bmet_preventative_maintenances = BmetPreventativeMaintenance.all
-    @bmet_preventative_maintenances.map {|i| i.calc_days_since}
+    @bmet_preventative_maintenances.map {|i| i.calc_days_until}
     
     @input_object = BmetWorkOrder.new
     @input_object.description = @bmet_preventative_maintenance.description
@@ -89,7 +89,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
   def set_bmet_preventative_maintenance
       @bmet_preventative_maintenance = BmetPreventativeMaintenance.find(params[:id])
-      @bmet_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+      @bmet_preventative_maintenance.calc_days_until # necessary because diff object from those inside pluralized PM object
   end
 
 

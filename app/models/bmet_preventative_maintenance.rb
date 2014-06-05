@@ -20,16 +20,16 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date
-  attr_accessor :days_since
+  attr_accessor :days_until
   attr_accessor :status
   validate :not_all_zero
 
-  def calc_days_since
+  def calc_days_until
     unless self.next_date.nil?
-      self.days_since = (self.next_date - Time.zone.now).to_i/1.day
-      if self.days_since > 3
+      self.days_until = (self.next_date - Time.zone.now).to_i/1.day
+      if self.days_until > 3
           self.status = 2
-      elsif self.days_since > -3
+      elsif self.days_until > -3
           self.status = 1
       else
           self.status = 0
