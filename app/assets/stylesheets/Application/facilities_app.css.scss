@@ -942,10 +942,11 @@ body {
 
 .extra-details_content{
 	padding-left : 10px;
+	min-height:100px;
 }
 
 
-.toggle-buttons{
+.tab-navigation-buttons{
 	list-style: none;
 	padding-left: 15px;
 	margin-top: 14px;
@@ -1050,9 +1051,10 @@ body {
 
 
 .extra-details_form-div{		
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
+	//position: absolute;
+	//bottom: 0px;
+	//right: 0px;
+	//disabled so can scoll
 	width : 100%;
 	color : #bebebe;
 }
