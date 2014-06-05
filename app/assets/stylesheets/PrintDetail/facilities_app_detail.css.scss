@@ -383,13 +383,13 @@ body {
 }
 
 /*     object add-info     */
-#object_additional-details{
+#object_extra-details{
 	background-color: $gray;
 	overflow-y: scroll;
 	position : relative;
 	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
 
-	.additional-details_nav{
+	.extra-details_navigation{
 		background-color: $gray;
 		padding: 0px;
 		margin: 0px;
@@ -432,7 +432,7 @@ body {
    	-webkit-appearance: none;
 }
 
-.additional-detail_formstyle {
+.extra-detail_formstyle {
 	float:left;
 	textarea{
 		@extend .transparent-form-elem;
@@ -454,9 +454,9 @@ body {
 	}
 }
 
-.additional-details-box{
+.extra-details-box{
 	width: 100%;
-	@extend .additional-detail_formstyle;
+	@extend .extra-detail_formstyle;
 
 	.field-type{
 		color: white;
@@ -465,7 +465,7 @@ body {
 
 }
 
-.additional-details_content{
+.extra-details_content{
 	padding-left : 10px;
 }
 
@@ -481,7 +481,7 @@ body {
 	}
 }
 
-.additional-details_title{
+.extra-details_title{
 	margin-top: 10px;
 	margin-bottom:10px;
 	font-size: 15px;
@@ -489,7 +489,7 @@ body {
 	color: #bebebe;
 }
 
-#additional-details_comment_ul{
+#extra-details_comment_ul{
 	color:#ebebeb;
 	font-size:11px;
 	list-style-type:none;

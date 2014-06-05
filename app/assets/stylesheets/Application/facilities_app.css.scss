@@ -615,13 +615,10 @@ body {
 
 #object_table_layout{
 	padding:10px 10px 10px 10px;
-	overflow-y: scroll;
-	height: 295px;
 }
 
 #properties-box {
 	overflow-x: hidden;
-	overflow-y: scroll;
 	background-color : white;
 	margin-top: 10px;
 	width:100%;
@@ -665,6 +662,7 @@ body {
 /* for bmet_item page */
 #bmet_item_summary {
 	height:55%; //this percentage height setting works fine
+	overflow-y:scroll;
 	#action-bar{
 		#field-box_item-id{
 			float: left;
@@ -688,15 +686,41 @@ body {
 			float:left;
 		}
 	}
-	#properties-box {
-		height:80%;
-	}
 }
 
 /*     object form     */
+
+
+.color-code-line{
+	margin:0;
+	padding:0;
+	border:0;
+	height:2px;
+}
+
+#created-line{
+	color: $red;
+	background-color: $red;
+}
+
+#started-line{
+	color: $yellow;
+	background-color:$yellow;
+}
+
+#expired-line{
+	color:$gray;
+	background:$gray;
+}
+
+#completed-line{
+	color: $green;
+	background-color:$green;
+}
 	
 #work_order_summary{
-
+	height:55%;
+	overflow-y:scroll;
 	#action-bar {
 		width:100%;
 		height: 40px;
@@ -755,9 +779,6 @@ body {
 			   	height: 20px;
 			}
 		}
-	}
-	#properties-box {
-		height:65%;
 	}
 }
 
@@ -847,13 +868,14 @@ body {
 }
 
 /*     object add-info     */
-#object_additional-details{
+#object_extra-details{
 	background-color: $gray;
 	overflow-y: scroll;
 	position : relative;
+	height:45%;
 	//http://stackoverflow.com/questions/14327104/any-way-for-positionabsolute-div-to-retain-relative-width
 
-	.additional-details_nav{
+	.extra-details_nav{
 		background-color: $gray;
 		padding: 0px;
 		margin: 0px;
@@ -887,7 +909,7 @@ body {
 
 }
 
-.additional-detail_formstyle {
+.extra-details_formstyle {
 	float:left;
 	@extend .transparent-form-elements;
 	textarea{
@@ -907,9 +929,9 @@ body {
 	}
 }
 
-.additional-details-box{
+.extra-details-box{
 	width: 100%;
-	@extend .additional-detail_formstyle;
+	@extend .extra-details_formstyle;
 
 	.field-type{
 		color: white;
@@ -918,7 +940,7 @@ body {
 
 }
 
-.additional-details_content{
+.extra-details_content{
 	padding-left : 10px;
 }
 
@@ -934,7 +956,7 @@ body {
 	}
 }
 
-.additional-details_title{
+.extra-details_title{
 	margin-top: 10px;
 	margin-bottom:10px;
 	font-size: 15px;
@@ -942,7 +964,7 @@ body {
 	color: #bebebe;
 }
 
-#additional-details_comment_ul{
+#extra-details_comment_ul{
 	color:#ebebeb;
 	font-size:11px;
 	list-style-type:none;
@@ -1027,7 +1049,7 @@ body {
 
 
 
-.additional-details_form-div{		
+.extra-details_form-div{		
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
@@ -1037,39 +1059,39 @@ body {
 
 
 
-#additional-detail_cost_name{
+#extra-details_cost_name{
 	width:60%;		
-	@extend .additional-detail_formstyle;
+	@extend .extra-details_formstyle;
 }
 
-#additional-detail_cost_quantity{
+#extra-details_cost_quantity{
 	width:15%;
-	@extend .additional-detail_formstyle;
+	@extend .extra-details_formstyle;
 }
 
-#additional-detail_cost_amount{
+#extra-details_cost_amount{
 	width:15%;
-	@extend .additional-detail_formstyle;
+	@extend .extra-details_formstyle;
 }
 
-#additional-detail_comment_descr{
+#extra-details_comment_descr{
 	width:85%;
-	@extend .additional-detail_formstyle;	
+	@extend .extra-details_formstyle;	
 }
 
-#additional-detail_labor_date {
+#extra-details_labor_date {
 	width:40%;
-	@extend .additional-detail_formstyle;	
+	@extend .extra-details_formstyle;	
 }
 
-#additional-detail_labor_hours{
+#extra-details_labor_hours{
 	width:20%;
-	@extend .additional-detail_formstyle;	
+	@extend .extra-details_formstyle;	
 }
 
-#additional-detail_labor_tech{
+#extra-details_labor_tech{
 	width:30%;
-	@extend .additional-detail_formstyle;	
+	@extend .extra-details_formstyle;	
 }
 
 #labor_date-title{
@@ -1085,7 +1107,7 @@ body {
 	width: 30%
 }
 
-.additional-details_hr{
+.extra-details_hr{
 	height:1px;
 	width:100%;
 	border:0px;
@@ -1095,7 +1117,7 @@ body {
 	background-color: #bebebe;
 }
 
-.additional-detail_actions{	
+.extra-details_actions{	
 	float:left;
 	input{
 		font-weight:100;
@@ -1105,33 +1127,6 @@ body {
 	 	color:#ebebeb !important;
 	 	background:url(../images/btn_hover.png) repeat-x !important;
 	}
-}
-
-.color-code-line{
-	margin:0;
-	padding:0;
-	border:0;
-	height:2px;
-}
-
-#created-line{
-	color: $red;
-	background-color: $red;
-}
-
-#started-line{
-	color: $yellow;
-	background-color:$yellow;
-}
-
-#expired-line{
-	color:$gray;
-	background:$gray;
-}
-
-#completed-line{
-	color: $green;
-	background-color:$green;
 }
 
 

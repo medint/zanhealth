@@ -1,8 +1,8 @@
 <!--fill in with names of boxes-->
-<div id="object_additional-details">
+<div id="object_extra-details">
 
 
-<ul class="additional-details_nav">
+<ul class="extra-details_nav">
   <li id ="comment-icon" class="active"><a href="#comment" data-toggle="tab">Comment</a></li>
   <li id="cost-icon"><a href="#cost" data-toggle="tab">Cost</a></li>
   <li id="labor-icon"><a href="#labor" data-toggle="tab">Labor Hours</a></li>
@@ -12,33 +12,33 @@
 <!-- Tab panes -->
 <div class="tab-content">
   <div class="tab-pane active" id="comment">    
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
         <%= t(:comments).capitalize %>
       </div>
-    	<ul id='additional-details_comment_ul'>
+    	<ul id='extra-details_comment_ul'>
         <%= render @bmet_work_order_comments %>
       </ul>
     </div>
       <%= render 'bmet_work_order_comments/comment_new' %>
   </div>
   <div class="tab-pane" id="cost">
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
         <%= t(:costs).capitalize %>
       </div>
-      <ul id='additional-details_comment_ul'>
+      <ul id='extra-details_comment_ul'>
 	      <%= render @bmet_costs %>
       </ul>
     </div>      
       <%= render 'bmet_costs/bmet_cost_form' %>
   </div>
   <div class="tab-pane" id="labor">
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
         <%= t(:labor_hours).titlecase %>
       </div>
-      <ul id='additional-details_comment_ul'>
+      <ul id='extra-details_comment_ul'>
         <%= render @bmet_labor_hours %>
       </ul>
     </div>

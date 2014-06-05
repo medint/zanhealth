@@ -1,5 +1,5 @@
-<div class='additional-details_form-div'>
-  <hr class="additional-details_hr">
+<div class='extra-details_form-div'>
+  <hr class="extra-details_hr">
   <%= simple_form_for(@facility_cost) do |f| %>
   <% if @facility_cost.errors.any? %>
     <div id="error_explanation">
@@ -11,14 +11,14 @@
     </div>
   <% end %>
   
-  <div id="additional-detail_cost_name">
+  <div id="extra-details_cost_name">
     <%= f.text_area :name, :required => true, :placeholder => t(:name).capitalize %>
   </div>
-  <div id="additional-detail_cost_quantity">
+  <div id="extra-details_cost_quantity">
 
     <%= f.number_field :unit_quantity, :required => true, :placeholder => t(:quantity).capitalize %>
   </div>
-  <div id="additional-detail_cost_amount">
+  <div id="extra-details_cost_amount">
     <%= f.input_field :cost, :as => "decimal", :required => true, :placeholder => t(:cost).capitalize %>
   </div>
  
@@ -26,7 +26,7 @@
     <%= f.hidden_field :facility_work_order_id, :required => true, value: @facility_work_order.id %>
   </div>
 
-  <div class="additional-detail_actions">
+  <div class="extra-details_actions">
     <%= f.submit :value => ">"%>
   </div>
 <% end %>
