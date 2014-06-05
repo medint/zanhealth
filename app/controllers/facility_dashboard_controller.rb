@@ -23,7 +23,7 @@ class FacilityDashboardController < ApplicationController
 		@work_orders_json['cols'].push({id: 'B',label:'Start', type: 'date'})
 		@work_orders_json['cols'].push({id: 'C',label:'End', type: 'date'})
 
-#		@work_orders_json['rows'].push({'c'=>[{'v'=>@work_orders.first.id},{'v'=>'Unstarted'},{'v'=>self.format_json(@work_orders.first.created_at)},{'v'=>self.format_json(@work_orders.first.date_expire)}]})
+		#@work_orders_json['rows'].push({'c'=>[{'v'=>@work_orders.first.id},{'v'=>'Unstarted'},{'v'=>self.format_json(@work_orders.first.created_at)},{'v'=>self.format_json(@work_orders.first.date_expire)}]})
 
 		@work_orders.each do |wo|
 			if wo.status==0

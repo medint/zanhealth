@@ -37,13 +37,13 @@ class BmetItem < ActiveRecord::Base
 
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
-    if @original_bmet_item.status != self.status
+    if @original_bmet_item.try(:status) != self.status
       BmetItemHistory.create(
         :bmet_item_id => self.id,
         :bmet_item_status => self.status
       )
     end
-    if @original_bmet_item.condition != self.condition
+    if @original_bmet_item.try(:condition) != self.condition
       BmetItemHistory.create(
         :bmet_item_id => self.id,
         :bmet_item_condition => self.condition
