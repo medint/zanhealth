@@ -172,12 +172,16 @@ class BmetWorkOrdersController < ApplicationController
     def set_hidden_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
       @link = bmet_work_orders_url+"/hidden/"
-	end
+    end
 
-	def set_all_bmet_work_orders
+    def set_all_bmet_work_orders
       @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
       @link = bmet_work_orders_url+"/all/"
-	end
+    end
+
+    def set_items
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+    end
 
     def set_users
       @users = User.where(:facility_id => current_user.facility.id).all.to_a

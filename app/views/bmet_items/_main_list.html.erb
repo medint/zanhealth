@@ -7,7 +7,7 @@
       datecreated="<%= bmet_item.created_at.to_s(:number) %>">
         <div class="element_details">
           <p class="element_title">
-            <%= bmet_item.bmet_model.name %>
+            <%= bmet_item.asset_id %> : <%= bmet_item.bmet_model.name %>
           </p>
           <p class="element_description">
             <%= bmet_item.location %>

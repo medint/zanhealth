@@ -59,12 +59,13 @@ class BmetLaborHoursController < ApplicationController
       #@bmet_labor_hour=LaborHour.where(:id => params[:id])
   end
 
- # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
  	def set_bmet_labor_hour
-      @bmet_labor_hour = BmetLaborHour.find_by_id(params[:id])
-    end
-    def bmet_labor_hour_params
-      params.require(:bmet_labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
-    end
+    @bmet_labor_hour = BmetLaborHour.find_by_id(params[:id])
+  end
+
+  def bmet_labor_hour_params
+    params.require(:bmet_labor_hour).permit(:date_started, :duration, :technician_id, :bmet_work_order_id)
+  end
 
 end

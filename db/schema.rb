@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601195400) do
+ActiveRecord::Schema.define(version: 20140604064051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(version: 20140601195400) do
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
-    t.datetime "datetime"
-    t.integer  "status"
-    t.integer  "utilization"
+    t.integer  "bmet_item_status"
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "work_order_id"
+    t.integer  "bmet_item_condition"
+    t.integer  "work_order_status"
   end
 
   create_table "bmet_items", force: true do |t|

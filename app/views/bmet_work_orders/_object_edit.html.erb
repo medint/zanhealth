@@ -28,10 +28,9 @@
           <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% end %>
         
-        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>
-        
+        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>        
         <div class="action_submit">
-          <%= f.submit t(:save_changes).titlecase%>
+          <%= f.submit t(:save_changes).capitalize%>
         </div>
       </div>
 
@@ -63,6 +62,13 @@
       <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
       <div id="properties-box">
         <table id="properties-table">
+          <tr>
+            <td><%= t(:item).capitalize %></td>
+            <td>
+              <%= link_to @bmet_work_order.bmet_item.bmet_model.name, @bmet_work_order.bmet_item %></br>
+              at <%= @bmet_work_order.bmet_item.location %>
+            </td>
+          </tr>
           <tr>
             <td><%= t(:requester).capitalize %></td>
             <td><%= @bmet_work_order.requester.try(:name) %></td>

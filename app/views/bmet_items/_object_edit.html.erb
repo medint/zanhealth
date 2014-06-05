@@ -27,10 +27,16 @@
             <%= f.select :condition, @conditions %>
           </div>
         </div>
-        <div class="action_submit">
-          <%= f.submit t(:save_changes).titlecase%>
-        </div>
         <div id="print-button_right"></div>
+        <%# link_to  new_bmet_work_order_url %>
+        <div class="create_wo_for_item">
+          Create WO
+        </div>
+        <%# end %>
+        <div class="action_submit">
+          <%= f.submit t(:save).titlecase%>
+        </div>
+        
         
       </div>
       <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
@@ -39,9 +45,13 @@
           <tr>
             <td>
               <%= t(:model).capitalize %>
-              <%= link_to '('+t(:current_model).titlecase+')', @bmet_item.bmet_model %>
+              <%= link_to '('+t(:current).capitalize+')', @bmet_item.bmet_model %>
             </td>
             <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
+          </tr>
+          <tr>
+            <td><%= t(:location).capitalize %></td>
+            <td><%= f.text_field :location %></td>
           </tr>
           <tr>
             <td><%= t(:asset_id).titlecase %></td>

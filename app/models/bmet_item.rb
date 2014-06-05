@@ -25,10 +25,32 @@
 
 class BmetItem < ActiveRecord::Base
 
+  before_save :add_bmet_item_history
   belongs_to :bmet_model
   belongs_to :department
   has_many :bmet_work_orders
   has_many :bmet_item_histories
+
+  def asset_model_location_name
+    "#{asset_id} : #{bmet_model.name} at #{location}"
+  end
+
+  def add_bmet_item_history
+    @original_bmet_item = BmetItem.find_by_id(self.id)
+    if @original_bmet_item.status != self.status
+      BmetItemHistory.create(
+        :bmet_item_id => self.id,
+        :bmet_item_status => self.status
+      )
+    end
+    if @original_bmet_item.condition != self.condition
+      BmetItemHistory.create(
+        :bmet_item_id => self.id,
+        :bmet_item_condition => self.condition
+    )
+    end
+  end
+
 
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|

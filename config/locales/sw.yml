@@ -31,6 +31,8 @@ sw:
    create_work_order: "swahili" 
    created_at: "swahili" 
    created: "swahili" 
+   current_model: "swahili"
+   current: "swahili"
    dashboard: "swahili" 
    date_added: "swahili"
    date_completed: "tarehe ya kukamilishwa" 

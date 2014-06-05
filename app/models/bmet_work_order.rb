@@ -27,19 +27,42 @@
 
 class BmetWorkOrder < ActiveRecord::Base
 	acts_as_paranoid
-    belongs_to :bmet_item
-    has_many :bmet_work_order_comments
-    has_many :bmet_costs
-    has_many :bmet_labor_hours
-    belongs_to :owner, :class_name => "User"
-    belongs_to :requester, :class_name => "User"
-    belongs_to :pm_origin, :class_name => "BmetPreventativeMaintenance"
-    belongs_to :wr_origin, :class_name => "BmetWorkRequest"
-    belongs_to :department
-    before_save :auto_date_start
-  	before_create :init
+  belongs_to :bmet_item
+  has_many :bmet_work_order_comments
+  has_many :bmet_costs
+  has_many :bmet_labor_hours
+  belongs_to :owner, :class_name => "User"
+  belongs_to :requester, :class_name => "User"
+  belongs_to :pm_origin, :class_name => "BmetPreventativeMaintenance"
+  belongs_to :wr_origin, :class_name => "BmetWorkRequest"
+  belongs_to :department
+  before_save :auto_date_start
+  after_create :create_work_order_bmet_item_history
+  before_update :updated_status_bmet_item_history
+	before_create :init
 
-    def auto_date_start
+  def create_work_order_bmet_item_history
+    BmetItemHistory.create(
+        :bmet_item_id => self.bmet_item_id,
+        :work_order_id => self.id,
+        :work_order_status => self.status
+      )
+  end
+
+  def updated_status_bmet_item_history
+    @original_bmet_work_order = BmetWorkOrder.find_by_id(self.id)
+    # only create history if work order status differ, 
+    # so item history not created every time updated
+    if @original_bmet_work_order.status != self.status 
+      BmetItemHistory.create(
+        :bmet_item_id => self.bmet_item_id,
+        :work_order_id => self.id,
+        :work_order_status => self.status
+      )
+    end
+  end
+
+  def auto_date_start
   	if self.status == 0
   		self.date_started=nil
   	elsif self.status == 1 && self.date_started==nil
