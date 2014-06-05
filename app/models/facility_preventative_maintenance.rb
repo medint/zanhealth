@@ -44,20 +44,25 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
     errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)      
   end
 
+  def reset
+    self.last_date_checked = Time.now
+    self.next_date = self.calc_next_date
+    self.save!
+  end
+
   private
     def calc_next_date
-      if self.last_date_checked.nil?
-          self.last_date_checked = Time.now
-      end
-      self.next_date = self.last_date_checked
-      unless self.days.nil?
-        self.next_date += self.days.days
-      end
-      unless self.weeks.nil?
-        self.next_date += self.weeks.weeks
-      end
-      unless self.months.nil?
-        self.next_date += self.months.months
+      unless !self.last_date_checked
+        self.next_date = self.last_date_checked
+        unless self.days.nil?
+          self.next_date += self.days.days
+        end
+        unless self.weeks.nil?
+          self.next_date += self.weeks.weeks
+        end
+        unless self.months.nil?
+          self.next_date += self.months.months
+        end
       end
     end
 
@@ -73,6 +78,5 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 			end
 		end
 	end
-
 
 end

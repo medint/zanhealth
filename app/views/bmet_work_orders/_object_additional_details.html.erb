@@ -14,7 +14,7 @@
   <div class="tab-pane active" id="comment">    
     <div class="additional-details_content">
       <div class='additional-details_title'>
-        <%= @language['Comments'] %>
+        <%= t(:comments).capitalize %>
       </div>
     	<ul id='additional-details_comment_ul'>
         <%= render @bmet_work_order_comments %>
@@ -25,7 +25,7 @@
   <div class="tab-pane" id="cost">
     <div class="additional-details_content">
       <div class='additional-details_title'>
-        <%= @language['Costs'] %>
+        <%= t(:costs).capitalize %>
       </div>
       <ul id='additional-details_comment_ul'>
 	      <%= render @bmet_costs %>
@@ -36,7 +36,7 @@
   <div class="tab-pane" id="labor">
     <div class="additional-details_content">
       <div class='additional-details_title'>
-        <%= @language['Labor Hours'] %>
+        <%= t(:labor_hours).titlecase %>
       </div>
       <ul id='additional-details_comment_ul'>
         <%= render @bmet_labor_hours %>

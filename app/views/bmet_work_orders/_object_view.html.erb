@@ -2,58 +2,58 @@
 	<button onclick="edit_button_handler()"> Click me </button>
 	<div id="left_half">
 		<p>
-			<%=@language['ID'] %>:
+			<%=t(:id).capitalize %>:
 			<%= @facility_work_order.id %>
 		</p>
 
 		<p>
-			<%=@language['Expected Date of Completion'] %>:
+			<%=t(:expected_date_of_completion).titlecase %>:
 			<%= @facility_work_order.date_expire %>
 		</p>
 
 		<p>
-			<%=@language['Date Completed'] %>:
+			<%=t(:date_completed).titlecase %>:
 			<%= @facility_work_order.date_completed %>
 		</p>
 
 		<p>
-			<%=@language['Created At'] %>:
+			<%=t(:created_at).titlecase %>:
 			<%= @facility_work_order.created_at %>
 		</p>
 		<p>	
-			<%=@language['Updated At'] %>:
+			<%=t(:updated_at).titlecase %>:
 			<%= @facility_work_order.updated_at %>
 		</p>
 		<p>	
-			<%=@language['Request Type'] %>:
+			<%=t(:request_type).titlecase %>:
 			<%= @facility_work_order.request_type %>
 		</p>
 		<p>	
-			<%=@language['Status'] %>:
+			<%=t(:status).capitalize %>:
 			<%= @facility_work_order.status %>
 		</p>
 		<p>	
-			<%=@language['Owner ID'] %>:
+			<%=t(:owner_id).titlecase %>:
 			<%= @facility_work_order.owner_id %>
 		</p>
 		<p>	
-			<%=@language['Requester ID'] %>:
+			<%=t(:requester_id).titlecase %>:
 			<%= @facility_work_order.requester_id %>
 		</p>
 		<p>	
-			<%=@language['Description'] %>:
+			<%=t(:description).capitalize %>:
 			<%= @facility_work_order.description %>
 		</p>
 		<p>	
-			<%=@language['Cause Description'] %>:
+			<%=t(:cause_description).titlecase %>:
 			<%= @facility_work_order.cause_description %>
 		</p>
 		<p>	
-			<%=@language['Action Taken'] %>:
+			<%=t(:action_taken).titlecase %>:
 			<%= @facility_work_order.action_taken %>
 		</p>
 		<p>	
-			<%=@language['Prevention Taken'] %>:
+			<%=t(:prevention_taken).titlecase %>:
 			<%= @facility_work_order.prevention_taken %>
 		</p>
 

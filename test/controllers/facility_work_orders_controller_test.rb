@@ -7,12 +7,13 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
   	sign_in @user
     @facility_work_order = facility_work_orders(:one)
     @facility_work_order_diff_facility = facility_work_orders(:five)
+    @facility_work_order_with_wr_origin = facility_work_orders(:twelve_fac_wr_origin)
     FacilityLaborHour.create!(
 			:date_started => "2014-02-22 02:05:52",
 	    :duration => 1,
 	   	:technician => @user,
 	  	:facility_work_order => @facility_work_order
-	)
+      )
   end
 
   test "should get index" do
@@ -40,6 +41,41 @@ class FacilityWorkOrdersControllerTest < ActionController::TestCase
       	  								   prevention_taken: @facility_work_order.prevention_taken,
                              department_id: @facility_work_order.department_id  }
     end
+    assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
+    assert_response :redirect
+    assert_equal(@user.facility_id,assigns["facility_work_order"].department.facility_id)
+    assert_equal(@user.id,assigns["facility_work_order"].requester_id)
+
+  end
+
+  test "should create facility_work_order with wr origin" do
+    #puts FacilityWorkRequest.all.map {|i| puts i.id}
+    #puts @facility_work_order_with_wr_origin.wr_origin_id
+    #puts facility_work_requests(:fac_wr_origin).id
+    #puts facility_work_requests(:fac_wr_origin).wo_convert_id
+
+    assert_difference('FacilityWorkOrder.count') do
+      post :create, facility_work_order: { date_started: @facility_work_order_with_wr_origin.date_started, 
+                             date_expire: @facility_work_order_with_wr_origin.date_expire,
+                             date_completed: @facility_work_order_with_wr_origin.date_completed, 
+                             request_type: @facility_work_order_with_wr_origin.request_type, 
+                             description: @facility_work_order_with_wr_origin.description, 
+                             status: @facility_work_order_with_wr_origin.status, 
+                             owner_id: @facility_work_order_with_wr_origin.owner_id,
+                             cause_description: @facility_work_order_with_wr_origin.cause_description, 
+                             action_taken: @facility_work_order_with_wr_origin.action_taken, 
+                             prevention_taken: @facility_work_order_with_wr_origin.prevention_taken,
+                             department_id: @facility_work_order_with_wr_origin.department_id,
+                             wr_origin_id: @facility_work_order_with_wr_origin.wr_origin_id
+                   
+                           }
+    end      
+    assert_not_nil facility_work_requests(:fac_wr_origin).deleted_at # means it is hidden
+    #be careful of FacilityWorkRequest. right now the behavior of find includes deleted_at, 
+    assert_not_nil FacilityWorkRequest.find(assigns["facility_work_order"].wr_origin_id).wo_convert_id
+    assert_not_nil facility_work_requests(:fac_wr_origin).wo_convert_id
+    assert_equal( facility_work_requests(:fac_wr_origin).wo_convert_id, assigns["facility_work_order"].id)
+    
     assert_redirected_to "/facility_work_orders/unhidden/"+(assigns["facility_work_order"].id).to_s
     assert_response :redirect
     assert_equal(@user.facility_id,assigns["facility_work_order"].department.facility_id)

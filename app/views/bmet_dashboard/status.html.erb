@@ -12,9 +12,9 @@ google.setOnLoadCallback(drawStatusChart);
 	<div id='chart_div'></div>
 	<table id="dash_table">
 		<tr>
-			<th><%=@language['Status']%></th>
-			<th><%=@language['Work Order']%></th>
-			<th><%=@language['Expire']%></th>
+			<th><%=t(:status).capitalize%></th>
+			<th><%=t(:work_order).titlecase %></th>
+			<th><%=t(:expire).capitalize%></th>
 
 		</tr>
 
@@ -28,8 +28,7 @@ google.setOnLoadCallback(drawStatusChart);
 				<tr>
 					<td></td>
 					<td>
-						<%#= link_to @language['Work Order']+' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>
-						<%= link_to 'Work Order'+' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>
+						<%= link_to t(:work_order).titlecase+' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>						
 					</td>					
 					<td>
 						<%=work_order.date_expire.try(:strftime,"%^b %d, %Y")%>

@@ -161,8 +161,7 @@ namespace :test do
 			end
 			2.times do |x|
 				BmetItemHistory.create(:bmet_item => item,
-								   :status => 0,
-								   :utilization => 0,
+								   :bmet_item_status => 0,
 								   :remarks => Faker::Lorem.sentence(word_count = rand(3..10)),
 								   :updated_at => Time.now - 60*60*24*(rand(3..20)) 
 								  )

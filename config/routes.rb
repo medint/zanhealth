@@ -56,6 +56,8 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
+  get "/facility_dashboard/indexAjax", to: "facility_dashboard#indexAjax"
+  get "/facility_dashboard/calendarAjax", to: "facility_dashboard#calendarAjax"
   resources :facility_dashboard
 
   get "/bmet_dashboard/status", to: "bmet_dashboard#status"
@@ -82,6 +84,7 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/hidden/:id", to: "facility_preventative_maintenances#show_hidden"
   get "/facility_preventative_maintenances/all", to: "facility_preventative_maintenances#all"
   get "/facility_preventative_maintenances/all/:id", to: "facility_preventative_maintenances#show_all"
+  put "/reset_facility_preventative_maintenance/:id", to: "facility_preventative_maintenances#reset"
 
   # hide/unhide features for facility work requests
   put "hide_facility_work_request/:id", to: "facility_work_requests#hide", :as => :hide_facility_work_request
@@ -118,6 +121,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_preventative_maintenances/hidden/:id", to: "bmet_preventative_maintenances#show_hidden"
   get "/bmet_preventative_maintenances/all", to: "bmet_preventative_maintenances#all"
   get "/bmet_preventative_maintenances/all/:id", to: "bmet_preventative_maintenances#show_all"
+  put "/reset_bmet_preventative_maintenance/:id", to: "bmet_preventative_maintenances#reset"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  

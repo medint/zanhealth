@@ -1,18 +1,18 @@
-<h1><%= @language['Listing'] @language['Need'].pluralize %></h1>
+<h1><%= t(:listing).capitalize t(:need).capitalize.pluralize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= @language['Name']%></th>
-      <th><%= @language['Location']%></th>
-      <th><%= @language['Model']%></th>
-      <th><%= @language['Quantity']%></th>
-      <th><%= @language['Urgency']%></th>
-      <th><%= @language['Reason']%></th>
-      <th><%= @language['Remarks']%></th>
-      <th><%= @language['Stage']%></th>
-      <th><%= @language['Date requested']%></th>
-      <th><%= @language['User']%></th>
+      <th><%= t(:name).capitalize%></th>
+      <th><%= t(:location).capitalize%></th>
+      <th><%= t(:model).capitalize%></th>
+      <th><%= t(:quantity).capitalize%></th>
+      <th><%= t(:urgency).capitalize%></th>
+      <th><%= t(:reason).capitalize%></th>
+      <th><%= t(:remarks).capitalize%></th>
+      <th><%= t(:stage).capitalize%></th>
+      <th><%= t(:date_requested).titlecase%></th>
+      <th><%= t(:user).capitalize%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,9 +32,9 @@
         <td><%= need.stage %></td>
         <td><%= need.date_requested %></td>
         <td><%= need.user_id %></td>
-        <td><%= link_to @language['Show'], bmet_need %></td>
-        <td><%= link_to @language['Edit'], edit_bmet_need_path(need) %></td>
-        <td><%= link_to @language['Destroy'], need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, bmet_need %></td>
+        <td><%= link_to t(:edit).capitalize, edit_bmet_need_path(need) %></td>
+        <td><%= link_to t(:destroy).capitalize, need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to @language['New'] @language['Need'], new_bmet_need_path %>
+<%= link_to t(:new).capitalize t(:need).capitalize, new_bmet_need_path %>

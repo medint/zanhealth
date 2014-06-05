@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  bmet_item_id: 1
-  datetime: 2013-11-24 21:18:09
-  status: 1
-  utilization: 1
-  remarks: MyText
+  bmet_item: one
+  bmet_item_status: 1
+  bmet_item_condition: 1
+  remarks: MyString
+  work_order: one
+  work_order_status: 1
 
 two:
-  bmet_item_id: 1
-  datetime: 2013-11-24 21:18:09
-  status: 1
-  utilization: 1
-  remarks: MyText
+  bmet_item: one
+  bmet_item_status: 1
+  bmet_item_condition: 1
+  remarks: MyString
+  work_order: one
+  work_order_status: 1

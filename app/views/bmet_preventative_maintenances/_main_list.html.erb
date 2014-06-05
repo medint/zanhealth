@@ -12,7 +12,7 @@
         <div class="status-<%= bmet_preventative_maintenance.status %>"></div>
         <div class="element_details">
           <p class="element_title">
-            <%= @language['Preventative Maintenance'] %> <%= bmet_preventative_maintenance.id %>
+            <%= t(:preventative_maintenance).titlecase %> <%= bmet_preventative_maintenance.id %>
           </p>
           <p class ="element_description">
              <%= bmet_preventative_maintenance.description[0...40] +  "..." %>
@@ -21,12 +21,12 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="element_date">
-          <div class="element_date_title"> <%= @language['Days Since'] %>:</div>
+          <div class="element_date_title"> <%= t(:days_until).titlecase %>:</div>
           <%= -bmet_preventative_maintenance.days_since.to_i %>   
         </div>
 
         <div class="element_date">
-          <div class="element_date_title"> <%= @language['Due Date'] %>:</div>
+          <div class="element_date_title"> <%= t(:due_date).titlecase %>:</div>
           <%= bmet_preventative_maintenance.next_date.try(:strftime,"%^b %d") %>
         </div>
 

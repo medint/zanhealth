@@ -6,7 +6,8 @@ class BmetWorkOrdersControllerTest < ActionController::TestCase
     @user = users(:userone)
     sign_in @user
     @bmet_work_order = bmet_work_orders(:one)
-    @bmet_work_order_diff_facility = bmet_work_orders(:two)    
+    @bmet_work_order_diff_facility = bmet_work_orders(:two) 
+    @bmet_work_order_with_wr_origin = bmet_work_orders(:twelve_bmet_wr_origin)   
   end
 
   test "should get index" do
@@ -43,6 +44,41 @@ class BmetWorkOrdersControllerTest < ActionController::TestCase
     assert_response :redirect    
     assert_equal(@user.facility_id,assigns["bmet_work_order"].department.facility_id)
     assert_equal(@user.id,assigns["bmet_work_order"].requester_id)
+  end
+
+  test "should create bmet_work_order with wr origin" do
+    #puts BmetWorkRequest.all.map {|i| puts i.id}
+    #puts @bmet_work_order_with_wr_origin.wr_origin_id
+    #puts bmet_work_requests(:bmet_wr_origin).id
+    #puts bmet_work_requests(:bmet_wr_origin).wo_convert_id
+
+    assert_difference('BmetWorkOrder.count') do
+      post :create, bmet_work_order: { date_started: @bmet_work_order_with_wr_origin.date_started, 
+                             date_expire: @bmet_work_order_with_wr_origin.date_expire,
+                             date_completed: @bmet_work_order_with_wr_origin.date_completed, 
+                             request_type: @bmet_work_order_with_wr_origin.request_type, 
+                             description: @bmet_work_order_with_wr_origin.description, 
+                             status: @bmet_work_order_with_wr_origin.status, 
+                             owner_id: @bmet_work_order_with_wr_origin.owner_id,
+                             cause_description: @bmet_work_order_with_wr_origin.cause_description, 
+                             action_taken: @bmet_work_order_with_wr_origin.action_taken, 
+                             prevention_taken: @bmet_work_order_with_wr_origin.prevention_taken,
+                             department_id: @bmet_work_order_with_wr_origin.department_id,
+                             wr_origin_id: @bmet_work_order_with_wr_origin.wr_origin_id
+                   
+                           }
+    end          
+    assert_not_nil bmet_work_requests(:bmet_wr_origin).deleted_at # means it is hidden
+    #be careful of BmetWorkRequest. right now the behavior of find includes deleted_at, 
+    assert_not_nil BmetWorkRequest.find(assigns["bmet_work_order"].wr_origin_id).wo_convert_id
+    assert_not_nil bmet_work_requests(:bmet_wr_origin).wo_convert_id
+    assert_equal( bmet_work_requests(:bmet_wr_origin).wo_convert_id, assigns["bmet_work_order"].id)
+    
+    assert_redirected_to "/bmet_work_orders/unhidden/"+(assigns["bmet_work_order"].id).to_s
+    assert_response :redirect
+    assert_equal(@user.facility_id,assigns["bmet_work_order"].department.facility_id)
+    assert_equal(@user.id,assigns["bmet_work_order"].requester_id)
+
   end
 
   test "should show bmet_work_order" do

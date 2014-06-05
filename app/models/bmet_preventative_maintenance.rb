@@ -41,6 +41,11 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
     errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)      
   end
 
+  def reset
+    self.last_date_checked = Time.now
+    self.calc_next_date
+  end
+
   private
     def calc_next_date
       if self.last_date_checked.nil?

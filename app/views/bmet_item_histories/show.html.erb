@@ -1,29 +1,34 @@
-<p id="notice"><%= @language['Notice'] %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= @language['Item']%>:</strong>
-  <%= @item_history.bmet_item_id %>
+  <strong>Bmet item:</strong>
+  <%= @bmet_item_history.bmet_item %>
 </p>
 
 <p>
-  <strong><%= @language['Date/Time']%>:</strong>
-  <%= @item_history.datetime %>
+  <strong>Bmet item status:</strong>
+  <%= @bmet_item_history.bmet_item_status %>
 </p>
 
 <p>
-  <strong><%= @language['Status']%>:</strong>
-  <%= @item_history.status %>
+  <strong>Bmet item condition:</strong>
+  <%= @bmet_item_history.bmet_item_condition %>
 </p>
 
 <p>
-  <strong><%= @language['Utilization']%>:</strong>
-  <%= @item_history.utilization %>
+  <strong>Remarks:</strong>
+  <%= @bmet_item_history.remarks %>
 </p>
 
 <p>
-  <strong><%= @language['Remarks']%>:</strong>
-  <%= @item_history.remarks %>
+  <strong>Work order:</strong>
+  <%= @bmet_item_history.work_order %>
 </p>
 
-<%= link_to @language['Edit'], edit_bmet_item_history_path(@item_history) %> |
-<%= link_to @language['Back'], bmet_item_histories_path %>
+<p>
+  <strong>Work order status:</strong>
+  <%= @bmet_item_history.work_order_status %>
+</p>
+
+<%= link_to 'Edit', edit_bmet_item_history_path(@bmet_item_history) %> |
+<%= link_to 'Back', bmet_item_histories_path %>

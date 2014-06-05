@@ -1,30 +1,30 @@
-<h1><%= "#{@language['Listing']} #{@language['Item histories']}" %></h1>
+<h1>Listing bmet_item_histories</h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= @language['Item'] %></th>
-      <th><%= @language['Date/Time'] %></th>
-      <th><%= @language['Status'] %></th>
-      <th><%= @language['Utilization'] %></th>
-      <th><%= @language['Remarks'] %></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Bmet item</th>
+      <th>Bmet item status</th>
+      <th>Bmet item condition</th>
+      <th>Remarks</th>
+      <th>Work order</th>
+      <th>Work order status</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @item_histories.each do |item_history| %>
+    <% @bmet_item_histories.each do |bmet_item_history| %>
       <tr>
-        <td><%= item_history.bmet_item_id %></td>
-        <td><%= item_history.datetime %></td>
-        <td><%= item_history.status %></td>
-        <td><%= item_history.utilization %></td>
-        <td><%= item_history.remarks %></td>
-        <td><%= link_to @language['Show'], item_history %></td>
-        <td><%= link_to @language['Edit'], edit_bmet_item_history_path(item_history) %></td>
-        <td><%= link_to @language['Destroy'], item_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= bmet_item_history.bmet_item %></td>
+        <td><%= bmet_item_history.bmet_item_status %></td>
+        <td><%= bmet_item_history.bmet_item_condition %></td>
+        <td><%= bmet_item_history.remarks %></td>
+        <td><%= bmet_item_history.work_order %></td>
+        <td><%= bmet_item_history.work_order_status %></td>
+        <td><%= link_to 'Show', bmet_item_history %></td>
+        <td><%= link_to 'Edit', edit_bmet_item_history_path(bmet_item_history) %></td>
+        <td><%= link_to 'Destroy', bmet_item_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Item history', new_bmet_item_history_path %>
+<%= link_to 'New Bmet item history', new_bmet_item_history_path %>

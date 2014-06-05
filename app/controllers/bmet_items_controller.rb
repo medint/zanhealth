@@ -7,6 +7,8 @@ class BmetItemsController < ApplicationController
   before_action :set_status, only: [:show, :new]
   before_action :set_conditions, only: [:show, :new]
   load_and_authorize_resource param_method: :item_params
+  before_action :set_status_string_hash, only: [:show]
+  before_action :set_conditions_string_hash, only: [:show]
 
   # GET /items
   # GET /items.json
@@ -21,8 +23,8 @@ class BmetItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-	    @bmet_item_history = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
-	    @latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
+	    @bmet_item_histories = BmetItemHistory.where(:bmet_item_id => params[:id]).order(:created_at)
+	    #@latest_history = BmetItemHistory.order(:created_at).find_by bmet_item_id:params[:id]
   end
 
   def as_csv
@@ -111,6 +113,13 @@ class BmetItemsController < ApplicationController
       }
     end
 
+    def set_status_string_hash
+      @status_string_hash = ['Active','Inactive','Retired']
+    end
+    def set_conditions_string_hash
+      @conditions_string_hash = ['Poor','Fair','Good','Very Good']
+    end
+
     def set_item
       @bmet_item = BmetItem.find_by_id(params[:id])
     end
@@ -129,6 +138,6 @@ class BmetItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :item_type, :price)
+      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :item_type, :price, :status, :condition)
     end
 end

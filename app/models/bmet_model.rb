@@ -14,12 +14,12 @@
 
 class BmetModel < ActiveRecord::Base
 	belongs_to :facility
-    has_many :bmet_needs
-    has_many :bmet_items
+  has_many :bmet_needs
+  has_many :bmet_items
 
-    def name
-      "#{manufacturer_name} #{category} #{model_name}" 
-    end
+  def name
+    "#{manufacturer_name} #{category} #{model_name}" 
+  end
 
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|

@@ -13,22 +13,22 @@
 
       <div id="object-form-single-col">        
         <div class="field-box">
-          <div class="field-type"><%= @language['Category'] %></div>
+          <div class="field-type"><%= t(:category).capitalize %></div>
           <div class="field-info"><%= f.text_field :category, :required => true %></div>
         </div>
         <div class="field-box">
-          <div class="field-type"><%= @language['Manufacturer Name'] %></div>
+          <div class="field-type"><%= t(:manufacturer_name).titlecase %></div>
 					<div class="field-info">
             <%= f.text_field :manufacturer_name %>
           </div>
         </div>
         <div class="field-box">
-          <div class="field-type"><%= @language['Model Name'] %></div>
+          <div class="field-type"><%= t(:model_name).titlecase %></div>
           <div class="field-info">
             <%= f.text_field :model_name %>
         </div>        
         <div class="action_submit">
-          <%= f.submit @language['Create Item']%>
+          <%= f.submit t(:create_item).titlecase%>
         </div>
       </div>  
   <% end %>

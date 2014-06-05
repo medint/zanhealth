@@ -1,6 +1,6 @@
-<h1><%= @language['Editing'] @language['Text'] %></h1>
+<h1><%= t(:editing).capitalize t(:text).capitalize %></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @text %> |
-<%= link_to @language['Back'], texts_path %>
+<%= link_to t(:show).capitalize, @text %> |
+<%= link_to t(:back).capitalize, texts_path %>

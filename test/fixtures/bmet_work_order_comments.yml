@@ -3,11 +3,9 @@
 one:
   datetime_stamp: 2013-11-24 21:18:09
   bmet_work_order: one
-  user_id: userone
   comment_text: MyText
 
 two:
   datetime_stamp: 2013-11-24 21:18:09
   bmet_work_order: two
-  user_id: usertwo
   comment_text: MyText
