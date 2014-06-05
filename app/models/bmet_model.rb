@@ -16,9 +16,14 @@ class BmetModel < ActiveRecord::Base
 	belongs_to :facility
   has_many :bmet_needs
   has_many :bmet_items
+  attr_accessor :associated_items
 
   def name
     "#{manufacturer_name} #{category} #{model_name}" 
+  end
+
+  def associated_items
+    BmetItem.where(:bmet_model_id => id).all.to_a
   end
 
   def self.import(file, facility_id)

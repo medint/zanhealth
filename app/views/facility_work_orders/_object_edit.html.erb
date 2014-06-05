@@ -63,6 +63,25 @@
       <!-- can put inside the url parameter but shouldn't be able to imposter as another user -->
       <div id="properties-box">
         <table id="properties-table">
+          <% if @facility_work_order.wr_origin_id %>
+            <tr>
+              <td>Original Work Request</td>
+              <td>
+              <a href="<%= bmet_work_requests_url + '/all/' + @facility_work_order.wr_origin_id.to_s %>">
+                Work Request <%= @facility_work_order.wr_origin_id %>
+              </a>
+              </td>
+            </tr>
+          <% elsif @facility_work_order.pm_origin_id %>
+            <tr>
+              <td>Origin Preventative Maintenance</td>
+              <td>
+              <a href="<%= bmet_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin_id.to_s %>">
+                Preventative Maintenance <%= @facility_work_order.pm_origin_id %>
+              </a>
+              </td>
+            </tr>
+          <% end %>
           <tr>
             <td><%= t(:requester).capitalize %></td>
             <td><%= @facility_work_order.requester.try(:name) %></td>
@@ -91,28 +110,7 @@
           <tr>   
               <td><%= t(:prevention_taken).titlecase %></td>
               <td><%= f.text_area :prevention_taken %></td>
-          </tr>        
-          <% if @facility_work_order.wr_origin_id %>
-            <tr>
-              <td>Original Work Request</td>
-              <td>
-              <a href="<%= bmet_work_requests_url + '/all/' + @facility_work_order.wr_origin_id.to_s %>">
-                Work Request <%= @facility_work_order.wr_origin_id %>
-              </a>
-              </td>
-            </tr>
-          <% elsif @facility_work_order.pm_origin_id %>
-            <tr>
-              <td>Origin Preventative Maintenance</td>
-              <td>
-              <a href="<%= bmet_preventative_maintenances_url + '/all/' + @facility_work_order.pm_origin_id.to_s %>">
-                Preventative Maintenance <%= @facility_work_order.pm_origin_id %>
-              </a>
-              </td>
-            </tr>
-          <% else %>
-          <% end %>
-          </tr>
+          </tr>                  
         </table>     
       </div>
 

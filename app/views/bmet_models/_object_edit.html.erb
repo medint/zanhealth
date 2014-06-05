@@ -15,30 +15,42 @@
 
     <div id="field-box_item-id">
       <div class="item-id">
-        <%= t(:model).capitalize %>
+        <%= t(:model).capitalize %> #<%= @bmet_model.id %>
+      </div>
     </div>
     
-    <div class="field">
-      <%= t(:category).capitalize %><br>
-      <%= f.text_field :category %>
+    <div class="field-box">
+      <div class="field-type"><%= t(:category).capitalize %><br></div>
+      <div class="field-info"><%= f.text_area :category %></div>
     </div>
-    <div class="field">
-      <%= t(:manufacturer_name).titlecase %><br>
-      <%= f.text_field :manufacturer_name %>
+    <div class="field-box">
+      <div class="field-type"><%= t(:manufacturer).capitalize %> <%= t(:name).capitalize %><br></div>
+      <div class="field-info"><%= f.text_area :manufacturer_name %></div>
     </div>
-    <div class="field">
-      <%= t(:model_name).titlecase %><br>
-      <%= f.text_field :model_name %>
+    <div class="field-box">
+      <div class="field-type"><%= t(:model).capitalize %> <%= t(:name).capitalize %><br></div>
+      <div class="field-info"><%= f.text_area :model_name %></div>
+    </div>    
+    <div class="field-box">
+      <div class="field-type"><%= t(:items_of_the_same_model).titlecase %><br></div>
+      <div>
+        <ul>
+          <% @bmet_model.associated_items.each do |bmet_item| %>
+            <li>
+              <%# link_to(bmet_item) do %>
+                <%= bmet_item.asset_id %> at <%= bmet_item.location %>
+              <%# end %>
+            </li>
+          <% end %>          
+        </ul>
+      </div>
     </div>          
-
-
     <div class="field-box">
       <div class="field-type"><%= t(:created_at).titlecase %></div>
       <div class="field-info">
-        <p><%= @bmet_model.created_at %></p></div>
-    </div>
-    
-   
+        <p><%= @bmet_model.created_at %></p>
+      </div>
+    </div>   
     <div class="action_submit">
       <%= f.submit t(:save_changes).titlecase%>
     </div>

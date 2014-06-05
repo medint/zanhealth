@@ -99,6 +99,7 @@ en:
    item_type: "item type"
    item: "item"
    items: "items"
+   items_of_the_same_model: "items of the same model"
    logout: "logout"
    labor_hour: "labor hour"
    labor_hours: "labor hours"

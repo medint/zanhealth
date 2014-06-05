@@ -7,7 +7,8 @@ class BmetModelsController < ApplicationController
   # GET /bmet_models
   # GET /bmet_models.json
   def index
-    @bmet_models = BmetModel.all
+    @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all
+    @bmet_models.map {|i| i.associated_items}
   end
 
   # GET /bmet_models/1
@@ -68,6 +69,7 @@ class BmetModelsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_model
       @bmet_model = BmetModel.find_by_id(params[:id])
+
     end
 
     def set_bmet_models

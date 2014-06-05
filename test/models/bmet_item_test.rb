@@ -6,8 +6,20 @@ class BmetItemTest < ActiveSupport::TestCase
   # end
 	setup do
 		@bmet_items = bmet_items(:one)
+		@bmet_item_two = bmet_items(:two)
 		users(:userone)
 		departments(:one)
+	end
+
+	test "should create a corresponding bmet item history" do 
+		puts @bmet_item_two.status
+		puts @bmet_item_two.condition
+		@bmet_item_two.update(:status => 1, :condition => 1)
+		puts @bmet_item_two.status
+		puts @bmet_item_two.condition
+		@bmet_item_history =  BmetItemHistory.find_by_bmet_item_id(@bmet_item_two.id)
+		puts @bmet_item_history.status
+		puts @bmet_item_history.condition
 	end
   
   	
