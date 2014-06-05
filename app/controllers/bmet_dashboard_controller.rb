@@ -35,6 +35,11 @@ class BmetDashboardController < ApplicationController
 
 	end
 
+	def item_status_condition
+		@items_sc = BmetItem.includes({ :department => :facility}).where("facilities.id=?", current_user.facility)
+
+	end
+
 	def statusAjax
 
 		time_range_array=[]

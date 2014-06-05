@@ -7,8 +7,7 @@ class BmetModelsController < ApplicationController
   # GET /bmet_models
   # GET /bmet_models.json
   def index
-    @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all
-    @bmet_models.map {|i| i.associated_items}
+    
   end
 
   # GET /bmet_models/1
@@ -73,7 +72,7 @@ class BmetModelsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.all
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
