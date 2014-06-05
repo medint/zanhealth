@@ -1,5 +1,4 @@
 class BmetItemsController < ApplicationController
-  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:new, :show]
@@ -7,6 +6,7 @@ class BmetItemsController < ApplicationController
   before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new]
   before_action :set_status, only: [:show, :new]
   before_action :set_conditions, only: [:show, :new]
+  load_and_authorize_resource param_method: :item_params
 
   # GET /items
   # GET /items.json

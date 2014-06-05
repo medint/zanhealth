@@ -13,7 +13,7 @@ class FacilityWorkOrderUiTest < ActionDispatch::IntegrationTest
 		fill_in 'user_login', :with => @user.username
 		fill_in 'user_password', :with => 'password'
 		click_button 'Sign in'
-		assert_equal '/facility_work_orders', current_path
+		assert_equal '/', current_path
 	
 	end
 
@@ -27,7 +27,7 @@ class FacilityWorkOrderUiTest < ActionDispatch::IntegrationTest
 	@user = users(:userone)
  	post_via_redirect user_session_path, 'user[login]' => @user.username, 'user[password]' => 'password'
  
-    assert_equal '/facility_work_orders', path
+    assert_equal '/', path
  
     # https!(false)
     #get "/posts/all"
