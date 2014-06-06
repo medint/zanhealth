@@ -90,4 +90,12 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
     end
   end
 
+  def self.find(*args)
+    begin
+      super
+    rescue Exception => e
+      deleted.find(*args)
+    end
+  end
+
 end

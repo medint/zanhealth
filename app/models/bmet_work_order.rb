@@ -98,8 +98,16 @@ class BmetWorkOrder < ActiveRecord::Base
   		return "Uncompleted"
   	elsif status == 1
   		return "In Progress"
-	else 
-		return "Completed"
-	end
+  	else 
+  		return "Completed"
+  	end
+  end
+
+  def self.find(*args)
+    begin
+      super
+    rescue Exception => e
+      deleted.find(*args)
+    end
   end
 end

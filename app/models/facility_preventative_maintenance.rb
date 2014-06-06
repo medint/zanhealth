@@ -92,4 +92,12 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 		end
 	end
 
+  def self.find(*args)
+    begin
+      super
+    rescue Exception => e
+      deleted.find(*args)
+    end
+  end
+
 end
