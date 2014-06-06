@@ -14,4 +14,5 @@
 
 class BmetCost < ActiveRecord::Base
   belongs_to :bmet_work_order
+  belongs_to :bmet_cost_item
 end

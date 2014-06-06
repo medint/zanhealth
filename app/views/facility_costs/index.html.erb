@@ -16,7 +16,7 @@
   <tbody>
     <% @facility_costs.each do |facility_cost| %>
       <tr>
-        <td><%= facility_cost.name %></td>
+        <td><%= facility_cost.facility_cost_item_id %></td>
         <td><%= facility_cost.unit_quantity %></td>
         <td><%= facility_cost.cost %></td>
         <td><%= facility_cost.facility_work_order %></td>

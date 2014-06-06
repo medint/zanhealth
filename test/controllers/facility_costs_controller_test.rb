@@ -22,7 +22,7 @@ class FacilityCostsControllerTest < ActionController::TestCase
   test "should create facility_cost with unhidden work request" do
     assert_difference('FacilityCost.count') do
   	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
-      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, facility_cost_item: @facility_cost.facility_cost_item, unit_quantity: @facility_cost.unit_quantity }
     end
     assert_redirected_to "/facility_work_orders/unhidden/"+(@facility_cost.facility_work_order.id.to_s)
     assert_response :redirect
@@ -31,7 +31,7 @@ class FacilityCostsControllerTest < ActionController::TestCase
   test "should create facility_cost with hidden work request" do
     assert_difference('FacilityCost.count') do
   	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/hidden/"+(@facility_cost.facility_work_order.id.to_s)
-      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, facility_cost_item: @facility_cost.facility_cost_item, unit_quantity: @facility_cost.unit_quantity }
     end
     assert_redirected_to "/facility_work_orders/hidden/"+(@facility_cost.facility_work_order.id.to_s)
     assert_response :redirect
@@ -40,7 +40,7 @@ class FacilityCostsControllerTest < ActionController::TestCase
   test "should create facility_cost with all work request" do
     assert_difference('FacilityCost.count') do
   	  @request.headers["HTTP_REFERER"] = "/facility_work_orders/all/"+(@facility_cost.facility_work_order.id.to_s)
-      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+      post :create, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, facility_cost_item: @facility_cost.facility_cost_item, unit_quantity: @facility_cost.unit_quantity }
     end
     assert_redirected_to "/facility_work_orders/all/"+(@facility_cost.facility_work_order.id.to_s)
     assert_response :redirect
@@ -57,7 +57,7 @@ class FacilityCostsControllerTest < ActionController::TestCase
   end
 
   test "should update facility_cost" do
-    patch :update, id: @facility_cost, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, name: @facility_cost.name, unit_quantity: @facility_cost.unit_quantity }
+    patch :update, id: @facility_cost, facility_cost: { cost: @facility_cost.cost, facility_work_order_id: @facility_cost.facility_work_order_id, facility_cost_item: @facility_cost.facility_cost_item, unit_quantity: @facility_cost.unit_quantity }
     assert_redirected_to facility_cost_path(assigns(:facility_cost))
   end
 

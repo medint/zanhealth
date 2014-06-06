@@ -1,4 +1,13 @@
 sw:
+   date:
+      order:
+         - :year
+         - :month
+         - :day
+      formats:
+         default: "%Y-%m-%d"
+         short: "%b %d"
+         long: "%B %d, %Y"
    hello: "Hello world"
    about: "swahili" 
    action_taken: "hatua iliyochukuliwa" 
@@ -160,6 +169,7 @@ sw:
    warranty_expires: "tarehe ya mwisho wa hati" 
    warranty_notes: "muhtasari wa hati or  maelezo ya hati" 
    weeks: "swahili" 
+   work_order: "swahili"
    work_request_id: "swahili" 
    work_request: "swahili" 
    work_requests: "swahili" 

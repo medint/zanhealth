@@ -13,4 +13,5 @@
 
 class FacilityCost < ActiveRecord::Base
   belongs_to :facility_work_order
+  belongs_to :facility_cost_item
 end

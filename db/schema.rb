@@ -11,20 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604064051) do
+ActiveRecord::Schema.define(version: 20140606142600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bmet_costs", force: true do |t|
+  create_table "bmet_cost_items", force: true do |t|
     t.string   "name"
+    t.integer  "facility_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bmet_cost_items", ["facility_id"], name: "index_bmet_cost_items_on_facility_id", using: :btree
+
+  create_table "bmet_costs", force: true do |t|
     t.integer  "unit_quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
-    t.decimal  "cost",               precision: 5, scale: 2
+    t.decimal  "cost",               precision: 12, scale: 2
+    t.integer  "bmet_cost_item_id"
   end
+
+  add_index "bmet_costs", ["bmet_cost_item_id"], name: "index_bmet_costs_on_bmet_cost_item_id", using: :btree
 
   create_table "bmet_item_histories", force: true do |t|
     t.integer  "bmet_item_id"
@@ -156,6 +167,7 @@ ActiveRecord::Schema.define(version: 20140604064051) do
     t.datetime "deleted_at"
     t.integer  "wo_convert_id"
     t.datetime "converted_at"
+    t.string   "asset_id"
   end
 
   add_index "bmet_work_requests", ["deleted_at"], name: "index_bmet_work_requests_on_deleted_at", using: :btree
@@ -174,15 +186,25 @@ ActiveRecord::Schema.define(version: 20140604064051) do
     t.datetime "updated_at"
   end
 
-  create_table "facility_costs", force: true do |t|
+  create_table "facility_cost_items", force: true do |t|
     t.string   "name"
+    t.integer  "facility_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "facility_cost_items", ["facility_id"], name: "index_facility_cost_items_on_facility_id", using: :btree
+
+  create_table "facility_costs", force: true do |t|
     t.integer  "unit_quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.decimal  "cost",                   precision: 5, scale: 2
+    t.decimal  "cost",                   precision: 12, scale: 2
+    t.integer  "facility_cost_item_id"
   end
 
+  add_index "facility_costs", ["facility_cost_item_id"], name: "index_facility_costs_on_facility_cost_item_id", using: :btree
   add_index "facility_costs", ["facility_work_order_id"], name: "index_facility_costs_on_facility_work_order_id", using: :btree
 
   create_table "facility_labor_hours", force: true do |t|

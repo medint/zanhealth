@@ -1,5 +1,9 @@
 Zanhealth::Application.routes.draw do
 
+  resources :facility_cost_items
+
+  resources :bmet_cost_items
+
   # general
   resources :departments
   resources :facilities

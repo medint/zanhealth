@@ -1,0 +1,27 @@
+<h1>Listing facility_cost_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Facility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @facility_cost_items.each do |facility_cost_item| %>
+      <tr>
+        <td><%= facility_cost_item.name %></td>
+        <td><%= facility_cost_item.facility %></td>
+        <td><%= link_to 'Show', facility_cost_item %></td>
+        <td><%= link_to 'Edit', edit_facility_cost_item_path(facility_cost_item) %></td>
+        <td><%= link_to 'Destroy', facility_cost_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Facility cost item', new_facility_cost_item_path %>

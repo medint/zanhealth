@@ -1,0 +1,27 @@
+<h1>Listing bmet_cost_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Facility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bmet_cost_items.each do |bmet_cost_item| %>
+      <tr>
+        <td><%= bmet_cost_item.name %></td>
+        <td><%= bmet_cost_item.facility %></td>
+        <td><%= link_to 'Show', bmet_cost_item %></td>
+        <td><%= link_to 'Edit', edit_bmet_cost_item_path(bmet_cost_item) %></td>
+        <td><%= link_to 'Destroy', bmet_cost_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bmet cost item', new_bmet_cost_item_path %>

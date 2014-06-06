@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bmet_cost_item.name %>
+</p>
+
+<p>
+  <strong>Facility:</strong>
+  <%= @bmet_cost_item.facility %>
+</p>
+
+<%= link_to 'Edit', edit_bmet_cost_item_path(@bmet_cost_item) %> |
+<%= link_to 'Back', bmet_cost_items_path %>

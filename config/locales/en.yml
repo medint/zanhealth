@@ -46,6 +46,7 @@ en:
    converted_wo_order: "converted wo order"
    cost: "cost"
    costs: "costs"
+   cost_item: "cost item"
    create: "create"
    create_facility_work_request: "create facility work request"
    create_pm: "create pm"

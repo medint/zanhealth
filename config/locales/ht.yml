@@ -20,6 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ht:
+   date:
+      order:
+         - :year
+         - :month
+         - :day
+      formats:
+         default: "%Y-%m-%d"
+         short: "%b %d"
+         long: "%B %d, %Y"
    hello: "Hello world"
    about: "konsènan" 
    action_taken: "aksyon akonpli" 
@@ -181,6 +190,8 @@ ht:
    warranty_expires: "garanti ekspire" 
    warranty_notes: "nòt garanti a" 
    weeks: "semèn" 
+   work_order: "creole"
+   work_orders: "creole"
    work_request_id: "idantifikasyon de demann travay" 
    work_request: "demann travay" 
    work_requests: "demann travay yo" 

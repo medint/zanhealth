@@ -205,6 +205,13 @@ namespace :test do
 										 :bmet_work_order => work_req
 										)
 				end
+				1.times do |bmetc|
+					bmet_cost_item = BmetCostItem.create!(:name => Faker::Commerce.product_name)
+					BmetCost.create(:bmet_cost_item => bmet_cost_item,
+									:unit_quantity => rand(100),
+									:cost => 1.1*rand(200),
+									:bmet_work_order => work_req)
+				end
 			end
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
@@ -274,7 +281,8 @@ namespace :test do
 									 :technician => users.sample,
 									 :facility_work_order => work_ord
 									)
-				FacilityCost.create(:name => Faker::Commerce.product_name,
+				fac_cost_item = FacilityCostItem.create!(:name => Faker::Commerce.product_name)
+				FacilityCost.create(:facility_cost_item => fac_cost_item,
 								:unit_quantity => rand(100),
 								:cost => 1.1*rand(200),
 								:facility_work_order => work_ord)
