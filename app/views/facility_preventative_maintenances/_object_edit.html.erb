@@ -53,7 +53,18 @@
       <div class="field-type"><%= t(:description).capitalize %></div>
       <div class="field-info"><%= f.text_area :description, :required => true %></div>
     </div>
-   
+
+    <% if FacilityWorkOrder.where("pm_origin_id = ?", @facility_preventative_maintenance.id) %>
+      <div class="field-box">
+        <div class="field-type"><%= t(:associated_work_orders).titlecase %></div>
+        <div class="field-info">
+          <ul><% FacilityWorkOrder.where("pm_origin_id = ?", @facility_preventative_maintenance.id).order(:created_at).reverse_order().each do |wo| %>
+            <li><%= link_to t(:work_order).titlecase + " " + wo.id.to_s, "/facility_work_orders/all/" + wo.id.to_s %></li>
+          <% end %>
+            </ul></div>
+      </div>
+    <% end %>
+
   	<% if can? :update, current_user %>
       	<div class="action_submit">
        		 <%= f.submit t(:save_changes).titlecase%>
