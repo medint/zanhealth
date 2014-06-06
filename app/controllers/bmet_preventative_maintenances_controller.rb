@@ -43,6 +43,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
   # GET /bmet_preventative_maintenances/new
   def new
+    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
     @bmet_preventative_maintenance = BmetPreventativeMaintenance.new
   end
 
@@ -171,7 +172,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_preventative_maintenance_params
-      params.require(:bmet_preventative_maintenance).permit(:late_date_checked, :days, :weeks, :months, :next_date, :description)
+      params.require(:bmet_preventative_maintenance).permit(:late_date_checked, :days, :weeks, :months, :next_date, :description, :bmet_item_id)
     end
 
     def set_convert_object

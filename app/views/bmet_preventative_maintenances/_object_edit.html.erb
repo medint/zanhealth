@@ -18,7 +18,13 @@
         <%= t(:preventative_maintenance).titlecase %> # <%= @bmet_preventative_maintenance.id %>
       </div>
     </div>
-
+    <div class="field-box">
+      <div class="field-type"><%= t(:item).titlecase %></div>
+      <div class="field-info">
+        <p>
+          <%= link_to @bmet_preventative_maintenance.bmet_item.bmet_model.name, @bmet_preventative_maintenance.bmet_item %></br> at
+          <%= @bmet_preventative_maintenance.bmet_item.location %></p></div>
+    </div>
     <div class="field-box">
       <div class="field-type"><%= t(:last_date_checked).titlecase %></div>
       <div class="field-info">

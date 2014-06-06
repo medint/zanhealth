@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606142600) do
+ActiveRecord::Schema.define(version: 20140606211220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,8 +116,10 @@ ActiveRecord::Schema.define(version: 20140606142600) do
     t.datetime "updated_at"
     t.integer  "requester_id"
     t.datetime "deleted_at"
+    t.integer  "bmet_item_id"
   end
 
+  add_index "bmet_preventative_maintenances", ["bmet_item_id"], name: "index_bmet_preventative_maintenances_on_bmet_item_id", using: :btree
   add_index "bmet_preventative_maintenances", ["deleted_at"], name: "index_bmet_preventative_maintenances_on_deleted_at", using: :btree
 
   create_table "bmet_work_order_comments", force: true do |t|
