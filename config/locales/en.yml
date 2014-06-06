@@ -28,6 +28,7 @@ en:
    all_requests: "all requests"
    all_work_requests: "all work requests"
    are_you_sure: "are you sure"
+   associated_work_orders: "associated work orders"
    asset_id: "asset id"
    back: "back"
    broken: "broken"
