@@ -1,6 +1,5 @@
 class FacilityLaborHoursController < ApplicationController
-  load_and_authorize_resource
-
+  load_and_authorize_resource param_method: :labor_hour_params
   before_action :set_labor_hour, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -65,7 +64,7 @@ class FacilityLaborHoursController < ApplicationController
       @facility_labor_hour = FacilityLaborHour.find_by_id(params[:id])
     end
     def labor_hour_params
-      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id)
+      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id, :created_at, :updated_at)
     end
     
 end

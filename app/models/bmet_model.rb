@@ -19,7 +19,7 @@ class BmetModel < ActiveRecord::Base
   attr_accessor :associated_items
 
   def name
-    "#{manufacturer_name} #{category} #{model_name}" 
+    "#{manufacturer_name} #{category} #{model_name}"
   end
 
   def associated_items
@@ -29,7 +29,10 @@ class BmetModel < ActiveRecord::Base
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
         match = BmetModel.find_by_model_name(row["model_name"])
-        if !match || !BmetModel.where("match.bmet_items.collection(force_reload=false)[0].department.facility_id = ?", facility_id)
+        if !match ||
+        match.manufacturer_name != row["model_name"] ||
+        match.vendor_name != row["vendor_name"] ||
+        !BmetModel.where("match.bmet_items.collection(force_reload=false)[0].department.facility_id = ?", facility_id)
           mod = BmetModel.new
           mod.model_name = row["model_name"]
           mod.manufacturer_name = row["manufacturer_name"]

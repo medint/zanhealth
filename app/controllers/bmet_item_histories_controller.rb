@@ -1,5 +1,5 @@
 class BmetItemHistoriesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :item_history_params
   before_action :set_item_history, only: [:show, :edit, :update, :destroy]
 
   # GET /item_histories
@@ -70,6 +70,6 @@ class BmetItemHistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_history_params
-      params.require(:bmet_item_history).permit(:bmet_item_id, :datetime, :status, :utilization, :remarks)
+      params.require(:bmet_item_history).permit(:bmet_item_id, :bmet_item_condition, :bmet_item_status, :work_order_id, :work_order_status, :remarks)
     end
 end

@@ -139,13 +139,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
           @facility_preventative_maintenance=nil
           redirect_to "/404"
         else
-          @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+          @facility_preventative_maintenance.calc_days_until # necessary because diff object from those inside pluralized PM object
         end
     end
 
     def set_facility_preventative_maintenances
         @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
-        @facility_preventative_maintenances.map {|i| i.calc_days_since}  
+        @facility_preventative_maintenances.map {|i| i.calc_days_until}  
         @link = facility_preventative_maintenances_url+"/unhidden/"
     end
 
@@ -159,13 +159,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 
     def set_hidden_facility_preventative_maintenances
     	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
-    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    	@facility_preventative_maintenances.map {|i| i.calc_days_until}
       @link = facility_preventative_maintenances_url+"/hidden/"
     end
 
     def set_all_facility_preventative_maintenances
     	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
-    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    	@facility_preventative_maintenances.map {|i| i.calc_days_until}
       @link = facility_preventative_maintenances_url+"/all/"
     end
 

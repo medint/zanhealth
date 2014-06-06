@@ -20,19 +20,31 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date
-  attr_accessor :days_since
+  attr_accessor :days_until
   attr_accessor :status
   validate :not_all_zero
 
-  def calc_days_since
+  def calc_days_until
     unless self.next_date.nil?
-      self.days_since = (self.next_date - Time.zone.now).to_i/1.day
-      if self.days_since > 3
-          self.status = 2
-      elsif self.days_since > -3
+      self.days_until = (self.next_date - Time.zone.now).to_i/1.day
+      associated_work_orders = BmetWorkOrder.where("pm_origin_id = ?", self.id).order(:created_at).reverse_order()
+      recent_wo = associated_work_orders.first()
+      if recent_wo
+        if recent_wo.status != 2
           self.status = 1
-      else
+        else
+          if self.days_until > 0
+            self.status = 2
+          else
+            self.status = 0
+          end
+        end
+      elsif !recent_wo
+        if self.days_until > 0
+          self.status = 2
+        else
           self.status = 0
+        end        
       end
     end
   end
@@ -43,10 +55,10 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
 
   def reset
     self.last_date_checked = Time.now
-    self.calc_next_date
+    self.next_date = self.calc_next_date
+    self.save!
   end
 
-  private
     def calc_next_date
       if self.last_date_checked.nil?
           self.last_date_checked = Time.zone.now
@@ -62,6 +74,8 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
         self.next_date += self.months.months
       end
     end
+
+  private
 
   def self.as_csv
     colnames = column_names.dup

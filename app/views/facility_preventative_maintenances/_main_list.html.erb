@@ -5,7 +5,7 @@
       <li
       class="mid-summary_ul_li"
       datedue="<%= facility_preventative_maintenance.next_date.try(:to_s, :number) %>"
-      dayssince="<%= facility_preventative_maintenance.days_since.to_i %>"
+      dayssince="<%= facility_preventative_maintenance.days_until.to_i %>"
       ID="<%= facility_preventative_maintenance.id %>"
       >
 
@@ -21,7 +21,7 @@
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
         <div class="element_date">
-          <div class="element_date_title"><%= t(:days_until).titlecase %>:</div><%= facility_preventative_maintenance.days_since.to_i %>         
+          <div class="element_date_title"><%= t(:days_until).titlecase %>:</div><%= facility_preventative_maintenance.days_until.to_i %>         
         </div>
 
         <div class="element_date">

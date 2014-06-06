@@ -37,13 +37,13 @@ class BmetItem < ActiveRecord::Base
 
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
-    if @original_bmet_item.status != self.status
+    if @original_bmet_item.try(:status) != self.status
       BmetItemHistory.create(
         :bmet_item_id => self.id,
         :bmet_item_status => self.status
       )
     end
-    if @original_bmet_item.condition != self.condition
+    if @original_bmet_item.try(:condition) != self.condition
       BmetItemHistory.create(
         :bmet_item_id => self.id,
         :bmet_item_condition => self.condition
@@ -54,8 +54,8 @@ class BmetItem < ActiveRecord::Base
 
   def self.import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        matches = BmetItem.find_all_by_serial_number(row["serial_number"])
-        if !matches
+        match = BmetItem.find_by_asset_id(row["asset_id"])
+        if !match || !BmetItem.where("match.department.facility_id = ?", facility_id)
             item = BmetItem.new
             item.serial_number = row["serial_number"]
             item.year_manufactured = row["year_manufactured"]
@@ -72,13 +72,22 @@ class BmetItem < ActiveRecord::Base
             item.department = Department.find_by_name(row["department_name"])
             item.bmet_model = BmetModel.find_by_model_name(row["model_name"])
             item.save!
-        else
-          matches.each do |match|
-            
-            if BmetItem.where("match.department.facility_id = ?", facility_id)
-
-            end
-          end
+        elsif match and BmetItem.where("match.department.facility_id = ?", facility_id)
+            match.serial_number = row["serial_number"]
+            match.year_manufactured = row["year_manufactured"]
+            match.funding = row["funding"]
+            match.date_received = row["date_received"]
+            match.warranty_expire = row["warranty_expire"]
+            match.warranty_notes = row["warranty_notes"]
+            match.contract_expire = row["contract_expire"]
+            match.service_agent = row["service_agent"]
+            match.price = row["price"]
+            match.asset_id = row["asset_id"]
+            match.item_type = row["item_type"]
+            match.location = row["location"]
+            match.department = Department.find_by_name(row["department_name"])
+            match.bmet_model = BmetModel.find_by_model_name(row["model_name"])
+            match.save!          
         end
       end
     end

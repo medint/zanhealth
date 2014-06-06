@@ -27,12 +27,11 @@ class BmetItemHistoriesControllerTest < ActionController::TestCase
         bmet_item_id: @bmet_item_history.bmet_item_id, 
         bmet_item_status: @bmet_item_history.bmet_item_status, 
         remarks: @bmet_item_history.remarks, 
-        work_order: @bmet_item_history.work_order, 
+        work_order_id: @bmet_item_history.work_order_id, 
         work_order_status: @bmet_item_history.work_order_status 
       }
     end
-
-    assert_redirected_to bmet_item_history_path(assigns(:bmet_item_history))
+    assert_redirected_to bmet_item_history_path(assigns(:item_history))
   end
 
   test "should show bmet_item_history" do

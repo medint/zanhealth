@@ -374,9 +374,6 @@ function drawStatusChart() {
 
 	var data = new google.visualization.DataTable(jsonData);
 
-
-
-
 	// Set chart options
 	var options = {'title':'Status Over Time',
 	             'width':700,
@@ -389,4 +386,49 @@ function drawStatusChart() {
 	chart.draw(data, options);
 }
 
+function drawIndexChart() {
 
+	// Create the data table.
+
+	var jsonData = $.ajax({
+          url: $("#params_to_send").text(),
+          dataType:"json",
+          async: false
+          }).responseText;
+
+
+	var data = new google.visualization.DataTable(jsonData);
+
+	// Set chart options
+	var options = {'title':'Gantt Chart',
+	             'width':700,
+	             'height':100000,
+	         	colors:['#e9593e','#ffc207','#55aa2b']};
+
+	// Instantiate and draw our chart, passing in some options.
+	var chart = new google.visualization.Timeline(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+
+function drawCalendarChart() {
+
+	// Create the data table.
+
+	var jsonData = $.ajax({
+          url: $("#params_to_send2").text(),
+          dataType:"json",
+          async: false
+          }).responseText;
+
+
+	var data = new google.visualization.DataTable(jsonData);
+
+	// Set chart options
+	var options = {'title':'Calendar',
+	             'width':1000,
+	             'height':500};
+
+	// Instantiate and draw our chart, passing in some options.
+	var chart = new google.visualization.Calendar(document.getElementById('chart_div2'));
+	chart.draw(data, options);
+}

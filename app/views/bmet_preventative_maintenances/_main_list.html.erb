@@ -5,7 +5,7 @@
       <li
       class="mid-summary_ul_li"
       datedue="<%= bmet_preventative_maintenance.next_date.try(:to_s, :number) %>"
-      dayssince="<%= bmet_preventative_maintenance.days_since.to_i %>"
+      dayssince="<%= bmet_preventative_maintenance.days_until.to_i %>"
       ID="<%= bmet_preventative_maintenance.id %>"
       >
 
@@ -22,7 +22,7 @@
 
         <div class="element_date">
           <div class="element_date_title"> <%= t(:days_until).titlecase %>:</div>
-          <%= -bmet_preventative_maintenance.days_since.to_i %>   
+          <%= -bmet_preventative_maintenance.days_until.to_i %>   
         </div>
 
         <div class="element_date">
