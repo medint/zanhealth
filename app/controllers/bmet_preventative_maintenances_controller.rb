@@ -185,6 +185,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
       @input_object.wr_origin = nil
       @input_object.pm_origin = @bmet_preventative_maintenance
       @input_object.description = @bmet_preventative_maintenance.description
+      @input_object.bmet_item = @bmet_preventative_maintenance.bmet_item
     end
 
 end

@@ -183,7 +183,8 @@ namespace :test do
 													  :cause_description => Faker::Lorem.sentence(word_count = rand(3..10)),
 													  :action_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
 													  :prevention_taken => Faker::Lorem.sentence(word_count = rand(3..10)),
-													  :cost => rand(50..2000)
+													  :cost => rand(50..2000),
+													  :bmet_item => BmetItem.all.sample(1)[0]
 											)
 				1.times do |wrc|
 					BmetWorkOrderComment.create(:datetime_stamp => date_base - 60*60*24*(rand(0..13)),
@@ -330,7 +331,8 @@ namespace :test do
 													:months => 0,
 													:created_at => Time.now - 60*60*24*(rand(6..10)),
 													:requester => users.sample,
-													:description => Faker::Lorem.sentence(word_count = rand(3..10)) 
+													:description => Faker::Lorem.sentence(word_count = rand(3..10)),
+													:bmet_item => BmetItem.all.sample(1)[0]
 												   ).save
 				BmetWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,

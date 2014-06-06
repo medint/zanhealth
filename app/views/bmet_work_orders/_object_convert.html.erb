@@ -11,18 +11,19 @@
 
      <div id="object-form-single-col">
         <div class="field-box">
+          <div class="field-type"><%= t(:item).capitalize %></div>
+          <div class="field-info">
+            <p><%= @input_object.bmet_item.bmet_model.name %></p>
+          </div>
+            <% f.hidden_field :bmet_item_id %>
+        </div>
+        <div class="field-box">
           <div class="field-type"><%= t(:status).capitalize %></div>
           <div class="field-info">
             <%= f.select( :status, @status)%>
           </div>
         </div>
         <div class = "icon"></div>
-        <div class="field-box">
-          <div class="field-type"><%= t(:item).capitalize %></div>
-          <div>
-            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {}, {:class => "chosen-select"}) %>
-          </div>
-        </div>
         <div class="field-box">
           <div class="field-type"><%= t(:owner).capitalize %></div>
           <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name, :required => true  %></div>
