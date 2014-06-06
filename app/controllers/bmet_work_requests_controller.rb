@@ -91,7 +91,8 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
 
     respond_to do |format|
-      if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @bmet_work_request.save
+      if @bmet_work_request.save
+      #if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @bmet_work_request.save
         format.html { redirect_to '/bmet_work_requests/public_show/'+@bmet_work_request.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_request }
       else
@@ -182,7 +183,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def bmet_work_request_params
-      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
+      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :asset_id)
     end
 
     def set_convert_object

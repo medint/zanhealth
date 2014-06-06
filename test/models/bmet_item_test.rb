@@ -12,14 +12,13 @@ class BmetItemTest < ActiveSupport::TestCase
 	end
 
 	test "should create a corresponding bmet item history" do 
-		puts @bmet_item_two.status
-		puts @bmet_item_two.condition
-		@bmet_item_two.update(:status => 1, :condition => 1)
-		puts @bmet_item_two.status
-		puts @bmet_item_two.condition
-		@bmet_item_history =  BmetItemHistory.find_by_bmet_item_id(@bmet_item_two.id)
-		puts @bmet_item_history.status
-		puts @bmet_item_history.condition
+		@bmet_item_two.update(:status => 1)
+		@bmet_item_history =  BmetItemHistory.where(:bmet_item_id => @bmet_item_two.id).order('created_at DESC').first
+		assert_equal @bmet_item_history.bmet_item_status, 1
+
+		@bmet_item_two.update(:condition => 2)
+		@bmet_item_history =  BmetItemHistory.where(:bmet_item_id => @bmet_item_two.id).order('created_at DESC').first
+		assert_equal @bmet_item_history.bmet_item_condition, 2
 	end
   
   	

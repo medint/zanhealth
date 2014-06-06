@@ -7,7 +7,12 @@ class BmetWorkOrderTest < ActiveSupport::TestCase
 		departments(:one)
 	end
   
-  	
+  	test "should create corresponding bmet item history when status of work order changed" do
+  		@bmet_work_orders.update(:status => 2)
+  		@bmet_item_history =  BmetItemHistory.where(:bmet_item_id => @bmet_work_orders.bmet_item_id, :work_order_id => @bmet_work_orders.id).order('created_at DESC').first
+		assert_equal @bmet_item_history.work_order_status, 2
+  	end
+
 	test "should export to csv" do
 		test = BmetWorkOrder.includes(:owner, :requester, :department).where("id=?", @bmet_work_orders.id)
 		csv_string = test.as_csv
