@@ -19,6 +19,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
+  belongs_to :bmet_item
   before_save :calc_next_date
   attr_accessor :days_until
   attr_accessor :status
