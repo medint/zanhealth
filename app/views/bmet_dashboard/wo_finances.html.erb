@@ -9,38 +9,39 @@ google.setOnLoadCallback(drawChart);
 <%=render 'navigation'%>
 <div id='dashboard'>
 	<div id='chart_div'></div>
-	
-	<table id="dash_table">
-		<tr>
-			<th><%=t(:work_order).titlecase %></th>
-			<th><%=t(:department).capitalize%></th>
-			<th><%=t(:cost).capitalize%></th>
-		</tr>
-		<% @work_orders_json.each do |department_name,value| %>
-				<tr>
-					<td class="department_name">
-						<%= department_name %>
-					</td>
-				</tr>
-			<% value["costs"].each do |work_order_id,cost| %>
-				<tr>
-					<td></td>
-					<td class="work_order_id">
-						<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>						
-					</td>					
-					<td class="cost_by_id">
-						<%=cost%>
-					</td>
-				</tr>
-			<%end%>
+	<div id="dashboard_results_div">
+		<table id="dash_table">
+			<tr>
+				<th><%=t(:work_order).titlecase %></th>
+				<th><%=t(:department).capitalize%></th>
+				<th><%=t(:cost).capitalize%></th>
+			</tr>
+			<% @work_orders_json.each do |department_name,value| %>
+					<tr>
+						<td class="department_name">
+							<%= department_name %>
+						</td>
+					</tr>
+				<% value["costs"].each do |work_order_id,cost| %>
 					<tr>
 						<td></td>
-						<td></td>
-						<td class="sum_costs"><%=value["totalcost"]%></td>
+						<td class="work_order_id">
+							<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>						
+						</td>					
+						<td class="cost_by_id">
+							<%=cost%>
+						</td>
 					</tr>
-			
-		<%end%>
-	</table>
+				<%end%>
+						<tr>
+							<td></td>
+							<td></td>
+							<td class="sum_costs"><%=value["totalcost"]%></td>
+						</tr>
+				
+			<%end%>
+		</table>
+	</div>
 </div>
 
 

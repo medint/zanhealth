@@ -9,7 +9,8 @@ class BmetPreventativeMaintenancesController < ApplicationController
   before_action :set_hidden_bmet_preventative_maintenances, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_preventative_maintenances, only: [:all, :show_all]
   before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
-
+  before_action :set_items, only: [:show, :show_all, :show_hidden]
+  
   # GET /bmet_preventative_maintenances
   # GET /bmet_preventative_maintenances.json
   def index
@@ -140,6 +141,10 @@ class BmetPreventativeMaintenancesController < ApplicationController
       @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
     end
 
+    def set_items
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+    end
+
     def set_bmet_preventative_maintenance
 
       @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
@@ -161,13 +166,13 @@ class BmetPreventativeMaintenancesController < ApplicationController
     	@bmet_preventative_maintenances = BmetPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
     	@bmet_preventative_maintenances.map {|i| i.calc_days_until }
       @link = bmet_preventative_maintenances_url+'/hidden/'
-	end
+  	end
 
-	def set_all_bmet_preventative_maintenances
-		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
-		@bmet_preventative_maintenances.map {|i| i.calc_days_until }
-    @link = bmet_preventative_maintenances_url+'/all/'
-	end
+  	def set_all_bmet_preventative_maintenances
+  		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+  		@bmet_preventative_maintenances.map {|i| i.calc_days_until }
+      @link = bmet_preventative_maintenances_url+'/all/'
+  	end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_preventative_maintenance_params

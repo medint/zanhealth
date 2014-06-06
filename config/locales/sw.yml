@@ -170,6 +170,7 @@ sw:
    warranty_notes: "muhtasari wa hati or  maelezo ya hati" 
    weeks: "swahili" 
    work_order: "swahili"
+   work_orders: "swahili"
    work_request_id: "swahili" 
    work_request: "swahili" 
    work_requests: "swahili" 

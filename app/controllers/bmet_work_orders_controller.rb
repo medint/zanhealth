@@ -64,9 +64,11 @@ class BmetWorkOrdersController < ApplicationController
   def new
     @bmet_work_order = BmetWorkOrder.new
     @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
-    link = request.referer.split("/")[-2]
-    if link == "bmet_items"
-      @bmet_work_order.bmet_item_id = request.referer.split("/")[-1]
+    if request.referer
+      link = request.referer.split("/")[-2]
+      if link == "bmet_items"
+        @bmet_work_order.bmet_item_id = request.referer.split("/")[-1]
+      end
     end
   end
 

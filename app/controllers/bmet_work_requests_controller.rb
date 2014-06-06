@@ -8,6 +8,7 @@ before_action :set_departments, only: [:show, :hidden, :all, :show_hidden, :show
 before_action :set_convert_object, only: [:show, :show_hidden, :show_all]
 before_action :set_hidden_bmet_work_requests, only: [:hidden, :show_hidden]
 before_action :set_all_bmet_work_requests, only: [:all, :show_all]
+before_action :set_items, only: [:show, :show_all, :show_hidden]
 skip_before_action :authenticate_user!, only: [:public_new, :public_create, :public_show]
 
   layout 'layouts/bmet_app'
@@ -158,6 +159,10 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
     end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
+
+    def set_items
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+    end
 
     def set_bmet_work_requests
       @bmet_work_requests = BmetWorkRequest.where(:facility_id => current_user.facility_id).all.order(:created_at).reverse_order()

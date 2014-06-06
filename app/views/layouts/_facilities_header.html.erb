@@ -4,11 +4,11 @@
   <div id="login">
     <div id="bottom-buttons">
 		<% if can? :edit_user, current_user %>
-        	<%= link_to current_user.name, edit_user_registration_path, :id => "user_name" %></br>
-	<% else %>
-		<span id="current_user_name"> <%= current_user.name %></span></br>
-	<% end %>
-		<%= link_to current_user.facility.name, "#", :id => "current_fac_name" %></br>
+      <%= link_to current_user.name, edit_user_registration_path, :id => "current_user_name" %></br>
+  	<% else %>
+  		<span id="current_user_name"> <%= current_user.name %></span></br>
+  	<% end %>
+		<div id="current_fac_name"><%= current_user.facility.name %></div>
     <span id="logout_button"><%= link_to t(:logout).capitalize, destroy_user_session_path, :method => :delete %></span>      
     </div>
   </div>
