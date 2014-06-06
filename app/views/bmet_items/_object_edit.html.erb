@@ -28,11 +28,7 @@
           </div>
         </div>
         <div id="print-button_right"></div>
-        <%# link_to  new_bmet_work_order_url %>
-        <div class="create_wo_for_item">
-          Create WO
-        </div>
-        <%# end %>
+        <%= link_to("Create WO", new_bmet_work_order_url, {:class => "create_wo_for_item"}) %>
         <div class="action_submit">
           <%= f.submit t(:save).titlecase%>
         </div>
