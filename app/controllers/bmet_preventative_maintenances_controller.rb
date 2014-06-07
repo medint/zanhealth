@@ -177,7 +177,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_preventative_maintenance_params
-      params.require(:bmet_preventative_maintenance).permit(:late_date_checked, :days, :weeks, :months, :next_date, :description, :bmet_item_id)
+      params.require(:bmet_preventative_maintenance).permit(:last_date_checked, :days, :weeks, :months, :next_date, :description, :bmet_item_id)
     end
 
     def set_convert_object

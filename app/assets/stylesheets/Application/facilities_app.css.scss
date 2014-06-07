@@ -683,11 +683,13 @@ body {
 		}
 		.action_submit {
 			float:left;
+			margin-left: 10px;
 		}
 		.create_wo_for_item{
 			@extend .action-bar_select_box;
 			background-color: $red;
 			float:left;
+			vertical-align: center;
 		}
 	}
 }
