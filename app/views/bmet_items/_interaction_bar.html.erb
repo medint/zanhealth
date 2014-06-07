@@ -7,9 +7,27 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-       <a onclick = "sort_by_date_created()">
-        <%= t(:date_created).titlecase %>
-       </a>
+        <div>
+         <a onclick = "sort_by_name('modelname')">
+          <%= t(:model).titlecase + " " + t(:name).titlecase %>
+         </a>
+       </div>
+       <div>
+         <a onclick = "sort_by_name('assetid')">
+          <%= t(:asset_id).titlecase %>
+         </a>
+       </div>
+       <div>
+         <a onclick = "sort_by_name('department')">
+          <%= t(:department).titlecase %>
+         </a>
+       </div>
+       <div>
+         <a onclick = "sort_by_name('location')">
+          <%= t(:location).titlecase %>
+         </a>
+       </div>
+
        </div>      
       </ul>
 
