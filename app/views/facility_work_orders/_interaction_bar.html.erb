@@ -33,13 +33,18 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
          <div>
-         <a onclick = "sort_by_date_created()">
+         <a onclick = "sort_by_date_desc_created()">
           <%= t(:date_created).titlecase %>
          </a>
          </div>
          <div>
-         <a onclick = "sort_by_date('datestarted')">
+         <a onclick = "sort_by_date_desc('datestarted')">
           <%= t(:date_started).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "sort_by_date_asc('expirydate')">
+          <%= t(:date_expires).titlecase %>
          </a>
          </div>
          <div>
