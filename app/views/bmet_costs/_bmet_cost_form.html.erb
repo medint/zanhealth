@@ -12,7 +12,7 @@
   <% end %>
   
   <div id="extra-details_cost_name">
-    <%= f.number_field :bmet_cost_item_id, :required => true, :placeholder => t(:cost_item).titlecase %>
+    <%= f.collection_select(:bmet_cost_item_id, @cost_items, :id, :name, {}, {:class => "chosen-select"}) %>
   </div>
   <div id="extra-details_cost_quantity">
 
