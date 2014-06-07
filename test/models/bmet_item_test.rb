@@ -44,6 +44,9 @@ class BmetItemTest < ActiveSupport::TestCase
 	end
 
 	test "should import test data" do
+		Department.destroy_all
+		BmetModel.destroy_all
+		BmetItem.destroy_all
 		testFile = Tempfile.new('testFile.csv')
 		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
 			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
