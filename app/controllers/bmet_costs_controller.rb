@@ -79,6 +79,6 @@ class BmetCostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_cost_params
-      params.require(:bmet_cost).permit(:name, :unit_quantity, :cost, :created_at, :updated_at, :bmet_work_order_id, :work_request_id)
+      params.require(:bmet_cost).permit(:name, :unit_quantity, :cost, :created_at, :updated_at, :bmet_work_order_id, :work_request_id, :bmet_cost_item_id)
     end
 end

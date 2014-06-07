@@ -8,6 +8,7 @@ class FacilityWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :show_hidden, :all, :show_all] 
   before_action :set_hidden_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_work_orders, only: [:show_all, :all, :as_csv]
+  before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
   after_action :set_converted_wr, only: [:create]
   after_action :reset_original_pm, only: [:create, :update]
 
@@ -169,6 +170,10 @@ class FacilityWorkOrdersController < ApplicationController
 
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def set_cost_items
+      @cost_items = FacilityCostItem.where(:facility_id => current_user.facility.id).all.to_a
     end
 
     def set_converted_wr

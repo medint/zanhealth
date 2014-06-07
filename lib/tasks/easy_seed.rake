@@ -111,6 +111,8 @@ namespace :test do
 		BmetWorkOrderComment.delete_all
 		Text.delete_all
 		BmetLaborHour.delete_all
+		BmetCost.delete_all
+		BmetCostItem.delete_all
 		item_data = File.open(File.join('test','test_data','import_items4.csv'),'r')
 		csv_item = CSV.parse(item_data, :headers => true)
 		csv_item.each do |row|
@@ -207,7 +209,9 @@ namespace :test do
 										)
 				end
 				1.times do |bmetc|
-					bmet_cost_item = BmetCostItem.create!(:name => Faker::Commerce.product_name)
+					bmet_cost_item = BmetCostItem.create!(:name => Faker::Commerce.product_name,
+														  :facility_id => f.id
+														)
 					BmetCost.create(:bmet_cost_item => bmet_cost_item,
 									:unit_quantity => rand(100),
 									:cost => 1.1*rand(200),
@@ -221,6 +225,7 @@ namespace :test do
 		FacilityWorkOrderComment.delete_all
 		FacilityLaborHour.delete_all
 		FacilityCost.delete_all
+		FacilityCostItem.delete_all
 		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
@@ -282,7 +287,9 @@ namespace :test do
 									 :technician => users.sample,
 									 :facility_work_order => work_ord
 									)
-				fac_cost_item = FacilityCostItem.create!(:name => Faker::Commerce.product_name)
+				fac_cost_item = FacilityCostItem.create!(:name => Faker::Commerce.product_name,
+														 :facility_id => f.id
+														)
 				FacilityCost.create(:facility_cost_item => fac_cost_item,
 								:unit_quantity => rand(100),
 								:cost => 1.1*rand(200),
