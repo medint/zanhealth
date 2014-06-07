@@ -8,13 +8,12 @@
           <div class="element_details">
             <p class="element_title">
               <%= bmet_item.asset_id %> : <%= bmet_item.bmet_model.name %>
+          <% #image_tag("rightarrow_black.png", class: "right-arrow") %>
             </p>
             <p class="element_description">
               <%= bmet_item.location %>
             </p>          
           </div>
-          <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
-          
         </li>
         <hr class="mid-summary_ul_li_hr"><!--replace with belement-->
         <% end %>
