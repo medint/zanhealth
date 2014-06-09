@@ -38,6 +38,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# visjs visualization for timeline
+gem 'vis-rails'
+
 
 #################### Utilities #####################
 

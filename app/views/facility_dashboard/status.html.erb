@@ -4,11 +4,40 @@
 google.load('visualization', '1.0', {'packages':['corechart']});
 
 // Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawStatusChart);
+//google.setOnLoadCallback(drawStatusChart);
 </script>
 
 <%=render 'navigation'%>
 <div id="dashboard">
+	<div><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
+	<div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+          <%= t(:select_attribute).titlecase %>
+          <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+         <div>
+         <a onclick = "facility_wo_expire()">
+          <%= t(:expire).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "sort_by_date_desc('datestarted')">
+          <%= t(:completed).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "sort_by_date_asc('expirydate')">
+          <%= t(:department).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "sort_by_name('requester')">
+          <%=t(:owner).capitalize%>
+         </a>
+         </div>
+      </ul>
+    </div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
@@ -47,5 +76,6 @@ google.setOnLoadCallback(drawStatusChart);
 		</table>
 	</div>
 	<div id='params_to_send'><%=@params_to_send_back%></div>
+	<div id='params_to_send2'><%=@params_to_send_back2%></div>
 	
 </div>
