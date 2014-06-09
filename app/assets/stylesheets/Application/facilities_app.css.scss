@@ -3,6 +3,36 @@ $yellow:#ffc207;
 $green:#55aa2b;
 $gray:#4e4e4e;
 
+.vis.timeline .item {
+	padding: 1px;
+}
+
+.vis.timeline .item.Unstarted {
+	background-color: $red;
+	border-color: $red;
+}
+
+.vis.timeline .item.Prog {
+	background-color: $yellow;
+	border-color: $yellow;
+}
+
+.vis.timeline .item.Comp {
+	background-color: $green;
+	border-color: $green;
+}
+
+.vis.timeline.bottom .group {
+	border-bottom: none;
+}
+
+.vis.timeline .item.range {
+	border-radius:0px;
+}
+
+.vpanel.side {
+	display: none
+}
 
 *{
 	font-family: Arial;

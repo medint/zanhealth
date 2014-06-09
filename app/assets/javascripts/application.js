@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require_tree .
 //= require chosen.jquery.min.js
+//= require vis
 

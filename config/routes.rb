@@ -62,6 +62,7 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
   get "/facility_dashboard/indexAjax", to: "facility_dashboard#indexAjax"
   get "/facility_dashboard/calendarAjax", to: "facility_dashboard#calendarAjax"
+  get "/facility_dashboard/timelineAjax", to: "facility_dashboard#timelineAjax"
   resources :facility_dashboard
 
   get "/bmet_dashboard/status", to: "bmet_dashboard#status"

@@ -11,6 +11,8 @@ class FacilityDashboardController < ApplicationController
 		@params_to_send_back=url_for(params)
 		params["action"]="calendarAjax"
 		@params_to_send_back2=url_for(params)
+		params["action"]="timelineAjax"
+		@params_to_send_back3=url_for(params)
 	end
 
 	def indexAjax
@@ -64,6 +66,29 @@ class FacilityDashboardController < ApplicationController
 		end
 		render json: @work_orders_json
 	end
+
+	def timelineAjax
+		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("facilities.id = :curruser", {curruser: current_user.facility_id}).order(:created_at)
+		@work_orders_json=[]
+		@work_orders_json.push([])
+		@work_orders_json.push([])
+
+		@work_orders.each do |wo|
+			if wo.status==0
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: nil, group: wo.id, className: 'Unstarted'})
+			elsif wo.status==1
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_started.to_i*1000, content: nil, group: wo.id, className: 'Unstarted'})
+				@work_orders_json[0].push({start: wo.date_started.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: nil, group: wo.id, className: 'Prog'})
+			else
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_started.to_i*1000, content: nil, group: wo.id, className: 'Unstarted'})
+				@work_orders_json[0].push({start: wo.date_started.to_i*1000, 'end' => wo.date_completed.to_i*1000, content: nil, group: wo.id, className: 'Prog'})
+				@work_orders_json[0].push({start: wo.date_completed.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: nil, group: wo.id, className: 'Comp'})
+			end
+			@work_orders_json[1].push({id: wo.id,content: nil, value: wo.created_at.to_i});
+		end
+		render json: @work_orders_json
+	end
+
 
 
 
