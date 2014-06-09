@@ -13,7 +13,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   layout 'layouts/facilities_app'
 
   def search
-    @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+    @facility_work_requests = FacilityWorkRequest.with_deleted.search(params[:q]).records
     @facility_work_requests = @facility_work_requests.where(:facility_id => current_user.facility_id).all.to_a
     @link = facility_work_requests_url+"/all/"
     render action: "index"

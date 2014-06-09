@@ -1,13 +1,10 @@
-<li class="facility_work_order_cost">
-  <div class="cost-name">
-  	<%= facility_cost.facility_cost_item_id %>
-  </div>
-
-  <div class="cost-detail">
-	  <span class="cost-quantity"><%= facility_cost.unit_quantity %></span> X
-	  <span class="cost-cost">$<%= facility_cost.cost %></span> &#61;
-	  <span class="cost-total">$<%= facility_cost.cost * facility_cost.unit_quantity %></span>
-	  
-  </div>
-  <%= link_to 'X', facility_cost, method: :delete, data: { confirm: 'Are you sure?' } %>
-</li>
+<tr>
+  <td><%= facility_cost.facility_cost_item.name %></td>
+  <td>$</td>
+  <td><%= facility_cost.cost %></td>
+  <td>X</td>  
+  <td><%= facility_cost.unit_quantity %></td>
+  <td>&#61; $</td>
+  <td><%= facility_cost.unit_quantity * facility_cost.cost %></td>
+  <td><%= link_to 'x', facility_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

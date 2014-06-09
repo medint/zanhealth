@@ -9,6 +9,7 @@
       owner="<%=facility_work_order.owner.try(:name)%>"
       status = "<%=facility_work_order.status%>"
       datestarted="<%= facility_work_order.date_started.try(:to_s, :number)%>"
+      expirydate = "<%= facility_work_order.date_expire.try(:to_s, :number)%>"
       >
         <div class="status-<%= facility_work_order.status %>">
           <div class="status-text-<%= facility_work_order.status %>"></div>
@@ -22,7 +23,7 @@
           </p>
           <p class="element_owner">
             <%=t(:owner).capitalize%>: <%= facility_work_order.owner.try(:name) %>
-          </p>          
+          </p>
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
         <div class="element_date">

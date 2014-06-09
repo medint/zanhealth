@@ -448,6 +448,10 @@ body {
 			padding-top: 10px;
 		}
 	}
+
+	#mid-summary_ul a .mid-summary_ul_li {
+		height: auto;
+	}
 }
 
 
@@ -709,11 +713,13 @@ body {
 		}
 		.action_submit {
 			float:left;
+			margin-left: 10px;
 		}
 		.create_wo_for_item{
 			@extend .action-bar_select_box;
 			background-color: $red;
 			float:left;
+			vertical-align: center;
 		}
 	}
 }
@@ -1142,7 +1148,12 @@ body {
 
 
 #extra-details_cost_name{
+	//chosen div
 	width:60%;		
+	color:black;
+	input {
+		color:black;
+	}
 	@extend .extra-details_formstyle;
 }
 
@@ -1203,11 +1214,12 @@ body {
 	float:left;
 	input{
 		font-weight:100;
-		border:0px !important;
-	 	text-decoration:none !important;
-	 	font-family:helvetica !important;
-	 	color:#ebebeb !important;
-	 	background:url(../images/btn_hover.png) repeat-x !important;
+		border:0px;
+	 	text-decoration:none;
+	 	background-color: $gray;
+	 	color:#ebebeb;
+	 	//background:url(../images/btn_hover.png) repeat-x !important; 
+	 	//uncomment when image is
 	}
 }
 

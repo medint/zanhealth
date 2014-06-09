@@ -44,6 +44,9 @@ class BmetItemTest < ActiveSupport::TestCase
 	end
 
 	test "should import test data" do
+		Department.destroy_all
+		BmetModel.destroy_all
+		BmetItem.destroy_all
 		testFile = Tempfile.new('testFile.csv')
 		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
 			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
@@ -53,9 +56,9 @@ class BmetItemTest < ActiveSupport::TestCase
 		Department.import(testFile, :userone)
 		BmetModel.import(testFile, :userone)
 		BmetItem.import(testFile, :userone)
-		#assert_not_nil Department.find_by_name("SampleDepartment")
-		#assert_not_nil BmetModel.find_by_model_name("Transmoglifier")
-		#assert_not_nil BmetItem.find_by_year_manufactured(2014)
+		assert_not_nil Department.all
+		assert_not_nil BmetModel.all
+		assert_not_nil BmetItem.all
 
 	end
 

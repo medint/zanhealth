@@ -7,6 +7,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
+  before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
   after_action :set_converted_wr, only: [:create]
   after_action :reset_original_pm, only: [:create, :update]
   load_and_authorize_resource
@@ -185,8 +186,8 @@ class BmetWorkOrdersController < ApplicationController
       @link = bmet_work_orders_url+"/all/"
     end
 
-    def set_items
-      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+    def set_cost_items
+      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).all.to_a
     end
 
     def set_users

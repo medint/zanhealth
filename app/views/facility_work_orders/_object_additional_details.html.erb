@@ -26,9 +26,11 @@
       <div class='extra-details_title'>
         <%= t(:costs).capitalize %>
       </div>
-      <ul id='extra-details_comment_ul'>
-	      <%= render @facility_costs %>
-      </ul>
+      <table id="costs_table">
+      <!-- <ul id='extra-details_comment_ul'> -->
+        <%= render @facility_costs %>
+      <!-- </ul> -->
+      </table>
     </div>      
       <%= render 'facility_costs/facility_cost_form' %>
   </div>

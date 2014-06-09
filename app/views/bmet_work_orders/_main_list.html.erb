@@ -9,6 +9,7 @@
       owner="<%=bmet_work_order.owner.try(:name)%>"
       status = "<%=bmet_work_order.status%>"
       datestarted="<%= bmet_work_order.date_started.try(:to_s, :number)%>"
+      expirydate = "<%= bmet_work_order.date_expire.try(:to_s, :number) %>"
       >
         <div class="status-<%= bmet_work_order.status %>">
           <div class="status-text-<%= bmet_work_order.status %>"></div>

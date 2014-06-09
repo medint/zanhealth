@@ -12,7 +12,7 @@
   <% end %>
   
   <div id="extra-details_cost_name">
-    <%= f.text_area :facility_cost_item_id, :required => true, :placeholder => t(:cost_item).capitalize %>
+    <%= f.collection_select(:facility_cost_item_id, @cost_items, :id, :name, {}, {:class => "chosen-select", :id => "extra-details_cost_name_select"}) %>
   </div>
   <div id="extra-details_cost_quantity">
 
