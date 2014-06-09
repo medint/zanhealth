@@ -34,6 +34,22 @@
 		width:100%;
 	}
 
-
-
 }
+
+#bmet_item_history_ul{
+	color:#ebebeb;
+	font-size:11px;
+	list-style-type:none;
+	padding:0;
+	border:0;
+	margin-left:10px;
+	word-wrap : break-word;
+	li{
+		margin-bottom:7px;
+		a {
+			color: #ffffff;
+			font-weight: bold;
+		}
+	}
+}
+
