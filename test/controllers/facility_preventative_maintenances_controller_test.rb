@@ -100,4 +100,10 @@ class FacilityPreventativeMaintenancesControllerTest < ActionController::TestCas
     assert_not_equal @results, nil, flash[:notice]
   end
 
+  test "should reset" do
+    @request.headers["HTTP_REFERER"] = "/facility_preventative_maintenances/all/" + @facility_preventative_maintenance.id.to_s
+    put :reset, id: @facility_preventative_maintenance.id
+    assert_equal (DateTime.now.utc + @facility_preventative_maintenance.days.days + @facility_preventative_maintenance.weeks.weeks + @facility_preventative_maintenance.months.months).to_f, assigns["facility_preventative_maintenance"].next_date.to_f
+  end
+
 end
