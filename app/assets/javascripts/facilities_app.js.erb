@@ -503,5 +503,27 @@ $(document).on ("page:change",function() {
 
 		var timeline = new vis.Timeline(container, items, options);
 		timeline.setGroups(groups)
+		$('.link_to_work').each(function(){
+			$(this).parent().parent().wrap(this)
+		})
 	};
 })
+
+function facility_wo_expire(){
+	// Create the data table.
+	
+
+// Set a callback to run when the Google Visualization API is loaded.
+	google.setOnLoadCallback(drawStatusChart());
+	console.log('testing')
+
+	var htmlData = $.ajax({
+          url: $("#params_to_send2").text(),
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard_results_div').html(htmlData);
+
+
+}
