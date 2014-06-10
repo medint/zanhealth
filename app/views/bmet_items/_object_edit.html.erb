@@ -14,17 +14,17 @@
       <div id="action-bar">
         <div id="field-box_item-id">      
           <div class="item-id">Item <%= @bmet_item.id%></div>
-        </div>    
+        </div>
+        <div class="bmet_item_condition %>">      
+          CONDITION
+          <div class="action-bar-box_text">
+            <%= f.select :condition, @conditions %>
+          </div>
+        </div>
         <div class="bmet_item_status bmet_item_status-<%= @bmet_item.try(:status) %>">      
           STATUS
           <div class="action-bar-box_text ">
             <%= f.select :status, @status %>
-          </div>
-        </div>    
-        <div class="bmet_item_condition bmet_item_condition-<%= @bmet_item.try(:condition) %>">      
-          CONDITION
-          <div class="action-bar-box_text">
-            <%= f.select :condition, @conditions %>
           </div>
         </div>
         <div id="print-button_right"></div>

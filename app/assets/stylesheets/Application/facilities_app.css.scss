@@ -286,11 +286,11 @@ body {
 
 #settings-icon > a{
 	margin-top: 12px;
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: 100;
 	color: white;
 	float:left;
-	margin-left: 85px;
+	margin-left: 105px;
 	padding:0;
 	border:0;
 }
@@ -586,6 +586,8 @@ body {
 
 .bmet_item_condition {
 	@extend .action-bar_select_box;
+	padding-left: 5px;
+	background-color: black;
 }
 
 .work_order_status-0{
@@ -790,7 +792,7 @@ body {
 		.field-box {
 			height:45px;
 			width: 22%;
-			float: left;			
+			float: left;
 			background-color: #ffffff;
 			border:1px solid;
 			border-color: #f0f0f0;
