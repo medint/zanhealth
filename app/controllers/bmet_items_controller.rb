@@ -9,6 +9,7 @@ class BmetItemsController < ApplicationController
   load_and_authorize_resource param_method: :item_params
   before_action :set_status_string_hash, only: [:show]
   before_action :set_conditions_string_hash, only: [:show]
+  before_action :set_work_order_status_string_hash, only: [:show]
 
   # GET /items
   # GET /items.json
@@ -116,8 +117,13 @@ class BmetItemsController < ApplicationController
     def set_status_string_hash
       @status_string_hash = ['Active','Inactive','Retired']
     end
+
     def set_conditions_string_hash
       @conditions_string_hash = ['Poor','Fair','Good','Very Good']
+    end
+
+    def set_work_order_status_string_hash
+      @wo_status_string_hash = ['Unstarted', 'In-progress', 'Completed']
     end
 
     def set_item
