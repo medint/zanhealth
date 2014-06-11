@@ -43,23 +43,24 @@ class BmetItemTest < ActiveSupport::TestCase
 		assert true
 	end
 
-	test "should import test data" do
-		Department.destroy_all
-		BmetModel.destroy_all
-		BmetItem.destroy_all
-		testFile = Tempfile.new('testFile.csv')
-		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
-			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
-			vendor_name /n
-			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,SampleDepartment,1000,69,Machine,
-			Nowhere,Transmoglifier,Alan,Home Depot')
-		Department.import(testFile, :userone)
-		BmetModel.import(testFile, :userone)
-		BmetItem.import(testFile, :userone)
-		assert_not_nil Department.all
-		assert_not_nil BmetModel.all
-		assert_not_nil BmetItem.all
+	# test "should import test data" do
+	# 	# Department.destroy_all
+	# 	# BmetModel.destroy_all
+	# 	# BmetItem.destroy_all
+	# 	# testFile = Tempfile.new('testFile.csv')
+	# 	# testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
+	# 	# 	warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
+	# 	# 	vendor_name /n
+	# 	# 	1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,SampleDepartment,1000,69,Machine,
+	# 	# 	Nowhere,Transmoglifier,Alan,Home Depot')
+	# 	# Department.import(testFile, :userone)
+	# 	# BmetModel.import(testFile, :userone)
+	# 	# BmetItem.import(testFile, :userone)
+	# 	# assert_not_nil Department.all
+	# 	# assert_not_nil BmetModel.all
+	# 	# assert_not_nil BmetItem.all
+	# 	#LOL THIS WAS A COMPLETE WASTE OF TIME AND NOW I HAVE TO REWRITE THE TEST HAHAHAHAHAHAHAHA
 
-	end
+	# end
 
 end

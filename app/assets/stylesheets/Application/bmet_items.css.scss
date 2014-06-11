@@ -53,3 +53,30 @@
 	}
 }
 
+#import_confirmation {
+	margin-left: 260px;
+	white-space: nowrap;
+	width: 3000px;
+}
+
+.import_confirmation_table {
+	margin-left: 40px;
+	td {
+		border: 1px solid black;
+		padding: 5px;
+		text-align: center;
+		font-size: 11px;
+		height: 45px;
+	}
+	
+	th {
+		font-size: 12px;
+		padding: 5px;
+		text-align: center;
+	}
+}
+
+.import_button {
+	
+}
+

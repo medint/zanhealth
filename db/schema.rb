@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606211220) do
+ActiveRecord::Schema.define(version: 20140611010317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140606211220) do
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
-    t.decimal  "cost",               precision: 5, scale: 2
+    t.decimal  "cost",               precision: 12, scale: 2
     t.integer  "bmet_cost_item_id"
   end
 
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 20140606211220) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.decimal  "cost",                   precision: 5, scale: 2
+    t.decimal  "cost",                   precision: 12, scale: 2
     t.integer  "facility_cost_item_id"
   end
 
@@ -337,6 +337,33 @@ ActiveRecord::Schema.define(version: 20140606211220) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "staging_items", force: true do |t|
+    t.string  "serial_number"
+    t.integer "year_manufactured"
+    t.string  "funding"
+    t.date    "date_received"
+    t.date    "warranty_expire"
+    t.date    "contract_expire"
+    t.text    "warranty_notes"
+    t.string  "service_agent"
+    t.string  "department_name"
+    t.decimal "price"
+    t.string  "asset_id"
+    t.string  "item_type"
+    t.string  "location"
+    t.string  "model_name"
+    t.string  "manufacturer_name"
+    t.string  "vendor_name"
+    t.integer "status"
+    t.integer "condition"
+  end
+
+  create_table "staging_models", force: true do |t|
+    t.string "model_name"
+    t.string "manufacturer_name"
+    t.string "vendor_name"
   end
 
   create_table "texts", force: true do |t|

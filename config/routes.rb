@@ -16,6 +16,7 @@ Zanhealth::Application.routes.draw do
   #bmet app
   resources :bmet_items, except: :show do
     collection { post :import }
+    collection { post :stage_import }
   end
   resources :bmet_item_histories
   resources :bmet_labor_hours
@@ -53,6 +54,8 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_requests/download", to: "bmet_work_requests#as_csv"
   get "/bmet_items/download", to: "bmet_items#as_csv"
   get "/bmet_items/:id", to: "bmet_items#show"
+  get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
+  post "/bmet_items_import", to: "bmet_items#import"
 
   #dashboard
   

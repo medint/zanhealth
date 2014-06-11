@@ -10,6 +10,7 @@ class BmetItemsController < ApplicationController
   before_action :set_status_string_hash, only: [:show]
   before_action :set_conditions_string_hash, only: [:show]
   before_action :set_work_order_status_string_hash, only: [:show]
+  before_action :set_staging_data, only: [:confirm_import]
 
   # GET /items
   # GET /items.json
@@ -84,15 +85,32 @@ class BmetItemsController < ApplicationController
     end
   end
 
+  def stage_import
+    begin
+      StagingModel.destroy_all
+      StagingItem.destroy_all
+      BmetModel.stage_import(params[:file], current_user.facility.id)
+      BmetItem.stage_import(params[:file], current_user.facility.id)
+      redirect_to '/bmet_items_confirm_import'
+    rescue
+      redirect_to bmet_items_path, notice: "Invalid CSV file format"
+    end
+  end
+
+  def confirm_import
+    render 'import_confirmation'
+  end
+
   def import
     begin
-      Department.import(params[:file], current_user.facility.id)
-      BmetModel.import(params[:file], current_user.facility.id)
-      BmetItem.import(params[:file], current_user.facility.id)
+      BmetModel.import(current_user.facility.id)
+      BmetItem.import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    rescue
-       redirect_to bmet_items_path, notice: "Invalid CSV file format."    
-    end 
+    #rescue
+    #   redirect_to :back, notice: "Invalid CSV file format."    
+    end
+    StagingModel.destroy_all
+    StagingItem.destroy_all
   end
 
   private
@@ -140,6 +158,11 @@ class BmetItemsController < ApplicationController
 
     def set_bmet_items
       @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+    end
+
+    def set_staging_data
+      @staging_items = StagingItem.all
+      @staging_models = StagingModel.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
