@@ -23,7 +23,7 @@ class StagingItem < ActiveRecord::Base
 				item_row.push([item.send(attrib)])
 			end
 			match = BmetItem.find_by_asset_id(item.asset_id)
-			if match and match.department.facility_id == fac_id
+			if match and match.department.facility_id == fac_id#Update existing records
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'
@@ -33,7 +33,7 @@ class StagingItem < ActiveRecord::Base
 							cell.push('changed')
 							cell[0] = match.department.name.to_s + " => " + cell[0].to_s
 						else
-							cell.push('error')
+							cell.push('error')# Don't accept invalid department names, give an error
 							item_row.each do |c|
 								c[1] = 'error'
 							end
@@ -49,7 +49,7 @@ class StagingItem < ActiveRecord::Base
 					end
 
 				end
-			else
+			else#Create new non-existing records
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'

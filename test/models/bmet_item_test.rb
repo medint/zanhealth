@@ -24,7 +24,6 @@ class BmetItemTest < ActiveSupport::TestCase
   	
 	test "should export to csv" do
 		testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
-		#test = BmetWorkOrder.includes(:owner, :requester, :department).where("id=?", @bmet_work_orders.id)
 		csv_string = testItems.as_csv
 		rows = CSV.parse(csv_string)
 		expected_values = @bmet_items.attributes.dup

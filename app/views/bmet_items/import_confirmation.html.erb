@@ -22,13 +22,13 @@
 			<tr>
 				<% row.each do |cell| %>
 						<% if cell[1] == 'unchanged' %>
-							<% bg_color = '#999999' %>
+							<% class_type = 'unchanged_cell' %>
 						<% elsif cell[1] == 'changed' %>
-							<% bg_color = '#55aa2b' %>
+							<% class_type = 'changed_cell' %>
 						<% elsif cell[1] == 'error' %>
-							<% bg_color = '#e9593e' %>
+							<% class_type = 'error_cell' %>
 						<% end %>
-						<td bgcolor = <%=bg_color%> ><%= cell[0] %></td>
+						<td class = <%=class_type%> ><%= cell[0] %></td>
 					<% end %>
 		<% end %>
 	</table>
@@ -43,11 +43,11 @@
 				<tr>
 					<% row.each do |cell| %>
 						<% if cell[1] == 'unchanged' %>
-							<% bg_color = '#999999' %>
+							<% class_type = 'unchanged_cell' %>
 						<% elsif cell[1] == 'changed' %>
-							<% bg_color = '#55aa2b' %>
+							<% class_type = 'changed_cell' %>
 						<% end %>
-						<td bgcolor = <%=bg_color%>><%= cell[0] %></td>
+						<td class = <%=class_type%>><%= cell[0] %></td>
 					<% end %>
 				</tr>
 			<% end %>

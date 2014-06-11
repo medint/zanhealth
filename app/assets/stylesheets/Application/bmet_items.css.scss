@@ -56,7 +56,7 @@
 #import_confirmation {
 	margin-left: 260px;
 	white-space: nowrap;
-	width: 3000px;
+	width: 2200px;
 }
 
 .import_confirmation_table {
@@ -77,6 +77,19 @@
 }
 
 .import_button {
-	
+	padding: 10px;
+	margin-left: 100px;
+}
+
+.unchanged_cell {
+	background-color: #999999;
+}
+
+.changed_cell {
+	background-color: #55aa2b;
+}
+
+.error_cell {
+	background-color: #e9593e;
 }
 
