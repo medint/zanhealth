@@ -339,7 +339,6 @@ ActiveRecord::Schema.define(version: 20140611135139) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "shortened_urls", force: true do |t|
     t.integer  "owner_id"
     t.string   "owner_type", limit: 20
@@ -353,7 +352,7 @@ ActiveRecord::Schema.define(version: 20140611135139) do
   add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type", using: :btree
   add_index "shortened_urls", ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true, using: :btree
   add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url", using: :btree
-=======
+
   create_table "staging_items", force: true do |t|
     t.string  "serial_number"
     t.integer "year_manufactured"
@@ -382,7 +381,6 @@ ActiveRecord::Schema.define(version: 20140611135139) do
     t.string  "vendor_name"
     t.integer "facility_id"
   end
->>>>>>> ab14287e418d7ac75b95cd81d0ab553670b69feb
 
   create_table "texts", force: true do |t|
     t.text     "content"

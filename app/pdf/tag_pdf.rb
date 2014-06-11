@@ -4,22 +4,33 @@ require 'shortener'
 require 'chunky_png/rmagick'
 require 'prawn'
 
-namespace :development do
+class TagPdf < Prawn::Document
 
-	desc "generate random qr codes"
-	task :qr_code => :environment do
-		
-		start_num = 1
-		end_num = 2
-		asset_id_prefix = "CHM"
+	def initialize(start_num, end_num, asset_id_prefix)
+		im_width = 3.5
+		im_height = 1.1
+		generate_image_tags(start_num,end_num,asset_id_prefix)
+
+		custom_pdf_size = [im_width * 72, im_height * 72] # pt is 1/72 of inch
+		super(:page_size => custom_pdf_size,
+			:page_layout => :portrait,
+			:margin => [0,0,0,0])
+		for i in start_num..end_num
+			unless i == start_num
+				start_new_page(:size => custom_pdf_size, :page_layout => :portrait)
+			end
+			image "output_qr_#{i}.png", :width => im_width * 72
+		end
+	end
+
+	def generate_image_tags(start_num,end_num,asset_id_prefix)
 		
 		dummy_charset = ('a'..'z').to_a + (0..9).to_a
 		im_width = 3.5
 		im_height = 1.1
-		dpi = 300
-      	custom_pdf_size = [im_width * 72, im_height * 72] # pt is 1/72 of inch
+		dpi = 300      	
       	num_sig_figs = 3
-		
+
 		for i in start_num..end_num
 		
 			dummy_url_key = (0...5).map{ dummy_charset[rand(dummy_charset.size)] }.join    
@@ -67,19 +78,5 @@ namespace :development do
 			result.write("output_qr_#{i}.png")
 
 		end
-
-		Prawn::Document.generate("qr.pdf",
-									:page_size => custom_pdf_size,
-									:page_layout => :portrait,
-									:margin => [0,0,0,0]
-		) do
-			for i in start_num..end_num
-				start_new_page(:size => custom_pdf_size, :page_layout => :portrait)
-				image "output_qr_#{i}.png", :width => im_width * 72
-			end		    
-		end
-		
-		#lpr -P Brother_QL_700 -o fit-to-page -o media=DC03 output_qr.png
-
 	end
 end
