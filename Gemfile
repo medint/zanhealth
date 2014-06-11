@@ -12,6 +12,9 @@ group :development do
     gem "railroady" # generates graphviz models for schema 
     gem "rails-erd" #generate diagrams for models
     gem "spring" # for testing, application reploader
+    gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
+    gem "rqrcode_png" # for generating png from qr code
+    gem 'shortener', github: 'jshum/shortener' #fork of shortener with our own modifications
 end
 
 group :production do
@@ -101,5 +104,5 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
 
-gem "rmagick", :require => 'RMagick'
-gem "rqrcode_png"
+#PDF generation for tagging
+gem 'prawn'
