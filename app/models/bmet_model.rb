@@ -38,9 +38,9 @@ class BmetModel < ActiveRecord::Base
 end
 
   def self.import(facility_id)
-    staging_models = StagingModel.all#needs facility verification
+    staging_models = StagingModel.where(:facility_id => facility_id)
     staging_models.each do |model|
-      match = BmetModel.find_by_model_name(model.model_name)#needs facility verification: .where("match.bmet_items.collection(force_reload=false)[0].department.facility_id = ?", facility_id)
+      match = BmetModel.where(:model_name => model.model_name).where(:facility_id => facility_id)[0]
       unless match and match.manufacturer_name == model.manufacturer_name and match.vendor_name == model.vendor_name
         new_model = BmetModel.new
         new_model.model_name = model.model_name

@@ -13,6 +13,8 @@ class StagingItem < ActiveRecord::Base
 			'price',
 			'asset_id',
 			'item_type',
+			'status',
+			'condition',
 			'location',
 			'department_name']
 		items_array = []
@@ -23,47 +25,83 @@ class StagingItem < ActiveRecord::Base
 				item_row.push([item.send(attrib)])
 			end
 			match = BmetItem.find_by_asset_id(item.asset_id)
+
 			if match and match.department.facility_id == fac_id#Update existing records
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'
 						if cell[0] == match.department.name
-							cell.push('unchanged')
+							self.push_unchanged(cell)
 						elsif Department.where(:facility_id => fac_id).find_by_name(cell[0])
-							cell.push('changed')
+							self.push_chaned(cell)
 							cell[0] = match.department.name.to_s + " => " + cell[0].to_s
-						else
-							cell.push('error')# Don't accept invalid department names, give an error
-							item_row.each do |c|
-								c[1] = 'error'
-							end
+						else # Don't accept invalid department names, give an error
+							self.push_errors(item_row)
 						end
+
+					elsif attr_array[index] == 'status'
+						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+							status_string_hash = ['active','inactive','retired']
+							if match.status and cell[0].downcase == status_string_hash[match.status]
+								self.push_unchanged(cell)
+							else
+								self.push_changed(cell)
+							end
+						else
+							self.push_errors(item_row)
+						end
+
+					elsif attr_array[index] == 'condition'
+						cellval = cell[0].downcase
+						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
+							conditions_string_hash = ['poor','fair','good','very good']
+							if match.condition and cellval == conditions_string_hash[match.condition]
+								self.push_unchanged(cell)
+							else
+								self.push_changed(cell)
+							end
+						else
+							self.push_errors(item_row)
+						end							
 
 					else
 						if cell[0] == match.send(attr_array[index])
-							cell.push('unchanged')
+							self.push_unchanged(cell)
 						else
-							cell.push('changed')
+							self.push_changed(cell)
 							cell[0] = match.send(attr_array[index]).to_s + " => " + cell[0].to_s
 						end
 					end
 
 				end
-			else#Create new non-existing records
+
+			else #Create new non-existing records
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'
 						if Department.where(:facility_id => fac_id).find_by_name(cell[0])
-							cell.push('changed')
+							self.push_changed(cell)
 						else
-							cell.push('error')
-							item_row.each do |c|
-								c[1] = 'error'
-							end
+							self.push_errors(item_row)
 						end
 
+					elsif attr_array[index] == 'status'
+						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+							self.push_changed(cell)
+						else
+							self.push_errors(item_row)
+						end						
+
+					elsif attr_array[index] == 'condition'
+						cellval = cell[0].downcase
+						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
+							self.push_changed(cell)
+						else
+							self.push_errors(item_row)	
+						end				
+
 					else
-						cell.push('changed')
+						self.push_changed(cell)
 					end
 				end
 			end
@@ -72,4 +110,29 @@ class StagingItem < ActiveRecord::Base
 		return items_array
 	end
 
+	def self.push_changed(cell)
+		if cell[1] and cell[1] != 'error'
+			cell[1] = 'changed'
+		elsif !cell[1]
+			cell.push('changed')
+		end
+	end
+
+	def self.push_unchanged(cell)
+		if cell[1] and cell[1] != 'error'
+			cell[1] = 'unchanged'
+		elsif !cell[1]
+			cell.push('unchanged')
+		end
+	end
+
+	def self.push_errors(item_row)
+		item_row.each do |cell|
+			if cell[1]
+				cell[1] = 'error'
+			else
+				cell.push('error')
+			end
+		end
+	end
 end

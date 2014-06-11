@@ -70,17 +70,30 @@ class BmetItem < ActiveRecord::Base
       item.model_name = row["model_name"]
       item.manufacturer_name = row["manufacturer_name"]
       item.vendor_name = row["vendor_name"]
+      item.status = row["status"]
+      item.condition = row["condition"]
       item.facility_id = facility_id
       item.save!
     end
   end
 
   def self.import(facility_id)
-    staging_items = StagingItem.all #needs facility verification
+    staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
-      match = BmetItem.find_by_asset_id(item.asset_id)#needs facility verification: .where("match.department.facility_id = ?", facility_id)
-      matching_department = Department.find_by_name(item.department_name)#needs facility verification: .where("matching_department.facility_id = ?", facility_id)
-      if match and matching_department
+      match = nil
+      BmetItem.where(:asset_id => item.asset_id).each do |m|
+        if m.where(match.department.facility_id => facility_id)
+          match = m
+        end
+      end
+      matching_department = Department.where(:name => item.department_name).where(:facility_id => facility_id)[0]
+      status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
+      conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
+      isValid = false
+      if matching_department and status_string_hash[item.status.downcase] and conditions_string_hash[item.condition.downcase]
+        isValid = true
+      end
+      if match and isValid
         match.serial_number = item.serial_number
         match.year_manufactured = item.year_manufactured
         match.funding = item.funding
@@ -93,9 +106,11 @@ class BmetItem < ActiveRecord::Base
         match.item_type = item.item_type
         match.location = item.location
         match.department = matching_department
-        match.bmet_model = BmetModel.find_by_model_name(item.model_name)#.where('match.bmet_model.facility_id = ?', facility_id)
+        match.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        match.status = status_string_hash[item.status.downcase]
+        match.condition = conditions_string_hash[item.condition.downcase]
         match.save!
-      elsif matching_department
+      elsif isValid
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
         new_item.year_manufactured = item.year_manufactured
@@ -110,7 +125,9 @@ class BmetItem < ActiveRecord::Base
         new_item.item_type = item.item_type
         new_item.location = item.location
         new_item.department = matching_department
-        new_item.bmet_model = BmetModel.find_by_model_name(item.model_name)#.where('match.bmet_model.facility_id = ?', facility_id)
+        new_item.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        new_item.status = status_string_hash[item.status.downcase]
+        new_item.condition = conditions_string_hash[item.condition.downcase]
         new_item.save!        
       end
     end

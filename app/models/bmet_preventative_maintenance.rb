@@ -60,21 +60,21 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
     self.save!
   end
 
-    def calc_next_date
-      if !self.last_date_checked
-          self.last_date_checked = Time.zone.now
-      end
-      self.next_date = self.last_date_checked
-      if self.days
-        self.next_date += self.days.days
-      end
-      if self.weeks
-        self.next_date += self.weeks.weeks
-      end
-      if self.months
-        self.next_date += self.months.months
-      end
+  def calc_next_date
+    if !self.last_date_checked
+        self.last_date_checked = Time.zone.now
     end
+    self.next_date = self.last_date_checked
+    if self.days
+      self.next_date += self.days.days
+    end
+    if self.weeks
+      self.next_date += self.weeks.weeks
+    end
+    if self.months
+      self.next_date += self.months.months
+    end
+  end
 
   private
 
