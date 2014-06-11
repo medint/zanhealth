@@ -1,7 +1,7 @@
 class SettingsController < ApplicationController
 	before_action :set_users
 	before_action :set_departments
-	layout 'layouts/facilities_app'
+	layout 'layouts/bmet_app'
 
 	def index
 	end
