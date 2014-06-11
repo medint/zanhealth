@@ -1,4 +1,4 @@
-module Shortener
+module Shortener 	
 	Shortener::ShortenedUrl.class_eval do	
 	  def self.set_url(old_url, new_url)
 	    url_in_store = Shortener::ShortenedUrl.find_by_url(clean_url(old_url))
