@@ -1,6 +1,6 @@
 class StagingItem < ActiveRecord::Base
 
-	def self.get_matches
+	def self.get_matches(fac_id)
 		attr_array = [
 			'serial_number',
 			'year_manufactured',
@@ -16,20 +16,20 @@ class StagingItem < ActiveRecord::Base
 			'location',
 			'department_name']
 		items_array = []
-		staging_items = StagingItem.all
+		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|
 			item_row = []
 			attr_array.each do |attrib|
 				item_row.push([item.send(attrib)])
 			end
 			match = BmetItem.find_by_asset_id(item.asset_id)
-			if match
+			if match and match.department.facility_id == fac_id
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'
 						if cell[0] == match.department.name
 							cell.push('unchanged')
-						elsif Department.find_by_name(cell[0])
+						elsif Department.where(:facility_id => fac_id).find_by_name(cell[0])
 							cell.push('changed')
 							cell[0] = match.department.name.to_s + " => " + cell[0].to_s
 						else
@@ -49,11 +49,11 @@ class StagingItem < ActiveRecord::Base
 					end
 
 				end
-			elsif !match
+			else
 				item_row.each_with_index do |cell, index|
 
 					if attr_array[index] == 'department_name'
-						if Department.find_by_name(cell[0])
+						if Department.where(:facility_id => fac_id).find_by_name(cell[0])
 							cell.push('changed')
 						else
 							cell.push('error')

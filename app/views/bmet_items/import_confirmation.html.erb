@@ -17,7 +17,7 @@
 			<th>Location</th>
 			<th>Department</th>
 		</tr>
-		<% items_table = StagingItem.get_matches %>
+		<% items_table = StagingItem.get_matches(@facility_id) %>
 		<% items_table.each do |row| %>
 			<tr>
 				<% row.each do |cell| %>
@@ -38,7 +38,7 @@
 				<th> Manufacturer Name </th>
 				<th> Vendor Name </th>
 			</tr>
-			<% models_table = StagingModel.get_matches %>
+			<% models_table = StagingModel.get_matches(@facility_id) %>
 			<% models_table.each do |row| %>
 				<tr>
 					<% row.each do |cell| %>

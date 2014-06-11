@@ -32,6 +32,7 @@ class BmetModel < ActiveRecord::Base
       mod.model_name = row["model_name"]
       mod.manufacturer_name = row["manufacturer_name"]
       mod.vendor_name = row["vendor_name"]
+      mod.facility_id = facility_id
       mod.save!
     end
 end

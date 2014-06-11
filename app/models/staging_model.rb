@@ -1,14 +1,14 @@
 class StagingModel < ActiveRecord::Base
 
-	def self.get_matches
+	def self.get_matches(fac_id)
 		models_array = []
-		staging_models = StagingModel.all
+		staging_models = StagingModel.where(:facility_id => fac_id)
 		staging_models.each do |model|
 			model_attr = [[model.model_name], [model.manufacturer_name], [model.vendor_name]]
 			matches = BmetModel.where("model_name = ?", model.model_name)
 			hasMatch = false
 			matches.each do |match|
-				if match.manufacturer_name == model.manufacturer_name and match.vendor_name == model.vendor_name
+				if match.manufacturer_name == model.manufacturer_name and match.vendor_name == model.vendor_name and match.facility_id = fac_id
 					hasMatch = true
 				end
 			end

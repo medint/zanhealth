@@ -87,8 +87,8 @@ class BmetItemsController < ApplicationController
 
   def stage_import
     begin
-      StagingModel.destroy_all
-      StagingItem.destroy_all
+      StagingModel.where(:facility_id => current_user.facility.id).destroy_all
+      StagingItem.where(:facility_id => current_user.facility.id).destroy_all
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
       redirect_to '/bmet_items_confirm_import'
@@ -98,6 +98,7 @@ class BmetItemsController < ApplicationController
   end
 
   def confirm_import
+    @facility_id = current_user.facility.id
     render 'import_confirmation'
   end
 

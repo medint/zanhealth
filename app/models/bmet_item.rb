@@ -70,6 +70,7 @@ class BmetItem < ActiveRecord::Base
       item.model_name = row["model_name"]
       item.manufacturer_name = row["manufacturer_name"]
       item.vendor_name = row["vendor_name"]
+      item.facility_id = facility_id
       item.save!
     end
   end
