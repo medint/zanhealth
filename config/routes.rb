@@ -1,8 +1,5 @@
 Zanhealth::Application.routes.draw do
 
-  resources :facility_cost_items
-
-  resources :bmet_cost_items
 
   # general
   resources :departments
@@ -12,7 +9,10 @@ Zanhealth::Application.routes.draw do
   resources :roles
   resources :texts
   resources :settings
-  
+
+  #short url
+  get '/qr/:id' => "shortener/shortened_urls#show"
+
   #bmet app
   resources :bmet_items, except: :show do
     collection { post :import }
@@ -28,6 +28,7 @@ Zanhealth::Application.routes.draw do
   resources :bmet_work_order_comments
   resources :bmet_work_requests, except: :show
   resources :bmet_costs
+  resources :bmet_cost_items
   resources :part_transactions
   
   #facilities app
@@ -43,6 +44,7 @@ Zanhealth::Application.routes.draw do
   resources :facility_work_requests, except: :show  do
     collection { get :search }
   end
+  resources :facility_cost_items
   
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
@@ -153,8 +155,6 @@ Zanhealth::Application.routes.draw do
     
   get '/404', :to => redirect('/404.html')
   root to: "application#home"
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
