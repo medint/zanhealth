@@ -153,6 +153,10 @@ Zanhealth::Application.routes.draw do
   post "/settings/create_department", to: "settings#create_department"
   post "/settings/update_user", to: "settings#update_user"
     
+  get "/admin", to: "admin#index"
+  get "/admin/print_tags_form", to: "admin#print_tags_form"
+  get "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+
   get '/404', :to => redirect('/404.html')
   root to: "application#home"
 
