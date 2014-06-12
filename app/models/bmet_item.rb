@@ -72,6 +72,7 @@ class BmetItem < ActiveRecord::Base
       item.vendor_name = row["vendor_name"]
       item.status = row["status"]
       item.condition = row["condition"]
+      item.short_url_key = row["short_url_key"]
       item.facility_id = facility_id
       item.save!
     end
@@ -109,6 +110,7 @@ class BmetItem < ActiveRecord::Base
         match.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
         match.status = status_string_hash[item.status.downcase]
         match.condition = conditions_string_hash[item.condition.downcase]
+        match.short_url_key = item.short_url_key
         match.save!
       elsif isValid
         new_item = BmetItem.new
@@ -128,6 +130,7 @@ class BmetItem < ActiveRecord::Base
         new_item.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
         new_item.status = status_string_hash[item.status.downcase]
         new_item.condition = conditions_string_hash[item.condition.downcase]
+        new_item.short_url_key = item.short_url_key
         new_item.save!        
       end
     end

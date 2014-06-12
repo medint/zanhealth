@@ -16,7 +16,8 @@ class StagingItem < ActiveRecord::Base
 			'status',
 			'condition',
 			'location',
-			'department_name']
+			'department_name',
+			'short_url_key']
 		items_array = []
 		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|
@@ -47,6 +48,9 @@ class StagingItem < ActiveRecord::Base
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.status
+									cell[0] = status_string_hash[match.status].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
@@ -61,6 +65,9 @@ class StagingItem < ActiveRecord::Base
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.condition
+									cell[0] = conditions_string_hash[match.condition].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
