@@ -107,11 +107,17 @@ class BmetItemsController < ApplicationController
       BmetModel.import(current_user.facility.id)
       BmetItem.import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    #rescue
-    #   redirect_to :back, notice: "Invalid CSV file format."    
+    rescue
+       redirect_to :back, notice: "Invalid CSV file format."    
     end
-    StagingModel.destroy_all
-    StagingItem.destroy_all
+      StagingModel.destroy_all
+      StagingItem.destroy_all
+  end
+
+  def cancel_import
+    StagingModel.where(:facility_id => current_user.facility.id).destroy_all
+    StagingItem.where(:facility_id => current_user.facility.id).destroy_all
+    redirect_to bmet_items_url, notice: "Import cancelled"
   end
 
   private
