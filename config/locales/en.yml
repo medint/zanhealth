@@ -142,6 +142,7 @@ en:
    prevention_taken: "prevention taken"
    price: "price"
    priority: "priority"
+   public_work_request_url: "public work request url"
    quantity: "quantity"
    reason: "reason"
    recent_history: "recent history"

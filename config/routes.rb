@@ -156,6 +156,8 @@ Zanhealth::Application.routes.draw do
   get "/admin", to: "admin#index"
   get "/admin/print_tags_form", to: "admin#print_tags_form"
   get "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  get "admin/facilities", to: "admin#facilities"
+  get "admin/facility_users/:facility_id", to: "admin#facility_users"
 
   get '/404', :to => redirect('/404.html')
   root to: "application#home"
