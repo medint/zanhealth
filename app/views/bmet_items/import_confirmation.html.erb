@@ -14,6 +14,8 @@
 			<th>Price</th>
 			<th>Asset ID</th>
 			<th>Item Type</th>
+			<th>Status</th>
+			<th>Condition</th>
 			<th>Location</th>
 			<th>Department</th>
 		</tr>
@@ -55,6 +57,7 @@
  	<br>
  	<div class = 'import_button'>
   	<%= button_to	 "Confirm Import", '/bmet_items_import'  %>
+		<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
 	</div>
 
 <br>
