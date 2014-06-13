@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140612135711) do
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
-    t.decimal  "cost",               precision: 12, scale: 2
+    t.decimal  "cost",               precision: 5, scale: 2
     t.integer  "bmet_cost_item_id"
   end
 
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 20140612135711) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.decimal  "cost",                   precision: 12, scale: 2
+    t.decimal  "cost",                   precision: 5, scale: 2
     t.integer  "facility_cost_item_id"
   end
 
