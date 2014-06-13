@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606211220) do
+ActiveRecord::Schema.define(version: 20140611185700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,6 +337,49 @@ ActiveRecord::Schema.define(version: 20140606211220) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "shortened_urls", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type", limit: 20
+    t.string   "url",                               null: false
+    t.string   "unique_key", limit: 10,             null: false
+    t.integer  "use_count",             default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type", using: :btree
+  add_index "shortened_urls", ["unique_key"], name: "index_shortened_urls_on_unique_key", unique: true, using: :btree
+  add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url", using: :btree
+
+  create_table "staging_items", force: true do |t|
+    t.string  "serial_number"
+    t.integer "year_manufactured"
+    t.string  "funding"
+    t.date    "date_received"
+    t.date    "warranty_expire"
+    t.date    "contract_expire"
+    t.text    "warranty_notes"
+    t.string  "service_agent"
+    t.string  "department_name"
+    t.decimal "price"
+    t.string  "asset_id"
+    t.string  "item_type"
+    t.string  "location"
+    t.string  "model_name"
+    t.string  "manufacturer_name"
+    t.string  "vendor_name"
+    t.string  "status"
+    t.string  "condition"
+    t.integer "facility_id"
+  end
+
+  create_table "staging_models", force: true do |t|
+    t.string  "model_name"
+    t.string  "manufacturer_name"
+    t.string  "vendor_name"
+    t.integer "facility_id"
   end
 
   create_table "texts", force: true do |t|

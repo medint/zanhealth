@@ -26,19 +26,30 @@ class BmetModel < ActiveRecord::Base
     BmetItem.where(:bmet_model_id => id).all.to_a
   end
 
-  def self.import(file, facility_id)
+  def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        match = BmetModel.find_by_model_name(row["model_name"])
-        if !match ||
-        match.manufacturer_name != row["model_name"] ||
-        match.vendor_name != row["vendor_name"] ||
-        !BmetModel.where("match.bmet_items.collection(force_reload=false)[0].department.facility_id = ?", facility_id)
-          mod = BmetModel.new
-          mod.model_name = row["model_name"]
-          mod.manufacturer_name = row["manufacturer_name"]
-          mod.vendor_name = row["vendor_name"]
-          mod.save!
-        end
+      mod = StagingModel.new
+      mod.model_name = row["model_name"]
+      mod.manufacturer_name = row["manufacturer_name"]
+      mod.vendor_name = row["vendor_name"]
+      mod.facility_id = facility_id
+      mod.save!
+    end
+end
+
+  def self.import(facility_id)
+    staging_models = StagingModel.where(:facility_id => facility_id)
+    staging_models.each do |model|
+      match = BmetModel.where(:model_name => model.model_name).where(:facility_id => facility_id)[0]
+      unless match and match.manufacturer_name == model.manufacturer_name and match.vendor_name == model.vendor_name
+        new_model = BmetModel.new
+        new_model.model_name = model.model_name
+        new_model.manufacturer_name = model.manufacturer_name
+        new_model.vendor_name = model.vendor_name
+        new_model.facility_id = facility_id
+        new_model.save!
       end
     end
+  end
+
 end

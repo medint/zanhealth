@@ -71,6 +71,7 @@ class Ability
 	  	  can :labor_hours, user
 	  	  cannot :delete, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance]
 	  	  cannot :manage, :registration
+        cannot :manage, :admin
 	  	  cannot :edit_user, user
 	  elsif user.role.name == "admin"
 	  	  can :edit_user, user

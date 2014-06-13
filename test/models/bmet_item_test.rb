@@ -24,7 +24,6 @@ class BmetItemTest < ActiveSupport::TestCase
   	
 	test "should export to csv" do
 		testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
-		#test = BmetWorkOrder.includes(:owner, :requester, :department).where("id=?", @bmet_work_orders.id)
 		csv_string = testItems.as_csv
 		rows = CSV.parse(csv_string)
 		expected_values = @bmet_items.attributes.dup
@@ -43,22 +42,31 @@ class BmetItemTest < ActiveSupport::TestCase
 		assert true
 	end
 
-	test "should import test data" do
-		Department.destroy_all
+	test "should import file data" do
+		StagingItem.destroy_all
+		StagingModel.destroy_all
 		BmetModel.destroy_all
 		BmetItem.destroy_all
 		testFile = Tempfile.new('testFile.csv')
 		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
 			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
-			vendor_name /n
-			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,SampleDepartment,1000,69,Machine,
-			Nowhere,Transmoglifier,Alan,Home Depot')
-		Department.import(testFile, :userone)
-		BmetModel.import(testFile, :userone)
-		BmetItem.import(testFile, :userone)
-		assert_not_nil Department.all
-		assert_not_nil BmetModel.all
+			vendor_name, status, condition /n
+			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,MyString,1000,69,Machine,
+			Nowhere,Transmoglifier,Alan,Home Depot,active,good')
+		BmetModel.stage_import(testFile, users(:userone).facility.id)
+		BmetItem.stage_import(testFile, users(:userone).facility.id)
+
+		assert_not_nil StagingItem.all
+		assert_not_nil StagingModel.all
+
+		BmetItem.import(users(:userone).facility.id)
+		BmetModel.import(users(:userone).facility.id)
+
 		assert_not_nil BmetItem.all
+		assert_not_nil BmetModel.all
+
+		assert_equal nil, StagingItem.all[0]
+		assert_equal nil, StagingModel.all[0]
 
 	end
 

@@ -1,5 +1,5 @@
 class FacilityDashboardController < ApplicationController
-	before_action :set_status, only: [:status, :wo_finances, :labor_hours, :statusAjax]
+	before_action :set_status, only: [:status, :wo_finances, :labor_hours, :statusAjax, :statusExpireAjaxhtml]
 	layout 'layouts/facilities_app'
 	authorize_resource :class => false
 
@@ -11,6 +11,10 @@ class FacilityDashboardController < ApplicationController
 		@params_to_send_back=url_for(params)
 		params["action"]="calendarAjax"
 		@params_to_send_back2=url_for(params)
+		params["action"]="timelineAjax"
+		@params_to_send_back3=url_for(params)
+
+		
 	end
 
 	def indexAjax
@@ -65,6 +69,30 @@ class FacilityDashboardController < ApplicationController
 		render json: @work_orders_json
 	end
 
+	def timelineAjax
+		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("facilities.id = :curruser", {curruser: current_user.facility_id}).order(:created_at)
+		@work_orders_json=[]
+		@work_orders_json.push([])
+		@work_orders_json.push([])
+
+
+		@work_orders.each do |wo|
+			if wo.status==0
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Unstarted'})
+			elsif wo.status==1
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_started.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Unstarted'})
+				@work_orders_json[0].push({start: wo.date_started.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Prog'})
+			else
+				@work_orders_json[0].push({start: wo.created_at.to_i*1000, 'end' => wo.date_started.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Unstarted'})
+				@work_orders_json[0].push({start: wo.date_started.to_i*1000, 'end' => wo.date_completed.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Prog'})
+				@work_orders_json[0].push({start: wo.date_completed.to_i*1000, 'end' => wo.date_expire.to_i*1000, content: view_context.link_to("",facility_work_orders_path+'/all/'+wo.id.to_s, html_options={'class' => 'link_to_work'}), group: wo.id, className: 'Comp'})
+			end
+			@work_orders_json[1].push({id: wo.id,content: nil, value: wo.created_at.to_i});
+		end
+		render json: @work_orders_json
+	end
+
+
 
 
 
@@ -90,10 +118,32 @@ class FacilityDashboardController < ApplicationController
 		end
 		params["action"]="statusAjax"
 		@params_to_send_back=url_for(params)
+		params["action"]="statusExpireAjaxhtml"
+		@params_to_send_back2=url_for(params)
+		#render :partial => '/facility_dashboard/status_expire.html.erb'
 
 
 
 	end
+
+	def statusExpireAjaxhtml
+		@work_orders=FacilityWorkOrder.joins({ :department => :facility}).where("date_expire >= :start_date AND date_expire <= :end_date AND facilities.id = :curruser AND status !=2 OR date_completed >= :start_date AND date_completed <= :end_date AND facilities.id = :curruser AND status = 2", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
+		@work_orders_json= {}
+
+		currstatus=-10000
+		for i in 0..2
+			@work_orders_json[i]={}
+			@work_orders_json[i]["work_orders"]=[]
+			@work_orders_json[i]["num_work_orders"]=0
+		end
+		@work_orders.each do |q|
+			@work_orders_json[q.status]["work_orders"].push(q)
+			@work_orders_json[q.status]["num_work_orders"]+=1	
+		end
+
+		render :partial => '/facility_dashboard/status_expire.html.erb'
+	end
+
 
 	def statusAjax
 

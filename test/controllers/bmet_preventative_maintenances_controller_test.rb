@@ -105,4 +105,11 @@ class BmetPreventativeMaintenancesControllerTest < ActionController::TestCase
 
     assert_redirected_to bmet_preventative_maintenances_path
   end
+
+  test "should reset" do
+    @request.headers["HTTP_REFERER"] = "/bmet_preventative_maintenances/all/" + @bmet_preventative_maintenance.id.to_s
+    put :reset, id: @bmet_preventative_maintenance.id
+    assert_equal (DateTime.now.utc + @bmet_preventative_maintenance.days.days + @bmet_preventative_maintenance.weeks.weeks + @bmet_preventative_maintenance.months.months).to_i, assigns["bmet_preventative_maintenance"].next_date.to_i
+  end
+
 end

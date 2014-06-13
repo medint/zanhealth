@@ -38,6 +38,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# visjs visualization for timeline
+gem 'vis-rails'
+
 
 #################### Utilities #####################
 
@@ -98,5 +101,9 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
 
-gem "rmagick", :require => 'RMagick'
-gem "rqrcode_png"
+# for item tagging
+gem 'shortener', github: 'jshum/shortener' #fork of shortener with our own modifications
+gem 'prawn' #PDF generation for tagging
+gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
+gem "rqrcode_png" # for generating png from qr code
+

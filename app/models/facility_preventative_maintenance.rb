@@ -57,23 +57,24 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
   end
 
   def reset
-    self.last_date_checked = Time.now
-    self.next_date = self.calc_next_date
+    self.last_date_checked = DateTime.now
+    self.calc_next_date
     self.save!
   end
 
     def calc_next_date
-      unless !self.last_date_checked
-        self.next_date = self.last_date_checked
-        unless self.days.nil?
-          self.next_date += self.days.days
-        end
-        unless self.weeks.nil?
-          self.next_date += self.weeks.weeks
-        end
-        unless self.months.nil?
-          self.next_date += self.months.months
-        end
+      if !self.last_date_checked
+        self.last_date_checked = DateTime.now
+      end
+      self.next_date = self.last_date_checked
+      if self.days
+        self.next_date += self.days.days
+      end
+      if self.weeks
+        self.next_date += self.weeks.weeks
+      end
+      if self.months
+        self.next_date += self.months.months
       end
     end
 

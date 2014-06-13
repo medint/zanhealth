@@ -34,6 +34,61 @@
 		width:100%;
 	}
 
-
-
 }
+
+#bmet_item_history_ul{
+	color:#ebebeb;
+	font-size:11px;
+	list-style-type:none;
+	padding:0;
+	border:0;
+	margin-left:10px;
+	word-wrap : break-word;
+	li{
+		margin-bottom:7px;
+		a {
+			color: #ffffff;
+			font-weight: bold;
+		}
+	}
+}
+
+#import_confirmation {
+	margin-left: 260px;
+	white-space: nowrap;
+	width: 220%;
+}
+
+.import_confirmation_table {
+	margin-left: 40px;
+	td {
+		border: 1px solid black;
+		padding: 5px;
+		text-align: center;
+		font-size: 11px;
+	}
+	
+	th {
+		font-size: 12px;
+		padding: 5px;
+		text-align: center;
+	}
+}
+
+.import_button {
+	padding: 10px;
+	margin-left: 100px;
+}
+
+.unchanged_cell {
+	background-color: #999999;
+}
+
+.changed_cell {
+	background-color: #55aa2b;
+}
+
+.error_cell {
+	background-color: #e9593e;
+}
+

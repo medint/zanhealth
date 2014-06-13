@@ -1,8 +1,5 @@
 Zanhealth::Application.routes.draw do
 
-  resources :facility_cost_items
-
-  resources :bmet_cost_items
 
   # general
   resources :departments
@@ -12,10 +9,14 @@ Zanhealth::Application.routes.draw do
   resources :roles
   resources :texts
   resources :settings
-  
+
+  #short url
+  get '/qr/:id' => "shortener/shortened_urls#show"
+
   #bmet app
   resources :bmet_items, except: :show do
     collection { post :import }
+    collection { post :stage_import }
   end
   resources :bmet_item_histories
   resources :bmet_labor_hours
@@ -27,6 +28,7 @@ Zanhealth::Application.routes.draw do
   resources :bmet_work_order_comments
   resources :bmet_work_requests, except: :show
   resources :bmet_costs
+  resources :bmet_cost_items
   resources :part_transactions
   
   #facilities app
@@ -42,6 +44,7 @@ Zanhealth::Application.routes.draw do
   resources :facility_work_requests, except: :show  do
     collection { get :search }
   end
+  resources :facility_cost_items
   
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
@@ -53,6 +56,9 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_requests/download", to: "bmet_work_requests#as_csv"
   get "/bmet_items/download", to: "bmet_items#as_csv"
   get "/bmet_items/:id", to: "bmet_items#show"
+  get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
+  post "/bmet_items_import", to: "bmet_items#import"
+  post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
 
   #dashboard
   
@@ -62,6 +68,9 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
   get "/facility_dashboard/indexAjax", to: "facility_dashboard#indexAjax"
   get "/facility_dashboard/calendarAjax", to: "facility_dashboard#calendarAjax"
+  get "/facility_dashboard/timelineAjax", to: "facility_dashboard#timelineAjax"
+
+  get "/facility_dashboard/statusExpireAjaxhtml", to: "facility_dashboard#statusExpireAjaxhtml"
   resources :facility_dashboard
 
   get "/bmet_dashboard/status", to: "bmet_dashboard#status"
@@ -145,10 +154,14 @@ Zanhealth::Application.routes.draw do
   post "/settings/create_department", to: "settings#create_department"
   post "/settings/update_user", to: "settings#update_user"
     
+  get "/admin", to: "admin#index"
+  get "/admin/print_tags_form", to: "admin#print_tags_form"
+  get "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  get "admin/facilities", to: "admin#facilities"
+  get "admin/facility_users/:facility_id", to: "admin#facility_users"
+
   get '/404', :to => redirect('/404.html')
   root to: "application#home"
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

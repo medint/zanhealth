@@ -1,4 +1,4 @@
-<%= simple_form_for @bmet_work_request, { url:  bmet_work_requests_public_create_path } do |f| %>
+<%= form_for @bmet_work_request, { url:  bmet_work_requests_public_create_path } do |f| %>
   <% if @bmet_work_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bmet_work_request.errors.count, "error") %> prohibited this bmet_work_request from being saved:</h2>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="work_request_form-short">
-        <%= t(:asset_id).capitalize %><br>
+        <%= t(:asset).capitalize + " " + t(:id).upcase %><br>
         <%= f.text_area :asset_id, :required => true%>
   </div>
   <div class="work_request_form-long">
@@ -37,7 +37,7 @@
 
   <div class = "work_request_form-short">
   	<%= t(:email).capitalize %><br>
-  	<%= f.text_area :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+  	<%= f.email_field :email, :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
   </div>
 
   <div class = "work_request_form-long">

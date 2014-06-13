@@ -51,46 +51,87 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-
-  def self.import(file, facility_id)
+  def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-        match = BmetItem.find_by_asset_id(row["asset_id"])
-        if !match || !BmetItem.where("match.department.facility_id = ?", facility_id)
-            item = BmetItem.new
-            item.serial_number = row["serial_number"]
-            item.year_manufactured = row["year_manufactured"]
-            item.funding = row["funding"]
-            item.date_received = row["date_received"]
-            item.warranty_expire = row["warranty_expire"]
-            item.warranty_notes = row["warranty_notes"]
-            item.contract_expire = row["contract_expire"]
-            item.service_agent = row["service_agent"]
-            item.price = row["price"]
-            item.asset_id = row["asset_id"]
-            item.item_type = row["item_type"]
-            item.location = row["location"]
-            item.department = Department.find_by_name(row["department_name"])
-            item.bmet_model = BmetModel.find_by_model_name(row["model_name"])
-            item.save!
-        elsif match and BmetItem.where("match.department.facility_id = ?", facility_id)
-            match.serial_number = row["serial_number"]
-            match.year_manufactured = row["year_manufactured"]
-            match.funding = row["funding"]
-            match.date_received = row["date_received"]
-            match.warranty_expire = row["warranty_expire"]
-            match.warranty_notes = row["warranty_notes"]
-            match.contract_expire = row["contract_expire"]
-            match.service_agent = row["service_agent"]
-            match.price = row["price"]
-            match.asset_id = row["asset_id"]
-            match.item_type = row["item_type"]
-            match.location = row["location"]
-            match.department = Department.find_by_name(row["department_name"])
-            match.bmet_model = BmetModel.find_by_model_name(row["model_name"])
-            match.save!          
+      item = StagingItem.new
+      item.serial_number = row["serial_number"]
+      item.year_manufactured = row["year_manufactured"]
+      item.funding = row["funding"]
+      item.date_received = row["date_received"]
+      item.warranty_expire = row["warranty_expire"]
+      item.warranty_notes = row["warranty_notes"]
+      item.contract_expire = row["contract_expire"]
+      item.service_agent = row["service_agent"]
+      item.price = row["price"]
+      item.asset_id = row["asset_id"]
+      item.item_type = row["item_type"]
+      item.location = row["location"]
+      item.department_name = row["department_name"]
+      item.model_name = row["model_name"]
+      item.manufacturer_name = row["manufacturer_name"]
+      item.vendor_name = row["vendor_name"]
+      item.status = row["status"]
+      item.condition = row["condition"]
+      item.facility_id = facility_id
+      item.save!
+    end
+  end
+
+  def self.import(facility_id)
+    staging_items = StagingItem.where(:facility_id => facility_id)
+    staging_items.each do |item|
+      match = nil
+      BmetItem.where(:asset_id => item.asset_id).each do |m|
+        if m.where(match.department.facility_id => facility_id)
+          match = m
         end
       end
+      matching_department = Department.where(:name => item.department_name).where(:facility_id => facility_id)[0]
+      status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
+      conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
+      isValid = false
+      if matching_department and status_string_hash[item.status.downcase] and conditions_string_hash[item.condition.downcase]
+        isValid = true
+      end
+      if match and isValid
+        match.serial_number = item.serial_number
+        match.year_manufactured = item.year_manufactured
+        match.funding = item.funding
+        match.date_received = item.date_received
+        match.warranty_expire = item.warranty_expire
+        match.warranty_notes = item.warranty_notes
+        match.contract_expire = item.contract_expire
+        match.service_agent = item.service_agent
+        match.price = item.price
+        match.item_type = item.item_type
+        match.location = item.location
+        match.department = matching_department
+        match.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        match.status = status_string_hash[item.status.downcase]
+        match.condition = conditions_string_hash[item.condition.downcase]
+        match.save!
+      elsif isValid
+        new_item = BmetItem.new
+        new_item.serial_number = item.serial_number
+        new_item.year_manufactured = item.year_manufactured
+        new_item.funding = item.funding
+        new_item.date_received = item.date_received
+        new_item.warranty_expire = item.warranty_expire
+        new_item.warranty_notes = item.warranty_notes
+        new_item.contract_expire = item.contract_expire
+        new_item.service_agent = item.service_agent
+        new_item.price = item.price
+        new_item.asset_id = item.asset_id
+        new_item.item_type = item.item_type
+        new_item.location = item.location
+        new_item.department = matching_department
+        new_item.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        new_item.status = status_string_hash[item.status.downcase]
+        new_item.condition = conditions_string_hash[item.condition.downcase]
+        new_item.save!        
+      end
     end
+  end
 
     def self.as_csv
       colnames = column_names.dup

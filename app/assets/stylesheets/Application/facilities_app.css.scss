@@ -3,6 +3,36 @@ $yellow:#ffc207;
 $green:#55aa2b;
 $gray:#4e4e4e;
 
+.vis.timeline .item {
+	padding: 1px;
+}
+
+.vis.timeline .item.Unstarted {
+	background-color: $red;
+	border-color: $red;
+}
+
+.vis.timeline .item.Prog {
+	background-color: $yellow;
+	border-color: $yellow;
+}
+
+.vis.timeline .item.Comp {
+	background-color: $green;
+	border-color: $green;
+}
+
+.vis.timeline.bottom .group {
+	border-bottom: none;
+}
+
+.vis.timeline .item.range {
+	border-radius:0px;
+}
+
+.vpanel.side {
+	display: none
+}
 
 *{
 	font-family: Arial;
@@ -256,11 +286,11 @@ body {
 
 #settings-icon > a{
 	margin-top: 12px;
-	font-size: 12px;
+	font-size: 10px;
 	font-weight: 100;
 	color: white;
 	float:left;
-	margin-left: 85px;
+	margin-left: 105px;
 	padding:0;
 	border:0;
 }
@@ -556,6 +586,8 @@ body {
 
 .bmet_item_condition {
 	@extend .action-bar_select_box;
+	padding-left: 5px;
+	background-color: black;
 }
 
 .work_order_status-0{
@@ -645,10 +677,15 @@ body {
 		width: 75%;
 		padding-left: 10px;
 		@extend .transparent-form-elements;
-		input, textarea, select{
+		input, select{
 			color: #000000;
 			height: 20px;
 			width:100%;
+		}
+		textarea {
+			color: #000000;
+			width: 100%;
+			height: 60px;
 		}
 	}
 	tr{
@@ -760,7 +797,7 @@ body {
 		.field-box {
 			height:45px;
 			width: 22%;
-			float: left;			
+			float: left;
 			background-color: #ffffff;
 			border:1px solid;
 			border-color: #f0f0f0;

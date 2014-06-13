@@ -8,6 +8,7 @@ one:
   next_date: 2014-05-01 01:23:11
   description: MyText
   requester: userone
+  bmet_item: one
 
 two:
   last_date_checked: 2014-05-01 01:23:11
@@ -17,3 +18,4 @@ two:
   next_date: 2014-05-01 01:23:11
   description: MyText
   requester: usertwo
+  bmet_item: one

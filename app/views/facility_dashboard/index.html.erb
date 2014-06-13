@@ -1,19 +1,22 @@
 <script type="text/javascript">
 // Load the Visualization API and the piechart package.
 
-google.load('visualization', '1.0', {'packages':['timeline']});
-google.load('visualization', '1.0', {'packages':['calendar']});
+// google.load('visualization', '1.0', {'packages':['timeline']});
+// google.load('visualization', '1.0', {'packages':['calendar']});
 
-// Set a callback to run when the Google Visualization API is loaded.
-google.setOnLoadCallback(drawIndexChart);
-google.setOnLoadCallback(drawCalendarChart);
+// // Set a callback to run when the Google Visualization API is loaded.
+// google.setOnLoadCallback(drawIndexChart);
+// google.setOnLoadCallback(drawCalendarChart);
+
 
 </script>
 
 <%= render 'navigation' %>
 <div id="dashboard">
+	<div id="visualization"></div>
 	<div id='chart_div2'></div>
 	<div id='chart_div'></div>
 	<div id='params_to_send'><%=@params_to_send_back%></div>
 	<div id='params_to_send2'><%=@params_to_send_back2%></div>
+	<div id='params_to_send3'><%=@params_to_send_back3%></div>
 </div>

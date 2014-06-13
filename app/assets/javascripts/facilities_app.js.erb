@@ -467,3 +467,63 @@ function drawCalendarChart() {
 	var chart = new google.visualization.Calendar(document.getElementById('chart_div2'));
 	chart.draw(data, options);
 }
+
+$(document).on ("page:change",function() {
+	if (window.location.toString().match(/facility_dashboard/)) {
+		var container = document.getElementById('visualization');
+		var myjsonobj = $.ajax({
+          url: $("#params_to_send3").text(),
+          dataType:"json",
+          async: false
+          }).responseText;
+
+		
+		var options={
+			stack: false,
+    		margin: {
+      			item: 1, // minimal margin between items
+      			axis: 1   // minimal margin between items and the axis
+      		},
+      		padding:1,
+      		groupOrder: function (a, b) {
+      			return a.value - b.value;
+      		},
+      		showMajorLabels: true,
+      		showMinorLabels: true    		 
+    	}
+		var parsedjson=jQuery.parseJSON(myjsonobj);
+		var items=parsedjson[0];
+		var groups=parsedjson[1];
+		for (var x in items){
+			items[x].start=new Date(items[x].start);
+			items[x].end=new Date(items[x].end);
+		}
+
+		
+
+		var timeline = new vis.Timeline(container, items, options);
+		timeline.setGroups(groups)
+		$('.link_to_work').each(function(){
+			$(this).parent().parent().wrap(this)
+		})
+	};
+})
+
+function facility_wo_expire(){
+	// Create the data table.
+	
+
+// Set a callback to run when the Google Visualization API is loaded.
+	google.setOnLoadCallback(drawStatusChart());
+	console.log('testing')
+
+	var htmlData = $.ajax({
+          url: $("#params_to_send2").text(),
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard_results_div').html(htmlData);
+
+
+}
