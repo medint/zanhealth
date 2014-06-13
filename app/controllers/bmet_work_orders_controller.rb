@@ -1,6 +1,6 @@
 class BmetWorkOrdersController < ApplicationController
   layout 'layouts/bmet_app'
-  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all]
+  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all, :show_print]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
@@ -157,6 +157,11 @@ class BmetWorkOrdersController < ApplicationController
   # GET /detailed_bmet_work_orders
   def detailed 
   	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
+  end
+
+  def show_print
+    render 'print_view', layout: 'blank'
+
   end
 
   private

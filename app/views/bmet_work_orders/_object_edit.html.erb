@@ -28,7 +28,7 @@
           <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% end %>
         
-        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>        
+        <%= link_to "", '/bmet_work_orders/print_view/'+@bmet_work_order.id.to_s, :id => "print-button_right" %>        
         <div class="action_submit">
           <%= f.submit t(:save_changes).capitalize%>
         </div>

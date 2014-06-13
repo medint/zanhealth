@@ -1,0 +1,74 @@
+<% wo = @bmet_work_order %>
+<%item = @bmet_work_order.bmet_item %>
+<div id = "print-facility-header"><%= User.find_by_id(wo.requester_id).facility.name %></div>
+<div id = "print-subheader"><%=t(:work_order).titlecase + " " + wo.id.to_s%></div>
+
+<table id = "print-wo-details-table">
+  <tr><th><%= t(:work_order).titlecase + " " + t(:details).capitalize %></th></tr>
+  <tr><td>Item</td><td><%= item.bmet_model.name %></td></tr>
+  <tr><td>Start date</td><td><%= wo.date_requested.strftime("%d %b %Y") %></td></tr>
+  <tr><td>Expected completion date</td><td><%= wo.date_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td>Requester</td><td><%= wo.requester.name %></td>
+  <tr><td>Owner</td><td><%= wo.owner.name %></td>
+  <tr><td>Department</td><td><%= Department.find_by_id(wo.department_id).name %></td>
+  <tr><td>Location</td><td><%= item.location %></td>
+</table>
+
+<table id = "print-item-details-table" >
+  <tr><th>Item Details</th></tr>
+  <tr><td>Status</td><td><%= item.status %></td></tr>
+  <tr><td>Condition</td><td><%= item.condition %></td></tr>
+  <tr><td>Purchase Date</td><td><%= item.date_received.strftime("%d %b %Y") %></td></tr>
+  <tr><td>Price</td><td><%= item.price %></td></tr>
+  <tr><td>Asset ID</td><td><%= item.asset_id %></td></tr>
+  <tr><td>Serial Number</td><td><%= item.serial_number %></td></tr>
+  <tr><td>Contract Expiration</td><td><%= item.contract_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td>Warranty Expiration</td><td><%= item.warranty_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td>Warranty Notes</td><td><%= item.warranty_notes %></td></tr>
+ </table>
+
+  <div class = "print-table-title">Hours Log</div>
+
+ <table id = "print-labor-hours-table">
+ 	<tr>
+ 		<th>Worked by</th>
+ 		<th class = "print-clock-cell">Clock in</th>
+ 		<th class = "print-clock-cell">Clock out</th>
+ 		<th class = "print-number-cell">Labor time</th>
+ 		<th class = "print-number-cell">Down time</th>
+ 	</tr>
+ 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+ </table>
+
+ <div class = "print-table-title"> Costs Log </div>
+
+ <table id = "print-costs-table">
+ 	<tr>
+ 		<th>Consumable/part name</th>
+ 		<th class = "print-clock-cell">Individual price</th>
+ 		<th class = "print-number-cell">Quantity</th>
+ 	</tr>
+ 	<tr><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td></tr>
+ 	<tr><td></td><td></td><td></td></tr>
+ </table>
+
+ <table id = "print-comments-table">
+ 	<tr><th>Additional comments</th></tr>
+ 	<tr><td></td></th>
+ </table>
+
+ <table id = "print-supervisor-comments-table">
+ 	<tr><th>Supervisor comments</th></tr>
+ 	<tr><td></td></th>
+ </table>
+
+ <table id = "print-supervisor-signature-table">
+ 	<tr><th>Supervisor signature</th></tr>
+ 	<tr><td></td></th>
+ </table>

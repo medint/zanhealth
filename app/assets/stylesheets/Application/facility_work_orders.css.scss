@@ -5,3 +5,134 @@
 #mid-summary_ul .mix{
 	display: none;
 }
+
+#print-facility-header {
+	font-size: 20px;
+	font-weight: bolder;
+	text-align: center;
+}
+
+#print-subheader {
+	margin-top: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.print-table-title {
+	float: left;
+	margin-top: 20px;
+	font-size: 16px;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+}
+
+#print-wo-details-table {
+	width: 49%;
+	float: left;
+
+	th {
+		text-align: center
+	}
+	td {
+		padding: 5px;
+		border: 1px solid black;
+	}
+}
+
+#print-item-details-table {
+	width: 49%;
+	float: right;
+
+	th {
+		text-align: center
+	}
+	td {
+		padding: 5px;
+		border: 1px solid black;
+	}
+}
+
+#print-labor-hours-table {
+	float: left;
+	width: 100%;
+	margin-top: 5px;
+	th {
+		padding: 5px;
+		text-align: center;
+		border: 1px solid gray;
+	}
+	td {
+		height: 40px;
+		border: 1px solid black;
+	}
+}
+
+#print-costs-table {
+	float: left;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 50px;
+	th {
+		padding: 5px;
+		text-align: center;
+		border: 1px solid gray;
+	}
+	td {
+		height: 40px;
+		border: 1px solid black;
+	}
+}
+
+.print-number-cell {
+	width: 10%;
+}
+
+.print-clock-cell {
+	width: 15%;
+}
+
+#print-comments-table {
+	float: left;
+	width: 70%;
+	margin-bottom: 30px;
+		th {
+		border: 1px solid gray;
+		text-align: center;
+		padding: 5px;
+	}
+	td {
+		height: 225px;
+		border: 1px solid black;
+	}
+}
+
+#print-supervisor-comments-table {
+	float: right;
+	width: 28%;
+	th {
+		border: 1px solid gray;
+		text-align: center;
+		padding: 5px;
+	}
+	td {
+		height: 150px;
+		border: 1px solid black;
+	}
+}
+
+#print-supervisor-signature-table {
+	float: right;
+	width: 28%;
+	margin-top: 5px;
+	th {
+		border: 1px solid gray;
+		text-align: center;
+		padding: 5px;
+	}
+	td {
+		height: 40px;
+		border: 1px solid black;
+	}
+}
