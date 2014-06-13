@@ -27,11 +27,22 @@
   <br>
   <%# https://github.com/plataformatec/devise/wiki/How-To:-Display-a-custom-sign_in-form-anywhere-in-your-app %>
   <%# relevant helpers are inside admin_helper.rb %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <%= form_for :user, { url: url_for(:action => 'create_user', :controller => 'admin'), method: 'post'} do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this bmet_model from being saved:</h2>
+        <ul><% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>    
 
     <div><%= f.label :facility_id %><br />
     <%= f.number_field :facility_id, autofocus: true %></div>
+
+    <div><%= f.label :role %><br />
+    <%= f.collection_select :role_id, @roles, :id, :name %></div>
 
     <div><%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %></div>
