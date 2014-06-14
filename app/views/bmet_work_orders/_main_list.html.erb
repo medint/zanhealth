@@ -8,6 +8,7 @@
       datecreated="<%= bmet_work_order.created_at.to_s(:number) %>"
       owner="<%=bmet_work_order.owner.try(:name)%>"
       status = "<%=bmet_work_order.status%>"
+      priority = "<%=bmet_work_order.priority%>"
       datestarted="<%= bmet_work_order.date_started.try(:to_s, :number)%>"
       expirydate = "<%= bmet_work_order.date_expire.try(:to_s, :number) %>"
       >

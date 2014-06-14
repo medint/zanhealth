@@ -16,12 +16,22 @@
         <div id="field-box_item-id" >      
           <div class="item-id"><%= t(:work_order).titlecase  %> # <%= @bmet_work_order.id %></div>
         </div>    
+      
+        <div class="work_order_priority">
+          <div id="work_order_priority-label">
+            PRIORITY
+          </div>
+          <%= f.select :priority, @priorities %>
+        </div>
+      
         <div class="work_order_status work_order_status-<%= @bmet_work_order.status %>">
           <div id="work_order_status-label">
             STATUS
           </div>
           <%= f.select :status, @status %>
         </div>
+      
+
         <% if @bmet_work_order.destroyed? %>
           <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% else %>
@@ -30,7 +40,7 @@
         
         <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>        
         <div class="action_submit">
-          <%= f.submit t(:save_changes).capitalize%>
+          <%= f.submit t(:save).capitalize%>
         </div>
       </div>
 

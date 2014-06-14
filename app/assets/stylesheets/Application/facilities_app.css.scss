@@ -607,6 +607,15 @@ body {
 	background-color: $green;
 }
 
+.work_order_priority{
+	@extend .action-bar_select_box;
+	background-color:black;
+	#work_order_priority-label{
+		padding-left : 5px;
+		font-weight : bold;
+	}
+}
+
 .work_order_status{
 	@extend .action-bar_select_box;
 	#work_order_status-label{
@@ -791,6 +800,9 @@ body {
 			float:left;
 		}
 		.work_order_status{
+			float:left;
+		}
+		.work_order_priority{
 			float:left;
 		}
 	}

@@ -5,6 +5,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
@@ -203,6 +204,15 @@ class BmetWorkOrdersController < ApplicationController
         'Unstarted' => 0,
         'In Progress' => 1,
         'Completed' => 2
+      }
+    end
+
+    def set_priorities
+      @priorities = {
+        'Urgent' => 0,
+        'High' => 1,
+        'Medium' => 2,
+        'Low' => 3
       }
     end
 
