@@ -1,6 +1,8 @@
 class SettingsController < ApplicationController
+    authorize_resource :class => false
 	before_action :set_users
 	before_action :set_departments
+    before_action :set_item_groups
 	layout 'layouts/bmet_app'
 
 	def index
@@ -15,6 +17,10 @@ class SettingsController < ApplicationController
 
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+    end
+
+    def set_item_groups
+        @item_groups = ItemGroup.where(:facility_id => current_user.facility.id).all.to_a
     end
 
     # necessary to write our own create user method here because have to bypass Devise registrable module
@@ -60,18 +66,37 @@ class SettingsController < ApplicationController
                 format.html { redirect_to settings_path, notice: 'Department successfully created'}
                 format.json { redirect_to settings_path, notice: 'Department successfully created'}
             else
-                format.html {redirect_to settings_path, notice: 'Failed to create user'}
+                format.html {redirect_to settings_path, notice: 'Failed to create department'}
                 format.json { render json: @department.errors, status: :unprocessable_entity}
             end
 	    end
-	  end
+    end
+
+    def create_item_group
+        @item_group = ItemGroup.new(item_group_params)
+        @item_group.facility_id = current_user.facility_id
+        respond_to do |format|
+            if @item_group.save
+                format.html { redirect_to settings_path, notice: 'Item Group successfully created'}
+                format.json { redirect_to settings_path, notice: 'Item Group successfully created'}
+            else
+                format.html {redirect_to settings_path, notice: 'Failed to create item group'}
+                format.json { render json: @item_group.errors, status: :unprocessable_entity}
+            end
+        end
+      end
 
     def user_params
         params.require(:user).permit(:id, :name, :username, :facility_id, :email, :language)
     end
 
     def department_params
-        params.require(:department).permit(:name, :facility_id)
+        params.require(:department).permit(:name)
     end
+
+    def item_group_params
+       params.require(:item_group).permit(:name) 
+    end
+
 
 end

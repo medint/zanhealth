@@ -154,7 +154,9 @@ Zanhealth::Application.routes.draw do
   get "/settings", to: "settings#index"
   post "/settings/create_user", to: "settings#create_user"
   post "/settings/create_department", to: "settings#create_department"
+  post "/settings/create_item_group", to: "settings#create_item_group"
   post "/settings/update_user", to: "settings#update_user"
+
     
   get "/admin", to: "admin#index"
   get "/admin/print_tags_form", to: "admin#print_tags_form"
