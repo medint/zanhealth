@@ -12,6 +12,7 @@
   <% end %>
   
   <div id="extra-details_cost_name">
+    (<%= link_to "#{t(:new).capitalize} #{t(:cost_item).titlecase}",  new_bmet_cost_item_path %>)</br>
     <%= f.collection_select(:bmet_cost_item_id, @cost_items, :id, :name, {}, {:class => "chosen-select"}) %>
   </div>
   <div id="extra-details_cost_quantity">
