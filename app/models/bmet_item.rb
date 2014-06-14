@@ -136,17 +136,17 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-    def self.as_csv
+  def self.as_csv
       colnames = column_names.dup
-      colnames.shift
-      fullcolnames=colnames.dup
-      colnames.shift
-      colnames.delete_at(8)
+      colnames.delete('id')
+      colnames_no_id=colnames.dup
+      colnames.delete('bmet_model_id')
+      colnames.delete('department_id')
       colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
       CSV.generate do |csv|
           csv << colnames
           all.each do |item|              
-              values = item.attributes.values_at(*fullcolnames)
+              values = item.attributes.values_at(*colnames_no_id)
               bmet_model=BmetModel.find(values[0])
               values.append(Department.find(values[9]).name)
               values.append(bmet_model.manufacturer_name)
@@ -155,7 +155,24 @@ class BmetItem < ActiveRecord::Base
               values.shift
               values.delete_at(8)
               csv << values
+          end
       end
-    end
+  end
+
+  def self.generate_template(relevant_urls)
+      colnames = column_names.dup
+      colnames.delete('id')
+      colnames_no_id=colnames.dup
+      colnames.insert(0, 'asset_id')
+      colnames.insert(0, 'short_url_key')
+      colnames.delete('bmet_model_id')
+      colnames.delete('department_id')
+      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
+      CSV.generate do |csv|
+          csv << colnames
+          relevant_urls.all.each do |url|              
+              csv << [url.asset_id, url.unique_key]
+          end
+      end
   end
 end

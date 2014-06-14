@@ -12,8 +12,15 @@ class AdminController < ApplicationController
     end
 
     def generate_tags_pdf 
-        pdf = TagPdf.new(params[:print_tags_form][:start_num],params[:print_tags_form][:end_num],params[:print_tags_form][:asset_id_prefix])
-        send_data pdf.render, filename: 'item_tags.pdf', type: 'application/pdf'
+        if params[:commit] == 'Generate PDF'
+            pdf = TagPdf.new(params[:print_tags_form][:start_num],params[:print_tags_form][:end_num],params[:print_tags_form][:asset_id_prefix], params[:authenticity_token])
+            send_data pdf.render, filename: 'item_tags.pdf', type: 'application/pdf'
+        elsif params[:commit] == 'Generate CSV Template'
+            # there is a bug because the auth token doesn't expire until after session expires
+            # 
+            @relevant_urls = Shortener::ShortenedUrl.where("auth_token=?", params[:authenticity_token])
+            send_data BmetItem.generate_template(@relevant_urls), type: "text/csv", filename: "item_template.csv"
+        end
     end
 
     def facilities

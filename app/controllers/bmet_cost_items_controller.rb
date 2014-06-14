@@ -25,6 +25,7 @@ class BmetCostItemsController < ApplicationController
   # POST /bmet_cost_items.json
   def create
     @bmet_cost_item = BmetCostItem.new(bmet_cost_item_params)
+    @bmet_cost_item.facility_id = current_user.facility_id
 
     respond_to do |format|
       if @bmet_cost_item.save

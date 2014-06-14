@@ -6,10 +6,10 @@ require 'prawn'
 
 class TagPdf < Prawn::Document
 
-	def initialize(start_num, end_num, asset_id_prefix)
+	def initialize(start_num, end_num, asset_id_prefix,auth_token)
 		im_width = 3.5
 		im_height = 1.1
-		generate_image_tags(start_num,end_num,asset_id_prefix)
+		generate_image_tags(start_num,end_num,asset_id_prefix,auth_token)
 
 		custom_pdf_size = [im_width * 72, im_height * 72] # pt is 1/72 of inch
 		super(:page_size => custom_pdf_size,
@@ -23,7 +23,7 @@ class TagPdf < Prawn::Document
 		end
 	end
 
-	def generate_image_tags(start_num,end_num,asset_id_prefix)
+	def generate_image_tags(start_num,end_num,asset_id_prefix,auth_token)
 		
 		dummy_charset = ('a'..'z').to_a + (0..9).to_a
 		im_width = 3.5
@@ -32,10 +32,18 @@ class TagPdf < Prawn::Document
       	num_sig_figs = 3
 
 		for i in start_num..end_num
-		
+			
+			pad_zeros = "0"*(num_sig_figs - i.to_s.length)
+			asset_string = "#{asset_id_prefix}-#{pad_zeros}#{i.to_s}"
+			# generate unique dummy key			
 			dummy_url_key = (0...5).map{ dummy_charset[rand(dummy_charset.size)] }.join    
 			dummy_url_base = "http://test.com"	    
-			result_url = Shortener::ShortenedUrl.generate!(dummy_url_base+dummy_url_key)
+			while(Shortener::ShortenedUrl.find_by_url(dummy_url_base+dummy_url_key))
+				dummy_url_key = (0...5).map{ dummy_charset[rand(dummy_charset.size)] }.join    
+				dummy_url_base = "http://test.com"	    
+			end
+
+			result_url = Shortener::ShortenedUrl.generate_with_auth(dummy_url_base+dummy_url_key, auth_token,asset_string)
 			qr_code_url = "http://zanhealth.co/qr/" + result_url.unique_key
 			puts qr_code_url
 
@@ -59,9 +67,9 @@ class TagPdf < Prawn::Document
 			result = result.composite(logo_large,370,20,Magick::OverCompositeOp)
 
 			asset_text = Magick::Draw.new
-			pad_zeros = "0"*(num_sig_figs - i.to_s.length)
+			
 
-			asset_text.annotate(result, 700, 200, 350,250,"#{asset_id_prefix}-#{pad_zeros}#{i.to_s}") {
+			asset_text.annotate(result, 700, 200, 350,250,asset_string) {
 				self.pointsize = 130
 				self.font_weight = Magick::BoldWeight
 				self.font_family = 'helvetica'

@@ -126,6 +126,7 @@ en:
    name: "name"
    need: "need"
    new_facility: "new facility"
+   new: "new"
    new_item: "new item"
    new_text: "new text"
    new_user: "new user"
