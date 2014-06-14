@@ -88,7 +88,7 @@ class BmetItem < ActiveRecord::Base
         end
       end
       matching_department = Department.where(:name => item.department_name).where(:facility_id => facility_id)[0]
-      matching_model = BmetModel.where(:model_name => item.model_name).where(:manufacturer_name => item.manufacturer_name).where(:vendor_name => item.vendor_name).where(:facility_id => facility_id)[0]
+      matching_model = BmetModel.where(:model_name => item.model_name, :manufacturer_name => item.manufacturer_name, :vendor_name => item.vendor_name, :facility_id => facility_id)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
@@ -111,8 +111,10 @@ class BmetItem < ActiveRecord::Base
         match.bmet_model = matching_model
         match.status = status_string_hash[item.status.downcase]
         match.condition = conditions_string_hash[item.condition.downcase]
-        match.short_url_key = item.short_url_key
+        match.short_url_key = item.short_url_key        
         match.save!
+        # to set the short_url redirector
+        Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{match.id}")
       elsif isValid
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
@@ -133,6 +135,8 @@ class BmetItem < ActiveRecord::Base
         new_item.condition = conditions_string_hash[item.condition.downcase]
         new_item.short_url_key = item.short_url_key
         new_item.save!     
+        # to set the short_url redirector
+        Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{new_item.id}")
       end
     end
   end

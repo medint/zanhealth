@@ -2,14 +2,14 @@ require 'shortener'
 
 module Shortener 	
 	Shortener::ShortenedUrl.class_eval do	
-	  	def self.set_url(old_url, new_url)
-	    	url_in_store = Shortener::ShortenedUrl.find_by_url(clean_url(old_url))
-		    if url_in_store
-		    	url_in_store.url = new_url
+	  	def self.set_url_by_key(unique_key, dest_url)
+			key_in_store = Shortener::ShortenedUrl.find_by_unique_key(unique_key)
+		    if key_in_store
+		    	key_in_store.url = clean_url(dest_url)
 		    else
 		    	return nil
 		    end
-		    return url_in_store
+		    return key_in_store
 	  	end
 
 	  	def self.generate_with_auth(orig_url, auth_token, asset_id)

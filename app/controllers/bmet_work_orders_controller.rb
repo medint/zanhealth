@@ -6,6 +6,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
@@ -38,17 +39,21 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
   end
 
   def show_hidden
 	@bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
     @bmet_work_order_comment = BmetWorkOrderComment.new
-    @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
+    @bmet_costs = BmetCost.where(bmet_work_order_id: params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
@@ -57,8 +62,10 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
@@ -218,6 +225,15 @@ class BmetWorkOrdersController < ApplicationController
         'High' => 1,
         'Medium' => 2,
         'Low' => 3
+      }
+    end
+
+    def set_priorities_hash
+      @priorities_hash = {
+        0 => 'Urgent',
+        1 => 'High',
+        2 => 'Medium',
+        3 => 'Low',
       }
     end
 

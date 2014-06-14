@@ -47,6 +47,12 @@
           </div>
           <%= bmet_work_order.created_at.try(:strftime,"%^b %d") %> 
         </div>
+        <div class="element_date">
+          <div class="element_date_title">
+            <%= t(:priority).capitalize %>
+          </div>
+          <%= @priorities_hash[bmet_work_order.priority] %> 
+        </div>
       </li>
       <hr class="mid-summary_ul_li_hr"><!--replace with border-->
     <% end %>
