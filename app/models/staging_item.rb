@@ -25,7 +25,7 @@ class StagingItem < ActiveRecord::Base
 			attr_array.each do |attrib|
 				item_row.push([item.send(attrib)])
 			end
-			match = BmetItem.find_by_asset_id(item.asset_id)
+			match = BmetItem.where(:asset_id => item.asset_id).includes({ :department => :facility}).where("facilities.id=?",fac_id).references(:facility)[0]
 
 			if match and match.department.facility_id == fac_id#Update existing records
 				item_row.each_with_index do |cell, index|
