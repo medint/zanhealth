@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611185700) do
+ActiveRecord::Schema.define(version: 20140613094529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
-    t.decimal  "cost",               precision: 5, scale: 2
+    t.decimal  "cost",               precision: 12, scale: 2
     t.integer  "bmet_cost_item_id"
   end
 
@@ -86,9 +86,11 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "updated_at"
     t.string   "category"
     t.integer  "facility_id"
+    t.integer  "item_group_id"
   end
 
   add_index "bmet_models", ["facility_id"], name: "index_bmet_models_on_facility_id", using: :btree
+  add_index "bmet_models", ["item_group_id"], name: "index_bmet_models_on_item_group_id", using: :btree
 
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
@@ -152,6 +154,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "deleted_at"
     t.integer  "pm_origin_id"
     t.integer  "wr_origin_id"
+    t.integer  "priority"
   end
 
   add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
@@ -202,7 +205,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.decimal  "cost",                   precision: 5, scale: 2
+    t.decimal  "cost",                   precision: 12, scale: 2
     t.integer  "facility_cost_item_id"
   end
 
@@ -285,6 +288,15 @@ ActiveRecord::Schema.define(version: 20140611185700) do
   end
 
   add_index "facility_work_requests", ["deleted_at"], name: "index_facility_work_requests_on_deleted_at", using: :btree
+
+  create_table "item_groups", force: true do |t|
+    t.string   "name"
+    t.integer  "facility_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_groups", ["facility_id"], name: "index_item_groups_on_facility_id", using: :btree
 
   create_table "languages", force: true do |t|
     t.string   "english"

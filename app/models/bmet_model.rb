@@ -14,6 +14,7 @@
 
 class BmetModel < ActiveRecord::Base
 	belongs_to :facility
+  belongs_to :item_group
   has_many :bmet_needs
   has_many :bmet_items
   attr_accessor :associated_items

@@ -1,6 +1,8 @@
 Zanhealth::Application.routes.draw do
 
 
+  resources :item_groups
+
   # general
   resources :departments
   resources :facilities
