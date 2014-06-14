@@ -451,6 +451,13 @@ body {
 
 	#mid-summary_ul a .mid-summary_ul_li {
 		height: auto;
+		float:left;
+	}
+	.mid-summary_ul_li_hr{ 
+		float:left;
+	}
+	.element_title, .element_description{
+		margin-right: 20px
 	}
 }
 
