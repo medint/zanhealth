@@ -5,37 +5,37 @@
 
 <table id = "print-wo-details-table">
   <tr><th><%= t(:work_order).titlecase + " " + t(:details).capitalize %></th></tr>
-  <tr><td>Item</td><td><%= item.bmet_model.name %></td></tr>
-  <tr><td>Start date</td><td><%= wo.date_requested.strftime("%d %b %Y") %></td></tr>
-  <tr><td>Expected completion date</td><td><%= wo.date_expire.strftime("%d %b %Y") %></td></tr>
-  <tr><td>Requester</td><td><%= wo.requester.name %></td>
-  <tr><td>Owner</td><td><%= wo.owner.name %></td>
-  <tr><td>Department</td><td><%= Department.find_by_id(wo.department_id).name %></td>
-  <tr><td>Location</td><td><%= item.location %></td>
+  <tr><td><%= t(:item).titlecase %></td><td><%= item.bmet_model.name %></td></tr>
+  <tr><td><%= t(:date_started).titlecase%></td><td><%= wo.date_requested.try(:strftime,"%d %b %Y") %></td></tr>
+  <tr><td><%= t(:expected_date_of_completion).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>
+  <tr><td><%= t(:requester).titlecase %></td><td><%= wo.requester.name %></td>
+  <tr><td><%= t(:owner).titlecase %></td><td><%= wo.owner.name %></td>
+  <tr><td><%= t(:department).titlecase %></td><td><%= Department.find_by_id(wo.department_id).name %></td>
+  <tr><td><%= t(:location).titlecase %></td><td><%= item.location %></td>
 </table>
 
 <table id = "print-item-details-table" >
-  <tr><th>Item Details</th></tr>
-  <tr><td>Status</td><td><%= item.status %></td></tr>
-  <tr><td>Condition</td><td><%= item.condition %></td></tr>
-  <tr><td>Purchase Date</td><td><%= item.date_received.strftime("%d %b %Y") %></td></tr>
-  <tr><td>Price</td><td><%= item.price %></td></tr>
-  <tr><td>Asset ID</td><td><%= item.asset_id %></td></tr>
-  <tr><td>Serial Number</td><td><%= item.serial_number %></td></tr>
-  <tr><td>Contract Expiration</td><td><%= item.contract_expire.strftime("%d %b %Y") %></td></tr>
-  <tr><td>Warranty Expiration</td><td><%= item.warranty_expire.strftime("%d %b %Y") %></td></tr>
-  <tr><td>Warranty Notes</td><td><%= item.warranty_notes %></td></tr>
+  <tr><th><%= t(:item).titlecase + " " + t(:details).titlecase %></th></tr>
+  <tr><td><%= t(:status).titlecase %></td><td><%= item.status %></td></tr>
+  <tr><td><%= t(:condition).titlecase %></td><td><%= item.condition %></td></tr>
+  <tr><td><%= t(:date_purchased).titlecase %></td><td><%= item.date_received.strftime("%d %b %Y") %></td></tr>
+  <tr><td><%= t(:price).titlecase %></td><td><%= item.price %></td></tr>
+  <tr><td><%= t(:asset_id).titlecase %></td><td><%= item.asset_id %></td></tr>
+  <tr><td><%= t(:serial_number).titlecase %></td><td><%= item.serial_number %></td></tr>
+  <tr><td><%= t(:contract_expiration).titlecase %></td><td><%= item.contract_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td><%= t(:warranty_expiration).titlecase %></td><td><%= item.warranty_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td><%= t(:warranty_notes).titlecase %></td><td><%= item.warranty_notes %></td></tr>
  </table>
 
-  <div class = "print-table-title">Hours Log</div>
+  <div class = "print-table-title"><%= t(:hours_log).titlecase %></div>
 
  <table id = "print-labor-hours-table">
  	<tr>
- 		<th>Worked by</th>
- 		<th class = "print-clock-cell">Clock in</th>
- 		<th class = "print-clock-cell">Clock out</th>
- 		<th class = "print-number-cell">Labor time</th>
- 		<th class = "print-number-cell">Down time</th>
+ 		<th><%= t(:worked_by).titlecase %></th>
+ 		<th class = "print-clock-cell"><%= t(:clock_in).capitalize %></th>
+ 		<th class = "print-clock-cell"><%= t(:clock_out).capitalize %></th>
+ 		<th class = "print-number-cell"><%= t(:labor_time).capitalize %></th>
+ 		<th class = "print-number-cell"><%= t(:down_time).capitalize %></th>
  	</tr>
  	<tr><td></td><td></td><td></td><td></td><td></td></tr>
  	<tr><td></td><td></td><td></td><td></td><td></td></tr>
@@ -43,13 +43,13 @@
  	<tr><td></td><td></td><td></td><td></td><td></td></tr>
  </table>
 
- <div class = "print-table-title"> Costs Log </div>
+ <div class = "print-table-title"><%= t(:costs_log).titlecase %></div>
 
  <table id = "print-costs-table">
  	<tr>
- 		<th>Consumable/part name</th>
- 		<th class = "print-clock-cell">Individual price</th>
- 		<th class = "print-number-cell">Quantity</th>
+ 		<th><%= t(:consumable).titlecase + "/" + t(:part) + " " + t(:name)%></th>
+ 		<th class = "print-clock-cell"><%= t(:individual).titlecase + " " + t(:price) %></th>
+ 		<th class = "print-number-cell"><%= t(:quantity).capitalize %></th>
  	</tr>
  	<tr><td></td><td></td><td></td></tr>
  	<tr><td></td><td></td><td></td></tr>
@@ -59,16 +59,18 @@
  </table>
 
  <table id = "print-comments-table">
- 	<tr><th>Additional comments</th></tr>
+ 	<tr><th><%= t(:additional_comments).titlecase %></th></tr>
  	<tr><td></td></th>
  </table>
 
  <table id = "print-supervisor-comments-table">
- 	<tr><th>Supervisor comments</th></tr>
+ 	<tr><th><%= t(:supervisor_comments).titlecase %></th></tr>
  	<tr><td></td></th>
  </table>
 
  <table id = "print-supervisor-signature-table">
- 	<tr><th>Supervisor signature</th></tr>
+ 	<tr><th><%= t(:supervisor_signature).titlecase %></th></tr>
  	<tr><td></td></th>
  </table>
+
+ <div id = "print-footer">&copy MED International 2014<div>

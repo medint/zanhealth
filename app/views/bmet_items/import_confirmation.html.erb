@@ -40,6 +40,7 @@
 				<th> Model Name </th>
 				<th> Manufacturer Name </th>
 				<th> Vendor Name </th>
+				<th> Model Group </th>
 			</tr>
 			<% models_table = StagingModel.get_matches(@facility_id) %>
 			<% models_table.each do |row| %>
@@ -49,6 +50,8 @@
 							<% class_type = 'unchanged_cell' %>
 						<% elsif cell[1] == 'changed' %>
 							<% class_type = 'changed_cell' %>
+						<% elsif cell[1] == 'error' %>
+							<% class_type = 'error_cell' %>
 						<% end %>
 						<td class = <%=class_type%>><div class = "import_cell"><%= cell[0] %></div></td>
 					<% end %>
@@ -58,7 +61,7 @@
  	<br>
  	<div class = 'import_button'>
   	<%= button_to	 "Confirm Import", '/bmet_items_import'  %>
-		<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
+	<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
 	</div>
 
 <br>
