@@ -7,9 +7,9 @@
 			<th>Year Manufactured</th>
 			<th>Funding</th>
 			<th>Date Received</th>
-			<th>Warranty Expiration</th>
+			<th>Warranty Expire</th>
 			<th>Warranty Notes</th>
-			<th>Contract Expiration</th>
+			<th>Contract Expire</th>
 			<th>Service Agent</th>
 			<th>Price</th>
 			<th>Asset ID</th>
@@ -18,6 +18,7 @@
 			<th>Condition</th>
 			<th>Location</th>
 			<th>Department</th>
+			<th>URL</th>
 		</tr>
 		<% items_table = StagingItem.get_matches(@facility_id) %>
 		<% items_table.each do |row| %>
@@ -30,7 +31,7 @@
 						<% elsif cell[1] == 'error' %>
 							<% class_type = 'error_cell' %>
 						<% end %>
-						<td class = <%=class_type%> ><%= cell[0] %></td>
+						<td class = <%=class_type%> ><div class = "import_cell"><%= cell[0] %></div></td>
 					<% end %>
 		<% end %>
 	</table>
@@ -49,7 +50,7 @@
 						<% elsif cell[1] == 'changed' %>
 							<% class_type = 'changed_cell' %>
 						<% end %>
-						<td class = <%=class_type%>><%= cell[0] %></td>
+						<td class = <%=class_type%>><div class = "import_cell"><%= cell[0] %></div></td>
 					<% end %>
 				</tr>
 			<% end %>

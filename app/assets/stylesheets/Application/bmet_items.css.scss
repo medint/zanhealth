@@ -75,6 +75,18 @@
 	}
 }
 
+.import_cell {
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 200px;
+	text-overflow: ellipsis;
+}
+
+.import_cell:hover{
+	overflow:visible;
+	max-width: 3000px;
+}
+
 .import_button {
 	padding: 10px;
 	margin-left: 100px;

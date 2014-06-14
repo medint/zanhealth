@@ -118,6 +118,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
   get "/bmet_work_orders/all", to: "bmet_work_orders#all"
   get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+  get "/bmet_work_orders/print_view/:id", to: "bmet_work_orders#show_print"
 
   # hide /unhide feature for bmet_work_request
   put "hide_bmet_work_request/:id", to: "bmet_work_requests#hide", :as => :hide_bmet_work_request
