@@ -1,6 +1,6 @@
-<div class='additional-details_form-div'>
-  <hr class="additional-details_hr">
-  <%= form_for(@facility_cost) do |f| %>
+<div class='extra-details_form-div'>
+  <hr class="extra-details_hr">
+  <%= simple_form_for(@facility_cost) do |f| %>
   <% if @facility_cost.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@facility_cost.errors.count, "error") %> prohibited this facility_cost from being saved:</h2>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
   
-  <div id="additional-detail_cost_name">
-    <%= f.text_area :name, :required => true, :placeholder => @language['Name'] %>
+  <div id="extra-details_cost_name">
+    <%= f.collection_select(:facility_cost_item_id, @cost_items, :id, :name, {}, {:class => "chosen-select", :id => "extra-details_cost_name_select"}) %>
   </div>
-  <div id="additional-detail_cost_quantity">
+  <div id="extra-details_cost_quantity">
 
-    <%= f.number_field :unit_quantity, :required => true, :placeholder => @language['Quantity'] %>
+    <%= f.number_field :unit_quantity, :required => true, :placeholder => t(:quantity).capitalize %>
   </div>
-  <div id="additional-detail_cost_amount">
-    <%= f.number_field :cost, :required => true, :placeholder => @language["Cost"] %>
+  <div id="extra-details_cost_amount">
+    <%= f.input_field :cost, :as => "decimal", :required => true, :placeholder => t(:cost).capitalize %>
   </div>
  
   <div class="field">
     <%= f.hidden_field :facility_work_order_id, :required => true, value: @facility_work_order.id %>
   </div>
 
-  <div class="additional-detail_actions">
+  <div class="extra-details_actions">
     <%= f.submit :value => ">"%>
   </div>
 <% end %>

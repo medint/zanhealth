@@ -1,20 +1,20 @@
 <div id='left-top'>
   <div id="top-dropdown">
 
-    <%= @language['Sort'] %>: <div class="dropdown">
+    <%= t(:sort).capitalize %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        <%= @language['Select Attribute'] %>
+        <%= t(:select_attribute).titlecase %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-       <a onclick = "sort_by_date('datedue')">
-        <%= @language['Due Date'] %>
+       <a onclick = "sort_by_date_desc('datedue')">
+        <%= t(:due_date).titlecase %>
        </a>
        </div>
        <div>
        <a onclick = "sort_by_num('dayssince')">
-        <%= @language['Days Since'] %>
+        <%= t(:days_until).titlecase %>
        </a>
        </div>   
       </ul>
@@ -22,7 +22,7 @@
     &nbsp&nbsp&nbsp&nbsp
    <%= "View" %>
   <div class="dropdown">
-	  <a id=facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+	  <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
 		  Select View:
 		  <b class="caret"></b>
 	  </a>
@@ -56,6 +56,6 @@
   </div>
 
   <div id="top-button">
-	  <%= link_to "Export Data", facility_preventative_maintenances_url+"/download" %>
+	  <%= link_to t(:export_data).titlecase, facility_preventative_maintenances_url+"/download" %>
   </div>
 </div>

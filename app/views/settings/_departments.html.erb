@@ -1,0 +1,35 @@
+<div id="create-departments-form">
+
+  <strong>Current List of Departments</strong>
+  <ul>
+    <% @departments.each do |department| %>
+     <div class = "dropdown">
+            <a role = "button" data-toggle = "dropdown" href = '#'>
+              <%= department.name %>
+              <b class = "caret"></b>
+            </a>
+
+          <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+           <li>
+              <% @department = department %>
+              <%= render 'departments/form' %>
+           </li>
+          </ul>
+          </div>
+        <% end %>
+      </ul>
+
+  <%= form_for @departments, { url: url_for(:action => 'create_department', :controller => 'settings'), method: 'post'} do |f| %>
+
+      <div id="object-form-single-col">
+        <div class="field-box">
+          <div class="field-info"><%= f.text_area :name, :required => true, :value => '', :placeholder => 'Enter the name of new department here'%></div>
+        </div>
+     
+        <div class="action_submit">
+          <%=f.submit 'Create Department'%> 
+        </div>
+      </div>
+  <% end %>
+  
+  </div>

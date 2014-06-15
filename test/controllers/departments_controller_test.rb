@@ -39,7 +39,7 @@ class DepartmentsControllerTest < ActionController::TestCase
 
   test "should update department" do
     patch :update, id: @department, department: { name: @department.name, facility_id: @department.facility_id }
-    assert_redirected_to department_path(assigns(:department))
+    assert_redirected_to settings_path
   end
 
   test "should destroy department" do
@@ -47,6 +47,6 @@ class DepartmentsControllerTest < ActionController::TestCase
       delete :destroy, id: @department
     end
 
-    assert_redirected_to departments_path
+    assert_redirected_to settings_path
   end
 end

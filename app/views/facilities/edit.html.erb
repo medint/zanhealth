@@ -1,6 +1,6 @@
-<h1><%= @language['Facility']%></h1>
+<h1><%= t(:facility).capitalize%></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @facility %> |
-<%= link_to @language['Back'], facilities_path %>
+<%= link_to t(:show).capitalize, @facility %> |
+<%= link_to t(:back).capitalize, facilities_path %>

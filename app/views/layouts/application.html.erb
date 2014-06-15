@@ -19,13 +19,13 @@
   </div>
 
   <footer class="footer">    
-    <%= link_to @language['Home'], '/' %> |
+    <%= link_to t(:home).capitalize, '/' %> |
     <a href='?language=english'>English</a> | 
     <a href='?language=swahili'>Swahili</a> | 
     <a href='?language=creole'>Creole</a> |     
-    <%= @language['About'] %> zanhealth |
-    <%= link_to @language['Contact Us'], 'mailto:help@zanhealth.co' %> |
-    © 2014 <%= link_to "Med International", "medinternational-us.org" %>
+    <%= t(:about).capitalize %> zanhealth |
+    <%= link_to t(:contact_us).titlecase, 'mailto:help@zanhealth.co' %> |
+    © 2014 <a href="http://medinternational-us.org">MED International</a>
   </footer>
 
 </body>

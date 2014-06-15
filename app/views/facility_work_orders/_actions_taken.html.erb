@@ -10,22 +10,22 @@
         </div>x
     <% end %>
 
-    <div class="additional-details-box">   
-        <div class="field-type"><%= @language['Cause Description'] %></div>
+    <div class="extra-details-box">   
+        <div class="field-type"><%= t(:cause_description).titlecase %></div>
         <div class="field-info"><%= f.text_area :cause_description %></div>
     </div>
 
-    <div class="additional-details-box">   
-        <div class="field-type"><%= @language['Action Taken'] %></div>
+    <div class="extra-details-box">   
+        <div class="field-type"><%= t(:action_taken).titlecase %></div>
         <div class="field-info"><%= f.text_area :action_taken %></div>
     </div>
 
-    <div class="additional-details-box">   
-        <div class="field-type"><%= @language['Prevention Taken'] %></div>
+    <div class="extra-details-box">   
+        <div class="field-type"><%= t(:prevention_taken).titlecase %></div>
         <div class="field-info"><%= f.text_area :prevention_taken %></div>
     </div>
 
-    <div class="additional-details-box">
+    <div class="extra-details-box">
       <% if @facility_work_order.wr_origin %>
           <a style="color:white" href="<%= facility_work_requests_url + '/all/' + @facility_work_order.wr_origin.to_s %>">
             View original work request
@@ -39,6 +39,6 @@
     </div>
     &nbsp
     <div class="actions">
-      <%= f.submit @language['Save Changes']%>
+      <%= f.submit t(:save_changes).titlecase%>
     </div>
   <%end%>

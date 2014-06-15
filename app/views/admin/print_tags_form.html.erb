@@ -1,0 +1,11 @@
+<div class="admin_navigation">
+
+	<%= simple_form_for :print_tags_form, { url: url_for(:action => 'generate_tags_pdf', :controller => 'admin'), method: 'post'} do |f| %>
+		Start Number : <%= f.number_field :start_num %> </br>
+		End Number : <%= f.number_field :end_num %></br>
+		Asset ID Prefix : <%= f.input :asset_id_prefix %></br>
+		Step 1. <%= f.submit "Generate PDF" %></br>
+		Step 2. <%= f.submit "Generate CSV Template" %>
+	<% end %>
+
+</div>

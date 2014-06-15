@@ -1,19 +1,19 @@
-<p id="notice"><%= @language['Notice'] %></p>
+<p id="notice"><%= t(:notice).capitalize %></p>
 
 <p>
-  <strong><%= @language['Content'] %>:</strong>
+  <strong><%= t(:content).capitalize %>:</strong>
   <%= @text.content %>
 </p>
 
 <p>
-  <strong><%= @language['Number'] %>:</strong>
+  <strong><%= t(:number).capitalize %>:</strong>
   <%= @text.number %>
 </p>
 
 <p>
-  <strong><%= @language['Work request'] %>:</strong>
+  <strong><%= t(:work_request).titlecase %>:</strong>
   <%= @text.bmet_work_order_id %>
 </p>
 
-<%= link_to @language['Edit'], edit_text_path(@text) %> |
-<%= link_to @language['Back'], texts_path %>
+<%= link_to t(:edit).capitalize, edit_text_path(@text) %> |
+<%= link_to t(:back).capitalize, texts_path %>

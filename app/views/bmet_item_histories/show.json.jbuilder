@@ -1,1 +1,1 @@
-json.extract! @item_history, :bmet_item_id, :datetime, :status, :utilization, :remarks, :created_at, :updated_at
+json.extract! @bmet_item_history, :id, :bmet_item_id, :bmet_item_status, :bmet_item_condition, :remarks, :work_order, :work_order_status, :created_at, :updated_at

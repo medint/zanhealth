@@ -1,0 +1,32 @@
+<!--fill in with names of boxes-->
+<div id="bmet_item_details">
+
+<!-- Add this in once we have multiple nav things
+  <ul class="extra-details_nav">
+    <li id ="comment-icon" class="active"><a href="#history" data-toggle="tab">History</a></li>    
+  </ul> -->
+
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="history">
+      <div class="extra-details_content">
+        <div class='extra-details_title'>
+        <%= t(:history).capitalize %>
+        </div>
+      	<ul id='bmet_item_history_ul'>
+          <%= render @bmet_item_histories %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="extra-details_form-div">
+  </div>
+
+</div>
+
+
+
+
+
+

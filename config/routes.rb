@@ -1,15 +1,25 @@
 Zanhealth::Application.routes.draw do
 
+
+  resources :item_groups
+
   # general
   resources :departments
   resources :facilities
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations" }
   resources :parts
   resources :roles
   resources :texts
-  
+  resources :settings
+
+  #short url
+  get '/qr/:id' => "shortener/shortened_urls#show"
+
   #bmet app
-  resources :bmet_items
+  resources :bmet_items, except: :show do
+    collection { post :import }
+    collection { post :stage_import }
+  end
   resources :bmet_item_histories
   resources :bmet_labor_hours
   resources :bmet_models
@@ -20,6 +30,7 @@ Zanhealth::Application.routes.draw do
   resources :bmet_work_order_comments
   resources :bmet_work_requests, except: :show
   resources :bmet_costs
+  resources :bmet_cost_items
   resources :part_transactions
   
   #facilities app
@@ -35,11 +46,21 @@ Zanhealth::Application.routes.draw do
   resources :facility_work_requests, except: :show  do
     collection { get :search }
   end
+  resources :facility_cost_items
   
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
   get "/facility_work_requests/download", to: "facility_work_requests#as_csv"
+
+  get "/bmet_work_orders/download", to: "bmet_work_orders#as_csv"
+  get "/bmet_preventative_maintenances/download", to: "bmet_preventative_maintenances#as_csv"
+  get "/bmet_work_requests/download", to: "bmet_work_requests#as_csv"
+  get "/bmet_items/download", to: "bmet_items#as_csv"
+  get "/bmet_items/:id", to: "bmet_items#show"
+  get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
+  post "/bmet_items_import", to: "bmet_items#import"
+  post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
 
   #dashboard
   
@@ -47,7 +68,18 @@ Zanhealth::Application.routes.draw do
   get "/facility_dashboard/wo_finances", to: "facility_dashboard#wo_finances"
   get "/facility_dashboard/labor_hours", to: "facility_dashboard#labor_hours"
   get "/facility_dashboard/statusAjax", to: "facility_dashboard#statusAjax"
+  get "/facility_dashboard/indexAjax", to: "facility_dashboard#indexAjax"
+  get "/facility_dashboard/calendarAjax", to: "facility_dashboard#calendarAjax"
+  get "/facility_dashboard/timelineAjax", to: "facility_dashboard#timelineAjax"
+
+  get "/facility_dashboard/statusExpireAjaxhtml", to: "facility_dashboard#statusExpireAjaxhtml"
   resources :facility_dashboard
+
+  get "/bmet_dashboard/status", to: "bmet_dashboard#status"
+  get "/bmet_dashboard/wo_finances", to: "bmet_dashboard#wo_finances"
+  get "/bmet_dashboard/labor_hours", to: "bmet_dashboard#labor_hours"
+  get "/bmet_dashboard/statusAjax", to: "bmet_dashboard#statusAjax"
+  resources :bmet_dashboard
 
   # hide/unhide features for facility work orders
   put "hide_facility_work_order/:id", to:"facility_work_orders#hide", :as => :hide_facility_work_order
@@ -67,6 +99,7 @@ Zanhealth::Application.routes.draw do
   get "/facility_preventative_maintenances/hidden/:id", to: "facility_preventative_maintenances#show_hidden"
   get "/facility_preventative_maintenances/all", to: "facility_preventative_maintenances#all"
   get "/facility_preventative_maintenances/all/:id", to: "facility_preventative_maintenances#show_all"
+  put "/reset_facility_preventative_maintenance/:id", to: "facility_preventative_maintenances#reset"
 
   # hide/unhide features for facility work requests
   put "hide_facility_work_request/:id", to: "facility_work_requests#hide", :as => :hide_facility_work_request
@@ -85,6 +118,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
   get "/bmet_work_orders/all", to: "bmet_work_orders#all"
   get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+  get "/bmet_work_orders/print_view/:id", to: "bmet_work_orders#show_print"
 
   # hide /unhide feature for bmet_work_request
   put "hide_bmet_work_request/:id", to: "bmet_work_requests#hide", :as => :hide_bmet_work_request
@@ -103,6 +137,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_preventative_maintenances/hidden/:id", to: "bmet_preventative_maintenances#show_hidden"
   get "/bmet_preventative_maintenances/all", to: "bmet_preventative_maintenances#all"
   get "/bmet_preventative_maintenances/all/:id", to: "bmet_preventative_maintenances#show_all"
+  put "/reset_bmet_preventative_maintenance/:id", to: "bmet_preventative_maintenances#reset"
 
   get "/facility_work_requests/:facility_id/public_new", to: "facility_work_requests#public_new"  
   post "/facility_work_requests/public_create", to: "facility_work_requests#public_create"  
@@ -116,11 +151,23 @@ Zanhealth::Application.routes.draw do
   get "/detailed_bmet_work_orders", to: "bmet_work_orders#detailed"
   get "/detailed_items", to: "bmet_items#detailed"
   get "/text", to: "text#receive"
+
+  get "/settings", to: "settings#index"
+  post "/settings/create_user", to: "settings#create_user"
+  post "/settings/create_department", to: "settings#create_department"
+  post "/settings/create_item_group", to: "settings#create_item_group"
+  post "/settings/update_user", to: "settings#update_user"
+
     
+  get "/admin", to: "admin#index"
+  get "/admin/print_tags_form", to: "admin#print_tags_form"
+  post "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  get "/admin/facilities", to: "admin#facilities"
+  get "/admin/facility_users/:facility_id", to: "admin#facility_users"
+  post "/admin/create_user", to: "admin#create_user"
+
   get '/404', :to => redirect('/404.html')
-  root to: "facility_work_orders#index"
-
-
+  root to: "application#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

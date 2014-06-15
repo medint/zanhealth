@@ -1,9 +1,9 @@
-<p id="notice"><%= @language['Notice'] %></p>
+<p id="notice"><%= t(:notice).capitalize %></p>
 
 <p>
-  <strong><%= @language['Name']%>:</strong>
+  <strong><%= t(:name).capitalize%>:</strong>
   <%= @facility.name %>
 </p>
 
-<%= link_to @language['Edit'], edit_facility_path(@facility) %> |
-<%= link_to @language['Back'], facilities_path %>
+<%= link_to t(:edit).capitalize, edit_facility_path(@facility) %> |
+<%= link_to t(:back).capitalize, facilities_path %>

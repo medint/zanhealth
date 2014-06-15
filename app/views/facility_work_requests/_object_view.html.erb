@@ -2,42 +2,56 @@
 
 		<div id="field-box_item-id">
       		<div class="item-id">
-        	<%= @language['Work Request'] %> # <%= @facility_work_request.id %>
+        	<%= t(:work_request).titlecase %> # <%= @facility_work_request.id %>
       		</div>
     	</div>
+    	<% if @facility_work_request.wo_convert_id %>
+			<div class="field-box">
+			  <div class="field-type"><%= t(:converted_wo_order).titlecase %></div>
+			  <div class="field-info">
+			      <p>
+				      Converted to 
+				      <%= link_to t(:work_order).titlecase +' '+@facility_work_request.wo_convert_id.to_s, 
+				        bmet_work_orders_path+'/all/'+@facility_work_request.wo_convert_id.to_s %>
+				      On 
+				      <%= @facility_work_request.converted_at.try(:strftime,"%^b %d, %Y") %>
+			      </p>
+			   </div>			
+			</div>      
+		<% end %>
 		<div class="field-box">
-			<div class="field-type"> <%= @language['Requester'] %></div>
+			<div class="field-type"> <%= t(:requester).capitalize %></div>
 			<div class="field-info"><p><%= @facility_work_request.requester %></p></div>
 		</div>
 
 		<div class="field-box">
-			<div class="field-type"><%= @language['Date Created'] %></div>
+			<div class="field-type"><%= t(:date_created).titlecase %></div>
 			<div class="field-info"><p><%= @facility_work_request.created_at %> </p></div>
 		</div>
 
 		<div class="field-box">
-			<div class="field-type"><%= @language['Last Updated']%></div>
+			<div class="field-type"><%= t(:last_updated).titlecase%></div>
 			<div class="field-info"><p><%= @facility_work_request.updated_at %> </p></div>
 		</div>
 		<div class="field-box">
-			<div class="field-type"><%= @language['Department'] %></div>
+			<div class="field-type"><%= t(:department).capitalize %></div>
 			<div class="field-info"><p><%= @facility_work_request.department %> </p></div>
 		</div>
 		<div class="field-box">
-			<div class="field-type"><%= @language['Location'] %></div>
+			<div class="field-type"><%= t(:location).capitalize %></div>
 			<div class="field-info"><p><%= @facility_work_request.location %></p></div>
 		</div>
 		<div class="field-box">
-			<div class="field-type"><%= @language['Phone Number'] %></div>
+			<div class="field-type"><%= t(:phone_number).titlecase %></div>
 			<div class="field-info"><p><%= @facility_work_request.phone %> </p></div>
 		</div>
 		<div class="field-box">
-			<div class="field-type"> <%= @language['Email'] %></div>
+			<div class="field-type"> <%= t(:email).capitalize %></div>
 			<div class="field-info"><p><%= @facility_work_request.email %> </p></div>
 		</div>
 		
 		<div class="field-box	">
-			<div class="field-type"><%= @language['Full Description'] %></div>
+			<div class="field-type"><%= t(:full_description).titlecase %></div>
 			<div class="field-info"><p><%= @facility_work_request.description %> </p></div>
 		</div>
 

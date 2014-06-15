@@ -1,5 +1,5 @@
-<div class='additional-details_form-div'>
-  <hr class="additional-details_hr">
+<div class='extra-details_form-div'>
+  <hr class="extra-details_hr">
 
   <%= form_for(@bmet_labor_hour) do |f| %>
     <% if @bmet_labor_hour.errors.any? %>
@@ -13,36 +13,32 @@
     <% end %>
 
     <div id="labor_technician-title">
-      <%= @language['Technician'] %>
+      <%= t(:technician).capitalize %>
     </div>
     <div id="labor_date-title">
-      <%= @language['Worked On'] %>
+      <%= t(:worked_on).titlecase %>
     </div >
     <div id="labor_hour-title">
-      <%= @language['Duration'] %>
+      <%= t(:duration).capitalize %>
     </div>
     
-    <div id="additional-detail_labor_tech">
+    <div id="extra-details_labor_tech">
       <%= f.collection_select :technician_id, @users, :id, :name, :id => "technician" %>        
     </div>
-    <div id="additional-detail_labor_date">      
-      <%= f.date_select :date_started, use_short_month: true %>    
+    <div id="extra-details_labor_date">      
+      <%= f.date_select :date_started, :required => true, use_short_month: true %>    
     </div>
-    <div id="additional-detail_labor_hours">    
-      <%= f.number_field :duration, :placeholder => @language["Hr"] %>
+    <div id="extra-details_labor_hours">    
+      <%= f.number_field :duration, :required => true, :placeholder => t(:hr).capitalize %>
     </div>
 
-    <div class="additional-detail_actions">
+    <div class="extra-details_actions">
       <%= f.submit :value => ">"%>
     </div>
-
-      
-      
-      
      
-      <div class="field">
-        <%= f.hidden_field :bmet_work_order_id, value: @bmet_work_order.id %>
-      </div>
+    <div class="field">
+      <%= f.hidden_field :bmet_work_order_id, value: @bmet_work_order.id %>
+    </div>
 
       
   <% end %>

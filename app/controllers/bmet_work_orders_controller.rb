@@ -1,26 +1,35 @@
 class BmetWorkOrdersController < ApplicationController
   layout 'layouts/bmet_app'
-  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all]
+  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all, :show_print]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
-  before_action :set_all_bmet_work_orders, only: [:all, :show_all]
+  before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
+  before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
+  after_action :set_converted_wr, only: [:create]
+  after_action :reset_original_pm, only: [:create, :update]
+  load_and_authorize_resource
+
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-  	  @link = bmet_work_orders_url+"/unhidden/"
+  	  
   end
 
   def hidden
-  	  @link = bmet_work_orders_url+"/hidden/"
   	  render "index"
   end
 
   def all
-  	  @link = bmet_work_orders_url+"/all/"
   	  render "index"
+  end
+
+  def as_csv
+    send_data @bmet_work_orders.as_csv, type: "text/csv", filename: "bmet_work_orders.csv"
   end
 
   # GET /bmet_work_orders/1
@@ -30,17 +39,21 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
   end
 
   def show_hidden
 	@bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
     @bmet_work_order_comment = BmetWorkOrderComment.new
-    @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
+    @bmet_costs = BmetCost.where(bmet_work_order_id: params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
@@ -49,8 +62,10 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
@@ -58,6 +73,12 @@ class BmetWorkOrdersController < ApplicationController
   def new
     @bmet_work_order = BmetWorkOrder.new
     @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
+    if request.referer
+      link = request.referer.split("/")[-2]
+      if link == "bmet_items"
+        @bmet_work_order.bmet_item_id = request.referer.split("/")[-1]
+      end
+    end
   end
 
   # GET /bmet_work_orders/1/edit
@@ -90,14 +111,14 @@ class BmetWorkOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
-      	  link = request.referer.split("/")[-2]
-      	  if link == "hidden"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  elsif link == "all"
-      	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  else
+    	  link = request.referer.split("/")[-2]
+    	  if link == "hidden"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      elsif link == "all"
+    	  	  format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+	      else
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
-		  end
+	      end
         format.json { head :no_content }
       else
         format.html { render :back }
@@ -117,7 +138,7 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   def hide
-  	  @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+  	  @bmet_work_order = BmetWorkOrder.with_deleted.find_by_id(params[:id])
   	  if @bmet_work_order.destroyed?
   	  	  BmetWorkOrder.restore(@bmet_work_order)
 	  else
@@ -146,11 +167,16 @@ class BmetWorkOrdersController < ApplicationController
   	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
+  def show_print
+    render 'print_view', layout: 'blank'
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
     def set_bmet_work_order
-      @bmet_work_order = BmetWorkOrder.with_deleted.find(params[:id])
+      @bmet_work_order = BmetWorkOrder.with_deleted.find_by_id(params[:id])
       if (@bmet_work_order==nil || @bmet_work_order.owner.facility_id!=current_user.facility_id)
         @bmet_work_order=nil
         redirect_to "/404"
@@ -159,16 +185,23 @@ class BmetWorkOrdersController < ApplicationController
 
 
     def set_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
+      @bmet_work_orders = BmetWorkOrder.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
+      @link = bmet_work_orders_url+"/unhidden/"
     end
 
     def set_hidden_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
-	end
+      @bmet_work_orders = BmetWorkOrder.only_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
+      @link = bmet_work_orders_url+"/hidden/"
+    end
 
-	def set_all_bmet_work_orders
-      @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at)
-	end
+    def set_all_bmet_work_orders
+      @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility).order(:created_at).reverse_order()
+      @link = bmet_work_orders_url+"/all/"
+    end
+
+    def set_cost_items
+      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).all.to_a
+    end
 
     def set_users
       @users = User.where(:facility_id => current_user.facility.id).all.to_a
@@ -186,9 +219,44 @@ class BmetWorkOrdersController < ApplicationController
       }
     end
 
+    def set_priorities
+      @priorities = {
+        'Urgent' => 0,
+        'High' => 1,
+        'Medium' => 2,
+        'Low' => 3
+      }
+    end
+
+    def set_priorities_hash
+      @priorities_hash = {
+        0 => 'Urgent',
+        1 => 'High',
+        2 => 'Medium',
+        3 => 'Low',
+      }
+    end
+
+    def set_converted_wr
+      if @bmet_work_order.wr_origin_id
+        @wr_origin = BmetWorkRequest.find(@bmet_work_order.wr_origin_id)
+        @wr_origin.wo_convert_id = @bmet_work_order.id
+        @wr_origin.converted_at = Time.zone.now      
+        @wr_origin.save
+        @wr_origin.destroy # hiding it immediately        
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id)
+      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id)
+    end
+
+    def reset_original_pm
+      if @bmet_work_order.status == 2 and @bmet_work_order.pm_origin
+        pm = @bmet_work_order.pm_origin
+        pm.reset()
+      end
     end
 
 end

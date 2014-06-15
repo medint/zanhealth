@@ -1,0 +1,11 @@
+<li class="bmet_item_history">  	  
+	<% if bmet_item_history.bmet_item_status %>
+		Status of Item changed to <%= @status_string_hash[bmet_item_history.bmet_item_status] %>
+	<% elsif bmet_item_history.bmet_item_condition %>
+		Condition of Item changed to <%= @conditions_string_hash[bmet_item_history.bmet_item_condition] %>
+	<% elsif bmet_item_history.work_order_id %>
+		Status of <%= link_to "Work Order #{bmet_item_history.work_order_id}", bmet_work_orders_all_path+'/'+bmet_item_history.work_order_id.to_s %> changed to <%= @wo_status_string_hash[bmet_item_history.work_order_status] %>
+	<% end %>
+	<span> on <%= bmet_item_history.created_at.try(:strftime,"%b %d, %Y") %></span>
+
+</li>

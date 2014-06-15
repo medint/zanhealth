@@ -1,10 +1,10 @@
-<h1><%= @language['Departments'] %></h1>
+<h1><%= t(:departments).capitalize %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= @language['Name']%></th>
-      <th><%= @language['Facilities']%></th>
+      <th><%= t(:name).capitalize%></th>
+      <th><%= t(:facilities).capitalize%></th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= department.name %></td>
         <td><%= department.facility %></td>
-        <td><%= link_to @language['Show'], department %></td>
-        <td><%= link_to @language['Edit'], edit_department_path(department) %></td>
-        <td><%= link_to @language['Destroy'], department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show).capitalize, department %></td>
+        <td><%= link_to t(:edit).capitalize, edit_department_path(department) %></td>
+        <td><%= link_to t(:destroy).capitalize, department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

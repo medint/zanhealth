@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  bmet_cost_item: one
   unit_quantity: 1
   cost: 1
   created_at: 2014-04-19 13:36:34
@@ -10,10 +10,35 @@ one:
   work_request_id: 1
 
 two:
-  name: MyString
+  bmet_cost_item: two
   unit_quantity: 1
   cost: 1
   created_at: 2014-04-19 13:36:34
   updated_at: 2014-04-19 13:36:34
   bmet_work_order: two
   work_request_id: 1
+
+#dashboard
+three:
+  bmet_cost_item: three
+  unit_quantity: 10
+  cost: 15
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: ten
+
+four:
+  bmet_cost_item: four
+  unit_quantity: 100
+  cost: 5
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: ten
+
+five:
+  bmet_cost_item: five
+  unit_quantity: 20
+  cost: 20
+  created_at: 2014-02-22 02:05:52
+  updated_at: 2014-02-22 02:05:52
+  bmet_work_order: eleven

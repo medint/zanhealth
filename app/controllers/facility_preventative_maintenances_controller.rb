@@ -1,4 +1,5 @@
 class FacilityPreventativeMaintenancesController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/facilities_app'
   before_action :set_facility_preventative_maintenance, only: [:show, :update, :destroy, :show_hidden, :show_all]
   before_action :set_facility_preventative_maintenances, only: [:show, :index, :new, :search]   
@@ -10,7 +11,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
 
   def search
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q]).records
+    @facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.search(params[:q]).records
     @facility_preventative_maintenances = @facility_preventative_maintenances.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
     @link = facility_preventative_maintenances_url+"/all/"
     render action: "index"
@@ -21,16 +22,13 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def index
-  	  @link = facility_preventative_maintenances_url+"/unhidden/"
   end
 
   def hidden
-  	 @link = facility_preventative_maintenances_url+"/hidden/"
   	 render 'index'
   end
 
   def all
-  	  @link = facility_preventative_maintenances_url+"/all/"
   	  render 'index'
   end
 
@@ -94,7 +92,7 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   end
 
   def hide
-  	  @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find(params[:id])
+  	  @facility_preventative_maintenance = FacilityPreventativeMaintenance.with_deleted.find_by_id(params[:id])
   	  if @facility_preventative_maintenance.destroyed?
   	  	  FacilityPreventativeMaintenance.restore(@facility_preventative_maintenance.id)
 	  else
@@ -110,6 +108,11 @@ class FacilityPreventativeMaintenancesController < ApplicationController
 		  end
 		  format.json { head :no_content }
 	  end
+  end
+
+  def reset
+    @facility_preventative_maintenance.reset()
+    redirect_to :back, notice: 'Preventative Maintenance successfully reset'
   end
 
   private 
@@ -136,33 +139,44 @@ class FacilityPreventativeMaintenancesController < ApplicationController
           @facility_preventative_maintenance=nil
           redirect_to "/404"
         else
-          @facility_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+          @facility_preventative_maintenance.calc_days_until # necessary because diff object from those inside pluralized PM object
         end
     end
 
     def set_facility_preventative_maintenances
-        @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-        @facility_preventative_maintenances.map {|i| i.calc_days_since}  
+        @facility_preventative_maintenances = FacilityPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+        @facility_preventative_maintenances.map {|i| i.calc_days_until}  
+        @link = facility_preventative_maintenances_url+"/unhidden/"
+    end
+
+    def hidden     
+       render 'index'
+    end
+
+    def all      
+        render 'index'
     end
 
     def set_hidden_facility_preventative_maintenances
-    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+    	@facility_preventative_maintenances.map {|i| i.calc_days_until}
+      @link = facility_preventative_maintenances_url+"/hidden/"
     end
 
     def set_all_facility_preventative_maintenances
-    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-    	@facility_preventative_maintenances.map {|i| i.calc_days_since}
+    	@facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+    	@facility_preventative_maintenances.map {|i| i.calc_days_until}
+      @link = facility_preventative_maintenances_url+"/all/"
     end
 
     def facility_preventative_maintenance_params
-        params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id, :pm_origin)
+        params.require(:facility_preventative_maintenance).permit(:description, :last_date_checked, :days, :weeks, :months, :next_date, :created_at, :updated_at, :requester_id)
     end
 
     def set_convert_object
       @input_object = FacilityWorkOrder.new
       @input_object.description = @facility_preventative_maintenance.description
-      @input_object.pm_origin = @facility_preventative_maintenance.id
+      @input_object.pm_origin = @facility_preventative_maintenance
       @input_object.wr_origin = nil
     end
 

@@ -1,14 +1,14 @@
 <div id='left-top'>
   <div id="top-dropdown">    
-    <%= @language['Sort'] %>: <div class="dropdown">
+    <%= t(:sort).capitalize %>: <div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-        <%= @language['Select Attribute'] %>
+        <%= t(:select_attribute).titlecase %>
         <b class="caret"></b>
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-       <a onclick = "sort_by_date_created()">
-        <%= @language['Date Created'] %>
+       <a onclick = "sort_by_date_desc_created()">
+        <%= t(:date_created).titlecase %>
        </a>
        </div>      
       </ul>

@@ -1,24 +1,26 @@
 <div id = "mid_bmet-item">
   <ul id="mid-summary_ul">
     <% @bmet_items.each do |bmet_item| %>
-    <%= link_to(bmet_item) do %>
-      <li
-      class="mid-summary_ul_li"
-      datecreated="<%= bmet_item.created_at.to_s(:number) %>"
-      >        
-        <div class="element_details">
-          <p class="element_title">
-            <%= bmet_item.bmet_model.name %>
-          </p>
-          <p class="element_description">
-            <%= bmet_item.location %>
-          </p>          
-        </div>
-        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
-        
-      </li>
-      <hr class="mid-summary_ul_li_hr"><!--replace with belement-->
-    <% end %>
+      <%= link_to(bmet_item) do %>
+        <li
+        class="mid-summary_ul_li"
+        datecreated="<%= bmet_item.created_at.to_s(:number) %>"
+        modelname = "<%= bmet_item.bmet_model.try(:name) %>"
+        assetid = "<%= bmet_item.asset_id %>"
+        department = "<%= bmet_item.department.try(:name) %>"
+        location = "<%= bmet_item.location %>">
+          <div class="element_details">
+            <p class="element_title">
+              <%= bmet_item.asset_id %> : <%= bmet_item.bmet_model.name %>
+          <% #image_tag("rightarrow_black.png", class: "right-arrow") %>
+            </p>
+            <p class="element_description">
+              <%= bmet_item.location %>
+            </p>          
+          </div>
+        </li>
+        <hr class="mid-summary_ul_li_hr"><!--replace with belement-->
+        <% end %>
     <% end %>
   </ul>
 </div>

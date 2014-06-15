@@ -1,12 +1,10 @@
-<li class="facility_work_order_cost">
-  <div class="cost-name">
-  	<%= bmet_cost.name %>
-  </div>
-
-  <div class="cost-detail">
-	  <span class="cost-quantity"><%= bmet_cost.unit_quantity %></span> X
-	  <span class="cost-cost">$<%= bmet_cost.cost %></span> &#61;
-	  <span class="cost-total">$<%= bmet_cost.unit_quantity * bmet_cost.cost %></span>
-	  </span>
-  </div>
-</li>
+<tr>
+	<td><%= bmet_cost.bmet_cost_item.name %></td>
+	<td>$</td>
+	<td><%= bmet_cost.cost %></td>
+	<td>X</td>	
+	<td><%= bmet_cost.unit_quantity %></td>
+	<td>&#61; $</td>
+	<td><%= bmet_cost.unit_quantity * bmet_cost.cost %></td>
+	<td><%= link_to 'x', bmet_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

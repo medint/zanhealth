@@ -3,14 +3,13 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 
-
 group :development do
     gem 'sqlite3' # Use sqlite3 as the database for Active Record
     gem "better_errors" # better error page
     gem "binding_of_caller" # 'optional' dep for better_errors
-    gem "bullet" # gem that checks for N+1 queries
-    gem "annotate" # gives nice things in models/
-    gem "railroady" # generates graphviz models for schema
+    gem "bullet" # gem that checks for N+1 queries 
+    gem "annotate" # gives nice things in models/ 
+    gem "railroady" # generates graphviz models for schema 
     gem "rails-erd" #generate diagrams for models
     gem "spring" # for testing, application reploader
 end
@@ -38,6 +37,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# visjs visualization for timeline
+gem 'vis-rails'
 
 
 #################### Utilities #####################
@@ -77,6 +79,7 @@ gem 'newrelic_rpm'
 gem 'twilio-ruby'
 gem 'rack-timeout' # for unicorn
 gem 'devise' # user authentication
+gem 'cancancan', '~> 1.8' # role-based permissions
 
 # Captcha
 gem "recaptcha", :require => "recaptcha/rails"
@@ -97,3 +100,10 @@ gem "elasticsearch"
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break heroku because rails sucks
+
+# for item tagging
+gem 'shortener', github: 'jshum/shortener' #fork of shortener with our own modifications
+gem 'prawn' #PDF generation for tagging
+gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
+gem "rqrcode_png" # for generating png from qr code
+

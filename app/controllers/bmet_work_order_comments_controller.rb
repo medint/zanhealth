@@ -1,4 +1,5 @@
 class BmetWorkOrderCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_bmet_work_order_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /bmet_work_order_comments
@@ -25,6 +26,7 @@ class BmetWorkOrderCommentsController < ApplicationController
   # POST /bmet_work_order_comments.json
   def create
     @bmet_work_order_comment = BmetWorkOrderComment.new(bmet_work_order_comment_params)
+    @bmet_work_order_comment.user = current_user
 
     respond_to do |format|
       if @bmet_work_order_comment.save
@@ -56,7 +58,16 @@ class BmetWorkOrderCommentsController < ApplicationController
   def destroy
     @bmet_work_order_comment.destroy
     respond_to do |format|
-      format.html { redirect_to @bmet_work_order_comment.bmet_work_order }
+      link = request.referer.split("/")[-2]
+      @bmet_work_order = @bmet_work_order_comment.bmet_work_order
+      if link == "hidden"
+          format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @bmet_work_order_comment.bmet_work_order }
       format.json { head :no_content }
     end
   end
@@ -64,7 +75,7 @@ class BmetWorkOrderCommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_work_order_comment
-      @bmet_work_order_comment = BmetWorkOrderComment.find(params[:id])
+      @bmet_work_order_comment = BmetWorkOrderComment.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

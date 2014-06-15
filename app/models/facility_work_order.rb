@@ -18,6 +18,8 @@
 #  date_started      :datetime
 #  department_id     :integer
 #  deleted_at        :datetime
+#  pm_origin_id      :integer
+#  wr_origin_id      :integer
 #
 
 class FacilityWorkOrder < ActiveRecord::Base
@@ -31,6 +33,8 @@ class FacilityWorkOrder < ActiveRecord::Base
   has_many :facility_labor_hours
   belongs_to :owner, :class_name => "User"
   belongs_to :requester, :class_name => "User"
+  belongs_to :pm_origin, :class_name => "FacilityPreventativeMaintenance"
+  belongs_to :wr_origin, :class_name => "FacilityWorkRequest"
   belongs_to :department
   before_save :auto_date_start
   before_create :init
@@ -71,9 +75,17 @@ class FacilityWorkOrder < ActiveRecord::Base
   		return "Uncompleted"
   	elsif status == 1
   		return "In Progress"
-	else 
-		return "Completed"
-	end
+  	else 
+  		return "Completed"
+  	end
+  end
+
+  def self.find(*args)
+    begin
+      super
+    rescue Exception => e
+      deleted.find(*args)
+    end
   end
 
 

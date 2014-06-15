@@ -17,52 +17,52 @@
   <% elsif params[:action] == 'edit' %>
   <% end %>
   <div class="field">
-    <%= @language['Owner'] %><br>
+    <%= t(:owner).capitalize %><br>
 	<%= f.collection_select :owner_id, @users, :id, :name %>
   </div>
 
   <div class="field">
-    <%= @language['Date Requested'] %><br>
+    <%= t(:date_requested).titlecase %><br>
     <%= f.datetime_select :date_requested %>
   </div>
   <div class="field">
-    <%= @language['Date Expires'] %><br>
+    <%= t(:expected_date_of_completion).titlecase %><br>
     <%= f.datetime_select :date_expire %>
   </div>
   <div class="field">
-    <%= @language['Date Completed'] %><br>
+    <%= t(:date_completed).titlecase %><br>
     <%= f.datetime_select :date_completed %>
   </div>
   <div class="field">
-    <%= @language['Item ID'] %><br>
+    <%= t(:item_id).titlecase %><br>
 	<%= f.collection_select :bmet_item_id, @items, :id, :id %>
   </div>
   <div class="field">
-    <%= @language['Request Type'] %><br>
+    <%= t(:request_type).titlecase %><br>
     <%= f.number_field :request_type %>
   </div>
   <div class="field">
-    <%= @language['Cost'] %>
+    <%= t(:cost).capitalize %>
 <br> <%= f.number_field :cost %>
   </div>
   <div class="field">
-    <%= @language['Description'] %><br>
+    <%= t(:description).capitalize %><br>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= @language['Status'] %><br>
+    <%= t(:status).capitalize %><br>
     <%= f.number_field :status %>
   </div>
   <div class="field">
-    <%= @language['Cause Description'] %><br>
+    <%= t(:cause_description).titlecase %><br>
     <%= f.text_area :cause_description %>
   </div>
   <div class="field">
-    <%= @language['Action Taken'] %><br>
+    <%= t(:action_taken).titlecase %><br>
     <%= f.text_area :action_taken %>
   </div>
   <div class="field">
-    <%= @language['Prevention Taken'] %><br>
+    <%= t(:prevention_taken).titlecase %><br>
     <%= f.text_area :prevention_taken %>
   </div>
   <div class="actions">

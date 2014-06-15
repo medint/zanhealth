@@ -1,6 +1,6 @@
-<h1><%#= @language['Edit'] @language['Work Request'] @language['Comment'] %></h1>
+<h1><%#= t(:edit).capitalize t(:work_request).titlecase t(:comment).capitalize %></h1>
 
 <%= render 'form' %>
 
-<%= link_to @language['Show'], @bmet_work_order_comment %> |
-<%= link_to @language['Back'], bmet_work_order_comments_path %>
+<%= link_to t(:show).capitalize, @bmet_work_order_comment %> |
+<%= link_to t(:back).capitalize, bmet_work_order_comments_path %>

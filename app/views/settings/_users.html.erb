@@ -1,0 +1,47 @@
+<div id="create-user-form">
+  <strong id = "current-list-header">Current List of Users </strong>
+  <ul>
+    <% @users.each do |user| %>
+
+      <div class = "dropdown">
+        <a role = "button" data-toggle = "dropdown" href = '#'>
+          <%= user.name %>
+          <b class = "caret"></b>
+        </a>
+        
+        <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+          <li>
+            <%= form_for user, { url: url_for(:action => 'update_user', :controller => 'settings'), method: 'post'} do |f| %>
+              <div><%= f.label :name %><br />
+                <%= f.text_field :name %></div>
+              <div><%= f.label :username %><br />
+                <%= f.text_field :username%></div>
+              <div><%= f.label :email %><br />
+                <%= f.email_field :email%></div>
+              <div><%= f.hidden_field :id%></div>        
+              <div class="action_submit">
+                <%=f.submit 'Update user'%>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+
+      </div>
+    <% end %>
+  </ul>
+
+  <%= form_for @users, { url: url_for(:action => 'create_user', :controller => 'settings'), method: 'post'} do |f| %>
+
+      <div id="object-form-single-col">
+        <div class="field-box">
+          <div class="field-info"><%= f.text_area :name, :required => true, :value => '', :placeholder => 'Enter the name of a new user here' %></div>
+        </div>
+     
+        <div class="action_submit">
+          <%=f.submit 'Create User'%>
+        </div>
+      </div> 
+
+  <% end %>
+
+</div>

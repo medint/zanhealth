@@ -1,0 +1,34 @@
+<table id="dash_table">
+			<tr>
+				<th><%=t(:status).capitalize%></th>
+				<th><%=t(:work_order).titlecase %></th>
+				<th><%=t(:expire).capitalize%></th>
+
+			</tr>
+
+			<% @work_orders_json.each do |status,hash| %>
+					<tr>
+						<td class="status">
+							<%= @status[status] %>
+						</td>
+					</tr>
+				<% hash["work_orders"].each do |work_order| %>
+					<tr>
+						<td></td>
+						<td>
+							<%= link_to t(:work_order).titlecase+' '+work_order.id.to_s, facility_work_orders_path+'/all/'+work_order.id.to_s %>						
+						</td>					
+						<td>
+							<%=work_order.date_expire.try(:strftime,"%^b %d, %Y")%>
+						</td>
+					</tr>
+				<%end%>
+				<tr>
+					<td></td>
+					<td></td>
+					<td class="sum_costs"><%=hash["num_work_orders"]%></td>
+				</tr>
+
+			
+			<%end%>
+		</table>

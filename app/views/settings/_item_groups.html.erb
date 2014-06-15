@@ -1,0 +1,35 @@
+<div id="create-item-groups-form">
+
+  <strong>Current List of Item Group</strong>
+  <ul>
+    <% @item_groups.each do |item_group| %>
+     <div class = "dropdown">
+            <a role = "button" data-toggle = "dropdown" href = '#'>
+              <%= item_group.name %>
+              <b class = "caret"></b>
+            </a>
+
+          <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
+           <li>
+              <% @item_group = item_group %>
+              <%= render 'item_groups/form' %>
+           </li>
+          </ul>
+          </div>
+        <% end %>
+      </ul>
+
+  <%= form_for @item_groups, { url: url_for(:action => 'create_item_group', :controller => 'settings'), method: 'post'} do |f| %>
+
+      <div id="object-form-single-col">
+        <div class="field-box">
+          <div class="field-info"><%= f.text_area :name, :required => true, :value => '', :placeholder => 'Enter the name of new item group here'%></div>
+        </div>
+     
+        <div class="action_submit">
+          <%=f.submit 'Create Item Group'%> 
+        </div>
+      </div>
+  <% end %>
+  
+  </div>

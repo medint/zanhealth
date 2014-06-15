@@ -1,4 +1,4 @@
-<div class="additional-details_form-div">
+<div class="extra-details_form-div">
 
   <%= form_for(@bmet_work_order_comment) do |f| %>
     <% if @bmet_work_order_comment.errors.any? %>
@@ -10,20 +10,18 @@
         </ul>
       </div>
     <% end %>
-    <hr class='additional-details_hr'>
-    <div id="additional-detail_comment_descr">
-      <%= f.text_area :comment_text, :placeholder=> @language['Description']%>
+    <hr class='extra-details_hr'>
+    <div id="extra-details_comment_descr">
+      <%= f.text_area :comment_text, :placeholder=> t(:description).capitalize%>
     </div>
 
-    <div class="additional-detail_actions">
+    <div class="extra-details_actions">
       <%= f.submit :value => ">"%>
     </div>
    
     <div class="field">
       <%=f.hidden_field :bmet_work_order_id, value: @bmet_work_order.id %>
     </div>
-    <%=f.hidden_field :user_id, value: session[:user] %>
-
 
   <% end %>
 

@@ -1,4 +1,5 @@
 class FacilityWorkRequestsController < ApplicationController
+  load_and_authorize_resource :except => [:public_new, :public_create, :public_show]
 before_action :set_facility_work_request, only: [:show, :update, :destroy, :edit, :show_hidden, :show_all]
 before_action :set_facility_work_requests, only:[:new, :index, :show, :search]
 before_action :set_status, only: [:show, :hidden, :all, :show_all, :show_hidden]
@@ -12,7 +13,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   layout 'layouts/facilities_app'
 
   def search
-    @facility_work_requests = FacilityWorkRequest.search(params[:q]).records
+    @facility_work_requests = FacilityWorkRequest.with_deleted.search(params[:q]).records
     @facility_work_requests = @facility_work_requests.where(:facility_id => current_user.facility_id).all.to_a
     @link = facility_work_requests_url+"/all/"
     render action: "index"
@@ -30,17 +31,14 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     send_data @facility_work_requests.as_csv, type: "text/csv", filename: "facility_work_requests.csv"
   end
 
-  def index
-  	  @link = facility_work_requests_url+"/unhidden/"
+  def index  	  
   end
 
   def hidden
-  	  @link = facility_work_requests_url+"/hidden/"
   	  render 'index'
   end
 
   def all
-  	  @link = facility_work_requests_url+"/all/"
   	  render 'index'
   end
 
@@ -62,11 +60,11 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       	link = request.referer.split("/")[-2]
       	if link == "hidden"
       		format.html { redirect_to facility_work_requests_url+"/hidden/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
-		elsif link == "all"
+		    elsif link == "all"
       		format.html { redirect_to facility_work_requests_url+"/all/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
       	else
       		format.html { redirect_to facility_work_requests_url+"/unhidden/"+@facility_work_request.id.to_s, notice: 'Work request was successfully updated. ' }
-		end
+		    end
         format.json { head :no_content }
       else
         format.html { redirect_to :back }
@@ -100,8 +98,9 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     @facility_work_request = FacilityWorkRequest.new(facility_work_request_params)
 
     respond_to do |format|
-      if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @facility_work_request.save
-        format.html { redirect_to '/facility_work_requests/public_show/'+@facility_work_request.id.to_s, notice: 'Work order was successfully created.' }
+      # if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @facility_work_request.save
+      if @facility_work_request.save
+        format.html { redirect_to '/facility_work_requests/public_show/'+@facility_work_request.id.to_s, notice: 'Work request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @facility_work_request }
       else
         format.html { render action: 'public_new', layout: "application" }
@@ -118,28 +117,35 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   def destroy
     @facility_work_request.really_destroy!
     respond_to do |format|
-      format.html { redirect_to facility_work_requests_url }
+      link = request.referer.split("/")[-2]
+      if link == "hidden"
+        format.html { redirect_to facility_work_requests_url+"/hidden/", notice: 'Work request was successfully deleted.' }
+      elsif link == "all"
+        format.html { redirect_to facility_work_requests_url+"/all/", notice: 'Work request was successfully deleted.' }
+      else
+        format.html { redirect_to facility_work_requests_url+"/unhidden/", notice: 'Work request was successfully deleted.' }
+      end
       format.json { head :no_content }
     end
   end
 
   def hide
-  	@facility_work_request = FacilityWorkRequest.with_deleted.find(params[:id])
+  	@facility_work_request = FacilityWorkRequest.with_deleted.find_by_id(params[:id])
   	if @facility_work_request.destroyed?
   		FacilityWorkRequest.restore(@facility_work_request.id)
-	else
-		@facility_work_request.destroy
-	end
-	respond_to do |format|
-		link = "/"+request.referer.split("/")[-2]
-		if link == "/all"
-			format.html { redirect_to request.referer }
-		else
-			link = facility_work_requests_url+link
-			format.html { redirect_to link }
-		end
-		format.json { head :no_content }
-	end
+  	else
+  		@facility_work_request.destroy
+  	end
+  	respond_to do |format|
+  		link = "/"+request.referer.split("/")[-2]
+  		if link == "/all"
+  			format.html { redirect_to request.referer }
+  		else
+  			link = facility_work_requests_url+link
+  			format.html { redirect_to link }
+  		end
+  		format.json { head :no_content }
+  	end
   end
 
   private 
@@ -169,18 +175,21 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
     def set_facility_work_requests
       @facility_work_requests = FacilityWorkRequest.where(:facility_id => current_user.facility_id).all.to_a
+      @link = facility_work_requests_url+"/unhidden/"
     end
 
    def set_hidden_facility_work_requests
       @facility_work_requests = FacilityWorkRequest.only_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @link = facility_work_requests_url+"/hidden/"
     end
 
     def set_all_facility_work_requests
-      @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a
+      @facility_work_requests = FacilityWorkRequest.with_deleted.where(:facility_id => current_user.facility_id).all.to_a.order(:created_at).reverse_order()
+      @link = facility_work_requests_url+"/all/"
     end
 
     def facility_work_request_params
-      params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :wr_origin)
+      params.require(:facility_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id)
     end
 
     def set_convert_object
@@ -190,7 +199,8 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
       "Email: "+@facility_work_request.email + "\n" +
       "Phone: "+@facility_work_request.phone + "\n"
       @input_object.pm_origin = nil
-      @input_object.wr_origin = @facility_work_request.id
+      @input_object.wr_origin = @facility_work_request
+
     end
     
 end

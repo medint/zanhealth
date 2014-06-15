@@ -1,29 +1,29 @@
 <p>
-  <strong>Requester:</strong>
+  <strong><%= t(:requester).capitalize %>:</strong>
   <%= @facility_work_request.requester %>
 </p>
 
 <p>
-  <strong>Department:</strong>
+  <strong><%= t(:department).capitalize %>:</strong>
   <%= @facility_work_request.department %>
 </p>
 
 <p>
-  <strong>Location:</strong>
+  <strong><%= t(:location).capitalize %>:</strong>
   <%= @facility_work_request.location %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong><%= t(:phone_number).titlecase %>:</strong>
   <%= @facility_work_request.phone %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= t(:email).capitalize %>:</strong>
   <%= @facility_work_request.email %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= t(:description).capitalize %>:</strong>
   <%= @facility_work_request.description %>
 </p>

@@ -1,0 +1,46 @@
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawLaborChart);
+</script>
+<%=render 'navigation'%>
+<div id='dashboard'>
+	<div id='chart_div'></div>
+	<div id="dashboard_results_div">
+		<table id="dash_table">
+			<tr>
+				<th><%=t(:work_order).titlecase %></th>
+				<th><%=t(:department).capitalize%></th>
+				<th><%=t(:duration).capitalize%></th>
+			</tr>
+			<% @labor_hours_json.each do |technician_name,value| %>
+					<tr>
+						<td class="technician_name">
+							<%= technician_name %>
+						</td>
+					</tr>
+				<% value["costs"].each do |work_order_id,duration| %>
+					<tr>
+						<td></td>
+						<td>
+							<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>
+						</td>					
+						<td>
+							<%=duration%>
+						</td>
+					</tr>
+				<%end%>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td class="sum_costs"><%=value["totalcost"]%></td>
+				</tr>
+				
+			<%end%>
+		</table>
+	</div>
+</div>

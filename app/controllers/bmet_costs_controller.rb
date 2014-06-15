@@ -1,4 +1,5 @@
 class BmetCostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_bmet_cost, only: [:show, :edit, :update, :destroy]
 
   # GET /bmet_costs
@@ -56,7 +57,16 @@ class BmetCostsController < ApplicationController
   def destroy
     @bmet_cost.destroy
     respond_to do |format|
-      format.html { redirect_to @bmet_cost.bmet_work_order }
+      link = request.referer.split("/")[-2]
+      @bmet_work_order = @bmet_cost.bmet_work_order
+      if link == "hidden"
+          format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to bmet_work_orders_url+"/all/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+        format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @bmet_cost.bmet_work_order }
       format.json { head :no_content }
     end
   end
@@ -64,11 +74,11 @@ class BmetCostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bmet_cost
-      @bmet_cost = BmetCost.find(params[:id])
+      @bmet_cost = BmetCost.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_cost_params
-      params.require(:bmet_cost).permit(:name, :unit_quantity, :cost, :created_at, :updated_at, :bmet_work_order_id, :work_request_id)
+      params.require(:bmet_cost).permit(:name, :unit_quantity, :cost, :created_at, :updated_at, :bmet_work_order_id, :work_request_id, :bmet_cost_item_id)
     end
 end

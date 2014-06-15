@@ -20,3 +20,5 @@ db/development.sqlite3
 .bundle/
 doc/
 erd.pdf
+vendor/ruby
+testFile.csv

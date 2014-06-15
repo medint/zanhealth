@@ -1,5 +1,5 @@
 class FacilityLaborHoursController < ApplicationController
-
+  load_and_authorize_resource param_method: :labor_hour_params
   before_action :set_labor_hour, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -40,7 +40,16 @@ class FacilityLaborHoursController < ApplicationController
   def destroy
     @facility_labor_hour.destroy
     respond_to do |format|
-      format.html { redirect_to @facility_labor_hour.facility_work_order }
+      link = request.referer.split("/")[-2]
+      @facility_work_order = @facility_labor_hour.facility_work_order
+      if link == "hidden"
+          format.html { redirect_to facility_work_orders_url+"/hidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      elsif link == "all"
+          format.html { redirect_to facility_work_orders_url+"/all/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      else
+          format.html { redirect_to facility_work_orders_url+"/unhidden/"+@facility_work_order.id.to_s, notice: 'Work order was successfully updated.' }
+      end
+      # format.html { redirect_to @facility_labor_hour.facility_work_order }
       format.json { head :no_content }
     end
   end
@@ -52,10 +61,10 @@ class FacilityLaborHoursController < ApplicationController
 
   private 
     def set_labor_hour
-      @facility_labor_hour = FacilityLaborHour.find(params[:id])
+      @facility_labor_hour = FacilityLaborHour.find_by_id(params[:id])
     end
     def labor_hour_params
-      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id)
+      params.require(:facility_labor_hour).permit(:date_started, :duration, :technician_id, :facility_work_order_id, :created_at, :updated_at)
     end
     
 end

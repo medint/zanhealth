@@ -1,4 +1,5 @@
 class BmetPreventativeMaintenancesController < ApplicationController
+  load_and_authorize_resource
   layout 'layouts/bmet_app'
   before_action :set_bmet_preventative_maintenance, only: [:show, :edit, :update, :destroy, :show_all, :show_hidden]
   before_action :set_bmet_preventative_maintenances, only: [:show, :index, :new]
@@ -7,44 +8,43 @@ class BmetPreventativeMaintenancesController < ApplicationController
   before_action :set_departments, only: [:show, :all, :hidden, :show_all, :show_hidden]
   before_action :set_hidden_bmet_preventative_maintenances, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_preventative_maintenances, only: [:all, :show_all]
-
+  before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
+  before_action :set_items, only: [:show, :show_all, :show_hidden]
+  
   # GET /bmet_preventative_maintenances
   # GET /bmet_preventative_maintenances.json
   def index
-    @link = bmet_preventative_maintenances_url+'/unhidden/'
   end
 
   def hidden
-  	  @link = bmet_preventative_maintenances_url+'/hidden/'
   	  render 'index'
   end
 
   def all
-  	  @link = bmet_preventative_maintenances_url+'/all/'
   	  render 'index'
+  end
+
+  def as_csv
+    @bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility)
+      send_data @bmet_preventative_maintenances.as_csv, type: "text/csv", filename:"bmet_preventative_maintenances.csv"
   end
 
   # GET /bmet_preventative_maintenances/1
   # GET /bmet_preventative_maintenances/1.json
   def show
-    @input_object = BmetWorkOrder.new
-    @input_object.description = @bmet_preventative_maintenance.description
   end
 
   def show_hidden
-  	  @input_object = BmetWorkOrder.new
-  	  @input_object.description = @bmet_preventative_maintenance.description
   	  render 'show'
   end
 
   def show_all
-  	  @input_object = BmetWorkOrder.new
-  	  @input_object.description = @bmet_preventative_maintenance.description
   	  render 'show'
   end
 
   # GET /bmet_preventative_maintenances/new
   def new
+    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
     @bmet_preventative_maintenance = BmetPreventativeMaintenance.new
   end
 
@@ -101,7 +101,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
   end
 
   def hide
-  	  @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find(params[:id])
+  	  @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
   	  if @bmet_preventative_maintenance.destroyed?
   	  	  BmetPreventativeMaintenance.restore(@bmet_preventative_maintenance)
 	  else
@@ -117,6 +117,11 @@ class BmetPreventativeMaintenancesController < ApplicationController
 		  end
 		  format.json { head :no_content }
 	  end
+  end
+
+  def reset
+    @bmet_preventative_maintenance.reset()
+    redirect_to :back, notice: 'Preventative Maintenance successfully reset'
   end
 
   private
@@ -137,34 +142,50 @@ class BmetPreventativeMaintenancesController < ApplicationController
       @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
     end
 
+    def set_items
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+    end
+
     def set_bmet_preventative_maintenance
 
-      @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find(params[:id])
+      @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
       if (@bmet_preventative_maintenance==nil || @bmet_preventative_maintenance.requester.facility_id!=current_user.facility_id)
         @bmet_preventative_maintenance=nil
         redirect_to "/404"
       else
-        @bmet_preventative_maintenance.calc_days_since # necessary because diff object from those inside pluralized PM object
+        @bmet_preventative_maintenance.calc_days_until # necessary because diff object from those inside pluralized PM object
       end      
     end
 
     def set_bmet_preventative_maintenances
-      @bmet_preventative_maintenances = BmetPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-      @bmet_preventative_maintenances.map {|i| i.calc_days_since}        
+      @bmet_preventative_maintenances = BmetPreventativeMaintenance.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+      @bmet_preventative_maintenances.map {|i| i.calc_days_until}        
+      @link = bmet_preventative_maintenances_url+'/unhidden/'
     end
 
     def set_hidden_bmet_preventative_maintenances
-    	@bmet_preventative_maintenances = BmetPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-    	@bmet_preventative_maintenances.map {|i| i.calc_days_since }
-	end
+    	@bmet_preventative_maintenances = BmetPreventativeMaintenance.only_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+    	@bmet_preventative_maintenances.map {|i| i.calc_days_until }
+      @link = bmet_preventative_maintenances_url+'/hidden/'
+  	end
 
-	def set_all_bmet_preventative_maintenances
-		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
-		@bmet_preventative_maintenances.map {|i| i.calc_days_since }
-	end
+  	def set_all_bmet_preventative_maintenances
+  		@bmet_preventative_maintenances = BmetPreventativeMaintenance.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
+  		@bmet_preventative_maintenances.map {|i| i.calc_days_until }
+      @link = bmet_preventative_maintenances_url+'/all/'
+  	end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_preventative_maintenance_params
-      params.require(:bmet_preventative_maintenance).permit(:late_date_checked, :days, :weeks, :months, :next_date, :description)
+      params.require(:bmet_preventative_maintenance).permit(:last_date_checked, :days, :weeks, :months, :next_date, :description, :bmet_item_id)
     end
+
+    def set_convert_object
+      @input_object = BmetWorkOrder.new
+      @input_object.wr_origin = nil
+      @input_object.pm_origin = @bmet_preventative_maintenance
+      @input_object.description = @bmet_preventative_maintenance.description
+      @input_object.bmet_item = @bmet_preventative_maintenance.bmet_item
+    end
+
 end

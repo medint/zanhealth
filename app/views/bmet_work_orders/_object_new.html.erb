@@ -1,5 +1,5 @@
-<div id="object-form_top">
-  <%= form_for @bmet_work_order do |f| %>
+<div id="object-single-col-box">
+  <%= simple_form_for @bmet_work_order do |f| %>
     <% if @bmet_work_order.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
@@ -13,46 +13,64 @@
 
     <div id="object-form-single-col">
 
+    <div class="field-box">
+          <div class="field-type"><%= t(:item).capitalize %></div>
+          <!--<div class="field-info">-->
+          <div>
+            <%#= f.collection_select :bmet_item, @items.map { |i| [i.model.name , i.id, ]%>
+            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {}, {:class => "chosen-select"}) %>
+
+            <%#= f.association :bmet_item, collection: @items, prompt: "Choose an item", label_method: :id, value_method: :id %>
+
+          </div>
+      </div>
       <div class="field-box">
-          <div class="field-type"><%= @language['Status'] %></div>
+          <div class="field-type"><%= t(:priority).capitalize %></div>
           <div class="field-info">
-			  <%= f.select :status, @status, :required => true  %>
+            <%= f.select :priority, @priorities, :required => true  %>
           </div>
       </div>  
       <div class="field-box">
-        <div class="field-type"><%= @language['Owner'] %></div>
+          <div class="field-type"><%= t(:status).capitalize %></div>
+          <div class="field-info">
+            <%= f.select :status, @status, :required => true  %>
+          </div>
+      </div>  
+      <div class="field-box">
+        <div class="field-type"><%= t(:owner).capitalize %></div>
         <div class="field-info"><%= f.collection_select :owner_id, @users, :id, :name %></div>
       </div>
       <div class="field-box">
-        <div class="field-type"><%= @language['Department'] %></div>
+        <div class="field-type"><%= t(:department).capitalize %></div>
         <div class="field-info"><%= f.collection_select :department_id, @departments, :id, :name %></div>
       </div>
 
       <div class="field-box">
-        <div class="field-type"><%= @language['Date Expires'] %></div>
+        <div class="field-type"><%= t(:expected_date_of_completion).titlecase %></div>
         <div class="field-info"><%= f.date_select :date_expire %></div>
       </div>    
       <div class="field-box">
-        <div class="field-type"><%= @language['Description'] %><br></div>
+        <div class="field-type"><%= t(:description).capitalize %><br></div>
         <div class="field-info"><%= f.text_area :description, :required => true%></div>
       </div>
       <div class="field-box">
-        <div class="field-type"><%= @language['Cause Description'] %><br></div>
-        <div class="field-info"><%= f.text_area :cause_description, :required => true %></div>
+        <div class="field-type"><%= t(:cause_description).titlecase %><br></div>
+        <div class="field-info"><%= f.text_area :cause_description%></div>
       </div>
 
       <div class="field-box">
-        <div class="field-type"><%= @language['Action Taken'] %><br></div>
+        <div class="field-type"><%= t(:action_taken).titlecase %><br></div>
         <div class="field-info"><%= f.text_area :action_taken%></div>
       </div>
 
       <div class="field-box">
-        <div class="field-type"><%= @language['Prevention Taken'] %><br></div>
+        <div class="field-type"><%= t(:prevention_taken).titlecase %><br></div>
         <div class="field-info"><%= f.text_area :prevention_taken%></div>
       </div>
 
-      <div class="actions">
-            <%= f.submit @language['Create'] %>
+      <div class="action_submit">
+            <%= f.submit t(:create).capitalize %>
       </div>
     </div>
   <%end%>
+</div> 

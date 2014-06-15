@@ -1,10 +1,8 @@
 <!--fill in with names of boxes-->
-<div id="object_additional-details">
+<div id="object_extra-details">
 
-
-<ul class="additional-details_nav">
-  <li id="detail-icon" class="active"><a href="#details" data-toggle="tab">Details</a></li>
-  <li id="comment-icon"><a href="#comment" data-toggle="tab">Comment</a></li>
+<ul class="extra-details_nav">
+  <li id="comment-icon" class="active"><a href="#comment" data-toggle="tab">Comment</a></li>
   <li id="cost-icon"><a href="#cost" data-toggle="tab">Cost</a></li>
   <li id="labor-icon"><a href="#labor" data-toggle="tab">Labor Hours</a></li>
 </ul>
@@ -12,42 +10,36 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="details">
-    <div class="additional-details_content">
-    	<div class='additional-details_title'>
-        <%= @language['Details'] %>
-      </div>  
-      <%= render 'actions_taken' %>
-    </div>
-  </div>
-  <div class="tab-pane" id="comment">    
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
-        <%= @language['Comments'] %>
+  <div class="tab-pane active" id="comment">    
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
+        <%= t(:comments).capitalize %>
       </div>
-    	<ul id='additional-details_comment_ul'>
+    	<ul id='extra-details_comment_ul'>
         <%= render @facility_work_order_comments %>
       </ul>
     </div>
       <%= render 'facility_work_order_comments/comment_new' %>
   </div>
   <div class="tab-pane" id="cost">
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
-        <%= @language['Costs'] %>
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
+        <%= t(:costs).capitalize %>
       </div>
-      <ul id='additional-details_comment_ul'>
-	      <%= render @facility_costs %>
-      </ul>
+      <table id="costs_table">
+      <!-- <ul id='extra-details_comment_ul'> -->
+        <%= render @facility_costs %>
+      <!-- </ul> -->
+      </table>
     </div>      
       <%= render 'facility_costs/facility_cost_form' %>
   </div>
   <div class="tab-pane" id="labor">
-    <div class="additional-details_content">
-      <div class='additional-details_title'>
-        <%= @language['Labor Hours'] %>
+    <div class="extra-details_content">
+      <div class='extra-details_title'>
+        <%= t(:labor_hours).titlecase %>
       </div>
-      <ul id='additional-details_comment_ul'>
+      <ul id='extra-details_comment_ul'>
         <%= render @facility_labor_hours %>
       </ul>
     </div>

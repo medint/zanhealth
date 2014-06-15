@@ -1,38 +1,51 @@
 <div id = "mid_facility-work-request">
+
+<!--commented out stuff is for the checkbox -->
+<%#= form_for :bmet_work_requests, :url => { :action => 'destroy' } do %>
+
+<%#= submit_tag 'Delete', :name =>'commit', :value => 'Delete', 
+:confirm => 'Are you sure?' %>
+
   <ul id="mid-summary_ul">
-    <% @bmet_work_requests.each do |bmet_work_request| %>
-    <%= link_to(@link.to_s+bmet_work_request.id.to_s) do %>
-      <li
-      class="mid-summary_ul_li"
-      requester="<%= bmet_work_request.requester %>"
-      department="<%= bmet_work_request.department %>"
-      ID="<%= bmet_work_request.id %>"
-      >
-      	<div class="bullet-bar"></div>
+    <% @bmet_work_requests.each do |bmet_work_request| %>   
+      <!--div class="mid-summary_ul_li_div"-->
+        <%#= check_box_tag 'bmet_work_requests[]', bmet_work_request.id, false, {:class => "main_list_checkbox"} %> 
         
-        <div class="request_details">
-          <p class="request_id">
-            <%= @language['Work Request'] %> <%= bmet_work_request.id %>:
-          </p>
-		  <p class="request_info">
-			<%= @language['Requester'] %>: <%= bmet_work_request.requester %> |
-      <%= @language['Department'] %>: <%= bmet_work_request.department %>
-		  </p>
+        <%= link_to(@link.to_s+bmet_work_request.id.to_s) do %>
+          <li
+          class="mid-summary_ul_li"
+          requester="<%= bmet_work_request.requester %>"
+          department="<%= bmet_work_request.department %>"
+          ID="<%= bmet_work_request.id %>"
+          >
+          	<div class="bullet-bar"></div>        
+            <div class="request_details">
+              <p class="request_id">
+                <%= t(:work_request).titlecase %> <%= bmet_work_request.id %>:
+              </p>
+    		  <p class="request_info">
+    			<%= t(:requester).capitalize %>: <%= bmet_work_request.requester %> |
+          <%= t(:department).capitalize %>: <%= bmet_work_request.department %>
+    		  </p>
 
-          <p class ="request_description">
-             <%= bmet_work_request.description[0...40] +  "..." %>
-          </p>
-        </div>
-        <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
+              <p class ="request_description">
+                 <%= bmet_work_request.description[0...40] +  "..." %>
+              </p>
+            </div>
+            <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
-        <div class="request_date">
-          <div class="request_date_title"> <%= @language['Date Requested'] %>:</div>
-          <%= bmet_work_request.created_at.try(:strftime,"%^b %d") %>
-        </div>
+            <div class="request_date">
+              <div class="request_date_title"> <%= t(:date_requested).titlecase %>:</div>
+              <%= bmet_work_request.created_at.try(:strftime,"%^b %d") %>
+            </div>
 
-      </li>
-      <hr class="mid-summary_ul_li_hr"><!--replace with border-->
-    <% end %>
+          </li>
+          <hr class="mid-summary_ul_li_hr"><!--replace with border-->
+        <% end %>
+      <!--/div--><!--mid-summary_ul_li_div -->
     <% end %>
   </ul>
+
+<%# end %>
+
 </div>

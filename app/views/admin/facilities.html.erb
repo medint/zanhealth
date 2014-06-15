@@ -1,0 +1,49 @@
+<div class="admin_navigation">
+  </br>
+  <h1><%= t(:facilities).capitalize%></h1>
+
+  <table class="admin_tables">
+    <thead>
+      <tr>
+        <th><%= t(:name).capitalize%></th>      
+        <th><%= t(:id).capitalize%></th> 
+        <th><%= t(:public_work_request_url).titlecase%></th> 
+        <th><%= "#{t(:show).capitalize} #{t(:facility).capitalize} #{t(:user).capitalize}" %></th> 
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @facilities.each do |facility| %>
+        <tr>
+          <td><%= facility.name %></td>
+          <td><%= facility.id %></td>
+          <td><%= link_to "/bmet_work_requests/#{facility.id}/public_new", "/bmet_work_requests/#{facility.id}/public_new"  %></td>
+          <td><%= link_to "#{t(:add)} #{t(:user)}", "/admin/facility_users/#{facility.id}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%= form_for(@facility) do |f| %>
+    <% if @facility.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
+
+        <ul>
+        <% @facility.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>  

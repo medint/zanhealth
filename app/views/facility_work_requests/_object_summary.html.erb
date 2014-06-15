@@ -1,20 +1,28 @@
-<ul class="toggle-buttons">
-  <li class="active"><a href="#view" data-toggle="tab">
-  	<%= @language['View'] %>
-  </a></li>
-  <li><a href="#convert" data-toggle="tab"><%= @language['Convert to Work Order'] %></a></li>  
-  <% if @facility_work_request.destroyed? %>
-	  <%= link_to "Unhide", hide_facility_work_request_path(@facility_work_request), title: "Unhide work request", rel: "tooltip", method: :put, :required => true %>
-  <% else %>
-	  <%= link_to "Hide", hide_facility_work_request_path(@facility_work_request), title: "Hide work request", rel: "tooltip", method: :put, :required => true %>
- <% end %>
-</ul>
+<div id="object-single-col-box">
+  <ul class="tab-navigation-buttons">
+    <li class="active"><a href="#view" data-toggle="tab">
+    	<%= t(:view).capitalize %>
+    </a></li>
+    <li><a href="#convert" data-toggle="tab"><%= t(:convert_to_work_order).titlecase %></a></li>  
+    <% if can? :hide, current_user %>
+      <li>
+      <% if @facility_work_request.destroyed? %>
+    	  <%= link_to t(:unhide).capitalize, hide_facility_work_request_path(@facility_work_request), title: "Unhide work request", rel: "tooltip", method: :put, :required => true %>
+      <% else %>
+    	  <%= link_to t(:hide).capitalize, hide_facility_work_request_path(@facility_work_request), title: "Hide work request", rel: "tooltip", method: :put, :required => true %>
+     <% end %>
+    </li>
+    <% end %>
+    <li><%= link_to t(:delete_forever).titlecase, @facility_work_request, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
 
-<div class="tab-content" id="object-form_top">
-  <div class="tab-pane active" id="view">
-  	<%= render :partial => 'object_view' %>
+  <div class="tab-content">
+    <div class="tab-pane active" id="view">
+    	<%= render :partial => 'object_view' %>
+    </div>
+    <div class="tab-pane" id="convert">
+    	<%= render :partial => 'facility_work_orders/object_convert' %>  	
+    </div>  
   </div>
-  <div class="tab-pane" id="convert">
-  	<%= render :partial => 'facility_work_orders/object_convert' %>  	
-  </div>  
 </div>
