@@ -20,7 +20,7 @@
             <%= t(:work_order).titlecase %> <%= bmet_work_order.id %>
           </p>
           <p class="element_requester">
-            <%=t(:requester).capitalize%>: <%= bmet_work_order.requester.name %>
+            <%=t(:asset).capitalize + " " + t(:id).upcase%>: <%= bmet_work_order.bmet_item.asset_id.to_s %>
           </p>
           <p class="element_owner">
             <%=t(:owner).capitalize%>: <%= bmet_work_order.owner.name %>
