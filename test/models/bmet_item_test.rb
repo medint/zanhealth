@@ -105,13 +105,13 @@ class BmetItemTest < ActiveSupport::TestCase
 
 		index = 0
 		rows1[1].zip(rows2[1]).each do |cell1, cell2|
-			index+=1
-			if rows1[0][index] == 'date_created'
+			if rows1[0][index] == 'created_at' || rows1[0][index] == 'updated_at'
 			else
 				if cell1 != cell2
 					assert false
 				end
 			end
+			index+=1
 		end
 		assert true
 		testFile.close()
