@@ -26,26 +26,26 @@
       </ul>
     </div>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-	<%= "View:" %>
+	<%= "#{t(:view).capitalize}" %>
 	<div class="dropdown">
 		<a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-			Select View
+			<%= "#{t(:select).capitalize} #{t(:view).capitalize}:" %>
 			<b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
 			<div>
 				<a href="<%= bmet_work_requests_url+"/unhidden" %>">
-					Visible Work Requests
+					<%= "#{t(:visible).capitalize} #{t(:work_requests).titlecase}" %>
 				</a>
 			</div>
 			<div>
 				<a href="<%= bmet_work_requests_url+"/hidden" %>">
-					Hidden Work Requests
+					<%= "#{t(:hidden).capitalize} #{t(:work_requests).titlecase}" %>
 				</a>
 			</div>
 			<div>
 				<a href="<%= bmet_work_requests_url+"/all" %>">
-					All Work Requests
+					<%= "#{t(:all).capitalize} #{t(:work_requests).titlecase}" %>
 				</a>
 			</div>
 		</ul>

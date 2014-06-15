@@ -3,7 +3,7 @@ class BmetModelsController < ApplicationController
   layout 'layouts/bmet_app'
   before_action :set_bmet_model, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:show, :index, :new]
-  before_action :set_item_groups, only: [:show]
+  before_action :set_item_groups, only: [:show, :new]
 
   # GET /bmet_models
   # GET /bmet_models.json
