@@ -4,7 +4,7 @@
 <div id = "print-subheader"><%=t(:work_order).titlecase + " " + wo.id.to_s%></div>
 
 <table id = "print-wo-details-table">
-  <tr><th><%= t(:work_order).titlecase + " " + t(:details).capitalize %></th></tr>
+  <tr><th></th><th><%= t(:work_order).titlecase + " " + t(:details).capitalize %></th></tr>
   <tr><td><%= t(:item).titlecase %></td><td><%= item.bmet_model.name %></td></tr>
   <tr><td><%= t(:date_started).titlecase%></td><td><%= wo.date_requested.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:expected_date_of_completion).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>

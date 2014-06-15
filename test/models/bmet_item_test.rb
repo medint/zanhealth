@@ -39,7 +39,7 @@ class BmetItemTest < ActiveSupport::TestCase
 			if result.to_s != expected.to_s
 				if result.to_s == 'Active' || result.to_s == 'Poor'
 				else
-				assert false
+					assert false
 				end
 			end
 		end
@@ -80,33 +80,41 @@ class BmetItemTest < ActiveSupport::TestCase
 		BmetItem.destroy_all
 		BmetModel.destroy_all
 
-		testFile = Tempfile.new('testFile.csv')
-		testFile.write(csv_string1)
+		testFile = File.open('testFile.csv','w')
+		testFile.write(csv_string1.to_s)
+		testFile.close()
+
+		testFile = File.open('testFile.csv','r')
 		BmetModel.stage_import(testFile, users(:userone).facility.id)
 		BmetItem.stage_import(testFile, users(:userone).facility.id)
 
-		assert_not_nil StagingItem.all
-		assert_not_nil StagingModel.all
+		assert_not_equal 0, StagingItem.all.size
+		assert_not_equal 0, StagingModel.all.size
 
-		BmetItem.import(users(:userone).facility.id)
 		BmetModel.import(users(:userone).facility.id)
+		BmetItem.import(users(:userone).facility.id)
 
-		assert_not_nil BmetItem.all
-		assert_not_nil BmetModel.all
-
-		assert_equal nil, StagingItem.all[0]
-		assert_equal nil, StagingModel.all[0]
+		assert_not_equal 0, BmetModel.all.size
+		assert_not_equal 0, BmetItem.all.size
 
 		testItems2 = BmetItem.all
 		csv_string2 = testItems2.as_csv
 
-		puts "STRING 1: " + csv_string1
-		puts "STRING 2: " + csv_string2
-		puts "ALL BMET MODELS: " + BmetModel.first.to_s
-		puts "ALL BMET ITEMS: " + BmetItem.first.to_s
-		assert_equal csv_string1, csv_string2
+		rows1 = CSV.parse(csv_string1)
+		rows2 = CSV.parse(csv_string2)
 
+		index = 0
+		rows1[1].zip(rows2[1]).each do |cell1, cell2|
+			if rows1[0][index] == 'created_at' || rows1[0][index] == 'updated_at'
+			else
+				if cell1 != cell2
+					assert false
+				end
+			end
+			index+=1
+		end
+		assert true
+		testFile.close()
 	end
-
 
 end

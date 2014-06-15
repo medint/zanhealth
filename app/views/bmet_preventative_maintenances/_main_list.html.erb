@@ -6,6 +6,7 @@
       class="mid-summary_ul_li"
       datedue="<%= bmet_preventative_maintenance.next_date.try(:to_s, :number) %>"
       dayssince="<%= bmet_preventative_maintenance.days_until.to_i %>"
+      datecreated="<%= bmet_preventative_maintenance.created_at.try(:to_s, :number) %>"
       ID="<%= bmet_preventative_maintenance.id %>"
       >
 
