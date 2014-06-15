@@ -42,8 +42,6 @@ end
   def self.import(facility_id)
     staging_models = StagingModel.where(:facility_id => facility_id)
     staging_models.each do |model|
-      arr = BmetModel.where(:model_name => model.model_name, :manufacturer_name => model.manufacturer_name, :vendor_name => model.vendor_name, :facility_id => facility_id)
-      puts arr.size
       match = BmetModel.where(:model_name => model.model_name, :manufacturer_name => model.manufacturer_name, :vendor_name => model.vendor_name, :facility_id => facility_id)[0]
       matching_item_group = ItemGroup.where(:facility_id => facility_id).find_by_name(model.item_group)
       if match and matching_item_group

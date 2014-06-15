@@ -2,6 +2,8 @@
 
 biomedical:
   name: "biomedical"
+  facility: one
 
 carpentry:
   name: "carpentry"
+  facility: two
