@@ -97,9 +97,13 @@ class BmetItemTest < ActiveSupport::TestCase
 		assert_equal nil, StagingItem.all[0]
 		assert_equal nil, StagingModel.all[0]
 
-		testItems2 = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
+		testItems2 = BmetItem.all
 		csv_string2 = testItems2.as_csv
 
+		puts "STRING 1: " + csv_string1
+		puts "STRING 2: " + csv_string2
+		puts "ALL BMET MODELS: " + BmetModel.first.to_s
+		puts "ALL BMET ITEMS: " + BmetItem.first.to_s
 		assert_equal csv_string1, csv_string2
 
 	end

@@ -18,12 +18,12 @@
   <tr><th><%= t(:item).titlecase + " " + t(:details).titlecase %></th></tr>
   <tr><td><%= t(:status).titlecase %></td><td><%= item.status %></td></tr>
   <tr><td><%= t(:condition).titlecase %></td><td><%= item.condition %></td></tr>
-  <tr><td><%= t(:date_purchased).titlecase %></td><td><%= item.date_received.strftime("%d %b %Y") %></td></tr>
+  <tr><td><%= t(:date_purchased).titlecase %></td><td><%= item.date_received.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:price).titlecase %></td><td><%= item.price %></td></tr>
   <tr><td><%= t(:asset_id).titlecase %></td><td><%= item.asset_id %></td></tr>
   <tr><td><%= t(:serial_number).titlecase %></td><td><%= item.serial_number %></td></tr>
-  <tr><td><%= t(:contract_expiration).titlecase %></td><td><%= item.contract_expire.strftime("%d %b %Y") %></td></tr>
-  <tr><td><%= t(:warranty_expiration).titlecase %></td><td><%= item.warranty_expire.strftime("%d %b %Y") %></td></tr>
+  <tr><td><%= t(:contract_expiration).titlecase %></td><td><%= item.contract_expire.try(:strftime,"%d %b %Y") %></td></tr>
+  <tr><td><%= t(:warranty_expiration).titlecase %></td><td><%= item.warranty_expire.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:warranty_notes).titlecase %></td><td><%= item.warranty_notes %></td></tr>
  </table>
 
