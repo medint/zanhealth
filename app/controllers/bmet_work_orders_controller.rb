@@ -6,7 +6,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
-  before_action :set_priorities_hash, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
