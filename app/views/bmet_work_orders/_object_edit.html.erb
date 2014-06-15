@@ -75,7 +75,7 @@
           <tr>
             <td><%= t(:item).capitalize %></td>
             <td>
-              <%= link_to @bmet_work_order.bmet_item.bmet_model.name, @bmet_work_order.bmet_item %></br>
+              <%= link_to @bmet_work_order.bmet_item.asset_id.to_s + ": " + @bmet_work_order.bmet_item.bmet_model.name, @bmet_work_order.bmet_item %>
               at <%= @bmet_work_order.bmet_item.location %>
             </td>
           </tr>
