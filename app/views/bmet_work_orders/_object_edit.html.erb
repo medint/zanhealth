@@ -19,14 +19,14 @@
       
         <div class="work_order_priority">
           <div id="work_order_priority-label">
-            PRIORITY
+            <%= t(:priority).upcase %>
           </div>
           <%= f.select :priority, @priorities %>
         </div>
       
         <div class="work_order_status work_order_status-<%= @bmet_work_order.status %>">
           <div id="work_order_status-label">
-            STATUS
+            <%= t(:status).upcase %>
           </div>
           <%= f.select :status, @status %>
         </div>
