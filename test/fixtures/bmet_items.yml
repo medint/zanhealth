@@ -33,3 +33,5 @@ two:
   location: MyString
   item_type: 1
   price: 1.0
+  status: 0
+  condition: 0

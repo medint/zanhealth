@@ -147,7 +147,9 @@ class BmetItem < ActiveRecord::Base
       colnames_no_id=colnames.dup
       colnames.delete('bmet_model_id')
       colnames.delete('department_id')
-      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
+      colnames << "department_name" << "manufacturer_name" << "model_name" << "vendor_name" << "item_group"
+      status_string_hash = ['Active','Inactive','Retired']
+      conditions_string_hash = ['Poor','Fair','Good','Very Good']    
       CSV.generate do |csv|
           csv << colnames
           all.each do |item|              
@@ -157,6 +159,9 @@ class BmetItem < ActiveRecord::Base
               values.append(bmet_model.manufacturer_name)
               values.append(bmet_model.model_name)
               values.append(bmet_model.vendor_name)
+              values.append(bmet_model.item_group.name)
+              values[colnames_no_id.index("status")] = status_string_hash[values[colnames_no_id.index("status")]]
+              values[colnames_no_id.index("condition")] = conditions_string_hash[values[colnames_no_id.index("condition")]]
               values.shift
               values.delete_at(8)
               csv << values

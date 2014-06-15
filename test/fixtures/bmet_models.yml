@@ -5,9 +5,11 @@ one:
   manufacturer_name: MyString
   vendor_name: MyString
   category: MyString
+  item_group: biomedical
 
 two:
   model_name: MyString
   manufacturer_name: MyString
   vendor_name: MyString
   category: MyString
+  item_group: carpentry

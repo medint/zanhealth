@@ -5,7 +5,7 @@ class ItemGroupsControllerTest < ActionController::TestCase
     @request.env["devise.mapping"] = Devise.mappings[:user]
     @user = users(:userone)
     sign_in @user
-    @item_group = item_groups(:one)
+    @item_group = item_groups(:biomedical)
   end
 
   test "should get index" do
