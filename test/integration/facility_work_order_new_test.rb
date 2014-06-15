@@ -5,7 +5,6 @@ class FacilityWorkOrderNewTest < ActionDispatch::IntegrationTest
   setup do
   	@user = users(:userone)
 		visit '/users/sign_in'
-
 		fill_in 'user_login', :with => @user.username
 		fill_in 'user_password', :with => 'password'
 		click_button 'Sign in'
@@ -13,6 +12,7 @@ class FacilityWorkOrderNewTest < ActionDispatch::IntegrationTest
   end
 
   test "create new work order form" do
+    
       visit '/facility_work_orders/new' 
 
 		assert_equal '/facility_work_orders/new', current_path

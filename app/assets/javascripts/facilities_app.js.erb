@@ -43,8 +43,7 @@ window.addEventListener('page:change', function(){
 //if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) 
 
 $(document).on ("page:change",function() {
-	if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) || window.location.toString().match(/settings/) || window.location.toString().match(/admin/) )) {
-	
+	if (!(window.location.toString().match(/sign_in/) || window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) || window.location.toString().match(/settings/) || window.location.toString().match(/admin/) )) {
 		/* define variables */
 		
 		/* window resizing */
@@ -102,8 +101,12 @@ function window_resize_handler(){
 	
 	/* width */
 	var col_size = ((window_width-240)/2 -1)
-	mid_summary.style.width = col_size; //1px is vertical divider
-	right_detail.style.width = col_size;
+	if(mid_summary){
+		mid_summary.style.width = col_size; //1px is vertical divider
+	}
+	if(right_detail){
+		right_detail.style.width = col_size;
+	}
 	
 	$('.mid-summary_ul_li').css("width", col_size);
 	$('.mid-summary_ul_li_hr').css("width", col_size);
