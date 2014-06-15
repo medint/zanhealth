@@ -8,7 +8,7 @@ class FacilityDashboardButtonTest < ActionDispatch::IntegrationTest
 
 		fill_in 'user_login', :with => @user.username
 		fill_in 'user_password', :with => 'password'
-		click_button 'Sign in'
+		click_button 'Signfa in'
   end
 
   test "click the buttons" do
