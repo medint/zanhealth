@@ -8,12 +8,33 @@ google.setOnLoadCallback(drawChart);
 </script>
 <%=render 'navigation'%>
 <div id='dashboard'>
+	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
+	<div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+          <%= t(:select_attribute).titlecase %>
+          <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+         <div>
+         <a onclick = "financesDepartmentDashboard()">
+          <%= t(:department).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "financesItemDashboard()">
+          <%= t(:item).titlecase %>
+         </a>
+         </div>
+         
+      </ul>
+    </div>
+    <div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
 			<tr>
-				<th><%=t(:work_order).titlecase %></th>
-				<th><%=t(:department).capitalize%></th>
+				<th><%=t(@category).titlecase %></th>
+				<th><%=t(:work_order).capitalize%></th>
 				<th><%=t(:cost).capitalize%></th>
 			</tr>
 			<% @work_orders_json.each do |department_name,value| %>

@@ -365,9 +365,13 @@ function drawChart() {
 
 
 	// Set chart options
-	var options = {'title':'Costs by Department',
-	             'width':600,
-	             'height':400};
+	var options = {'width':600,
+	             'height':400
+	             };
+
+	if (window.location.toString().match('/bmet_dashboard/wo_finances/item')) {
+ 		options['legend']={position: 'none'}
+ 	}
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -588,9 +592,28 @@ function woOwnerDashboard(){
 	location.replace('/bmet_dashboard/status/wo_owner?'+params);
 }
 
+function financesDepartmentDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/wo_finances/department?'+params);
+}
+
+function financesItemDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/wo_finances/item?'+params);
+}
+
 $(document).on ("page:change",function() {
-	if (window.location.toString().match('/bmet_dashboard/status')){
-		
+	if (window.location.toString().match('/bmet_dashboard/')){
+		var theData={}
+		theData['dates']=getDatesDashboard();
+		params=jQuery.param(theData);
+		$("#language-icons").children().each( function() {
+			$(this).attr('href',$(this).attr('href')+'&'+params)
+		})
 	}
 	if (window.location.toString().match('/bmet_dashboard/status/wo_completed')) {
 	}
