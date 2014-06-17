@@ -399,10 +399,13 @@ function drawLaborChart() {
 function drawStatusChart() {
 
 	// Create the data table.
+	var theData={}
+	theData['dates']=getDatesDashboard();
 
 	var jsonData = $.ajax({
-          url: $("#params_to_send").text(),
+          url: location.pathname+'_ajax',
           dataType:"json",
+          data: theData,
           async: false
           }).responseText;
 
@@ -410,11 +413,14 @@ function drawStatusChart() {
 	var data = new google.visualization.DataTable(jsonData);
 
 	// Set chart options
-	var options = {'title':'Status Over Time',
-	             'width':700,
+	var options = {'width':700,
 	             'height':500,
 	         	'isStacked':true,
-	         	colors:['#e9593e','#ffc207','#55aa2b']};
+	         	'colors':['#e9593e','#ffc207','#55aa2b']};
+
+ 	if (window.location.toString().match('/bmet_dashboard/status/wo_department') || window.location.toString().match('/bmet_dashboard/status/wo_owner')) {
+ 		delete options['colors']
+ 	}
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
@@ -469,10 +475,10 @@ function drawCalendarChart() {
 }
 
 $(document).on ("page:change",function() {
-	if (window.location.toString().match(/facility_dashboard/)) {
+	if (window.location.toString().match(/bmet_dashboard/) && !window.location.toString().match('/bmet_dashboard/')) {
 		var container = document.getElementById('visualization');
 		var myjsonobj = $.ajax({
-          url: $("#params_to_send3").text(),
+          url: '/bmet_dashboard/timelineAjax',
           dataType:"json",
           async: false
           }).responseText;
@@ -489,7 +495,9 @@ $(document).on ("page:change",function() {
       			return a.value - b.value;
       		},
       		showMajorLabels: true,
-      		showMinorLabels: true    		 
+      		showMinorLabels: true,
+      		showCurrentTime: true,
+      		showCustomTime:true    		 
     	}
 		var parsedjson=jQuery.parseJSON(myjsonobj);
 		var items=parsedjson[0];
@@ -513,17 +521,74 @@ function facility_wo_expire(){
 	// Create the data table.
 	
 
-// Set a callback to run when the Google Visualization API is loaded.
+	// Set a callback to run when the Google Visualization API is loaded.
 	google.setOnLoadCallback(drawStatusChart());
 	console.log('testing')
+	var theData={}
+	theData['dates']=getDatesDashboard();
+
 
 	var htmlData = $.ajax({
-          url: $("#params_to_send2").text(),
+          //url: $("#params_to_send2").text(),
+          url: '/facility_dashboard/statusExpireAjaxhtml',
+          data: theData,
           dataType:"html",
           async: false
           }).responseText;
 
 	$('#dashboard_results_div').html(htmlData);
+}
 
+function getDatesDashboard(){
+	var unparsedDate=$("#date_div").text();
+	var dateArray=unparsedDate.split('-');
+	var formattedDate={};
+	var start_date=new Date(dateArray[0]);
+	var end_date=new Date(dateArray[1]);
+	formattedDate['start_date(1i)']=start_date.getFullYear();
+	formattedDate['start_date(2i)']=1+start_date.getMonth();
+	formattedDate['start_date(3i)']=start_date.getDate();
+	formattedDate['end_date(1i)']=end_date.getFullYear();
+	formattedDate['end_date(2i)']=1+end_date.getMonth();
+	formattedDate['end_date(3i)']=end_date.getDate();
+
+	return formattedDate
 
 }
+
+function woExpireDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/status/wo_expire?'+params);
+
+}
+
+function woCompletedDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/status/wo_completed?'+params);
+}
+
+function woDepartmentDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/status/wo_department?'+params);
+}
+
+function woOwnerDashboard(){
+	var theData={}
+	theData['dates']=getDatesDashboard();
+	params=jQuery.param(theData);
+	location.replace('/bmet_dashboard/status/wo_owner?'+params);
+}
+
+$(document).on ("page:change",function() {
+	if (window.location.toString().match('/bmet_dashboard/status')){
+		
+	}
+	if (window.location.toString().match('/bmet_dashboard/status/wo_completed')) {
+	}
+})

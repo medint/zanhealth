@@ -9,20 +9,50 @@ google.setOnLoadCallback(drawStatusChart);
 
 <%=render 'navigation'%>
 <div id="dashboard">
+	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
+	<div class="dropdown">
+      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
+          <%= t(:select_attribute).titlecase %>
+          <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+         <div>
+         <a onclick = "woExpireDashboard()">
+          <%= t(:expire).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "woCompletedDashboard()">
+          <%= t(:completed).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "woDepartmentDashboard()">
+          <%= t(:department).titlecase %>
+         </a>
+         </div>
+         <div>
+         <a onclick = "woOwnerDashboard()">
+          <%=t(:owner).capitalize%>
+         </a>
+         </div>
+      </ul>
+    </div>
+    <div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
 			<tr>
-				<th><%=t(:status).capitalize%></th>
+				<th><%=t(@first_col).capitalize%></th>
 				<th><%=t(:work_order).titlecase %></th>
-				<th><%=t(:expire).capitalize%></th>
+				<th><%=t(@third_col).capitalize%></th>
 
 			</tr>
 
 			<% @work_orders_json.each do |status,hash| %>
 					<tr>
 						<td class="status">
-							<%= @status[status] %>
+							<%= status %>
 						</td>
 					</tr>
 				<% hash["work_orders"].each do |work_order| %>
@@ -32,7 +62,7 @@ google.setOnLoadCallback(drawStatusChart);
 							<%= link_to t(:work_order).titlecase+' '+work_order.id.to_s, bmet_work_orders_path+'/all/'+work_order.id.to_s %>						
 						</td>					
 						<td>
-							<%=work_order.date_expire.try(:strftime,"%^b %d, %Y")%>
+							<%=work_order.send(@third_col_method).try(:strftime,"%^b %d, %Y")%>
 						</td>
 					</tr>
 				<%end%>
@@ -46,6 +76,5 @@ google.setOnLoadCallback(drawStatusChart);
 			<%end%>
 		</table>
 	</div>
-	<div id='params_to_send'><%=@params_to_send_back%></div>
 	
 </div>
