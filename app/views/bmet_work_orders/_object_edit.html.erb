@@ -16,21 +16,31 @@
         <div id="field-box_item-id" >      
           <div class="item-id"><%= t(:work_order).titlecase  %> # <%= @bmet_work_order.id %></div>
         </div>    
+      
+        <div class="work_order_priority">
+          <div id="work_order_priority-label">
+            <%= t(:priority).upcase %>
+          </div>
+          <%= f.select :priority, @priorities %>
+        </div>
+      
         <div class="work_order_status work_order_status-<%= @bmet_work_order.status %>">
           <div id="work_order_status-label">
-            STATUS
+            <%= t(:status).upcase %>
           </div>
           <%= f.select :status, @status %>
         </div>
+      
+
         <% if @bmet_work_order.destroyed? %>
           <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% else %>
           <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
         <% end %>
         
-        <%= link_to "", '#', onclick: "printdetailpage(); return false;", :id => "print-button_right", :required => true%>        
+        <%= link_to "", '/bmet_work_orders/print_view/'+@bmet_work_order.id.to_s, :id => "print-button_right" %>        
         <div class="action_submit">
-          <%= f.submit t(:save_changes).capitalize%>
+          <%= f.submit t(:save).capitalize%>
         </div>
       </div>
 
@@ -65,7 +75,7 @@
           <tr>
             <td><%= t(:item).capitalize %></td>
             <td>
-              <%= link_to @bmet_work_order.bmet_item.bmet_model.name, @bmet_work_order.bmet_item %></br>
+              <%= link_to @bmet_work_order.bmet_item.asset_id.to_s + ": " + @bmet_work_order.bmet_item.bmet_model.name, @bmet_work_order.bmet_item %>
               at <%= @bmet_work_order.bmet_item.location %>
             </td>
           </tr>

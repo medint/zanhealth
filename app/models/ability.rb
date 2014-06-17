@@ -38,6 +38,8 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :bmet_dashboard 
           cannot [:delete,:hide], [BmetItem, BmetWorkOrder,BmetWorkRequest,BmetPreventativeMaintenance, BmetModel, Part,PartTransaction] 
           cannot :manage, :registration
+          cannot :manage, :admin  
+          cannot :manage, :settings
           cannot :labor_hours, user
           cannot :edit_user, user
 	  elsif user.role.name == "fac_tech"
@@ -50,6 +52,8 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :facility_dashboard 
 	  	  cannot [:destroy, :hide], [FacilityWorkOrder,FacilityWorkRequest,FacilityPreventativeMaintenance,Part,PartTransaction]
 	  	  cannot :manage, :registration
+        cannot :manage, :admin
+        cannot :manage, :settings
 	  	  cannot :labor_hours, user
 	  	  cannot :edit_user, user
 	  elsif user.role.name == "bmet_fac_tech"
@@ -64,6 +68,8 @@ class Ability
           can [:read, :set_status, :wo_finances, :statusAjax, :status], [:facility_dashboard, :bmet_dashboard]
 	  	  cannot [:destroy, :hide], [BmetWorkOrder, FacilityWorkOrder, BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance,BmetItem, BmetModel,Part, PartTransaction]
 	  	  cannot :manage, :registration
+        cannot :manage, :admin
+        cannot :manage, :settings
 	  	  cannot :labor_hours, user 
 	  	  cannot :edit_user, user
 	  elsif user.role.name == "chief"
@@ -71,6 +77,7 @@ class Ability
 	  	  can :labor_hours, user
 	  	  cannot :delete, [BmetWorkOrder,FacilityWorkOrder,BmetWorkRequest,FacilityWorkRequest,BmetPreventativeMaintenance,FacilityPreventativeMaintenance]
 	  	  cannot :manage, :registration
+        cannot :manage, :admin
 	  	  cannot :edit_user, user
 	  elsif user.role.name == "admin"
 	  	  can :edit_user, user

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611185700) do
+ActiveRecord::Schema.define(version: 20140614130657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.integer  "status"
     t.integer  "condition"
     t.decimal  "price",             precision: 5, scale: 2
+    t.string   "short_url_key"
   end
 
   create_table "bmet_labor_hours", force: true do |t|
@@ -86,9 +87,11 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "updated_at"
     t.string   "category"
     t.integer  "facility_id"
+    t.integer  "item_group_id"
   end
 
   add_index "bmet_models", ["facility_id"], name: "index_bmet_models_on_facility_id", using: :btree
+  add_index "bmet_models", ["item_group_id"], name: "index_bmet_models_on_item_group_id", using: :btree
 
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
@@ -152,6 +155,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "deleted_at"
     t.integer  "pm_origin_id"
     t.integer  "wr_origin_id"
+    t.integer  "priority"
   end
 
   add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
@@ -286,6 +290,15 @@ ActiveRecord::Schema.define(version: 20140611185700) do
 
   add_index "facility_work_requests", ["deleted_at"], name: "index_facility_work_requests_on_deleted_at", using: :btree
 
+  create_table "item_groups", force: true do |t|
+    t.string   "name"
+    t.integer  "facility_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_groups", ["facility_id"], name: "index_item_groups_on_facility_id", using: :btree
+
   create_table "languages", force: true do |t|
     t.string   "english"
     t.string   "swahili"
@@ -347,6 +360,8 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.integer  "use_count",             default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
+    t.string   "asset_id"
   end
 
   add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type", using: :btree
@@ -373,6 +388,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.string  "status"
     t.string  "condition"
     t.integer "facility_id"
+    t.string  "short_url_key"
   end
 
   create_table "staging_models", force: true do |t|
@@ -380,6 +396,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.string  "manufacturer_name"
     t.string  "vendor_name"
     t.integer "facility_id"
+    t.string  "item_group"
   end
 
   create_table "texts", force: true do |t|

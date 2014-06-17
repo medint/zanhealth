@@ -16,7 +16,8 @@ class StagingItem < ActiveRecord::Base
 			'status',
 			'condition',
 			'location',
-			'department_name']
+			'department_name',
+			'short_url_key']
 		items_array = []
 		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|
@@ -24,7 +25,7 @@ class StagingItem < ActiveRecord::Base
 			attr_array.each do |attrib|
 				item_row.push([item.send(attrib)])
 			end
-			match = BmetItem.find_by_asset_id(item.asset_id)
+			match = BmetItem.where(:asset_id => item.asset_id).includes({ :department => :facility}).where("facilities.id=?",fac_id).references(:facility)[0]
 
 			if match and match.department.facility_id == fac_id#Update existing records
 				item_row.each_with_index do |cell, index|
@@ -33,10 +34,11 @@ class StagingItem < ActiveRecord::Base
 						if cell[0] == match.department.name
 							self.push_unchanged(cell)
 						elsif Department.where(:facility_id => fac_id).find_by_name(cell[0])
-							self.push_chaned(cell)
+							self.push_changed(cell)
 							cell[0] = match.department.name.to_s + " => " + cell[0].to_s
 						else # Don't accept invalid department names, give an error
 							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid department name ' + %q!"! + cell[0].to_s + %q!"!
 						end
 
 					elsif attr_array[index] == 'status'
@@ -46,9 +48,13 @@ class StagingItem < ActiveRecord::Base
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.status
+									cell[0] = status_string_hash[match.status].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid status ' + %q!"! + cell[0].to_s + %q!"!
 						end
 
 					elsif attr_array[index] == 'condition'
@@ -59,9 +65,13 @@ class StagingItem < ActiveRecord::Base
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.condition
+									cell[0] = conditions_string_hash[match.condition].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid condition ' + %q!"! + cell[0].to_s + %q!"!
 						end							
 
 					else
@@ -83,6 +93,7 @@ class StagingItem < ActiveRecord::Base
 							self.push_changed(cell)
 						else
 							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid department name ' + %q!"! + cell[0].to_s + %q!"!
 						end
 
 					elsif attr_array[index] == 'status'
@@ -90,6 +101,7 @@ class StagingItem < ActiveRecord::Base
 							self.push_changed(cell)
 						else
 							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid status ' + %q!"! + cell[0].to_s + %q!"!
 						end						
 
 					elsif attr_array[index] == 'condition'
@@ -97,7 +109,8 @@ class StagingItem < ActiveRecord::Base
 						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
 							self.push_changed(cell)
 						else
-							self.push_errors(item_row)	
+							self.push_errors(item_row)
+							cell[0] = 'ERROR: Invalid condition ' + %q!"! + cell[0].to_s + %q!"!
 						end				
 
 					else

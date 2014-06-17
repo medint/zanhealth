@@ -19,7 +19,7 @@ one:
   condition : 0
 
 two:
-  asset_id: 1
+  asset_id: 2
   bmet_model: two
   serial_number: MyString
   year_manufactured: 1
@@ -33,3 +33,5 @@ two:
   location: MyString
   item_type: 1
   price: 1.0
+  status: 0
+  condition: 0

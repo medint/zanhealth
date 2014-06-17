@@ -72,6 +72,7 @@ class BmetItem < ActiveRecord::Base
       item.vendor_name = row["vendor_name"]
       item.status = row["status"]
       item.condition = row["condition"]
+      item.short_url_key = row["short_url_key"]
       item.facility_id = facility_id
       item.save!
     end
@@ -82,15 +83,16 @@ class BmetItem < ActiveRecord::Base
     staging_items.each do |item|
       match = nil
       BmetItem.where(:asset_id => item.asset_id).each do |m|
-        if m.where(match.department.facility_id => facility_id)
+        if m.department.facility_id == facility_id
           match = m
         end
       end
       matching_department = Department.where(:name => item.department_name).where(:facility_id => facility_id)[0]
+      matching_model = BmetModel.where(:model_name => item.model_name, :manufacturer_name => item.manufacturer_name, :vendor_name => item.vendor_name, :facility_id => facility_id)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
-      if matching_department and status_string_hash[item.status.downcase] and conditions_string_hash[item.condition.downcase]
+      if matching_department and matching_model and status_string_hash[item.status.downcase] and conditions_string_hash[item.condition.downcase]
         isValid = true
       end
       if match and isValid
@@ -106,10 +108,13 @@ class BmetItem < ActiveRecord::Base
         match.item_type = item.item_type
         match.location = item.location
         match.department = matching_department
-        match.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        match.bmet_model = matching_model
         match.status = status_string_hash[item.status.downcase]
         match.condition = conditions_string_hash[item.condition.downcase]
+        match.short_url_key = item.short_url_key        
         match.save!
+        # to set the short_url redirector
+        Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{match.id}")
       elsif isValid
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
@@ -125,34 +130,59 @@ class BmetItem < ActiveRecord::Base
         new_item.item_type = item.item_type
         new_item.location = item.location
         new_item.department = matching_department
-        new_item.bmet_model = BmetModel.where(:model_name => item.model_name).where(:facility_id => facility_id)[0]
+        new_item.bmet_model = matching_model
         new_item.status = status_string_hash[item.status.downcase]
         new_item.condition = conditions_string_hash[item.condition.downcase]
-        new_item.save!        
+        new_item.short_url_key = item.short_url_key
+        new_item.save!     
+        # to set the short_url redirector
+        Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{new_item.id}")
       end
     end
   end
 
-    def self.as_csv
+  def self.as_csv
       colnames = column_names.dup
-      colnames.shift
-      fullcolnames=colnames.dup
-      colnames.shift
-      colnames.delete_at(8)
-      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
+      colnames.delete('id')
+      colnames_no_id=colnames.dup
+      colnames.delete('bmet_model_id')
+      colnames.delete('department_id')
+      colnames << "department_name" << "manufacturer_name" << "model_name" << "vendor_name" << "item_group"
+      status_string_hash = ['Active','Inactive','Retired']
+      conditions_string_hash = ['Poor','Fair','Good','Very Good']    
       CSV.generate do |csv|
           csv << colnames
           all.each do |item|              
-              values = item.attributes.values_at(*fullcolnames)
+              values = item.attributes.values_at(*colnames_no_id)
               bmet_model=BmetModel.find(values[0])
               values.append(Department.find(values[9]).name)
               values.append(bmet_model.manufacturer_name)
               values.append(bmet_model.model_name)
               values.append(bmet_model.vendor_name)
+              values.append(bmet_model.item_group.name)
+              values[colnames_no_id.index("status")] = status_string_hash[values[colnames_no_id.index("status")]]
+              values[colnames_no_id.index("condition")] = conditions_string_hash[values[colnames_no_id.index("condition")]]
               values.shift
               values.delete_at(8)
               csv << values
+          end
       end
-    end
+  end
+
+  def self.generate_template(relevant_urls)
+      colnames = column_names.dup
+      colnames.delete('id')
+      colnames_no_id=colnames.dup
+      colnames.insert(0, 'asset_id')
+      colnames.insert(0, 'short_url_key')
+      colnames.delete('bmet_model_id')
+      colnames.delete('department_id')
+      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
+      CSV.generate do |csv|
+          csv << colnames
+          relevant_urls.all.each do |url|              
+              csv << [url.asset_id, url.unique_key]
+          end
+      end
   end
 end

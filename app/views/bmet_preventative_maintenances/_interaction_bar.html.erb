@@ -23,30 +23,34 @@
         <%=t(:id).capitalize%>
        </a>
        </div>
-
+       <div>
+       <a onclick = "sort_by_date_desc('datecreated')">
+        <%=t(:date_created).titlecase%>
+       </a>
+       </div>
       </ul>
     </div>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-	<%= "View:" %>
+	<%= "#{t(:view).capitalize}" %>
 	<div class="dropdown">
 			<a id="facworkorder_view" role="button" data-toggle="dropdown" href="#">
-				Select View:
+				<%= "#{t(:select).capitalize} #{t(:view).capitalize}:" %>
 				<b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_view">
 				<div>
 					<a href="<%= bmet_preventative_maintenances_url+'/unhidden' %>">
-						Visible Work Orders
+						<%= "#{t(:visible).capitalize} #{t(:preventative_maintenances).titlecase}" %>                  
 					</a>
 				</div>
 				<div>
 					<a href="<%= bmet_preventative_maintenances_url+'/hidden' %>">
-						Hidden Work Orders
+						<%= "#{t(:hidden).capitalize} #{t(:preventative_maintenances).titlecase}" %>
 					</a>
 				</div>
 				<div>
 					<a href="<%= bmet_preventative_maintenances_url+'/all' %>">
-						All Work Orders
+	          <%= "#{t(:all).capitalize} #{t(:preventative_maintenances).titlecase}" %>
 					</a>
 				</div>
 			</ul>

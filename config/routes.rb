@@ -1,6 +1,8 @@
 Zanhealth::Application.routes.draw do
 
 
+  resources :item_groups
+
   # general
   resources :departments
   resources :facilities
@@ -58,6 +60,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_items/:id", to: "bmet_items#show"
   get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
   post "/bmet_items_import", to: "bmet_items#import"
+  post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
 
   #dashboard
   
@@ -124,6 +127,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
   get "/bmet_work_orders/all", to: "bmet_work_orders#all"
   get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+  get "/bmet_work_orders/print_view/:id", to: "bmet_work_orders#show_print"
 
   # hide /unhide feature for bmet_work_request
   put "hide_bmet_work_request/:id", to: "bmet_work_requests#hide", :as => :hide_bmet_work_request
@@ -160,11 +164,16 @@ Zanhealth::Application.routes.draw do
   get "/settings", to: "settings#index"
   post "/settings/create_user", to: "settings#create_user"
   post "/settings/create_department", to: "settings#create_department"
+  post "/settings/create_item_group", to: "settings#create_item_group"
   post "/settings/update_user", to: "settings#update_user"
+
     
   get "/admin", to: "admin#index"
   get "/admin/print_tags_form", to: "admin#print_tags_form"
-  get "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  post "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  get "/admin/facilities", to: "admin#facilities"
+  get "/admin/facility_users/:facility_id", to: "admin#facility_users"
+  post "/admin/create_user", to: "admin#create_user"
 
   get '/404', :to => redirect('/404.html')
   root to: "application#home"

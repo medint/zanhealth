@@ -31,6 +31,16 @@
       <!-- <ul id='extra-details_comment_ul'> -->
 	      <%= render @bmet_costs %>
       <!-- </ul> -->
+        <tr>
+          <td><%= t(:total).capitalize %></td>
+          <td></td>
+          <td></td>
+          <td></td>  
+          <td></td>
+          <td>$</td>
+          <td><%= @bmet_costs_sum %></td>
+          <td></td>
+        </tr>
       </table>
     </div>      
       <%= render 'bmet_costs/bmet_cost_form' %>
@@ -42,6 +52,16 @@
       </div>
       <ul id='extra-details_comment_ul'>
         <%= render @bmet_labor_hours %>
+        <li class="facility_labor_hour">      
+            <div class="labor_hour-technician">
+              <%= t(:total).capitalize %>
+            </div>
+            <div class="labor_hour-detail">
+              <span class="labor_hour-date"></span>  
+              <span class="labor_hour-duration"><%= @bmet_labor_hours_sum %></span>
+
+            </div>
+        </li>
       </ul>
     </div>
   	 <%= render :partial => 'bmet_labor_hours/bmet_labor_hour_form' %>
