@@ -10,6 +10,7 @@
 #  updated_at        :datetime
 #  category          :string(255)
 #  facility_id       :integer
+#  item_group_id     :integer
 #
 
 class BmetModel < ActiveRecord::Base

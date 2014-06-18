@@ -25,6 +25,7 @@
   <tr><td><%= t(:contract_expiration).titlecase %></td><td><%= item.contract_expire.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:warranty_expiration).titlecase %></td><td><%= item.warranty_expire.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:warranty_notes).titlecase %></td><td><%= item.warranty_notes %></td></tr>
+   <tr><td><%= t(:notes).capitalize %></td><td><%= item.notes %></td></tr>
  </table>
 
   <div class = "print-table-title"><%= t(:hours_log).titlecase %></div>

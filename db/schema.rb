@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614130657) do
+ActiveRecord::Schema.define(version: 20140618142508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140614130657) do
     t.integer  "condition"
     t.decimal  "price",             precision: 5, scale: 2
     t.string   "short_url_key"
+    t.string   "notes"
   end
 
   create_table "bmet_labor_hours", force: true do |t|
@@ -389,6 +390,7 @@ ActiveRecord::Schema.define(version: 20140614130657) do
     t.string  "condition"
     t.integer "facility_id"
     t.string  "short_url_key"
+    t.string  "notes"
   end
 
   create_table "staging_models", force: true do |t|

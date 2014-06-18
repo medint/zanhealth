@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: staging_models
+#
+#  id                :integer          not null, primary key
+#  model_name        :string(255)
+#  manufacturer_name :string(255)
+#  vendor_name       :string(255)
+#  facility_id       :integer
+#  item_group        :string(255)
+#
+
 class StagingModel < ActiveRecord::Base
 
 	def self.get_matches(fac_id)
