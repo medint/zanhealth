@@ -1,5 +1,5 @@
 class BmetDashboardController < ApplicationController
-	before_action :set_status, except: [:index, :timelineAjax]
+	before_action :set_status, except: [:index, :timelineAjax, :statusWoExpireDropdownAjax]
 	layout 'layouts/bmet_app'
 	authorize_resource :class => false
 
@@ -50,6 +50,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:expire
 		@third_col_method='date_expire'
 		@chart_title='status over time for work orders by date expire'
+		@action='status'
 		statusJson(@work_orders, 'status', 0..2)
 	end
 
@@ -59,9 +60,17 @@ class BmetDashboardController < ApplicationController
 		@third_col=:completed
 		@third_col_method='date_completed'
 		@chart_title='completed work orders over time by date completed'
+		@action='statusWoCompleted'
 		statusJson(@work_orders, 'status', 2..2)
 
 		render 'status'
+	end
+
+	def statusWoExpireDropdownAjax
+		@starting_date=DateTime.now
+		@ending_date=DateTime.now
+		@action=params['submit_action']
+		render partial: 'timeAjax'
 	end
 
 	def statusWoDepartment
@@ -71,6 +80,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:created
 		@third_col_method='created_at'
 		@chart_title='created work orders by department over time'
+		@action='statusWoDepartment'
 		department_names=[]
 		departments.each do |q|
 			department_names<<q.name
@@ -86,6 +96,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:created
 		@third_col_method='created_at'
 		@chart_title='created work orders assigned to owners over time'
+		@action='statusWoOwner'
 		user_names=[]
 		users.each do |q|
 			user_names<<q.name

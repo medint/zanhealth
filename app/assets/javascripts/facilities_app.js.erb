@@ -568,7 +568,20 @@ function woExpireDashboard(){
 	theData['dates']=getDatesDashboard();
 	params=jQuery.param(theData);
 	location.replace('/bmet_dashboard/status/wo_expire?'+params);
+}
 
+function woStatusesDashboardDropdown(action){
+
+	theParams={submit_action: action};
+	var htmlData = $.ajax({
+          //url: $("#params_to_send2").text(),
+          url: '/bmet_dashboard/statusWoExpireDropdownAjax',
+          data: theParams,
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard').html(htmlData);
 }
 
 function woCompletedDashboard(){
