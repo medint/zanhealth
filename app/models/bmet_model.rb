@@ -30,14 +30,13 @@ class BmetModel < ActiveRecord::Base
 
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-      puts row
       mod = StagingModel.new
-      mod.model_name = row["model_name"].try(:strip)
-      mod.manufacturer_name = row["manufacturer_name"].try(:strip)
-      mod.vendor_name = row["vendor_name"].try(:strip)
-      mod.facility_id = facility_id
-      mod.item_group = row["item_group"].try(:strip)
-      mod.category = row["category"].try(:strip)
+      mod.model_name = row["model_name"] ? row["model_name"].try(:strip) : ""
+      mod.manufacturer_name = row["manufacturer_name"] ? row["manufacturer_name"].try(:strip) : ""
+      mod.vendor_name = row["vendor_name"] ? row["vendor_name"].try(:strip) : ""
+      mod.item_group = row["item_group"] ? row["item_group"].try(:strip) : ""
+      mod.category = row["category"] ? row["category"].try(:strip) : ""      
+      mod.facility_id = facility_id      
       mod.save!
     end
 end
@@ -45,8 +44,8 @@ end
   def self.import(facility_id)
     staging_models = StagingModel.where(:facility_id => facility_id)
     staging_models.each do |model|
-      match = BmetModel.where("lower(model_name) =?", item.model_name, "lower(manufacturer_name) =?", item.manufacturer_name, "lower(vendor_name) =?", item.vendor_name, "lower(category) =>", item.category, :facility_id => facility_id)[0]
-      matching_item_group = ItemGroup.where(:facility_id => facility_id).where("lower(name) =?", model.item_group)[0]
+      match = BmetModel.where("model_name =?", model.model_name).where( "manufacturer_name =?", model.manufacturer_name).where( "vendor_name =?", model.vendor_name).where( "category =?", model.category).where( :facility_id => facility_id)[0]
+      matching_item_group = ItemGroup.where(:facility_id => facility_id).where("name =?", model.item_group)[0]
       if match and matching_item_group
         match.item_group = matching_item_group
         match.save!

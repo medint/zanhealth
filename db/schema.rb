@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618192121) do
+ActiveRecord::Schema.define(version: 20140618221644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -392,6 +392,7 @@ ActiveRecord::Schema.define(version: 20140618192121) do
     t.integer "facility_id"
     t.string  "short_url_key"
     t.string  "notes"
+    t.string  "category"
   end
 
   create_table "staging_models", force: true do |t|
