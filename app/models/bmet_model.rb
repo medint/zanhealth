@@ -32,12 +32,12 @@ class BmetModel < ActiveRecord::Base
     CSV.foreach(file.path, headers: true) do |row|
       puts row
       mod = StagingModel.new
-      mod.model_name = row["model_name"].strip.downcase
-      mod.manufacturer_name = row["manufacturer_name"].strip.downcase
-      mod.vendor_name = row["vendor_name"].strip.downcase
+      mod.model_name = row["model_name"].try(:strip).try(:downcase)
+      mod.manufacturer_name = row["manufacturer_name"].try(:strip).try(:downcase)
+      mod.vendor_name = row["vendor_name"].try(:strip).try(:downcase)
       mod.facility_id = facility_id
-      mod.item_group = row["item_group"].strip.downcase
-      mod.category = row["category"].strip.downcase
+      mod.item_group = row["item_group"].try(:strip).try(:downcase)
+      mod.category = row["category"].try(:strip).try(:downcase)
       mod.save!
     end
 end

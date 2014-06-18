@@ -17,7 +17,7 @@ class StagingModel < ActiveRecord::Base
 		staging_models = StagingModel.where(:facility_id => fac_id)
 		staging_models.each do |model|
 			model_row = [[model.model_name], [model.manufacturer_name], [model.vendor_name], [model.category], [model.item_group]]
-			match = BmetModel.where("lower(model_name) =?", item.model_name, "lower(manufacturer_name) =?", item.manufacturer_name, "lower(vendor_name) =?", item.vendor_name, "lower(category) =>", item.category, :facility_id => facility_id)[0]		
+			match = BmetModel.where(:facility_id => fac_id).where("LOWER(model_name) =?", model.model_name).where("LOWER(manufacturer_name) =?", model.manufacturer_name).where("LOWER(vendor_name) =?", model.vendor_name).where("LOWER(category) =?", model.category)[0]
 			if match
 				model_row.each do |cell|
 					cell.push('unchanged')

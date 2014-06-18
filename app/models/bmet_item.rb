@@ -60,26 +60,26 @@ class BmetItem < ActiveRecord::Base
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
       item = StagingItem.new
-      item.serial_number = row["serial_number"].strip
-      item.year_manufactured = row["year_manufactured"].strip
-      item.funding = row["funding"].strip
-      item.date_received = row["date_received"].strip
-      item.warranty_expire = row["warranty_expire"].strip
-      item.warranty_notes = row["warranty_notes"].strip
-      item.contract_expire = row["contract_expire"].strip
-      item.service_agent = row["service_agent"].strip
-      item.price = row["price"].strip
-      item.asset_id = row["asset_id"].strip
-      item.item_type = row["item_type"].strip
-      item.location = row["location"].strip
-      item.department_name = row["department_name"].strip.downcase
-      item.model_name = row["model_name"].strip
-      item.manufacturer_name = row["manufacturer_name"].strip
-      item.vendor_name = row["vendor_name"].strip
-      item.status = row["status"].strip.downcase
-      item.condition = row["condition"].strip.downcase
-      item.short_url_key = row["short_url_key"].strip
-      item.notes = row["notes"].strip
+      item.serial_number = row["serial_number"].try(:strip)
+      item.year_manufactured = row["year_manufactured"].try(:strip)
+      item.funding = row["funding"].try(:strip)
+      item.date_received = row["date_received"].try(:strip)
+      item.warranty_expire = row["warranty_expire"].try(:strip)
+      item.warranty_notes = row["warranty_notes"].try(:strip)
+      item.contract_expire = row["contract_expire"].try(:strip)
+      item.service_agent = row["service_agent"].try(:strip)
+      item.price = row["price"].try(:strip)
+      item.asset_id = row["asset_id"].try(:strip)
+      item.item_type = row["item_type"].try(:strip)
+      item.location = row["location"].try(:strip)
+      item.department_name = row["department_name"].try(:strip).try(:downcase)
+      item.model_name = row["model_name"].try(:strip)
+      item.manufacturer_name = row["manufacturer_name"].try(:strip)
+      item.vendor_name = row["vendor_name"].try(:strip)
+      item.status = row["status"].try(:strip).try(:downcase)
+      item.condition = row["condition"].try(:strip).try(:downcase)
+      item.short_url_key = row["short_url_key"].try(:strip)
+      item.notes = row["notes"].try(:strip)
       item.facility_id = facility_id
       item.save!
     end
@@ -94,8 +94,8 @@ class BmetItem < ActiveRecord::Base
           match = m
         end
       end
-      matching_department = Department.where("lower(name) =?", item.department_name).where(:facility_id => facility_id)[0]
-      matching_model = BmetModel.where("lower(model_name) =?", item.model_name, "lower(manufacturer_name) =?", item.manufacturer_name, "lower(vendor_name) =?", item.vendor_name, "lower(category) =>", item.category, :facility_id => facility_id)[0]
+      matching_department = Department.where("LOWER(name) =?", item.department_name).where(:facility_id => facility_id)[0]
+      matching_model = BmetModel.where(:facility_id => facility_id).where("LOWER(model_name) =?", item.model_name).where("LOWER(manufacturer_name) =?", item.manufacturer_name).where("LOWER(vendor_name) =?", item.vendor_name).where("LOWER(category) =>", item.category)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
