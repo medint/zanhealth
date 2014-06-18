@@ -45,8 +45,9 @@ class StagingItem < ActiveRecord::Base
 			'condition',
 			'location',
 			'department_name',
-			'short_url_key',
-			'notes']
+			'notes',
+			'short_url_key'
+			]
 		items_array = []
 		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|
@@ -71,9 +72,10 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'status'
-						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+						cellval = cell[0].downcase
+						if cellval == 'active' || cellval == 'inactive' || cellval == 'retired'
 							status_string_hash = ['active','inactive','retired']
-							if match.status and cell[0].downcase == status_string_hash[match.status]
+							if match.status and cell[0] == status_string_hash[match.status]
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
@@ -126,7 +128,7 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'status'
-						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+						if cell[0] == 'active' || cell[0] == 'inactive' || cell[0] == 'retired'
 							self.push_changed(cell)
 						else
 							self.push_errors(item_row)

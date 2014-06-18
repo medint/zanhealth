@@ -194,7 +194,6 @@ class BmetDashboardController < ApplicationController
 		category_hash={}
 		ind=1
 		users.each do |q|
-			puts q.name
 			category_hash[q.name]=ind
 			ind+=1
 		end
@@ -256,7 +255,6 @@ class BmetDashboardController < ApplicationController
 				@work_orders_json['rows'][index]['c']<<{'v'=>0}
 			end
 			r.each do |q|
-				puts @work_orders_json['rows'][index]['c']
 				@work_orders_json['rows'][index]['c'][category_hash[q.send(category).name]]['v']+=1	
 			end
 			index+=1

@@ -45,7 +45,6 @@ class TagPdf < Prawn::Document
 
 			result_url = Shortener::ShortenedUrl.generate_with_auth(dummy_url_base+dummy_url_key, auth_token,asset_string)
 			qr_code_url = "http://zanhealth.co/qr/" + result_url.unique_key
-			puts qr_code_url
 
 
 			pixel_width = (im_width * dpi).round

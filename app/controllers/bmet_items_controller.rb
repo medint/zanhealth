@@ -92,8 +92,8 @@ class BmetItemsController < ApplicationController
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
       redirect_to '/bmet_items_confirm_import'
-    rescue
-      redirect_to bmet_items_path, notice: "Invalid CSV file format"
+    #rescue
+     # redirect_to bmet_items_path, notice: "Invalid CSV file format"
     end
   end
 
