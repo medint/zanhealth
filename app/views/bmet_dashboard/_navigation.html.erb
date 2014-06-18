@@ -16,12 +16,11 @@
 			</div>
 
 			<div id="dashboard-submit-div">
-			    <%= f.button :submit, "Statuses", :id => "status-submit", :class => "dashboard-submit" %>
 				<%= f.button :submit, "Finances", :id => "wo_finances-submit", :class => "dashboard-submit" %>
 					<%= f.button :submit, "Labor Hours", :id => "labor_hours-submit", :class => "dashboard-submit" %>
 					<div class="dropdown" id = "dashboard-dropdown">
 	      <a id="status-sort" role="button" data-toggle="dropdown" href="#">
-	          <%= t(:status).titlecase %>
+	          <%= t(:work_order).titlecase %>
 	          <b class="caret"></b>
 	      </a>
 	      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">

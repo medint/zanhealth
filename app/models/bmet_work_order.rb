@@ -23,6 +23,7 @@
 #  deleted_at        :datetime
 #  pm_origin_id      :integer
 #  wr_origin_id      :integer
+#  priority          :integer
 #
 
 class BmetWorkOrder < ActiveRecord::Base

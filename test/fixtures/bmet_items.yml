@@ -17,6 +17,7 @@ one:
   price: 1.0
   status: 0
   condition : 0
+  notes: MyText
 
 two:
   asset_id: 2
@@ -35,3 +36,4 @@ two:
   price: 1.0
   status: 0
   condition: 0
+  notes: MyText

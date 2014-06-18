@@ -93,6 +93,12 @@
             <%= f.number_field :price %>
           </div>
         </div>
+        <div class="field-box">
+          <div class="field-type"><%= t(:notes).titlecase %></div>
+          <div class="field-info">
+            <%= f.text_area :notes %>
+          </div>
+        </div>
      
         <div class="action_submit">
           <%= f.submit t(:create_item).titlecase%>
