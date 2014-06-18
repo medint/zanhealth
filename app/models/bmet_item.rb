@@ -60,26 +60,26 @@ class BmetItem < ActiveRecord::Base
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
       item = StagingItem.new
-      item.serial_number = row["serial_number"]
-      item.year_manufactured = row["year_manufactured"]
-      item.funding = row["funding"]
-      item.date_received = row["date_received"]
-      item.warranty_expire = row["warranty_expire"]
-      item.warranty_notes = row["warranty_notes"]
-      item.contract_expire = row["contract_expire"]
-      item.service_agent = row["service_agent"]
-      item.price = row["price"]
-      item.asset_id = row["asset_id"]
-      item.item_type = row["item_type"]
-      item.location = row["location"]
-      item.department_name = row["department_name"]
-      item.model_name = row["model_name"]
-      item.manufacturer_name = row["manufacturer_name"]
-      item.vendor_name = row["vendor_name"]
-      item.status = row["status"]
-      item.condition = row["condition"]
-      item.short_url_key = row["short_url_key"]
-      item.notes = row["notes"]
+      item.serial_number = row["serial_number"].strip
+      item.year_manufactured = row["year_manufactured"].strip
+      item.funding = row["funding"].strip
+      item.date_received = row["date_received"].strip
+      item.warranty_expire = row["warranty_expire"].strip
+      item.warranty_notes = row["warranty_notes"].strip
+      item.contract_expire = row["contract_expire"].strip
+      item.service_agent = row["service_agent"].strip
+      item.price = row["price"].strip
+      item.asset_id = row["asset_id"].strip
+      item.item_type = row["item_type"].strip
+      item.location = row["location"].strip
+      item.department_name = row["department_name"].strip.downcase
+      item.model_name = row["model_name"].strip
+      item.manufacturer_name = row["manufacturer_name"].strip
+      item.vendor_name = row["vendor_name"].strip
+      item.status = row["status"].strip.downcase
+      item.condition = row["condition"].strip.downcase
+      item.short_url_key = row["short_url_key"].strip
+      item.notes = row["notes"].strip
       item.facility_id = facility_id
       item.save!
     end
@@ -94,12 +94,12 @@ class BmetItem < ActiveRecord::Base
           match = m
         end
       end
-      matching_department = Department.where(:name => item.department_name).where(:facility_id => facility_id)[0]
-      matching_model = BmetModel.where(:model_name => item.model_name, :manufacturer_name => item.manufacturer_name, :vendor_name => item.vendor_name, :facility_id => facility_id)[0]
+      matching_department = Department.where("lower(name) =?", item.department_name).where(:facility_id => facility_id)[0]
+      matching_model = BmetModel.where("lower(model_name) =?", item.model_name, "lower(manufacturer_name) =?", item.manufacturer_name, "lower(vendor_name) =?", item.vendor_name, "lower(category) =>", item.category, :facility_id => facility_id)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
-      if matching_department and matching_model and status_string_hash[item.status.downcase] and conditions_string_hash[item.condition.downcase]
+      if matching_department and matching_model and status_string_hash[item.status] and conditions_string_hash[item.condition]
         isValid = true
       end
       if match and isValid
@@ -116,8 +116,8 @@ class BmetItem < ActiveRecord::Base
         match.location = item.location
         match.department = matching_department
         match.bmet_model = matching_model
-        match.status = status_string_hash[item.status.downcase]
-        match.condition = conditions_string_hash[item.condition.downcase]
+        match.status = status_string_hash[item.status]
+        match.condition = conditions_string_hash[item.condition]
         match.short_url_key = item.short_url_key        
         match.notes = item.notes
         match.save!
@@ -139,8 +139,8 @@ class BmetItem < ActiveRecord::Base
         new_item.location = item.location
         new_item.department = matching_department
         new_item.bmet_model = matching_model
-        new_item.status = status_string_hash[item.status.downcase]
-        new_item.condition = conditions_string_hash[item.condition.downcase]
+        new_item.status = status_string_hash[item.status]
+        new_item.condition = conditions_string_hash[item.condition]
         new_item.short_url_key = item.short_url_key
         new_item.notes = item.notes
         new_item.save!     
@@ -186,6 +186,8 @@ class BmetItem < ActiveRecord::Base
       colnames.insert(0, 'short_url_key')
       colnames.delete('bmet_model_id')
       colnames.delete('department_id')
+      colnames.delete('created_at')
+      colnames.delete('updated_at')
       colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
       CSV.generate do |csv|
           csv << colnames

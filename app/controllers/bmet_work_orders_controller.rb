@@ -17,7 +17,7 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-  	  
+
   end
 
   def hidden

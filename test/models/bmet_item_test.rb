@@ -54,9 +54,9 @@ class BmetItemTest < ActiveSupport::TestCase
 		testFile = Tempfile.new('testFile.csv')
 		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
 			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
-			vendor_name, status, condition /n
+			vendor_name, status, condition, notes /n
 			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,MyString,1000,69,Machine,
-			Nowhere,Transmoglifier,Alan,Home Depot,active,good')
+			Nowhere,Transmoglifier,Alan,Home Depot,active,good,240V 50Hz model-no')
 		BmetModel.stage_import(testFile, users(:userone).facility.id)
 		BmetItem.stage_import(testFile, users(:userone).facility.id)
 

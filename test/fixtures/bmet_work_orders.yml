@@ -85,6 +85,7 @@ seven:
   owner: userone
   requester: userone
   department: one
+  bmet_item: one
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText
@@ -155,6 +156,7 @@ twelve_bmet_wr_origin:
   owner: userone
   requester: userone
   department: one
+  bmet_item: one
   cause_description: MyText
   action_taken: MyText
   prevention_taken: MyText

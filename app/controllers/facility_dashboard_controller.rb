@@ -121,8 +121,6 @@ class FacilityDashboardController < ApplicationController
 		params["action"]="statusExpireAjaxhtml"
 		@params_to_send_back2=url_for(params)
 		#render :partial => '/facility_dashboard/status_expire.html.erb'
-		puts 'params: '
-		puts params
 
 
 
