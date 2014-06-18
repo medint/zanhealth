@@ -9,6 +9,7 @@ google.setOnLoadCallback(drawStatusChart);
 
 <%=render 'navigation'%>
 <div id="dashboard">
+	<%=render 'timeAjax'%>
 	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
 	<div class="dropdown">
       <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">

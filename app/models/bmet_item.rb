@@ -37,6 +37,10 @@ class BmetItem < ActiveRecord::Base
     "#{asset_id} : #{bmet_model.name} at #{location}"
   end
 
+  def name
+    asset_id
+  end
+
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
     if @original_bmet_item.try(:status) != self.status

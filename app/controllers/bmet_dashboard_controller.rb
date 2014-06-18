@@ -1,5 +1,5 @@
 class BmetDashboardController < ApplicationController
-	before_action :set_status, except: [:index, :timelineAjax]
+	before_action :set_status, except: [:index, :timelineAjax, :statusWoExpireDropdownAjax]
 	layout 'layouts/bmet_app'
 	authorize_resource :class => false
 
@@ -9,7 +9,7 @@ class BmetDashboardController < ApplicationController
 	end
 
 	def timelineAjax
-		@work_orders=BmetWorkOrder.joins({ :department => :facility}).where("facilities.id = :curruser", {curruser: current_user.facility_id}).order(:created_at)
+		@work_orders=BmetWorkOrder.joins({ :department => :facility}).where("facilities.id = :curruser", {curruser: current_user.facility_id}).order(created_at: :desc).take(100)
 		@work_orders_json=[]
 		@work_orders_json.push([])
 		@work_orders_json.push([])
@@ -50,6 +50,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:expire
 		@third_col_method='date_expire'
 		@chart_title='status over time for work orders by date expire'
+		@action='status'
 		statusJson(@work_orders, 'status', 0..2)
 	end
 
@@ -59,9 +60,17 @@ class BmetDashboardController < ApplicationController
 		@third_col=:completed
 		@third_col_method='date_completed'
 		@chart_title='completed work orders over time by date completed'
+		@action='statusWoCompleted'
 		statusJson(@work_orders, 'status', 2..2)
 
 		render 'status'
+	end
+
+	def statusWoExpireDropdownAjax
+		@starting_date=DateTime.now
+		@ending_date=DateTime.now
+		@action=params['submit_action']
+		render partial: 'timeAjax'
 	end
 
 	def statusWoDepartment
@@ -71,6 +80,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:created
 		@third_col_method='created_at'
 		@chart_title='created work orders by department over time'
+		@action='statusWoDepartment'
 		department_names=[]
 		departments.each do |q|
 			department_names<<q.name
@@ -86,6 +96,7 @@ class BmetDashboardController < ApplicationController
 		@third_col=:created
 		@third_col_method='created_at'
 		@chart_title='created work orders assigned to owners over time'
+		@action='statusWoOwner'
 		user_names=[]
 		users.each do |q|
 			user_names<<q.name
@@ -258,20 +269,35 @@ class BmetDashboardController < ApplicationController
 	def wo_finances
 
 		@work_orders = BmetWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:department_id)
-		@work_orders_json= {}
-		currdepart=0
-		costbydepart=0
-		@work_orders.each do |q|
+		wo_financesJson(@work_orders, 'department')
+		@category='department'
+		@chart_title='breakdown of finances by department'
 
-			if currdepart!=q.department
-				if currdepart!=0
-					@work_orders_json[currdepart.name]["totalcost"]=costbydepart
+	end
+
+	def wo_finances_item
+		@work_orders = BmetWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:bmet_item_id)
+		wo_financesJson(@work_orders, 'bmet_item')
+		@category='item'
+		@chart_title='breakdown of finances by item'
+		render 'wo_finances'
+	end
+
+	def wo_financesJson(work_orders, category)
+		@work_orders_json= {}
+		currcateg=0
+		costbycateg=0
+		work_orders.each do |q|
+
+			if currcateg!=q.send(category)
+				if currcateg!=0
+					@work_orders_json[currcateg.name]["totalcost"]=costbycateg
 				end
-				currdepart=q.department
-				@work_orders_json[q.department.name]={}
-				@work_orders_json[q.department.name]["costs"]={}
+				currcateg=q.send(category)
+				@work_orders_json[q.send(category).name]={}
+				@work_orders_json[q.send(category).name]["costs"]={}
 				if q!=@work_orders.first
-					costbydepart=0					
+					costbycateg=0					
 				end
 			end
 			
@@ -279,11 +305,11 @@ class BmetDashboardController < ApplicationController
 			q.bmet_costs.each do |cost|
 				totalcost=totalcost+cost.cost*cost.unit_quantity
 			end
-			@work_orders_json[q.department.name]["costs"][q.id]=totalcost
-			costbydepart+=totalcost		
+			@work_orders_json[q.send(category).name]["costs"][q.id]=totalcost
+			costbycateg+=totalcost		
 		end
-		if currdepart.try(:name)!=nil
-			@work_orders_json[currdepart.try(:name)]["totalcost"]=costbydepart
+		if currcateg.try(:name)!=nil
+			@work_orders_json[currcateg.try(:name)]["totalcost"]=costbycateg
 		end
 
 	end

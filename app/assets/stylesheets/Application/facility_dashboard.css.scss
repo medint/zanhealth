@@ -45,8 +45,29 @@
 		color:#65d4c2;
 	}
 
-	#labor_hours-submit{
+	#dashboard-dropdown{
+		background-color:#ffffff;
+		font-weight:900;
+		font-size: 13px;
+		border-left: solid 1px #d6d6d6;
+		padding-top:2px;
+		padding-bottom:2px;
+		padding-left:15px;
+		display:inline-block;
 		border-right: solid 1px #d6d6d6;
+	}
+
+	#status-sort:hover{
+		color:#65d4c2;
+		background-color:#fff;
+	}
+
+	#dashboard-dropdown:hover{
+		color:#65d4c2;
+	}
+
+	#labor_hours-submit{
+		//border-right: solid 1px #d6d6d6;
 
 	}
 

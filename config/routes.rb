@@ -88,6 +88,10 @@ Zanhealth::Application.routes.draw do
   get "/bmet_dashboard/status/wo_department_ajax", to: "bmet_dashboard#statusWoDepartmentAjax"
   get "/bmet_dashboard/status/wo_owner", to: "bmet_dashboard#statusWoOwner"
   get "/bmet_dashboard/status/wo_owner_ajax", to: "bmet_dashboard#statusWoOwnerAjax"
+  get "/bmet_dashboard/wo_finances/department", to: "bmet_dashboard#wo_finances"
+  get "/bmet_dashboard/wo_finances/item", to: "bmet_dashboard#wo_finances_item"
+
+  get "/bmet_dashboard/statusWoExpireDropdownAjax", to: "bmet_dashboard#statusWoExpireDropdownAjax"
   resources :bmet_dashboard
 
   # hide/unhide features for facility work orders
