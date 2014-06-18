@@ -15,6 +15,7 @@
 #  deleted_at    :datetime
 #  wo_convert_id :integer
 #  converted_at  :datetime
+#  asset_id      :string(255)
 #
 
 class BmetWorkRequest < ActiveRecord::Base

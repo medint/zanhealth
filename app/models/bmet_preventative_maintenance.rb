@@ -13,6 +13,7 @@
 #  updated_at        :datetime
 #  requester_id      :integer
 #  deleted_at        :datetime
+#  bmet_item_id      :integer
 #
 
 class BmetPreventativeMaintenance < ActiveRecord::Base

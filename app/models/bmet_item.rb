@@ -21,6 +21,8 @@
 #  status            :integer
 #  condition         :integer
 #  price             :decimal(5, 2)
+#  short_url_key     :string(255)
+#  notes             :string(255)
 #
 
 class BmetItem < ActiveRecord::Base
@@ -73,6 +75,7 @@ class BmetItem < ActiveRecord::Base
       item.status = row["status"]
       item.condition = row["condition"]
       item.short_url_key = row["short_url_key"]
+      item.notes = row["notes"]
       item.facility_id = facility_id
       item.save!
     end
@@ -112,6 +115,7 @@ class BmetItem < ActiveRecord::Base
         match.status = status_string_hash[item.status.downcase]
         match.condition = conditions_string_hash[item.condition.downcase]
         match.short_url_key = item.short_url_key        
+        match.notes = item.notes
         match.save!
         # to set the short_url redirector
         Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{match.id}")
@@ -134,6 +138,7 @@ class BmetItem < ActiveRecord::Base
         new_item.status = status_string_hash[item.status.downcase]
         new_item.condition = conditions_string_hash[item.condition.downcase]
         new_item.short_url_key = item.short_url_key
+        new_item.notes = item.notes
         new_item.save!     
         # to set the short_url redirector
         Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{new_item.id}")

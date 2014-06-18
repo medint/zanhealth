@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: staging_items
+#
+#  id                :integer          not null, primary key
+#  serial_number     :string(255)
+#  year_manufactured :integer
+#  funding           :string(255)
+#  date_received     :date
+#  warranty_expire   :date
+#  contract_expire   :date
+#  warranty_notes    :text
+#  service_agent     :string(255)
+#  department_name   :string(255)
+#  price             :decimal(, )
+#  asset_id          :string(255)
+#  item_type         :string(255)
+#  location          :string(255)
+#  model_name        :string(255)
+#  manufacturer_name :string(255)
+#  vendor_name       :string(255)
+#  status            :string(255)
+#  condition         :string(255)
+#  facility_id       :integer
+#  short_url_key     :string(255)
+#  notes             :string(255)
+#
+
 class StagingItem < ActiveRecord::Base
 
 	def self.get_matches(fac_id)
@@ -17,7 +45,8 @@ class StagingItem < ActiveRecord::Base
 			'condition',
 			'location',
 			'department_name',
-			'short_url_key']
+			'short_url_key',
+			'notes']
 		items_array = []
 		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|

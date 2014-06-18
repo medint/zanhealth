@@ -94,6 +94,11 @@
             <td><%= f.number_field :price %></td>
           </tr>
           <tr>
+            <td><%= t(:notes).titlecase %></td>
+            <td><%= f.text_area :notes %></td>
+          </tr>
+          <tr>
+          <tr>
             <td><%= t(:created_at).titlecase %></td>
             <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>
           </tr>
