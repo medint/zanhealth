@@ -42,7 +42,6 @@ class FacilityDashboardController < ApplicationController
 			end
 		end
 		render json: @work_orders_json
-		#puts self.format_json(wo)
 
 	end
 
@@ -120,9 +119,6 @@ class FacilityDashboardController < ApplicationController
 		@params_to_send_back=url_for(params)
 		params["action"]="statusExpireAjaxhtml"
 		@params_to_send_back2=url_for(params)
-		#render :partial => '/facility_dashboard/status_expire.html.erb'
-		puts 'params: '
-		puts params
 
 
 
@@ -144,8 +140,6 @@ class FacilityDashboardController < ApplicationController
 		end
 
 		render :partial => '/facility_dashboard/status_expire.html.erb'
-		puts 'params: '
-		puts params
 	end
 
 
