@@ -4,7 +4,6 @@ class TextController < ApplicationController
   def receive
 	message_body = params["Body"]
     from_number = params["From"]
-	puts "Message body is %s." %message_body
 	message = message_body.split("#")
 	if message.first == "item"
 		request = workRequest.create(:id => message_body.second)
@@ -21,7 +20,6 @@ class TextController < ApplicationController
   def create
 	message_body = params["Body"]
     from_number = params["From"]
-	puts "Message body is %s." %message_body
 	message = message_body.split("#")
 	if message.first == "item"
 		request = workRequest.create(:id => message_body.second)
@@ -35,7 +33,6 @@ class TextController < ApplicationController
     twilio_sid = "ACf72c38869b3c8ab18d652d77ebd15f46"
     twilio_token = "5f816594860aa6ab0acb97e75e2a207b"
     twilio_phone_number = "+14012845934"
-	puts "sending message"
     @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
  
     @twilio_client.account.sms.messages.create(

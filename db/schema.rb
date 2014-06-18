@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20140618192121) do
     t.integer  "wo_convert_id"
     t.datetime "converted_at"
     t.string   "asset_id"
+    t.boolean  "unread"
   end
 
   add_index "bmet_work_requests", ["deleted_at"], name: "index_bmet_work_requests_on_deleted_at", using: :btree
