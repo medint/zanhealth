@@ -103,13 +103,13 @@ class BmetItemsController < ApplicationController
   end
 
   def import
-    begin
+    #begin
       BmetModel.import(current_user.facility.id)
       BmetItem.import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    rescue
-       redirect_to :back, notice: "Invalid CSV file format."    
-    end
+    #rescue
+       #redirect_to :back, notice: "Invalid CSV file format."    
+    #end
       StagingModel.destroy_all
       StagingItem.destroy_all
   end
