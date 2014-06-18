@@ -72,7 +72,7 @@ class BmetItem < ActiveRecord::Base
       item.asset_id = row["asset_id"].try(:strip)
       item.item_type = row["item_type"].try(:strip)
       item.location = row["location"].try(:strip)
-      item.department_name = row["department_name"].try(:strip).try(:downcase)
+      item.department_name = row["department_name"].try(:strip)
       item.model_name = row["model_name"].try(:strip)
       item.manufacturer_name = row["manufacturer_name"].try(:strip)
       item.vendor_name = row["vendor_name"].try(:strip)
