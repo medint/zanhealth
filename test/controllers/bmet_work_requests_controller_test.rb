@@ -78,4 +78,5 @@ class BmetWorkRequestsControllerTest < ActionController::TestCase
 
     assert_redirected_to bmet_work_requests_path+"/unhidden/"
   end
+
 end

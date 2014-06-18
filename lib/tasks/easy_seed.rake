@@ -370,7 +370,8 @@ namespace :test do
 									   :email => Faker::Internet.email,
 									   :created_at => Time.now - 60*60*24*(rand(6..10)),
 									   :facility => f,
-									   :description => Faker::Lorem.sentence(word_count = rand(3..11))
+									   :description => Faker::Lorem.sentence(word_count = rand(3..11)),
+									   :unread => true
 									  )
 			end
 		end

@@ -471,6 +471,18 @@ body {
 		width: 10px;
 	}
 
+	.read-bar{
+		background-color: #a1a1a1;
+		height: 120px;
+		width: 10px;	
+	}
+
+	.unread-bar{
+		background-color: #e9593e;
+		height: 120px;
+		width: 10px;
+	}
+
 	#mid-summary_ul > a > .mid-summary_ul_li > .request_details{
 		margin-left: 15px;
 
