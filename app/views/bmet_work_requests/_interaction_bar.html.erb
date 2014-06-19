@@ -9,12 +9,12 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
          <div>
-         <a onclick = "sort_by_name('requester')">
+         <a onclick = "attrsort('requester', 'desc')">
           <%=t(:requester).capitalize%>
          </a>
          </div>
          <div>
-         <a onclick = "sort_by_num('Department')">
+         <a onclick = "attrsort('department', 'desc')">
           <%=t(:department).capitalize%>
          </a>
          </div>
