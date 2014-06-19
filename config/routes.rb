@@ -61,6 +61,8 @@ Zanhealth::Application.routes.draw do
   get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
   post "/bmet_items_import", to: "bmet_items#import"
   post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
+  get "/bmet_items_main_list_print_view", to: "bmet_items#show_main_list_print"
+  get "/bmet_items_main_list_print_view_by_department", to: "bmet_items#show_main_list_print_by_department"
 
   #dashboard
   
