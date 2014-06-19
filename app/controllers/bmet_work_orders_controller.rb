@@ -72,7 +72,7 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders/new
   def new
     @bmet_work_order = BmetWorkOrder.new
-    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
+    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility).order(:asset_id)
     if request.referer
       link = request.referer.split("/")[-2]
       if link == "bmet_items"
@@ -200,15 +200,15 @@ class BmetWorkOrdersController < ApplicationController
     end
 
     def set_cost_items
-      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).all.to_a
+      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility.id).all.to_a
+      @users = User.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_status

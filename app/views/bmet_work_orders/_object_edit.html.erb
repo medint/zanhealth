@@ -99,6 +99,10 @@
             </tr>
           <% end %>
           <tr>
+            <td><%= t(:duration).capitalize %></td>
+            <td><%= time_ago_in_words(@bmet_work_order.created_at) %></td>
+          </tr>
+          <tr>
             <td><%= t(:requester).capitalize %></td>
             <td><%= @bmet_work_order.requester.try(:name) %></td>
           </tr>

@@ -110,15 +110,15 @@ class BmetItemsController < ApplicationController
     rescue
        redirect_to :back, notice: "Invalid CSV file format."    
     end
-      StagingModel.destroy_all
-      StagingItem.destroy_all
+      StagingModel.where(:facility_id => current_user.facility.id).delete_all
+      StagingItem.where(:facility_id => current_user.facility.id).delete_all
   end
 
   def cancel_import
-    StagingModel.where(:facility_id => current_user.facility.id).destroy_all
-    StagingItem.where(:facility_id => current_user.facility.id).destroy_all
+    StagingModel.where(:facility_id => current_user.facility.id).delete_all
+    StagingItem.where(:facility_id => current_user.facility.id).delete_all
     redirect_to bmet_items_url, notice: "Import cancelled"
-  end
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -156,15 +156,15 @@ class BmetItemsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.where(:facility_id => current_user.facility.id)
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility.id).order(:manufacturer_name)
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility.id).order(:name).to_a
     end
 
     def set_bmet_items
-      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
     end
 
     def set_staging_data

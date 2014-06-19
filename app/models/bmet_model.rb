@@ -30,7 +30,6 @@ class BmetModel < ActiveRecord::Base
 
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
-      puts row
       mod = StagingModel.new
       mod.model_name = row["model_name"].strip.downcase
       mod.manufacturer_name = row["manufacturer_name"].strip.downcase

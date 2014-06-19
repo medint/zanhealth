@@ -157,15 +157,15 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+      @users = User.where(:facility_id => current_user.facility_id).order(:name).to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
-    end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
+      @departments = Department.where(:facility_id => current_user.facility_id).order(:name).to_a
+    end
 
     def set_items
-      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility).order(:asset_id)
     end
 
     def set_bmet_work_requests
