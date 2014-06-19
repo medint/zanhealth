@@ -222,6 +222,29 @@ function sort_by_num(attr){
 	}
 }
 
+function printitemsort(attr){
+	var list_to_sort = document.getElementsByTagName("tr");
+	var nodeArray = new Array();
+	for (var i = 0; i < list_to_sort.length; i++) {
+		nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	console.log(nodeArray)
+	nodeArray.sort(function(a,b) {
+ 		var reqA=a.getAttribute(attr).toLowerCase(), reqB=b.getAttribute(attr).toLowerCase()
+ 		if (reqA < reqB) {
+ 			return -1;
+  		}
+ 		if (reqA > reqB) {
+ 			return 1;
+
+  		}
+ 		return 0;
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
+	}
+}
+
 $(document).on ("page:change",function() {
    $('.dropdown-menu').on('click', function(e) {
        if($(this).hasClass('dropdown-menu-form')) {

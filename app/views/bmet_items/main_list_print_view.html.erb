@@ -1,14 +1,18 @@
 <strong> Inventory list: </strong>
 <br>
 <table id = "print-items-table">
-	<tr>
-		<th><%= t(:asset).capitalize + " " + t(:id).upcase %></th>
-		<th><%= t(:name).capitalize %></th>
-		<th><%= link_to t(:department).capitalize, "/bmet_items_main_list_print_view_by_department" %></th>
-		<th><%= t(:location).capitalize %></th>
+	<tr department = "" name = "" assetid = "" location = "">
+		<th><a onclick = "printitemsort('assetid')"><%= t(:asset).titlecase + " " + t(:id).upcase %></a></th>
+		<th><a onclick = "printitemsort('name')"><%= t(:name).titlecase %></a></th>
+		<th><a onclick = "printitemsort('department')"><%= t(:department).titlecase %></a></th>
+		<th><a onclick = "printitemsort('location')"><%= t(:location).titlecase %></a></th>
 	</tr>
 	<% @bmet_items.each do |item| %>
-		<tr>
+		<tr department = "<%= item.department.name %>"
+			name = "<%= item.bmet_model.name %>"
+			location = "<%= item.location %>"
+			assetid = "<%= item.asset_id %>"
+			>
 			<td><%= item.asset_id %></td>
 			<td><%= item.bmet_model.name %></td>
 			<td><%= item.department.name %></td>
