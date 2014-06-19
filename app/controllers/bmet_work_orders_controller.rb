@@ -4,7 +4,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
-  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all, :show_print]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
@@ -168,6 +168,8 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   def show_print
+    @status= ['Active', 'Inactive', 'Retired']
+    @conditions = ['Poor', 'Fair', 'Good', 'Very Good']        
     render 'print_view', layout: 'blank'
 
   end
