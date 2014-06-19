@@ -1,9 +1,9 @@
 class BmetItemsController < ApplicationController
   layout 'layouts/bmet_app'
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_bmet_models, only: [:new, :show]
-  before_action :set_departments, only: [:new, :show]
-  before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new]
+  before_action :set_bmet_models, only: [:new, :show, :show_main_list_print, :show_main_list_print_by_department]
+  before_action :set_departments, only: [:new, :show, :show_main_list_print, :show_main_list_print_by_department]
+  before_action :set_bmet_items, only: [:index, :detailed, :show, :as_csv, :new, :show_main_list_print, :show_main_list_print_by_department]
   before_action :set_status, only: [:show, :new]
   before_action :set_conditions, only: [:show, :new]
   load_and_authorize_resource param_method: :item_params
@@ -30,7 +30,7 @@ class BmetItemsController < ApplicationController
   end
 
   def as_csv
-      @bmet_items =BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      @bmet_items =BmetItem.includes({:bmet_model => :item_group}, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
 
       send_data @bmet_items.as_csv, type: "text/csv", filename: "bmet_items.csv"
 
@@ -107,17 +107,21 @@ class BmetItemsController < ApplicationController
       BmetModel.import(current_user.facility.id)
       BmetItem.import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    #rescue
-       #redirect_to :back, notice: "Invalid CSV file format."    
-    #end
+      #rescue
+         #redirect_to :back, notice: "Invalid CSV file format."    
+      #end
       StagingModel.destroy_all
       StagingItem.destroy_all
   end
 
   def cancel_import
-    StagingModel.where(:facility_id => current_user.facility.id).destroy_all
-    StagingItem.where(:facility_id => current_user.facility.id).destroy_all
+    StagingModel.where(:facility_id => current_user.facility.id).delete_all
+    StagingItem.where(:facility_id => current_user.facility.id).delete_all
     redirect_to bmet_items_url, notice: "Import cancelled"
+  end 
+
+  def show_main_list_print
+    render 'main_list_print_view', layout: 'blank'
   end
 
   private
@@ -156,15 +160,15 @@ class BmetItemsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.where(:facility_id => current_user.facility.id)
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility.id).order(:manufacturer_name)
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility.id).order(:name).to_a
     end
 
     def set_bmet_items
-      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
     end
 
     def set_staging_data
@@ -174,6 +178,6 @@ class BmetItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :item_type, :price, :status, :condition, :notes)
+      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :price, :status, :condition, :notes)
     end
 end

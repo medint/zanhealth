@@ -1,6 +1,6 @@
 <% wo = @bmet_work_order %>
 <%item = @bmet_work_order.bmet_item %>
-<div id = "print-facility-header"><%= User.find_by_id(wo.requester_id).facility.name %></div>
+<div id = "print-facility-header"><%= wo.requester.facility.name %></div>
 <div id = "print-subheader"><%=t(:work_order).titlecase + " " + wo.id.to_s%></div>
 
 <table id = "print-wo-details-table">
@@ -8,16 +8,17 @@
   <tr><td><%= t(:item).titlecase %></td><td><%= item.bmet_model.name %></td></tr>
   <tr><td><%= t(:date_started).titlecase%></td><td><%= wo.date_requested.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:expected_date_of_completion).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>
+  <tr><td><%= t(:completion_date).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:requester).titlecase %></td><td><%= wo.requester.name %></td>
   <tr><td><%= t(:owner).titlecase %></td><td><%= wo.owner.name %></td>
-  <tr><td><%= t(:department).titlecase %></td><td><%= Department.find_by_id(wo.department_id).name %></td>
+  <tr><td><%= t(:department).titlecase %></td><td><%= wo.department.name %></td>
   <tr><td><%= t(:location).titlecase %></td><td><%= item.location %></td>
 </table>
 
 <table id = "print-item-details-table" >
   <tr><th><%= t(:item).titlecase + " " + t(:details).titlecase %></th></tr>
-  <tr><td><%= t(:status).titlecase %></td><td><%= item.status %></td></tr>
-  <tr><td><%= t(:condition).titlecase %></td><td><%= item.condition %></td></tr>
+  <tr><td><%= t(:status).titlecase %></td><td><%= @status[item.status] %></td></tr>
+  <tr><td><%= t(:condition).titlecase %></td><td><%= @conditions[item.condition] %></td></tr>
   <tr><td><%= t(:date_purchased).titlecase %></td><td><%= item.date_received.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:price).titlecase %></td><td><%= item.price %></td></tr>
   <tr><td><%= t(:asset_id).titlecase %></td><td><%= item.asset_id %></td></tr>
@@ -33,30 +34,50 @@
  <table id = "print-labor-hours-table">
  	<tr>
  		<th><%= t(:worked_by).titlecase %></th>
+    <th class = "print-clock-cell"><%= t(:date_label).capitalize %></th>
  		<th class = "print-clock-cell"><%= t(:clock_in).capitalize %></th>
  		<th class = "print-clock-cell"><%= t(:clock_out).capitalize %></th>
  		<th class = "print-number-cell"><%= t(:labor_time).capitalize %></th>
  		<th class = "print-number-cell"><%= t(:down_time).capitalize %></th>
  	</tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <% wo.bmet_labor_hours.each do |lh| %>
+    <tr>
+      <td><%= lh.technician.name %></td>
+      <td><%= lh.date_started.try(:strftime,"%d %b %Y") %></td>
+      <td> ~ </td><td> ~ </td>
+      <td><%= lh.duration %></td>
+      <td> ~ </td>
+    </tr>
+  <% end %>
+  <% num_empty = 4 - wo.bmet_labor_hours.all.size %>
+  <% while num_empty > 0 %>
+ 	  <tr> <td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+    <% num_empty -= 1 %>
+  <% end %>
  </table>
 
  <div class = "print-table-title"><%= t(:costs_log).titlecase %></div>
 
  <table id = "print-costs-table">
  	<tr>
- 		<th><%= t(:consumable).titlecase + "/" + t(:part) + " " + t(:name)%></th>
- 		<th class = "print-clock-cell"><%= t(:individual).titlecase + " " + t(:price) %></th>
+ 		<th><%= t(:consumable).capitalize + "/" + t(:part).capitalize + " " + t(:name)%></th>
+ 		<th class = "print-number-cell"><%= t(:individual).capitalize + " " + t(:price) %></th>
  		<th class = "print-number-cell"><%= t(:quantity).capitalize %></th>
+    <th class = "print-clock-cell"><%= t(:total).capitalize %></th>
  	</tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
+  <% wo.bmet_costs.each do |cost| %>
+    <tr>
+      <td><%= cost.bmet_cost_item.name %></td>
+      <td><%= cost.cost %></td>
+      <td><%= cost.unit_quantity %></td>
+      <td><%= cost.unit_quantity * cost.cost %></td>
+    </tr>
+  <% end %>
+  <% num_empty = 4 - wo.bmet_costs.all.size %>
+  <% while num_empty > 0 %>
+    <tr> <td></td><td></td><td></td><td></td>  </tr>
+    <% num_empty -= 1 %>
+  <% end %>
  </table>
 
  <table id = "print-comments-table">

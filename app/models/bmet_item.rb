@@ -114,7 +114,6 @@ class BmetItem < ActiveRecord::Base
         match.contract_expire = item.contract_expire
         match.service_agent = item.service_agent
         match.price = item.price
-        match.item_type = item.item_type
         match.location = item.location
         match.department = matching_department
         match.bmet_model = matching_model
@@ -138,7 +137,6 @@ class BmetItem < ActiveRecord::Base
         new_item.service_agent = item.service_agent
         new_item.price = item.price
         new_item.asset_id = item.asset_id
-        new_item.item_type = item.item_type
         new_item.location = item.location
         new_item.department = matching_department
         new_item.bmet_model = matching_model
@@ -154,46 +152,93 @@ class BmetItem < ActiveRecord::Base
   end
 
   def self.as_csv
-      colnames = column_names.dup
-      colnames.delete('id')
-      colnames_no_id=colnames.dup
-      colnames.delete('bmet_model_id')
-      colnames.delete('department_id')
-      colnames << "department_name" << "manufacturer_name" << "model_name" << "vendor_name" << "item_group"
+      item_colnames = ["department_id", 
+        "bmet_model_id", 
+        "asset_id",  
+        "location", 
+        "serial_number", 
+        "status", 
+        "condition", 
+        "year_manufactured",
+        "funding", 
+        "date_received", 
+        "warranty_expire", 
+        "contract_expire", 
+        "warranty_notes", 
+        "service_agent",
+        "price", 
+        "short_url_key", 
+        "notes"]
+      
+      csv_colnames = [
+        "asset_id",  
+        "category",
+        "manufacturer_name",
+        "model_name",        
+        "item_group",
+        "vendor_name",
+        "department_name",
+        "location", 
+        "serial_number", 
+        "status", 
+        "condition", 
+        "year_manufactured",
+        "funding", 
+        "date_received", 
+        "warranty_expire", 
+        "contract_expire", 
+        "warranty_notes", 
+        "service_agent",
+        "price", 
+        "short_url_key", 
+        "notes"]
       status_string_hash = ['Active','Inactive','Retired']
       conditions_string_hash = ['Poor','Fair','Good','Very Good']    
       CSV.generate do |csv|
-          csv << colnames
+          csv << csv_colnames
           all.each do |item|              
-              values = item.attributes.values_at(*colnames_no_id)
-              bmet_model=BmetModel.find(values[0])
-              values.append(Department.find(values[9]).name)
-              values.append(bmet_model.manufacturer_name)
-              values.append(bmet_model.model_name)
-              values.append(bmet_model.vendor_name)
-              values.append(bmet_model.item_group.name)
-              values[colnames_no_id.index("status")] = status_string_hash[values[colnames_no_id.index("status")]]
-              values[colnames_no_id.index("condition")] = conditions_string_hash[values[colnames_no_id.index("condition")]]
+              values = item.attributes.values_at(*item_colnames) #department_id
+              values.insert(3,item.department.name)              
               values.shift
-              values.delete_at(8)
+              bmet_model=item.bmet_model #bmet_model_id
+              values.shift
+              values.insert(1,bmet_model.vendor_name)
+              values.insert(1,bmet_model.item_group.name)
+              values.insert(1,bmet_model.model_name)
+              values.insert(1,bmet_model.manufacturer_name)
+              values.insert(1,bmet_model.category)
+              values[csv_colnames.index("status")] = status_string_hash[values[csv_colnames.index("status")]]
+              values[csv_colnames.index("condition")] = conditions_string_hash[values[csv_colnames.index("condition")]]
               csv << values
           end
       end
   end
 
   def self.generate_template(relevant_urls)
-      colnames = column_names.dup
-      colnames.delete('id')
-      colnames_no_id=colnames.dup
-      colnames.insert(0, 'asset_id')
-      colnames.insert(0, 'short_url_key')
-      colnames.delete('bmet_model_id')
-      colnames.delete('department_id')
-      colnames.delete('created_at')
-      colnames.delete('updated_at')
-      colnames << "department_name" << "manufacturer_name" << "model_name" <<"vendor_name"      
+    csv_colnames = [
+        "asset_id",  
+        "short_url_key",
+        "category",
+        "manufacturer_name",
+        "model_name",        
+        "item_group",
+        "vendor_name",
+        "department_name",
+        "location", 
+        "serial_number", 
+        "status", 
+        "condition", 
+        "year_manufactured",
+        "funding", 
+        "date_received", 
+        "warranty_expire", 
+        "contract_expire", 
+        "warranty_notes", 
+        "service_agent",
+        "price", 
+        "notes"]
       CSV.generate do |csv|
-          csv << colnames
+          csv << csv_colnames
           relevant_urls.all.each do |url|              
               csv << [url.asset_id, url.unique_key]
           end

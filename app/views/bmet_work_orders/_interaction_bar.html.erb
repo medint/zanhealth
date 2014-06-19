@@ -28,28 +28,23 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-         <a onclick = "sort_by_date_desc_created()">
+         <a onclick = "attrsort('datecreated', 'desc')">
           <%= t(:date_created).titlecase %>
          </a>
        </div>
        <div>
-         <a onclick = "sort_by_date_desc('datestarted')">
+         <a onclick = "attrsort('datestarted', 'desc')">
           <%= t(:date_started).titlecase %>
          </a>
        </div>
        <div>
-         <a onclick = "sort_by_date_asc('expirydate')">
+         <a onclick = "attrsort('expirydate', 'asc')">
           <%= t(:date_expires).titlecase %>
          </a>
        </div>
        <div>
          <a onclick = "sort_by_num('priority')">
           <%=t(:priority).capitalize%>
-         </a>
-       </div>
-       <div>
-         <a onclick = "sort_by_name('requester')">
-          <%=t(:requester).capitalize%>
          </a>
        </div>
        <div>

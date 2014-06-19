@@ -8,7 +8,7 @@ namespace :test do
 		User.create(:username => 'jayson',
 			:encrypted_password => Digest::MD5.hexdigest('jayson'),
 			:role => Role.find_by_name("admin"),
-			:facility => Facility.find_by_name("FACILITY A"),
+			:facility => Facility.find_by_name("TMJ Hospital"),
 			:language => "english",
 			:name => "Jayson"
 			)
@@ -17,7 +17,7 @@ namespace :test do
       User.create(:username => 'pihjosh',
 			:encrypted_password => Digest::MD5.hexdigest('zanhealthpih'),
 			:role => Role.find_by_name("admin"),
-			:facility => Facility.find_by_name("FACILITY A"),
+			:facility => Facility.find_by_name("TMJ Hospital"),
 			:language => "english",
 			:name => "Joshua Philbrook"
 			)

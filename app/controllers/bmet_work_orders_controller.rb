@@ -4,7 +4,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
-  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all, :show_print]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
@@ -72,7 +72,7 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders/new
   def new
     @bmet_work_order = BmetWorkOrder.new
-    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
+    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility).order(:asset_id)
     if request.referer
       link = request.referer.split("/")[-2]
       if link == "bmet_items"
@@ -168,6 +168,8 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   def show_print
+    @status= ['Active', 'Inactive', 'Retired']
+    @conditions = ['Poor', 'Fair', 'Good', 'Very Good']        
     render 'print_view', layout: 'blank'
 
   end
@@ -200,15 +202,15 @@ class BmetWorkOrdersController < ApplicationController
     end
 
     def set_cost_items
-      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).all.to_a
+      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility.id).all.to_a
+      @users = User.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_status

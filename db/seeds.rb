@@ -44,9 +44,9 @@ csv_item.each do |row|
 	model = Model.find_by(model_name: row[1])
 	dept = Department.find_by(name: row[10])
 	if model.nil?
-		BmetItem.create(:asset_id =>row[0], :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :item_type => row[12], :price => row[13])
+		BmetItem.create(:asset_id =>row[0], :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :price => row[13])
 	else
-		BmetItem.create(:asset_id =>row[0], :model_id => model.id, :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :item_type => row[12], :price => row[13])
+		BmetItem.create(:asset_id =>row[0], :model_id => model.id, :serial_number => row[2], :year_manufactured => row[3], :funding => row[4], :date_received => row[5], :warranty_expire => row[6], :contract_expire => row[7], :warranty_notes => row[8], :service_agent => row[9], :department_id => dept.id, :location => row[11], :price => row[13])
 	end
 end
 puts "Imported item"
