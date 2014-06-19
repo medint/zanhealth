@@ -1,0 +1,20 @@
+<strong> Inventory list: </strong>
+<br>
+<table style="float: left" class = "import_confirmation_table">
+	<tr>
+		<th>Asset ID</th>
+		<th>Name</th>
+		<th>Department</th>
+		<th>Location</th>
+		<th>Status</th>
+	</tr>
+	<% @bmet_items.each do |item| %>
+		<tr>
+			<td><%= item.asset_id %></td>
+			<td><%= item.bmet_model.name %></td>
+			<td><%= item.department.name %></td>
+			<td><%= item.location %></td>
+			<td><%= item.status %></td>
+		</tr>
+	<% end %>
+</table>

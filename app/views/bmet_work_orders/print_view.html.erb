@@ -38,10 +38,19 @@
  		<th class = "print-number-cell"><%= t(:labor_time).capitalize %></th>
  		<th class = "print-number-cell"><%= t(:down_time).capitalize %></th>
  	</tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <% wo.bmet_labor_hours.each do |lh| %>
+    <tr>
+      <td><%= User.find_by_id(lh.technician_id).name %></td>
+      <td> ~ </td><td> ~ </td>
+      <td><%= lh.duration %></td>
+      <td> ~ </td>
+    </tr>
+  <% end %>
+  <% num_empty = 4 - wo.bmet_labor_hours.all.size %>
+  <% while num_empty > 0 %>
+ 	  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <% num_empty -= 1 %>
+  <% end %>
  </table>
 
  <div class = "print-table-title"><%= t(:costs_log).titlecase %></div>
@@ -52,11 +61,18 @@
  		<th class = "print-clock-cell"><%= t(:individual).titlecase + " " + t(:price) %></th>
  		<th class = "print-number-cell"><%= t(:quantity).capitalize %></th>
  	</tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
- 	<tr><td></td><td></td><td></td></tr>
+  <% wo.bmet_costs.each do |cost| %>
+    <tr>
+      <td><%= BmetCostItem.find_by_id(cost.bmet_cost_item_id).name %></td>
+      <td><%= cost.cost %></td>
+      <td><%= cost.unit_quantity %></td>
+    </tr>
+  <% end %>
+  <% num_empty = 4 - wo.bmet_costs.all.size %>
+  <% while num_empty > 0 %>
+    <tr><td></td><td></td><td></td></tr>
+    <% num_empty -= 1 %>
+  <% end %>
  </table>
 
  <table id = "print-comments-table">
