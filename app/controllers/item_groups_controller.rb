@@ -28,7 +28,7 @@ class ItemGroupsController < ApplicationController
 
     respond_to do |format|
       if @item_group.save
-        format.html { redirect_to @item_group, notice: 'Item group was successfully created.' }
+        format.html { redirect_to settings_path , notice: 'Item group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @item_group }
       else
         format.html { render action: 'new' }

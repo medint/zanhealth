@@ -23,27 +23,27 @@ class BmetItemTest < ActiveSupport::TestCase
   
   	
 	test "should export to csv" do
-		testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
+		status_string_hash = ['Active','Inactive','Retired']
+      	conditions_string_hash = ['Poor','Fair','Good','Very Good']    
+		testItems = BmetItem.includes({:bmet_model => :item_group}, {:department => :facility}).where("id=?", @bmet_items.id)
 		csv_string = testItems.as_csv
 		rows = CSV.parse(csv_string)
 		expected_values = @bmet_items.attributes.dup
 		expected_values.shift
-		expected_values["department"] = Department.find(expected_values["department_id"]).name
+		expected_values["department_name"] = Department.find(expected_values["department_id"]).name
+		expected_values["category"] = BmetModel.find(expected_values["bmet_model_id"]).category
 		expected_values["manufacturer_name"] = BmetModel.find(expected_values["bmet_model_id"]).manufacturer_name
 		expected_values["model_name"] = BmetModel.find(expected_values["bmet_model_id"]).model_name
 		expected_values["vendor_name"] = BmetModel.find(expected_values["bmet_model_id"]).vendor_name
 		expected_values["item_group"] = BmetModel.find(expected_values["bmet_model_id"]).item_group.name
-		expected_values.shift
-		expected_values.delete("department_id")
-		rows[1].zip(expected_values.values).each do |result, expected|
-			if result.to_s != expected.to_s
-				if result.to_s == 'Active' || result.to_s == 'Poor'
-				else
-					assert false
-				end
-			end
+		expected_values["status"] = status_string_hash[expected_values["status"]]
+		expected_values["condition"] = conditions_string_hash[expected_values["condition"]]
+		expected_values.delete("bmet_model_id")
+		expected_values.delete("department_id")	
+		rows[0].each_with_index do |key,index|
+			assert_equal expected_values[key].to_s, rows[1][index]
+
 		end
-		assert true
 	end
 
 	test "should import file data" do
@@ -53,9 +53,9 @@ class BmetItemTest < ActiveSupport::TestCase
 		BmetItem.destroy_all
 		testFile = Tempfile.new('testFile.csv')
 		testFile.write('serial_number,year_manufactured,funding,date_received,warranty_expire,contract_expire,
-			warranty_notes,service_agent,department_name,price,asset_id,item_type,location,model_name,manufacturer_name,
+			warranty_notes,service_agent,department_name,price,asset_id,location,model_name,manufacturer_name,
 			vendor_name, status, condition, notes /n
-			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,MyString,1000,69,Machine,
+			1,2014,100,20071119,20071119,20071119,Warr notes here,Serv agent here,MyString,1000,69,
 			Nowhere,Transmoglifier,Alan,Home Depot,active,good,240V 50Hz model-no')
 		BmetModel.stage_import(testFile, users(:userone).facility.id)
 		BmetItem.stage_import(testFile, users(:userone).facility.id)
