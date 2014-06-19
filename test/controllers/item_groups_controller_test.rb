@@ -24,7 +24,7 @@ class ItemGroupsControllerTest < ActionController::TestCase
       post :create, item_group: { name: @item_group.name }
     end
 
-    assert_redirected_to item_group_path(assigns(:item_group))
+    assert_redirected_to settings_path
   end
 
   test "should show item_group" do

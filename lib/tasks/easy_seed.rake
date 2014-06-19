@@ -149,7 +149,6 @@ namespace :test do
 				# 					   :service_agent => row[9],
 				# 					   :department => dept,
 				# 					   :location => row[11],
-				# 					   :item_type => row[12],
 				# 					   :created_at => Time.now - 60*60*24*(rand(22..40)),
 				# 					   :price => row[13],
 				# 					   :status => rand(0..2),

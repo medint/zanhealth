@@ -114,7 +114,6 @@ class BmetItem < ActiveRecord::Base
         match.contract_expire = item.contract_expire
         match.service_agent = item.service_agent
         match.price = item.price
-        match.item_type = item.item_type
         match.location = item.location
         match.department = matching_department
         match.bmet_model = matching_model
@@ -138,7 +137,6 @@ class BmetItem < ActiveRecord::Base
         new_item.service_agent = item.service_agent
         new_item.price = item.price
         new_item.asset_id = item.asset_id
-        new_item.item_type = item.item_type
         new_item.location = item.location
         new_item.department = matching_department
         new_item.bmet_model = matching_model
@@ -219,7 +217,7 @@ class BmetItem < ActiveRecord::Base
   def self.generate_template(relevant_urls)
     csv_colnames = [
         "asset_id",  
-        "short_url_key"
+        "short_url_key",
         "category",
         "manufacturer_name",
         "model_name",        
