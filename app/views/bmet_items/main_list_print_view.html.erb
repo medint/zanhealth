@@ -1,12 +1,11 @@
 <strong> Inventory list: </strong>
 <br>
-<table style="float: left" class = "import_confirmation_table">
+<table id = "print-items-table">
 	<tr>
-		<th>Asset ID</th>
-		<th>Name</th>
-		<th>Department</th>
-		<th>Location</th>
-		<th>Status</th>
+		<th><%= t(:asset).capitalize + " " + t(:id).upcase %></th>
+		<th><%= t(:name).capitalize %></th>
+		<th><%= link_to t(:department).capitalize, "/bmet_items_main_list_print_view_by_department" %></th>
+		<th><%= t(:location).capitalize %></th>
 	</tr>
 	<% @bmet_items.each do |item| %>
 		<tr>
@@ -14,7 +13,6 @@
 			<td><%= item.bmet_model.name %></td>
 			<td><%= item.department.name %></td>
 			<td><%= item.location %></td>
-			<td><%= item.status %></td>
 		</tr>
 	<% end %>
 </table>

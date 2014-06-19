@@ -105,3 +105,21 @@
 	background-color: #e9593e;
 }
 
+#print-items-table {
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	width: 100%;
+	th {
+		padding: 5px;
+		text-align: center;
+		border: 1px solid gray;
+		max-width: 380px;
+	}
+	td {
+		padding: 5px;
+		text-align: center;
+		max-width: 380px;
+		border: 1px solid black;
+	}
+}
