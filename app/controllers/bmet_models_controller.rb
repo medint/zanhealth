@@ -73,7 +73,7 @@ class BmetModelsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all.order(:category)
     end
 
     def set_item_groups
@@ -82,6 +82,6 @@ class BmetModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_model_params
-      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name)
+      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name, :category, :item_group)
     end
 end

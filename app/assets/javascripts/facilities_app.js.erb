@@ -173,102 +173,7 @@ function checkbox_filter_handler(){
 
 };
 
-function sort_by_date_created(){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = [];
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
- 		var dateA=parseFloat(a[0].getAttribute("datecreated"));
- 		var dateB=parseFloat(b[0].getAttribute("datecreated"));
-		if (dateA < dateB) {
-  			return 1;
-  		}
- 		if (dateA > dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_date_desc(attr){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = new Array();
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
-		if (a[0].getAttribute(attr) == "") {
-			var dateA = 0;
-		}
-		else {
-			var dateA = parseFloat(a[0].getAttribute(attr));
-		}
- 		if (b[0].getAttribute(attr) == "") {
- 			dateB = 0;
- 		}
- 		else {
- 			var dateB = parseFloat(b[0].getAttribute(attr));
- 		}
-		if (dateA < dateB) {
-  			return 1;
-  		}
- 		if (dateA > dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_date_asc(attr){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = new Array();
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
-		if (a[0].getAttribute(attr) == "") {
-			var dateA = 0;
-		}
-		else {
-			var dateA = parseFloat(a[0].getAttribute(attr));
-		}
- 		if (b[0].getAttribute(attr) == "") {
- 			dateB = 0;
- 		}
- 		else {
- 			var dateB = parseFloat(b[0].getAttribute(attr));
- 		}
-		if (dateA > dateB) {
-  			return 1;
-  		}
- 		if (dateA < dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_name(attr){
+function attrsort(attr, order){// Order can either be 'asc' or 'desc'
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = new Array();
 	for (var i = 0; i < list_to_sort.length; i++) {
@@ -279,10 +184,16 @@ function sort_by_name(attr){
 	nodeArray.sort(function(a,b) {
  		var reqA=a[0].getAttribute(attr).toLowerCase(), reqB=b[0].getAttribute(attr).toLowerCase()
  		if (reqA < reqB) {
-  			return -1;
+ 			if (order == 'desc') {
+  				return -1; }
+  			else {
+  				return 1; }
   		}
  		if (reqA > reqB) {
-  			return 1;
+ 			if (order == 'desc') {
+  				return 1; }
+  			else {
+  				return -1; }
   		}
  		return 0;
 	});

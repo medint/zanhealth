@@ -4,7 +4,6 @@
     <%= link_to(@link.to_s+bmet_work_order.id.to_s) do %>
       <li
       class="mid-summary_ul_li"
-      requester="<%=bmet_work_order.requester.try(:name)%>"
       datecreated="<%= bmet_work_order.created_at.to_s(:number) %>"
       owner="<%=bmet_work_order.owner.try(:name)%>"
       status = "<%=bmet_work_order.status%>"
