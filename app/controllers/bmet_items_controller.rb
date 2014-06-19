@@ -124,12 +124,6 @@ class BmetItemsController < ApplicationController
     render 'main_list_print_view', layout: 'blank'
   end
 
-  def show_main_list_print_by_department
-    @bmet_items = @bmet_items.order(:model_name)
-    @bmet_items.save!
-    render 'main_list_print_view', layout: 'blank'
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
