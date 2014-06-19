@@ -9,7 +9,7 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-       <a onclick = "attrsort('datedue', 'desc')">
+       <a onclick = "sort_by_date_desc('datedue')">
         <%= t(:due_date).titlecase %>
        </a>
        </div>
@@ -24,7 +24,7 @@
        </a>
        </div>
        <div>
-       <a onclick = "attrsort('datecreated', 'desc')">
+       <a onclick = "sort_by_date_desc('datecreated')">
         <%=t(:date_created).titlecase%>
        </a>
        </div>

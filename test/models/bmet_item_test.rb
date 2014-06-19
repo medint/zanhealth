@@ -74,47 +74,47 @@ class BmetItemTest < ActiveSupport::TestCase
 
 	end
 
-	# test "should export then import then export again" do
-	# 	testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
-	# 	csv_string1 = testItems.as_csv
-	# 	BmetItem.destroy_all
-	# 	BmetModel.destroy_all
+	test "should export then import then export again" do
+		testItems = BmetItem.includes(:bmet_model, {:department => :facility}).where("id=?", @bmet_items.id)
+		csv_string1 = testItems.as_csv
+		BmetItem.destroy_all
+		BmetModel.destroy_all
 
-	# 	testFile = File.open('testFile.csv','w')
-	# 	testFile.write(csv_string1.to_s)
-	# 	testFile.close()
+		testFile = File.open('testFile.csv','w')
+		testFile.write(csv_string1.to_s)
+		testFile.close()
 
-	# 	testFile = File.open('testFile.csv','r')
-	# 	BmetModel.stage_import(testFile, users(:userone).facility.id)
-	# 	BmetItem.stage_import(testFile, users(:userone).facility.id)
+		testFile = File.open('testFile.csv','r')
+		BmetModel.stage_import(testFile, users(:userone).facility.id)
+		BmetItem.stage_import(testFile, users(:userone).facility.id)
 
-	# 	assert_not_equal 0, StagingItem.all.size
-	# 	assert_not_equal 0, StagingModel.all.size
+		assert_not_equal 0, StagingItem.all.size
+		assert_not_equal 0, StagingModel.all.size
 
-	# 	BmetModel.import(users(:userone).facility.id)
-	# 	BmetItem.import(users(:userone).facility.id)
+		BmetModel.import(users(:userone).facility.id)
+		BmetItem.import(users(:userone).facility.id)
 
-	# 	assert_not_equal 0, BmetModel.all.size
-	# 	assert_not_equal 0, BmetItem.all.size
+		assert_not_equal 0, BmetModel.all.size
+		assert_not_equal 0, BmetItem.all.size
 
-	# 	testItems2 = BmetItem.all
-	# 	csv_string2 = testItems2.as_csv
+		testItems2 = BmetItem.all
+		csv_string2 = testItems2.as_csv
 
-	# 	rows1 = CSV.parse(csv_string1)
-	# 	rows2 = CSV.parse(csv_string2)
+		rows1 = CSV.parse(csv_string1)
+		rows2 = CSV.parse(csv_string2)
 
-	# 	index = 0
-	# 	rows1[1].zip(rows2[1]).each do |cell1, cell2|
-	# 		if rows1[0][index] == 'created_at' || rows1[0][index] == 'updated_at'
-	# 		else
-	# 			if cell1 != cell2
-	# 				assert false
-	# 			end
-	# 		end
-	# 		index+=1
-	# 	end
-	# 	assert true
-	# 	testFile.close()
-	# end
+		index = 0
+		rows1[1].zip(rows2[1]).each do |cell1, cell2|
+			if rows1[0][index] == 'created_at' || rows1[0][index] == 'updated_at'
+			else
+				if cell1 != cell2
+					assert false
+				end
+			end
+			index+=1
+		end
+		assert true
+		testFile.close()
+	end
 
 end
