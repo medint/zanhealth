@@ -8,22 +8,22 @@
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
         <div>
-         <a onclick = "sort_by_name('modelname')">
+         <a onclick = "attrsort('modelname', 'desc')">
           <%= t(:model).titlecase + " " + t(:name).titlecase %>
          </a>
        </div>
        <div>
-         <a onclick = "sort_by_name('assetid')">
+         <a onclick = "attrsort('assetid', 'desc')">
           <%= t(:asset_id).titlecase %>
          </a>
        </div>
        <div>
-         <a onclick = "sort_by_name('department')">
+         <a onclick = "attrsort('department', 'desc')">
           <%= t(:department).titlecase %>
          </a>
        </div>
        <div>
-         <a onclick = "sort_by_name('location')">
+         <a onclick = "attrsort('location', 'desc')">
           <%= t(:location).titlecase %>
          </a>
        </div>

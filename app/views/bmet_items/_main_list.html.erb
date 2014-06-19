@@ -5,7 +5,7 @@
         <li
         class="mid-summary_ul_li"
         datecreated="<%= bmet_item.created_at.to_s(:number) %>"
-        modelname = "<%= bmet_item.bmet_model.try(:name) %>"
+        modelname = "<%= bmet_item.bmet_model.try(:name).to_s %>"
         assetid = "<%= bmet_item.asset_id %>"
         department = "<%= bmet_item.department.try(:name) %>"
         location = "<%= bmet_item.location %>">

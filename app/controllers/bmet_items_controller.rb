@@ -92,8 +92,8 @@ class BmetItemsController < ApplicationController
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
       redirect_to '/bmet_items_confirm_import'
-    #rescue
-     # redirect_to bmet_items_path, notice: "Invalid CSV file format"
+    rescue
+     redirect_to bmet_items_path, notice: "Invalid CSV file format"
     end
   end
 
@@ -103,13 +103,13 @@ class BmetItemsController < ApplicationController
   end
 
   def import
-    #begin
+    begin
       BmetModel.import(current_user.facility.id)
       BmetItem.import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
-    #rescue
-       #redirect_to :back, notice: "Invalid CSV file format."    
-    #end
+    rescue
+       redirect_to :back, notice: "Invalid CSV file format."    
+    end
       StagingModel.destroy_all
       StagingItem.destroy_all
   end
@@ -164,7 +164,7 @@ class BmetItemsController < ApplicationController
     end
 
     def set_bmet_items
-      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility)
+      @bmet_items = BmetItem.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
     end
 
     def set_staging_data

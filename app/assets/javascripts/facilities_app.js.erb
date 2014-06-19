@@ -311,6 +311,36 @@ function sort_by_num(attr){
 	}
 }
 
+function attrsort(attr, order){// Order can either be 'asc' or 'desc'
+	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
+	var nodeArray = new Array();
+	for (var i = 0; i < list_to_sort.length; i++) {
+		nodeArray[i] = new Array();
+    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
+    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
+	}
+	nodeArray.sort(function(a,b) {
+ 		var reqA=a[0].getAttribute(attr).toLowerCase(), reqB=b[0].getAttribute(attr).toLowerCase()
+ 		if (reqA < reqB) {
+ 			if (order == 'desc') {
+  				return -1; }
+  			else {
+  				return 1; }
+  		}
+ 		if (reqA > reqB) {
+ 			if (order == 'desc') {
+  				return 1; }
+  			else {
+  				return -1; }
+  		}
+ 		return 0;
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
+		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
+	}
+}
+
 $(document).on ("page:change",function() {
    $('.dropdown-menu').on('click', function(e) {
        if($(this).hasClass('dropdown-menu-form')) {
