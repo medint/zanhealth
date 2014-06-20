@@ -1,0 +1,41 @@
+<script type="text/javascript">
+// Load the Visualization API and the piechart package.
+
+google.load('visualization', '1.0', {'packages':['corechart']});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.setOnLoadCallback(drawItemChart);
+</script>
+<%=render 'navigation'%>
+<div id='dashboard'>
+	<div id="dashboard-forms-ajax">
+		<%=render @typeAjax%>
+	</div>
+	<div id="date_div"><%="#{@starting_date.try(:strftime,"%b %d, %Y")}-#{@ending_date.try(:strftime,"%b %d, %Y")}"%></div>	
+	<div id='chart_title'><%=@chart_title%></div>
+	<div id='chart_div'></div>
+	<div id="dashboard_results_div">
+		<table id="dash_table">
+			<tr>
+				<th><%=t(@first_col).titlecase %></th>
+				<th><%=t(@second_col).capitalize%></th>
+			</tr>
+			<% @items.each do |hash| %>
+				<%hash.each do |wo_id,item| %>
+				<tr>
+					<td class="technician_name">
+						<%= link_to( t(:work_order).titlecase+' '+wo_id.to_s, bmet_work_orders_path+'/all/'+wo_id.to_s)%>
+					</td>
+					<td>
+						<%= item%>
+					</td>					
+				</tr>	
+				<%end%>		
+			<%end%>
+			<tr>
+				<td></td>
+				<td class="sum_costs" id="percents-text"><%="#{@broken_number} out of #{@total_number} items"%></td>
+			</tr>
+		</table>
+	</div>
+</div>
