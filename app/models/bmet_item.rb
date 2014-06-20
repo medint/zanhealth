@@ -203,7 +203,7 @@ class BmetItem < ActiveRecord::Base
               bmet_model=item.bmet_model #bmet_model_id
               values.shift
               values.insert(1,bmet_model.vendor_name)
-              values.insert(1,bmet_model.item_group.name)
+              values.insert(1,bmet_model.item_group.try(:name))
               values.insert(1,bmet_model.model_name)
               values.insert(1,bmet_model.manufacturer_name)
               values.insert(1,bmet_model.category)
