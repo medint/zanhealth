@@ -8,25 +8,30 @@ google.setOnLoadCallback(drawLaborChart);
 </script>
 <%=render 'navigation'%>
 <div id='dashboard'>
+	<div id="dashboard-forms-ajax">
+		<%=render 'timeAjax'%>
+	</div>
+	<div id="date_div"><%=@starting_date.try(:strftime,"%b %d, %Y")+'-'+@ending_date.try(:strftime,"%b %d, %Y")%></div>	
+	<div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
 			<tr>
-				<th><%=t(:work_order).titlecase %></th>
-				<th><%=t(:department).capitalize%></th>
-				<th><%=t(:duration).capitalize%></th>
+				<th><%=t(@first_col).titlecase %></th>
+				<th><%=t(@second_col).capitalize%></th>
+				<th><%=t(@third_col).capitalize%></th>
 			</tr>
-			<% @labor_hours_json.each do |technician_name,value| %>
+			<% @labor_hours_json.each do |category,value| %>
 					<tr>
 						<td class="technician_name">
-							<%= technician_name %>
+							<%= @first_col_link ? link_to( t(:work_order).titlecase+' '+category.to_s, bmet_work_orders_path+'/all/'+category.to_s) : category.to_s%>
 						</td>
 					</tr>
 				<% value["costs"].each do |work_order_id,duration| %>
 					<tr>
 						<td></td>
 						<td>
-							<%= link_to t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s %>
+							<%= @second_col_link ? link_to( t(:work_order).titlecase+' '+work_order_id.to_s, bmet_work_orders_path+'/all/'+work_order_id.to_s) : work_order_id%>
 						</td>					
 						<td>
 							<%=duration%>
