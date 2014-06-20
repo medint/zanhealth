@@ -35,7 +35,7 @@ Zanhealth::Application.routes.draw do
   
   #facilities app
   resources :facility_work_orders, except: :show do
-  	  collection { get :search }
+      collection { get :search }
   end
   resources :facility_work_order_comments
   resources :facility_costs
@@ -48,6 +48,8 @@ Zanhealth::Application.routes.draw do
   end
   resources :facility_cost_items
   
+  get "/", to: "bmet_work_orders#index"
+
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
@@ -93,7 +95,15 @@ Zanhealth::Application.routes.draw do
   get "/bmet_dashboard/wo_finances/department", to: "bmet_dashboard#wo_finances"
   get "/bmet_dashboard/wo_finances/item", to: "bmet_dashboard#wo_finances_item"
 
-  get "/bmet_dashboard/statusWoExpireDropdownAjax", to: "bmet_dashboard#statusWoExpireDropdownAjax"
+  get "/bmet_dashboard/labor_hours/time_worked", to: "bmet_dashboard#labor_hours_time_worked"
+  get "/bmet_dashboard/labor_hours/item", to: "bmet_dashboard#labor_hours_item"
+  get "/bmet_dashboard/labor_hours/work_order", to: "bmet_dashboard#labor_hours_work_order"
+
+  get "/bmet_dashboard/items/percent_down", to: "bmet_dashboard#items_percent_down"
+  get "/bmet_dashboard/items/item_wo_created", to: "bmet_dashboard#items_wo_created"
+
+  get "/bmet_dashboard/timeDropdownAjax", to: "bmet_dashboard#timeDropdownAjax"
+  get "/bmet_dashboard/noneDropdownAjax", to: "bmet_dashboard#noneDropdownAjax"
   resources :bmet_dashboard
 
   # hide/unhide features for facility work orders

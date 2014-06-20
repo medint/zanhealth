@@ -39,37 +39,31 @@
 		padding-top:2px;
 		padding-bottom:2px;
 		padding-left:15px;
+		display:inline-block;
+	}
+
+	.dropdown-menu-dashboard{
+
 	}
 
 	.dashboard-submit:hover{
 		color:#65d4c2;
 	}
 
-	#dashboard-dropdown{
-		background-color:#ffffff;
-		font-weight:900;
-		font-size: 13px;
-		border-left: solid 1px #d6d6d6;
-		padding-top:2px;
-		padding-bottom:2px;
-		padding-left:15px;
-		display:inline-block;
-		border-right: solid 1px #d6d6d6;
+	.dropdown-ele {
+		text-decoration: none;
 	}
 
-	#status-sort:hover{
+	.dropdown-ele:hover {
+		text-decoration: none;
 		color:#65d4c2;
 		background-color:#fff;
 	}
 
-	#dashboard-dropdown:hover{
-		color:#65d4c2;
+	#dashboard-dropdown-items {
+		border-right: solid 1px #d6d6d6;
 	}
 
-	#labor_hours-submit{
-		//border-right: solid 1px #d6d6d6;
-
-	}
 
 	.dropdown select {
 	    border: 0 !important;.  /*Removes border*/
@@ -78,6 +72,30 @@
 	}
 
 }
+abbr {
+	display: none;
+}
+
+.dashboard-submit{
+	background-color:#ffffff;
+	font-weight:900;
+	font-size: 13px;
+	border-left: solid 1px #d6d6d6;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:10px;
+	display:inline-block;
+}
+
+.dashboard-submit:hover{
+		color:#65d4c2;
+	}
+#dashboard-dates{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+
 
 #dashboard-navigation{
 	
