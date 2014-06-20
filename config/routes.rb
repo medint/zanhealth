@@ -48,6 +48,8 @@ Zanhealth::Application.routes.draw do
   end
   resources :facility_cost_items
   
+  get "/", to: "bmet_work_orders#index"
+
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
