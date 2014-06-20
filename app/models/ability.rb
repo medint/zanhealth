@@ -36,6 +36,7 @@ class Ability
           can [:set_hidden_bmet_work_requests, :set_all_bmet_work_requests], BmetWorkRequest
           can [:read, :create, :set_hidden_bmet_preventative_maintenance, :set_all_bmet_preventative_maintenance], BmetPreventativeMaintenance
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :bmet_dashboard 
+          can [:as_csv], BmetItem
           cannot [:delete,:hide], [BmetItem, BmetWorkOrder,BmetWorkRequest,BmetPreventativeMaintenance, BmetModel, Part,PartTransaction] 
           cannot :manage, :registration
           cannot :manage, :admin  
@@ -58,12 +59,13 @@ class Ability
 	  	  can :manage, [FacilityCost, FacilityLaborHour, FacilityWorkOrderComment, BmetCost, BmetLaborHour, BmetWorkOrderComment,BmetItemHistory,BmetNeed]
 	  	  can [:read, :create, :update], [BmetWorkOrder, FacilityWorkOrder,BmetWorkRequest, FacilityWorkRequest,BmetItem,BmetModel,Part,PartTransaction]
 	  	  can [:hidden, :all, :show_all, :show_hidden, :set_users, :set_departments, :set_status, :as_csv, :search], [BmetWorkOrder, FacilityWorkOrder,BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance]
+        can [:as_csv], BmetItem
 	  	  can [:set_hidden_facility_work_orders, :set_all_facility_work_orders], FacilityWorkOrder
-       	  can [:set_hidden_bmet_work_orders, :set_all_bmet_work_orders], BmetWorkOrder 
-       	  can [:set_hidden_facility_work_requests, :set_all_facility_work_requests], FacilityWorkRequest
-       	  can [:set_hidden_bmet_work_requests, :set_all_bmet_work_requests], BmetWorkRequest
-       	  can [:read, :create, :set_hidden_bmet_preventative_maintenance, :set_all_bmet_preventative_maintenance, :set_hidden_facility_preventative_maintenance, :set_all_facility_preventative_maintenance], [BmetPreventativeMaintenance, FacilityPreventativeMaintenance]
-          can [:read, :set_status, :wo_finances, :statusAjax, :status], [:facility_dashboard, :bmet_dashboard]
+     	  can [:set_hidden_bmet_work_orders, :set_all_bmet_work_orders], BmetWorkOrder 
+     	  can [:set_hidden_facility_work_requests, :set_all_facility_work_requests], FacilityWorkRequest
+     	  can [:set_hidden_bmet_work_requests, :set_all_bmet_work_requests], BmetWorkRequest
+     	  can [:read, :create, :set_hidden_bmet_preventative_maintenance, :set_all_bmet_preventative_maintenance, :set_hidden_facility_preventative_maintenance, :set_all_facility_preventative_maintenance], [BmetPreventativeMaintenance, FacilityPreventativeMaintenance]
+        can [:read, :set_status, :wo_finances, :statusAjax, :status], [:facility_dashboard, :bmet_dashboard]
 	  	  cannot [:destroy, :hide], [BmetWorkOrder, FacilityWorkOrder, BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance,BmetItem, BmetModel,Part, PartTransaction]
 	  	  cannot :manage, :registration
         cannot :manage, :admin

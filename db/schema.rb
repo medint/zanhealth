@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619200921) do
+ActiveRecord::Schema.define(version: 20140620213608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 20140619200921) do
 
   create_table "bmet_labor_hours", force: true do |t|
     t.datetime "date_started"
-    t.integer  "duration"
     t.integer  "technician_id"
     t.integer  "bmet_work_order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "duration",           precision: 8, scale: 3
   end
 
   create_table "bmet_models", force: true do |t|
