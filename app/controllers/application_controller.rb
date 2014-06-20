@@ -80,8 +80,13 @@ class ApplicationController < ActionController::Base
         end
     end
     
-    def after_sign_in_path_for(resource)
-			''
+    def after_sign_in_path_for(resource)# see https://github.com/plataformatec/devise/wiki/How-To:-redirect-to-a-specific-page-on-successful-sign-in
+        sign_in_url = url_for(:action => 'new', :controller => 'sessions', :only_path => false, :protocol => 'http')
+        if request.referer == sign_in_url
+            super
+        else
+        stored_location_for(resource) || request.referer || root_path
+        end
     end
 
     def gen_permissions
