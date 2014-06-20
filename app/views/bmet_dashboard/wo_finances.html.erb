@@ -8,27 +8,11 @@ google.setOnLoadCallback(drawChart);
 </script>
 <%=render 'navigation'%>
 <div id='dashboard'>
+	<div id="dashboard-forms-ajax">
+		<%=render 'timeAjax'%>
+	</div>
 	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
-	<div class="dropdown">
-      <a id="facworkorder_sort" role="button" data-toggle="dropdown" href="#">
-          <%= t(:select_attribute).titlecase %>
-          <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
-         <div>
-         <a onclick = "financesDepartmentDashboard()">
-          <%= t(:department).titlecase %>
-         </a>
-         </div>
-         <div>
-         <a onclick = "financesItemDashboard()">
-          <%= t(:item).titlecase %>
-         </a>
-         </div>
-         
-      </ul>
-    </div>
-    <div id='chart_title'><%=@chart_title%></div>
+	<div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
