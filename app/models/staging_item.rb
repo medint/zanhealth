@@ -40,7 +40,6 @@ class StagingItem < ActiveRecord::Base
 			'service_agent',
 			'price',
 			'asset_id',
-			'item_type',
 			'status',
 			'condition',
 			'location',
@@ -72,7 +71,7 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'status'
-						cellval = cell[0].downcase
+						cellval = cell[0].try(:downcase)
 						if cellval == 'active' || cellval == 'inactive' || cellval == 'retired'
 							status_string_hash = ['active','inactive','retired']
 							if match.status and cell[0] == status_string_hash[match.status]
@@ -89,7 +88,7 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'condition'
-						cellval = cell[0].downcase
+						cellval = cell[0].try(:downcase)
 						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
 							conditions_string_hash = ['poor','fair','good','very good']
 							if match.condition and cellval == conditions_string_hash[match.condition]
@@ -136,7 +135,7 @@ class StagingItem < ActiveRecord::Base
 						end						
 
 					elsif attr_array[index] == 'condition'
-						cellval = cell[0].downcase
+						cellval = cell[0].try(:downcase)
 						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
 							self.push_changed(cell)
 						else
