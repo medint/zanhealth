@@ -37,7 +37,7 @@ class Ability
           can [:read, :create, :set_hidden_bmet_preventative_maintenance, :set_all_bmet_preventative_maintenance], BmetPreventativeMaintenance
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :bmet_dashboard 
           can [:as_csv], BmetItem
-          cannot [:delete,:hide], [BmetItem, BmetWorkOrder,BmetWorkRequest,BmetPreventativeMaintenance, BmetModel, Part,PartTransaction] 
+          cannot [:delete], [BmetItem, BmetWorkOrder,BmetWorkRequest,BmetPreventativeMaintenance, BmetModel, Part,PartTransaction] 
           cannot :manage, :registration
           cannot :manage, :admin  
           cannot :manage, :settings
@@ -50,7 +50,7 @@ class Ability
 	  	  can [:set_hidden_facility_work_requests, :set_all_facility_work_requests], FacilityWorkRequest
 	  	  can [:read, :create, :set_hidden_facility_preventative_maintenance, :set_all_facility_preventative_maintenance], FacilityPreventativeMaintenance
           can [:read, :set_status, :wo_finances, :statusAjax, :status], :facility_dashboard 
-	  	  cannot [:destroy, :hide], [FacilityWorkOrder,FacilityWorkRequest,FacilityPreventativeMaintenance,Part,PartTransaction]
+	  	  cannot [:destroy], [FacilityWorkOrder,FacilityWorkRequest,FacilityPreventativeMaintenance,Part,PartTransaction]
 	  	  cannot :manage, :registration
         cannot :manage, :admin
         cannot :manage, :settings
@@ -66,7 +66,7 @@ class Ability
      	  can [:set_hidden_bmet_work_requests, :set_all_bmet_work_requests], BmetWorkRequest
      	  can [:read, :create, :set_hidden_bmet_preventative_maintenance, :set_all_bmet_preventative_maintenance, :set_hidden_facility_preventative_maintenance, :set_all_facility_preventative_maintenance], [BmetPreventativeMaintenance, FacilityPreventativeMaintenance]
         can [:read, :set_status, :wo_finances, :statusAjax, :status], [:facility_dashboard, :bmet_dashboard]
-	  	  cannot [:destroy, :hide], [BmetWorkOrder, FacilityWorkOrder, BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance,BmetItem, BmetModel,Part, PartTransaction]
+	  	  cannot [:destroy], [BmetWorkOrder, FacilityWorkOrder, BmetWorkRequest, FacilityWorkRequest, BmetPreventativeMaintenance, FacilityPreventativeMaintenance,BmetItem, BmetModel,Part, PartTransaction]
 	  	  cannot :manage, :registration
         cannot :manage, :admin
         cannot :manage, :settings
