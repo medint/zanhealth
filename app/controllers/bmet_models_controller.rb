@@ -3,6 +3,7 @@ class BmetModelsController < ApplicationController
   layout 'layouts/bmet_app'
   before_action :set_bmet_model, only: [:show, :edit, :update, :destroy]
   before_action :set_bmet_models, only: [:show, :index, :new]
+  before_action :set_item_groups, only: [:show, :new]
 
   # GET /bmet_models
   # GET /bmet_models.json
@@ -72,11 +73,15 @@ class BmetModelsController < ApplicationController
     end
 
     def set_bmet_models
-      @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all
+      @bmet_models = BmetModel.where(:facility_id => current_user.facility_id).all.order(:category)
+    end
+
+    def set_item_groups
+      @item_groups = ItemGroup.where(:facility_id => current_user.facility_id).all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_model_params
-      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name)
+      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name, :category, :item_group)
     end
 end

@@ -20,7 +20,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   def index
   end
 
-  def hidden  	 
+  def hidden
   	  render 'index'
   end
 
@@ -37,7 +37,9 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     send_data @bmet_work_requests.as_csv, type: "text/csv", filename: "bmet_work_requests.csv"
   end
 
-  def show    
+  def show
+    @bmet_work_request.unread = false
+    @bmet_work_request.save!
   end
  
   def show_hidden
@@ -70,6 +72,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
   def create
     @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
     @bmet_work_request.facility_id=current_user.facility_id
+    @bmet_work_request.unread = true
 
     respond_to do |format|
       if @bmet_work_request.save
@@ -88,8 +91,9 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     render :layout => "application"
   end
 
-  def public_create    
+  def public_create
     @bmet_work_request = BmetWorkRequest.new(bmet_work_request_params)
+    @bmet_work_request.unread = true
 
     respond_to do |format|
       if @bmet_work_request.save
@@ -153,15 +157,15 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+      @users = User.where(:facility_id => current_user.facility_id).order(:name).to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
-    end#should probably be :bmet_id for set_departments and set_users, but haven't defined this yet
+      @departments = Department.where(:facility_id => current_user.facility_id).order(:name).to_a
+    end
 
     def set_items
-      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility).order(:asset_id)
     end
 
     def set_bmet_work_requests
@@ -188,7 +192,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     end
 
     def bmet_work_request_params
-      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :asset_id)
+      params.require(:bmet_work_request).permit(:id, :requester, :department, :location, :phone, :email, :description, :created_at, :updated_at, :facility_id, :asset_id, :unread)
     end
 
     def set_convert_object

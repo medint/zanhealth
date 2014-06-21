@@ -1,3 +1,31 @@
+# == Schema Information
+#
+# Table name: staging_items
+#
+#  id                :integer          not null, primary key
+#  serial_number     :string(255)
+#  year_manufactured :integer
+#  funding           :string(255)
+#  date_received     :date
+#  warranty_expire   :date
+#  contract_expire   :date
+#  warranty_notes    :text
+#  service_agent     :string(255)
+#  department_name   :string(255)
+#  price             :decimal(, )
+#  asset_id          :string(255)
+#  item_type         :string(255)
+#  location          :string(255)
+#  model_name        :string(255)
+#  manufacturer_name :string(255)
+#  vendor_name       :string(255)
+#  status            :string(255)
+#  condition         :string(255)
+#  facility_id       :integer
+#  short_url_key     :string(255)
+#  notes             :string(255)
+#
+
 class StagingItem < ActiveRecord::Base
 
 	def self.get_matches(fac_id)
@@ -12,11 +40,13 @@ class StagingItem < ActiveRecord::Base
 			'service_agent',
 			'price',
 			'asset_id',
-			'item_type',
 			'status',
 			'condition',
 			'location',
-			'department_name']
+			'department_name',
+			'notes',
+			'short_url_key'
+			]
 		items_array = []
 		staging_items = StagingItem.where(:facility_id => fac_id )
 		staging_items.each_with_index do |item, item_index|
@@ -24,7 +54,7 @@ class StagingItem < ActiveRecord::Base
 			attr_array.each do |attrib|
 				item_row.push([item.send(attrib)])
 			end
-			match = BmetItem.find_by_asset_id(item.asset_id)
+			match = BmetItem.where(:asset_id => item.asset_id).includes({ :department => :facility}).where("facilities.id=?",fac_id).references(:facility)[0]
 
 			if match and match.department.facility_id == fac_id#Update existing records
 				item_row.each_with_index do |cell, index|
@@ -41,12 +71,16 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'status'
-						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+						cellval = cell[0].try(:downcase)
+						if cellval == 'active' || cellval == 'inactive' || cellval == 'retired'
 							status_string_hash = ['active','inactive','retired']
-							if match.status and cell[0].downcase == status_string_hash[match.status]
+							if match.status and cell[0] == status_string_hash[match.status]
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.status
+									cell[0] = status_string_hash[match.status].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
@@ -54,13 +88,16 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'condition'
-						cellval = cell[0].downcase
+						cellval = cell[0].try(:downcase)
 						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
 							conditions_string_hash = ['poor','fair','good','very good']
 							if match.condition and cellval == conditions_string_hash[match.condition]
 								self.push_unchanged(cell)
 							else
 								self.push_changed(cell)
+								if match.condition
+									cell[0] = conditions_string_hash[match.condition].to_s.titlecase + "=>" + cell[0].to_s.titlecase
+								end
 							end
 						else
 							self.push_errors(item_row)
@@ -90,7 +127,7 @@ class StagingItem < ActiveRecord::Base
 						end
 
 					elsif attr_array[index] == 'status'
-						if cell[0].downcase == 'active' || cell[0].downcase == 'inactive' || cell[0].downcase == 'retired'
+						if cell[0] == 'active' || cell[0] == 'inactive' || cell[0] == 'retired'
 							self.push_changed(cell)
 						else
 							self.push_errors(item_row)
@@ -98,7 +135,7 @@ class StagingItem < ActiveRecord::Base
 						end						
 
 					elsif attr_array[index] == 'condition'
-						cellval = cell[0].downcase
+						cellval = cell[0].try(:downcase)
 						if cellval == 'very good' || cellval == 'good' || cellval == 'fair' || cellval == 'poor'
 							self.push_changed(cell)
 						else

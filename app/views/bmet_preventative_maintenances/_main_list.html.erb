@@ -6,6 +6,7 @@
       class="mid-summary_ul_li"
       datedue="<%= bmet_preventative_maintenance.next_date.try(:to_s, :number) %>"
       dayssince="<%= bmet_preventative_maintenance.days_until.to_i %>"
+      datecreated="<%= bmet_preventative_maintenance.created_at.try(:to_s, :number) %>"
       ID="<%= bmet_preventative_maintenance.id %>"
       >
 
@@ -20,6 +21,7 @@
         </div>
         <%= image_tag("rightarrow_black.png", class: "right-arrow") %>
 
+
         <div class="element_date">
           <div class="element_date_title"> <%= t(:days_until).titlecase %>:</div>
           <%= bmet_preventative_maintenance.days_until.to_i %>   
@@ -28,6 +30,11 @@
         <div class="element_date">
           <div class="element_date_title"> <%= t(:due_date).titlecase %>:</div>
           <%= bmet_preventative_maintenance.next_date.try(:strftime,"%^b %d") %>
+        </div>
+
+        <div class="element_date">
+          <div class="element_date_title"> <%= t(:asset_id).titlecase %>:</div>
+          <%= bmet_preventative_maintenance.bmet_item.asset_id %>   
         </div>
 
 

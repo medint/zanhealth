@@ -13,22 +13,22 @@
 
       <div id="action-bar">
         <div id="field-box_item-id">      
-          <div class="item-id">Item <%= @bmet_item.id%></div>
+          <div class="item-id"><%= @bmet_item.asset_id %></div>
         </div>
         <div class="bmet_item_condition %>">      
-          CONDITION
+          <%= t(:condition).upcase %>
           <div class="action-bar-box_text">
             <%= f.select :condition, @conditions %>
           </div>
         </div>
         <div class="bmet_item_status bmet_item_status-<%= @bmet_item.try(:status) %>">      
-          STATUS
+          <%= t(:status).upcase %>
           <div class="action-bar-box_text ">
             <%= f.select :status, @status %>
           </div>
         </div>
         <div id="print-button_right"></div>
-        <%= link_to("Create WO", new_bmet_work_order_url, {:class => "create_wo_for_item"}) %>
+        <%= link_to(t(:create_wo).upcase, new_bmet_work_order_url, {:class => "create_wo_for_item"}) %>
         <div class="action_submit">
           <%= f.submit t(:save).titlecase%>
         </div>
@@ -93,6 +93,11 @@
             <td><%= t(:price).capitalize %></td>
             <td><%= f.number_field :price %></td>
           </tr>
+          <tr>
+            <td><%= t(:notes).titlecase %></td>
+            <td><%= f.text_area :notes %></td>
+          </tr>
+          <tr>
           <tr>
             <td><%= t(:created_at).titlecase %></td>
             <td><%= @bmet_item.created_at.try(:strftime,"%^b %d, %Y") %></td>

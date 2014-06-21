@@ -12,6 +12,7 @@
   <% end %>
   
   <div id="extra-details_cost_name">
+    (<%= link_to "#{t(:new).capitalize} #{t(:cost).capitalize} #{t(:item).capitalize}",  new_bmet_cost_item_path %>)</br>
     <%= f.collection_select(:bmet_cost_item_id, @cost_items, :id, :name, {}, {:class => "chosen-select"}) %>
   </div>
   <div id="extra-details_cost_quantity">
@@ -19,7 +20,7 @@
     <%= f.number_field :unit_quantity, :required => true, :placeholder => t(:quantity).capitalize %>
   </div>
   <div id="extra-details_cost_amount">
-    <%= f.input_field :cost, :as => "decimal", :required => true, :placeholder => t(:cost).capitalize %>
+    <%= f.input_field :cost, :as => "decimal", :required => true, :placeholder => t(:unit_cost).capitalize %>
   </div>
  
   <div class="field">

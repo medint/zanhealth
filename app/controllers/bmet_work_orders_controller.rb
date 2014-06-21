@@ -1,10 +1,12 @@
 class BmetWorkOrdersController < ApplicationController
   layout 'layouts/bmet_app'
-  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all]
+  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all, :show_print]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
-  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all, :show_print]
+  before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
@@ -15,7 +17,7 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-  	  
+
   end
 
   def hidden
@@ -37,17 +39,21 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
   end
 
   def show_hidden
 	@bmet_work_order_comments = BmetWorkOrderComment.where(bmet_work_order_id:params[:id])
     @bmet_work_order_comment = BmetWorkOrderComment.new
-    @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
+    @bmet_costs = BmetCost.where(bmet_work_order_id: params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
@@ -56,15 +62,17 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order_comment = BmetWorkOrderComment.new
     @bmet_costs = BmetCost.where(bmet_work_order_id:params[:id])
     @bmet_cost = BmetCost.new
+    @bmet_costs_sum = BmetCost.where(bmet_work_order_id:params[:id]).sum("unit_quantity * cost")
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
+    @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
     render "show"
   end
 
   # GET /bmet_work_orders/new
   def new
     @bmet_work_order = BmetWorkOrder.new
-    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility)
+    @items = BmetItem.includes(:department => :facility).where("facilities.id=?",current_user.facility.id).references(:facility).order(:asset_id)
     if request.referer
       link = request.referer.split("/")[-2]
       if link == "bmet_items"
@@ -159,6 +167,13 @@ class BmetWorkOrdersController < ApplicationController
   	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",user.facility).references(:facility)
   end
 
+  def show_print
+    @status= ['Active', 'Inactive', 'Retired']
+    @conditions = ['Poor', 'Fair', 'Good', 'Very Good']        
+    render 'print_view', layout: 'blank'
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -187,15 +202,15 @@ class BmetWorkOrdersController < ApplicationController
     end
 
     def set_cost_items
-      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).all.to_a
+      @cost_items = BmetCostItem.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility.id).all.to_a
+      @users = User.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility.id).order(:name).all.to_a
     end
 
     def set_status
@@ -203,6 +218,24 @@ class BmetWorkOrdersController < ApplicationController
         'Unstarted' => 0,
         'In Progress' => 1,
         'Completed' => 2
+      }
+    end
+
+    def set_priorities
+      @priorities = {
+        'Urgent' => 0,
+        'High' => 1,
+        'Medium' => 2,
+        'Low' => 3
+      }
+    end
+
+    def set_priorities_hash
+      @priorities_hash = {
+        0 => 'Urgent',
+        1 => 'High',
+        2 => 'Medium',
+        3 => 'Low',
       }
     end
 

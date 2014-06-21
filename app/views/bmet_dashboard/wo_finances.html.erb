@@ -8,12 +8,17 @@ google.setOnLoadCallback(drawChart);
 </script>
 <%=render 'navigation'%>
 <div id='dashboard'>
+	<div id="dashboard-forms-ajax">
+		<%=render 'timeAjax'%>
+	</div>
+	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
+	<div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">
 			<tr>
-				<th><%=t(:work_order).titlecase %></th>
-				<th><%=t(:department).capitalize%></th>
+				<th><%=t(@category).titlecase %></th>
+				<th><%=t(:work_order).capitalize%></th>
 				<th><%=t(:cost).capitalize%></th>
 			</tr>
 			<% @work_orders_json.each do |department_name,value| %>

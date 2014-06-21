@@ -135,15 +135,15 @@ class BmetPreventativeMaintenancesController < ApplicationController
     end
 
     def set_users
-      @users = User.where(:facility_id => current_user.facility_id).all.to_a
+      @users = User.where(:facility_id => current_user.facility_id).order(:name).to_a
     end
 
     def set_departments
-      @departments = Department.where(:facility_id => current_user.facility_id).all.to_a
+      @departments = Department.where(:facility_id => current_user.facility_id).order(:name).to_a
     end
 
     def set_items
-      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility)
+      @items = BmetItem.includes(:bmet_model, {:department => :facility}) .where("facilities.id=?",current_user.facility_id).references(:facility).order(:asset_id)
     end
 
     def set_bmet_preventative_maintenance

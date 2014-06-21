@@ -28,60 +28,60 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
        <div>
-       <a onclick = "sort_by_date_desc_created()">
-        <%= t(:date_created).titlecase %>
-       </a>
+         <a onclick = "attrsort('datecreated', 'desc')">
+          <%= t(:date_created).titlecase %>
+         </a>
        </div>
        <div>
-       <a onclick = "sort_by_date_desc('datestarted')">
-        <%= t(:date_started).titlecase %>
-       </a>
+         <a onclick = "attrsort('datestarted', 'desc')">
+          <%= t(:date_started).titlecase %>
+         </a>
        </div>
        <div>
-       <a onclick = "sort_by_date_asc('expirydate')">
-        <%= t(:date_expires).titlecase %>
-       </a>
+         <a onclick = "attrsort('expirydate', 'asc')">
+          <%= t(:date_expires).titlecase %>
+         </a>
        </div>
        <div>
-       <a onclick = "sort_by_name('requester')">
-        <%=t(:requester).capitalize%>
-       </a>
+         <a onclick = "sort_by_num('priority')">
+          <%=t(:priority).capitalize%>
+         </a>
        </div>
        <div>
-       <a onclick = "sort_by_name('owner')">
-        <%=t(:owner).capitalize%>
-       </a>
+         <a onclick = "sort_by_name('owner')">
+          <%=t(:owner).capitalize%>
+         </a>
        </div>
        <div>
-       <a onclick = "sort_by_num('status')">
-        <%=t(:status).capitalize%>
-       </a>
+         <a onclick = "sort_by_num('status')">
+          <%=t(:status).capitalize%>
+         </a>
        </div>
 
       </ul>
 
     </div>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-	<%= "View:" %>
+	<%= "#{t(:view).capitalize}" %>
 	<div class="dropdown">
 		<a id="facworkorder_view" role="button" data-toggle="dropdown" href="#">
-			Select View:
+			<%= "#{t(:select).capitalize} #{t(:view).capitalize}:" %>
 			<b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_view">
 			<div>
 				<a href="<%= bmet_work_orders_url+'/unhidden' %>">
-					Visible Work Orders
+          <%= "#{t(:visible).capitalize} #{t(:work_orders).titlecase}" %>
 				</a>
 			</div>
 			<div>
 				<a href="<%= bmet_work_orders_url+'/hidden' %>">
-					Hidden Work Orders
+					<%= "#{t(:hidden).capitalize} #{t(:work_orders).titlecase}" %>
 				</a>
 			</div>
 			<div>
 				<a href="<%= bmet_work_orders_url+'/all' %>">
-					All Work Orders
+					<%= "#{t(:all).capitalize} #{t(:work_orders).titlecase}" %>
 				</a>
 			</div>
 		</ul>

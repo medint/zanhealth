@@ -18,7 +18,6 @@ class TextsController < ApplicationController
   end
   
   def receive
-    puts "Hello, logs!"
 	message_body = params["Body"]
     from_number = params["From"]
 	message = message_body.split("#")

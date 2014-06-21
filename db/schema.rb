@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611185700) do
+ActiveRecord::Schema.define(version: 20140620213608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "updated_at"
     t.integer  "bmet_work_order_id"
     t.integer  "work_request_id"
-    t.decimal  "cost",               precision: 5, scale: 2
+    t.decimal  "cost",               precision: 12, scale: 2
     t.integer  "bmet_cost_item_id"
   end
 
@@ -62,20 +62,21 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "asset_id"
-    t.string   "item_type"
     t.string   "location"
     t.integer  "status"
     t.integer  "condition"
     t.decimal  "price",             precision: 5, scale: 2
+    t.string   "short_url_key"
+    t.string   "notes"
   end
 
   create_table "bmet_labor_hours", force: true do |t|
     t.datetime "date_started"
-    t.integer  "duration"
     t.integer  "technician_id"
     t.integer  "bmet_work_order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "duration",           precision: 8, scale: 3
   end
 
   create_table "bmet_models", force: true do |t|
@@ -86,9 +87,11 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "updated_at"
     t.string   "category"
     t.integer  "facility_id"
+    t.integer  "item_group_id"
   end
 
   add_index "bmet_models", ["facility_id"], name: "index_bmet_models_on_facility_id", using: :btree
+  add_index "bmet_models", ["item_group_id"], name: "index_bmet_models_on_item_group_id", using: :btree
 
   create_table "bmet_needs", force: true do |t|
     t.string   "name"
@@ -152,6 +155,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "deleted_at"
     t.integer  "pm_origin_id"
     t.integer  "wr_origin_id"
+    t.integer  "priority"
   end
 
   add_index "bmet_work_orders", ["deleted_at"], name: "index_bmet_work_orders_on_deleted_at", using: :btree
@@ -170,6 +174,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.integer  "wo_convert_id"
     t.datetime "converted_at"
     t.string   "asset_id"
+    t.boolean  "unread"
   end
 
   add_index "bmet_work_requests", ["deleted_at"], name: "index_bmet_work_requests_on_deleted_at", using: :btree
@@ -202,7 +207,7 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "facility_work_order_id"
-    t.decimal  "cost",                   precision: 5, scale: 2
+    t.decimal  "cost",                   precision: 12, scale: 2
     t.integer  "facility_cost_item_id"
   end
 
@@ -286,6 +291,15 @@ ActiveRecord::Schema.define(version: 20140611185700) do
 
   add_index "facility_work_requests", ["deleted_at"], name: "index_facility_work_requests_on_deleted_at", using: :btree
 
+  create_table "item_groups", force: true do |t|
+    t.string   "name"
+    t.integer  "facility_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_groups", ["facility_id"], name: "index_item_groups_on_facility_id", using: :btree
+
   create_table "languages", force: true do |t|
     t.string   "english"
     t.string   "swahili"
@@ -347,6 +361,8 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.integer  "use_count",             default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_token"
+    t.string   "asset_id"
   end
 
   add_index "shortened_urls", ["owner_id", "owner_type"], name: "index_shortened_urls_on_owner_id_and_owner_type", using: :btree
@@ -365,7 +381,6 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.string  "department_name"
     t.decimal "price"
     t.string  "asset_id"
-    t.string  "item_type"
     t.string  "location"
     t.string  "model_name"
     t.string  "manufacturer_name"
@@ -373,6 +388,9 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.string  "status"
     t.string  "condition"
     t.integer "facility_id"
+    t.string  "short_url_key"
+    t.string  "notes"
+    t.string  "category"
   end
 
   create_table "staging_models", force: true do |t|
@@ -380,6 +398,8 @@ ActiveRecord::Schema.define(version: 20140611185700) do
     t.string  "manufacturer_name"
     t.string  "vendor_name"
     t.integer "facility_id"
+    t.string  "item_group"
+    t.string  "category"
   end
 
   create_table "texts", force: true do |t|

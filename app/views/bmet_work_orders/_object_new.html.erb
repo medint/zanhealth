@@ -25,6 +25,12 @@
           </div>
       </div>
       <div class="field-box">
+          <div class="field-type"><%= t(:priority).capitalize %></div>
+          <div class="field-info">
+            <%= f.select :priority, @priorities, :required => true  %>
+          </div>
+      </div>  
+      <div class="field-box">
           <div class="field-type"><%= t(:status).capitalize %></div>
           <div class="field-info">
             <%= f.select :status, @status, :required => true  %>

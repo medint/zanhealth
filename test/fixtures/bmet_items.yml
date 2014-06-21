@@ -13,13 +13,14 @@ one:
   service_agent: MyString
   department: one
   location: MyString
-  item_type: 1
   price: 1.0
   status: 0
   condition : 0
+  notes: MyText
+  short_url_key: MyString
 
 two:
-  asset_id: 1
+  asset_id: 2
   bmet_model: two
   serial_number: MyString
   year_manufactured: 1
@@ -31,5 +32,8 @@ two:
   service_agent: MyString
   department: two
   location: MyString
-  item_type: 1
   price: 1.0
+  status: 0
+  condition: 0
+  notes: MyText
+  short_url_key: MyString

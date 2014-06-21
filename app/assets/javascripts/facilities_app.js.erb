@@ -43,8 +43,7 @@ window.addEventListener('page:change', function(){
 //if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/facility_preventative_maintenances/) || window.location.toString().match(/facility_work_requests/) || window.location.toString().match(/bmet_work_orders/)) 
 
 $(document).on ("page:change",function() {
-	if (!(window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) )) {
-	
+	if (!(window.location.toString().match(/sign_in/) || window.location.toString().match(/users/) || window.location.toString().match(/public/) || window.location.toString().match(/dashboard/) || window.location.toString().match(/settings/) || window.location.toString().match(/admin/) )) {
 		/* define variables */
 		
 		/* window resizing */
@@ -71,7 +70,7 @@ $(document).on ("page:change",function() {
 
 // 		var cbutton = document.getElementById("convert-button");
 // 		if(cbutton.attachEvent) {
-// 			(cbutton).attachEvent('onclick', show_convert_div);
+// 			(cbutnoneDashboardDropdown('items_down_percent')ton).attachEvent('onclick', show_convert_div);
 // 		}else if(cbutton.addEventListener) {
 // 			(cbutton).addEventListener('click', show_convert_div, true);
 // 		}	
@@ -102,8 +101,12 @@ function window_resize_handler(){
 	
 	/* width */
 	var col_size = ((window_width-240)/2 -1)
-	mid_summary.style.width = col_size; //1px is vertical divider
-	right_detail.style.width = col_size;
+	if(mid_summary){
+		mid_summary.style.width = col_size; //1px is vertical divider
+	}
+	if(right_detail){
+		right_detail.style.width = col_size;
+	}
 	
 	$('.mid-summary_ul_li').css("width", col_size);
 	$('.mid-summary_ul_li_hr').css("width", col_size);
@@ -170,102 +173,7 @@ function checkbox_filter_handler(){
 
 };
 
-function sort_by_date_desc_created(){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = [];
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
- 		var dateA=parseFloat(a[0].getAttribute("datecreated"));
- 		var dateB=parseFloat(b[0].getAttribute("datecreated"));
-		if (dateA < dateB) {
-  			return 1;
-  		}
- 		if (dateA > dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_date_desc(attr){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = new Array();
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
-		if (a[0].getAttribute(attr) == "") {
-			var dateA = 0;
-		}
-		else {
-			var dateA = parseFloat(a[0].getAttribute(attr));
-		}
- 		if (b[0].getAttribute(attr) == "") {
- 			dateB = 0;
- 		}
- 		else {
- 			var dateB = parseFloat(b[0].getAttribute(attr));
- 		}
-		if (dateA < dateB) {
-  			return 1;
-  		}
- 		if (dateA > dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_date_asc(attr){
-	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
-	var nodeArray = new Array();
-	for (var i = 0; i < list_to_sort.length; i++) {
-		nodeArray[i] = new Array();
-    	nodeArray[i][0] = list_to_sort[i].cloneNode(true);
-    	nodeArray[i][1] = list_to_sort[i].parentNode.cloneNode(true);
-	}
-	nodeArray.sort(function(a,b) {
-		if (a[0].getAttribute(attr) == "") {
-			var dateA = 0;
-		}
-		else {
-			var dateA = parseFloat(a[0].getAttribute(attr));
-		}
- 		if (b[0].getAttribute(attr) == "") {
- 			dateB = 0;
- 		}
- 		else {
- 			var dateB = parseFloat(b[0].getAttribute(attr));
- 		}
-		if (dateA > dateB) {
-  			return 1;
-  		}
- 		if (dateA < dateB) {
-  			return -1;
-  		}
- 		return 0;
-	});
-	for (var i = 0; i < nodeArray.length; i++){
-		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
-		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
-	}
-}
-
-function sort_by_name(attr){
+function attrsort(attr, order){// Order can either be 'asc' or 'desc'
 	var list_to_sort = document.getElementById("mid-summary_ul").getElementsByTagName("li");
 	var nodeArray = new Array();
 	for (var i = 0; i < list_to_sort.length; i++) {
@@ -276,10 +184,16 @@ function sort_by_name(attr){
 	nodeArray.sort(function(a,b) {
  		var reqA=a[0].getAttribute(attr).toLowerCase(), reqB=b[0].getAttribute(attr).toLowerCase()
  		if (reqA < reqB) {
-  			return -1;
+ 			if (order == 'desc') {
+  				return -1; }
+  			else {
+  				return 1; }
   		}
  		if (reqA > reqB) {
-  			return 1;
+ 			if (order == 'desc') {
+  				return 1; }
+  			else {
+  				return -1; }
   		}
  		return 0;
 	});
@@ -305,6 +219,29 @@ function sort_by_num(attr){
 	for (var i = 0; i < nodeArray.length; i++){
 	 	list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
 	 	list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
+	}
+}
+
+function printitemsort(attr){
+	var list_to_sort = document.getElementsByTagName("tr");
+	var nodeArray = new Array();
+	for (var i = 0; i < list_to_sort.length; i++) {
+		nodeArray[i] = list_to_sort[i].cloneNode(true);
+	}
+	console.log(nodeArray)
+	nodeArray.sort(function(a,b) {
+ 		var reqA=a.getAttribute(attr).toLowerCase(), reqB=b.getAttribute(attr).toLowerCase()
+ 		if (reqA < reqB) {
+ 			return -1;
+  		}
+ 		if (reqA > reqB) {
+ 			return 1;
+
+  		}
+ 		return 0;
+	});
+	for (var i = 0; i < nodeArray.length; i++){
+		list_to_sort[i].parentNode.replaceChild(nodeArray[i], list_to_sort[i]);
 	}
 }
 
@@ -362,9 +299,35 @@ function drawChart() {
 
 
 	// Set chart options
-	var options = {'title':'Costs by Department',
-	             'width':600,
-	             'height':400};
+	var options = {'width':600,
+	             'height':400
+	             };
+
+	if (window.location.toString().match('/bmet_dashboard/wo_finances/item')) {
+ 		options['legend']={position: 'none'}
+ 	}
+
+	// Instantiate and draw our chart, passing in some options.
+	var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+
+function drawItemChart() {
+	var unparsedText=$("#percents-text").text()
+	var splittext=unparsedText.split(' ')
+	var down= +splittext[0]
+	var up= +(splittext[3]-splittext[0])
+
+	var data = google.visualization.arrayToDataTable([
+          ['State', 'number'],
+          ['Down',     down],
+          ['Up',     up]
+        ])
+	// Set chart options
+	var options = {'width':600,
+	             'height':400
+	             };
+
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -387,8 +350,8 @@ function drawLaborChart() {
 
 
 	// Set chart options
-	var options = {'title':'Hours by Technician',
-	             'width':700,
+	var options = {
+	             'width':1000,
 	             'height':500};
 
 	// Instantiate and draw our chart, passing in some options.
@@ -399,10 +362,13 @@ function drawLaborChart() {
 function drawStatusChart() {
 
 	// Create the data table.
+	var theData={}
+	theData['dates']=getDatesDashboard();
 
 	var jsonData = $.ajax({
-          url: $("#params_to_send").text(),
+          url: location.pathname+'_ajax',
           dataType:"json",
+          data: theData,
           async: false
           }).responseText;
 
@@ -410,11 +376,14 @@ function drawStatusChart() {
 	var data = new google.visualization.DataTable(jsonData);
 
 	// Set chart options
-	var options = {'title':'Status Over Time',
-	             'width':700,
+	var options = {'width':700,
 	             'height':500,
 	         	'isStacked':true,
-	         	colors:['#e9593e','#ffc207','#55aa2b']};
+	         	'colors':['#e9593e','#ffc207','#55aa2b']};
+
+ 	if (window.location.toString().match('/bmet_dashboard/status/wo_department') || window.location.toString().match('/bmet_dashboard/status/wo_owner')) {
+ 		delete options['colors']
+ 	}
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
@@ -469,10 +438,10 @@ function drawCalendarChart() {
 }
 
 $(document).on ("page:change",function() {
-	if (window.location.toString().match(/facility_dashboard/)) {
+	if (window.location.toString().match(/bmet_dashboard/) && !window.location.toString().match('/bmet_dashboard/')) {
 		var container = document.getElementById('visualization');
 		var myjsonobj = $.ajax({
-          url: $("#params_to_send3").text(),
+          url: '/bmet_dashboard/timelineAjax',
           dataType:"json",
           async: false
           }).responseText;
@@ -489,7 +458,9 @@ $(document).on ("page:change",function() {
       			return a.value - b.value;
       		},
       		showMajorLabels: true,
-      		showMinorLabels: true    		 
+      		showMinorLabels: true,
+      		showCurrentTime: true,
+      		showCustomTime:true    		 
     	}
 		var parsedjson=jQuery.parseJSON(myjsonobj);
 		var items=parsedjson[0];
@@ -513,17 +484,83 @@ function facility_wo_expire(){
 	// Create the data table.
 	
 
-// Set a callback to run when the Google Visualization API is loaded.
+	// Set a callback to run when the Google Visualization API is loaded.
 	google.setOnLoadCallback(drawStatusChart());
 	console.log('testing')
+	var theData={}
+	theData['dates']=getDatesDashboard();
+
 
 	var htmlData = $.ajax({
-          url: $("#params_to_send2").text(),
+          //url: $("#params_to_send2").text(),
+          url: '/facility_dashboard/statusExpireAjaxhtml',
+          data: theData,
           dataType:"html",
           async: false
           }).responseText;
 
 	$('#dashboard_results_div').html(htmlData);
+}
 
+function getDatesDashboard(){
+	if ($("#date_div").text().length > 3) {
+		var unparsedDate=$("#date_div").text();
+		var dateArray=unparsedDate.split('-');
+		var start_date=new Date(dateArray[0]);
+		var end_date=new Date(dateArray[1]);
+	} else{
+		start_date=new Date()
+		end_date=new Date()
+	}
+	var formattedDate={};
+	formattedDate['start_date(1i)']=start_date.getFullYear();
+	formattedDate['start_date(2i)']=1+start_date.getMonth();
+	formattedDate['start_date(3i)']=start_date.getDate();
+	formattedDate['end_date(1i)']=end_date.getFullYear();
+	formattedDate['end_date(2i)']=1+end_date.getMonth();
+	formattedDate['end_date(3i)']=end_date.getDate();
+
+	return formattedDate
 
 }
+
+function timeDashboardDropdown(action, description){
+
+	var theParams={submit_action: action};
+	theParams['dates']=getDatesDashboard();
+	theParams['submit_description']= description
+	var htmlData = $.ajax({
+          url: '/bmet_dashboard/timeDropdownAjax',
+          data: theParams,
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard-forms-ajax').html(htmlData);
+}
+
+function noneDashboardDropdown(action, description){
+	var theParams={submit_action: action};
+	theParams['submit_description']= description
+	var htmlData = $.ajax({
+          url: '/bmet_dashboard/noneDropdownAjax',
+          data: theParams,
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard-forms-ajax').html(htmlData);
+}
+
+$(document).on ("page:change",function() {
+	if (window.location.toString().match('/bmet_dashboard/')){
+		var theData={}
+		theData['dates']=getDatesDashboard();
+		params=jQuery.param(theData);
+		$("#language-icons").children().each( function() {
+			$(this).attr('href',$(this).attr('href')+'&'+params)
+		})
+	}
+	if (window.location.toString().match('/bmet_dashboard/status/wo_completed')) {
+	}
+})

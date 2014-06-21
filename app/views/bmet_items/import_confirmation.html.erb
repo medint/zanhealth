@@ -7,17 +7,18 @@
 			<th>Year Manufactured</th>
 			<th>Funding</th>
 			<th>Date Received</th>
-			<th>Warranty Expiration</th>
+			<th>Warranty Expire</th>
 			<th>Warranty Notes</th>
-			<th>Contract Expiration</th>
+			<th>Contract Expire</th>
 			<th>Service Agent</th>
 			<th>Price</th>
 			<th>Asset ID</th>
-			<th>Item Type</th>
 			<th>Status</th>
 			<th>Condition</th>
 			<th>Location</th>
 			<th>Department</th>
+			<th>Notes</th>
+			<th>URL</th>
 		</tr>
 		<% items_table = StagingItem.get_matches(@facility_id) %>
 		<% items_table.each do |row| %>
@@ -30,8 +31,8 @@
 						<% elsif cell[1] == 'error' %>
 							<% class_type = 'error_cell' %>
 						<% end %>
-						<td class = <%=class_type%> ><%= cell[0] %></td>
-					<% end %>
+						<td class = <%=class_type%> ><div class = "import_cell"><%= cell[0] %></div></td>
+				<% end %>
 		<% end %>
 	</table>
 			<table class = "import_confirmation_table">
@@ -39,6 +40,8 @@
 				<th> Model Name </th>
 				<th> Manufacturer Name </th>
 				<th> Vendor Name </th>
+				<th> Category </th>
+				<th> Item Group </th>
 			</tr>
 			<% models_table = StagingModel.get_matches(@facility_id) %>
 			<% models_table.each do |row| %>
@@ -48,8 +51,10 @@
 							<% class_type = 'unchanged_cell' %>
 						<% elsif cell[1] == 'changed' %>
 							<% class_type = 'changed_cell' %>
+						<% elsif cell[1] == 'error' %>
+							<% class_type = 'error_cell' %>
 						<% end %>
-						<td class = <%=class_type%>><%= cell[0] %></td>
+						<td class = <%=class_type%>><div class = "import_cell"><%= cell[0] %></div></td>
 					<% end %>
 				</tr>
 			<% end %>
@@ -57,7 +62,7 @@
  	<br>
  	<div class = 'import_button'>
   	<%= button_to	 "Confirm Import", '/bmet_items_import'  %>
-		<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
+	<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
 	</div>
 
 <br>

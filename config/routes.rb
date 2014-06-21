@@ -1,6 +1,8 @@
 Zanhealth::Application.routes.draw do
 
 
+  resources :item_groups
+
   # general
   resources :departments
   resources :facilities
@@ -33,7 +35,7 @@ Zanhealth::Application.routes.draw do
   
   #facilities app
   resources :facility_work_orders, except: :show do
-  	  collection { get :search }
+      collection { get :search }
   end
   resources :facility_work_order_comments
   resources :facility_costs
@@ -46,6 +48,8 @@ Zanhealth::Application.routes.draw do
   end
   resources :facility_cost_items
   
+  get "/", to: "bmet_work_orders#index"
+
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
   get "/facility_work_orders/download", to: "facility_work_orders#as_csv"
@@ -59,6 +63,8 @@ Zanhealth::Application.routes.draw do
   get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
   post "/bmet_items_import", to: "bmet_items#import"
   post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
+  get "/bmet_items_main_list_print_view", to: "bmet_items#show_main_list_print"
+  get "/bmet_items_main_list_print_view_by_department", to: "bmet_items#show_main_list_print_by_department"
 
   #dashboard
   
@@ -76,7 +82,28 @@ Zanhealth::Application.routes.draw do
   get "/bmet_dashboard/status", to: "bmet_dashboard#status"
   get "/bmet_dashboard/wo_finances", to: "bmet_dashboard#wo_finances"
   get "/bmet_dashboard/labor_hours", to: "bmet_dashboard#labor_hours"
-  get "/bmet_dashboard/statusAjax", to: "bmet_dashboard#statusAjax"
+  get "/bmet_dashboard/status_ajax", to: "bmet_dashboard#statusAjax"
+  get "/bmet_dashboard/timelineAjax", to: "bmet_dashboard#timelineAjax"
+  get "/bmet_dashboard/status/wo_expire", to: "bmet_dashboard#status"
+  get "/bmet_dashboard/status/wo_completed", to: "bmet_dashboard#statusWoCompleted"
+  get "/bmet_dashboard/status/wo_expire_ajax", to: "bmet_dashboard#statusAjax"
+  get "/bmet_dashboard/status/wo_completed_ajax", to: "bmet_dashboard#statusWoCompletedAjax"
+  get "/bmet_dashboard/status/wo_department", to: "bmet_dashboard#statusWoDepartment"
+  get "/bmet_dashboard/status/wo_department_ajax", to: "bmet_dashboard#statusWoDepartmentAjax"
+  get "/bmet_dashboard/status/wo_owner", to: "bmet_dashboard#statusWoOwner"
+  get "/bmet_dashboard/status/wo_owner_ajax", to: "bmet_dashboard#statusWoOwnerAjax"
+  get "/bmet_dashboard/wo_finances/department", to: "bmet_dashboard#wo_finances"
+  get "/bmet_dashboard/wo_finances/item", to: "bmet_dashboard#wo_finances_item"
+
+  get "/bmet_dashboard/labor_hours/time_worked", to: "bmet_dashboard#labor_hours_time_worked"
+  get "/bmet_dashboard/labor_hours/item", to: "bmet_dashboard#labor_hours_item"
+  get "/bmet_dashboard/labor_hours/work_order", to: "bmet_dashboard#labor_hours_work_order"
+
+  get "/bmet_dashboard/items/percent_down", to: "bmet_dashboard#items_percent_down"
+  get "/bmet_dashboard/items/item_wo_created", to: "bmet_dashboard#items_wo_created"
+
+  get "/bmet_dashboard/timeDropdownAjax", to: "bmet_dashboard#timeDropdownAjax"
+  get "/bmet_dashboard/noneDropdownAjax", to: "bmet_dashboard#noneDropdownAjax"
   resources :bmet_dashboard
 
   # hide/unhide features for facility work orders
@@ -116,6 +143,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_work_orders/hidden/:id", to: "bmet_work_orders#show_hidden"
   get "/bmet_work_orders/all", to: "bmet_work_orders#all"
   get "/bmet_work_orders/all/:id", to: "bmet_work_orders#show_all"
+  get "/bmet_work_orders/print_view/:id", to: "bmet_work_orders#show_print"
 
   # hide /unhide feature for bmet_work_request
   put "hide_bmet_work_request/:id", to: "bmet_work_requests#hide", :as => :hide_bmet_work_request
@@ -152,13 +180,16 @@ Zanhealth::Application.routes.draw do
   get "/settings", to: "settings#index"
   post "/settings/create_user", to: "settings#create_user"
   post "/settings/create_department", to: "settings#create_department"
+  post "/settings/create_item_group", to: "settings#create_item_group"
   post "/settings/update_user", to: "settings#update_user"
+
     
   get "/admin", to: "admin#index"
   get "/admin/print_tags_form", to: "admin#print_tags_form"
-  get "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
-  get "admin/facilities", to: "admin#facilities"
-  get "admin/facility_users/:facility_id", to: "admin#facility_users"
+  post "/admin/generate_tags_pdf", to: "admin#generate_tags_pdf"
+  get "/admin/facilities", to: "admin#facilities"
+  get "/admin/facility_users/:facility_id", to: "admin#facility_users"
+  post "/admin/create_user", to: "admin#create_user"
 
   get '/404', :to => redirect('/404.html')
   root to: "bmet_work_orders#index"

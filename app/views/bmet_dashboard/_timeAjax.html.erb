@@ -1,0 +1,12 @@
+<%= simple_form_for :dates, { url: url_for(:action => @action, :controller => 'bmet_dashboard'), method: 'get'} do |f| %>
+	<div id="dashboard-dates">
+		<%=t(@description)%>
+		<%= f.input :start_date, as: :date, start_year: Date.today.year - 12,
+                      end_year: Date.today.year + 12, :default => @starting_date %>
+		<%= f.input :end_date, as: :date, start_year: Date.today.year - 12,
+                      end_year: Date.today.year + 12, :default => @ending_date %>
+	</div>
+	<div id="dashboard-submit-div">
+	    <%= f.button :submit, "submit", :class => "dashboard-submit" %>
+	</div>
+<% end %>

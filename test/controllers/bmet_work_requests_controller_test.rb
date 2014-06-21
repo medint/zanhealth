@@ -78,4 +78,23 @@ class BmetWorkRequestsControllerTest < ActionController::TestCase
 
     assert_redirected_to bmet_work_requests_path+"/unhidden/"
   end
+
+  test "should be unread then read" do
+    get :create, bmet_work_request:{ department:"Infectious Disease and Biological Warfare Research Lab", 
+                               description:"Jason forgot to lock the lab rats' cages and now they're all missing",
+                               email:"help@so.screwed", 
+                               location:"CIT 4/F",
+                               phone: "0000000000",
+                               requester:"Alan",
+                               }
+    wr = BmetWorkRequest.find_by_requester("Alan")
+    assert_equal true, wr.unread
+
+    put :show, id: wr
+
+    wr = BmetWorkRequest.find_by_requester("Alan")
+    assert_equal false, wr.unread
+
+  end
+
 end

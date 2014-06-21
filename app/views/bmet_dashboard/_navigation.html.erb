@@ -3,28 +3,105 @@
 	<div id="dashboard-header">
 
 
-		<%= simple_form_for :dates, { url: url_for(:action => 'status', :controller => 'bmet_dashboard'), method: 'get'} do |f| %>
-			<div id="dashboard-header-title">
+		<div id="dashboard-header-title">
 				Clinical Administrator Dashboard
 			</div>
 
-			<div id="dashboard-dates">
-				<%= f.input :start_date, as: :date, start_year: Date.today.year - 12,
-                              end_year: Date.today.year + 12, :default => @starting_date %>
-				<%= f.input :end_date, as: :date, start_year: Date.today.year - 12,
-                              end_year: Date.today.year + 12, :default => @ending_date %>
-			</div>
-
 			<div id="dashboard-submit-div">
-			    <%= f.button :submit, "Statuses", :id => "status-submit", :class => "dashboard-submit" %>
-				<%= f.button :submit, "Finances", :id => "wo_finances-submit", :class => "dashboard-submit" %>
-					<%= f.button :submit, "Labor Hours", :id => "labor_hours-submit", :class => "dashboard-submit" %>
-			</div>
-		<% end %>
-
-
-
+				<div class="dropdown dashboard-submit btn" id = "dashboard-dropdown">
+			      	<div id="status-sort" role="button" data-toggle="dropdown" href="#">
+			          	<%= t(:work_order).titlecase %>
+			          	<b class="caret"></b>
+			      	</div>
+	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+	         			<div>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('status','expire')">
+		          				<%= t(:expire).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoCompleted','completed')">
+	          					<%= t(:completed).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoDepartment','department')">
+	          					<%= t(:department).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoOwner','owner')">
+	          					<%=t(:owner).capitalize%>
+	         				</a>
+	         			</div>
+	      			</ul>
+    			</div>
+    			<div class="dropdown dashboard-submit btn" id = "dashboard-dropdown">
+			      	<div id="status-sort" role="button" data-toggle="dropdown" href="#">
+			          	<%= t(:finances).titlecase %>
+			          	<b class="caret"></b>
+			      	</div>
+	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+	         			<div>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances','department')">
+		          				<%= t(:department).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances_item','item')">
+	          					<%= t(:item).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</ul>
+    			</div>
+    			<div class="dropdown dashboard-submit btn" id = "dashboard-dropdown-laborhours">
+			      	<div id="status-sort" role="button" data-toggle="dropdown" href="#">
+			          	<%= t(:labor_hours).titlecase %>
+			          	<b class="caret"></b>
+			      	</div>
+	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+	         			<div>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_work_order','work_order')">
+		          				<%= t(:work_order).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_time_worked','time_worked')">
+	          					<%= t(:time_worked).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours','technician')">
+	          					<%= t(:technician).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_item','item')">
+	          					<%= t(:item).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</ul>
+    			</div>
+    			<div class="dropdown dashboard-submit btn" id = "dashboard-dropdown-items">
+			      	<div id="status-sort" role="button" data-toggle="dropdown" href="#">
+			          	<%= t(:items).titlecase %>
+			          	<b class="caret"></b>
+			      	</div>
+	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
+	         			<div>
+		         			<a class="dropdown-ele" onclick = "noneDashboardDropdown('items_percent_down','currently_down')">
+		          				<%= t(:currently_down).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('items_wo_created','work_order')">
+	          					<%= t(:work_order).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</ul>
+    			</div>
+    		</div>
 
 	</div>
-
 </div>
+
