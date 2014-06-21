@@ -8,6 +8,7 @@
 #  vendor_name       :string(255)
 #  facility_id       :integer
 #  item_group        :string(255)
+#  category          :string(255)
 #
 
 class StagingModel < ActiveRecord::Base

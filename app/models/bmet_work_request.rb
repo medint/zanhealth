@@ -16,6 +16,7 @@
 #  wo_convert_id :integer
 #  converted_at  :datetime
 #  asset_id      :string(255)
+#  unread        :boolean
 #
 
 class BmetWorkRequest < ActiveRecord::Base
