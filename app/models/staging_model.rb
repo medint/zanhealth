@@ -17,8 +17,14 @@ class StagingModel < ActiveRecord::Base
 		models_array = []
 		staging_models = StagingModel.where(:facility_id => fac_id)
 		staging_models.each do |model|
+
+	      model.model_name = model.model_name ? model.model_name.try(:strip) : ""
+	      model.manufacturer_name = model.manufacturer_name ? model.manufacturer_name.try(:strip) : ""
+	      model.vendor_name = model.vendor_name ? model.vendor_name.try(:strip) : ""
+	      model.category = model.category ? model.category.try(:strip) : ""
+
 			model_row = [[model.model_name], [model.manufacturer_name], [model.vendor_name], [model.category], [model.item_group]]
-			match = BmetModel.where(:facility_id => fac_id).where("LOWER(model_name) =?", model.model_name).where("LOWER(manufacturer_name) =?", model.manufacturer_name).where("LOWER(vendor_name) =?", model.vendor_name).where("LOWER(category) =?", model.category)[0]
+			match = BmetModel.where(:facility_id => fac_id).where("model_name =?", model.model_name).where("manufacturer_name =?", model.manufacturer_name).where("vendor_name =?", model.vendor_name).where("category =?", model.category)[0]
 			if match
 				model_row.each do |cell|
 					cell.push('unchanged')
