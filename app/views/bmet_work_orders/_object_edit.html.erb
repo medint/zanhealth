@@ -32,11 +32,13 @@
         </div>
       
 
-        <% if @bmet_work_order.destroyed? %>
-          <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
-        <% else %>
-          <%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
-        <% end %>
+		<% if can? :hide, current_user %>
+        	<% if @bmet_work_order.destroyed? %>
+          		<%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Unhide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+        	<% else %>
+          		<%= link_to '', hide_bmet_work_order_path(@bmet_work_order), title:"Hide work order", rel:"tooltip", method: :put, :id => "archive-button_right"%>
+        	<% end %>
+		<% end %>
         
         <%= link_to "", '/bmet_work_orders/print_view/'+@bmet_work_order.id.to_s, :id => "print-button_right" %>        
         <div class="action_submit">
