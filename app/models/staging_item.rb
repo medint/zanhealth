@@ -14,7 +14,6 @@
 #  department_name   :string(255)
 #  price             :decimal(, )
 #  asset_id          :string(255)
-#  item_type         :string(255)
 #  location          :string(255)
 #  model_name        :string(255)
 #  manufacturer_name :string(255)
@@ -24,6 +23,7 @@
 #  facility_id       :integer
 #  short_url_key     :string(255)
 #  notes             :string(255)
+#  category          :string(255)
 #
 
 class StagingItem < ActiveRecord::Base

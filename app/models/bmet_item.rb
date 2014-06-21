@@ -16,7 +16,6 @@
 #  created_at        :datetime
 #  updated_at        :datetime
 #  asset_id          :string(255)
-#  item_type         :string(255)
 #  location          :string(255)
 #  status            :integer
 #  condition         :integer

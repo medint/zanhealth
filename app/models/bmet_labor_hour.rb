@@ -4,11 +4,11 @@
 #
 #  id                 :integer          not null, primary key
 #  date_started       :datetime
-#  duration           :integer
 #  technician_id      :integer
 #  bmet_work_order_id :integer
 #  created_at         :datetime
 #  updated_at         :datetime
+#  duration           :decimal(8, 3)
 #
 
 class BmetLaborHour < ActiveRecord::Base
