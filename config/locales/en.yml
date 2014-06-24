@@ -205,6 +205,7 @@ en:
    time_worked: "time worked"
    time: "time"
    total: "total"
+   total_cost: "total cost"
    unhide: "unhide"
    unit_cost: "unit_cost"
    unstarted: "unstarted"

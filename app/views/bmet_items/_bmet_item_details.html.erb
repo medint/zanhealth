@@ -1,10 +1,12 @@
-<!--fill in with names of boxes-->
-<div id="bmet_item_details">
+<!--styling linked to WO additional details-->
+<div id="object_extra-details">
 
-<!-- Add this in once we have multiple nav things
+
   <ul class="extra-details_nav">
-    <li id ="comment-icon" class="active"><a href="#history" data-toggle="tab">History</a></li>    
-  </ul> -->
+    <li id ="comment-icon" class="active"><a href="#history" data-toggle="tab">Item History</a></li>
+    <li id="cost-icon"><a href="#costs" data-toggle="tab">Costs</a></li>
+    <li id="detail-icon"><a href="#wohistory" data-toggle="tab">Work Order History</a></li>
+  </ul>
 
 
   <!-- Tab panes -->
@@ -19,8 +21,29 @@
         </ul>
       </div>
     </div>
-  </div>
-  <div class="extra-details_form-div">
+
+    <div class = "tab-pane active" id = "costs">
+      <div class = "extra-details_content">
+        <div class = "extra-details_title">
+          <%= t(:costs).capitalize %>
+        </div>
+        <ul id = "bmet_item_history_ul">
+          <%= render 'bmet_item_costs' %>
+        </ul>
+      </div>
+    </div>
+
+    <div class = "tab-pane active" id = "wohistory">
+      <div class = "extra-details_content">
+        <div class = "extra-details_title">
+          <%= t(:work_order).titlecase + " " + t(:history).capitalize %>
+        </div>
+        <ul id = "bmet_item_history_ul">
+          <%= render 'bmet_item_wo_history' %>
+        </ul>
+      </div>
+    </div>
+
   </div>
 
 </div>
