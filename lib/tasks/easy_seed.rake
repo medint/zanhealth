@@ -189,7 +189,7 @@ namespace :test do
 				role_eng = roles.find {|r| r.name == "bmet_tech" }
 				users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 				rel_depts = depts.select { |d| d.facility_id == f.id }
-				1.times do |wr|
+				rand(1).times do |wr|
 					date_base = Time.now
 					work_req = BmetWorkOrder.create(:date_requested => date_base - 60*60*24*(rand(15..20)),
 														  :date_expire => date_base + 60*60*24*(rand(15..20)),
@@ -214,20 +214,20 @@ namespace :test do
 														  :comment_text => Faker::Lorem.sentence(word_count = rand(3..10))
 												)
 					end
-					1.times do |txt|
+					rand(1..4).times do |txt|
 						Text.create(:content => "checked item",
 											:number => Faker::PhoneNumber.phone_number,
 											:bmet_work_order => work_req
 									)
 					end
-					1.times do |lb|
+					rand(1..4).times do |lb|
 						BmetLaborHour.create(:date_started => date_base - 60*60*24*(rand(4..9)),
-											 :duration => 1,
+											 :duration => rand(1..4),
 											 :technician => users.sample,
 											 :bmet_work_order => work_req
 											)
 					end
-					1.times do |bmetc|
+					rand(1..4).times do |bmetc|
 						bmet_cost_item = BmetCostItem.create!(:name => Faker::Commerce.product_name,
 															  :facility_id => f.id
 															)
