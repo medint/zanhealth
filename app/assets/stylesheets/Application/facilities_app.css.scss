@@ -205,6 +205,11 @@ input.btn.dashboard-submit {
 	
 }
 
+#left-nav > #left-nav_ul > a > .left-nav_ul_li > #inventory-icon{
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/inventory.png'));
+}
+
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #preventative-maintenance-icon{
 	@extend .left_nav_icon;
 	background-image: url(image_path('left/preventativemaintenance2.png'));	
@@ -218,11 +223,6 @@ input.btn.dashboard-submit {
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #dashboard-icon{
 	@extend .left_nav_icon;
 	background-image: url(image_path('left/dashboard.png'));	
-}
-
-#left-nav > #left-nav_ul > a > .left-nav_ul_li > #inventory-icon{
-	@extend .left_nav_icon;
-	background-image: url(image_path('left/inventory.png'));
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > .wrapper{
