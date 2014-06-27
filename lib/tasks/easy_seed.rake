@@ -189,7 +189,7 @@ namespace :test do
 				role_eng = roles.find {|r| r.name == "bmet_tech" }
 				users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 				rel_depts = depts.select { |d| d.facility_id == f.id }
-				rand(1).times do |wr|
+				1.times do |wr|
 					date_base = Time.now
 					work_req = BmetWorkOrder.create(:date_requested => date_base - 60*60*24*(rand(15..20)),
 														  :date_expire => date_base + 60*60*24*(rand(15..20)),
@@ -352,7 +352,7 @@ namespace :test do
 			role_eng = roles.find {|r| r.name == "bmet_tech" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			20.times do |fpm|
-				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(0..60)),
+				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(0..45)),
 													:days => rand(7),
 													:weeks => rand(3),
 													:months => rand(2),

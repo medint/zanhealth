@@ -1,4 +1,5 @@
-<% @bmet_item.bmet_work_orders.each do |wo| %>
+<% assWOs = @bmet_item.bmet_work_orders.order(:created_at).reverse_order() %>
+<% assWOs.each do |wo| %>
   <div id = "bmet_item_wo_id">
     <%= link_to t(:work_order).titlecase + " " + wo.id.to_s, "/bmet_work_orders/all/"+wo.id.to_s %>
   </div>
