@@ -215,9 +215,19 @@ input.btn.dashboard-submit {
 	background-image: url(image_path('left/preventativemaintenance2.png'));	
 }
 
+#left-nav > #left-nav_ul > a > .left-nav_ul_li > #preventative-maintenance-red-icon{
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/preventativemaintenancered.png'));	
+}
+
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #inbox-icon{
 	@extend .left_nav_icon;
 	background-image: url(image_path('left/workrequest2.png'));	
+}
+
+#left-nav > #left-nav_ul > a > .left-nav_ul_li > #inbox-icon-red{
+	@extend .left_nav_icon;
+	background-image: url(image_path('left/workrequestred.png'));	
 }
 
 #left-nav > #left-nav_ul > a > .left-nav_ul_li > #dashboard-icon{
