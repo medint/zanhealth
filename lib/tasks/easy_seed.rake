@@ -214,20 +214,20 @@ namespace :test do
 														  :comment_text => Faker::Lorem.sentence(word_count = rand(3..10))
 												)
 					end
-					1.times do |txt|
+					rand(1..4).times do |txt|
 						Text.create(:content => "checked item",
 											:number => Faker::PhoneNumber.phone_number,
 											:bmet_work_order => work_req
 									)
 					end
-					1.times do |lb|
+					rand(1..4).times do |lb|
 						BmetLaborHour.create(:date_started => date_base - 60*60*24*(rand(4..9)),
-											 :duration => 1,
+											 :duration => rand(1..4),
 											 :technician => users.sample,
 											 :bmet_work_order => work_req
 											)
 					end
-					1.times do |bmetc|
+					rand(1..4).times do |bmetc|
 						bmet_cost_item = BmetCostItem.create!(:name => Faker::Commerce.product_name,
 															  :facility_id => f.id
 															)
@@ -352,15 +352,21 @@ namespace :test do
 			role_eng = roles.find {|r| r.name == "bmet_tech" }
 			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id }
 			20.times do |fpm|
-				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(-10..6)),
-													:days => 1,
-													:weeks => 0,
-													:months => 0,
+				BmetPreventativeMaintenance.new(:last_date_checked => Time.now-60*60*24*(rand(0..45)),
+													:days => rand(7),
+													:weeks => rand(3),
+													:months => rand(2),
 													:created_at => Time.now - 60*60*24*(rand(6..10)),
 													:requester => users.sample,
 													:description => Faker::Lorem.sentence(word_count = rand(3..10)),
 													:bmet_item => BmetItem.all.sample(1)[0]
 												   ).save
+				randboolean = rand(0..1)
+				if randboolean == 0
+					randboolean = true
+				else
+					randboolean = false
+				end
 				BmetWorkRequest.create(:requester => Faker::Name.name,
 									   :department => depts.sample,
 									   :location => Faker::Lorem.sentence,
@@ -369,7 +375,7 @@ namespace :test do
 									   :created_at => Time.now - 60*60*24*(rand(6..10)),
 									   :facility => f,
 									   :description => Faker::Lorem.sentence(word_count = rand(3..11)),
-									   :unread => true
+									   :unread => randboolean
 									  )
 			end
 		end

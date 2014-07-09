@@ -1,30 +1,21 @@
 username,encrypted_password,role.name,telephone_num,facility.name,language,name
-btechA1,password,"bmet_tech",NULL,"TMJ Hospital",english,BmetTechA1
-ftechA1,password,"fac_tech",NULL,"TMJ Hospital",english,FacTechA1
-btechA2,password,"bmet_tech",NULL,"TMJ Hospital",english,BmetTechA2
-ftechA2,password,"fac_tech",NULL,"TMJ Hospital",english,FacTechA2
-btechB1,password,"bmet_tech",NULL,"Kairuki Hospital",english,BmetTechB1
-ftechB1,password,"fac_tech",NULL,"Kairuki Hospital",english,FacTechB1
-btechB2,password,"bmet_tech",NULL,"Kairuki Hospital",english,BmetTechB2
-ftechB2,password,"fac_tech",NULL,"Kairuki Hospital",english,FacTechB2
-btechC1,password,"bmet_tech",NULL,"Sanitas Hospital",english,BmetTechC1
-ftechC1,password,"fac_tech",NULL,"Sanitas Hospital",english,FacTechC1
-btechC2,password,"bmet_tech",NULL,"Sanitas Hospital",english,BmetTechC2
-ftechC2,password,"fac_tech",NULL,"Sanitas Hospital",english,FacTechC2
-bftechA1,password,"bmet_fac_tech",NULL,"TMJ Hospital",english,BFTechA1
-bftechB1,password,"bmet_fac_tech",NULL,"Kairuki Hospital",english,BFTechB1
-bftechC1,password,"bmet_fac_tech",NULL,"Sanitas Hospital",english,BFTechC1
-chieftechA1,password,"chief",NULL,"TMJ Hospital",english,ChiefTechA1
-chieftechB1,password,"chief",NULL,"Kairuki Hospital",english,ChiefTechB1
-chieftechC1,password,"chief",NULL,"Sanitas Hospital",english,ChiefTechC1
-userAMHA1,password,"finance",NULL,"TMJ Hospital",english,UserAMHA1
-userrBHA1,password,"finance",NULL,"Kairuki Hospital",english,UserBMHA1
-userCMHA1,password,"finance",NULL,"Sanitas Hospital",english,UserCMHA1
-userAD1,password,"admin",NULL,"TMJ Hospital",english,UserAD1
-userBD1,password,"admin",NULL,"Kairuki Hospital",english,UserBD1
-userCD1,password,"admin",NULL,"Sanitas Hospital",english,UserCD1
-userAP1,password,"procurement",NULL,"TMJ Hospital",english,UserAP1
-userBP1,password,"procurement",NULL,"Kairuki Hospital",english,UserBP1
-userCP1,password,"procurement",NULL,"Sanitas Hospital",english,UserCP1
-admin,admin,"admin",NULL,"TMJ Hospital",english,Admin
-bob,password,"chief",NULL,"TMJ Hospital",english,Bob
+btechA1,password,"bmet_tech",1234567890,"TMJ Hospital",english,Sam
+btechA2,password,"bmet_tech",1234567890,"TMJ Hospital",english,Shum
+btechB1,password,"bmet_tech",1234567890,"Kairuki Hospital",english,Alejandro
+btechB2,password,"bmet_tech",1234567890,"Kairuki Hospital",english,Manuel
+btechC1,password,"bmet_tech",1234567890,"Sanitas Hospital",english,Sombrero
+btechC2,password,"bmet_tech",1234567890,"Sanitas Hospital",english,Ay papi
+chieftechA1,password,"chief",1234567890,"TMJ Hospital",english,Alan
+chieftechB1,password,"chief",1234567890,"Kairuki Hospital",english,Yao
+chieftechC1,password,"chief",1234567890,"Sanitas Hospital",english,Sara
+userAMHA1,password,"finance",1234567890,"TMJ Hospital",english,Luke
+userrBHA1,password,"finance",1234567890,"Kairuki Hospital",english,Jayson
+userCMHA1,password,"finance",1234567890,"Sanitas Hospital",english,Nobody
+userAD1,password,"admin",1234567890,"TMJ Hospital",english,Buffalo
+userBD1,password,"admin",1234567890,"Kairuki Hospital",english,Carl
+userCD1,password,"admin",1234567890,"Sanitas Hospital",english,Not important
+userAP1,password,"procurement",1234567890,"TMJ Hospital",english,Melwyn
+userBP1,password,"procurement",1234567890,"Kairuki Hospital",english,Planning hostile takeover
+userCP1,password,"procurement",1234567890,"Sanitas Hospital",english,Does not compute
+admin,admin,"admin",1234567890,"TMJ Hospital",english,Admin
+bob,password,"chief",1234567890,"TMJ Hospital",english,Bob
