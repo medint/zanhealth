@@ -49,9 +49,9 @@ class BmetDashboardController < ApplicationController
 		@first_col=:status
 		@third_col=:expire
 		@third_col_method='date_expire'
-		@chart_title='status over time for work orders by date expire'
+		@chart_title=t(:chart_title_expire)
 		@action='status'
-		@description='expire'
+		@description=t(:chart_title_expire)
 		statusJson(@work_orders, 'status', 0..2)
 	end
 
@@ -60,9 +60,9 @@ class BmetDashboardController < ApplicationController
 		@first_col=:status
 		@third_col=:completed
 		@third_col_method='date_completed'
-		@chart_title='completed work orders over time by date completed'
+		@chart_title=t(:chart_title_statuswocompleted)
 		@action='statusWoCompleted'
-		@description='completed'
+		@description=t(:chart_title_statuswocompleted)
 		statusJson(@work_orders, 'status', 2..2)
 
 		render 'status'
@@ -86,9 +86,9 @@ class BmetDashboardController < ApplicationController
 		@first_col=:department
 		@third_col=:created
 		@third_col_method='created_at'
-		@chart_title='created work orders by department over time'
+		@chart_title=t(:chart_title_statuswodepartment)
 		@action='statusWoDepartment'
-		@description='department'
+		@description=t(:chart_title_statuswodepartment)
 		department_names=[]
 		departments.each do |q|
 			department_names<<q.name
@@ -103,9 +103,9 @@ class BmetDashboardController < ApplicationController
 		@first_col=:owner
 		@third_col=:created
 		@third_col_method='created_at'
-		@chart_title='created work orders assigned to owners over time'
+		@chart_title=t(:chart_title_statuswoowner)
 		@action='statusWoOwner'
-		@description='owner'
+		@description=t(:chart_title_statuswoowner)
 		user_names=[]
 		users.each do |q|
 			user_names<<q.name
@@ -169,7 +169,7 @@ class BmetDashboardController < ApplicationController
 		time_range_array=[]
 		arrayoforders=[]
 		
-		for i in 0..5
+		for i in 0..2
 			time_range_array[i]=@starting_date.try(:strftime,"%b %d, %Y")+"-"+@ending_date.try(:strftime,"%b %d, %Y")
 			arrayoforders[i]=BmetWorkOrder.joins({ :department => :facility}).where("bmet_work_orders.created_at >= :start_date AND bmet_work_orders.created_at <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 			timeago=@ending_date.to_i-@starting_date.to_i
@@ -192,7 +192,7 @@ class BmetDashboardController < ApplicationController
 		time_range_array=[]
 		arrayoforders=[]
 		
-		for i in 0..5
+		for i in 0..2
 			time_range_array[i]=@starting_date.try(:strftime,"%b %d, %Y")+"-"+@ending_date.try(:strftime,"%b %d, %Y")
 			arrayoforders[i]=BmetWorkOrder.joins({ :department => :facility}).where("bmet_work_orders.created_at >= :start_date AND bmet_work_orders.created_at <= :end_date AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:status)
 			timeago=@ending_date.to_i-@starting_date.to_i
@@ -259,7 +259,7 @@ class BmetDashboardController < ApplicationController
 		index=0
 		arrayoforders.reverse_each do |r|
 
-			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[5-index]}]})
+			@work_orders_json['rows'].push({'c'=>[{'v'=>time_range_array[2-index]}]})
 			for x in 1..category_hash.length
 				@work_orders_json['rows'][index]['c']<<{'v'=>0}
 			end
@@ -278,9 +278,9 @@ class BmetDashboardController < ApplicationController
 		@work_orders = BmetWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:department_id)
 		wo_financesJson(@work_orders, 'department')
 		@category='department'
-		@chart_title='breakdown of finances by department'
+		@chart_title=t(:chart_title_wofinances)
 		@action='wo_finances'
-		@description='department'
+		@description=t(:chart_title_wofinances)
 
 	end
 
@@ -288,9 +288,9 @@ class BmetDashboardController < ApplicationController
 		@work_orders = BmetWorkOrder.joins({ :department => :facility}).where("date_completed >= :start_date AND date_completed <= :end_date AND status=2 AND facilities.id = :curruser", {start_date: @starting_date, end_date: @ending_date, curruser: current_user.facility_id}).order(:bmet_item_id)
 		wo_financesJson(@work_orders, 'bmet_item')
 		@category='item'
-		@chart_title='breakdown of finances by item'
+		@chart_title=t(:chart_title_wofinancesitem)
 		@action='wo_finances_item'
-		@description='item'
+		@description=t(:chart_title_wofinancesitem)
 		render 'wo_finances'
 	end
 
@@ -334,8 +334,8 @@ class BmetDashboardController < ApplicationController
 		@third_col='duration'
 		@second_col_link=true
 		@action='labor_hours'
-		@description='technician'
-		@chart_title='Labor hours by technician on work orders complteted in the time frame'
+		@description=t(:chart_title_laborhours)
+		@chart_title=t(:chart_title_laborhours)
 	end
 
 	def labor_hours_work_order
@@ -347,8 +347,8 @@ class BmetDashboardController < ApplicationController
 		@third_col='duration'
 		@first_col_link=true
 		@action='labor_hours_work_order'
-		@description='work_order'
-		@chart_title='Labor hours per work order completed in the time frame'
+		@description=t(:chart_title_laborhoursworkorder)
+		@chart_title=t(:chart_title_laborhoursworkorder)
 		render 'labor_hours'
 	end
 
@@ -360,8 +360,8 @@ class BmetDashboardController < ApplicationController
 		@third_col='duration'
 		@second_col_link=true
 		@action='labor_hours_time_worked'
-		@description='time_worked'
-		@chart_title='time worked by technician in the time frame'
+		@description=t(:chart_title_laborhourstimeworked)
+		@chart_title=t(:chart_title_laborhourstimeworked)
 		render 'labor_hours'
 	end
 
@@ -373,8 +373,8 @@ class BmetDashboardController < ApplicationController
 		@third_col='duration'
 		@second_col_link=true
 		@action='labor_hours_item'
-		@description='item'
-		@chart_title='labor hours by item in the time frame'
+		@description=t(:chart_title_laborhoursitem)
+		@chart_title=t(:chart_title_laborhoursitem)
 		render 'labor_hours'
 	end
 
@@ -423,11 +423,11 @@ class BmetDashboardController < ApplicationController
 		total_items=BmetItem.joins({:bmet_model => :facility}).where("facilities.id= :curruser",{curruser:current_user.facility_id})
 		@total_number=total_items.size
 		@broken_number=@items.length
-		@first_col='item'
-		@second_col='work_order'
+		@first_col='work_order'
+		@second_col='item'
 		@action='items_percent_down'
-		@description='currently_down'
-		@chart_title='items with most recent work order created not completed'
+		@description=t(:chart_title_itemspercentdown)
+		@chart_title=t(:chart_title_itemspercentdown)
 		@typeAjax='noneAjax'
 		render 'items'
 
@@ -447,11 +447,11 @@ class BmetDashboardController < ApplicationController
 		end
 		total_items=BmetItem.joins({:bmet_model => :facility}).where("facilities.id= :curruser",{curruser:current_user.facility_id})
 		@total_number=total_items.size
-		@first_col='item'
-		@second_col='work_order'
-		@description='work_order'
+		@first_col='work_order'
+		@second_col='item'
+		@description=t(:chart_title_itemswocreated)
 		@action='items_wo_created'
-		@chart_title='items with a work order created in the time frame'
+		@chart_title=t(:chart_title_itemswocreated)
 		@typeAjax='timeAjax'
 		render 'items'
 	end

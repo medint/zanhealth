@@ -282,7 +282,7 @@ function drawChart() {
 
 
 	// Set chart options
-	var options = {'width':600,
+	var options = {'width':1000,
 	             'height':400
 	             };
 
@@ -307,7 +307,7 @@ function drawItemChart() {
           ['Up',     up]
         ])
 	// Set chart options
-	var options = {'width':600,
+	var options = {'width':1000,
 	             'height':400
 	             };
 
@@ -335,7 +335,9 @@ function drawLaborChart() {
 	// Set chart options
 	var options = {
 	             'width':1000,
-	             'height':500};
+	             'height':500,
+	         	 'vAxis': {minValue: 0}
+	         	};
 
 	// Instantiate and draw our chart, passing in some options.
 	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
@@ -359,13 +361,14 @@ function drawStatusChart() {
 	var data = new google.visualization.DataTable(jsonData);
 
 	// Set chart options
-	var options = {'width':700,
+	var options = {'width':1000,
 	             'height':500,
 	         	'isStacked':true,
 	         	'colors':['#e9593e','#ffc207','#55aa2b']};
 
  	if (window.location.toString().match('/bmet_dashboard/status/wo_department') || window.location.toString().match('/bmet_dashboard/status/wo_owner')) {
  		delete options['colors']
+ 		options['isStacked']=false
  	}
 
 	// Instantiate and draw our chart, passing in some options.
@@ -388,7 +391,7 @@ function drawIndexChart() {
 
 	// Set chart options
 	var options = {'title':'Gantt Chart',
-	             'width':700,
+	             'width':1000,
 	             'height':100000,
 	         	colors:['#e9593e','#ffc207','#55aa2b']};
 

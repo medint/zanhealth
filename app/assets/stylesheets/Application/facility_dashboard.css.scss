@@ -46,7 +46,7 @@
 
 	}
 
-	.dashboard-submit:hover{
+	#status-sort:hover{
 		color:#65d4c2;
 	}
 
@@ -71,29 +71,50 @@
 	    -moz-appearance: none;  /*Removes default style Firefox*/
 	}
 
+	.dropdown-ele {
+	 margin-left: 2px;
+	 margin-right: 2px;
+	}
+
 }
 abbr {
 	display: none;
 }
 
 .dashboard-submit{
-	background-color:#ffffff;
-	font-weight:900;
-	font-size: 13px;
-	border-left: solid 1px #d6d6d6;
-	padding-top:2px;
-	padding-bottom:2px;
-	padding-left:10px;
-	display:inline-block;
+	font-weight: 900;
+}
+
+#dashboard-dates {
+	font-size: 14px
+	
+}
+
+#dashboard-dates > div.input.date.required > label {
+	width: 74px;
 }
 
 .dashboard-submit:hover{
-		color:#65d4c2;
+		//color:#65d4c2;
 	}
 #dashboard-dates{
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
+#chart_title{
+	font-size:24px;
+	font-weight: 900px;
+	padding-left:150px; 
+}
+
+#date_div{
+	font-size:18px;
+	font-weight: 900px;
+	padding-left:150px; 
+	margin-top: 5px;
+}
+
 
 
 
