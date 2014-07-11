@@ -1086,28 +1086,26 @@ input.btn.dashboard-submit {
     background-color: #479a1f;
     padding-left:5px;
   }
-  td:nth-child(2){ //$
+  td:nth-child(2){ //currency + unit cost
+  	white-space: nowrap;
     padding-left:10px;
   }
-  td:nth-child(3){ //unit cost
-    width: 10%;
-    text-align:right;
-  }
-  td:nth-child(4){ //X
+  td:nth-child(3){ //X
     padding-left:15px;
   }
-  td:nth-child(5){ //quantity
+  td:nth-child(4){ //quantity
+  	padding-left: 15px;
     text-align:right;
-    width: 8%;
   }
-  td:nth-child(6){ //= $
-    padding-left:15px;
+  td:nth-child(5){
+  	padding-left: 15px;
   }
-  td:nth-child(7){ //unit total
-    text-align:right;
-    width:13%;
+  td:nth-child(6){ //currency + unit total
+  	padding-left: 15px;
+  	white-space: nowrap;
+    text-align: right;
   }
-  td:nth-child(8){
+  td:nth-child(7){
     color:red;
     padding-left:10px;
     padding-right: 5px;
