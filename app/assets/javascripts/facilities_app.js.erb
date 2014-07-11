@@ -17,8 +17,13 @@ window.addEventListener('page:change', function(){
 	}
 }, false);
 
+$(document).on ("page:fetch", function() {
+	$('html,body,selector').css('cursor','wait');
+})
 
-
+$(document).on ("page:receive", function() {
+	$('html,body,selector').css('cursor', 'auto');
+})
 
 
 window.addEventListener('page:change', function(){
@@ -60,28 +65,6 @@ $(document).on ("page:change",function() {
 		$('.chosen-select').chosen({width: "100%"})
 	};
 })
-
-// This area of code is causing javascript errors because convert-button isn't a real thing.
-// Doesn't seem to perform any actual function, and I believe this has been around since way
-// back when we created facilities app. I'll delete this eventually after making sure it's not important.
-
-// if (window.location.toString().match(/facility_preventative_maintenances/)){
-// 	$(document).on("page:change",function() {
-
-// 		var cbutton = document.getElementById("convert-button");
-// 		if(cbutton.attachEvent) {
-// 			(cbutnoneDashboardDropdown('items_down_percent')ton).attachEvent('onclick', show_convert_div);
-// 		}else if(cbutton.addEventListener) {
-// 			(cbutton).addEventListener('click', show_convert_div, true);
-// 		}	
-// 		var cbbutton = document.getElementById("convert-back-button");
-// 		if(cbbutton.attachEvent) {
-// 			(cbbutton).attachEvent('onclick', show_pm_div);
-// 		}else if(cbutton.addEventListener) {
-// 			(cbbutton).addEventListener('click', show_pm_div, true);
-// 		}	
-// 	});
-// }
 
 function show_convert_div(){
 	$('#view-div').css("display", "none");
