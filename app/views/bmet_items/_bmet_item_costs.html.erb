@@ -6,13 +6,16 @@
       <%= link_to t(:work_order).titlecase + " " + wo.id.to_s, "/bmet_work_orders/all/"+wo.id.to_s %>
     </div>
     <% wo.bmet_costs.each do |wocost| %>
-      <div id = "bmet_item_cost_description"><%= wocost.bmet_cost_item.name + ": " + wocost.unit_quantity.to_s + " x $"%>
-      	   <%= number_with_precision wocost.cost.to_s, :precision => 2 %>
-      	   <%= " = $" %>
+      <div id = "bmet_item_cost_description">
+           <%= wocost.bmet_cost_item.name + ": " %>
+           <%= @bmet_item.department.facility.currency %>
+           <%= number_with_precision wocost.cost.to_s, :precision => 2 %>
+           <%= " + " + wocost.unit_quantity.to_s %>
+      	   <%= " = " + @bmet_item.department.facility.currency %>
       	   <%= number_with_precision wocost.unit_quantity.to_f*wocost.cost.to_f, :precision => 2 %></div>
       <% total_cost += wocost.unit_quantity.to_f*wocost.cost.to_f.round(2) %>
     <% end %>
   <% end %>
 <% end %>
 
-<div id = "bmet_item_total_cost"><%= t(:total_cost).titlecase + ": $"%><%= number_with_precision total_cost, :precision => 2 %></div>
+<div id = "bmet_item_total_cost"><%= t(:total_cost).titlecase + ": " + @bmet_item.department.facility.currency %><%= number_with_precision total_cost, :precision => 2 %></div>
