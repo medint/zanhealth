@@ -300,12 +300,21 @@ function drawItemChart() {
 	var splittext=unparsedText.split(' ')
 	var down= +splittext[0]
 	var up= +(splittext[3]-splittext[0])
+	var data
 
-	var data = google.visualization.arrayToDataTable([
+	if (window.location.toString().match('/bmet_dashboard/items/percent_down')) {
+		data = google.visualization.arrayToDataTable([
+	          ['State', 'number'],
+	          ['Down',     down],
+	          ['Up',     up]
+	        ])
+	}else{
+		data = google.visualization.arrayToDataTable([
           ['State', 'number'],
-          ['Down',     down],
-          ['Up',     up]
+          ['Created',     down],
+          ['None',     up]
         ])
+	}
 	// Set chart options
 	var options = {'width':1000,
 	             'height':400
