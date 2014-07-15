@@ -1,10 +1,10 @@
 <tr>
 	<td><%= bmet_cost.bmet_cost_item.name %></td>
-	<td>$</td>
-	<td><%= bmet_cost.cost %></td>
+	<td><%= bmet_cost.bmet_cost_item.facility.currency %><%= bmet_cost.cost %></td>
 	<td>X</td>	
 	<td><%= bmet_cost.unit_quantity %></td>
-	<td>&#61; $</td>
-	<td><%= bmet_cost.unit_quantity * bmet_cost.cost %></td>
-	<td><%= link_to 'x', bmet_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td>=</td>
+	&nbsp
+	<td><%= bmet_cost.bmet_cost_item.facility.currency %><%= bmet_cost.unit_quantity * bmet_cost.cost %></td>
+	<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= link_to 'x', bmet_cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
