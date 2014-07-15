@@ -13,7 +13,7 @@ class FacilityWorkOrdersController < ApplicationController
   after_action :reset_original_pm, only: [:create, :update]
 
   def search
-    @facility_work_orders = FacilityWorkOrder.search(params[:q]).records
+    @facility_work_orders = FacilityWorkOrder.search(params[:q], :size => 100).records
     @facility_work_orders = @facility_work_orders.with_deleted.includes(:owner, :requester, { :department => :facility}).where("facilities.id=?",current_user.facility_id).references(:facility)    
     @link = facility_work_orders_url+"/all/"
     render action: 'index'
