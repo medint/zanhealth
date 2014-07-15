@@ -61,6 +61,15 @@ class FacilityWorkOrder < ActiveRecord::Base
     end  
   end
 
+  def as_indexed_json(option={})
+  	self.as_json(
+  		include: { 
+			owner: { only: :name },
+			requester: { only: :name },
+			department: { only: :name }
+		})
+  end
+
   def init
      self.status ||=0
   end
@@ -98,9 +107,5 @@ class FacilityWorkOrder < ActiveRecord::Base
       deleted.find(*args)
     end
   end
-
-
-
-
 
 end
