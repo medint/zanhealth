@@ -53,16 +53,6 @@ class FacilityWorkOrder < ActiveRecord::Base
   belongs_to :department
   before_save :auto_date_start
   before_create :init
-  after_destroy :update_es
-
-  # we use this method to correctly delete the document from ES after the record 
-  # is deleted. This comes at the cost of 1 extra query to the DB but since we won't
-  # be making a lot of actual deletes, this should be fine.
-  def update_es
-  	  if !FacilityWorkOrder.with_deleted.exists?(self)
-		  __elasticsearch__.delete_document
-	  end
-  end
 
   def auto_date_start
   	if self.status == 0
