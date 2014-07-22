@@ -15,23 +15,23 @@
 			      	</div>
 	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
 	         			<div>
-		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('status','expire')">
-		          				<%= t(:expire).titlecase %>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('status','<%=t(:chart_title_expire)%>')">
+		          				<%= t(:by_expected_completion_date).titlecase %>
 		         			</a>
 	     				</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoCompleted','completed')">
-	          					<%= t(:completed).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoCompleted','<%=t(:chart_title_statuswocompleted)%>')">
+	          					<%= t(:by_completion_date).titlecase %>
 	         				</a>
 	         			</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoDepartment','department')">
-	          					<%= t(:department).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoDepartment','<%=t(:chart_title_statuswodepartment)%>')">
+	          					<%= t(:by_department).titlecase %>
 	         				</a>
 	         			</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoOwner','owner')">
-	          					<%=t(:owner).capitalize%>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('statusWoOwner','<%=t(:chart_title_statuswoowner)%>')">
+	          					<%=t(:by_owner).capitalize%>
 	         				</a>
 	         			</div>
 	      			</ul>
@@ -43,13 +43,13 @@
 			      	</div>
 	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
 	         			<div>
-		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances','department')">
-		          				<%= t(:department).titlecase %>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances','<%=t(:chart_title_wofinances)%>')">
+		          				<%= t(:by_department).titlecase %>
 		         			</a>
 	     				</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances_item','item')">
-	          					<%= t(:item).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('wo_finances_item','<%=t(:chart_title_wofinancesitem)%>')">
+	          					<%= t(:by_item).titlecase %>
 	         				</a>
 	         			</div>	         			
 	      			</ul>
@@ -61,23 +61,23 @@
 			      	</div>
 	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
 	         			<div>
-		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_work_order','work_order')">
-		          				<%= t(:work_order).titlecase %>
+		         			<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_work_order','<%=t(:chart_title_laborhoursworkorder)%>')">
+		          				<%= t(:by_work_order).titlecase %>
 		         			</a>
 	     				</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_time_worked','time_worked')">
-	          					<%= t(:time_worked).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_time_worked','<%=t(:chart_title_laborhourstimeworked)%>')">
+	          					<%= t(:by_hours_worked_in_period).titlecase %>
 	         				</a>
 	         			</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours','technician')">
-	          					<%= t(:technician).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours','<%=t(:chart_title_laborhours)%>')">
+	          					<%= t(:by_hours_worked_on_completed_wo_in_period).titlecase %>
 	         				</a>
 	         			</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_item','item')">
-	          					<%= t(:item).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('labor_hours_item','<%=t(:chart_title_laborhoursitem)%>')">
+	          					<%= t(:by_item).titlecase %>
 	         				</a>
 	         			</div>	         			
 	      			</ul>
@@ -89,13 +89,13 @@
 			      	</div>
 	      			<ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_sort">
 	         			<div>
-		         			<a class="dropdown-ele" onclick = "noneDashboardDropdown('items_percent_down','currently_down')">
+		         			<a class="dropdown-ele" onclick = "noneDashboardDropdown('items_percent_down','<%=t(:chart_title_itemspercentdown)%>')">
 		          				<%= t(:currently_down).titlecase %>
 		         			</a>
 	     				</div>
 	         			<div>
-	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('items_wo_created','work_order')">
-	          					<%= t(:work_order).titlecase %>
+	         				<a class="dropdown-ele" onclick = "timeDashboardDropdown('items_wo_created','<%=t(:chart_title_itemswocreated)%>')">
+	          					<%= t(:with_work_order_in_period).titlecase %>
 	         				</a>
 	         			</div>	         			
 	      			</ul>

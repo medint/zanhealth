@@ -1,5 +1,8 @@
 <%= simple_form_for :nothing, { url: url_for(:action => @action, :controller => 'bmet_dashboard'), method: 'get'} do |f| %>
-	<%=t(@description)%>
+	<div id="dashboard-dates">
+		<%=t(:description).titlecase+': '+@description.titlecase%>
+	</div>
+
 	<div id="dashboard-submit-div">
 	    <%= f.button :submit, "submit", :class => "dashboard-submit" %>
 	</div>
