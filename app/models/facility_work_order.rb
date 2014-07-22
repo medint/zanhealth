@@ -26,6 +26,10 @@ class FacilityWorkOrder < ActiveRecord::Base
 
   include Elasticsearch::Model
 
+=begin
+  Callbacks that are used to update the ES index correctly. Note that :destroy is linked
+  to the Model.destroy method which hides the record and not actually destroy it.
+=end
   after_commit on: [:create] do
   	  __elasticsearch__.index_document
   end
@@ -59,6 +63,15 @@ class FacilityWorkOrder < ActiveRecord::Base
     if self.status == 2 &&self.date_completed==nil
       self.date_completed=DateTime.now
     end  
+  end
+
+  def as_indexed_json(option={})
+  	self.as_json(
+  		include: { 
+			owner: { only: :name },
+			requester: { only: :name },
+			department: { only: :name }
+		})
   end
 
   def init
@@ -98,9 +111,5 @@ class FacilityWorkOrder < ActiveRecord::Base
       deleted.find(*args)
     end
   end
-
-
-
-
 
 end

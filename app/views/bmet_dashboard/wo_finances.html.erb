@@ -11,8 +11,8 @@ google.setOnLoadCallback(drawChart);
 	<div id="dashboard-forms-ajax">
 		<%=render 'timeAjax'%>
 	</div>
+	<div id='chart_title'><%=@chart_title.titlecase%></div>
 	<div id="date_div"><%=@starting_date.strftime("%b %d, %Y")+'-'+@ending_date.strftime("%b %d, %Y")%></div>
-	<div id='chart_title'><%=@chart_title%></div>
 	<div id='chart_div'></div>
 	<div id="dashboard_results_div">
 		<table id="dash_table">

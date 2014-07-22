@@ -36,8 +36,30 @@ en:
    back: "back"
    broken: "broken"
    building: "building"
+   by_expected_completion_date: "by expected completion date"
+   by_completion_date: "by completion date"
+   by_department: "by department"
+   by_owner: "by owner"
+   by_item: "by item"
+   by_work_order: "by work order"
+   by_hours_worked_in_period: "by hours worked in period"
+   by_hours_worked_on_completed_wo_in_period: "by hours worked on copmleted WO in period"
+   currently_down: "currently down"
+   with_work_order_in_period: "with work order in period"
    category: "category"
    cause_description: "cause description"
+   chart_title_expire: "status over time for work orders by date expire"
+   chart_title_statuswocompleted: 'completed work orders over time by date completed'
+   chart_title_statuswodepartment: 'created work orders by department over time'
+   chart_title_statuswoowner: 'created work orders assigned to owners over time'
+   chart_title_wofinances: 'breakdown of finances by department'
+   chart_title_wofinancesitem: 'breakdown of finances by item'
+   chart_title_laborhours: 'Labor hours by technician on work orders complteted in the time frame'
+   chart_title_laborhoursworkorder: 'Labor hours per work order completed in the time frame'
+   chart_title_laborhourstimeworked: 'time worked by technician in the time frame'
+   chart_title_laborhoursitem: 'labor hours by item in the time frame'
+   chart_title_itemspercentdown: 'items with most recent work order created not completed'
+   chart_title_itemswocreated: 'items with a work order created in the time frame'
    clock_in: "clock in"
    clock_out: "clock out"
    comment: "comment"
@@ -98,7 +120,7 @@ en:
    editing: "editing"
    email: "email"
    encrypted_password: "encrypted password"
-   expected_date_of_completion: "expected date of completion"
+   expected_date_of_completion: "expected date of completion"   
    expire: "expire"
    export_data: "export data"
    facilities: "facilities"
