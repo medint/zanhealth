@@ -2,10 +2,13 @@
 
 one:
   name: Fac1
+  currency: $
 
 two:
   name: Fac2
+  currency: TSh
 
 #dashboard
 three:
   name: MyString
+  currency: GHC
