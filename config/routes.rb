@@ -195,6 +195,7 @@ Zanhealth::Application.routes.draw do
   root to: "bmet_work_orders#index"
 
   # Facility specific urls
+  get '/37military_work_requests', :to => redirect('/bmet_work_requests/4/public_new')
   get '/phm_work_requests', :to => redirect('/bmet_work_requests/3/public_new')
   get '/tmj_work_requests', :to => redirect('/bmet_work_requests/2/public_new')
 
