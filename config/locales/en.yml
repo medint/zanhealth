@@ -23,6 +23,7 @@ en:
    hello: "Hello world"
    about: "about"
    action_taken: "action taken"
+   add: "add"
    add_new_item: "add new item"
    additional_comments: "additional comments"
    all: "all"
