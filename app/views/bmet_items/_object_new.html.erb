@@ -27,6 +27,9 @@
 					<div class="field-info">
             <%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %>
           </div>
+          <div class="field-type">
+            <%= link_to t(:create).capitalize + " " + t(:new) + " " + t(:model), new_bmet_model_path %>
+          </div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= t(:department).capitalize %></div>

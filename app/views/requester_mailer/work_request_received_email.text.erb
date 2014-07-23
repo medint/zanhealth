@@ -1,0 +1,13 @@
+Dear <%= @workrequest.requester %>,
+
+Your work request has been successfully submitted and received. You will receive another notification shortly when maintenance has acknowledged and processed your request. Below are the details of your work request.
+
+Requester: <%= @workrequest.requester %>
+Department: <%= @workrequest.department %>
+Asset ID: <%= @workrequest.asset_id %>
+Location: <%= @workrequest.location %>
+Telephone number: <%= @workrequest.phone %>
+Email: <%= @workrequest.email %>
+Description: <%= @workrequest.description %>
+
+This is an automatically generated email. Please redirect any inquiries regarding this work request directly to the maintenance department. Have a nice day!

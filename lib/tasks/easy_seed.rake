@@ -107,18 +107,18 @@ namespace :test do
 		# end
 		# puts "Imported models and needs"
 
-		# SEPARATOR = ': '
-		# Language.delete_all
-		# File.open(File.join('db','language.colon-separated'),'r') do |f|
-		# 	f.each_line do |line|
-		# 		english,swahili,creole = line.chomp.split(SEPARATOR)
-		# 		Language.create(:english => english,
-		# 						:swahili => swahili,
-        #                  		:creole => creole
-		# 					   )
-		# 	end
-		# end
-		# puts "Imported languages"
+		SEPARATOR = ': '
+		Language.delete_all
+		File.open(File.join('db','language.colon-separated'),'r') do |f|
+			f.each_line do |line|
+				english,swahili,creole = line.chomp.split(SEPARATOR)
+				Language.create(:english => english,
+								:swahili => swahili,
+                         		:creole => creole
+							   )
+			end
+		end
+		puts "Imported languages"
 
 		BmetItem.delete_all
 		BmetItemHistory.delete_all
@@ -242,6 +242,22 @@ namespace :test do
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
 
+		facUserSet = []
+		user_data = File.open(File.join("test", "test_data", "import_fac_users.csv"),"r")
+		csv_user = CSV.parse(user_data, :headers => true)
+		csv_user.each do |row|
+			user = User.create(:username => row[0],
+						:email => "#{row[0]}@email.com",
+						:password => row[1],
+						:role => roles.find { |r| r.name == row[2] },
+						:telephone_num => row[3],
+						:facility => facilities.find { |f| f.name == row[4] },
+						:language => row[5],
+						:name => row[6]
+					   )
+			facUserSet[facUserSet.size] = user
+		end
+
 		FacilityWorkOrder.delete_all
 		FacilityWorkOrderComment.delete_all
 		FacilityLaborHour.delete_all
@@ -249,9 +265,9 @@ namespace :test do
 		FacilityCostItem.delete_all
 		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
-			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
+			users = facUserSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			rel_depts = depts.select { |d| d.facility_id == f.id }
-			10.times do |fwo|
+			25.times do |fwo|
 				date_base = Time.now
 				date_created = date_base - 60*60*24*(rand(17..25))
 				date_expire = date_base + 60*60*24*(rand(20..100))
@@ -324,8 +340,8 @@ namespace :test do
 		FacilityWorkRequest.delete_all
 		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
-			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
-			10.times do |fpm|
+			users = facUserSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
+			15.times do |fpm|
 				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(-10..6)),
 												   :days => 1,
 												   :weeks => 0,

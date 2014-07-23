@@ -97,6 +97,9 @@ class BmetWorkOrdersController < ApplicationController
 
     respond_to do |format|
       if @bmet_work_order.save
+        if @bmet_work_order.wr_origin
+          RequesterMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
+        end
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order }
       else
@@ -251,7 +254,7 @@ class BmetWorkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id)
+      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id, :priority)
     end
 
     def reset_original_pm
