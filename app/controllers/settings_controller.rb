@@ -13,14 +13,23 @@ class SettingsController < ApplicationController
 
     def set_users
       @users = User.where(:facility_id => current_user.facility.id).all.to_a
+      if @users==[]
+        @users=[User.new]
+    end
     end
 
     def set_departments
       @departments = Department.where(:facility_id => current_user.facility.id).all.to_a
+      if @departments==[]
+        @departments=[Department.new]
+    end
     end
 
     def set_item_groups
         @item_groups = ItemGroup.where(:facility_id => current_user.facility.id).all.to_a
+        if @item_groups==[]
+            @item_groups=[ItemGroup.new]
+        end
     end
 
     # necessary to write our own create user method here because have to bypass Devise registrable module
