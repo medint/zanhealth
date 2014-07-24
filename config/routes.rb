@@ -199,6 +199,7 @@ Zanhealth::Application.routes.draw do
   get '/phm_work_requests', :to => redirect('/bmet_work_requests/3/public_new')
   get '/tmj_work_requests', :to => redirect('/bmet_work_requests/2/public_new')
 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
