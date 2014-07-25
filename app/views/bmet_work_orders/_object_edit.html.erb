@@ -1,6 +1,6 @@
 <div id="work_order_summary">
   <div id="object_table_layout">
-    <%= form_for(@bmet_work_order) do |f| %>
+    <%= form_for(@bmet_work_order, remote: true, id: "Blabla") do |f| %>
       <% if @bmet_work_order.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>

@@ -43,6 +43,8 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
     @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
+
+    render partial: "object_summary"
   end
 
   def show_hidden
