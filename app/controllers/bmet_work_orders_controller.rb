@@ -98,7 +98,7 @@ class BmetWorkOrdersController < ApplicationController
     respond_to do |format|
       if @bmet_work_order.save
         if @bmet_work_order.wr_origin
-          RequesterMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
+          #RequesterMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
         end
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order }
