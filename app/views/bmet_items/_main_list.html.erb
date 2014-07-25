@@ -11,7 +11,7 @@
         location = "<%= bmet_item.location %>">
           <div class="element_details">
             <p class="element_title">
-              <%= bmet_item.asset_id %> : <%= bmet_item.bmet_model.name %>
+              <%= bmet_item.asset_id %> : <%= bmet_item.bmet_model.try(:name) %>
           <% #image_tag("rightarrow_black.png", class: "right-arrow") %>
             </p>
             <p class="element_description">

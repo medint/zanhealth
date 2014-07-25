@@ -12,7 +12,7 @@
      <div id="object-form-single-col">
           <div class="field-type"><%= t(:item).capitalize %></div>
           <div>
-            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {}, {:class => "chosen-select"}) %>
+            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {:required => true}, {:class => "chosen-select"}) %>
           </div>
         <div class="field-box">
           <div class="field-type"><%= t(:status).capitalize %></div>
