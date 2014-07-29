@@ -1,12 +1,12 @@
 class BmetWorkOrdersController < ApplicationController
   layout 'layouts/bmet_app'
-  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all, :show_print]
+  before_action :set_bmet_work_order, only: [:show, :edit, :update, :destroy, :show_hidden,:show_all, :show_print, :midupdate]
   before_action :set_bmet_work_orders, only: [:index, :new, :show]
   before_action :set_users, only: [:index, :new, :show, :hidden, :all, :show_hidden, :show_all]
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all, :show_print]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
-  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all, :midupdate]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
@@ -44,7 +44,13 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_labor_hour = BmetLaborHour.new
     @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
 
-    render partial: "object_summary"
+    if request.xhr?
+      render partial: "object_summary"
+    end
+  end
+
+  def midupdate
+    render partial: 'midupdate'
   end
 
   def show_hidden
@@ -56,7 +62,11 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
     @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
-    render "show"
+    if request.xhr?
+      render partial: "object_summary"
+    else
+      render "show"
+    end
   end
 
   def show_all
@@ -68,7 +78,11 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_labor_hours = BmetLaborHour.where(bmet_work_order_id:params[:id])
     @bmet_labor_hour = BmetLaborHour.new
     @bmet_labor_hours_sum = BmetLaborHour.where(bmet_work_order_id:params[:id]).sum("duration")
-    render "show"
+    if request.xhr?
+      render partial: "object_summary"
+    else
+      render "show"
+    end
   end
 
   # GET /bmet_work_orders/new
@@ -80,6 +94,9 @@ class BmetWorkOrdersController < ApplicationController
       if link == "bmet_items"
         @bmet_work_order.bmet_item_id = request.referer.split("/")[-1]
       end
+    end
+    if request.xhr?
+      render partial: "object_new"
     end
   end
 

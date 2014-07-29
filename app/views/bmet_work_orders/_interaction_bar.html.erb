@@ -91,6 +91,7 @@
 
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>
+    <%= link_to "", new_bmet_work_order_path, id: 'add-button', remote: true %>
     <a href= "<%=new_bmet_work_order_path%>" id='add-button'></a>
     <%= link_to t(:export_data).titlecase, bmet_work_orders_url+"/download" %>
   </div>

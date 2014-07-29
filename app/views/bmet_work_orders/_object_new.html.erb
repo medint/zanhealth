@@ -1,5 +1,6 @@
+<div id='ajaxtest'>
 <div id="object-single-col-box">
-  <%= simple_form_for @bmet_work_order do |f| %>
+  <%= simple_form_for @bmet_work_order, remote: true do |f| %>
     <% if @bmet_work_order.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@bmet_work_order.errors.count, "error") %> prohibited this bmet_work_order from being saved:</h2>
@@ -73,4 +74,7 @@
       </div>
     </div>
   <%end%>
-</div> 
+</div>
+
+<div class='loader'></div> 
+</div>

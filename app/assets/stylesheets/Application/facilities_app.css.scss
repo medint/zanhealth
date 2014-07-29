@@ -359,9 +359,13 @@ input.btn.dashboard-submit {
 			background-color: #afafaf;
 		}
 
+		.mid-summary-selected {
+			background-color: #bfbfbf;
+		}
+
 		.mid-summary_ul_li > *{
 			float:left; 
-			display:inline
+			display:inline-block
 		}
 
 		.mid-summary_ul_li_hr{
@@ -1384,3 +1388,18 @@ input.btn.dashboard-submit {
 #params_to_send {
 	display: none;
 }
+
+
+.loader {
+    display:    block;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url(image_path('ajax-loader1.gif') )
+                50% 50% 
+                no-repeat;
+}
+

@@ -5,21 +5,89 @@ $(document).on ("page:change",function() {
       $("a").bind("ajax:success",
                function(evt, data, status, xhr){
                     $("div#ajaxtest").html(data);
+                    //history.pushState(null, '', this.href);
+                    //console.log((this.href).split('/').pop())
+                    $('#mid-summary_ul').children('a').children('.mid-summary-selected').removeClass('mid-summary-selected')
+                    $(this).children('.mid-summary_ul_li').addClass("mid-summary-selected")
        }).bind("ajax:error", function(evt, data, status, xhr){
                 //idk what to do if error
                 $("div#ajaxtest").text(data);
        });
 
+       $("a").bind("ajax:before",
+               function(){
+                    //$("div#ajaxtest").html('loading');
+                    $("div#ajaxtest").html("<div class='loader'>");
+                })
+
        $("#right-detail").bind("ajax:success",
                function(evt, data, status, xhr){
-               	console.log("test")
-                    $("div#ajaxtest").html(data);
+                   $("div#ajaxtest").html(data);
+					var newurl= '/bmet_work_orders/midupdate/'+(window.location.pathname).split('/').pop()
+
+                   var htmlData = $.ajax({
+			          url: newurl,
+			          dataType:"html",
+			          async: false
+			          }).responseText;
+
+                   var test = $('.mid-summary-selected').parent();
+                   test.html(htmlData)
+                   test.children('.mid-summary_ul_li').addClass("mid-summary-selected")
+                   window_resize_handler()
+
+                   //console.log(htmlData)
        }).bind("ajax:error", function(evt, data, status, xhr){
        			console.log("fail")
                 //idk what to do if error
        });
+
+       if (window.location.toString().match(/bmet_work_orders/)) {
+       		var toselect=(window.location.pathname).split('/').pop();
+       		$(".element_title").each(function(){
+       			if ($(this).text().match(toselect)){
+       				$(this).parent().parent().addClass("mid-summary-selected")	
+       			}
+       		})
+
+
+       		/*$('.extra-details_nav > .active').removeClass('active')
+       		var para='a[href="'+window.location.hash+'"]'
+       		$(para).parent().addClass('active')
+     		$('div.tab-pane').removeClass('active')
+       		$('#'+window.location.hash.substr(1)).addClass('active')*/
+
+      	}
+
 });
 
+$(document).on ("page:change",function() {
+	if (history && history.pushState){
+	  $(function(){
+	   $('body').on('click', 'a', function(e){
+	      $.getScript(this.href);
+	      history.pushState(null, '', this.href);
+
+	    });
+	    $(window).bind("popstate", function(){
+	      $.getScript(location.href);
+	    });
+	  });
+	}
+});
+
+if (history && history.pushState){
+  $(function(){
+   $('body').on('click', '#right-detail', function(e){
+   	console.log('form')
+      $.getScript(this.href);
+      history.pushState(null, '', this.href);
+    });
+    $(window).bind("popstate", function(){
+      $.getScript(location.href);
+    });
+  });
+}
 
 
 window.addEventListener('page:change', function(){
