@@ -192,6 +192,7 @@ Zanhealth::Application.routes.draw do
   post "/admin/create_user", to: "admin#create_user"
 
   get '/404', :to => redirect('/404.html')
+  get '/terms', :to => redirect('/terms.html')
   root to: "bmet_work_orders#index"
 
   # Facility specific urls
