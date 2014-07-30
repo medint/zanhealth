@@ -17,7 +17,9 @@ class BmetWorkOrdersController < ApplicationController
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
-
+    if request.xhr?
+      render partial: "main_list"
+    end
   end
 
   def hidden
@@ -26,6 +28,10 @@ class BmetWorkOrdersController < ApplicationController
 
   def all
   	  render "index"
+  end
+
+  def getTopBar
+    render partial: "interaction_bar"
   end
 
   def as_csv

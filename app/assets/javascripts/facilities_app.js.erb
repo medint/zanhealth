@@ -1,39 +1,71 @@
 /* Global Variables */
 //=require jquery
 
-$(document).on ("page:change",function() {
-      $("a").bind("ajax:success",
+$(document).on ("page:change ajax:success",function() {
+      setUpMidAjaxBindings()
+
+       $("#left-nav a").bind("ajax:success",
                function(evt, data, status, xhr){
-                    $("div#ajaxtest").html(data);
-                    //history.pushState(null, '', this.href);
-                    //console.log((this.href).split('/').pop())
-                    $('#mid-summary_ul').children('a').children('.mid-summary-selected').removeClass('mid-summary-selected')
-                    $(this).children('.mid-summary_ul_li').addClass("mid-summary-selected")
+                    $("div#mid-ajax").html(data);
+                    window_resize_handler()
+                    var htmlData = $.ajax({
+			          url: '/bmet_work_orders/getTopBar',
+			          dataType:"html",
+			          async: false
+			          }).responseText;
+                	$('#top-bar').html(htmlData)
+                	setUpWOfilters()
+                    //setUpMidAjaxBindings()
+
+
        }).bind("ajax:error", function(evt, data, status, xhr){
                 //idk what to do if error
                 $("div#ajaxtest").text(data);
        });
 
-       $("a").bind("ajax:before",
+       $("#left-nav a").bind("ajax:before",
                function(){
                     //$("div#ajaxtest").html('loading');
-                    $("div#ajaxtest").html("<div class='loader'>");
+                    $("div#mid-ajax").html("<div class='loader'>");
+                    $(".loader").show();
+                    $("div#ajaxtest").html('');
+                    $("#top-bar").html('');
                 })
 
        $("#right-detail").bind("ajax:success",
                function(evt, data, status, xhr){
                    $("div#ajaxtest").html(data);
-					var newurl= '/bmet_work_orders/midupdate/'+(window.location.pathname).split('/').pop()
+                   var wo_num=(window.location.pathname.split('/').pop());
+                   var from='not new'
+                   if (wo_num=='new'){
+                   	wo_num=$('#field-box_item-id > div.item-id').text().split(" ").pop()
+                   	from='new'
+                   	/*$(".element_title").each(function(){
+			       		if ($(this).text().match(wo_num)){
+			       			$(this).parent().parent().addClass("mid-summary-selected")	
+			       		}
+		       		})*/
+                   }
+					var newurl= '/bmet_work_orders/midupdate/'+wo_num
 
                    var htmlData = $.ajax({
 			          url: newurl,
 			          dataType:"html",
 			          async: false
 			          }).responseText;
-
-                   var test = $('.mid-summary-selected').parent();
-                   test.html(htmlData)
-                   test.children('.mid-summary_ul_li').addClass("mid-summary-selected")
+                   console.log(htmlData)
+                   if (from=='not new'){
+                   		var test = $('.mid-summary-selected').parent();
+                   		test.html(htmlData)
+                   		test.children('.mid-summary_ul_li').addClass("mid-summary-selected")
+               		} else{
+               			newhref=location.href.slice(0,-3) +'unhidden/'+wo_num
+               			history.pushState(null,"",newhref)
+               			htmlData='<a data-remote="true" href="'+newhref+'">'+htmlData+'</a>'
+               			$('#mid-summary_ul').prepend(htmlData)
+               			$('#mid-summary_ul').children().first().children('.mid-summary_ul_li').addClass("mid-summary-selected")
+               			
+               		}
                    window_resize_handler()
 
                    //console.log(htmlData)
@@ -56,10 +88,38 @@ $(document).on ("page:change",function() {
        		$(para).parent().addClass('active')
      		$('div.tab-pane').removeClass('active')
        		$('#'+window.location.hash.substr(1)).addClass('active')*/
+       		var para='a[href="'+window.location.hash+'"]'
+       		$(para).click()
+       		console.log('test')
 
       	}
 
 });
+
+function setUpMidAjaxBindings(){
+	$("#mid-summary a, a#add-button").bind("ajax:success",
+               function(evt, data, status, xhr){
+               	console.log("qwere")
+               	//console.log(data)
+                    $("div#ajaxtest").html(data);
+                    //history.pushState(null, '', this.href);
+                    //console.log((this.href).split('/').pop())
+                    $('#mid-summary_ul').children('a').children('.mid-summary-selected').removeClass('mid-summary-selected')
+                    $(this).children('.mid-summary_ul_li').addClass("mid-summary-selected")
+       }).bind("ajax:error", function(evt, data, status, xhr){
+                //idk what to do if error
+                               	console.log("qwee")
+
+                $("div#ajaxtest").text(data);
+       });
+
+       $("#mid-summary a, a#add-button").bind("ajax:before",
+               function(){
+                    //$("div#ajaxtest").html('loading');
+                    $("div#ajaxtest").html("<div class='loader'>");
+                    $(".loader").show();
+                })
+}
 
 $(document).on ("page:change",function() {
 	if (history && history.pushState){
@@ -198,6 +258,13 @@ function edit_button_handler(){
 $(document).on ("page:change",function() {
 	if (window.location.toString().match(/facility_work_orders/) || window.location.toString().match(/bmet_work_orders/)) {
 
+		setUpWOfilters();
+	}
+
+
+});
+
+function setUpWOfilters(){
 		$("#cbox0").prop("checked",true)
 		$("#cbox1").prop("checked",true)
 		$("#cbox2").prop("checked",true)
@@ -205,10 +272,7 @@ $(document).on ("page:change",function() {
 		addListenerToBox(document.getElementById("cbox0"))
 		addListenerToBox(document.getElementById("cbox1"))
 		addListenerToBox(document.getElementById("cbox2"))
-	}
-
-
-});
+}
 
 function addListenerToBox(checkB){
 	if(checkB.attachEvent) {
@@ -271,6 +335,8 @@ function attrsort(attr, order){// Order can either be 'asc' or 'desc'
 		list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
 		list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
 	}
+	      setUpMidAjaxBindings()
+
 }
 
 function sort_by_num(attr){
@@ -290,6 +356,8 @@ function sort_by_num(attr){
 	 	list_to_sort[i].parentNode.replaceChild(nodeArray[i][0], list_to_sort[i]);
 	 	list_to_sort[i].parentNode.parentNode.replaceChild(nodeArray[i][1], list_to_sort[i].parentNode);
 	}
+	      setUpMidAjaxBindings()
+
 }
 
 function printitemsort(attr){
@@ -315,7 +383,7 @@ function printitemsort(attr){
 	}
 }
 
-$(document).on ("page:change",function() {
+$(document).on ("page:change ajax:success",function() {
    $('.dropdown-menu').on('click', function(e) {
        if($(this).hasClass('dropdown-menu-form')) {
            e.stopPropagation();

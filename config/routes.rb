@@ -51,6 +51,7 @@ Zanhealth::Application.routes.draw do
   get "/", to: "bmet_work_orders#index"
 
   get "/bmet_work_orders/midupdate/:id", to: "bmet_work_orders#midupdate"
+  get "/bmet_work_orders/getTopBar", to: "bmet_work_orders#getTopBar"
 
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
