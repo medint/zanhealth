@@ -43,7 +43,7 @@
               <%= t(:model).capitalize %>
               <%= link_to '('+t(:current).capitalize+')', @bmet_item.bmet_model %>
             </td>
-            <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name %></td>
+            <td style="width:50px"><%= f.collection_select :bmet_model_id, @bmet_models, :id, :name, required: true %></td>
           </tr>
           <tr>
             <td><%= t(:location).capitalize %></td>

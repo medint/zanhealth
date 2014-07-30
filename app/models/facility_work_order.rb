@@ -26,6 +26,10 @@ class FacilityWorkOrder < ActiveRecord::Base
 
   include Elasticsearch::Model
 
+  if Rails.env.production?
+  	  index_name "zanhealth-test"
+  end
+
 =begin
   Callbacks that are used to update the ES index correctly. Note that :destroy is linked
   to the Model.destroy method which hides the record and not actually destroy it.

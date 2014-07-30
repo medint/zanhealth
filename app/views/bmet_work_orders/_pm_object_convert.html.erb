@@ -13,7 +13,7 @@
         <div class="field-box">
           <div class="field-type"><%= t(:item).capitalize %></div>
           <div class="field-info">
-            <p><%= @input_object.bmet_item.bmet_model.name %></p>
+            <p><%= @input_object.bmet_item.try(:bmet_model).try(:name) %></p>
           </div>
             <%= f.hidden_field :bmet_item_id %>
         </div>

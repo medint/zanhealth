@@ -3,7 +3,7 @@
     <% @bmet_costs.each do |bmet_cost| %>
       <li class="facility_work_order_comment">
         <div class="cost-name">
-          <%= bmet_cost.name :value => Name: %>
+          <%= bmet_cost.try(:name) :value => Name: %>
         </div>
         <div class="cost-quantity">
           Quantity: <%= bmet_cost.unit_quantity %> units
