@@ -11,7 +11,7 @@
 			  <div class="field-info">
 			      <p>
 				      Converted to 
-				      <%= link_to t(:work_order).titlecase +' '+@bmet_work_request.wo_convert_id.to_s, 
+				      <%= link_to t(:work_order).titlecase + ' ' + @bmet_work_request.wo_convert_id.to_s, 
 				        bmet_work_orders_path+'/all/'+@bmet_work_request.wo_convert_id.to_s %>
 				      On 
 				      <%= @bmet_work_request.converted_at.try(:strftime,"%^b %d, %Y") %>

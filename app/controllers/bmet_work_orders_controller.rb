@@ -94,11 +94,11 @@ class BmetWorkOrdersController < ApplicationController
   def create
     @bmet_work_order = BmetWorkOrder.new(bmet_work_order_params)
     @bmet_work_order.requester_id=current_user.id
-
     respond_to do |format|
       if @bmet_work_order.save
+        UserMailer.work_order_assigned_email(@bmet_work_order).deliver
         if @bmet_work_order.wr_origin
-          RequesterMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
+          UserMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
         end
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order }
@@ -112,8 +112,20 @@ class BmetWorkOrdersController < ApplicationController
   # PATCH/PUT /bmet_work_orders/1
   # PATCH/PUT /bmet_work_orders/1.json
   def update
+    isNil = false
+    if @bmet_work_order.date_completed.nil?
+      isNil = true
+    end
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
+        if !@bmet_work_order.date_completed.nil?
+          if @bmet_work_order.date_completed_changed? || isNil
+            UserMailer.work_order_completed_email(@bmet_work_order).deliver
+            if !@bmet_work_order.wr_origin_id.nil?
+              UserMailer.work_request_completed_email(BmetWorkRequest.with_deleted.find_by_id(@bmet_work_order.wr_origin_id)).deliver
+            end
+          end
+        end
     	  link = request.referer.split("/")[-2]
     	  if link == "hidden"
     	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
