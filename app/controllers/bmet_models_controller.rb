@@ -82,6 +82,6 @@ class BmetModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_model_params
-      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name, :category, :item_group)
+      params.require(:bmet_model).permit(:model_name, :manufacturer_name, :vendor_name, :category, :item_group, :facility_id)
     end
 end

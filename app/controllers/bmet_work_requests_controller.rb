@@ -98,6 +98,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
     respond_to do |format|
       if @bmet_work_request.save
       #if verify_recaptcha(private_key: ENV['RECAPTCHA_PRIVATE_KEY']) && @bmet_work_request.save
+        UserMailer.work_request_received_email(@bmet_work_request).deliver
         format.html { redirect_to '/bmet_work_requests/public_show/'+@bmet_work_request.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_request }
       else
@@ -105,6 +106,7 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
         format.json { render json: @bmet_work_request.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   def public_show

@@ -94,9 +94,12 @@ class BmetWorkOrdersController < ApplicationController
   def create
     @bmet_work_order = BmetWorkOrder.new(bmet_work_order_params)
     @bmet_work_order.requester_id=current_user.id
-
     respond_to do |format|
       if @bmet_work_order.save
+        UserMailer.work_order_assigned_email(@bmet_work_order).deliver
+        if @bmet_work_order.wr_origin
+          UserMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
+        end
         format.html { redirect_to bmet_work_orders_url+"/unhidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_work_order }
       else
@@ -109,8 +112,20 @@ class BmetWorkOrdersController < ApplicationController
   # PATCH/PUT /bmet_work_orders/1
   # PATCH/PUT /bmet_work_orders/1.json
   def update
+    isNil = false
+    if @bmet_work_order.date_completed.nil?
+      isNil = true
+    end
     respond_to do |format|
       if @bmet_work_order.update(bmet_work_order_params)
+        if !@bmet_work_order.date_completed.nil?
+          if @bmet_work_order.date_completed_changed? || isNil
+            UserMailer.work_order_completed_email(@bmet_work_order).deliver
+            if !@bmet_work_order.wr_origin_id.nil?
+              UserMailer.work_request_completed_email(BmetWorkRequest.with_deleted.find_by_id(@bmet_work_order.wr_origin_id)).deliver
+            end
+          end
+        end
     	  link = request.referer.split("/")[-2]
     	  if link == "hidden"
     	  	  format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
@@ -251,7 +266,7 @@ class BmetWorkOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bmet_work_order_params
-      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id)
+      params.require(:bmet_work_order).permit(:date_requested, :date_expire, :date_completed, :request_type, :bmet_item_id, :cost, :description, :status, :owner_id, :requester_id, :cause_description, :action_taken, :prevention_taken, :department_id, :wr_origin_id, :pm_origin_id, :priority)
     end
 
     def reset_original_pm

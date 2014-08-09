@@ -30,7 +30,8 @@
           <div class="field-type"><%= t(:model).capitalize %><%= t(:name).capitalize %></div>
           <div class="field-info">
             <%= f.text_field :model_name %>
-        </div>        
+        </div>
+        <%= f.hidden_field :facility_id, :value => current_user.facility_id %>   
         <div class="action_submit">
           <%= f.submit t(:save).capitalize %>
         </div>

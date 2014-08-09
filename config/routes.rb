@@ -192,11 +192,14 @@ Zanhealth::Application.routes.draw do
   post "/admin/create_user", to: "admin#create_user"
 
   get '/404', :to => redirect('/404.html')
+  get '/terms', :to => redirect('/terms.html')
   root to: "bmet_work_orders#index"
 
   # Facility specific urls
+  get '/37military_work_requests', :to => redirect('/bmet_work_requests/4/public_new')
   get '/phm_work_requests', :to => redirect('/bmet_work_requests/3/public_new')
   get '/tmj_work_requests', :to => redirect('/bmet_work_requests/2/public_new')
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

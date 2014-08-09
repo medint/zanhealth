@@ -18,7 +18,7 @@
           <!--<div class="field-info">-->
           <div>
             <%#= f.collection_select :bmet_item, @items.map { |i| [i.model.name , i.id, ]%>
-            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {}, {:class => "chosen-select"}) %>
+            <%= f.collection_select(:bmet_item_id, @items, :id, :asset_model_location_name, {:required => true}, {:class => "chosen-select"}) %>
 
             <%#= f.association :bmet_item, collection: @items, prompt: "Choose an item", label_method: :id, value_method: :id %>
 

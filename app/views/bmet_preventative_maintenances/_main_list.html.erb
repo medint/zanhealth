@@ -34,7 +34,7 @@
 
         <div class="element_date">
           <div class="element_date_title"> <%= t(:asset_id).titlecase %>:</div>
-          <%= bmet_preventative_maintenance.bmet_item.asset_id %>   
+          <%= bmet_preventative_maintenance.bmet_item.try(:asset_id) %>   
         </div>
 
 

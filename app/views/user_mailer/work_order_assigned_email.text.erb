@@ -1,0 +1,4 @@
+Dear <%= @workorder.owner.name %>,<p>
+You have been assigned a work order. For details regarding this work order, click <%= link_to 'here', "zanhealth.co/bmet_work_orders/all/"+@workorder.id.to_s %>.</p>
+		
+This is an automatically generated email. Please redirect any inquiries regarding this work order directly to maintenance/administration. Have a nice day!</p>

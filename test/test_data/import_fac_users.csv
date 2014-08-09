@@ -1,0 +1,21 @@
+username,encrypted_password,role.name,telephone_num,facility.name,language,name
+ftechA1,password,"fac_tech",1234567890,"TMJ Hospital",english,Sam
+ftechA2,password,"fac_tech",1234567890,"TMJ Hospital",english,Shum
+ftechB1,password,"fac_tech",1234567890,"Kairuki Hospital",english,Alejandro
+ftechB2,password,"fac_tech",1234567890,"Kairuki Hospital",english,Manuel
+ftechC1,password,"fac_tech",1234567890,"Sanitas Hospital",english,Sombrero
+ftechC2,password,"fac_tech",1234567890,"Sanitas Hospital",english,Ay papi
+chieftechA1,password,"chief",1234567890,"TMJ Hospital",english,Alan
+chieftechB1,password,"chief",1234567890,"Kairuki Hospital",english,Yao
+chieftechC1,password,"chief",1234567890,"Sanitas Hospital",english,Sara
+userAMHA1,password,"finance",1234567890,"TMJ Hospital",english,Luke
+userrBHA1,password,"finance",1234567890,"Kairuki Hospital",english,Jayson
+userCMHA1,password,"finance",1234567890,"Sanitas Hospital",english,Nobody
+userAD1,password,"admin",1234567890,"TMJ Hospital",english,Buffalo
+userBD1,password,"admin",1234567890,"Kairuki Hospital",english,Carl
+userCD1,password,"admin",1234567890,"Sanitas Hospital",english,Not important
+userAP1,password,"procurement",1234567890,"TMJ Hospital",english,Melwyn
+userBP1,password,"procurement",1234567890,"Kairuki Hospital",english,Planning hostile takeover
+userCP1,password,"procurement",1234567890,"Sanitas Hospital",english,Does not compute
+admin,admin,"admin",1234567890,"TMJ Hospital",english,Admin
+bob,password,"chief",1234567890,"TMJ Hospital",english,Bob

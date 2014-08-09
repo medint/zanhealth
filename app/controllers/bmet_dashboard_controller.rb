@@ -386,20 +386,20 @@ class BmetDashboardController < ApplicationController
 		labor_hours.each do |q|
 			if currtech!=q.send(category)
 				if currtech!=0
-					@labor_hours_json[currtech.send(iden)]["totalcost"]=hoursbytech
+					@labor_hours_json[currtech.try(iden)]["totalcost"]=hoursbytech
 				end
-				currtech=q.send(category)
-				@labor_hours_json[q.send(category).send(iden)]={}
-				@labor_hours_json[q.send(category).send(iden)]["costs"]={}
+				currtech=q.try(category)
+				@labor_hours_json[q.send(category).try(iden)]={}
+				@labor_hours_json[q.send(category).try(iden)]["costs"]={}
 				if q!=labor_hours.first
 					hoursbytech=0
 				end
 				testing+=1
 			end				
-			if @labor_hours_json[q.send(category).send(iden)]["costs"][q.send(sum_over)]==nil
-				@labor_hours_json[q.send(category).send(iden)]["costs"][q.send(sum_over)]=q.duration
+			if @labor_hours_json[q.send(category).try(iden)]["costs"][q.send(sum_over)]==nil
+				@labor_hours_json[q.send(category).try(iden)]["costs"][q.send(sum_over)]=q.duration
 			else
-				@labor_hours_json[q.send(category).send(iden)]["costs"][q.send(sum_over)]+=q.duration	
+				@labor_hours_json[q.send(category).try(iden)]["costs"][q.send(sum_over)]+=q.duration	
 			end
 			hoursbytech+=q.duration			
 		end
@@ -415,7 +415,7 @@ class BmetDashboardController < ApplicationController
 		@work_orders.each do |wo|
 			if curritem!=wo.bmet_item_id
 				if wo.status!=2
-					@items<<{wo.id => wo.bmet_item.name}
+					@items<<{wo.id => wo.bmet_item.try(:name)}
 				end
 				curritem=wo.bmet_item_id
 			end
@@ -443,7 +443,7 @@ class BmetDashboardController < ApplicationController
 				@broken_number+=1
 				curritem=wo.bmet_item_id
 			end
-			@items<<{wo.id => wo.bmet_item.name}
+			@items<<{wo.id => wo.bmet_item.try(:name)}
 		end
 		total_items=BmetItem.joins({:bmet_model => :facility}).where("facilities.id= :curruser",{curruser:current_user.facility_id})
 		@total_number=total_items.size
