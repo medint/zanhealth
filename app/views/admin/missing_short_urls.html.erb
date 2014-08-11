@@ -1,0 +1,18 @@
+<div class="admin_navigation">
+  Description : List of all short urls in bmet_items. See if any are not inside the short urls database
+  </br>
+  <code>
+  def missing_short_urls
+        @missing_keys = []
+        @keys = BmetItem.group(:short_url_key).count.map { |i| i[0] }
+        @keys.each do |key|
+            matched_urls = Shortener::ShortenedUrl.where(:unique_key => key).size
+            if matched_urls == 0
+                @missing_keys.push(key)
+            end
+        end
+    end 
+  </code></br>
+	<%= @missing_keys %>
+
+</div>

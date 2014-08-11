@@ -23,6 +23,23 @@ class AdminController < ApplicationController
         end
     end
 
+    def duplicate_short_urls
+        # @joined_urls = ActiveRecord::Base.connection.select_all("SELECT * from shortened_urls LEFT OUTER JOIN bmet_items ON shortened_urls.unique_key = bmet_items.short_url_key")
+        @joined_urls = ActiveRecord::Base.connection.select_all("SELECT bitems.id,shorturls.unique_key,shorturls.created_at,shorturls.asset_id,shorturls.asset_id from shortened_urls AS shorturls LEFT OUTER JOIN bmet_items AS bitems ON shorturls.unique_key = bitems.short_url_key")
+        @asset_id_count = Shortener::ShortenedUrl.group(:asset_id).order(:asset_id).count
+    end
+
+    def missing_short_urls
+        @missing_keys = []
+        @keys = BmetItem.group(:short_url_key).count.map { |i| i[0] }
+        @keys.each do |key|
+            matched_urls = Shortener::ShortenedUrl.where(:unique_key => key).size
+            if matched_urls == 0
+                @missing_keys.push(key)
+            end
+        end
+    end 
+
     def facilities
         @facilities = Facility.all
         @facility = Facility.new

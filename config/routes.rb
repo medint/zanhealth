@@ -190,6 +190,8 @@ Zanhealth::Application.routes.draw do
   get "/admin/facilities", to: "admin#facilities"
   get "/admin/facility_users/:facility_id", to: "admin#facility_users"
   post "/admin/create_user", to: "admin#create_user"
+  get "/admin/duplicate_short_urls", to: "admin#duplicate_short_urls"
+  get "/admin/missing_short_urls", to: "admin#missing_short_urls"
 
   get '/404', :to => redirect('/404.html')
   get '/terms', :to => redirect('/terms.html')

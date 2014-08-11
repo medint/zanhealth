@@ -9,6 +9,7 @@
         <th><%= t(:name).capitalize%></th>      
         <th><%= t(:email).capitalize%></th> 
         <th><%= t(:role).capitalize%></th>     
+        <th><%= t(:last_login_date).titlecase%></th>     
       </tr>
     </thead>
 
@@ -19,6 +20,7 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.role.name %></td>
+          <td><%= user.last_sign_in_at %></td>
         </tr>
       <% end %>
     </tbody>
