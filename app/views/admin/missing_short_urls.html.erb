@@ -7,7 +7,7 @@
         @keys = BmetItem.group(:short_url_key).count.map { |i| i[0] }
         @keys.each do |key|
             matched_urls = Shortener::ShortenedUrl.where(:unique_key => key).size
-            if matched_urls == 0
+            if matched_urls != 1
                 @missing_keys.push(key)
             end
         end
