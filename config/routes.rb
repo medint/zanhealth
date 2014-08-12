@@ -48,7 +48,7 @@ Zanhealth::Application.routes.draw do
   end
   resources :facility_cost_items
   
-  get "/", to: "bmet_work_orders#index"
+  #get "/", to: "bmet_work_orders#index"
 
   # export to csv feature
   get "/facility_preventative_maintenances/download", to: "facility_preventative_maintenances#as_csv"
@@ -195,7 +195,7 @@ Zanhealth::Application.routes.draw do
 
   get '/404', :to => redirect('/404.html')
   get '/terms', :to => redirect('/terms.html')
-  root to: "bmet_work_orders#index"
+  root to: "pages#home"
 
   # Facility specific urls
   get '/37military_work_requests', :to => redirect('/bmet_work_requests/4/public_new')

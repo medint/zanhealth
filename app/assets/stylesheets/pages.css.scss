@@ -1,0 +1,312 @@
+// Place all the styles related to the Roles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Site header */
+
+.wrap:before,
+.wrap:after { content:""; display:table; }
+.wrap:after { clear: both; }
+.wrap {
+  /*position: fixed;*/
+  /*background-color: white;*/
+  max-width: 2000px;
+  padding: 0 30px;
+  /*margin: 0 auto;*/
+  zoom: 1;
+}
+
+.site-header {
+  z-index: 1;
+  border-top: 5px solid #333;
+  border-bottom: 1px solid #e8e8e8;
+  min-height: 56px;
+  background-color: white;
+  position: fixed;
+  margin: 0 auto;
+  padding: 0 30px;
+  zoom: 1;
+  width: 100%;
+  /*background-color: white;*/
+  /*background-color: #77CCBF;*/
+
+}
+
+.site-title{
+  font-weight: 500;
+  display: block;
+  color: #333;
+  font-size: 28px;
+  letter-spacing: -1px;
+  float: left;
+  line-height: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.site-nav {
+  float: right;
+  line-height: 56px;
+}
+
+.site-nav .menu-icon { 
+  display: none; 
+}
+
+.site-nav .page-link,
+.page-link:hover {
+  margin-left: 50px;
+  font-size: 16px;
+  /*padding-right: 20px;*/
+  /*color: #727272;*/
+  letter-spacing: -.5px;
+}
+
+
+
+/* smaller screens */
+@media screen and (max-width: 685px) {
+
+  .wrap { padding: 0 12px; }
+
+  .site-nav {
+    position: fixed;
+    z-index: 10;
+    top: 14px; right: 8px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .site-nav .menu-icon {
+    display: block;
+    font-size: 24px;
+    color: #505050;
+    float: right;
+    width: 36px;
+    text-align: center;
+    line-height: 36px;
+  }
+
+  .site-nav .menu-icon svg { width: 18px; height: 16px; }
+
+  .site-nav .trigger {
+    /*padding-left: 300px;*/
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  .site-nav:hover .trigger { display: block; }
+
+  .site-nav .page-link {
+    display: block;
+    text-align: right;
+    line-height: 1.25;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+}
+
+
+/***************************
+****************************
+Body
+****************************
+***************************/
+
+body {
+  /*margin: 0px;*/
+  /* font-family: "Avenir LT Std Roman"; */
+}
+
+#top{
+
+}
+
+.container {
+  width:850px;
+}
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    background-color: #71bdae;
+}
+
+#center {
+  background:#f9f9f9;
+  background:rgba(255,255,255,.75);
+  //width:90%;
+  padding: 2%;
+  margin:1em auto;
+  /*border:1px solid #bbb;*/
+}
+
+
+h1 { /* Title for main section. */
+  font-weight: 200;
+  /*margin-top: 2em;*/
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0em;
+}
+
+h2 { /* Title for each section */
+  padding-left: 100px;
+  color: #77CCBF;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+h3 { /* For each feature */
+  font-weight: 600;
+  color:#6B6360;
+  /* background-color: #77CCBF; */
+}
+
+h4{
+  font-weight: 400;
+  color: #6B6360;
+}
+
+#logo{
+  padding-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 120px;
+  border-right: 1px solid #bdbdbd;
+}
+
+#zanhealth-title{
+  font-size: 20px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+}
+
+#top-description{
+  padding-top: 2.5%;
+  margin-top: 5%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  /*margin-top: 5%;*/
+  color: white;
+}
+
+#demo-button{
+  padding-top: 2.5%;
+  margin-top: 5%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  /*margin-top: 5%;*/
+  color: white; 
+}
+
+h5{ /* for normal text */
+  font-weight: 400;
+  color: #6B6360;
+  padding-left: 125px;
+  font-size: 1em;
+}
+
+.central-image{
+  background-image: url(image_path('front_page/background-pattern.png'));
+  background-size: 140% 140%;
+  height: 480px;
+  /*height: 80%;*/
+  /*padding: 100px;*/
+}
+
+#central-image-background {
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: hidden;
+  width: 100%;
+  padding: 50px;
+}
+
+.part {
+  margin-left: 17.5%;
+  width: 60%;
+
+}
+#gear {
+  margin-right: -10px;
+}
+
+#center strong {
+  color: black;
+}
+
+ul {
+  margin-left: -5%;
+}
+
+#features-preface{
+  margin-left: 10%;
+  padding: 1%;
+}
+
+#features > li{
+    display: inline-block;
+    vertical-align: top;
+    margin: 2.5% auto;
+}
+
+#analytics {
+  margin-left: -35px;
+}
+
+#repairs {
+  margin-bottom: -10px;
+  margin-left: -30px;
+  margin-right:-30px;
+}
+
+
+#cloud{
+  margin-left: -50px;
+}
+
+#screen{
+  margin-left: -25px;
+}
+
+
+.box{
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+
+.bottom-line{
+  margin-top: 10%;
+  margin-left: 14%;
+  margin-right: 40.5%;
+}
+
+#bottom-description{
+  margin-left: 2.5%;
+  margin-right: 10%;
+  padding: 0;
+}
+
+
+.row{
+  z-index: -1000000000;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+th, td {
+  padding: 2px;
+}
