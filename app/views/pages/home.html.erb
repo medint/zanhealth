@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <%= stylesheet_link_tag "pages", media: "all", "data-turbolinks-track" => true %>
+  <!--link rel = "stylesheet" type = "text/css" href="styles/main.css" -->
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+  <!-- SMOOTH SCROLL -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <!-- OFFLINE VERSIONS -->
+  <!--link rel = "stylesheet" type = "text/css" href = "styles/css/bootstrap.min.css" >
+  <link rel="stylesheet" type = "text/css" href = "js/bootstrapValidator/dist/css/bootstrapValidator.min.css"/>
+  <script type="text/javascript" src="styles/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="js/bootstrapValidator/dist/js/bootstrapValidator.min.js"></script>
+  <script type="text/javascript" src="js/skrollr.min.js"></script-->
+
+  <script>
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 500);
+            return false;
+          }
+        }
+      });
+    });
+  </script>
+  <!-- End of SMOOTH SCROLL -->
+
+  <!-- Bootstrap validator -->
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+
+  <script type="text/javascript">
+
+    function hideButton(){
+      $('#success').html("<div id = submit-button class='alert alert-success'>");
+        // $('#submit-button > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+        // .append( "</button>");
+        $('#success > .alert-success')
+        .append("<span class ='glyphicon glyphicon-ok'></span> <strong>Your request for a demo has been sent. We'll be in touch soon. </strong>");
+        $('#success > .alert-success')
+        .append('</div>');
+        $('#submit-button').remove()
+      }
+
+    $(document).ready(function(){
+        $('#demo-form').bootstrapValidator({
+          feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+          },
+          fields: {
+          "entry.1309549057": { //Hospital name
+            validators:{
+             notEmpty: {
+              message:'Please enter the name of the hospital.'
+            }
+            }
+          },
+          "entry.1356326089": { //Hospital location
+            validators:{
+              notEmpty: {
+                message: 'Please enter the location of the hospital (Country/city).'
+              }
+            }
+          },
+          "entry.115100805":{ //Their name
+            validators:{
+              notEmpty: {
+                message: 'Please enter your name.'
+              }
+            }
+          },
+          "entry.126041519":{ //Role
+            validators:{
+              notEmpty:{
+                message: 'Please enter your role in the hospital.'
+              }
+            }
+          },
+          "entry.943370828": { //Email
+            validators: {
+              notEmpty: {
+                message: 'The email address is required and cannot be empty'
+              },
+              emailAddress: {
+                message: 'Please enter a valid email address.'
+              }
+            }
+          }
+        }
+    })
+     .on('success.form.bv', function(e){
+      e.preventDefault();
+      var $form = $(e.target);
+      // var bv = $form.data('bootstrapValidator');
+      hideButton();
+      $.post($form.attr('action'), $form.serialize(), function(result){return null;})
+      })
+    })
+
+</script>
+
+</head>
+
+<!-- Begin body -->
+<body data-0="background-position:0px 0px;" data-100000="background-position:0px -20000px;">
+  
+  <header class="site-header">
+    <div class = "wrap container">
+      <div class="site-title">
+        <a href ="http://www.medinternational-us.org/">
+          <%= image_tag("front_page/logo.png", id: "logo") %>
+        </a> 
+        <a href="#Home" id="zanhealth-title">Zanhealth</a> 
+      </div>
+      <nav class = "site-nav">
+        <a href="#" class="menu-icon">
+          <svg version="1.1" cxmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+          h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+          h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+          c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </a>
+        <div class="trigger">
+          <a href = "#Features" class = "page-link" id = "leftmost">Features</a>  
+          <!-- <a href = "#Pricing" class = "page-link"> Pricing </a>  -->
+          <!--       <a href = "#Demo" class = "page-link"> Demo </a> -->
+          <a href = "#Support" class = "page-link">Support</a> 
+          <a href = "#Contact" class = "page-link" id = "rightmost">Contact</a> 
+          <a href = "#Home" class = "page-link"><a class="btn btn-primary btn-lg" role="button" style="background-color: #77ccbf; border-style: none" href="users/sign_in">Login</a></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div id = "skrollr-body">
+    <div name = "Home">
+      <div class = "central-image" data-0="background-position:0px 0px;" data-100000="background-position:0px -40000px;">
+        <div id="central-image-background">
+          </br></br></br></br></br>
+          <h1>
+            <div id = "top-description"> 
+              <strong style = "font-size: 40px">  Zanhealth </strong> is a comprehensive software suite that is revolutionizing medical equipment management and repair for hospitals in developing countries. 
+            </div>
+          </h1>
+          <div class="row">
+            <div class="col-md-2 col-md-offset-8">
+              <a href = "#Demo" class = "page-link" id="demo-button">  
+                <button type="button" class = "btn btn-default btn-lg" style="background-color: #77ccbf; border-style: none; color:white;">Schedule a Demo Now
+                </button> 
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- Home-->
+  </div><!-- skrollr-body -->
+
+  <!-- Nested center within a center for smaller margin effect. -->
+  <div id = "center" class="container" name = "Features">
+    <h2>
+      Features
+    </h2>
+    <div class = "row" id = "solution">
+      <div class="col-md-2 col-md-offset-2 col-xs-2 col-xs-offset-2"> 
+        <%= image_tag("front_page/complete_solution.png") %>        
+      </div>
+      <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1">
+        <h3> A Complete Solution. </h3>
+        <h4> Zanhealth provides a comprehensive IT infrastructure for a hospital's equipment by maintaining a full record of the hospital’s medical and laboratory inventory with critical information on each piece of equipment. </h4>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+
+    <div class = "row" id = "repairs">      
+      <div class="col-md-5 col-xs-5 col-md-offset-2 col-xs-offset-2">
+        <h3> Manage Repairs. </h3>
+        <h4> Zanhealth is an efficient platform for managing broken equipment repair. Submit and manage work requests for repairs and recurrent maintenance schedules. </h4>
+      </div>       
+      <div class="col-md-2 col-xs-2"> 
+        <%= image_tag("front_page/manage_repairs.png") %>        
+      </div>
+    </div>        
+
+    <div class = "row" id = "infrastructure">
+      <div class="col-md-2 col-xs-2 col-md-offset-2 col-xs-offset-2"> 
+        <%= image_tag("front_page/it_infrastructure.png", id: "screen") %>        
+      </div>
+      <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
+        <h3> Vital IT Infrastructure. </h3>
+        <h4> An intuitive and flexible workflow for everyone: users, technicians, and administrators. Users submit requests, technicians handle repairs, administrators oversee logistics and analytics. It's simple and easy to use. </h4>
+      </div>
+      <div class="col-md-2 col-xs-2"></div>
+    </div>
+
+    <div class = "row" id = "Cloud" >      
+      <div class="col-md-5 col-xs-5 col-md-offset-2 col-xs-offset-2">
+        <h3> Cloud-based. </h3>
+        <h4> Zanhealth offers virtually unlimited database storage with the cloud. Medical equipment information and analytics are secure, and can be accessed from any computer. We tag equipment on site. </h4>
+      </div>
+      <div class="col-md-2 col-xs-2"> 
+        <%= image_tag("front_page/cloud_sms.png", class: "cloud") %>        
+      </div>
+    </div>     
+
+    <div class = "row" id = "analyticz">
+      <div class="col-md-2 col-xs-2 col-md-offset-2 col-xs-offset-2"> 
+        <%= image_tag("front_page/analytics.png", class: "analytics") %>
+      </div>
+      <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1" style="margin-top: 30px">
+        <h3> Powerful Analytics. </h3>
+        <h4> Zanhealth empowers hospital administration with powerful data analytics. Equipment and repair statistics, expenditure tracking, and record searching are just a click away. </h4>
+      </div>
+    </div>
+
+    <hr />
+    <div class="row">
+      <div class="col-md-2 col-xs-2"></div>
+      <div class="jumbotron col-md-8 col-xs-8" id = "center" name ="Demo" style = " background-color: #eeeeee;">
+        <h1 style = "font-size: 46px">Schedule a demo today.</h1>
+        <p>Interested in giving Zanhealth a go? We will work with you to be certain that you're satisfied. No strings attached. Just fill in the information below, and we'll contact you. </p>
+
+        <!-- FORM -->
+        <iframe name="hidden_iframe" id="hidden_iframe"
+        style="display:none;">
+        </iframe>
+        <form role = "form" action="https://docs.google.com/forms/d/1rW6u84rnKUMzAZ0bJb7K_smeNcWdgM57vhaepOHzEn0/formResponse" method="POST" id="demo-form" target="hidden_iframe">
+          <div class="form-group">
+            <label for="entry_1309549057">Hospital name</label>
+            <input type="text"  name="entry.1309549057" value="" class="form-control" id="entry_1309549057" dir="auto" placeholder="Name of hospital" title=""/>
+          </div>
+          <div class="form-group">
+            <label for="entry_1356326089">Hospital location</label>
+            <input type="text" name="entry.1356326089" value="" class="form-control" id="entry_1356326089" dir="auto" placeholder="Country/city" title="">
+          </div>
+          <div class = "form-group">
+           <label for="entry_115100805">Your name</label>
+           <input type="text" name="entry.115100805" value="" class="form-control" id="entry_115100805" dir="auto" placeholder="Your name " title="">
+          </div>
+          <div class="form-group">
+            <label for="entry_126041519">Your role</label>
+            <input  type="text" name="entry.126041519" value="" class="form-control" id="entry_126041519" dir="auto" placeholder="Your role  " title="">
+          </div> 
+          <div class="form-group" role="listitem">
+            <label for="entry_943370828">Email address</label>
+            <input  class = "form-control" type="text" name="entry.943370828" value="" id="entry_943370828" dir="auto" placeholder="Email address  " title="">
+          </div> 
+          <div class="form-group">
+            <label for="entry_1058206535">Any comments or concerns?</label>
+            <textarea type="text" name="entry.1058206535" value="" class="form-control" id="entry_1058206535" dir="auto" placeholder="(Optional) " title=""> </textarea>
+          </div>
+          <input type="hidden" name="draftResponse" value="[,,&quot;5361831116167174892&quot;]">
+          <input type="hidden" name="pageHistory" value="0">
+          <input type="hidden" name="fbzx" value="5361831116167174892">
+          <!-- <input type="submit" class="btn btn-primary btn-lg" name="my-submit" value="Submit" id="ss-submit"> -->
+          <button id = "submit-button" class="btn btn-primary btn-lg" role="button" type="submit"> Submit </button>
+          <div id = "success"> </div> <!-- After successful submission, shows messsage. -->
+        </form>
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class = "box" name = "Support">
+        <h2>
+          Support
+        </h2>
+        <h5 style="font-size:16px; padding-top: 5px">
+          Zanhealth offers tailored customer support with guaranteed 48-hour responses.
+          <br>
+          <br>
+          <u> Technical support email</u>:  support@zanhealth.co 
+        </h5>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class = "box" name = "Contact">
+        <h2> Contact </h2>
+        <h5 style="font-size:16px; padding-top: 5px">
+          <p > Zanhealth was built by MED International, a US-based 501(c)3 nonprofit operating out of Brown University; click on the MED International logo above for more information. Zanhealth is named after our first success. Piloted in Mnazi Mmoja Hospital in Zanzibar in 2012, Zanhealth facilitated the repair of $300,000USD of broken medical equipment for under $500USD in spare parts. We've been upgrading and expanding rapidly ever since. </p>
+          <p> Zanhealth is also now operational in Tanzania and Ghana. We hope that you'll join us.</p>
+          <br>
+          <u>Email</u>: contact@zanhealth.co 
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.26/skrollr.min.js"></script>
+  <script type="text/javascript">
+    skrollr.init({
+      forceHeight: false
+    });
+  </script>
+
+</body>
+
+<footer>
+  <p style = "padding-left: 40%">
+    &copy; MED international 2011-2014
+
+    &nbsp;&nbsp;&nbsp;
+    <a class="smlink" href="https://www.facebook.com/pages/MED-International/177043215738183">
+      <%= image_tag("front_page/facebook.png", class: "socialmedia", alt: "Facebook") %>
+    </a>
+
+    <a class="smlink" href="http://www.youtube.com/user/medinternational2012/">
+      <%= image_tag("front_page/youtube.png", class: "socialmedia", alt: "Youtube") %>
+    </a>
+
+    <a class="smlink" href="https://twitter.com/MEDIntl">
+      <%= image_tag("front_page/twitter.png", class: "socialmedia", alt: "Twitter") %>
+    </a>
+  </p>
+</footer>
+</html>

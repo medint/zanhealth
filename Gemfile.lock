@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/jshum/shortener.git
-  revision: 1cafcfa08dfed76f13bc7b3c120d0523ae5d0300
+  remote: git://github.com/jpmcgrath/shortener.git
+  revision: b65608c267b782905d1955e0b258a984d3e01954
   specs:
-    shortener (0.3.0)
+    shortener (0.3.1)
       rails (>= 3.0.7)
 
 GEM

@@ -1,0 +1,47 @@
+<div class="admin_navigation">
+	Description : Lists all matched bmet_items with the same asset_id, so we know if there are any duplicates
+	<table class="admin_tables">
+    <thead>
+      <tr> 
+        <th><%= t(:asset_id).capitalize%></th>              
+        <th><%= t(:count).capitalize%></th>             
+        <th><%= t(:items).capitalize%></th> 
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @asset_id_count.each do |asset| %>
+        <tr>
+          <td><%= asset[0] %></td>
+          <td><%= asset[1] %></td>          
+          <td><%= Shortener::ShortenedUrl.where(:asset_id => asset[0]).select(:unique_key).map { |i| BmetItem.find_by_short_url_key(i.unique_key) } %>
+        </tr>
+      <% end %>
+    </tbody>
+  	</table>
+  	</br>
+
+  	Description : list of all short_urls in our tables and matched with bmet_items using the short_url_key
+	<table class="admin_tables">
+    <thead>
+      <tr> 
+        <th><%= t(:unique_key).capitalize%></th>    
+        <th><%= t(:asset_id).capitalize%></th> 
+        <th><%= t(:item).capitalize%></th>             
+        <th><%= t(:created_at).capitalize%></th>             
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @joined_urls.each do |url| %>
+        <tr>
+          <td><%= url["unique_key"] %></td>
+          <td><%= url["asset_id"] %></td>
+          <td><%= link_to url["id"], BmetItem.find_by_id(url["id"]) %></td>
+          <td><%= url["created_at"] %></td>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
