@@ -53,6 +53,8 @@ ht:
    by_hours_worked_in_period: "creole"
    by_hours_worked_on_completed_wo_in_period: "creole"
    by_item: "creole"
+   current_condition: "creole"
+   current_status: "creole"
    currently_down: "creole"
    with_work_order_in_period: "creole"
    category: "kategori" 

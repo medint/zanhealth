@@ -32,6 +32,8 @@ sw:
    by_hours_worked_in_period: "swahili"
    by_hours_worked_on_completed_wo_in_period: "swahili"
    by_item: "swahili"
+   current_condition: "swahili"
+   current_status: "swahili"
    currently_down: "swahili"
    with_work_order_in_period: "swahili"
    category: "kundi" 
