@@ -125,7 +125,7 @@ class BmetItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # for edit/update since dropdown is in words but has to be sent as db to backend
     def set_status
       @status= {
         'Active' => 0,
@@ -143,6 +143,7 @@ class BmetItemsController < ApplicationController
       }
     end
 
+    # for displaying since stored as integer in db
     def set_status_string_hash
       @status_string_hash = ['Active','Inactive','Retired']
     end

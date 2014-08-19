@@ -45,6 +45,8 @@ en:
    by_work_order: "by work order"
    by_hours_worked_in_period: "by hours worked in period"
    by_hours_worked_on_completed_wo_in_period: "by hours worked on copmleted WO in period"
+   current_condition: "current condition"
+   current_status: "current_status"
    currently_down: "currently down"
    with_work_order_in_period: "with work order in period"
    category: "category"

@@ -34,14 +34,26 @@
         <div class="field-box">
           <div class="field-type"><%= t(:department).capitalize %></div>
           <div class="field-info">
-            <%= f.collection_select :department_id, @departments, :id, :name %>
+            <%= f.collection_select :department_id, @departments, :id, :name, required: true %>
           </div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= t(:location).capitalize %></div>
           <div class="field-info">
             <%= f.text_field :location %>
+          </div>
         </div>
+        <div class="field-box">
+          <div class="field-type"><%= t(:current_status).titlecase %></div>
+          <div class="field-info">
+            <%= f.select :status, @status, required: true %>
+          </div>
+        </div>
+        <div class="field-box">
+          <div class="field-type"><%= t(:current_condition).titlecase %></div>
+          <div class="field-info">
+            <%= f.select :condition, @conditions, required: true %>
+          </div>
         </div>
         <div class="field-box">
           <div class="field-type"><%= t(:year_manufactured).titlecase %></div>
