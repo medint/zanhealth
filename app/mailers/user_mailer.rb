@@ -16,13 +16,14 @@ class UserMailer < ActionMailer::Base
   	mail(to: workrequest.email, subject: 'Work request ' + workrequest.id.to_s + ' has been completed')
   end
 
-  def work_order_assigned_email(workorder)
+  def work_order_assigned_email(workorder, pdf)
     @workorder = workorder
     if Rails.env.development?
       @host = "localhost:3000"
     elsif Rails.env.production?
       @host = "zanhealth.co"
     end
+    attachments["workorder"+workorder.id.to_s+".pdf"] = pdf
     mail(to: workorder.owner.email, subject: 'You have been assigned to Work Order ' + workorder.id.to_s)
   end
 

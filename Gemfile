@@ -89,6 +89,10 @@ gem "recaptcha", :require => "recaptcha/rails"
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
 # gem 'sprockets', '=2.11.0'
 
+#Append .pdf to any url to access a pdf version of that html page
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+
 #Front-end form validation
 gem 'simple_form'
 
