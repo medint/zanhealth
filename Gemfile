@@ -89,10 +89,6 @@ gem "recaptcha", :require => "recaptcha/rails"
 # fuck this. source : https://github.com/twbs/bootstrap-sass/issues/560
 # gem 'sprockets', '=2.11.0'
 
-#Append .pdf to any url to access a pdf version of that html page
-gem 'pdfkit'
-gem 'wkhtmltopdf-binary'
-
 #Front-end form validation
 gem 'simple_form'
 
@@ -107,7 +103,9 @@ gem 'bonsai-elasticsearch-rails' #Don't move this to production, it'll break her
 
 # for item tagging
 gem 'shortener', github: 'jpmcgrath/shortener' #fork of shortener with our own modifications
-gem 'prawn' #PDF generation for tagging
+gem 'prawn' #PDF generation for tagging (also used for work order pdf generation)
+gem 'prawnto' #For visualizing pdfs in a view
+gem 'prawn-table'
 gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
 gem "rqrcode_png" # for generating png from qr code
 

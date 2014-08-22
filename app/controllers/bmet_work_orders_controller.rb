@@ -96,13 +96,7 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order.requester_id=current_user.id
     respond_to do |format|
       if @bmet_work_order.save
-        if Rails.env.development?
-          kit = PDFKit.new('http://localhost:3000/bmet_work_orders/print_view/'+@bmet_work_order.id.to_s)
-        elsif Rails.env.production?
-          kit = PDFKit.new('http://zanhealth.co/bmet_work_orders/print_view/'+@bmet_work_order.id.to_s)
-        end
-        pdf = kit.to_pdf
-        UserMailer.work_order_assigned_email(@bmet_work_order, pdf).deliver
+        UserMailer.work_order_assigned_email(@bmet_work_order).deliver
         if @bmet_work_order.wr_origin
           UserMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
         end
@@ -190,8 +184,11 @@ class BmetWorkOrdersController < ApplicationController
 
   def show_print
     @status= ['Active', 'Inactive', 'Retired']
-    @conditions = ['Poor', 'Fair', 'Good', 'Very Good']        
-    render 'print_view', layout: 'blank'
+    @conditions = ['Poor', 'Fair', 'Good', 'Very Good']
+    respond_to do |format|
+      format.html {render 'print_view.html.erb', layout: 'blank'}
+      format.pdf {render 'print_view.pdf.prawn', layout: false}
+    end
 
   end
 

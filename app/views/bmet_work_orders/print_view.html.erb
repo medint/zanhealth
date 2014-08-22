@@ -6,9 +6,10 @@
 <table id = "print-wo-details-table">
   <tr><th></th><th><%= t(:work_order).titlecase + " " + t(:details).capitalize %></th></tr>
   <tr><td><%= t(:item).titlecase %></td><td><%= item.bmet_model.name %></td></tr>
+  <tr><td><%= t(:description).titlecase %></td><td><%= wo.description %></td></tr>
   <tr><td><%= t(:date_started).titlecase%></td><td><%= wo.date_requested.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:expected_date_of_completion).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>
-  <tr><td><%= t(:completion_date).titlecase %></td><td><%= wo.date_expire.try(:strftime,"%d %b %Y") %></td></tr>
+  <tr><td><%= t(:completion_date).titlecase %></td><td><%= wo.date_completed.try(:strftime,"%d %b %Y") %></td></tr>
   <tr><td><%= t(:requester).titlecase %></td><td><%= wo.requester.name %></td>
   <tr><td><%= t(:owner).titlecase %></td><td><%= wo.owner.name %></td>
   <tr><td><%= t(:department).titlecase %></td><td><%= wo.department.name %></td>
