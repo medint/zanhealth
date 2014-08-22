@@ -23,7 +23,7 @@ class UserMailer < ActionMailer::Base
     elsif Rails.env.production?
       @host = "zanhealth.co"
     end
-    attachments["workorder.pdf"] = WorkOrderPdf.new(@workorder).render
+    attachments["workorder"+workorder.id.to_s+".pdf"] = WorkOrderPdf.new(@workorder).render
     mail(to: workorder.owner.email, subject: 'You have been assigned to Work Order ' + workorder.id.to_s)
   end
 
