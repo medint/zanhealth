@@ -96,7 +96,9 @@ class BmetWorkOrdersController < ApplicationController
     @bmet_work_order.requester_id=current_user.id
     respond_to do |format|
       if @bmet_work_order.save
-        UserMailer.work_order_assigned_email(@bmet_work_order).deliver
+        if !Rails.env.test?
+          UserMailer.work_order_assigned_email(@bmet_work_order).deliver
+        end
         if @bmet_work_order.wr_origin
           UserMailer.work_request_converted_email(@bmet_work_order.wr_origin).deliver
         end
