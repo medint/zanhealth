@@ -16,7 +16,7 @@ class BmetWorkOrdersController < ApplicationController
 
   def search
   	  @bmet_work_orders = BmetWorkOrder.search(params[:q], :size => 100).records
-	  @bmet_work_orders = BmetWorkOrder.with_deleted.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",current_user.facility).references(:facility)
+	  @bmet_work_orders = @bmet_work_orders.with_deleted.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",current_user.facility).references(:facility)
 	  @link = bmet_work_orders_url+"/all/"
 	  render action: 'index'
   end

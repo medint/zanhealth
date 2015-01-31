@@ -74,6 +74,15 @@ class BmetWorkOrder < ActiveRecord::Base
       )
   end
 
+  def as_indexed_json(option={})
+  	  self.as_json(
+  	  	  include: {
+  	  	  	  owner: { only:  :name },
+  	  	  	  requester: { only: :name },
+  	  	  	  department: { only: :name }
+		  })
+  end
+
   def updated_status_bmet_item_history
     @original_bmet_work_order = BmetWorkOrder.find_by_id(self.id)
     # only create history if work order status differ, 
