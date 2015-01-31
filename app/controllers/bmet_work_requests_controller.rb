@@ -13,6 +13,13 @@ skip_before_action :authenticate_user!, only: [:public_new, :public_create, :pub
 
   layout 'layouts/bmet_app'
 
+  def search
+  	@bmet_work_requests = BmetWorkRequest.search(params[:q], :size => 100).records
+  	@bmet_work_requests = @bmet_work_requests.with_deleted.where(:facility_id => current_user.facility_id).all.order(:created_at).reverse_order()
+    @link = bmet_work_requests_url+"/all/"
+    render action: 'index'
+  end
+
   def new
     @bmet_work_request = BmetWorkRequest.new
   end

@@ -1,5 +1,141 @@
-<%= render 'navigation' %>
+<div id="dashboard-navigation">
+
+	<div id="dashboard-header">
+
+
+		<div id="dashboard-header-title">
+				Clinical Administrator Dashboard
+			</div>
+			</div>
+			</div>
 <div id="dashboard">
-	<div id="dashboard-forms-ajax"></div>
-	<div id="visualization"></div>
+	<div id="visualization">
+
+
+
+		<div class="panel panel-default outer-panel">
+  			<div class="panel-heading outer-panel-title-div">
+    			<div class="panel-title outer-panel-title"><%= t(:work_order).titlecase %></div>
+  			</div>
+ 			<div class="panel-body">
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" onclick = "timeDashboard('status','<%=t(:chart_title_expire)%>')">
+				          <%= t(:by_expected_completion_date).titlecase %>
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" >
+				      <div class="dashboard-forms" id="dashboard-forms-ajaxstatus"></div>
+				    </div>
+  				</div>
+  			</div>
+  		  
+
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+				    <div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+				        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick = "timeDashboard('statusWoCompleted','<%=t(:chart_title_statuswocompleted)%>')">
+				          <%= t(:by_completion_date).titlecase %>
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" >
+				      <div class="dashboard-forms" id="dashboard-forms-ajaxstatusWoCompleted"></div>
+				    </div>
+  				
+  		  </div>
+  		</div>
+  		</div>
+  		</div>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+		<div class="list-group">
+	         			<div>
+		         			<a class="list-group-item" onclick = "timeDashboard('status','<%=t(:chart_title_expire)%>')">
+		          				<%= t(:by_expected_completion_date).titlecase %>
+		         			</a>
+		         			<div class="dashboard-forms" id="dashboard-forms-ajaxstatus"></div>
+	     				</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('statusWoCompleted','<%=t(:chart_title_statuswocompleted)%>')">
+	          					<%= t(:by_completion_date).titlecase %>
+	         				</a>
+	         				<div class="dashboard-forms" id="dashboard-forms-ajaxstatusWoCompleted"></div>
+	         			</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('statusWoDepartment','<%=t(:chart_title_statuswodepartment)%>')">
+	          					<%= t(:by_department).titlecase %>
+	         				</a>
+	         				<div id="dashboard-forms-ajax"></div>
+	         			</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('statusWoOwner','<%=t(:chart_title_statuswoowner)%>')">
+	          					<%=t(:by_owner).titlecase%>
+	         				</a>
+	         			</div>
+	      			</div>
+	      			</div>
+</div>
+
+	      			<div class="list-group">
+	         			<div>
+		         			<a class="list-group-item" onclick = "timeDashboard('wo_finances','<%=t(:chart_title_wofinances)%>')">
+		          				<%= t(:by_department).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('wo_finances_item','<%=t(:chart_title_wofinancesitem)%>')">
+	          					<%= t(:by_item).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</div>
+	      			<div class="list-group">
+	         			<div>
+		         			<a class="list-group-item" onclick = "timeDashboard('labor_hours_work_order','<%=t(:chart_title_laborhoursworkorder)%>')">
+		          				<%= t(:by_work_order).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('labor_hours_time_worked','<%=t(:chart_title_laborhourstimeworked)%>')">
+	          					<%= t(:by_hours_worked_in_period).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('labor_hours','<%=t(:chart_title_laborhours)%>')">
+	          					<%= t(:by_hours_worked_on_completed_wo_in_period).titlecase %>
+	         				</a>
+	         			</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('labor_hours_item','<%=t(:chart_title_laborhoursitem)%>')">
+	          					<%= t(:by_item).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</div>
+	      			<div class="list-group">
+	         			<div>
+		         			<a class="list-group-item" onclick = "noneDashboard('items_percent_down','<%=t(:chart_title_itemspercentdown)%>')">
+		          				<%= t(:currently_down).titlecase %>
+		         			</a>
+	     				</div>
+	         			<div>
+	         				<a class="list-group-item" onclick = "timeDashboard('items_wo_created','<%=t(:chart_title_itemswocreated)%>')">
+	          					<%= t(:with_work_order_in_period).titlecase %>
+	         				</a>
+	         			</div>	         			
+	      			</div>
+
+
+	</div>
 </div>

@@ -26,6 +26,14 @@
 
 class BmetItem < ActiveRecord::Base
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  if Rails.env.production?
+  	  index_name "zanhealth-test"
+  end
+
+
   before_save :add_bmet_item_history
   belongs_to :bmet_model
   belongs_to :department
@@ -34,6 +42,14 @@ class BmetItem < ActiveRecord::Base
 
   def asset_model_location_name
     "#{asset_id} : #{bmet_model.name} at #{location}"
+  end
+
+  def as_indexed_json(option={})
+  	  self.as_json(
+  	  	  include: {
+  	  	  	  department: { only: :name },
+  	  	  	  bmet_model: { only: [:model_name, :manufacturer_name, :vendor_name]}
+		  })
   end
 
   def name
@@ -85,7 +101,7 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-  def self.import(facility_id)
+  def self.data_import(facility_id)
     staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
       match = nil

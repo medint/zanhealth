@@ -19,18 +19,23 @@ Zanhealth::Application.routes.draw do
   resources :bmet_items, except: :show do
     collection { post :import }
     collection { post :stage_import }
+    collection { get :search }
   end
   resources :bmet_item_histories
   resources :bmet_labor_hours
   resources :bmet_models
   resources :bmet_needs
-  resources :bmet_preventative_maintenances, except: :show
+  resources :bmet_preventative_maintenances, except: :show do
+  	  collection { get :search }
+  end
 
   resources :bmet_work_orders, except: :show do
 	  collection { get :search }
   end
   resources :bmet_work_order_comments
-  resources :bmet_work_requests, except: :show
+  resources :bmet_work_requests, except: :show do
+  	  collection { get :search }
+  end
   resources :bmet_costs
   resources :bmet_cost_items
   resources :part_transactions

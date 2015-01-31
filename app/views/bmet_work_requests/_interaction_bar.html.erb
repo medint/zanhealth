@@ -50,6 +50,11 @@
 			</div>
 		</ul>
 	</div>
+	&nbsp&nbsp&nbsp&nbsp
+    <%= form_tag search_bmet_work_requests_path, method: 'get' do %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag :search %>
+    <% end %>
   </div>
   <div id="top-button">
     <%= link_to "", '#', onclick: "printmainpage(); return false;", :id => "print-button" %>

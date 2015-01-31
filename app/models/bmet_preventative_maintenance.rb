@@ -18,6 +18,30 @@
 
 class BmetPreventativeMaintenance < ActiveRecord::Base
   
+  include Elasticsearch::Model
+
+  if Rails.env.production?
+  	  index_name "zanhealth-test"
+  end
+
+=begin
+	Callbacks that are used to update the ES index correctly.
+	Note that :destroy is linked to Model.destroy which hides
+	the record and not actually destroy it
+=end
+
+  after_commit on: [:create] do
+  	  __elasticsearch__.index_document
+  end
+
+  after_commit on: [:update] do
+  	  __elasticsearch__.update_document
+  end
+
+  after_commit on: [:destroy] do
+  	  __elasticsearch__.update_document
+  end
+  
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   belongs_to :bmet_item
@@ -25,6 +49,13 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   attr_accessor :days_until
   attr_accessor :status
   validate :not_all_zero
+
+  def as_indexed_json(option={})
+  	  self.as_json(
+  	  	  include: {
+  	  	  	  requester: { only: :name}
+		  })
+  end
 
   def calc_days_until
     unless self.next_date.nil?

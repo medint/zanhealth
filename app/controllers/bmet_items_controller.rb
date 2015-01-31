@@ -12,6 +12,12 @@ class BmetItemsController < ApplicationController
   before_action :set_work_order_status_string_hash, only: [:show]
   before_action :set_staging_data, only: [:confirm_import]
 
+  def search
+  	  @bmet_items = BmetItem.search(params[:q], :size => 100).records
+	  @bmet_items = @bmet_items.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
+	  render action: 'index'
+  end
+
   # GET /items
   # GET /items.json
   def index
@@ -108,7 +114,7 @@ class BmetItemsController < ApplicationController
   def import
     #begin
       BmetModel.import(current_user.facility.id)
-      BmetItem.import(current_user.facility.id)
+      BmetItem.data_import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
       #rescue
          #redirect_to :back, notice: "Invalid CSV file format."    
