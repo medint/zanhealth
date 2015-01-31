@@ -1,5 +1,6 @@
 require 'csv'
 require 'faker'
+require 'digest/md5'
 ENV["RAILS_ENV"] ||= "test"
 puts ENV["RAILS_ENV"]
 
@@ -73,39 +74,39 @@ namespace :test do
 
 		BmetModel.delete_all
 		BmetNeed.delete_all
-		# models = []
-		# model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
-		# csv_model = CSV.parse(model_data, :headers => true)
-		# csv_model.each do |row|
-		# 	model = BmetModel.new(:model_name => row[1],
-		# 				 :manufacturer_name => row[2],
-		# 				 :vendor_name => row[3],
-		# 				 :category => row[0]
-		# 				)
-		# 	models[models.size] = model
-		# 	f = facilities.sample
-		# 	biomed_item_group = ItemGroup.find_by(:name => "biomedical", 
-		# 										  :facility_id => f.id
-		# 										  )
-		# 	dept = depts.select { |d| d.facility_id == f.id }.sample
-		# 	date_updated = Time.at(rand * Time.now.to_i)
-		# 	fac_model = BmetModel.create(:model_name => model.model_name,
-		# 								 :manufacturer_name => model.manufacturer_name,
-		# 								 :vendor_name => model.vendor_name,
-		# 								 :category => model.category,
-		# 								 :facility => f,
-		# 								 :item_group => biomed_item_group	
-		# 								)
-		# 	BmetNeed.create(:name => row[1],
-		# 				:department => dept,
-		# 				:bmet_model => fac_model,
-		# 				:quantity => rand(10)+1,
-		# 				:urgency => 0,
-		# 				:reason => Faker::Lorem.sentence(word_count = rand(3..9)), 
-		# 				:date_requested => date_updated
-		# 			   )
-		# end
-		# puts "Imported models and needs"
+		 models = []
+		 model_data = File.open(File.join("test", "test_data", "import_models.csv"),"r")
+		 csv_model = CSV.parse(model_data, :headers => true)
+		 csv_model.each do |row|
+		 	model = BmetModel.new(:model_name => row[1],
+		 				 :manufacturer_name => row[2],
+		 				 :vendor_name => row[3],
+		 				 :category => row[0]
+		 				)
+		 	f = facilities.sample
+		 	biomed_item_group = ItemGroup.find_by(:name => "biomedical", 
+		 										  :facility_id => f.id
+		 										  )
+		 	dept = depts.select { |d| d.facility_id == f.id }.sample
+		 	date_updated = Time.at(rand * Time.now.to_i)
+		 	fac_model = BmetModel.create(:model_name => model.model_name,
+		 								 :manufacturer_name => model.manufacturer_name,
+		 								 :vendor_name => model.vendor_name,
+		 								 :category => model.category,
+		 								 :facility => f,
+		 								 :item_group => biomed_item_group	
+		 								)
+		 	BmetNeed.create(:name => row[1],
+		 				:department => dept,
+		 				:bmet_model => fac_model,
+		 				:quantity => rand(10)+1,
+		 				:urgency => 0,
+		 				:reason => Faker::Lorem.sentence(word_count = rand(3..9)), 
+		 				:date_requested => date_updated
+					   )
+			models[models.size] = fac_model
+		end
+		 puts "Imported models and needs"
 
 		SEPARATOR = ': '
 		Language.delete_all
@@ -133,29 +134,11 @@ namespace :test do
 		csv_item = CSV.parse(item_data, :headers => true)
 		Facility.all.each do |f|
 			csv_item.each do |row|
-				#model = models.find { |m| m.model_name == row[1] }
 				dept = depts.select { |d| d.facility_id == f.id }.sample			
 				biomed_item_group = ItemGroup.find_by(:name => "biomedical",
 													  :facility_id => f.id
 													  )
-				# if model.nil?
-				# 	item = BmetItem.create(:asset_id => row[0],
-				# 					   :serial_number => row[2],
-				# 					   :year_manufactured => row[3],
-				# 					   :funding => row[4],
-				# 					   :date_received => row[5],
-				# 					   :warranty_expire => row[6],
-				# 					   :contract_expire => row[7],
-				# 					   :warranty_notes => row[8],
-				# 					   :service_agent => row[9],
-				# 					   :department => dept,
-				# 					   :location => row[11],
-				# 					   :created_at => Time.now - 60*60*24*(rand(22..40)),
-				# 					   :price => row[13],
-				# 					   :status => rand(0..2),
-				# 					   :condition => rand(0..3)
-				# 					  )
-				# else
+				
 				fac_model = BmetModel.where(:facility_id => f.id).find_or_create_by(model_name: row[10],
 												 manufacturer_name: row[9],
 												 vendor_name: row[11],
@@ -179,7 +162,6 @@ namespace :test do
 								   :department => dept,
  								   :created_at => Time.now - 60*60*24*(rand(22..40)),
 								  )
-				
 				2.times do |x|
 					BmetItemHistory.create(:bmet_item => item,
 									   :bmet_item_status => 0,
@@ -242,22 +224,6 @@ namespace :test do
 		end
 		puts "Imported items, item histories, bmet_work_orders, work request comments, texts"
 
-		facUserSet = []
-		user_data = File.open(File.join("test", "test_data", "import_fac_users.csv"),"r")
-		csv_user = CSV.parse(user_data, :headers => true)
-		csv_user.each do |row|
-			user = User.create(:username => row[0],
-						:email => "#{row[0]}@email.com",
-						:password => row[1],
-						:role => roles.find { |r| r.name == row[2] },
-						:telephone_num => row[3],
-						:facility => facilities.find { |f| f.name == row[4] },
-						:language => row[5],
-						:name => row[6]
-					   )
-			facUserSet[facUserSet.size] = user
-		end
-
 		FacilityWorkOrder.delete_all
 		FacilityWorkOrderComment.delete_all
 		FacilityLaborHour.delete_all
@@ -265,7 +231,7 @@ namespace :test do
 		FacilityCostItem.delete_all
 		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
-			users = facUserSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
+			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			rel_depts = depts.select { |d| d.facility_id == f.id }
 			15.times do |fwo|
 				date_base = Time.now
@@ -340,7 +306,7 @@ namespace :test do
 		FacilityWorkRequest.delete_all
 		role_eng = roles.find {|r| r.name == "fac_tech" }
 		facilities.each do |f|
-			users = facUserSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
+			users = userSet.select { |u| u.facility_id == f.id && u.role_id == role_eng.id}
 			15.times do |fpm|
 				FacilityPreventativeMaintenance.create(:last_date_checked => Time.now - 60*60*24*(rand(-10..6)),
 												   :days => 1,
