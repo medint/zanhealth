@@ -6,7 +6,7 @@ class BmetWorkOrdersController < ApplicationController
   before_action :set_departments, only: [:new, :show, :hidden, :all, :show_hidden, :show_all] 
   before_action :set_status, only: [:show, :new, :hidden, :all, :show_hidden, :show_all, :show_print]
   before_action :set_priorities, only: [:show, :new, :hidden, :all, :show_hidden, :show_all]
-  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all]
+  before_action :set_priorities_hash, only: [:index, :show, :new, :hidden, :all, :show_hidden, :show_all, :search]
   before_action :set_hidden_bmet_work_orders, only: [:hidden, :show_hidden]
   before_action :set_all_bmet_work_orders, only: [:all, :show_all, :as_csv]
   before_action :set_cost_items, only: [:show_all, :show_hidden, :show]
@@ -14,6 +14,13 @@ class BmetWorkOrdersController < ApplicationController
   after_action :reset_original_pm, only: [:create, :update]
   load_and_authorize_resource
 
+  def search
+  	  @bmet_work_orders = BmetWorkOrder.search(params[:q], :size => 100).records
+	  @bmet_work_orders = @bmet_work_orders.with_deleted.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",current_user.facility).references(:facility)
+	  @link = bmet_work_orders_url+"/all/"
+	  render action: 'index'
+  end
+ 
   # GET /bmet_work_orders
   # GET /bmet_work_orders.json
   def index
