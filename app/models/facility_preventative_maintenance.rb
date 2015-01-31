@@ -25,7 +25,8 @@ class FacilityPreventativeMaintenance < ActiveRecord::Base
 
 =begin
 	Callbacks that are used to update the ES index correctly. Note that
-	:destroy is linked to Model.destroy which hides the record 
+	:destroy is linked to Model.destroy which hides the record and does
+	not actually destroy it
 =end
 
   after_commit on: [:create] do
