@@ -63,6 +63,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_items/download", to: "bmet_items#as_csv"
   get "/bmet_items/:id", to: "bmet_items#show"
   get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
+  get "/import", to: "bmet_items#show_import_page"
   post "/bmet_items_import", to: "bmet_items#import"
   post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
   get "/bmet_items_main_list_print_view", to: "bmet_items#show_main_list_print"

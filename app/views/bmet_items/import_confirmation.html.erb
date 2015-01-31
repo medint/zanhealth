@@ -1,69 +1,126 @@
+<% allow_import = true %>
 <div id = "import_confirmation" >
-	<strong> Items and associated models to import: </strong>
+
+	<% if @show_red %>
+
 	<br>
-	<table style="float: left" class = "import_confirmation_table">
-		<tr>
-			<th>Serial Number</th>
-			<th>Year Manufactured</th>
-			<th>Funding</th>
-			<th>Date Received</th>
-			<th>Warranty Expire</th>
-			<th>Warranty Notes</th>
-			<th>Contract Expire</th>
-			<th>Service Agent</th>
-			<th>Price</th>
-			<th>Asset ID</th>
-			<th>Status</th>
-			<th>Condition</th>
-			<th>Location</th>
-			<th>Department</th>
-			<th>Notes</th>
-			<th>URL</th>
-		</tr>
-		<% items_table = StagingItem.get_matches(@facility_id) %>
-		<% items_table.each do |row| %>
-			<tr>
-				<% row.each do |cell| %>
-						<% if cell[1] == 'unchanged' %>
-							<% class_type = 'unchanged_cell' %>
-						<% elsif cell[1] == 'changed' %>
-							<% class_type = 'changed_cell' %>
-						<% elsif cell[1] == 'error' %>
-							<% class_type = 'error_cell' %>
-						<% end %>
-						<td class = <%=class_type%> ><div class = "import_cell"><%= cell[0] %></div></td>
+	<% row_number = 0 %>
+	<% column_number = 0 %>
+	<% StagingItem.get_matches(@facility_id).each do |row| %>
+		<% row_number = row_number+1 %>
+		<% column_number = 0 %>
+		<% row.each do |cell| %>
+			<% column_number = column_number+1 %>
+			<% if cell[1] == 'error' %>
+				<% allow_import = false %>
+				<% if cell[0] && cell[0].to_s.include?("ERROR: ") %>
+					<%= "Line "+row_number.to_s+" column "+column_number.to_s+": "+cell[0].to_s %>
+					<br>
 				<% end %>
+			<% end %>
 		<% end %>
-	</table>
-			<table class = "import_confirmation_table">
+	<% end %>
+
+	<% row_number = 0 %>
+	<% column_number = 0 %>
+	<% StagingModel.get_matches(@facility_id).each do |row| %>
+		<% row_number = row_number+1 %>
+		<% column_number = 0 %>
+		<% row.each do |cell| %>
+			<% column_number = column_number+1 %>
+			<% if cell[1] == 'error' %>
+				<% allow_import = false %>
+				<% if cell[0] && cell[0].to_s.include?("ERROR: ") %>
+					<%= "Line "+row_number.to_s+" column "+column_number.to_s+": "+cell[0].to_s %>
+					<br>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+
+
+
+	<% else %>
+
+		<strong> Items and associated models to import: </strong>
+		<br>
+		<table style="float: left" class = "import_confirmation_table">
 			<tr>
-				<th> Model Name </th>
-				<th> Manufacturer Name </th>
-				<th> Vendor Name </th>
-				<th> Category </th>
-				<th> Item Group </th>
+				<th>Serial Number</th>
+				<th>Year Manufactured</th>
+				<th>Funding</th>
+				<th>Date Received</th>
+				<th>Warranty Expire</th>
+				<th>Warranty Notes</th>
+				<th>Contract Expire</th>
+				<th>Service Agent</th>
+				<th>Price</th>
+				<th>Asset ID</th>
+				<th>Status</th>
+				<th>Condition</th>
+				<th>Location</th>
+				<th>Department</th>
+				<th>Notes</th>
+				<th>URL</th>
 			</tr>
-			<% models_table = StagingModel.get_matches(@facility_id) %>
-			<% models_table.each do |row| %>
+			<% items_table = StagingItem.get_matches(@facility_id) %>
+			<% items_table.each do |row| %>
 				<tr>
 					<% row.each do |cell| %>
-						<% if cell[1] == 'unchanged' %>
-							<% class_type = 'unchanged_cell' %>
-						<% elsif cell[1] == 'changed' %>
-							<% class_type = 'changed_cell' %>
-						<% elsif cell[1] == 'error' %>
-							<% class_type = 'error_cell' %>
-						<% end %>
-						<td class = <%=class_type%>><div class = "import_cell"><%= cell[0] %></div></td>
+							<% if cell[1] == 'unchanged' %>
+								<% class_type = 'unchanged_cell' %>
+							<% elsif cell[1] == 'changed' %>
+								<% class_type = 'changed_cell' %>
+							<% elsif cell[1] == 'error' %>
+								<% allow_import = false %>
+								<% class_type = 'error_cell' %>
+							<% end %>
+							<td class = <%=class_type%> ><div class = "import_cell"><%= cell[0] %></div></td>
 					<% end %>
-				</tr>
 			<% end %>
 		</table>
+				<table class = "import_confirmation_table">
+				<tr>
+					<th> Model Name </th>
+					<th> Manufacturer Name </th>
+					<th> Vendor Name </th>
+					<th> Category </th>
+					<th> Item Group </th>
+				</tr>
+				<% models_table = StagingModel.get_matches(@facility_id) %>
+				<% models_table.each do |row| %>
+					<tr>
+						<% row.each do |cell| %>
+							<% if cell[1] == 'unchanged' %>
+								<% class_type = 'unchanged_cell' %>
+							<% elsif cell[1] == 'changed' %>
+								<% class_type = 'changed_cell' %>
+							<% elsif cell[1] == 'error' %>
+								<% class_type = 'error_cell' %>
+							<% end %>
+							<td class = <%=class_type%>><div class = "import_cell"><%= cell[0] %></div></td>
+						<% end %>
+					</tr>
+				<% end %>
+			</table>
+
+		<% end %>
+
  	<br>
- 	<div class = 'import_button'>
-  	<%= button_to	 "Confirm Import", '/bmet_items_import'  %>
-	<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
-	</div>
+ 	<% if allow_import %>
+	 	<div class = 'import_button'>
+	  	<%= button_to "Confirm Import", '/bmet_items_import'  %>
+		<%= button_to "Cancel Import", '/bmet_items_cancel_import' %>
+		</div>
+
+	<% else %>
+	    <div class = "import_button">
+	    <%= "Errors detected. Modify file and upload again" %></div>
+	    <div class = "import_button"><%= form_tag stage_import_bmet_items_path, multipart: true do %>
+	      <%= file_field_tag :file, accept: 'text/csv' %>  </div>
+	      <div class = "import_button"><%= submit_tag "Upload" %>
+	    <% end %></div>
+	<% end %>
 
 <br>
 </div>

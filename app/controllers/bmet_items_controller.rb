@@ -91,7 +91,10 @@ class BmetItemsController < ApplicationController
       StagingItem.where(:facility_id => current_user.facility.id).destroy_all
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
-      redirect_to '/bmet_items_confirm_import'
+      puts "show_red"
+      puts params[:show_red]
+      @show_red = params[:show_red]
+      confirm_import
     #rescue
      # redirect_to bmet_items_path, notice: "Invalid CSV file format"
     end
@@ -122,6 +125,10 @@ class BmetItemsController < ApplicationController
 
   def show_main_list_print
     render 'main_list_print_view', layout: 'blank'
+  end
+
+  def show_import_page
+    render 'import_page'
   end
 
   private
@@ -179,6 +186,6 @@ class BmetItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :price, :status, :condition, :notes)
+      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :price, :status, :condition, :notes, :show_red)
     end
 end
