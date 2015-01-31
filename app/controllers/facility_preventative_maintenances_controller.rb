@@ -11,8 +11,8 @@ class FacilityPreventativeMaintenancesController < ApplicationController
   before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
 
   def search
-    @facility_preventative_maintenances = FacilityPreventativeMaintenance.with_deleted.search(params[:q]).records
-    @facility_preventative_maintenances = @facility_preventative_maintenances.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
+  	@facility_preventative_maintenances = FacilityPreventativeMaintenance.search(params[:q], :size => 100).records
+    @facility_preventative_maintenances = @facility_preventative_maintenances.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.to_a
     @link = facility_preventative_maintenances_url+"/all/"
     render action: "index"
   end

@@ -26,7 +26,9 @@ Zanhealth::Application.routes.draw do
   resources :bmet_needs
   resources :bmet_preventative_maintenances, except: :show
 
-  resources :bmet_work_orders, except: :show
+  resources :bmet_work_orders, except: :show do
+	  collection { get :search }
+  end
   resources :bmet_work_order_comments
   resources :bmet_work_requests, except: :show
   resources :bmet_costs
