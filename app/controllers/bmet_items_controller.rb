@@ -97,8 +97,6 @@ class BmetItemsController < ApplicationController
       StagingItem.where(:facility_id => current_user.facility.id).destroy_all
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
-      puts "show_red"
-      puts params[:show_red]
       @show_red = params[:show_red]
       confirm_import
     #rescue
