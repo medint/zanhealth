@@ -47,7 +47,7 @@ class BmetItem < ActiveRecord::Base
   def as_indexed_json(option={})
   	  self.as_json(
   	  	  include: {
-  	  	  	  department: { only: :name }
+  	  	  	  department: { only: :name },
   	  	  	  bmet_model: { only: [:model_name, :manufacturer_name, :vendor_name]}
 		  })
   end
