@@ -1,9 +1,11 @@
+<div class="panel panel-default panel-drop">
 <%= simple_form_for :nothing, { url: url_for(:action => @action, :controller => 'bmet_dashboard'), method: 'get'} do |f| %>
 	<div id="dashboard-dates">
 		<%=t(:description).titlecase+': '+@description.titlecase%>
 	</div>
 
 	<div id="dashboard-submit-div">
-	    <%= f.button :submit, "submit", :class => "dashboard-submit" %>
+	    <%= f.button :submit, "submit", :class => "dashboard-submit  submit-btn" %>
 	</div>
 <% end %>
+</div>
