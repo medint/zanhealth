@@ -56,11 +56,10 @@
 #import_confirmation {
 	margin-left: 260px;
 	white-space: nowrap;
-	width: 220%;
+	width: 300%;
 }
 
 .import_confirmation_table {
-	margin-left: 40px;
 	td {
 		border: 1px solid black;
 		padding: 5px;
@@ -140,4 +139,18 @@
 	text-align: center;
 	font-size: 16px;
 	margin-top: 15px;
+}
+
+/*   Import page styling   */
+
+#import_page {
+	margin-left: 280px;
+	white-space: nowrap;
+	width: 220%;
+}
+
+#import_button {
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 40px;
 }

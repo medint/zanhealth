@@ -1,0 +1,9 @@
+<div id = "import_page" >
+	<div id = "import_button">
+	<%= form_tag stage_import_bmet_items_path, multipart: true do %>
+	  <%= file_field_tag :file, accept: 'text/csv', :required => true %>  </div>
+	  <%= check_box_tag(:show_red) %>
+	  <%= label_tag(:show_red, "List errors only") %>
+	  <div id = "import_button"><%= submit_tag "Import" %></div>
+	<% end %>
+</div>
