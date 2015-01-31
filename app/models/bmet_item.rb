@@ -48,6 +48,7 @@ class BmetItem < ActiveRecord::Base
   	  self.as_json(
   	  	  include: {
   	  	  	  department: { only: :name }
+  	  	  	  bmet_model: { only: :model_name, :manufacturer_name, :vendor_name }
 		  })
   end
 
