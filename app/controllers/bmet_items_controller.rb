@@ -12,6 +12,12 @@ class BmetItemsController < ApplicationController
   before_action :set_work_order_status_string_hash, only: [:show]
   before_action :set_staging_data, only: [:confirm_import]
 
+  def search
+  	  @bmet_items = BmetItem.search(params[:q], :size => 100).records
+	  @bmet_items = @bmet_items.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
+	  render action: 'index'
+  end
+
   # GET /items
   # GET /items.json
   def index

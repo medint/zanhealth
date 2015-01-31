@@ -19,6 +19,7 @@ Zanhealth::Application.routes.draw do
   resources :bmet_items, except: :show do
     collection { post :import }
     collection { post :stage_import }
+    collection { get :search }
   end
   resources :bmet_item_histories
   resources :bmet_labor_hours

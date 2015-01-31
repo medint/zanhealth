@@ -32,7 +32,12 @@
       </ul>
 
     </div>
-    <div></div>
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <%= form_tag search_bmet_items_path, method: 'get' do %>
+      <%= label_tag " " %>
+      <%= text_field_tag :q, params[:q] %>
+      <%= submit_tag :search %>
+    <% end %>
   </div>
 
   <div id="top-button">
