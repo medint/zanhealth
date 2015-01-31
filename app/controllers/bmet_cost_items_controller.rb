@@ -29,7 +29,7 @@ class BmetCostItemsController < ApplicationController
 
     respond_to do |format|
       if @bmet_cost_item.save
-        format.html { redirect_to @bmet_cost_item, notice: 'Bmet cost item was successfully created.' }
+        format.html { redirect_to :back, notice: 'Bmet cost item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bmet_cost_item }
       else
         format.html { render action: 'new' }
@@ -40,6 +40,7 @@ class BmetCostItemsController < ApplicationController
 
   # PATCH/PUT /bmet_cost_items/1
   # PATCH/PUT /bmet_cost_items/1.json
+
   def update
     respond_to do |format|
       if @bmet_cost_item.update(bmet_cost_item_params)

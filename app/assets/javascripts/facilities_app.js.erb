@@ -432,7 +432,7 @@ function drawCalendarChart() {
 	chart.draw(data, options);
 }
 
-$(document).on ("page:change",function() {
+/*$(document).on ("page:change",function() {
 	if (window.location.toString().match(/bmet_dashboard/) && !window.location.toString().match('/bmet_dashboard/')) {
 		var container = document.getElementById('visualization');
 		var myjsonobj = $.ajax({
@@ -473,7 +473,7 @@ $(document).on ("page:change",function() {
 			$(this).parent().parent().wrap(this)
 		})
 	};
-})
+})*/
 
 function facility_wo_expire(){
 	// Create the data table.
@@ -547,6 +547,34 @@ function noneDashboardDropdown(action, description){
 	$('#dashboard-forms-ajax').html(htmlData);
 }
 
+function timeDashboard(action, description){
+
+	var theParams={submit_action: action};
+	theParams['dates']=getDatesDashboard();
+	theParams['submit_description']= description
+	var htmlData = $.ajax({
+          url: '/bmet_dashboard/timeDropdownAjax',
+          data: theParams,
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard-forms-ajax'+action).html(htmlData);
+}
+
+function noneDashboard(action, description){
+	var theParams={submit_action: action};
+	theParams['submit_description']= description
+	var htmlData = $.ajax({
+          url: '/bmet_dashboard/noneDropdownAjax',
+          data: theParams,
+          dataType:"html",
+          async: false
+          }).responseText;
+
+	$('#dashboard-forms-ajax'+action).html(htmlData);
+}
+
 $(document).on ("page:change",function() {
 	if (window.location.toString().match('/bmet_dashboard/')){
 		var theData={}
@@ -559,3 +587,8 @@ $(document).on ("page:change",function() {
 	if (window.location.toString().match('/bmet_dashboard/status/wo_completed')) {
 	}
 })
+
+$("div").click(function() {
+    //$(this).parent().parent().parent().dropdown("toggle");
+    console.log("testing");
+});
