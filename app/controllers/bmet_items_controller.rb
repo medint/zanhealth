@@ -111,7 +111,7 @@ class BmetItemsController < ApplicationController
   def import
     #begin
       BmetModel.import(current_user.facility.id)
-      BmetItem.import(current_user.facility.id)
+      BmetItem.data_import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
       #rescue
          #redirect_to :back, notice: "Invalid CSV file format."    

@@ -100,7 +100,7 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-  def self.import(facility_id)
+  def self.data_import(facility_id)
     staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
       match = nil
