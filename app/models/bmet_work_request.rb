@@ -26,7 +26,7 @@ class BmetWorkRequest < ActiveRecord::Base
 	# use for this model
 	index_name "zanhealth-test"
 
-	=begin
+=begin
 	Callbacks that are used to update the ES index correctly. 
 	Note that :destroy is linked to the Model.destroy which
 	hides the record and not actually destroy it
@@ -63,7 +63,8 @@ class BmetWorkRequest < ActiveRecord::Base
 			end
 		end
 	end
-		# Override BmetWorkRequest.find() to include 
+	
+	# Override BmetWorkRequest.find() to include 
 	# archived records
 	def self.find(*args)
 		begin
