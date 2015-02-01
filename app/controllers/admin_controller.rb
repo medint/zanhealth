@@ -4,11 +4,9 @@ class AdminController < ApplicationController
     before_action :set_roles, only: [:facility_users]
 
 	def index
-
 	end
 
     def print_tags_form
-
     end
 
     def generate_tags_pdf 
@@ -24,7 +22,6 @@ class AdminController < ApplicationController
     end
 
     def duplicate_short_urls
-        # @joined_urls = ActiveRecord::Base.connection.select_all("SELECT * from shortened_urls LEFT OUTER JOIN bmet_items ON shortened_urls.unique_key = bmet_items.short_url_key")
         @joined_urls = ActiveRecord::Base.connection.select_all("SELECT bitems.id,shorturls.unique_key,shorturls.created_at,shorturls.asset_id,shorturls.asset_id from shortened_urls AS shorturls LEFT OUTER JOIN bmet_items AS bitems ON shorturls.unique_key = bitems.short_url_key")
         @asset_id_count = Shortener::ShortenedUrl.group(:asset_id).order(:asset_id).count
     end
@@ -40,17 +37,21 @@ class AdminController < ApplicationController
         end
     end 
 
+	# Returns all facilities in @facilities
+	# and creates an empty Facility in @facility
     def facilities
         @facilities = Facility.all
         @facility = Facility.new
     end
 
+	# Returns all users in the current facility
+	# in @users and creates an empty User in @user
     def facility_users
         @users = User.where(:facility_id => params[:facility_id])
         @user = User.new
     end
 
-    # necessary to write our own create user method here because have to bypass Devise registrable module
+	# Bypass the Devise registrable module to create a new user 
     def create_user
         @user = User.new(user_params)   
         respond_to do |format|
@@ -69,7 +70,7 @@ class AdminController < ApplicationController
         end
     end
 
-    # necessary to write our own create user method here because have to bypass Devise registrable module
+	# Bypass the Devise registrable module and update the user's information directly
     def update_user
         @user = User.find_by_id(user_params[:id])
         respond_to do |format|
@@ -86,10 +87,12 @@ class AdminController < ApplicationController
 
     private
 
+	    # List the required params to create a user
         def user_params
             params.require(:user).permit(:id, :name, :username, :facility_id, :email, :language, :role_id, :password, :pasword_confirmation)
         end
 
+		# Grab all Roles
         def set_roles
             @roles = Role.all
         end

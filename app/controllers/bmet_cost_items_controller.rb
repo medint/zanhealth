@@ -1,17 +1,20 @@
 class BmetCostItemsController < ApplicationController
   before_action :set_bmet_cost_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /bmet_cost_items
-  # GET /bmet_cost_items.json
+  # Returns all BmetCostItems
+  #   Request:
+  #     GET /bmet_cost_items
+  #     GET /bmet_cost_items.json
   def index
     @bmet_cost_items = BmetCostItem.all
   end
 
-  # GET /bmet_cost_items/1
-  # GET /bmet_cost_items/1.json
+  #   GET /bmet_cost_items/1
+  #   GET /bmet_cost_items/1.json
   def show
   end
 
+  # SEr
   # GET /bmet_cost_items/new
   def new
     @bmet_cost_item = BmetCostItem.new
