@@ -41,6 +41,8 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   	  __elasticsearch__.update_document
   end
   
+  # mark this model for soft-deletion (archive)
+  # rather than deletion
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   belongs_to :bmet_item
@@ -49,6 +51,8 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   attr_accessor :status
   validate :not_all_zero
 
+  # Customize fields for Elasticsearch to
+  # index on
   def as_indexed_json(option={})
   	  self.as_json(
   	  	  include: {
@@ -56,6 +60,8 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
 		  })
   end
 
+  # Calculate the value of days_until for
+  # this preventative maintenance
   def calc_days_until
     unless self.next_date.nil?
       self.days_until = (self.next_date - Time.zone.now).to_i/1.day
@@ -81,16 +87,20 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
     end
   end
 
+  # Check if days,weeks and months fields are set to 0
   def not_all_zero
     errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)      
   end
 
+  # Reset the dates for this preventative maintenance
   def reset
     self.last_date_checked = Time.zone.now
     self.calc_next_date
     self.save!
   end
 
+  # Calculate the value of next_date for this
+  # preventative maintenance
   def calc_next_date
     if !self.last_date_checked
         self.last_date_checked = Time.zone.now
@@ -109,6 +119,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
 
   private
 
+  # Generate a CSV representation of BmetPreventativeMaintenance
   def self.as_csv
     colnames = column_names.dup
     colnames.shift
@@ -122,6 +133,8 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
     end
   end
 
+  # Override BmetPreventativeMaintenance.find() to include
+  # archived records
   def self.find(*args)
     begin
       super

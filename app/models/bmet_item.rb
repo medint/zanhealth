@@ -39,10 +39,13 @@ class BmetItem < ActiveRecord::Base
   has_many :bmet_work_orders
   has_many :bmet_item_histories
 
+  # Return formatted name of item
   def asset_model_location_name
     "#{asset_id} : #{bmet_model.name} at #{location}"
   end
 
+  # Customize fields for Elasticsearch to
+  # index on
   def as_indexed_json(option={})
   	  self.as_json(
   	  	  include: {
@@ -51,10 +54,13 @@ class BmetItem < ActiveRecord::Base
 		  })
   end
 
+  # Return name of item
   def name
     asset_id
   end
 
+  # Add a new BmetItemHistory for this
+  # item
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
     if @original_bmet_item.try(:status) != self.status
@@ -71,6 +77,8 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
+  # Import records from a CSV file. Each
+  # record is saved as a StagingItem
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
       item = StagingItem.new
@@ -100,6 +108,8 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
+  # Convert StagingItems for the given
+  # facility into BmetItems
   def self.data_import(facility_id)
     staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
@@ -114,7 +124,6 @@ class BmetItem < ActiveRecord::Base
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
-      #puts matching_department.name + ", " + matching_model.model_name + ", " + status_string_hash[item.status].to_s + conditions_string_hash[item.condition].to_s
       if matching_department and matching_model and status_string_hash[item.status] and conditions_string_hash[item.condition]
         isValid = true
       end
@@ -136,10 +145,7 @@ class BmetItem < ActiveRecord::Base
         match.short_url_key = item.short_url_key        
         match.notes = item.notes
         match.save!
-        # to set the short_url redirector
-        #Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{match.id}")
       elsif isValid
-        puts "NEW ITEM BEING MADE"
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
         new_item.year_manufactured = item.year_manufactured
@@ -159,12 +165,12 @@ class BmetItem < ActiveRecord::Base
         new_item.short_url_key = item.short_url_key
         new_item.notes = item.notes
         new_item.save!     
-        # to set the short_url redirector
-        #Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{new_item.id}")
       end
     end
   end
 
+  # Generates CSV representation
+  # of BmetItem
   def self.as_csv
       item_colnames = ["department_id", 
         "bmet_model_id", 
@@ -228,6 +234,7 @@ class BmetItem < ActiveRecord::Base
       end
   end
 
+  # Generate a template of BmetItems
   def self.generate_template(relevant_urls)
     csv_colnames = [
         "asset_id",  

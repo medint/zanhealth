@@ -44,10 +44,13 @@ class BmetWorkRequest < ActiveRecord::Base
 		__elasticsearch__.update_document
 	end
 
+	# mark this model for soft-deletion (archive)
+	# rather than deletion
 	acts_as_paranoid
 	belongs_to :facility
-  belongs_to :wo_convert, :class_name => "BmetWorkOrder"
+	belongs_to :wo_convert, :class_name => "BmetWorkOrder"
 
+	# Generate a CSV representation of BmetWorkRequest
 	def self.as_csv
   	  colnames = column_names.dup
   	  colnames.shift
@@ -59,13 +62,15 @@ class BmetWorkRequest < ActiveRecord::Base
   	  	  	  csv << values
 		  end
 	  end
-  end
-
-  def self.find(*args)
-    begin
-      super
-    rescue Exception => e
-      deleted.find(*args)
+	end
+  	
+  	# Override BmetWorkRequest.find() to include 
+  	# archived records
+  	def self.find(*args)
+  		begin
+  			super
+  		rescue Exception => e
+  			deleted.find(*args)
+  		end
     end
-  end
 end

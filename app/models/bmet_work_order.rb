@@ -51,6 +51,8 @@ class BmetWorkOrder < ActiveRecord::Base
   	  __elasticsearch__.update_document
   end
 
+  # mark this model for soft-deletion
+  # i.e archive instead of delete
   acts_as_paranoid
   belongs_to :bmet_item
   has_many :bmet_work_order_comments
@@ -64,8 +66,10 @@ class BmetWorkOrder < ActiveRecord::Base
   before_save :auto_date_start
   after_create :create_work_order_bmet_item_history
   before_update :updated_status_bmet_item_history
-	before_create :init
+  before_create :init
 
+  # Create a new BmetItemHistory for this
+  # BmetWorkOrder
   def create_work_order_bmet_item_history
     BmetItemHistory.create(
         :bmet_item_id => self.bmet_item_id,
@@ -74,6 +78,8 @@ class BmetWorkOrder < ActiveRecord::Base
       )
   end
 
+  # Customize fields for Elasticsearch
+  # to index on
   def as_indexed_json(option={})
   	  self.as_json(
   	  	  include: {
@@ -83,6 +89,8 @@ class BmetWorkOrder < ActiveRecord::Base
 		  })
   end
 
+  # Handle status updates this BmetWorkOrder's
+  # item history
   def updated_status_bmet_item_history
     @original_bmet_work_order = BmetWorkOrder.find_by_id(self.id)
     # only create history if work order status differ, 
@@ -96,6 +104,8 @@ class BmetWorkOrder < ActiveRecord::Base
     end
   end
 
+  # Automatically set start date for this work order
+  # based on status
   def auto_date_start
   	if self.status == 0
   		self.date_started=nil
@@ -107,10 +117,13 @@ class BmetWorkOrder < ActiveRecord::Base
     end  
   end
 
+  # Initialize this BmetWorkOrder
   def init
      self.status ||=0
   end
 
+  # Generate a CSV representation
+  # of BmetWorkOrder fields
   def self.as_csv
   	  colnames = column_names.dup
   	  colnames.shift
@@ -127,6 +140,8 @@ class BmetWorkOrder < ActiveRecord::Base
 	  end
   end
 
+  # Set the status string for 
+  # this work order
   def set_status(status)
   	if status == 0
   		return "Uncompleted"
@@ -137,6 +152,8 @@ class BmetWorkOrder < ActiveRecord::Base
   	end
   end
 
+  # Override BmetWorkOrder.find() to include
+  # archived records
   def self.find(*args)
     begin
       super
