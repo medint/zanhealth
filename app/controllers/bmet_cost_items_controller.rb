@@ -32,7 +32,8 @@ class BmetCostItemsController < ApplicationController
 
     respond_to do |format|
       if @bmet_cost_item.save
-        format.html { redirect_to :back, notice: 'Bmet cost item was successfully created.' }
+        flash[:notice] = 'New cost item successfully added'
+        format.html { redirect_to :back }
         format.json { render action: 'show', status: :created, location: @bmet_cost_item }
       else
         format.html { render action: 'new' }

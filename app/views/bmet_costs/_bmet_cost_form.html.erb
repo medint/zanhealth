@@ -44,13 +44,10 @@
         <ul class="dropdown-menu dropdown-menu-form" role="menu" aria-labelledby="facworkorder_progress">
           <li>
               <%= form_for @cost_items, { url: url_for(:action => 'create', :controller => 'bmet_cost_items'), method: 'post'} do |f| %>
-                <div>
+                  &nbsp
                   <%= f.text_field :name, :placeholder => "Cost item name", :value => '', :required => true %>
-                </div>
-
-                <div class="form-actions">
-                  <%= f.submit t(:create).capitalize%>
-                </div>
+                  <a role = "button" class = "action_submit"><%= f.submit t(:create).capitalize%></a>
+                  &nbsp
               <% end %>
           </li>
         </ul>
