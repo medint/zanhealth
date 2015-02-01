@@ -28,10 +28,9 @@ class BmetItem < ActiveRecord::Base
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-
-  if Rails.env.production?
-  	  index_name "zanhealth-test"
-  end
+  # specify the Elasticsearch index to use
+  # for this model
+  index_name "zanhealth-test"
 
 
   before_save :add_bmet_item_history

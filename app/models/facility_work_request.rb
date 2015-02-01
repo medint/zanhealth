@@ -20,9 +20,9 @@
 class FacilityWorkRequest < ActiveRecord::Base
   include Elasticsearch::Model
 
-  if Rails.env.production?
-  	  index_name "zanhealth-test"
-  end
+  # specify the Elasticsearch index to use
+  # for this model
+  index_name "zanhealth-test"
  
 =begin
 	Callbacks that are used to update the ES index correctly. Note
