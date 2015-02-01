@@ -1,34 +1,26 @@
 class BmetCostItemsController < ApplicationController
   before_action :set_bmet_cost_item, only: [:show, :edit, :update, :destroy]
 
-  # Returns all BmetCostItems
-
-  #   Request:
-  #     GET /bmet_cost_items
-  #     GET /bmet_cost_items.json
+  # Return all BmetCostItems
   def index
     @bmet_cost_items = BmetCostItem.all
   end
 
-  # Returns the specified BmetCostItem
- 
-  #   GET /bmet_cost_items/1
-  #   GET /bmet_cost_items/1.json
+  # Return the specified BmetCostItem
   def show
   end
 
-  # SEr
-  # GET /bmet_cost_items/new
+  # Return an empty BmetCostItem
   def new
     @bmet_cost_item = BmetCostItem.new
   end
 
-  # GET /bmet_cost_items/1/edit
+  # Edit a specific BmetCostItem
   def edit
   end
 
-  # POST /bmet_cost_items
-  # POST /bmet_cost_items.json
+  # Create and save a new BmetCostItem
+  # to the database
   def create
     @bmet_cost_item = BmetCostItem.new(bmet_cost_item_params)
     @bmet_cost_item.facility_id = current_user.facility_id
@@ -45,9 +37,7 @@ class BmetCostItemsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bmet_cost_items/1
-  # PATCH/PUT /bmet_cost_items/1.json
-
+  # Update a specific BmetCostItem
   def update
     respond_to do |format|
       if @bmet_cost_item.update(bmet_cost_item_params)
@@ -60,8 +50,8 @@ class BmetCostItemsController < ApplicationController
     end
   end
 
-  # DELETE /bmet_cost_items/1
-  # DELETE /bmet_cost_items/1.json
+  # Delete a specific BmetCostItem
+  # from the database
   def destroy
     @bmet_cost_item.destroy
     respond_to do |format|

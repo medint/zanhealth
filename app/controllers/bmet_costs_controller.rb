@@ -2,28 +2,26 @@ class BmetCostsController < ApplicationController
   load_and_authorize_resource
   before_action :set_bmet_cost, only: [:show, :edit, :update, :destroy]
 
-  # GET /bmet_costs
-  # GET /bmet_costs.json
+  # Return all BmetCosts
   def index
     @bmet_costs = BmetCost.all
   end
 
-  # GET /bmet_costs/1
-  # GET /bmet_costs/1.json
+  # Return the specified BmetCost
   def show
   end
 
-  # GET /bmet_costs/new
+  # Return an empty BmetCost
   def new
     @bmet_cost = BmetCost.new
   end
 
-  # GET /bmet_costs/1/edit
+  # Edit a specific BmetCost
   def edit
   end
 
-  # POST /bmet_costs
-  # POST /bmet_costs.json
+  # Create and save a new BmetCost 
+  # to the database
   def create
     @bmet_cost = BmetCost.new(bmet_cost_params)
 
@@ -38,8 +36,7 @@ class BmetCostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bmet_costs/1
-  # PATCH/PUT /bmet_costs/1.json
+  # Update a specific BmetCost
   def update
     respond_to do |format|
       if @bmet_cost.update(bmet_cost_params)
@@ -52,8 +49,8 @@ class BmetCostsController < ApplicationController
     end
   end
 
-  # DELETE /bmet_costs/1
-  # DELETE /bmet_costs/1.json
+  # Archive a specific BmetCost - the object
+  # is not removed from the database
   def destroy
     @bmet_cost.destroy
     respond_to do |format|
