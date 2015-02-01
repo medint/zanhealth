@@ -26,7 +26,7 @@ class BmetWorkRequest < ActiveRecord::Base
 	# use for this model
 	index_name "zanhealth-test"
 
-=begin
+	=begin
 	Callbacks that are used to update the ES index correctly. 
 	Note that :destroy is linked to the Model.destroy which
 	hides the record and not actually destroy it
@@ -52,25 +52,24 @@ class BmetWorkRequest < ActiveRecord::Base
 
 	# Generate a CSV representation of BmetWorkRequest
 	def self.as_csv
-  	  colnames = column_names.dup
-  	  colnames.shift
-  	  CSV.generate do |csv|
-  	  	  csv << colnames
-  	  	  all.each do |item|
-  	  	  	  values = item.attributes.values_at(*colnames)
-  	  	  	  values[8] = Facility.find(values[8]).name
-  	  	  	  csv << values
-		  end
-	  end
+		colnames = column_names.dup
+		colnames.shift
+		CSV.generate do |csv|
+			csv << colnames
+			all.each do |item|
+				values = item.attributes.values_at(*colnames)
+				values[8] = Facility.find(values[8]).name
+				csv << values
+			end
+		end
 	end
-  	
-  	# Override BmetWorkRequest.find() to include 
-  	# archived records
-  	def self.find(*args)
-  		begin
-  			super
-  		rescue Exception => e
-  			deleted.find(*args)
-  		end
-    end
+		# Override BmetWorkRequest.find() to include 
+	# archived records
+	def self.find(*args)
+		begin
+			super
+		rescue Exception => e
+			deleted.find(*args)
+		end
+	end
 end
