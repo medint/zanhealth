@@ -61,7 +61,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   end
 
   # Calculate the value of days_until for
-  # this preventative maintenance
+  # this preventative maintenance by finding difference from today's date
   def calc_days_until
     unless self.next_date.nil?
       self.days_until = (self.next_date - Time.zone.now).to_i/1.day
@@ -88,6 +88,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   end
 
   # Check if days,weeks and months fields are set to 0
+  # Called before object is saved in database
   def not_all_zero
     errors.add(:months) if (self.days==0 && self.weeks==0 && self.months==0)      
   end
@@ -100,7 +101,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   end
 
   # Calculate the value of next_date for this
-  # preventative maintenance
+  # preventative maintenance based on the specified number of days, weeks and months
   def calc_next_date
     if !self.last_date_checked
         self.last_date_checked = Time.zone.now
@@ -134,7 +135,7 @@ class BmetPreventativeMaintenance < ActiveRecord::Base
   end
 
   # Override BmetPreventativeMaintenance.find() to include
-  # archived records
+  # archived/soft-deleted records
   def self.find(*args)
     begin
       super

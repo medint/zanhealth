@@ -2,7 +2,7 @@ class BmetCostsController < ApplicationController
   load_and_authorize_resource
   before_action :set_bmet_cost, only: [:show, :edit, :update, :destroy]
 
-  # Return all BmetCosts
+  # Return all BmetCost(s)
   def index
     @bmet_costs = BmetCost.all
   end

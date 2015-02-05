@@ -91,6 +91,9 @@ class BmetItemsController < ApplicationController
     end
   end
 
+  # Controller method that does three things
+  # 1. clears out all Staging tables for a specific facility
+  # 2. Imports all the BmetItem inside the csv file into Staging tables
   def stage_import
     begin
       StagingModel.where(:facility_id => current_user.facility.id).destroy_all
@@ -104,11 +107,13 @@ class BmetItemsController < ApplicationController
     end
   end
 
+  # Displays page for errors
   def confirm_import
     @facility_id = current_user.facility.id
     render 'import_confirmation'
   end
 
+  # Actually imports everything from Staging into the actual tables
   def import
     #begin
       BmetModel.import(current_user.facility.id)
@@ -117,20 +122,25 @@ class BmetItemsController < ApplicationController
       #rescue
          #redirect_to :back, notice: "Invalid CSV file format."    
       #end
-      StagingModel.destroy_all
-      StagingItem.destroy_all
+
+      # Cleans out Staging tables for facility
+      StagingModel.where(:facility_id => current_user.facility.id).destroy_all
+      StagingItem.where(:facility_id => current_user.facility.id).destroy_all
   end
 
+  # If user cancels the import, it should clean out the Staging tables
   def cancel_import
     StagingModel.where(:facility_id => current_user.facility.id).delete_all
     StagingItem.where(:facility_id => current_user.facility.id).delete_all
     redirect_to bmet_items_url, notice: "Import cancelled"
   end 
 
+  # Redirects to print-friendly view of all BmetItem
   def show_main_list_print
     render 'main_list_print_view', layout: 'blank'
   end
 
+  # Redirects to new page for import
   def show_import_page
     render 'import_page'
   end

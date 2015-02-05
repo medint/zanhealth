@@ -39,7 +39,7 @@ class BmetItem < ActiveRecord::Base
   has_many :bmet_work_orders
   has_many :bmet_item_histories
 
-  # Return formatted name of item
+  # Return formatted name of item 
   def asset_model_location_name
     "#{asset_id} : #{bmet_model.name} at #{location}"
   end
@@ -59,8 +59,8 @@ class BmetItem < ActiveRecord::Base
     asset_id
   end
 
-  # Add a new BmetItemHistory for this
-  # item
+  # Before BmetItem is saved, this method is called to determine whether the status or the condition
+  # of the BmetItem was changed. If there was a change, then the change will be stored as a history
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
     if @original_bmet_item.try(:status) != self.status
@@ -77,8 +77,8 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-  # Import records from a CSV file. Each
-  # record is saved as a StagingItem
+  # Import records from a CSV file. Each record is saved as 
+  # a StagingItem instead of a BmetItem
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
       item = StagingItem.new
@@ -108,17 +108,20 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-  # Convert StagingItems for the given
-  # facility into BmetItems
+  # Either saves or update StagingItem into a BmetItem depending a set of criterion. 
   def self.data_import(facility_id)
     staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
       match = nil
+      # 1. Determine whether there is an existing BmetItem in the database with the same asset_id
+      # The asset_id is the unique primary key in our data model
       BmetItem.where(:asset_id => item.asset_id).each do |m|
         if m.department.facility_id == facility_id
           match = m
         end
       end
+      # 2. Tries to obtain the BmetItem's other associrations
+      # Tries to find the associated department, model
       matching_department = Department.where("name = ?", item.department_name).where(:facility_id => facility_id)[0]
       matching_model = BmetModel.where(:facility_id => facility_id).where("model_name =?", item.model_name).where("manufacturer_name =?", item.manufacturer_name).where("vendor_name =?", item.vendor_name).where("category =?", item.category)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
@@ -127,6 +130,7 @@ class BmetItem < ActiveRecord::Base
       if matching_department and matching_model and status_string_hash[item.status] and conditions_string_hash[item.condition]
         isValid = true
       end
+      # BmetItem and its association exists in the database, Update properties
       if match and isValid
         match.serial_number = item.serial_number
         match.year_manufactured = item.year_manufactured
@@ -145,6 +149,7 @@ class BmetItem < ActiveRecord::Base
         match.short_url_key = item.short_url_key        
         match.notes = item.notes
         match.save!
+      # BmetItem don't exist but its association do, Create a new BmetItem
       elsif isValid
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
@@ -234,7 +239,7 @@ class BmetItem < ActiveRecord::Base
       end
   end
 
-  # Generate a template of BmetItems
+  # Generate a template file of BmetItems containing the asset_id and unique_key
   def self.generate_template(relevant_urls)
     csv_colnames = [
         "asset_id",  

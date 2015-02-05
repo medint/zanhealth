@@ -11,6 +11,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
   before_action :set_convert_object, only: [:show, :show_all, :show_hidden]
   before_action :set_items, only: [:show, :show_all, :show_hidden]
 
+  # Displays all objects that fit the search query
   def search
   	  @bmet_preventative_maintenances = BmetPreventativeMaintenance.search(params[:q], :size => 100).records
 	  @bmet_preventative_maintenances = @bmet_preventative_maintenances.with_deleted.includes({:requester => :facility}).where("facilities.id=?", current_user.facility_id).references(:facility).all.order(:next_date)
@@ -108,6 +109,7 @@ class BmetPreventativeMaintenancesController < ApplicationController
     end
   end
 
+  # Soft deletes or recovers PreventativeMaintenance object based on its current state
   def hide
   	  @bmet_preventative_maintenance = BmetPreventativeMaintenance.with_deleted.find_by_id(params[:id])
   	  if @bmet_preventative_maintenance.destroyed?
@@ -188,6 +190,8 @@ class BmetPreventativeMaintenancesController < ApplicationController
       params.require(:bmet_preventative_maintenance).permit(:last_date_checked, :days, :weeks, :months, :next_date, :description, :bmet_item_id)
     end
 
+    # PreventativeMaintenance can be converted into WorkOrder
+    # This method populates the html form for creating the WorkOrder with properties of the PreventativeMaintenance
     def set_convert_object
       @input_object = BmetWorkOrder.new
       @input_object.wr_origin = nil

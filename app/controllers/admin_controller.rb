@@ -9,6 +9,8 @@ class AdminController < ApplicationController
     def print_tags_form
     end
 
+    # Method returns either a pdf file containing labels or 
+    # generates a CSV file that contains all the URLs that were generated with a specific authenticity token
     def generate_tags_pdf 
         if params[:commit] == 'Generate PDF'
             pdf = TagPdf.new(params[:print_tags_form][:start_num],params[:print_tags_form][:end_num],params[:print_tags_form][:asset_id_prefix], params[:authenticity_token])
@@ -26,6 +28,7 @@ class AdminController < ApplicationController
         @asset_id_count = Shortener::ShortenedUrl.group(:asset_id).order(:asset_id).count
     end
 
+    # Returns the list of short_urls that have missing keys
     def missing_short_urls
         @missing_keys = []
         @keys = BmetItem.group(:short_url_key).count.map { |i| i[0] }
@@ -38,14 +41,14 @@ class AdminController < ApplicationController
     end 
 
 	# Returns all facilities in @facilities
-	# and creates an empty Facility in @facility
+	# and creates an empty Facility in @facility for the dropdown
     def facilities
         @facilities = Facility.all
         @facility = Facility.new
     end
 
 	# Returns all users in the current facility
-	# in @users and creates an empty User in @user
+	# in @users and creates an empty User in @user for the dropdown 
     def facility_users
         @users = User.where(:facility_id => params[:facility_id])
         @user = User.new

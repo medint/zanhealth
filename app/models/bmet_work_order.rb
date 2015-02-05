@@ -68,7 +68,7 @@ class BmetWorkOrder < ActiveRecord::Base
   before_update :updated_status_bmet_item_history
   before_create :init
 
-  # Create a new BmetItemHistory for this
+  # Create a new BmetItemHistory for the creation of this 
   # BmetWorkOrder
   def create_work_order_bmet_item_history
     BmetItemHistory.create(
@@ -89,8 +89,7 @@ class BmetWorkOrder < ActiveRecord::Base
 		  })
   end
 
-  # Handle status updates this BmetWorkOrder's
-  # item history
+  # Create a BmetItemHistory for corresponding BmetItem when the status changes. 
   def updated_status_bmet_item_history
     @original_bmet_work_order = BmetWorkOrder.find_by_id(self.id)
     # only create history if work order status differ, 
@@ -104,15 +103,14 @@ class BmetWorkOrder < ActiveRecord::Base
     end
   end
 
-  # Automatically set start date for this work order
-  # based on status
+  # Automatically update the date_started, date_completed fields when the status is changed
   def auto_date_start
-  	if self.status == 0
+  	if self.status == 0 # unstarted
   		self.date_started=nil
-  	elsif self.status == 1 && self.date_started==nil
+  	elsif self.status == 1 && self.date_started==nil # started
   		self.date_started=DateTime.now
   	end
-    if self.status == 2 &&self.date_completed==nil
+    if self.status == 2 &&self.date_completed==nil # completed
       self.date_completed=DateTime.now
     end  
   end

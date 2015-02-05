@@ -181,6 +181,8 @@ class BmetWorkOrdersController < ApplicationController
   end
 
   # GET /my_bmet_work_orders
+  # Returns all WorkOrders assigned to the current logged in user
+  # Returns all texts that this user owns as well. 
   def my
   	@bmet_work_orders = BmetWorkOrder.includes(:requester, :owner, {:bmet_item => [{:department => :facility},:bmet_model]}).where("facilities.id=?",current_user.facility).references(:facility)
     @texts = Text.includes(:bmet_work_order=> {:bmet_item => {:department => :facility}}).where("facilities.id=?",current_user.facility).references(:facility)

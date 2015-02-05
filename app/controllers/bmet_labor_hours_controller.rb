@@ -2,15 +2,19 @@ class BmetLaborHoursController < ApplicationController
 	load_and_authorize_resource
 	before_action :set_bmet_labor_hour, only: [:show, :edit, :update, :destroy]
 
+  # Return all BmetLaborHour
   def index
   	@bmet_labor_hours=BmetLaborHour.all
   end
+  
+  # Return an empty BmetLaborHour
   def new
     @bmet_labor_hour = BmetLaborHour.new
     #@users = User.where(:facility_id => user.facility.id).all.to_a
   end
+  
   # POST /bmet_work_orders
-  # POST /bmet_work_orders.json
+  # Create and save a new BmetLaborHour to the database
   def create
     @bmet_labor_hour = BmetLaborHour.new(bmet_labor_hour_params)
 
@@ -25,6 +29,7 @@ class BmetLaborHoursController < ApplicationController
     end
   end
 
+  # Update a specific BmetLaborHour
   def update
     respond_to do |format|
       if @bmet_labor_hour.update(bmet_labor_hour_params)
@@ -37,11 +42,14 @@ class BmetLaborHoursController < ApplicationController
     end
   end
 
+  # Delete a specific BmetLaborHour from the database
   def destroy
     @bmet_labor_hour.destroy
     respond_to do |format|
       link = request.referer.split("/")[-2]
       @bmet_work_order = @bmet_labor_hour.bmet_work_order
+
+      # Redirect to the page which the request originated from
       if link == "hidden"
           format.html { redirect_to bmet_work_orders_url+"/hidden/"+@bmet_work_order.id.to_s, notice: 'Work order was successfully updated.' }
       elsif link == "all"
@@ -54,6 +62,7 @@ class BmetLaborHoursController < ApplicationController
     end
   end
 
+  # Return the specified BmetLaborHour
   def show      
       @bmet_labor_hours=BmetLaborHour.all
       #@bmet_labor_hour=LaborHour.where(:id => params[:id])
