@@ -29,6 +29,7 @@ class FacilitiesController < ApplicationController
     respond_to do |format|
       if @facility.save
         format.html { redirect_to @facility, notice: 'Facility was successfully created.' }
+        initializeFacility(@facility);
         format.json { render action: 'show', status: :created, location: @facility }
       else
         format.html { render action: 'new' }
@@ -70,5 +71,36 @@ class FacilitiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def facility_params
       params.require(:facility).permit(:name)
+    end
+
+    def initializeFacility(f)
+    dept=Department.create(
+      :name => 'No Department',
+      :facility => f
+    )
+    item_group=ItemGroup.create!( 
+      :name => 'No Item Group', 
+      :facility => f
+    )
+    model=BmetModel.create(
+      :model_name => 'No Model',
+      :manufacturer_name => 'none',
+      :vendor_name => 'none',
+      :category => 'none',
+      :facility => f,
+      :item_group => item_group
+    )
+    BmetItem.create(
+      :serial_number => '0',
+      :status => 0,
+      :condition => 0,
+      :bmet_model => model,
+      :department => dept,
+      :created_at => Time.now,
+    )
+    BmetCostItem.create!(
+      :name => 'No Cost Item',
+      :facility => f
+    )
     end
 end
