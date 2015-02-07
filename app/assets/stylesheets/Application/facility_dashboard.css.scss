@@ -121,3 +121,68 @@ abbr {
 #dashboard-navigation{
 	
 }
+
+
+#visualization {
+	
+	a:hover{
+		color:#65d4c2;
+		text-decoration: none;
+		background-color: inherit;
+	}
+	#accordion{
+		margin-bottom: 0px;
+		background-color: #d6d6d6;
+	}
+
+	.outer-panel{
+		margin: 10px;
+	}
+	.outer-panel-title-div{
+		background-color: #303030;
+	}
+	.outer-panel-title{
+		color: white;
+		font-size: 14px;
+		font-weight: 700;
+		
+	}
+	a{
+		font-size: 13px;
+		font-weight: 675;
+	}
+
+	.panel-body{
+		padding:8px;
+	}
+}
+#dashboard{
+	select{
+		background-color:white;
+		border-color:#303030;
+		border-radius: 1px;
+	}
+
+	.submit-btn{
+		background-color:white;
+		border-color:#303030;
+		border-width:1px;
+		border-radius: 1px;
+	}
+
+	.panel-drop{
+		margin:10px;
+	}
+
+	.panel-outer{
+		margin:10px;
+	}
+
+	
+}
+
+#dashboard-forms-ajax{
+		padding-left: 42;
+		border-bottom: solid 2px #d8dfe5;
+		margin-bottom: 20;
+	}

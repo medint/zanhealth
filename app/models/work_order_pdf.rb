@@ -1,5 +1,7 @@
 
 class WorkOrderPdf < Prawn::Document
+
+  # Return the pdf file
 	def initialize(wo)
 		super(top_margin: 50, left_margin: 40, right_margin: 40, bottom_margin: 30)
 		@wo = wo
@@ -9,17 +11,18 @@ class WorkOrderPdf < Prawn::Document
 
 		header
 		work_order_details
-    move_down 10
+    move_down 10 # spacing
     item_details
-    move_down 10
+    move_down 10 # spacing
     labor_hours
-    move_down 10
+    move_down 10 # spacing
     costs
-    move_down 10
+    move_down 10 # spacing
     comments
 
 	end
 
+  # Header portion of pdf
 	def header
 		left = bounds.left - 40
     right = bounds.right + 40
@@ -33,6 +36,7 @@ class WorkOrderPdf < Prawn::Document
 		end
   end
 
+  # Work order details portion of pdf
   def work_order_details
   	font "Helvetica"
   	fill_color "555555"
@@ -55,6 +59,7 @@ class WorkOrderPdf < Prawn::Document
 
   end
 
+  # Details on bmet item being worked on
   def item_details
     font "Helvetica"
     fill_color "555555"
@@ -77,6 +82,7 @@ class WorkOrderPdf < Prawn::Document
       )
   end
 
+  # Details on number of labour hours that were worked
   def labor_hours
     font "Helvetica"
     fill_color "555555"
@@ -95,6 +101,7 @@ class WorkOrderPdf < Prawn::Document
       )
   end
 
+  # Details on costs for work order
   def costs
     font "Helvetica"
     fill_color "555555"
@@ -113,6 +120,7 @@ class WorkOrderPdf < Prawn::Document
       )
   end
 
+  # Spaces for comments. 
   def comments
     table([
       ["Additional comments/details"],

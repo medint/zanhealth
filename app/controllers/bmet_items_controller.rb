@@ -12,6 +12,12 @@ class BmetItemsController < ApplicationController
   before_action :set_work_order_status_string_hash, only: [:show]
   before_action :set_staging_data, only: [:confirm_import]
 
+  def search
+  	  @bmet_items = BmetItem.search(params[:q], :size => 100).records
+	  @bmet_items = @bmet_items.includes(:bmet_model, {:department => :facility}).where("facilities.id=?", current_user.facility).references(:facility).order(:asset_id)
+	  render action: 'index'
+  end
+
   # GET /items
   # GET /items.json
   def index
@@ -85,43 +91,58 @@ class BmetItemsController < ApplicationController
     end
   end
 
+  # Controller method that does three things
+  # 1. clears out all Staging tables for a specific facility
+  # 2. Imports all the BmetItem inside the csv file into Staging tables
   def stage_import
     begin
       StagingModel.where(:facility_id => current_user.facility.id).destroy_all
       StagingItem.where(:facility_id => current_user.facility.id).destroy_all
       BmetModel.stage_import(params[:file], current_user.facility.id)
       BmetItem.stage_import(params[:file], current_user.facility.id)
-      redirect_to '/bmet_items_confirm_import'
+      @show_red = params[:show_red]
+      confirm_import
     #rescue
      # redirect_to bmet_items_path, notice: "Invalid CSV file format"
     end
   end
 
+  # Displays page for errors
   def confirm_import
     @facility_id = current_user.facility.id
     render 'import_confirmation'
   end
 
+  # Actually imports everything from Staging into the actual tables
   def import
     #begin
       BmetModel.import(current_user.facility.id)
-      BmetItem.import(current_user.facility.id)
+      BmetItem.data_import(current_user.facility.id)
       redirect_to bmet_items_path, notice: "Items and associated models imported."
       #rescue
          #redirect_to :back, notice: "Invalid CSV file format."    
       #end
-      StagingModel.destroy_all
-      StagingItem.destroy_all
+
+      # Cleans out Staging tables for facility
+      StagingModel.where(:facility_id => current_user.facility.id).destroy_all
+      StagingItem.where(:facility_id => current_user.facility.id).destroy_all
   end
 
+  # If user cancels the import, it should clean out the Staging tables
   def cancel_import
     StagingModel.where(:facility_id => current_user.facility.id).delete_all
     StagingItem.where(:facility_id => current_user.facility.id).delete_all
     redirect_to bmet_items_url, notice: "Import cancelled"
   end 
 
+  # Redirects to print-friendly view of all BmetItem
   def show_main_list_print
     render 'main_list_print_view', layout: 'blank'
+  end
+
+  # Redirects to new page for import
+  def show_import_page
+    render 'import_page'
   end
 
   private
@@ -179,6 +200,6 @@ class BmetItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :price, :status, :condition, :notes)
+      params.require(:bmet_item).permit(:asset_id, :bmet_model_id, :serial_number, :year_manufactured, :funding, :date_received, :warranty_expire, :contract_expire, :warranty_notes, :service_agent, :department_id, :location, :price, :status, :condition, :notes, :show_red)
     end
 end

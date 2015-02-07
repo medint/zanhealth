@@ -15,11 +15,12 @@ class BmetLaborHour < ActiveRecord::Base
 	belongs_to :bmet_work_order
 	belongs_to :technician, :class_name => "User"
 
-
+	# Returns associated item that this labor hour was worked on
 	def item
 		self.bmet_work_order.bmet_item
 	end
 
+	# Returns of technician that worked this hour
 	def technician_name
 		self.technician.name
 	end

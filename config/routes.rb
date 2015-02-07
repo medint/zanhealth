@@ -19,16 +19,23 @@ Zanhealth::Application.routes.draw do
   resources :bmet_items, except: :show do
     collection { post :import }
     collection { post :stage_import }
+    collection { get :search }
   end
   resources :bmet_item_histories
   resources :bmet_labor_hours
   resources :bmet_models
   resources :bmet_needs
-  resources :bmet_preventative_maintenances, except: :show
+  resources :bmet_preventative_maintenances, except: :show do
+  	  collection { get :search }
+  end
 
-  resources :bmet_work_orders, except: :show
+  resources :bmet_work_orders, except: :show do
+	  collection { get :search }
+  end
   resources :bmet_work_order_comments
-  resources :bmet_work_requests, except: :show
+  resources :bmet_work_requests, except: :show do
+  	  collection { get :search }
+  end
   resources :bmet_costs
   resources :bmet_cost_items
   resources :part_transactions
@@ -61,6 +68,7 @@ Zanhealth::Application.routes.draw do
   get "/bmet_items/download", to: "bmet_items#as_csv"
   get "/bmet_items/:id", to: "bmet_items#show"
   get "/bmet_items_confirm_import", to: "bmet_items#confirm_import"
+  get "/import", to: "bmet_items#show_import_page"
   post "/bmet_items_import", to: "bmet_items#import"
   post "/bmet_items_cancel_import", to: "bmet_items#cancel_import"
   get "/bmet_items_main_list_print_view", to: "bmet_items#show_main_list_print"

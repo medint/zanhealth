@@ -27,7 +27,33 @@
 #
 
 class BmetWorkOrder < ActiveRecord::Base
-	acts_as_paranoid
+  
+  include Elasticsearch::Model
+  # specify the Elasticsearch index to use
+  # for this model
+  index_name "zanhealth-test"
+
+=begin
+	Callbacks that are used to update the ES index correctly. Note that
+	:destroy is linked to the Model.destroy method which hides the record
+	instead of destroying it
+=end
+
+  after_commit on: [:create] do
+  	  __elasticsearch__.index_document
+  end
+
+  after_commit on: [:update] do
+  	  __elasticsearch__.update_document
+  end
+
+  after_commit on: [:destroy] do
+  	  __elasticsearch__.update_document
+  end
+
+  # mark this model for soft-deletion
+  # i.e archive instead of delete
+  acts_as_paranoid
   belongs_to :bmet_item
   has_many :bmet_work_order_comments
   has_many :bmet_costs
@@ -40,8 +66,10 @@ class BmetWorkOrder < ActiveRecord::Base
   before_save :auto_date_start
   after_create :create_work_order_bmet_item_history
   before_update :updated_status_bmet_item_history
-	before_create :init
+  before_create :init
 
+  # Create a new BmetItemHistory for the creation of this 
+  # BmetWorkOrder
   def create_work_order_bmet_item_history
     BmetItemHistory.create(
         :bmet_item_id => self.bmet_item_id,
@@ -50,6 +78,18 @@ class BmetWorkOrder < ActiveRecord::Base
       )
   end
 
+  # Customize fields for Elasticsearch
+  # to index on
+  def as_indexed_json(option={})
+  	  self.as_json(
+  	  	  include: {
+  	  	  	  owner: { only:  :name },
+  	  	  	  requester: { only: :name },
+  	  	  	  department: { only: :name }
+		  })
+  end
+
+  # Create a BmetItemHistory for corresponding BmetItem when the status changes. 
   def updated_status_bmet_item_history
     @original_bmet_work_order = BmetWorkOrder.find_by_id(self.id)
     # only create history if work order status differ, 
@@ -63,21 +103,25 @@ class BmetWorkOrder < ActiveRecord::Base
     end
   end
 
+  # Automatically update the date_started, date_completed fields when the status is changed
   def auto_date_start
-  	if self.status == 0
+  	if self.status == 0 # unstarted
   		self.date_started=nil
-  	elsif self.status == 1 && self.date_started==nil
+  	elsif self.status == 1 && self.date_started==nil # started
   		self.date_started=DateTime.now
   	end
-    if self.status == 2 &&self.date_completed==nil
+    if self.status == 2 &&self.date_completed==nil # completed
       self.date_completed=DateTime.now
     end  
   end
 
+  # Initialize this BmetWorkOrder
   def init
      self.status ||=0
   end
 
+  # Generate a CSV representation
+  # of BmetWorkOrder fields
   def self.as_csv
   	  colnames = column_names.dup
   	  colnames.shift
@@ -94,6 +138,8 @@ class BmetWorkOrder < ActiveRecord::Base
 	  end
   end
 
+  # Set the status string for 
+  # this work order
   def set_status(status)
   	if status == 0
   		return "Uncompleted"
@@ -104,6 +150,8 @@ class BmetWorkOrder < ActiveRecord::Base
   	end
   end
 
+  # Override BmetWorkOrder.find() to include
+  # archived records
   def self.find(*args)
     begin
       super

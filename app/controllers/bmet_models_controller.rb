@@ -6,17 +6,18 @@ class BmetModelsController < ApplicationController
   before_action :set_item_groups, only: [:show, :new]
 
   # GET /bmet_models
-  # GET /bmet_models.json
+  # Return all BmetModel
   def index
     
   end
 
   # GET /bmet_models/1
-  # GET /bmet_models/1.json
+  # Return the specified BmetModel
   def show
   end
 
   # GET /bmet_models/new
+  # Return an empty BmetLaborHour
   def new
     @bmet_model = BmetModel.new
   end
@@ -26,7 +27,7 @@ class BmetModelsController < ApplicationController
   end
 
   # POST /bmet_models
-  # POST /bmet_models.json
+  # Create and save a new BmetModel to the database
   def create
     @bmet_model = BmetModel.new(bmet_model_params)
 
@@ -43,6 +44,7 @@ class BmetModelsController < ApplicationController
 
   # PATCH/PUT /bmet_models/1
   # PATCH/PUT /bmet_models/1.json
+  # Update a specific BmetModel
   def update
     respond_to do |format|
       if @bmet_model.update(bmet_model_params)
@@ -57,6 +59,7 @@ class BmetModelsController < ApplicationController
 
   # DELETE /bmet_models/1
   # DELETE /bmet_models/1.json
+  # Delete a specific BmetModel from the database
   def destroy
     @bmet_model.destroy
     respond_to do |format|

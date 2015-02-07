@@ -26,20 +26,41 @@
 
 class BmetItem < ActiveRecord::Base
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  # specify the Elasticsearch index to use
+  # for this model
+  index_name "zanhealth-test"
+
+
   before_save :add_bmet_item_history
   belongs_to :bmet_model
   belongs_to :department
   has_many :bmet_work_orders
   has_many :bmet_item_histories
 
+  # Return formatted name of item 
   def asset_model_location_name
     "#{asset_id} : #{bmet_model.name} at #{location}"
   end
 
+  # Customize fields for Elasticsearch to
+  # index on
+  def as_indexed_json(option={})
+  	  self.as_json(
+  	  	  include: {
+  	  	  	  department: { only: :name },
+  	  	  	  bmet_model: { only: [:model_name, :manufacturer_name, :vendor_name]}
+		  })
+  end
+
+  # Return name of item
   def name
     asset_id
   end
 
+  # Before BmetItem is saved, this method is called to determine whether the status or the condition
+  # of the BmetItem was changed. If there was a change, then the change will be stored as a history
   def add_bmet_item_history
     @original_bmet_item = BmetItem.find_by_id(self.id)
     if @original_bmet_item.try(:status) != self.status
@@ -56,6 +77,8 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
+  # Import records from a CSV file. Each record is saved as 
+  # a StagingItem instead of a BmetItem
   def self.stage_import(file, facility_id)
     CSV.foreach(file.path, headers: true) do |row|
       item = StagingItem.new
@@ -85,24 +108,29 @@ class BmetItem < ActiveRecord::Base
     end
   end
 
-  def self.import(facility_id)
+  # Either saves or update StagingItem into a BmetItem depending a set of criterion. 
+  def self.data_import(facility_id)
     staging_items = StagingItem.where(:facility_id => facility_id)
     staging_items.each do |item|
       match = nil
+      # 1. Determine whether there is an existing BmetItem in the database with the same asset_id
+      # The asset_id is the unique primary key in our data model
       BmetItem.where(:asset_id => item.asset_id).each do |m|
         if m.department.facility_id == facility_id
           match = m
         end
       end
+      # 2. Tries to obtain the BmetItem's other associrations
+      # Tries to find the associated department, model
       matching_department = Department.where("name = ?", item.department_name).where(:facility_id => facility_id)[0]
       matching_model = BmetModel.where(:facility_id => facility_id).where("model_name =?", item.model_name).where("manufacturer_name =?", item.manufacturer_name).where("vendor_name =?", item.vendor_name).where("category =?", item.category)[0]
       status_string_hash = {'active' => 0,'inactive' => 1,'retired' => 2 }
       conditions_string_hash = {'poor' => 0,'fair' => 1,'good' => 2,'very good' => 3 }
       isValid = false
-      #puts matching_department.name + ", " + matching_model.model_name + ", " + status_string_hash[item.status].to_s + conditions_string_hash[item.condition].to_s
       if matching_department and matching_model and status_string_hash[item.status] and conditions_string_hash[item.condition]
         isValid = true
       end
+      # BmetItem and its association exists in the database, Update properties
       if match and isValid
         match.serial_number = item.serial_number
         match.year_manufactured = item.year_manufactured
@@ -121,10 +149,8 @@ class BmetItem < ActiveRecord::Base
         match.short_url_key = item.short_url_key        
         match.notes = item.notes
         match.save!
-        # to set the short_url redirector
-        #Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{match.id}")
+      # BmetItem don't exist but its association do, Create a new BmetItem
       elsif isValid
-        puts "NEW ITEM BEING MADE"
         new_item = BmetItem.new
         new_item.serial_number = item.serial_number
         new_item.year_manufactured = item.year_manufactured
@@ -144,12 +170,12 @@ class BmetItem < ActiveRecord::Base
         new_item.short_url_key = item.short_url_key
         new_item.notes = item.notes
         new_item.save!     
-        # to set the short_url redirector
-        #Shortener::ShortenedUrl.set_url_by_key(item.short_url_key, "http://zanhealth.co/bmet_items/#{new_item.id}")
       end
     end
   end
 
+  # Generates CSV representation
+  # of BmetItem
   def self.as_csv
       item_colnames = ["department_id", 
         "bmet_model_id", 
@@ -213,6 +239,7 @@ class BmetItem < ActiveRecord::Base
       end
   end
 
+  # Generate a template file of BmetItems containing the asset_id and unique_key
   def self.generate_template(relevant_urls)
     csv_colnames = [
         "asset_id",  

@@ -18,8 +18,29 @@
 class FacilityPreventativeMaintenance < ActiveRecord::Base
 
   include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-  
+
+  # specify the Elasticsearch index
+  # to use for this model
+  index_name "zanhealth-test"
+
+=begin
+	Callbacks that are used to update the ES index correctly. Note that
+	:destroy is linked to Model.destroy which hides the record and does
+	not actually destroy it
+=end
+
+  after_commit on: [:create] do
+  	  __elasticsearch__.index_document
+  end
+
+  after_commit on: [:update] do
+  	  __elasticsearch__.update_document
+  end
+
+  after_commit on: [:destroy] do
+  	  __elasticsearch__.update_document
+  end
+
   acts_as_paranoid
   belongs_to :requester, :class_name => "User"
   before_save :calc_next_date

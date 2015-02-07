@@ -32,7 +32,12 @@
       </ul>
 
     </div>
-    <div></div>
+	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <%= form_tag search_bmet_items_path, method: 'get' do %>
+      <%= label_tag " " %>
+      <%= text_field_tag :q, params[:q] %>
+      <%= submit_tag :search %>
+    <% end %>
   </div>
 
   <div id="top-button">
@@ -41,10 +46,8 @@
     <%= link_to t(:export_data).titlecase, bmet_items_url+"/download" %>
   </div>
     <div id = "top-button">
-    <%= form_tag stage_import_bmet_items_path, multipart: true do %>
-      <%= file_field_tag :file, accept: 'text/csv' %>  </div>
-      <div id = "top-button"><%= submit_tag "Import" %>
-    <% end %></div>
+      <%= link_to "Import Data from File", '/import' %>
+    </div>
 
   
 </div>

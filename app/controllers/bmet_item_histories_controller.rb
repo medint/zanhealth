@@ -2,28 +2,26 @@ class BmetItemHistoriesController < ApplicationController
   load_and_authorize_resource param_method: :item_history_params
   before_action :set_item_history, only: [:show, :edit, :update, :destroy]
 
-  # GET /item_histories
-  # GET /item_histories.json
+  # Return all BmetItemHistories
   def index
     @item_histories = BmetItemHistory.all
   end
 
-  # GET /item_histories/1
-  # GET /item_histories/1.json
+  # Return a specific BmetItemHistory
   def show
   end
 
-  # GET /item_histories/new
+  # Return an empty BmetItemHistory
   def new
     @item_history = BmetItemHistory.new
   end
 
-  # GET /item_histories/1/edit
+  # Edit a specific BmetItemHistory
   def edit
   end
 
-  # POST /item_histories
-  # POST /item_histories.json
+  # Create and save a new BmetItemHistory
+  # to the database
   def create
     @item_history = BmetItemHistory.new(item_history_params)
 
@@ -38,8 +36,7 @@ class BmetItemHistoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /item_histories/1
-  # PATCH/PUT /item_histories/1.json
+  # Update a specific BmetItemHistory
   def update
     respond_to do |format|
       if @item_history.update(item_history_params)
@@ -52,8 +49,7 @@ class BmetItemHistoriesController < ApplicationController
     end
   end
 
-  # DELETE /item_histories/1
-  # DELETE /item_histories/1.json
+  # Update a specific BmetItemHistory
   def destroy
     @item_history.destroy
     respond_to do |format|

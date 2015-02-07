@@ -1,5 +1,255 @@
-<%= render 'navigation' %>
+<div id="dashboard-navigation">
+
+	<div id="dashboard-header">
+
+
+		<div id="dashboard-header-title">
+				Clinical Administrator Dashboard
+			</div>
+			</div>
+			</div>
 <div id="dashboard">
-	<div id="dashboard-forms-ajax"></div>
-	<div id="visualization"></div>
-</div>
+	<div id="visualization">
+
+		<div class="panel panel-default outer-panel">
+  			<div class="panel-heading outer-panel-title-div">
+    			<div class="panel-title outer-panel-title"><%= t(:work_order).titlecase %></div>
+  			</div>
+ 			<div class="panel-body">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingOne">
+					      	<h4 class="panel-title">
+					        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" onclick = "timeDashboard('status','<%=t(:chart_title_expire)%>')">
+						        	<%= t(:by_expected_completion_date).titlecase %>
+					        	</a>
+					      	</h4>
+					    </div>
+					    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" >
+					      	<div class="dashboard-forms" id="dashboard-forms-ajaxstatus"></div>
+					    </div>
+	  				</div>
+	  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingTwo">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" onclick = "timeDashboard('statusWoCompleted','<%=t(:chart_title_statuswocompleted)%>')">
+				          			<%= t(:by_completion_date).titlecase %>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxstatusWoCompleted"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingThree">
+				      	<h4 class="panel-title">
+				        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" onclick = "timeDashboard('statusWoDepartment','<%=t(:chart_title_statuswodepartment)%>')"><%= t(:by_department).titlecase %>
+				        	</a>
+				      	</h4>
+				    </div>
+				    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" >
+				      	<div class="dashboard-forms" id="dashboard-forms-ajaxstatusWoDepartment"></div>
+				    </div>
+  				</div>
+  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingFour">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick = "timeDashboard('statusWoOwner','<%=t(:chart_title_statuswoowner)%>')">
+	          							<%=t(:by_owner).titlecase%>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxstatusWoOwner"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+  			
+  		</div>
+  		</div>
+
+
+
+
+
+
+
+  		<div class="panel panel-default outer-panel">
+  			<div class="panel-heading outer-panel-title-div">
+    			<div class="panel-title outer-panel-title"><%= t(:finances).titlecase %></div>
+  			</div>
+ 			<div class="panel-body">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingOne2">
+					      	<h4 class="panel-title">
+					        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="false" aria-controls="collapseOne2" onclick = "timeDashboard('wo_finances','<%=t(:chart_title_wofinances)%>')">
+		          				<%= t(:by_department).titlecase %>
+					        	</a>
+					      	</h4>
+					    </div>
+					    <div id="collapseOne2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne2" >
+					      	<div class="dashboard-forms" id="dashboard-forms-ajaxwo_finances"></div>
+					    </div>
+	  				</div>
+	  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingTwo2">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2" onclick = "timeDashboard('wo_finances_item','<%=t(:chart_title_wofinancesitem)%>')">
+	          					<%= t(:by_item).titlecase %>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxwo_finances_item"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+				
+  			
+  			</div>
+  		</div>
+
+
+
+
+
+
+  		<div class="panel panel-default outer-panel">
+  			<div class="panel-heading outer-panel-title-div">
+    			<div class="panel-title outer-panel-title"><%= t(:labor_hours).titlecase %></div>
+  			</div>
+ 			<div class="panel-body">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingOne3">
+					      	<h4 class="panel-title">
+					        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" aria-expanded="false" aria-controls="collapseOne3" onclick = "timeDashboard('labor_hours_work_order','<%=t(:chart_title_laborhoursworkorder)%>')">
+		          				<%= t(:by_work_order).titlecase %>
+		         			</a>
+					        	</a>
+					      	</h4>
+					    </div>
+					    <div id="collapseOne3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne3" >
+					      	<div class="dashboard-forms" id="dashboard-forms-ajaxlabor_hours_work_order"></div>
+					    </div>
+	  				</div>
+	  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingTwo3">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo3" aria-expanded="false" aria-controls="collapseTwo3" onclick = "timeDashboard('labor_hours_time_worked','<%=t(:chart_title_laborhourstimeworked)%>')">
+	          					<%= t(:by_hours_worked_in_period).titlecase %>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseTwo3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo3" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxlabor_hours_time_worked"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingThree3">
+				      	<h4 class="panel-title">
+				        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3" onclick = "timeDashboard('labor_hours','<%=t(:chart_title_laborhours)%>')">
+	          					<%= t(:by_hours_worked_on_completed_wo_in_period).titlecase %>
+				        	</a>
+				      	</h4>
+				    </div>
+				    <div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3" >
+				      	<div class="dashboard-forms" id="dashboard-forms-ajaxlabor_hours"></div>
+				    </div>
+  				</div>
+  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingFour3">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour3" aria-expanded="false" aria-controls="collapseFour3" onclick = "timeDashboard('labor_hours_item','<%=t(:chart_title_laborhoursitem)%>')">
+	          					<%= t(:by_item).titlecase %>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseFour3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour3" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxlabor_hours_item"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+  			
+  		</div>
+  		</div>
+
+
+
+
+
+
+  		  		<div class="panel panel-default outer-panel">
+  			<div class="panel-heading outer-panel-title-div">
+    			<div class="panel-title outer-panel-title"><%= t(:items).titlecase %></div>
+  			</div>
+ 			<div class="panel-body">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				  	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingOne4">
+					      	<h4 class="panel-title">
+					        	<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4" onclick = "noneDashboard('items_percent_down','<%=t(:chart_title_itemspercentdown)%>')">
+		          				<%= t(:currently_down).titlecase %>
+					        	</a>
+					      	</h4>
+					    </div>
+					    <div id="collapseOne4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne4" >
+					      	<div class="dashboard-forms" id="dashboard-forms-ajaxitems_percent_down"></div>
+					    </div>
+	  				</div>
+	  			</div>
+  		  		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				 	<div class="panel panel-default">
+				    	<div class="panel-heading" role="tab" id="headingTwo4">
+				      		<h4 class="panel-title">
+				        		<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4" onclick = "timeDashboard('items_wo_created','<%=t(:chart_title_itemswocreated)%>')">
+	          					<%= t(:with_work_order_in_period).titlecase %>
+				        		</a>
+				      		</h4>
+				    	</div>
+				    	<div id="collapseTwo4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo4" >
+				      		<div class="dashboard-forms" id="dashboard-forms-ajaxitems_wo_created"></div>
+				    	</div>
+  				
+  		  			</div>
+  				</div>
+  			
+  		</div>
+  		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>  		
+
