@@ -110,6 +110,15 @@ login with username ```admin```; password: ```adminpass``` (or whatever you chan
 6. You should be logged in
 7. As an admin user, you can navigate to ```localhost:3000/admin``` to get to the admin page. This is how you create new facilities and users for each facility
 
+###Bugs and feature requests###
+
+Have a bug or a feature request? Please first search for existing and closed issues. If your problem or idea is not addressed yet, please open a new issue.
+
+###Contributing###
+
+Please submit a pull request if you have a feature you want to add. Also
+please don't hesitate to contact the medintl organization before you
+start working on your feature so we can find ways to help you. 
 
 ###Resources###
  
