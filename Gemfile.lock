@@ -179,7 +179,6 @@ GEM
     recaptcha (0.3.6)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rmagick (2.13.4)
     rqrcode (0.4.2)
     rqrcode_png (0.1.5)
       chunky_png
@@ -277,7 +276,6 @@ DEPENDENCIES
   rails-perftest
   rails_12factor
   recaptcha
-  rmagick
   rqrcode_png
   ruby-prof
   sass-rails (~> 4.0.0)

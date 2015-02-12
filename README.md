@@ -64,6 +64,11 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
   * Mac
     * Install brew if you don't already have it
     * ```brew install postgresql```
+    * Make sure to follow the instructions at the end of ```brew``` to
+      launch postgresql (but this should be similar)
+      * ```ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents```
+      * ```launchctl load
+        ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist```
 5. Create authorized medint user for zanhealth app to access database
   * Linux
     * ```sudo su postgres``` (Change user to postgres)
@@ -74,8 +79,9 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
       * ```\q``` (this should get you out of the psql terminal)
   * Mac
     * ```createuser -P -s -e medint```
+    * Default password should be ```password``` by default 
 	* Again, if you know what you're doing, you can configure `config/database.yml` to make your own changes
-6. Install all required gems
+6. Make sure you have bundle installed and install all required gems
 	* ```bundle install```
 7. (Optional)
 	* If you want to search functionality, you will need to install elastic search
@@ -83,7 +89,7 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
 8. Open a terminal and navigate to the zanhealth folder ```cd zanhealth```
 9. Create initial user
 	* It is advisable to open ```lib/tasks/initialize.rake``` in a text editor (for example use sublime and do ```subl lib/tasks/initialize.rake```) and change the line 23 and 25 to a new username and password for the admin user for security purposes)
-	* ```./initialize.sh``` (makes the database)
+	* ```./initialize.sh``` (initializes the database for zanhealth)
 
 ####Login for the first time####
 

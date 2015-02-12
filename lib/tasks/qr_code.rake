@@ -1,8 +1,9 @@
-require 'RMagick'
 require 'rqrcode_png'
 require 'shortener'
-require 'chunky_png/rmagick'
 require 'prawn'
+"require 'RMagick'"
+"require 'chunky_png/rmagick'"
+"In order to use this script, you need to install imagemagick on your machine, and install the rmagick gem. Uncomment the above two lines and # gem 'rmagick' in Gemfile"
 
 namespace :development do
 
