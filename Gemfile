@@ -107,6 +107,6 @@ gem 'shortener', github: 'jpmcgrath/shortener' #fork of shortener with our own m
 gem 'prawn' #PDF generation for tagging (also used for work order pdf generation)
 gem 'prawnto' #For visualizing pdfs in a view
 gem 'prawn-table'
-gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
+# gem "rmagick", :require => 'RMagick' # image library for generating images with qr code
 gem "rqrcode_png" # for generating png from qr code
 
