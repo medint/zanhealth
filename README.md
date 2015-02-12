@@ -61,31 +61,38 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
 		* ```sudo apt-get install libpq-dev libsqlite3-dev nodejs ```
 		* ```sudo apt-get install imagemagick libmagickwand-dev```
 		* ```sudo apt-get install postgresql```
-  * Mac
-    * Install brew if you don't already have it
-    * ```brew install postgresql```
-    * Make sure to follow the instructions at the end of ```brew``` to
-      launch postgresql (but this should be similar)
-      * ```ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents```
-      * ```launchctl load
-        ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist```
+	* Mac
+		* Install brew if you don't already have it
+		* ```brew install postgresql```
+		* Make sure to follow the instructions at the end of ```brew``` to
+      launch postgresql (but the following two lines should be similar)
+        * ```ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents```
+      	* ```launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist```         
 5. Create authorized medint user for zanhealth app to access database
-  * Linux
-    * ```sudo su postgres``` (Change user to postgres)
-    * ```psql``` (this opens a postsql command line, the next commands are in this)
-    * Create medint
-      * ```create user medint with password 'password';```
-      * ```alter role medint createdb;```
-      * ```\q``` (this should get you out of the psql terminal)
-  * Mac
-    * ```createuser -P -s -e medint```
-    * Default password should be ```password``` by default 
+	* Linux
+    	* ```sudo su postgres``` (Change user to postgres)
+    	* ```psql``` (this opens a postsql command line, the next commands are in this)
+    	* Create medint
+      		* ```create user medint with password 'password';```
+      		* ```alter role medint createdb;```
+      		* ```\q``` (this should get you out of the psql terminal)
+  	* Mac
+		* ```createuser -P -s -e medint```
+		* Default password should be ```password``` by default 
 	* Again, if you know what you're doing, you can configure `config/database.yml` to make your own changes
 6. Make sure you have bundle installed and install all required gems
-	* ```bundle install```
+	* ``bundle install``
+	* There might be some errors when you try to install the gems
+		* Mac
+			* There might be an error when you install the pg gem. One
+        suggestion to fix it is ```ARCHFLAGS="-arch x86_64" gem install pg```
 7. (Optional)
-	* If you want to search functionality, you will need to install elastic search
-	* ```brew install elasticsearch``` if you are using Mac and homebrew
+	* If you want to search functionality, you will need to install elasticsearch
+	  * ```brew install elasticsearch``` if you are using Mac and homebrew
+    * If you want to use the label generator, you will need to install
+    imagemagick 
+        * You will also have to uncomment out ```gem 'rmagick'``` in Gemfile and
+      some lines in ```lib/tasks/qr_code.rake```
 8. Open a terminal and navigate to the zanhealth folder ```cd zanhealth```
 9. Create initial user
 	* It is advisable to open ```lib/tasks/initialize.rake``` in a text editor (for example use sublime and do ```subl lib/tasks/initialize.rake```) and change the line 23 and 25 to a new username and password for the admin user for security purposes)
