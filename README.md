@@ -21,12 +21,13 @@ is a popular webapp framework for the Ruby language, wildly popular in the tech 
 
 ####Install Ruby on Rails####
 
-(You can skip this part if you already have Ruby version >= 2.0.0. You can check this by typing ```ruby -v```)
 
+
+1. You can skip this part if you already have Ruby version >= 2.0.0. You can check this by typing ```ruby -v```
 1. Install Git
 	* If ```git``` doesn't result in command not found, then you can skip this step
-	* ```sudo apt-get install git```
-	* Mac OS X should come installed with git
+	* Linux : ```sudo apt-get install git```
+	* Mac OS X : should come installed with git
 2. Install a ruby version controller. Either use rvm or rbenv. We have chosen rbenv in this tutorial
 	* ```git clone https://github.com/sstephenson/rbenv.git ~/.rbenv```
 	* Depending on what shell you use
@@ -53,13 +54,16 @@ is a popular webapp framework for the Ruby language, wildly popular in the tech 
 The app uses Ruby on Rails, so the app uses the built-in gem activerecord for ORM. It is currently configured to use PostgreSQL as the SQL persistence store but you can choose to use other databases configurations if you wish. Edit `config/database.yml` for other settings
 
 1. ```git clone https://github.com/medint/zanhealth.git```
-2. enter in your github username and password
+  * enter in your github username and password if asked
 3. ```cd zanhealth/```
 4. Install PostgreSQL database
 	* Unix
 		* ```sudo apt-get install libpq-dev libsqlite3-dev nodejs ```
 		* ```sudo apt-get install imagemagick libmagickwand-dev```
 		* ```sudo apt-get install postgresql```
+  * Mac
+    * Install brew if you don't already have it
+    * ```brew install postgresql```
 5. Create authorized medint user for zanhealth app to access database
 	* ```sudo su postgres``` (Change user to postgres)
 	* ```psql``` (this opens a postsql command line, the next commands are in this)
