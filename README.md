@@ -65,12 +65,15 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
     * Install brew if you don't already have it
     * ```brew install postgresql```
 5. Create authorized medint user for zanhealth app to access database
-	* ```sudo su postgres``` (Change user to postgres)
-	* ```psql``` (this opens a postsql command line, the next commands are in this)
-	* Create medint
-		* ```create user medint with password 'password';```
-		* ```alter role medint createdb;```
-		* ```\q``` (this should get you out of the psql terminal)
+  * Linux
+    * ```sudo su postgres``` (Change user to postgres)
+    * ```psql``` (this opens a postsql command line, the next commands are in this)
+    * Create medint
+      * ```create user medint with password 'password';```
+      * ```alter role medint createdb;```
+      * ```\q``` (this should get you out of the psql terminal)
+  * Mac
+    * ```createuser -P -s -e medint```
 	* Again, if you know what you're doing, you can configure `config/database.yml` to make your own changes
 6. Install all required gems
 	* ```bundle install```
