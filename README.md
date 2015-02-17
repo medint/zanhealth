@@ -94,7 +94,7 @@ The app uses Ruby on Rails, so the app uses the built-in gem activerecord for OR
         * You will also have to uncomment out ```gem 'rmagick'``` in Gemfile and
       some lines in ```lib/tasks/qr_code.rake```
 8. Open a terminal and navigate to the zanhealth folder ```cd zanhealth```
-9. Create initial user
+9. Create initial user.
 	* It is advisable to open ```lib/tasks/initialize.rake``` in a text editor (for example use sublime and do ```subl lib/tasks/initialize.rake```) and change the line 23 and 25 to a new username and password for the admin user for security purposes)
 	* ```./initialize.sh``` (initializes the database for zanhealth)
 
